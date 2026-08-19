@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Combo 2 Theme Switcher</title>
+<style>
+  :root {
+    --bg: #ffffff;
+    --text: #000000;
+  }
+
+  body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: Arial, sans-serif;
+    padding: 20px;
+    transition: background 0.4s, color 0.4s;
+  }
+
+  /* Ocean Palette */
+  body.ocean {
+    --bg: #1e3f66;
+    --text: #a7d8ff;
+  }
+
+  /* Sunset Palette */
+  body.sunset {
+    --bg: #ffb347;
+    --text: #4b1e1e;
+  }
+
+  select {
+    padding: 8px;
+    border-radius: 4px;
+  }
+</style>
+</head>
+<body>
+  <h1>Theme Switcher (Combo 2)</h1>
+  <label for="themeSelect">Choose Theme:</label>
+  <select id="themeSelect">
+    <option value="">Default</option>
+    <option value="ocean">Ocean</option>
+    <option value="sunset">Sunset</option>
+  </select>
+
+  <script>
+    const select = document.getElementById('themeSelect');
+    select.addEventListener('change', () => {
+      document.body.className = select.value;
+    });
+  </script>
+</body>
+</html>
