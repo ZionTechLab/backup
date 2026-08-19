@@ -1,0 +1,80 @@
+﻿import { useEffect, useState } from 'react';
+import { Link, useNavigate } from 'react-router-dom';
+import {DataTable} from '../../components/DataTable';
+import ApiService from "./ConfirmationService";
+import MessageBoxService from '../../services/MessageBoxService';
+import { useLoadingSpinner } from '../../hooks/useLoadingSpinner';
+
+function VehicaleConfirmation() {
+  const [uiData, setUiData] = useState({loading: false, success: false, error: '', data: [] });
+  const navigate = useNavigate();
+  const { showSpinner, hideSpinner } = useLoadingSpinner();
+
+  useEffect(() => {
+    const fetchTxn = async () => {
+      setUiData(prev => ({ ...prev, loading: true, error: '', data: [] }));
+      showSpinner();
+      const data = await ApiService.getAll();
+      setUiData(prev => ({ ...prev, ...data , loading: false }));
+      hideSpinner();
+    };
+    fetchTxn();
+    // eslint-disable-next-line
+  }, []);
+
+  const handleDelete = (id) => {
+    MessageBoxService.show({
+      message: 'Are you sure you want to delete this confirmation?',
+      type: 'danger',
+      confirmText: 'Delete',
+      cancelText: 'Cancel',
+      onConfirm: () => {
+        const updated = uiData.data.filter((data) => data.id !== id);
+        setUiData({ ...uiData, data: updated });
+      },
+      onClose: null
+    });
+  };
+
+  const handleEdit = (id) => {
+    navigate(`/vehicle-confirmation/edit/${id}`);
+  };
+
+  const columns = [
+    { header: 'Actions', isAction: true, actionTemplate: (row) => (
+      <div className="d-flex gap-2 justify-content-center">
+        <button className="btn btn-outline-primary  btn-sm btn-borderless" title="Edit" onClick={() => handleEdit(row.id)}>
+          <i className="bi bi-pencil"></i>
+        </button>
+        <button className="btn btn-outline-danger  btn-sm btn-borderless" title="Delete" onClick={() => handleDelete(row.id)}>
+          <i className="bi bi-trash"></i>
+        </button>
+      </div>
+    ) },
+      // { header: 'id', field: 'id' },
+        { header: ' Make', field: 'make', class: "text-nowrap" },
+    { header: ' Model', field: 'model' , class: "text-nowrap"},
+    { header: 'Grade', field: 'grade' , class: "text-nowrap"},
+    { header: 'Colour', field: 'colour', class: "text-nowrap" },
+    { header: 'Year', field: 'year' , class: "text-nowrap"},
+    // { header: 'KM', field: 'km', class: "text-nowrap"},
+    { header: 'Purchase Date', field: 'purchaseDate', class: "text-nowrap",type: 'date' },
+  ];
+
+  return (
+<div>
+      {!uiData.error && (
+        <DataTable loading={uiData.loading} name="Vehicle Confirmation" data={uiData.data} columns={columns}>
+          <Link to="/vehicle-confirmation/add">
+            <button className="btn btn-primary">New</button>
+          </Link>
+        </DataTable>
+      )}
+      {uiData.error && (
+        <div className="alert alert-danger mt-3">{uiData.error}</div>
+      )}
+    </div>
+  );
+}
+
+export default VehicaleConfirmation;

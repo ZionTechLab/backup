@@ -1,0 +1,35 @@
+.Itemsearch {
+  width: 300
+}
+
+.AddItem {
+
+  padding: 5px;
+  background-color: rgb(145, 170, 250);
+  text-align: center;
+  margin: 5px;
+  font-size: 10px;
+  /* margin: -12px; */
+
+  /* box-sizing: border-box; */
+  /* padding-left: 10px; */
+  /* padding: 5px; */
+}
+
+.model {
+  background-color: rgb(253, 253, 253);
+
+  margin: 20px;
+  padding: 15px;
+
+}
+
+.btn {
+  float: right;
+  margin-bottom: 10px;
+}
+
+.CustomerDetail {
+  background-color: #332722;
+  color: azure;
+}

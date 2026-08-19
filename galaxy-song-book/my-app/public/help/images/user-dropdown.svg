@@ -1,0 +1,87 @@
+<svg viewBox="0 0 320 448" xmlns="http://www.w3.org/2000/svg" font-family="Segoe UI, Arial, sans-serif">
+  <rect width="320" height="448" rx="10" fill="#1b2330"/>
+  <rect x="1" y="1" width="318" height="446" rx="9" fill="none" stroke="#2c374a"/>
+
+  <!-- Header -->
+  <rect x="1" y="1" width="318" height="64" fill="#212a3a"/>
+  <line x1="1" y1="65" x2="319" y2="65" stroke="#2c374a"/>
+  <text x="20" y="34" fill="#e8ebf1" font-size="14" font-weight="700">Admin User</text>
+  <text x="20" y="52" fill="#8a93a6" font-size="11">Admin</text>
+
+  <!-- Profile -->
+  <g>
+    <rect x="1" y="65" width="318" height="48" fill="#1b2330"/>
+    <line x1="1" y1="113" x2="319" y2="113" stroke="#252e40"/>
+    <circle cx="34" cy="89" r="7" fill="none" stroke="#8a93a6" stroke-width="1.5"/>
+    <path d="M24 104 a10 8 0 0 1 20 0" fill="none" stroke="#8a93a6" stroke-width="1.5"/>
+    <text x="56" y="94" fill="#e8ebf1" font-size="13">Profile</text>
+    <text x="300" y="94" fill="#7d879b" font-size="11" text-anchor="end">①</text>
+  </g>
+
+  <!-- API Settings -->
+  <g>
+    <rect x="1" y="113" width="318" height="48" fill="#1b2330"/>
+    <line x1="1" y1="161" x2="319" y2="161" stroke="#252e40"/>
+    <circle cx="30" cy="137" r="5" fill="none" stroke="#8a93a6" stroke-width="1.5"/>
+    <line x1="35" y1="137" x2="46" y2="137" stroke="#8a93a6" stroke-width="1.5"/>
+    <line x1="41" y1="137" x2="41" y2="142" stroke="#8a93a6" stroke-width="1.5"/>
+    <text x="56" y="142" fill="#e8ebf1" font-size="13">API Settings</text>
+    <text x="300" y="142" fill="#7d879b" font-size="11" text-anchor="end">②</text>
+  </g>
+
+  <!-- Notifications -->
+  <g>
+    <rect x="1" y="161" width="318" height="48" fill="#1b2330"/>
+    <line x1="1" y1="209" x2="319" y2="209" stroke="#252e40"/>
+    <path d="M34 178 a7 7 0 0 0 -7 7 v4 l-2.5 3.5 h19 l-2.5 -3.5 v-4 a7 7 0 0 0 -7 -7 z" fill="none" stroke="#8a93a6" stroke-width="1.4"/>
+    <text x="56" y="190" fill="#e8ebf1" font-size="13">Notifications</text>
+    <text x="300" y="190" fill="#7d879b" font-size="11" text-anchor="end">③</text>
+  </g>
+
+  <!-- Theme -->
+  <g>
+    <rect x="1" y="209" width="318" height="48" fill="#1b2330"/>
+    <line x1="1" y1="257" x2="319" y2="257" stroke="#252e40"/>
+    <circle cx="34" cy="233" r="8" fill="none" stroke="#8a93a6" stroke-width="1.4"/>
+    <circle cx="34" cy="233" r="3" fill="#8a93a6"/>
+    <text x="56" y="238" fill="#e8ebf1" font-size="13">Theme</text>
+    <text x="300" y="238" fill="#7d879b" font-size="11" text-anchor="end">④</text>
+  </g>
+
+  <!-- Tenant Settings (new, right after Theme) -->
+  <g>
+    <rect x="1" y="257" width="318" height="48" fill="#1b2330"/>
+    <line x1="1" y1="305" x2="319" y2="305" stroke="#252e40"/>
+    <g fill="none" stroke="#8a93a6" stroke-width="1.4">
+      <line x1="24" y1="277" x2="44" y2="277"/>
+      <circle cx="34" cy="277" r="3" fill="#8a93a6" stroke="none"/>
+      <line x1="24" y1="285" x2="44" y2="285"/>
+      <circle cx="28" cy="285" r="3" fill="#8a93a6" stroke="none"/>
+      <line x1="24" y1="293" x2="44" y2="293"/>
+      <circle cx="38" cy="293" r="3" fill="#8a93a6" stroke="none"/>
+    </g>
+    <text x="56" y="286" fill="#e8ebf1" font-size="13">Tenant Settings</text>
+    <text x="300" y="286" fill="#7d879b" font-size="11" text-anchor="end">⑤</text>
+  </g>
+
+  <!-- Help -->
+  <g>
+    <rect x="1" y="305" width="318" height="48" fill="#242c3d"/>
+    <rect x="1" y="305" width="318" height="48" fill="none" stroke="#4f7cff" stroke-width="1.5"/>
+    <circle cx="34" cy="329" r="8" fill="none" stroke="#4f7cff" stroke-width="1.5"/>
+    <text x="34" y="334" fill="#4f7cff" font-size="11" text-anchor="middle" font-weight="700">?</text>
+    <text x="56" y="334" fill="#e8ebf1" font-size="13" font-weight="600">Help</text>
+    <text x="300" y="334" fill="#4f7cff" font-size="11" text-anchor="end">⑥</text>
+  </g>
+
+  <!-- Divider -->
+  <line x1="16" y1="365" x2="304" y2="365" stroke="#2c374a"/>
+
+  <!-- Sign out -->
+  <g>
+    <rect x="1" y="377" width="318" height="48" fill="#1b2330"/>
+    <path d="M28 389 h-8 v16 h8 M24 397 h14 M32 392 l6 5 l-6 5" fill="none" stroke="#e5484d" stroke-width="1.5" stroke-linejoin="round" stroke-linecap="round"/>
+    <text x="56" y="405" fill="#e5484d" font-size="13">Sign out</text>
+    <text x="300" y="405" fill="#7d879b" font-size="11" text-anchor="end">⑦</text>
+  </g>
+</svg>

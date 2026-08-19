@@ -1,0 +1,188 @@
+/* ── Consolidated P&L — styles ── */
+
+/* Scrollable card wrapper */
+.gpnl-card {
+  background: var(--ml-surface);
+  border: 1px solid var(--ml-border);
+  border-radius: 10px;
+  overflow-x: auto;
+}
+
+/* ── Table shell ── */
+.gpnl-table {
+  border-collapse: collapse;
+  width: 100%;
+  min-width: 900px;
+}
+
+/* ── Column widths ── */
+.gpnl-col-account    { width: 220px; min-width: 180px; }
+.gpnl-col-company    { width: 110px; min-width: 100px; }
+.gpnl-col-elim       { width: 110px; min-width: 100px; }
+.gpnl-col-total      { width: 130px; min-width: 120px; }
+.gpnl-col-prior      { width: 120px; min-width: 110px; }
+.gpnl-col-var        { width: 70px;  min-width: 64px;  }
+
+/* ── Column header row ── */
+.gpnl-col-header-row th {
+  font-family: var(--ml-font-mono);
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--ml-muted);
+  padding: 9px 14px;
+  border-bottom: 1px solid var(--ml-border);
+  background: var(--ml-surface-2);
+  white-space: nowrap;
+}
+
+/* consolidated total header highlight */
+.gpnl-col-header-row th.gpnl-th-total {
+  color: var(--ml-text-dim);
+  border-left: 1px solid var(--ml-border);
+}
+
+/* ── Section header rows ── */
+.gpnl-section-row td {
+  font-family: var(--ml-font-mono);
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--ml-muted);
+  padding: 8px 14px;
+  background: var(--ml-surface-2);
+  border-top: 1px solid var(--ml-border);
+  border-bottom: none;
+}
+
+/* ── Account rows ── */
+.gpnl-account-row td {
+  padding: 9px 14px;
+  vertical-align: middle;
+  border-bottom: 1px solid var(--ml-border);
+  background: var(--ml-surface);
+  font-size: 13px;
+}
+
+.gpnl-account-row:hover td {
+  background: var(--ml-surface-2);
+}
+
+/* ── Subtotal rows ── */
+.gpnl-subtotal-row td {
+  padding: 9px 14px;
+  border-top: 1px solid var(--ml-border);
+  border-bottom: 1px solid var(--ml-border);
+  background: var(--ml-surface);
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--ml-text);
+}
+
+/* ── Metric rows (Gross Profit, Net Income …) ── */
+.gpnl-metric-row td {
+  padding: 11px 14px;
+  border-top: 2px solid var(--ml-border);
+  border-bottom: 2px solid var(--ml-border);
+  background: var(--ml-surface-2);
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--ml-text);
+}
+
+/* ── Consolidated total column cells (separator + accent) ── */
+td.gpnl-td-total,
+th.gpnl-td-total {
+  border-left: 1px solid var(--ml-border);
+}
+
+/* ── Account chip ── */
+.gpnl-account-chip {
+  display: inline-flex;
+  align-items: center;
+  min-width: 36px;
+  padding: 2px 6px;
+  margin-right: 10px;
+  font-family: var(--ml-font-mono);
+  font-size: 11px;
+  color: var(--ml-muted);
+  background: var(--ml-surface-2);
+  border: 1px solid var(--ml-border);
+  border-radius: 3px;
+  letter-spacing: 0.03em;
+}
+
+.gpnl-account-name {
+  font-size: 13px;
+  color: var(--ml-text);
+}
+
+/* ── Amount cells ── */
+.gpnl-amt {
+  font-family: var(--ml-font-mono);
+  font-size: 12px;
+  color: var(--ml-text);
+  letter-spacing: 0.02em;
+}
+
+.gpnl-amt-co {
+  font-family: var(--ml-font-mono);
+  font-size: 12px;
+  color: var(--ml-text-dim);
+  letter-spacing: 0.02em;
+}
+
+.gpnl-amt-dim {
+  font-family: var(--ml-font-mono);
+  font-size: 12px;
+  color: var(--ml-muted);
+  letter-spacing: 0.02em;
+}
+
+.gpnl-amt-total {
+  font-family: var(--ml-font-mono);
+  font-size: 13px;
+  color: var(--ml-text);
+  font-weight: 600;
+  letter-spacing: 0.02em;
+}
+
+.gpnl-amt-bold  { font-weight: 600; }
+.gpnl-negative  { color: var(--ml-negative) !important; }
+
+/* ── Variance column ── */
+.gpnl-var-pos {
+  font-family: var(--ml-font-mono);
+  font-size: 12px;
+  font-weight: 500;
+  color: var(--ml-positive);
+  letter-spacing: 0.03em;
+}
+
+.gpnl-var-neg {
+  font-family: var(--ml-font-mono);
+  font-size: 12px;
+  font-weight: 500;
+  color: var(--ml-negative);
+  letter-spacing: 0.03em;
+}
+
+/* ── Compare button active ── */
+.gpnl-btn-active {
+  border-color: var(--ml-primary) !important;
+  color: var(--ml-primary) !important;
+  background: rgba(79, 124, 255, 0.06) !important;
+}
+
+/* ── Period select ── */
+.gpnl-period-select {
+  border: 0;
+  background: transparent;
+  color: inherit;
+  font-size: 13px;
+  font-family: inherit;
+  cursor: pointer;
+  outline: none;
+}

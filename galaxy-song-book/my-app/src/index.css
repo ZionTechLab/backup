@@ -1,0 +1,166 @@
+@import url('https://fonts.googleapis.com/css2?family=Google+Sans:ital,wght@0,400;0,700&family=Abhaya+Libre:wght@400;700&family=Noto+Sans+Sinhala:wght@400;700&family=Gemunu+Libre:wght@400;700&family=Noto+Serif+Sinhala:wght@400;700&family=Yaldevi&family=Maname&display=swap');
+
+body {
+  margin: 0;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New', monospace;
+}
+
+/* ── Full-viewport loading overlay (used by LoadingSpinnerService) ── */
+.loading-spinner-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: 1050;
+  background: rgba(0, 0, 0, 0.4);
+}
+
+/* ── Drawer backdrop / mobile overlay ── */
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 999;
+  cursor: pointer;
+  transition: opacity 0.3s ease-in-out;
+}
+
+/* ── Layout helpers ── */
+.container-small { max-width: 500px; }
+
+/* ── Table layout ── */
+.table-responsive {
+  border: none;
+  border-radius: var(--radius-md, 0px);
+}
+
+.table-responsive .table { margin-bottom: 0; }
+
+.table thead th {
+  background-color: var(--table-head-bg, #fafafa);
+  color: var(--table-head-color) !important;
+  padding: 16px;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  font-size: 0.75rem;
+}
+
+.table tbody td { vertical-align: middle; }
+
+.table-hover tbody tr:hover {
+  background-color: var(--table-row-hover, rgba(0, 0, 0, 0.04));
+}
+
+/* Filter-by compound input group */
+/* .filterby span { margin-top: 7px; padding-right: 5px; } */
+
+/* .filterby select {
+  border-top-right-radius: 0 !important;
+  border-bottom-right-radius: 0 !important;
+  background-color: rgba(0, 0, 0, 0.12);
+} */
+
+/* .filterby input {
+  border-top-left-radius: 0 !important;
+  border-bottom-left-radius: 0 !important;
+} */
+
+/* ── Editable DataGrid table ── */
+.table-editable td { padding: 3px !important; margin: 0 !important; }
+.table-editable input { margin: 0; border: none; }
+
+/* ── DataGrid searchable-select dropdown ── */
+.dg-ss { position: relative; width: 100%; }
+
+.dg-ss-toggle {
+  width: 100%;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.dg-ss-menu {
+  z-index: 2000;
+  background: var(--ml-surface, #1a1c25);
+  color: var(--ml-text, #e8eaf0);
+  border: 1px solid var(--ml-border, #2a2d3a);
+  border-radius: 6px;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.4);
+  padding: 6px;
+  min-width: 240px;
+}
+
+.dg-ss-search { margin-bottom: 6px; }
+.dg-ss-list { max-height: 220px; overflow-y: auto; }
+
+.dg-ss-item {
+  padding: 6px 8px;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 0.875rem;
+}
+
+.dg-ss-item:hover { background: var(--ml-surface-2, rgba(0, 0, 0, 0.06)); }
+.dg-ss-item.active { background: var(--ml-primary, #4f7cff); color: #fff; }
+
+.dg-ss-empty {
+  padding: 8px;
+  color: var(--ml-muted, #888);
+  font-size: 0.85rem;
+  text-align: center;
+}
+
+/* ── Pagination (ravonix DataTable) ── */
+.ravonix-pagination { gap: 2px; margin-top: 10px; }
+
+.ravonix-pagination .page-item .page-link {
+  border: none;
+  background: transparent;
+  color: var(--ml-text-dim, #757575);
+  border-radius: 6px;
+  min-width: 36px;
+  height: 36px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0 8px;
+  transition: background-color 0.15s, color 0.15s;
+}
+
+.ravonix-pagination .page-item .page-link:hover {
+  background-color: var(--ml-surface-2, rgba(0, 0, 0, 0.06));
+  color: var(--ml-text, #212121);
+}
+
+.ravonix-pagination .page-item.active .page-link {
+  background-color: var(--ml-primary, #4f7cff);
+  color: #fff;
+  font-weight: 600;
+  box-shadow: none;
+}
+
+.ravonix-pagination .page-item.disabled .page-link {
+  background: transparent;
+  color: var(--ml-muted, #bdbdbd);
+  opacity: 0.5;
+}
+
+/* ── Misc ── */
+.accordion-button { padding: 9px; }
+
+.error-message {
+  color: var(--ml-negative, #ff5566);
+  text-align: left;
+}
+
+.btn-borderless { border: none; }

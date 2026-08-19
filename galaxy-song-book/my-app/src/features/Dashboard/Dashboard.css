@@ -1,0 +1,316 @@
+/* ── Galaxy — Group Dashboard ───────────────────── */
+
+.mh-screen {
+  color: var(--ml-text);
+  background: var(--ml-bg);
+}
+
+/* ── KPI cards ──────────────────────────────────────────────── */
+.mh-kpi-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 16px;
+  margin-bottom: 20px;
+}
+
+@media (max-width: 1100px) {
+  .mh-kpi-grid { grid-template-columns: repeat(2, 1fr); }
+}
+
+.mh-kpi {
+  background: var(--ml-surface);
+  border: 1px solid var(--ml-border);
+  border-radius: 10px;
+  padding: 16px 18px;
+  position: relative;
+  transition: border-color 0.15s;
+}
+
+.mh-kpi-active {
+  border-left: 2px solid var(--ml-primary);
+}
+
+.mh-kpi-label {
+  font-family: var(--ml-font-mono);
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--ml-muted);
+  margin-bottom: 12px;
+}
+
+.mh-kpi-value {
+  display: flex;
+  align-items: baseline;
+  gap: 8px;
+  margin-bottom: 10px;
+}
+
+.mh-kpi-ccy {
+  font-family: var(--ml-font-mono);
+  font-size: 11px;
+  color: var(--ml-muted);
+  letter-spacing: 0.08em;
+}
+
+.mh-kpi-amount {
+  font-family: var(--ml-font-mono);
+  font-size: 24px;
+  font-weight: 600;
+  color: var(--ml-text);
+  letter-spacing: -0.01em;
+}
+
+.mh-kpi-delta {
+  font-family: var(--ml-font-mono);
+  font-size: 12px;
+  font-weight: 500;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.mh-kpi-delta-pos { color: var(--ml-positive); }
+.mh-kpi-delta-neg { color: var(--ml-negative); }
+
+.mh-kpi-arrow { font-size: 13px; line-height: 1; }
+
+.mh-kpi-delta-label {
+  color: var(--ml-muted);
+  margin-left: 4px;
+  font-weight: 400;
+}
+
+/* ── Body grid (main + side) ────────────────────────────────── */
+.mh-body-grid {
+  display: grid;
+  grid-template-columns: 1fr 320px;
+  gap: 16px;
+}
+
+@media (max-width: 1100px) {
+  .mh-body-grid { grid-template-columns: 1fr; }
+}
+
+.mh-main-col,
+.mh-side-col {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+/* ── Card shell ─────────────────────────────────────────────── */
+.mh-card {
+  background: var(--ml-surface);
+  border: 1px solid var(--ml-border);
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+.mh-card-pad { padding: 16px 18px; }
+
+.mh-card-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 14px 18px;
+  border-bottom: 1px solid var(--ml-border);
+}
+
+.mh-card-pad .mh-card-head {
+  padding: 0 0 14px;
+  margin-bottom: 14px;
+}
+
+.mh-card-title {
+  font-family: var(--ml-font-mono);
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--ml-muted);
+}
+
+.mh-card-meta {
+  font-family: var(--ml-font-mono);
+  font-size: 11px;
+  color: var(--ml-muted);
+  letter-spacing: 0.04em;
+}
+
+/* ── Subsidiaries table ─────────────────────────────────────── */
+.mh-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 13px;
+}
+
+.mh-table thead th {
+  font-family: var(--ml-font-mono);
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--ml-muted);
+  padding: 10px 16px;
+  text-align: left;
+  background: transparent;
+  border-bottom: 1px solid var(--ml-border);
+  white-space: nowrap;
+}
+
+.mh-table tbody td {
+  padding: 14px 16px;
+  border-bottom: 1px solid var(--ml-border);
+  vertical-align: middle;
+  color: var(--ml-text);
+}
+
+.mh-table tbody tr:last-child td { border-bottom: none; }
+
+.mh-co-name {
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--ml-text);
+}
+
+.mh-co-code {
+  font-family: var(--ml-font-mono);
+  font-size: 10px;
+  color: var(--ml-muted);
+  letter-spacing: 0.08em;
+  margin-top: 2px;
+}
+
+.mh-dim { color: var(--ml-text-dim); }
+
+.mh-mono {
+  font-family: var(--ml-font-mono);
+  font-size: 12px;
+  letter-spacing: 0.02em;
+}
+
+.mh-strong {
+  color: var(--ml-text);
+  font-weight: 600;
+}
+
+.text-end { text-align: right; }
+
+/* ── Chart legend ───────────────────────────────────────────── */
+.mh-legend {
+  display: flex;
+  gap: 16px;
+  margin-top: 4px;
+  font-family: var(--ml-font-mono);
+  font-size: 10px;
+  color: var(--ml-muted);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.mh-legend-item { display: inline-flex; align-items: center; gap: 6px; }
+
+.mh-swatch {
+  display: inline-block;
+  width: 10px;
+  height: 10px;
+  border-radius: 2px;
+}
+
+.mh-swatch-rev { background: #4f7cff; }
+.mh-swatch-exp { background: #4f7cff; opacity: 0.35; }
+
+/* ── FX rates ───────────────────────────────────────────────── */
+.mh-fx-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+}
+
+.mh-fx-cell {
+  background: var(--ml-surface-2);
+  border: 1px solid var(--ml-border);
+  border-radius: 8px;
+  padding: 10px 12px;
+}
+
+.mh-fx-pair {
+  font-family: var(--ml-font-mono);
+  font-size: 10px;
+  color: var(--ml-muted);
+  letter-spacing: 0.08em;
+  margin-bottom: 6px;
+}
+
+.mh-fx-rate {
+  font-family: var(--ml-font-mono);
+  font-size: 18px;
+  font-weight: 600;
+  color: var(--ml-text);
+  letter-spacing: -0.01em;
+}
+
+.mh-fx-mtd {
+  font-family: var(--ml-font-mono);
+  font-size: 10px;
+  letter-spacing: 0.04em;
+  margin-top: 4px;
+}
+
+.mh-fx-mtd-pos { color: var(--ml-positive); }
+.mh-fx-mtd-neg { color: var(--ml-negative); }
+
+.mh-fx-foot {
+  margin-top: 14px;
+  padding-top: 12px;
+  border-top: 1px solid var(--ml-border);
+  font-family: var(--ml-font-mono);
+  font-size: 10px;
+  color: var(--ml-muted);
+  letter-spacing: 0.04em;
+}
+
+/* ── Group Reports list ─────────────────────────────────────── */
+.mh-report-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.mh-report-link {
+  display: grid;
+  grid-template-columns: 14px 1fr auto;
+  align-items: center;
+  gap: 10px;
+  padding: 10px 0;
+  border-bottom: 1px solid var(--ml-border);
+  text-decoration: none;
+  color: var(--ml-text);
+  transition: color 0.15s;
+}
+
+.mh-report-list li:last-child .mh-report-link { border-bottom: none; }
+
+.mh-report-link:hover { color: var(--ml-primary); }
+
+.mh-report-chev {
+  font-size: 14px;
+  color: var(--ml-muted);
+  line-height: 1;
+}
+
+.mh-report-label {
+  font-size: 13px;
+  font-weight: 500;
+}
+
+.mh-report-meta {
+  font-family: var(--ml-font-mono);
+  font-size: 10px;
+  color: var(--ml-muted);
+  letter-spacing: 0.04em;
+  white-space: nowrap;
+}

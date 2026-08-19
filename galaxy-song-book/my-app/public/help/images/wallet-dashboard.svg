@@ -1,0 +1,75 @@
+<svg viewBox="0 0 640 320" xmlns="http://www.w3.org/2000/svg" font-family="Segoe UI, Arial, sans-serif">
+  <rect width="640" height="320" rx="8" fill="#161c27"/>
+  <rect x="1" y="1" width="638" height="318" rx="7" fill="none" stroke="#2c374a"/>
+
+  <text x="20" y="30" fill="#e8ebf1" font-size="16" font-weight="700">My Wallet</text>
+  <text x="20" y="48" fill="#8a93a6" font-size="11">Real-time wallet balance, credits, and top-up summary.</text>
+  <rect x="540" y="16" width="84" height="30" rx="6" fill="#4f7cff"/>
+  <text x="582" y="36" fill="#fff" font-size="11" text-anchor="middle" font-weight="600">+ Make Payment</text>
+
+  <!-- Stat cards -->
+  <g>
+    <rect x="20" y="62" width="94" height="58" rx="6" fill="#1f2734" stroke="#2c374a"/>
+    <text x="30" y="80" fill="#8a93a6" font-size="9">AVAILABLE BALANCE</text>
+    <text x="30" y="102" fill="#4f7cff" font-size="15" font-weight="700">$12,450</text>
+
+    <rect x="122" y="62" width="94" height="58" rx="6" fill="#1f2734" stroke="#2c374a"/>
+    <text x="132" y="80" fill="#8a93a6" font-size="9">ASTER CREDITS</text>
+    <text x="132" y="102" fill="#3fb27f" font-size="15" font-weight="700">4,200 SP</text>
+
+    <rect x="224" y="62" width="94" height="58" rx="6" fill="#1f2734" stroke="#2c374a"/>
+    <text x="234" y="80" fill="#8a93a6" font-size="9">ASTER DEBITS</text>
+    <text x="234" y="102" fill="#e5484d" font-size="15" font-weight="700">850 SP</text>
+
+    <rect x="326" y="62" width="94" height="58" rx="6" fill="#1f2734" stroke="#2c374a"/>
+    <text x="336" y="80" fill="#8a93a6" font-size="9">MONTHLY TOP-UP</text>
+    <text x="336" y="102" fill="#e0a638" font-size="15" font-weight="700">$1,500</text>
+
+    <rect x="428" y="62" width="94" height="58" rx="6" fill="#1f2734" stroke="#2c374a"/>
+    <text x="438" y="80" fill="#8a93a6" font-size="9">TOTAL TOP-UPS</text>
+    <text x="438" y="102" fill="#4fb0e0" font-size="15" font-weight="700">$45,000</text>
+
+    <rect x="530" y="62" width="94" height="58" rx="6" fill="#1f2734" stroke="#2c374a"/>
+    <text x="540" y="80" fill="#8a93a6" font-size="9">MONTHLY LIMIT</text>
+    <text x="540" y="102" fill="#c3cad8" font-size="12" font-weight="700">$1,500 / $2,000</text>
+  </g>
+
+  <!-- Progress bar -->
+  <text x="20" y="138" fill="#8a93a6" font-size="10">Monthly top-up usage</text>
+  <text x="600" y="138" fill="#8a93a6" font-size="10" text-anchor="end">75%</text>
+  <rect x="20" y="144" width="604" height="6" rx="3" fill="#242c3d"/>
+  <rect x="20" y="144" width="453" height="6" rx="3" fill="#e0a638"/>
+
+  <!-- Chart -->
+  <rect x="20" y="164" width="604" height="70" rx="6" fill="#1f2734" stroke="#2c374a"/>
+  <text x="30" y="180" fill="#c3cad8" font-size="10" font-weight="600">Last 12 Months Top-ups</text>
+  <g fill="#4f7cff">
+    <rect x="34" y="205" width="14" height="20"/>
+    <rect x="54" y="195" width="14" height="30"/>
+    <rect x="74" y="200" width="14" height="25"/>
+    <rect x="94" y="188" width="14" height="37"/>
+    <rect x="114" y="198" width="14" height="27"/>
+    <rect x="134" y="182" width="14" height="43"/>
+    <rect x="154" y="192" width="14" height="33"/>
+    <rect x="174" y="178" width="14" height="47"/>
+    <rect x="194" y="190" width="14" height="35"/>
+    <rect x="214" y="172" width="14" height="53"/>
+    <rect x="234" y="180" width="14" height="45"/>
+    <rect x="254" y="165" width="14" height="60"/>
+  </g>
+
+  <!-- Transactions table -->
+  <rect x="20" y="242" width="604" height="62" rx="6" fill="#1f2734" stroke="#2c374a"/>
+  <text x="30" y="258" fill="#c3cad8" font-size="10" font-weight="600">Recent Transactions</text>
+  <line x1="20" y1="266" x2="624" y2="266" stroke="#2c374a"/>
+  <text x="30" y="280" fill="#8a93a6" font-size="9">2026-07-15</text>
+  <text x="130" y="280" fill="#c3cad8" font-size="9">Top-up via Online Banking</text>
+  <rect x="330" y="271" width="46" height="14" rx="7" fill="#22412f"/>
+  <text x="353" y="281" fill="#4fd68f" font-size="8" text-anchor="middle">CREDIT</text>
+  <text x="600" y="280" fill="#4fd68f" font-size="9" text-anchor="end" font-weight="700">$500.00</text>
+  <text x="30" y="296" fill="#8a93a6" font-size="9">2026-07-14</text>
+  <text x="130" y="296" fill="#c3cad8" font-size="9">Service Fee Deduction</text>
+  <rect x="330" y="287" width="42" height="14" rx="7" fill="#442326"/>
+  <text x="351" y="297" fill="#e5848a" font-size="8" text-anchor="middle">DEBIT</text>
+  <text x="600" y="296" fill="#e5848a" font-size="9" text-anchor="end" font-weight="700">-$25.00</text>
+</svg>

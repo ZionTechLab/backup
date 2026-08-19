@@ -1,0 +1,17 @@
+{
+  "version": "0.0.1",
+  "configurations": [
+    {
+      "name": "galaxy-song-book-api",
+      "runtimeExecutable": "npm",
+      "runtimeArgs": ["--prefix", "express-be", "run", "dev"],
+      "port": 3000
+    },
+    {
+      "name": "galaxy-song-book-web",
+      "runtimeExecutable": "npm",
+      "runtimeArgs": ["--prefix", "my-app", "start"],
+      "port": 3001
+    }
+  ]
+}

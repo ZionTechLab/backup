@@ -1,0 +1,10 @@
+# Cloudflare Pages config — Custom response headers
+# Fix: Restrict CORS to only fin.zionsl.com (not wildcard *)
+
+/*
+  Access-Control-Allow-Origin: https://fin.zionsl.com
+  X-Frame-Options: SAMEORIGIN
+  X-Content-Type-Options: nosniff
+  Referrer-Policy: strict-origin-when-cross-origin
+  Strict-Transport-Security: max-age=31536000; includeSubDomains; preload
+  Permissions-Policy: camera=(), microphone=(), geolocation=()

@@ -1,0 +1,141 @@
+/* Menu Arrangement tree. Uses the app's --ml-* tokens for dark-mode parity. */
+.ml-menu-tree {
+  border: 1px solid var(--ml-border, #d5dae3);
+  border-radius: 0.5rem;
+  overflow: hidden;
+  background: var(--ml-surface, #fff);
+}
+
+.ml-menu-row {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.45rem 0.6rem;
+  border-bottom: 1px solid var(--ml-border, #eef0f4);
+  cursor: grab;
+  transition: background 0.12s ease;
+}
+.ml-menu-row:last-child { border-bottom: none; }
+.ml-menu-row:hover { background: var(--ml-bg-deep, rgba(0, 0, 0, 0.02)); }
+.ml-menu-row.is-dragging { opacity: 0.5; }
+
+.ml-menu-grip { color: var(--ml-text-dim, #9aa3b2); cursor: grab; }
+.ml-menu-icon { color: var(--ml-primary, #4f7cff); width: 1.1rem; text-align: center; }
+.ml-menu-name { font-weight: 500; color: var(--ml-text, #1f2430); }
+.ml-menu-route {
+  color: var(--ml-text-dim, #8a93a6);
+  font-size: 0.78rem;
+  font-family: var(--ml-font-mono, monospace);
+  margin-left: auto;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: 30%;
+}
+
+.ml-menu-roles { display: flex; gap: 0.25rem; }
+.ml-menu-role {
+  border: 1px solid var(--ml-border, #d5dae3);
+  background: transparent;
+  color: var(--ml-text-dim, #8a93a6);
+  border-radius: 0.35rem;
+  font-size: 0.68rem;
+  padding: 0.05rem 0.35rem;
+  text-transform: uppercase;
+}
+.ml-menu-role.on {
+  background: var(--ml-primary, #4f7cff);
+  border-color: var(--ml-primary, #4f7cff);
+  color: #fff;
+}
+
+.ml-menu-actions { display: flex; gap: 0.1rem; flex-shrink: 0; }
+
+.ml-menu-editor {
+  border: 1px solid var(--ml-border, #d5dae3);
+  border-radius: 0.5rem;
+  padding: 1rem;
+  background: var(--ml-bg-deep, rgba(0, 0, 0, 0.015));
+}
+
+/* Icon picker grid inside the modal */
+.ml-icon-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(42px, 1fr));
+  gap: 6px;
+  max-height: 172px;
+  overflow-y: auto;
+  border: 1px solid var(--ml-border, #d5dae3);
+  border-radius: var(--radius-md, 8px);
+  padding: 6px;
+  background: var(--ml-bg-deep, rgba(0, 0, 0, 0.02));
+}
+
+.ml-icon-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  aspect-ratio: 1;
+  border: 1px solid transparent;
+  border-radius: var(--radius-sm, 6px);
+  background: var(--ml-surface, #fff);
+  color: var(--ml-text-dim, #8a93a6);
+  font-size: 1.15rem;
+  cursor: pointer;
+  transition: background 0.12s, color 0.12s, border-color 0.12s, transform 0.1s;
+  padding: 0;
+}
+
+.ml-icon-btn:hover {
+  background: var(--ml-primary-muted, rgba(79, 124, 255, 0.1));
+  color: var(--ml-primary, #4f7cff);
+  transform: scale(1.08);
+}
+
+.ml-icon-btn.selected {
+  background: var(--ml-primary, #4f7cff);
+  color: #fff;
+  border-color: var(--ml-primary, #4f7cff);
+}
+
+/* ── Editor modal refinements ── */
+.ml-menu-modal-dialog {
+  max-width: 560px;
+}
+
+.ml-menu-modal-icon-preview {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 42px;
+  height: 42px;
+  border-radius: var(--radius-md, 8px);
+  background: var(--ml-primary-muted, rgba(79, 124, 255, 0.1));
+  color: var(--ml-primary, #4f7cff);
+  font-size: 1.3rem;
+  flex-shrink: 0;
+}
+
+/* Fieldset grouping inside modal body */
+.ml-menu-fieldset {
+  border: none;
+  padding: 0;
+  margin: 0 0 1.25rem 0;
+}
+
+.ml-menu-fieldset:last-child {
+  margin-bottom: 0;
+}
+
+.ml-menu-legend {
+  font-size: 0.72rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--ml-text-dim, #8a93a6);
+  padding: 0 0 0.5rem 0;
+  margin: 0;
+  float: none;
+  width: 100%;
+}

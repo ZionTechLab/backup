@@ -1,0 +1,586 @@
+/* ── Galaxy ERP — Login page styles ────────────────────────
+   Scoped with .ml- prefix to avoid conflicts with Bootstrap.
+   Design tokens use --ml- prefix.
+──────────────────────────────────────────────────────────────── */
+
+/* Design tokens live in src/meridian-tokens.css (single source, loaded globally). */
+
+/* ── Page layout ────────────────────────────────────────────── */
+.ml-login-page {
+  display: grid;
+  grid-template-columns: 1.05fr 1fr;
+  min-height: 100vh;
+  font-family: var(--ml-font-sans);
+}
+
+@media (max-width: 1023px) {
+  .ml-login-page {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* ── Brand panel (left, always dark) ───────────────────────── */
+.ml-brand-panel {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  overflow: hidden;
+  background: linear-gradient(180deg, #0a0b10 0%, #11141d 100%);
+  color: white;
+}
+
+@media (max-width: 1023px) {
+  .ml-brand-panel {
+    display: none;
+  }
+}
+
+.ml-dot-grid {
+  position: absolute;
+  inset: 0;
+  background-image: radial-gradient(circle, rgba(232, 234, 240, 0.04) 1px, transparent 1px);
+  background-size: 24px 24px;
+  pointer-events: none;
+}
+
+.ml-glow {
+  position: absolute;
+  top: -80px;
+  left: -80px;
+  width: 420px;
+  height: 420px;
+  border-radius: 50%;
+  background: radial-gradient(circle, var(--ml-primary) 0%, transparent 70%);
+  opacity: 0.25;
+  pointer-events: none;
+}
+
+.ml-brand-logo {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 40px;
+}
+
+.ml-logo-mark {
+  width: 40px;
+  height: 40px;
+  border-radius: 8px;
+  background: var(--ml-primary);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--ml-font-serif);
+  font-size: 24px;
+  color: white;
+  flex-shrink: 0;
+}
+
+.ml-logo-name {
+  font-family: var(--ml-font-serif);
+  font-size: 22px;
+  line-height: 1;
+  color: white;
+}
+
+.ml-logo-sub {
+  font-family: var(--ml-font-mono);
+  font-size: 10px;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.5);
+  margin-top: 4px;
+}
+
+.ml-brand-content {
+  position: relative;
+  z-index: 1;
+  padding: 0 40px;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  max-width: 560px;
+}
+
+.ml-eyebrow {
+  font-family: var(--ml-font-mono);
+  font-size: 11px;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.4);
+  margin-bottom: 20px;
+}
+
+.ml-headline {
+  font-family: var(--ml-font-serif);
+  font-size: 44px;
+  line-height: 1.1;
+  letter-spacing: -0.02em;
+  margin: 0;
+  color: white;
+  font-weight: 400;
+}
+
+.ml-headline-dim {
+  color: rgba(255, 255, 255, 0.6);
+}
+
+.ml-subhead {
+  font-size: 14px;
+  color: rgba(255, 255, 255, 0.55);
+  margin-top: 24px;
+  margin-bottom: 0;
+  line-height: 1.6;
+  max-width: 400px;
+}
+
+.ml-pillars {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+  margin-top: 40px;
+  max-width: 440px;
+}
+
+.ml-pillar {
+  border-left: 1px solid rgba(255, 255, 255, 0.1);
+  padding-left: 14px;
+}
+
+.ml-pillar-value {
+  font-family: var(--ml-font-serif);
+  font-size: 32px;
+  line-height: 1;
+  color: var(--ml-primary);
+}
+
+.ml-pillar-label {
+  font-size: 11px;
+  color: rgba(255, 255, 255, 0.7);
+  margin-top: 6px;
+  font-weight: 500;
+}
+
+.ml-pillar-sub {
+  font-family: var(--ml-font-mono);
+  font-size: 10px;
+  color: rgba(255, 255, 255, 0.35);
+  margin-top: 2px;
+}
+
+/* ── FX ticker tape ─────────────────────────────────────────── */
+.ml-fx-tape {
+  position: relative;
+  z-index: 1;
+  margin: 24px 40px;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  overflow: hidden;
+}
+
+.ml-fx-tape-inner {
+  display: flex;
+  gap: 32px;
+  white-space: nowrap;
+  padding: 10px 0;
+  animation: mlFxTape 60s linear infinite;
+}
+
+@keyframes mlFxTape {
+  from { transform: translateX(0); }
+  to   { transform: translateX(-50%); }
+}
+
+.ml-fx-item {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-family: var(--ml-font-mono);
+  font-size: 11px;
+}
+
+.ml-fx-pair  { color: rgba(255, 255, 255, 0.4); }
+.ml-fx-rate  { color: rgba(255, 255, 255, 0.85); }
+.ml-fx-up    { color: #00d4aa; }
+.ml-fx-down  { color: #ff5566; }
+
+/* ── Brand footer ───────────────────────────────────────────── */
+.ml-brand-footer {
+  position: relative;
+  z-index: 1;
+  padding: 0 40px 32px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-family: var(--ml-font-mono);
+  font-size: 11px;
+  color: rgba(255, 255, 255, 0.4);
+}
+
+.ml-brand-links {
+  display: flex;
+  gap: 16px;
+}
+
+.ml-brand-links a {
+  color: rgba(255, 255, 255, 0.4);
+  text-decoration: none;
+  transition: color 0.15s;
+}
+
+.ml-brand-links a:hover {
+  color: rgba(255, 255, 255, 0.7);
+}
+
+/* ── Form panel (right) ─────────────────────────────────────── */
+.ml-form-panel {
+  background: var(--ml-bg);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 40px 24px;
+  min-height: 100vh;
+}
+
+.ml-form-inner {
+  width: 100%;
+  max-width: 400px;
+}
+
+/* Mobile compact brand */
+.ml-mobile-brand {
+  display: none;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 24px;
+}
+
+@media (max-width: 1023px) {
+  .ml-mobile-brand {
+    display: flex;
+  }
+}
+
+.ml-logo-mark-sm {
+  width: 36px;
+  height: 36px;
+  border-radius: 6px;
+  background: var(--ml-primary);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--ml-font-serif);
+  font-size: 20px;
+  color: white;
+  flex-shrink: 0;
+}
+
+.ml-mobile-brand-name {
+  font-family: var(--ml-font-serif);
+  font-size: 20px;
+  color: var(--ml-text);
+}
+
+/* Form header */
+.ml-form-header {
+  margin-bottom: 28px;
+}
+
+.ml-form-title {
+  font-family: var(--ml-font-serif);
+  font-size: 28px;
+  font-weight: 400;
+  color: var(--ml-text);
+  margin: 0;
+  letter-spacing: -0.02em;
+  line-height: 1.2;
+}
+
+.ml-form-sub {
+  font-size: 13px;
+  color: var(--ml-muted);
+  margin-top: 8px;
+  margin-bottom: 0;
+}
+
+/* Fields */
+.ml-field {
+  margin-bottom: 16px;
+}
+
+.ml-label {
+  display: block;
+  font-size: 12px;
+  font-weight: 500;
+  color: var(--ml-text-dim);
+  margin-bottom: 6px;
+  letter-spacing: 0.02em;
+}
+
+.ml-label-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 6px;
+}
+
+.ml-label-row .ml-label {
+  margin-bottom: 0;
+}
+
+.ml-forgot {
+  font-size: 12px;
+  color: var(--ml-text-dim);
+  text-decoration: none;
+  transition: color 0.15s;
+}
+
+.ml-forgot:hover {
+  color: var(--ml-primary);
+}
+
+.ml-input {
+  width: 100%;
+  padding: 10px 12px;
+  background: var(--ml-surface);
+  border: 1px solid var(--ml-border);
+  border-radius: 6px;
+  color: var(--ml-text);
+  font-family: var(--ml-font-sans);
+  font-size: 13px;
+  outline: none;
+  transition: border-color 0.15s, box-shadow 0.15s;
+  box-sizing: border-box;
+}
+
+.ml-input::placeholder {
+  color: var(--ml-muted);
+}
+
+.ml-input:focus {
+  border-color: var(--ml-primary);
+  box-shadow: 0 0 0 3px rgba(79, 124, 255, 0.18);
+}
+
+.ml-input-error {
+  border-color: var(--ml-negative) !important;
+}
+
+.ml-input-error:focus {
+  box-shadow: 0 0 0 3px rgba(255, 85, 102, 0.18);
+}
+
+.ml-input-wrap {
+  position: relative;
+}
+
+.ml-input-pw {
+  padding-right: 40px;
+}
+
+.ml-eye-btn {
+  position: absolute;
+  right: 8px;
+  top: 50%;
+  transform: translateY(-50%);
+  background: none;
+  border: none;
+  color: var(--ml-muted);
+  cursor: pointer;
+  padding: 4px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: color 0.15s;
+}
+
+.ml-eye-btn:hover {
+  color: var(--ml-text);
+}
+
+.ml-error-msg {
+  font-size: 12px;
+  color: var(--ml-negative);
+  margin-top: 4px;
+}
+
+/* Checkbox */
+.ml-checkbox-label {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 12px;
+  color: var(--ml-text-dim);
+  cursor: pointer;
+  user-select: none;
+  margin-bottom: 16px;
+}
+
+.ml-checkbox {
+  width: 14px;
+  height: 14px;
+  accent-color: var(--ml-primary);
+  cursor: pointer;
+  flex-shrink: 0;
+}
+
+/* Auth error */
+.ml-auth-error {
+  background: rgba(255, 85, 102, 0.1);
+  border: 1px solid rgba(255, 85, 102, 0.3);
+  border-radius: 6px;
+  padding: 10px 12px;
+  font-size: 13px;
+  color: var(--ml-negative);
+  margin-bottom: 12px;
+}
+
+/* Primary button */
+.ml-btn-primary {
+  width: 100%;
+  padding: 12px 16px;
+  background: var(--ml-primary);
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-family: var(--ml-font-sans);
+  font-size: 14px;
+  font-weight: 500;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  margin-top: 8px;
+  transition: opacity 0.15s;
+}
+
+.ml-btn-primary:hover:not(:disabled) {
+  opacity: 0.9;
+}
+
+.ml-btn-primary:disabled {
+  opacity: 0.75;
+  cursor: wait;
+}
+
+.ml-arrow {
+  opacity: 0.7;
+}
+
+.ml-spinner {
+  width: 14px;
+  height: 14px;
+  border: 2px solid rgba(255, 255, 255, 0.3);
+  border-top-color: white;
+  border-radius: 50%;
+  animation: mlSpin 0.7s linear infinite;
+  flex-shrink: 0;
+}
+
+@keyframes mlSpin {
+  to { transform: rotate(360deg); }
+}
+
+/* OR divider */
+.ml-divider {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin: 16px 0;
+}
+
+.ml-divider-line {
+  flex: 1;
+  height: 1px;
+  background: var(--ml-border);
+}
+
+.ml-divider-text {
+  font-size: 11px;
+  color: var(--ml-muted);
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+/* SSO grid */
+.ml-sso-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 8px;
+}
+
+.ml-btn-sso-icon {
+  padding: 10px 8px;
+  background: var(--ml-surface);
+  border: 1px solid var(--ml-border);
+  border-radius: 8px;
+  color: var(--ml-text);
+  font-family: var(--ml-font-sans);
+  font-size: 12px;
+  font-weight: 500;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  transition: background 0.15s, border-color 0.15s;
+}
+
+.ml-btn-sso-icon:hover {
+  background: var(--ml-surface-2);
+  border-color: var(--ml-primary);
+}
+
+.ml-btn-sso-icon svg {
+  flex-shrink: 0;
+}
+
+.ml-btn-sso-apple {
+  color: var(--ml-text);
+}
+
+/* Status footer */
+.ml-status-footer {
+  margin-top: 40px;
+  padding-top: 24px;
+  border-top: 1px solid var(--ml-border);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-family: var(--ml-font-mono);
+  font-size: 11px;
+  color: var(--ml-muted);
+}
+
+.ml-status-ok {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.ml-status-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--ml-positive);
+  flex-shrink: 0;
+}
+
+/* ===== Extracted inline styles (AuthCallback) ===== */
+.ml-min-vh-100 {
+  min-height: 100vh;
+}
+
+.ml-spinner-block {
+  border-color: var(--ml-border);
+  border-top-color: var(--ml-primary);
+  margin: 0 auto 16px;
+}
+
+.ml-auth-loading-title {
+  font-size: 20px;
+}

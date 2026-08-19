@@ -1,0 +1,144 @@
+/* ── Galaxy MessageBox ─────────────────────────────────────── */
+.ml-msgbox-backdrop {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.6);
+  z-index: 1999;
+  backdrop-filter: blur(2px);
+}
+
+.ml-msgbox-wrap {
+  position: fixed;
+  inset: 0;
+  z-index: 2000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 24px;
+}
+
+.ml-msgbox {
+  background: var(--ml-surface, #1a1c25);
+  border: 1px solid var(--ml-border, #2a2d3a);
+  border-radius: 12px;
+  width: 100%;
+  max-width: 420px;
+  box-shadow: 0 24px 64px rgba(0, 0, 0, 0.5);
+  overflow: hidden;
+  animation: mlMsgboxIn 0.18s ease;
+}
+
+@keyframes mlMsgboxIn {
+  from { opacity: 0; transform: scale(0.95) translateY(8px); }
+  to   { opacity: 1; transform: scale(1)    translateY(0);   }
+}
+
+.ml-msgbox-header {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 20px 22px 16px;
+}
+
+.ml-msgbox-icon {
+  width: 36px;
+  height: 36px;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 16px;
+  flex-shrink: 0;
+}
+
+.ml-msgbox-icon-success {
+  background: rgba(0, 212, 170, 0.12);
+  color: var(--ml-positive, #00d4aa);
+}
+
+.ml-msgbox-icon-danger {
+  background: rgba(255, 85, 102, 0.12);
+  color: var(--ml-negative, #ff5566);
+}
+
+.ml-msgbox-icon-info {
+  background: rgba(79, 124, 255, 0.12);
+  color: var(--ml-primary, #4f7cff);
+}
+
+.ml-msgbox-icon-warning {
+  background: rgba(255, 185, 50, 0.12);
+  color: #f5a623;
+}
+
+.ml-msgbox-title {
+  font-family: var(--ml-font-serif, 'DM Serif Display', Georgia, serif);
+  font-size: 17px;
+  font-weight: 400;
+  color: var(--ml-text, #e8eaf0);
+  margin: 0;
+  line-height: 1.2;
+}
+
+.ml-msgbox-body {
+  padding: 0 22px 20px;
+  font-size: 13px;
+  color: var(--ml-text-dim, #b0b4c0);
+  line-height: 1.6;
+  font-family: var(--ml-font-sans, 'DM Sans', system-ui, sans-serif);
+}
+
+.ml-msgbox-footer {
+  display: flex;
+  justify-content: flex-end;
+  gap: 8px;
+  padding: 14px 22px;
+  border-top: 1px solid var(--ml-border, #2a2d3a);
+  background: var(--ml-surface-2, #23262f);
+}
+
+/* Footer buttons — reuse action/ghost styles inline so no dependency on .ml-screen */
+.ml-msgbox-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 8px 16px;
+  font-size: 13px;
+  font-family: var(--ml-font-sans, 'DM Sans', system-ui, sans-serif);
+  font-weight: 500;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: opacity 0.15s, border-color 0.15s;
+  white-space: nowrap;
+}
+
+.ml-msgbox-btn-confirm {
+  background: var(--ml-primary, #4f7cff);
+  color: white;
+  border: none;
+}
+
+.ml-msgbox-btn-confirm:hover {
+  opacity: 0.88;
+}
+
+.ml-msgbox-btn-confirm-danger {
+  background: var(--ml-negative, #ff5566);
+  color: white;
+  border: none;
+}
+
+.ml-msgbox-btn-confirm-danger:hover {
+  opacity: 0.88;
+}
+
+.ml-msgbox-btn-cancel {
+  background: transparent;
+  border: 1px solid var(--ml-border, #2a2d3a);
+  color: var(--ml-text-dim, #b0b4c0);
+}
+
+.ml-msgbox-btn-cancel:hover {
+  border-color: var(--ml-primary, #4f7cff);
+  color: var(--ml-text, #e8eaf0);
+}

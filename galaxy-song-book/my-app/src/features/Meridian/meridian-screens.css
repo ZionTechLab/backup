@@ -1,0 +1,956 @@
+/* ── Galaxy ERP — shared screen styles ─────────────────────
+   Depends on --ml-* tokens defined in meridian-login.css (:root).
+──────────────────────────────────────────────────────────────── */
+
+/* ── Page header ─────────────────────────────────────────────── */
+.ml-page-header {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  margin-bottom: 24px;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+
+.ml-page-title {
+  font-family: var(--ml-font-serif);
+  font-size: 26px;
+  font-weight: 400;
+  letter-spacing: -0.02em;
+  color: var(--ml-text);
+  margin: 0;
+  line-height: 1.15;
+}
+
+.ml-page-subtitle {
+  font-size: 12px;
+  color: var(--ml-muted);
+  margin: 4px 0 0;
+  font-family: var(--ml-font-sans);
+}
+
+.ml-page-actions {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-shrink: 0;
+}
+
+/* ── Status / period badges ──────────────────────────────────── */
+.ml-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  padding: 2px 8px;
+  border-radius: 4px;
+  font-family: var(--ml-font-mono);
+  font-size: 10px;
+  font-weight: 500;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+
+.ml-badge-open {
+  background: rgba(0, 212, 170, 0.12);
+  color: var(--ml-positive);
+  border: 1px solid rgba(0, 212, 170, 0.25);
+}
+
+.ml-badge-locked {
+  background: rgba(107, 114, 128, 0.12);
+  color: var(--ml-muted);
+  border: 1px solid rgba(107, 114, 128, 0.2);
+}
+
+.ml-badge-open::before {
+  content: "";
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background: currentColor;
+  flex-shrink: 0;
+}
+
+/* ── Role badges ─────────────────────────────────────────────── */
+.ml-badge-admin {
+  background: rgba(79, 124, 255, 0.12);
+  color: var(--ml-primary);
+  border: 1px solid rgba(79, 124, 255, 0.25);
+}
+
+.ml-badge-accountant {
+  background: rgba(0, 212, 170, 0.08);
+  color: #00b899;
+  border: 1px solid rgba(0, 212, 170, 0.2);
+}
+
+.ml-badge-viewer {
+  background: rgba(176, 180, 192, 0.1);
+  color: var(--ml-text-dim);
+  border: 1px solid rgba(176, 180, 192, 0.18);
+}
+
+/* ── Mono cell values ────────────────────────────────────────── */
+.ml-mono-primary {
+  font-family: var(--ml-font-mono);
+  font-size: 12px;
+  font-weight: 500;
+  color: var(--ml-primary);
+  letter-spacing: 0.04em;
+}
+
+.ml-mono-dim {
+  font-family: var(--ml-font-mono);
+  font-size: 12px;
+  color: var(--ml-text-dim);
+  letter-spacing: 0.02em;
+}
+
+.ml-mono-negative {
+  font-family: var(--ml-font-mono);
+  font-size: 12px;
+  color: var(--ml-negative);
+  letter-spacing: 0.02em;
+}
+
+/* ── Add / primary action button ─────────────────────────────── */
+.ml-btn-action {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 8px 14px;
+  font-size: 13px;
+  font-family: var(--ml-font-sans);
+  font-weight: 500;
+  color: white;
+  background: var(--ml-primary);
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: opacity 0.15s;
+}
+
+.ml-btn-action:hover {
+  opacity: 0.88;
+}
+
+/* ── Back button ─────────────────────────────────────────────── */
+.ml-back-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 12px;
+  font-family: var(--ml-font-sans);
+  color: var(--ml-muted);
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  transition: color 0.15s;
+}
+
+.ml-back-btn:hover {
+  color: var(--ml-text);
+}
+
+/* ── Form card ───────────────────────────────────────────────── */
+.ml-form-card {
+  background: var(--ml-surface);
+  border: 1px solid var(--ml-border);
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+.ml-form-section {
+  padding: 24px 28px;
+  border-bottom: 1px solid var(--ml-border);
+}
+
+.ml-form-section-label {
+  font-family: var(--ml-font-mono);
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--ml-muted);
+  margin-bottom: 16px;
+}
+
+/* ── Full-size ghost button (matches ml-btn-action dimensions) ── */
+.ml-btn-ghost {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 8px 14px;
+  font-size: 13px;
+  font-family: var(--ml-font-sans);
+  font-weight: 500;
+  color: var(--ml-text-dim);
+  background: transparent;
+  border: 1px solid var(--ml-border);
+  border-radius: 8px;
+  cursor: pointer;
+  transition: border-color 0.15s, color 0.15s;
+  white-space: nowrap;
+}
+
+.ml-btn-ghost:hover {
+  border-color: var(--ml-primary);
+  color: var(--ml-primary);
+}
+
+/* ── Danger ghost button ─────────────────────────────────────── */
+.ml-btn-danger-ghost {
+  color: var(--ml-negative) !important;
+  border-color: rgba(255, 85, 102, 0.3) !important;
+}
+
+.ml-btn-danger-ghost:hover {
+  border-color: var(--ml-negative) !important;
+  color: var(--ml-negative) !important;
+}
+
+/* ── Form input overrides (Bootstrap → Galaxy dark) ────────── */
+.ml-screen .form-label,
+.ml-screen label {
+  font-size: 12px;
+  font-weight: 500;
+  color: var(--ml-text-dim);
+  margin-bottom: 5px;
+  letter-spacing: 0.02em;
+}
+
+.ml-screen .form-control,
+.ml-screen .form-select {
+  background-color: var(--ml-surface-2) !important;
+  border: 1px solid var(--ml-border) !important;
+  border-radius: 6px;
+  color: var(--ml-text) !important;
+  font-family: var(--ml-font-sans);
+  font-size: 13px;
+  /* right padding reserves room for the native caret (overrides Bootstrap's
+     2.25rem); without it a narrow w-auto select overlaps its value */
+  padding: 9px 30px 9px 12px;
+  transition: border-color 0.15s, box-shadow 0.15s;
+}
+
+/* Keep single-control input-groups rounded (Bootstrap squares direct form-control children).
+   Exclude .filterby — that group intentionally squares its inner corners to join select + input. */
+.ml-screen .input-group:not(.filterby) > .form-control,
+.ml-screen .input-group:not(.filterby) > .form-select,
+.ml-screen .input-group:not(.filterby) .form-select {
+  border-radius: 6px !important;
+}
+
+
+
+.ml-screen .form-control::placeholder {
+  color: var(--ml-muted);
+}
+
+.ml-screen .form-control:focus,
+.ml-screen .form-select:focus {
+  border-color: var(--ml-primary) !important;
+  box-shadow: 0 0 0 3px rgba(79, 124, 255, 0.15) !important;
+  background-color: var(--ml-surface-2) !important;
+}
+
+.ml-screen .form-select option {
+  background: var(--ml-surface-2);
+  color: var(--ml-text);
+}
+
+.ml-screen .form-control:disabled,
+.ml-screen .form-select:disabled {
+  background-color: var(--ml-surface) !important;
+  color: var(--ml-muted) !important;
+  opacity: 0.7;
+}
+
+.ml-screen .invalid-feedback,
+.ml-screen .text-danger {
+  font-size: 12px;
+  color: var(--ml-negative) !important;
+}
+
+.ml-screen .form-control.is-invalid,
+.ml-screen .form-select.is-invalid {
+  border-color: var(--ml-negative) !important;
+}
+
+.ml-screen .form-check-input {
+  background-color: var(--ml-surface-2);
+  border-color: var(--ml-border);
+}
+
+.ml-screen .form-check-input:checked {
+  background-color: var(--ml-primary);
+  border-color: var(--ml-primary);
+}
+
+.ml-screen .form-check-label {
+  color: var(--ml-text-dim);
+  font-size: 13px;
+}
+
+/* ── DataTable overrides inside .ml-screen ───────────────────── */
+
+/* Cards (filter bar + table wrapper) */
+.ml-screen .card {
+  background: var(--ml-surface) !important;
+  border: 1px solid var(--ml-border) !important;
+  border-radius: 10px;
+  color: var(--ml-text);
+}
+
+.ml-screen .card-body {
+  /* background: var(--ml-surface) !important; */
+}
+
+/* Filter bar inputs */
+.ml-screen .form-select,
+.ml-screen .form-control {
+  background-color: var(--ml-surface-2) !important;
+  border-color: var(--ml-border) !important;
+  color: var(--ml-text) !important;
+}
+
+/* Table */
+.ml-screen .table {
+  margin-bottom: 0;
+  font-size: 13px;
+  color: var(--ml-text);
+  --bs-table-bg: transparent;
+  --bs-table-striped-bg: transparent;
+  --bs-table-hover-bg: var(--ml-surface-2);
+  --bs-table-border-color: var(--ml-border);
+  --bs-table-color: var(--ml-text);
+}
+
+.ml-screen .table-responsive {
+  background: var(--ml-surface);
+}
+
+.ml-screen .table thead th,
+.ml-screen .table .table-header th {
+  font-family: var(--ml-font-mono);
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--ml-muted) !important;
+  border-bottom: 1px solid var(--ml-border) !important;
+  padding: 10px 14px;
+  background: var(--ml-surface-2) !important;
+  white-space: nowrap;
+}
+
+.ml-screen .table tbody td {
+  padding: 11px 14px;
+  vertical-align: middle;
+  border-color: var(--ml-border) !important;
+  color: var(--ml-text);
+  background: var(--ml-surface) !important;
+}
+
+.ml-screen .table tbody tr:hover td {
+  background: var(--ml-surface-2) !important;
+}
+
+.ml-screen .table-active td {
+  background: rgba(79, 124, 255, 0.08) !important;
+}
+
+/* Pagination */
+.ml-screen .page-link {
+  background-color: var(--ml-surface-2);
+  border-color: var(--ml-border);
+  color: var(--ml-text-dim);
+}
+
+.ml-screen .page-link:hover {
+  background-color: var(--ml-border);
+  color: var(--ml-text);
+}
+
+.ml-screen .page-item.active .page-link {
+  background-color: var(--ml-primary);
+  border-color: var(--ml-primary);
+}
+
+.ml-screen .page-item.disabled .page-link {
+  background-color: var(--ml-surface);
+  border-color: var(--ml-border);
+  color: var(--ml-muted);
+}
+
+/* Row count / info text */
+.ml-screen .text-muted {
+  color: var(--ml-muted) !important;
+}
+
+/* Rows-per-page select */
+.ml-screen .form-select-sm {
+  background-color: var(--ml-surface-2) !important;
+  border-color: var(--ml-border) !important;
+  color: var(--ml-text) !important;
+}
+
+/* ── Chart of Accounts tabs ──────────────────────────────────── */
+.ml-coa-tabs {
+  display: flex;
+  gap: 0;
+  border-bottom: 1px solid var(--ml-border);
+  margin-bottom: 20px;
+}
+
+.ml-coa-tab {
+  padding: 8px 16px;
+  font-size: 13px;
+  font-family: var(--ml-font-sans);
+  font-weight: 500;
+  color: var(--ml-muted);
+  background: none;
+  border: none;
+  border-bottom: 2px solid transparent;
+  cursor: pointer;
+  transition: color 0.15s, border-color 0.15s;
+  margin-bottom: -1px;
+}
+
+.ml-coa-tab:hover {
+  color: var(--ml-text);
+}
+
+.ml-coa-tab-active {
+  color: var(--ml-text);
+  border-bottom-color: var(--ml-primary);
+}
+
+.ml-screen-card {
+  /* background: var(--ml-surface); */
+  /* border: 1px solid var(--ml-border); */
+  /* border-radius: 10px; */
+  /* overflow moved to Bootstrap overflow-hidden in JSX */
+}
+
+/* ── Tab count pill ──────────────────────────────────────────── */
+.ml-tab-count {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 20px;
+  height: 18px;
+  padding: 0 6px;
+  margin-left: 8px;
+  font-family: var(--ml-font-mono);
+  font-size: 10px;
+  font-weight: 600;
+  color: var(--ml-text-dim);
+  background: var(--ml-surface-2);
+  border-radius: 9px;
+}
+
+.ml-coa-tab-active .ml-tab-count {
+  color: var(--ml-text);
+  background: var(--ml-border);
+}
+
+/* ── Account code chip (debit/credit cells) ──────────────────── */
+.ml-acct-chip {
+  display: inline-block;
+  padding: 3px 10px;
+  font-family: var(--ml-font-mono);
+  font-size: 11px;
+  font-weight: 500;
+  color: var(--ml-text-dim);
+  background: var(--ml-surface-2);
+  border: 1px solid var(--ml-border);
+  border-radius: 4px;
+  letter-spacing: 0.04em;
+}
+
+/* ── Status badges (Draft / Void) ────────────────────────────── */
+.ml-badge-draft {
+  background: rgba(255, 176, 32, 0.12);
+  color: #f5a623;
+  border: 1px solid rgba(255, 176, 32, 0.25);
+}
+
+.ml-badge-draft::before {
+  content: "";
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background: currentColor;
+  flex-shrink: 0;
+}
+
+.ml-badge-void {
+  background: rgba(255, 85, 102, 0.12);
+  color: var(--ml-negative);
+  border: 1px solid rgba(255, 85, 102, 0.25);
+}
+
+.ml-badge-void::before {
+  content: "";
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background: currentColor;
+  flex-shrink: 0;
+}
+
+/* ── DataGrid overrides (Galaxy theme) ─────────────────────── */
+.ml-screen .table-editable {
+  background: transparent;
+  --bs-table-bg: transparent;
+  --bs-table-border-color: var(--ml-border);
+}
+
+.ml-screen .table-editable thead th {
+  font-family: var(--ml-font-mono);
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--ml-muted) !important;
+  background: var(--ml-surface-2) !important;
+  border-color: var(--ml-border) !important;
+  padding: 10px 12px;
+}
+
+.ml-screen .table-editable tbody td {
+  border-color: var(--ml-border) !important;
+  background: transparent !important;
+  padding: 6px 8px;
+  vertical-align: middle;
+}
+
+.ml-screen .table-editable .form-control,
+.ml-screen .table-editable .form-select {
+  padding: 6px 10px;
+  font-size: 13px;
+}
+
+/* Meridian-styled trash button (scoped, doesn't affect other screens) */
+.ml-screen .data-grid-remove-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 28px;
+  height: 28px;
+  padding: 0;
+  font-size: 12px;
+  color: var(--ml-muted) !important;
+  background: transparent !important;
+  border: 1px solid var(--ml-border) !important;
+  border-radius: 6px;
+  transition: color 0.15s, border-color 0.15s, background 0.15s;
+}
+
+.ml-screen .data-grid-remove-btn:hover:not(:disabled) {
+  color: var(--ml-negative) !important;
+  border-color: rgba(255, 85, 102, 0.4) !important;
+  background: rgba(255, 85, 102, 0.06) !important;
+}
+
+.ml-screen .data-grid-remove-btn:disabled {
+  opacity: 0.35;
+  cursor: not-allowed;
+}
+
+/* Meridian-styled add row button */
+.ml-screen .table-editable + .btn-outline-primary {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 6px 12px;
+  font-size: 12px;
+  font-family: var(--ml-font-sans);
+  font-weight: 500;
+  color: var(--ml-text-dim) !important;
+  background: transparent !important;
+  border: 1px solid var(--ml-border) !important;
+  border-radius: 6px;
+}
+
+.ml-screen .table-editable + .btn-outline-primary:hover {
+  color: var(--ml-primary) !important;
+  border-color: var(--ml-primary) !important;
+  background: transparent !important;
+}
+
+/* ── Journal Voucher footer ──────────────────────────────────── */
+.ml-jv-footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 14px 16px;
+  border-top: 1px solid var(--ml-border);
+  background: var(--ml-surface);
+  gap: 16px;
+  flex-wrap: wrap;
+}
+
+.ml-jv-totals {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+}
+
+.ml-jv-total-cell {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 4px;
+  min-width: 110px;
+}
+
+.ml-jv-total-label {
+  font-family: var(--ml-font-mono);
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--ml-muted);
+}
+
+/* ── DataTable grouping (Galaxy theme) ─────────────────────── */
+.ml-screen .dt-group-row td {
+  background: rgba(79, 124, 255, 0.07) !important;
+  padding: 11px 14px !important;
+  border-top: 1px solid var(--ml-border) !important;
+  border-bottom: 1px solid var(--ml-border) !important;
+  vertical-align: middle;
+}
+
+.ml-screen .dt-group-row td:first-child {
+  box-shadow: inset 2px 0 0 0 var(--ml-primary);
+}
+
+.ml-screen .dt-group-row:hover td {
+  background: rgba(79, 124, 255, 0.12) !important;
+}
+
+.ml-screen .dt-group-caret {
+  color: var(--ml-muted);
+  font-size: 10px;
+  vertical-align: middle;
+}
+
+/* Group header color-coding by account type */
+.ml-screen .dt-group-row.gl-grp-A td { background: rgba(79, 124, 255, 0.08) !important; }   /* Asset — blue */
+.ml-screen .dt-group-row.gl-grp-A:hover td { background: rgba(79, 124, 255, 0.14) !important; }
+.ml-screen .dt-group-row.gl-grp-A td:first-child { box-shadow: inset 2px 0 0 0 #4f7cff; }
+
+.ml-screen .dt-group-row.gl-grp-L td { background: rgba(245, 166, 35, 0.09) !important; }   /* Liability — amber */
+.ml-screen .dt-group-row.gl-grp-L:hover td { background: rgba(245, 166, 35, 0.15) !important; }
+.ml-screen .dt-group-row.gl-grp-L td:first-child { box-shadow: inset 2px 0 0 0 #f5a623; }
+
+.ml-screen .dt-group-row.gl-grp-E td { background: rgba(168, 85, 247, 0.09) !important; }   /* Equity — purple */
+.ml-screen .dt-group-row.gl-grp-E:hover td { background: rgba(168, 85, 247, 0.15) !important; }
+.ml-screen .dt-group-row.gl-grp-E td:first-child { box-shadow: inset 2px 0 0 0 #a855f7; }
+
+.ml-screen .dt-group-row.gl-grp-R td { background: rgba(0, 212, 170, 0.09) !important; }    /* Revenue — green */
+.ml-screen .dt-group-row.gl-grp-R:hover td { background: rgba(0, 212, 170, 0.15) !important; }
+.ml-screen .dt-group-row.gl-grp-R td:first-child { box-shadow: inset 2px 0 0 0 #00d4aa; }
+
+.ml-screen .dt-group-row.gl-grp-X td { background: rgba(255, 85, 102, 0.08) !important; }   /* Expense — red */
+.ml-screen .dt-group-row.gl-grp-X:hover td { background: rgba(255, 85, 102, 0.14) !important; }
+.ml-screen .dt-group-row.gl-grp-X td:first-child { box-shadow: inset 2px 0 0 0 #ff5566; }
+
+.ml-screen .dt-group-footer td {
+  background: var(--ml-surface-2) !important;
+  border-top: 1px solid var(--ml-border) !important;
+}
+
+.ml-screen .dt-group-toolbar .dt-group-toggle {
+  font-family: var(--ml-font-sans);
+  color: var(--ml-text-dim);
+}
+
+.ml-screen .dt-group-toolbar .dt-group-toggle:hover {
+  color: var(--ml-primary);
+}
+
+/* Group header — account identity + opening sub-label */
+.gl-group-acct {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  vertical-align: middle;
+}
+
+.gl-group-name {
+  font-family: var(--ml-font-mono);
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  color: var(--ml-text);
+}
+
+.gl-group-opening {
+  font-family: var(--ml-font-mono);
+  font-size: 11px;
+  color: var(--ml-muted);
+  margin-left: 8px;
+}
+
+.gl-group-total {
+  font-family: var(--ml-font-mono);
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--ml-text);
+}
+
+/* ===== Extracted inline styles ===== */
+
+/* Period selector bar (shared across report screens) */
+.ml-period-bar {
+  padding-right: 6px;
+}
+
+.ml-period-bar-tb {
+  padding: 0 4px 0 12px;
+}
+
+.ml-period-label {
+  font-size: 13px;
+  white-space: nowrap;
+}
+
+.ml-period-select {
+  color: inherit;
+  font-size: 13px;
+  font-family: inherit;
+  cursor: pointer;
+  outline: none;
+}
+
+/* Journal lines section padding */
+.ml-jv-lines .ml-form-section-label {
+  padding: 14px 16px 0;
+}
+
+.ml-jv-lines-grid {
+  padding: 0 16px;
+}
+
+/* ── General Ledger — group header chips ─────────────────────── */
+.gl-account-code {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 42px;
+  height: 24px;
+  padding: 0 8px;
+  font-family: var(--ml-font-mono);
+  font-size: 11px;
+  font-weight: 700;
+  color: var(--ml-primary);
+  background: rgba(79, 124, 255, 0.1);
+  border: 1px solid rgba(79, 124, 255, 0.2);
+  border-radius: 4px;
+  letter-spacing: 0.04em;
+}
+
+.gl-account-type {
+  font-family: var(--ml-font-sans);
+  font-size: 12px;
+  color: var(--ml-muted);
+}
+
+.gl-running-negative {
+  font-family: var(--ml-font-mono);
+  font-size: 12px;
+  color: var(--ml-negative);
+  letter-spacing: 0.02em;
+}
+
+
+/* ── Screen padding (tighter on small displays) ──────────────── */
+.ml-screen-pad {
+  padding: 24px;
+}
+
+@media (max-width: 767.98px) {
+  .ml-screen-pad {
+    padding: 12px 10px;
+  }
+
+  .ml-screen-pad .ml-page-header {
+    margin-bottom: 12px;
+  }
+
+  .ml-page-title {
+    font-size: 21px;
+  }
+
+  /* Filters sit flush on mobile — drop the card wrapper */
+  .ml-screen .dt-toolbar {
+    background: transparent !important;
+    border: none !important;
+    border-radius: 0;
+  }
+
+  .ml-screen .dt-toolbar .card-body {
+    padding: 0;
+    margin: 0;
+    --bs-gutter-x: 0;
+  }
+  /* .ml-screen .filterby .form-select {
+    flex: 0 0 40%;
+    max-width: 140px;
+  } */
+  .ml-screen .filterby-search  {
+width: 100%;
+  }
+
+}
+
+@media (max-width: 575.98px) {
+  .ml-screen-pad {
+    padding: 10px 8px;
+  }
+
+  .ml-page-title {
+    font-size: 19px;
+  }
+}
+
+/* ── Filter bar ──────────────────────────────────────────────── */
+.ml-screen .filterby {
+  display: flex;
+  align-items: center;
+}
+
+.ml-screen .filterby-label {
+  color: var(--ml-text-dim);
+  padding-right: 8px;
+}
+
+/* Filter-column dropdown: boxed select with a custom caret */
+.ml-screen .filterby-search {
+  position: relative;
+}
+
+.ml-screen .filterby-select {
+  position: absolute;
+  top: 50%;
+  left: 5px;
+  transform: translateY(-50%);
+  width: 96px;
+  padding-right: 18px;
+  color: var(--ml-text);
+  font-family: var(--ml-font-sans);
+  font-weight: 300;
+  font-size: 11px;
+  cursor: pointer;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  background-color: transparent;
+  border-color: transparent;
+  border-right: 1px solid var(--ml-border);
+  border-radius: 0;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='none' stroke='%239aa0b0' stroke-width='2'%3E%3Cpath d='M4 6l4 4 4-4'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 3px center;
+  background-size: 11px;
+}
+
+.ml-screen .filterby-select option {
+  background: var(--ml-surface-2);
+  color: var(--ml-text);
+}
+
+.ml-screen .filterby-search .form-control {
+  padding-left: 112px;
+}
+
+
+
+/* ── Tooltip bubble (shared by FAB buttons) ──────────────────────
+   Appearance defined once here. Each context sets only its own
+   position and hover/focus reveal in the media queries below. */
+.ml-fab[aria-label]::after,
+.ml-fab-1[aria-label]::after,
+.ml-fab-2[aria-label]::after {
+  content: attr(aria-label);
+  position: absolute;
+  z-index: 1050;
+  white-space: nowrap;
+  font-size: 12px;
+  font-weight: 400;
+  line-height: 1;
+  padding: 6px 10px;
+  border-radius: 6px;
+  background: var(--ml-surface-2, #2a2d3a);
+  color: var(--ml-text, #e8eaf0);
+  border: 1px solid var(--ml-border, #3a3d4a);
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.35);
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.15s ease;
+}
+
+/* ── Floating action button (mobile, opt-in via .ml-fab) ─────── */
+@media (max-width: 767.98px) {
+  .ml-fab-2,
+  .ml-fab-1,
+  .ml-fab {
+    position: fixed;
+    right: 25px;
+    bottom: 35px;
+    z-index: 1030;
+    width: 45px;
+    height: 45px;
+    padding: 0;
+    gap: 0;
+    border-radius: 50%;
+    font-size: 0;
+    justify-content: center;
+    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.35);
+  }
+  .ml-fab-1{
+      bottom: 90px;
+      background-color: var(--ml-surface-2);
+  }
+  .ml-fab-2{
+      bottom: 145px;  background-color: var(--ml-surface-2);
+  }
+  .ml-fab-2 i ,
+  .ml-fab-1 i ,
+  .ml-fab i {
+    font-size: 22px;
+  }
+
+  /* FAB tooltip sits to the left of the button */
+  .ml-fab[aria-label]::after,
+  .ml-fab-2[aria-label]::after,
+  .ml-fab-1[aria-label]::after {
+    right: calc(100% + 12px);
+    top: 50%;
+    transform: translateY(-50%);
+  }
+
+  .ml-fab[aria-label]:hover::after,
+  .ml-fab[aria-label]:focus-visible::after,
+  .ml-fab[aria-label]:active::after,
+  .ml-fab-2[aria-label]:hover::after,
+  .ml-fab-2[aria-label]:focus-visible::after,
+  .ml-fab-2[aria-label]:active::after,
+  .ml-fab-1[aria-label]:hover::after,
+  .ml-fab-1[aria-label]:focus-visible::after,
+  .ml-fab-1[aria-label]:active::after {
+    opacity: 1;
+  }
+}
+
+
+

@@ -1,0 +1,6 @@
+🧹 Remove commented-out useEffect block in RegisterPage
+
+🎯 What: Removed dead, commented-out useEffect code in src/features/JollySnap/Register/add.jsx.
+💡 Why: Improves code maintainability and readability by cleaning up dead code. The logic is correctly handled by a subsequent useEffect block.
+✅ Verification: Ran full test suite to ensure no regressions were introduced.
+✨ Result: Cleaner, more readable component.

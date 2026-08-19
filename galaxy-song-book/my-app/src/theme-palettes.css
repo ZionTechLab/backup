@@ -1,0 +1,206 @@
+/* ── Theme palette layer ─────────────────────────────────────────
+   Consolidated palette picker.
+   
+   Two parts per palette:
+   1. Accent (--ml-primary). Set unconditionally, applies in both modes.
+   2. Full neutral look (bg / surface / text / border). Scoped to the palette's
+      native mode only. Light palettes paint in light mode; the dark
+      palettes paint in dark mode. The opposite mode falls back to the Galaxy
+      neutrals from meridian-tokens.css plus the accent.
+
+   This keeps the dark/light toggle working for every palette: a palette never
+   overrides the neutrals of the mode it does not belong to.
+   Imported AFTER meridian-tokens.css so these win.
+──────────────────────────────────────────────────────────────── */
+
+/* ── 1. Accent only, both modes ─────────────────────────────────── */
+:root[data-color="ocean"]    { --ml-primary: #1e88e5; --primary-dark: #1565c0; }
+:root[data-color="forest"]   { --ml-primary: #2e7d32; --primary-dark: #1b5e20; }
+:root[data-color="sunset"]   { --ml-primary: #ff7043; --primary-dark: #f4511e; }
+:root[data-color="grape"]    { --ml-primary: #7e57c2; --primary-dark: #5e35b1; }
+:root[data-color="slate"]    { --ml-primary: #607d8b; --primary-dark: #455a64; }
+:root[data-color="candy"]    { --ml-primary: #ff2d95; --primary-dark: #d61c73; }
+:root[data-color="mathbook"] { --ml-primary: #3b82f6; --primary-dark: #2563eb; }
+:root[data-color="engineering"]{ --ml-primary: #ea580c; --primary-dark: #c2410c; }
+:root[data-color="terminal"] { --ml-primary: #00ff6a; --primary-dark: #00cc55; }
+:root[data-color="aurora"]   { --ml-primary: #1fb6ff; --primary-dark: #0d8ecf; }
+:root[data-color="luxe"]     { --ml-primary: #f7b500; --primary-dark: #c99700; }
+
+/* ── 2. Light palettes: full look in light mode only ────────────── */
+:root[data-bs-theme="light"][data-color="ocean"] {
+  --ml-bg: #f0f6ff; --ml-surface: #ffffff; --ml-surface-2: #e3efff;
+  --ml-border: #d0def0; --ml-text: #0f1b2d; --ml-text-dim: #44607a; --ml-muted: #6f86a0;
+  --menu-subtle: #e6f0ff; --menu-distinct: #cce0ff; --menu-contrast: #0d1b2a;
+}
+:root[data-bs-theme="light"][data-color="forest"] {
+  --ml-bg: #f2f7f2; --ml-surface: #ffffff; --ml-surface-2: #e8f1e8;
+  --ml-border: #d9e4d9; --ml-text: #142016; --ml-text-dim: #46614b; --ml-muted: #6f8a73;
+  --menu-subtle: #e6f0e6; --menu-distinct: #cce0cc; --menu-contrast: #0d2a14;
+}
+:root[data-bs-theme="light"][data-color="sunset"] {
+  --ml-bg: #fff5f0; --ml-surface: #ffffff; --ml-surface-2: #ffe9e1;
+  --ml-border: #f1d3c8; --ml-text: #3a1a14; --ml-text-dim: #7c5a52; --ml-muted: #a98a82;
+  --menu-subtle: #ffe6db; --menu-distinct: #ffccb8; --menu-contrast: #2a140d;
+}
+:root[data-bs-theme="light"][data-color="grape"] {
+  --ml-bg: #f6f3fc; --ml-surface: #ffffff; --ml-surface-2: #efe8ff;
+  --ml-border: #ded4f2; --ml-text: #1f1630; --ml-text-dim: #5a4a79; --ml-muted: #8676a3;
+  --menu-subtle: #ebe3f7; --menu-distinct: #d6c6f0; --menu-contrast: #1a0d2a;
+}
+:root[data-bs-theme="light"][data-color="slate"] {
+  --ml-bg: #f5f6f7; --ml-surface: #ffffff; --ml-surface-2: #eef1f4;
+  --ml-border: #e1e4e8; --ml-text: #1f2328; --ml-text-dim: #636c76; --ml-muted: #8a929c;
+  --menu-subtle: #e6e8eb; --menu-distinct: #cfd4d8; --menu-contrast: #1a1d21;
+}
+:root[data-bs-theme="light"][data-color="candy"] {
+  --ml-bg: #fff0f7; --ml-surface: #ffffff; --ml-surface-2: #ffe3f0;
+  --ml-border: #ffd2e6; --ml-text: #311220; --ml-text-dim: #7b4a62; --ml-muted: #a87890;
+  --menu-subtle: #ffe3f0; --menu-distinct: #ffd2e6; --menu-contrast: #2b0f1d;
+}
+:root[data-bs-theme="light"][data-color="cloud"] {
+  --ml-bg: #e0e5ec; --ml-surface: #e0e5ec; --ml-surface-2: #e0e5ec;
+  --ml-border: transparent; --ml-text: #515c71; --ml-text-dim: #707e99; --ml-muted: #8a95ab;
+  --menu-subtle: #e0e5ec; --menu-distinct: #d0d7e3; --menu-contrast: #394254;
+  --ml-primary: #7d93fb; --primary-dark: #627bf2;
+}
+:root[data-bs-theme="light"][data-color="mathbook"] {
+  --ml-bg: #fdfdfc; --ml-surface: #ffffff; --ml-surface-2: #f2f2ef;
+  --ml-border: #d4d4cd; --ml-text: #1a1a18; --ml-text-dim: #5c5c56; --ml-muted: #8c8c82;
+  --menu-subtle: #f7f7f5; --menu-distinct: #ebebe6; --menu-contrast: #1c1c1a;
+  
+  --ml-bg-image: linear-gradient(to right, #e8e8e3 1px, transparent 1px),
+                 linear-gradient(to bottom, #e8e8e3 1px, transparent 1px);
+  --ml-bg-size: 32px 32px;
+  --ml-bg-pos: -1px -1px;
+}
+:root[data-bs-theme="light"][data-color="engineering"] {
+  --ml-bg: #f4f7f0; --ml-surface: #ffffff; --ml-surface-2: #eaf1e2;
+  --ml-border: #d4e0c8; --ml-text: #1b2612; --ml-text-dim: #4d5c41; --ml-muted: #798a6a;
+  --menu-subtle: #eef3e8; --menu-distinct: #dce6d2; --menu-contrast: #15200d;
+  
+  --ml-bg-image: linear-gradient(to right, #e0ebcc 1px, transparent 1px),
+                 linear-gradient(to bottom, #e0ebcc 1px, transparent 1px);
+  --ml-bg-size: 32px 32px;
+  --ml-bg-pos: -1px -1px;
+}
+:root[data-bs-theme="light"][data-color="terminal"] {
+  --ml-bg: #f8f9f8; --ml-surface: #ffffff; --ml-surface-2: #e8eee9;
+  --ml-border: #d3dfd6; --ml-text: #1a231d; --ml-text-dim: #384e40; --ml-muted: #5e7966;
+  --menu-subtle: #f0f4f1; --menu-distinct: #e4ece6; --menu-contrast: #121814;
+  --ml-primary: #009940; --primary-dark: #007a33;
+}
+:root[data-bs-theme="light"][data-color="aurora"] {
+  --ml-bg: #f4fafe; --ml-surface: #ffffff; --ml-surface-2: #e2f1fc;
+  --ml-border: #c8e4fa; --ml-text: #0e1e2d; --ml-text-dim: #375b7a; --ml-muted: #6488a7;
+  --menu-subtle: #e9f5fd; --menu-distinct: #d6ecfb; --menu-contrast: #09131c;
+  --ml-primary: #0284c7; --primary-dark: #0369a1;
+}
+:root[data-bs-theme="light"][data-color="luxe"] {
+  --ml-bg: #fcfbf9; --ml-surface: #ffffff; --ml-surface-2: #f3f0ea;
+  --ml-border: #e6dfd1; --ml-text: #2d2926; --ml-text-dim: #6b635c; --ml-muted: #968c83;
+  --menu-subtle: #f7f5f1; --menu-distinct: #efebe4; --menu-contrast: #1a1715;
+  --ml-primary: #b8860b; --primary-dark: #8b6508;
+}
+
+/* ── 3. Dark palettes: full look in dark mode only ──────────────── */
+:root[data-bs-theme="dark"][data-color="terminal"] {
+  --ml-bg: #0b0f0c; --ml-surface: #0f1a14; --ml-surface-2: #16331f;
+  --ml-border: #16331f; --ml-text: #aaffc3; --ml-text-dim: #7ddaa0; --ml-muted: #5fa97e;
+  --menu-subtle: #080a08; --menu-distinct: #000000; --menu-contrast: #1c261e;
+}
+:root[data-bs-theme="dark"][data-color="cloud"] {
+  --ml-bg: #1f232e; --ml-surface: #1f232e; --ml-surface-2: #1f232e;
+  --ml-border: transparent; --ml-text: #d8e0f0; --ml-text-dim: #9ba8c0; --ml-muted: #697893;
+  --menu-subtle: #1f232e; --menu-distinct: #191c25; --menu-contrast: #0d0f14;
+  --ml-primary: #7d93fb; --primary-dark: #627bf2;
+}
+:root[data-bs-theme="dark"][data-color="aurora"] {
+  --ml-bg: #0b1220; --ml-surface: #121a2d; --ml-surface-2: #1a243b;
+  --ml-border: #1a243b; --ml-text: #e8f6ff; --ml-text-dim: #9fb8d1; --ml-muted: #7088a0;
+  --menu-subtle: #080d17; --menu-distinct: #04060b; --menu-contrast: #17223b;
+}
+:root[data-bs-theme="dark"][data-color="luxe"] {
+  --ml-bg: #0b0d14; --ml-surface: #121726; --ml-surface-2: #1b2230;
+  --ml-border: #1b2230; --ml-text: #f5f6fa; --ml-text-dim: #b5becf; --ml-muted: #8893a8;
+  --menu-subtle: #08090f; --menu-distinct: #040508; --menu-contrast: #192033;
+}
+:root[data-bs-theme="dark"][data-color="engineering"] {
+  --ml-bg: #0f172a; --ml-surface: #1e293b; --ml-surface-2: #334155;
+  --ml-border: #334155; --ml-text: #f8fafc; --ml-text-dim: #cbd5e1; --ml-muted: #94a3b8;
+  --menu-subtle: #0d1425; --menu-distinct: #080c16; --menu-contrast: #04060b;
+  
+  --ml-bg-image: linear-gradient(to right, rgba(255,255,255,0.06) 1px, transparent 1px),
+                 linear-gradient(to bottom, rgba(255,255,255,0.06) 1px, transparent 1px);
+  --ml-bg-size: 32px 32px;
+  --ml-bg-pos: -1px -1px;
+}
+:root[data-bs-theme="dark"][data-color="mathbook"] {
+  --ml-bg: #12141a; --ml-surface: #1a1d26; --ml-surface-2: #242936;
+  --ml-border: #2c3240; --ml-text: #f0f2f5; --ml-text-dim: #aeb5c2; --ml-muted: #808896;
+  --menu-subtle: #0d0f14; --menu-distinct: #090a0d; --menu-contrast: #040507;
+  
+  --ml-bg-image: linear-gradient(to right, rgba(255,255,255,0.05) 1px, transparent 1px),
+                 linear-gradient(to bottom, rgba(255,255,255,0.05) 1px, transparent 1px);
+  --ml-bg-size: 32px 32px;
+  --ml-bg-pos: -1px -1px;
+}
+
+/* ── 4. UI shape themes (radius + elevation). Mode-independent. ─── */
+:root[data-theme="flat"] {
+  --radius-sm: 0; --radius-md: 0; --radius-lg: 0;
+  --elevation-1: none; --elevation-2: 0 1px 2px rgba(0,0,0,0.18); --elevation-3: 0 2px 6px rgba(0,0,0,0.22);
+}
+:root[data-theme="material"] {
+  --radius-sm: 4px; --radius-md: 8px; --radius-lg: 12px;
+  --elevation-1: 0 1px 3px rgba(0,0,0,0.20); --elevation-2: 0 3px 8px rgba(0,0,0,0.24); --elevation-3: 0 8px 20px rgba(0,0,0,0.28);
+}
+:root[data-theme="round"] {
+  --radius-sm: 12px; --radius-md: 18px; --radius-lg: 24px;
+  --elevation-1: 0 1px 3px rgba(0,0,0,0.18); --elevation-2: 0 4px 12px rgba(0,0,0,0.24); --elevation-3: 0 12px 28px rgba(0,0,0,0.30);
+}
+:root[data-theme="glass"] {
+  --radius-sm: 8px; --radius-md: 12px; --radius-lg: 16px;
+  --elevation-1: 0 1px 4px rgba(0,0,0,0.14); --elevation-2: 0 4px 16px rgba(0,0,0,0.22); --elevation-3: 0 12px 36px rgba(0,0,0,0.34);
+}
+:root[data-theme="neumorphic"] {
+  --radius-sm: 12px; --radius-md: 20px; --radius-lg: 32px;
+  --neu-light: rgba(255, 255, 255, 0.7);
+  --neu-dark: rgba(163, 177, 198, 0.5);
+  --elevation-1: 5px 5px 10px var(--neu-dark), -5px -5px 10px var(--neu-light);
+  --elevation-2: 8px 8px 16px var(--neu-dark), -8px -8px 16px var(--neu-light);
+  --elevation-3: 12px 12px 24px var(--neu-dark), -12px -12px 24px var(--neu-light);
+  --elevation-inset: inset 4px 4px 8px var(--neu-dark), inset -4px -4px 8px var(--neu-light);
+}
+:root[data-bs-theme="dark"][data-theme="neumorphic"] {
+  --neu-light: rgba(255, 255, 255, 0.05);
+  --neu-dark: rgba(0, 0, 0, 0.6);
+}
+
+/* ── 5. Menu / Topbar Contrast Styles ───────────────────────────── */
+
+/* Subtle Style */
+:root[data-menu-style="subtle"] {
+  --topbar-bg: var(--menu-subtle, var(--ml-bg-deep));
+  --drawer-color: var(--menu-subtle, var(--ml-bg-deep));
+}
+
+/* Distinct Style */
+:root[data-menu-style="distinct"] {
+  --topbar-bg: var(--menu-distinct, var(--ml-bg-deep));
+  --drawer-color: var(--menu-distinct, var(--ml-bg-deep));
+}
+
+/* Contrast Style */
+:root[data-menu-style="contrast"] {
+  --topbar-bg: var(--menu-contrast, var(--ml-bg-deep));
+  --drawer-color: var(--menu-contrast, var(--ml-bg-deep));
+}
+
+/* Inverse Text Coloring for Contrast Mode in Light Theme */
+:root[data-bs-theme="light"][data-menu-style="contrast"] {
+  --topbar-color: #ffffff;
+  --drawer-link-color: #aeb9cc;
+  --drawer-link-hover-bg: rgba(255, 255, 255, 0.08);
+  --drawer-link-active-bg: rgba(255, 255, 255, 0.15);
+  --drawer-link-active-color: #ffffff;
+}

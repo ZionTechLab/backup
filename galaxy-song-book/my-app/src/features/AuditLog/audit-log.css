@@ -1,0 +1,155 @@
+/* Audit dashboard chart grid */
+.al-chart-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 14px;
+  margin-bottom: 18px;
+}
+
+@media (max-width: 767.98px) {
+  .al-chart-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+.al-card {
+  background: var(--ml-surface, #1a1c25);
+  border: 1px solid var(--ml-border, #2a2d3a);
+  border-radius: 12px;
+  padding: 14px 16px;
+}
+
+.al-card-title {
+  font-family: var(--ml-font-mono, ui-monospace, monospace);
+  font-size: 11px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--ml-muted, #8a90a2);
+  margin: 0 0 10px;
+}
+
+.al-card-empty {
+  color: var(--ml-muted, #8a90a2);
+  font-size: 13px;
+  padding: 24px 0;
+  text-align: center;
+}
+
+/* recharts tooltip on dark surfaces */
+.al-card .recharts-default-tooltip {
+  background: var(--ml-surface-2, #2a2d3a) !important;
+  border: 1px solid var(--ml-border, #3a3d4a) !important;
+  border-radius: 6px;
+}
+
+.al-badge {
+  display: inline-block;
+  padding: 2px 8px;
+  border-radius: 10px;
+  font-size: 11px;
+  font-weight: 600;
+  white-space: nowrap;
+}
+
+/* ── Record timeline ─────────────────────────────────────────── */
+.al-tl-head {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  flex-wrap: wrap;
+  margin-bottom: 16px;
+}
+
+.al-tl-entity {
+  font-family: var(--ml-font-mono, monospace);
+  font-size: 13px;
+  color: var(--ml-text, #e8eaf0);
+  background: var(--ml-surface-2, #2a2d3a);
+  border: 1px solid var(--ml-border, #3a3d4a);
+  border-radius: 6px;
+  padding: 3px 8px;
+}
+
+.al-tl-count {
+  color: var(--ml-muted, #8a90a2);
+  font-size: 12px;
+}
+
+.al-timeline {
+  position: relative;
+  padding-left: 18px;
+}
+
+.al-timeline::before {
+  content: "";
+  position: absolute;
+  left: 5px;
+  top: 4px;
+  bottom: 4px;
+  width: 2px;
+  background: var(--ml-border, #2a2d3a);
+}
+
+.al-tl-item {
+  position: relative;
+  margin-bottom: 14px;
+}
+
+.al-tl-dot {
+  position: absolute;
+  left: -16px;
+  top: 6px;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  border: 2px solid var(--ml-surface, #1a1c25);
+}
+
+.al-tl-body {
+  background: var(--ml-surface, #1a1c25);
+  border: 1px solid var(--ml-border, #2a2d3a);
+  border-radius: 10px;
+  padding: 10px 12px;
+}
+
+.al-tl-meta {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex-wrap: wrap;
+  margin-bottom: 8px;
+}
+
+.al-tl-when { color: var(--ml-text-dim, #9aa0b0); font-size: 12px; }
+.al-tl-who  { color: var(--ml-muted, #8a90a2); font-size: 12px; margin-left: auto; }
+
+.al-tl-fields {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.al-tl-row {
+  display: flex;
+  align-items: baseline;
+  gap: 8px;
+  font-size: 12px;
+  flex-wrap: wrap;
+}
+
+.al-tl-field {
+  font-family: var(--ml-font-mono, monospace);
+  color: var(--ml-muted, #8a90a2);
+  min-width: 130px;
+}
+
+.al-tl-before { color: var(--ml-text-dim, #9aa0b0); text-decoration: line-through; opacity: 0.8; }
+.al-tl-arrow  { color: var(--ml-muted, #8a90a2); }
+.al-tl-after  { color: var(--ml-text, #e8eaf0); }
+.al-tl-val    { color: var(--ml-text, #e8eaf0); word-break: break-word; }
+
+.al-tl-note {
+  color: var(--ml-muted, #8a90a2);
+  font-size: 12px;
+  font-style: italic;
+}

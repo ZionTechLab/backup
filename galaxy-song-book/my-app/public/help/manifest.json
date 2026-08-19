@@ -1,0 +1,16 @@
+[
+  { "file": "index.md", "title": "Home" },
+  { "file": "getting-started.md", "title": "Getting Started" },
+  { "file": "user-menu.md", "title": "User Menu" },
+  { "file": "profile.md", "title": "Profile" },
+  { "file": "wallet.md", "title": "My Wallet" },
+  { "file": "api-settings.md", "title": "API Settings" },
+  { "file": "notifications.md", "title": "Notifications" },
+  { "file": "theme.md", "title": "Theme" },
+  { "file": "tenant-settings.md", "title": "Tenant Settings" },
+  { "file": "search.md", "title": "Search" },
+  { "file": "petty-cash.md", "title": "Petty Cash" },
+  { "file": "menu-arrangement.md", "title": "Menu Arrangement" },
+  { "file": "permissions.md", "title": "Permissions & Roles" },
+  { "file": "backup-restore.md", "title": "Backup & Restore" }
+]

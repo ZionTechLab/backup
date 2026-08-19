@@ -1,0 +1,1 @@
+## 2026-07-23 - ARIA labels for icon-only navigation buttons\n**Learning:** Icon-only navigation buttons, like those in custom pickers, are easily missed by screen readers if they lack ARIA labels.\n**Action:** Always add `aria-label` describing the action (e.g., 'Previous month') to buttons that rely solely on icons for visual meaning.

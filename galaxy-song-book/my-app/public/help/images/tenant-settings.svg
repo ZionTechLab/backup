@@ -1,0 +1,59 @@
+<svg viewBox="0 0 620 340" xmlns="http://www.w3.org/2000/svg" font-family="Segoe UI, Arial, sans-serif">
+  <rect width="620" height="340" rx="8" fill="#161c27"/>
+  <rect x="1" y="1" width="618" height="338" rx="7" fill="none" stroke="#2c374a"/>
+
+  <text x="20" y="28" fill="#e8ebf1" font-size="15" font-weight="700">Tenant Settings</text>
+  <text x="20" y="44" fill="#8a93a6" font-size="10">Defaults applied across this tenant. Users can still pick their own theme.</text>
+  <rect x="500" y="14" width="104" height="30" rx="6" fill="#4f7cff"/>
+  <text x="552" y="34" fill="#fff" font-size="11" text-anchor="middle" font-weight="600">Save Changes</text>
+
+  <!-- Theme Defaults section -->
+  <text x="20" y="70" fill="#c3cad8" font-size="11" font-weight="700">THEME DEFAULTS</text>
+  <g font-size="9" fill="#8a93a6">
+    <text x="20" y="86">DISPLAY DATE FORMAT</text>
+    <text x="170" y="86">DEFAULT MODE</text>
+    <text x="320" y="86">DEFAULT UI STYLE</text>
+    <text x="470" y="86">DEFAULT COLOR PALETTE</text>
+  </g>
+  <g fill="#242c3d" stroke="#3a4560">
+    <rect x="20" y="90" width="130" height="24" rx="4"/>
+    <rect x="170" y="90" width="130" height="24" rx="4"/>
+    <rect x="320" y="90" width="130" height="24" rx="4"/>
+    <rect x="470" y="90" width="130" height="24" rx="4"/>
+  </g>
+  <g fill="#e8ebf1" font-size="10">
+    <text x="30" y="106">YY-MMM-DD</text>
+    <text x="180" y="106">Dark</text>
+    <text x="330" y="106">Material</text>
+    <text x="480" y="106">Default</text>
+  </g>
+
+  <line x1="20" y1="132" x2="600" y2="132" stroke="#2c374a"/>
+
+  <!-- Behavior section -->
+  <text x="20" y="152" fill="#c3cad8" font-size="11" font-weight="700">BEHAVIOR</text>
+
+  <g font-size="10" fill="#c3cad8">
+    <rect x="20" y="164" width="16" height="16" rx="3" fill="none" stroke="#3a4560"/>
+    <text x="42" y="176">Return to list after save</text>
+
+    <rect x="220" y="164" width="16" height="16" rx="3" fill="#4f7cff"/>
+    <path d="M223 172 l4 4 l7 -8" stroke="#fff" stroke-width="1.4" fill="none"/>
+    <text x="242" y="176">Show theme controls to users</text>
+
+    <rect x="440" y="164" width="16" height="16" rx="3" fill="#4f7cff"/>
+    <path d="M443 172 l4 4 l7 -8" stroke="#fff" stroke-width="1.4" fill="none"/>
+    <text x="462" y="176">Searchable dropdowns</text>
+
+    <rect x="20" y="196" width="16" height="16" rx="3" fill="#4f7cff"/>
+    <path d="M23 204 l4 4 l7 -8" stroke="#fff" stroke-width="1.4" fill="none"/>
+    <text x="42" y="208">Table column visibility toggle</text>
+
+    <rect x="220" y="196" width="16" height="16" rx="3" fill="#4f7cff"/>
+    <path d="M223 204 l4 4 l7 -8" stroke="#fff" stroke-width="1.4" fill="none"/>
+    <text x="242" y="208">Table CSV export</text>
+
+    <rect x="440" y="196" width="16" height="16" rx="3" fill="none" stroke="#3a4560"/>
+    <text x="462" y="208">Pin action columns to the right</text>
+  </g>
+</svg>

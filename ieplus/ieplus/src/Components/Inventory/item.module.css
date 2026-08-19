@@ -1,0 +1,57 @@
+.card {
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  padding: 10px;
+  margin-bottom: 10px;
+}
+
+.cardheader {
+  background-color: #f5f5f5;
+  font-weight: bold;
+  padding: 10px;
+}
+
+.cardbody {
+  display: flex;
+  flex-direction: column;
+}
+
+.carditem {
+  margin-bottom: 5px;
+  flex-direction: row;
+  display: flex;
+  width: 100%;
+}
+
+.carditem_Itemcode {
+  font-size: 17px;
+  font-weight: 600
+}
+
+.carditem_50 {
+  display: flex;
+  width: 50%;
+}
+
+.carditem_price {
+  display: block;
+  text-align: right;
+  font-weight: 600;
+  font-size: 18px;
+  color: red;
+  width: 50%;
+
+}
+
+.carditem_Cost {
+  display: block;
+  text-align: right;
+  font-weight: 600;
+  font-size: 18px;
+  color: rgb(3, 90, 49);
+  width: 50%;
+}
+
+.cardvalue {
+  font-weight: bold;
+}

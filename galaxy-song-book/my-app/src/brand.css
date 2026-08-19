@@ -1,0 +1,35 @@
+/* White-label brand styling. Sizing for optional logo images and the report
+   brand header. Active only when a brand logo/reportLogo is configured. */
+
+.ml-drawer-logo-img {
+  height: 32px;
+  width: 32px;
+  object-fit: contain;
+  border-radius: 6px;
+}
+
+.ml-logo-img {
+  height: 44px;
+  object-fit: contain;
+}
+
+.ml-logo-img-sm {
+  height: 28px;
+  object-fit: contain;
+}
+
+/* Report and voucher print header brand line */
+.ml-print-brand {
+  margin-bottom: 8px;
+}
+
+.ml-print-brand-name {
+  font-weight: 600;
+  font-size: 16px;
+  color: var(--ml-text);
+}
+
+.ml-print-logo {
+  height: 38px;
+  object-fit: contain;
+}

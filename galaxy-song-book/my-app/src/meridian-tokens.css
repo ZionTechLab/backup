@@ -1,0 +1,92 @@
+/* ── Galaxy design tokens — single source of truth ─────────────
+   The only place --ml-* tokens (and the legacy var bridges) are defined.
+   Imported globally so every page gets them: login, dashboard, app shell.
+
+   Light mode triggers either way:
+     - html.ml-light          (login page toggle)
+     - :root[data-bs-theme="light"]  (app navbar toggle)
+   Default (no trigger) is the Galaxy dark theme.
+──────────────────────────────────────────────────────────────── */
+
+:root {
+  /* Core palette */
+  --ml-primary:    #4f7cff;
+  --ml-bg-deep:    #000000;
+  --ml-bg:         #161922;
+  --ml-surface:    #1a1c25;
+  --ml-surface-2:  #23262f;
+  --ml-border:     #2a2d3a;
+  
+  /* Default Menu Style Tokens (for base Dark theme) */
+  --menu-subtle:   #11131a;
+  --menu-distinct: #08090c;
+  --menu-contrast: #000000;
+
+  --ml-text:       #e8eaf0;
+  --ml-text-dim:   #b0b4c0;
+  --ml-muted:      #6b7280;
+  --ml-positive:   #00d4aa;
+  --ml-negative:   #ff5566;
+  --ml-warning:    #f5c451;
+
+  /* Type */
+  --ml-font-serif: 'DM Serif Display', Georgia, serif;
+  --ml-font-sans:  'DM Sans', system-ui, sans-serif;
+  --ml-font-mono:  'JetBrains Mono', ui-monospace, monospace;
+
+  /* Layout wiring (used by topbar / drawer / status bar) */
+  --topbar-bg:                var(--ml-bg-deep);
+  --topbar-color:             var(--ml-text);
+  --drawer-color:             var(--ml-bg-deep);
+  --drawer-link-color:        var(--ml-text-dim);
+  --drawer-link-hover-bg:     rgba(79, 124, 255, 0.08);
+  --drawer-link-active-bg:    rgba(79, 124, 255, 0.14);
+  --drawer-link-active-color: var(--ml-primary);
+  --theme-header-height:      56px;
+  --theme-footer-height:      26px;
+  --ml-statusbar-height:      26px;
+  --drawer-width:             220px;
+
+  /* Bridge Bootstrap / legacy variable names onto Galaxy tokens so every
+     existing feature & component stylesheet inherits the Meridian palette. */
+  --bs-body-bg:      var(--ml-bg);
+  --bs-border-color: var(--ml-border);
+  --surface-color:   var(--ml-surface);
+  --text-primary:    var(--ml-text);
+  --text-secondary:  var(--ml-text-dim);
+  --divider-color:   var(--ml-border);
+  --table-head-bg:   var(--ml-surface);
+  --table-head-color: var(--ml-text-dim);
+  --table-row-hover: rgba(79, 124, 255, 0.06);
+
+  --primary-color:   var(--ml-primary);
+  --primary-dark:    #3d63d6;
+  --secondary-color: var(--ml-surface-2);
+  --bs-primary:      var(--ml-primary);
+  --accent:          var(--ml-primary);
+  --success-accent:  var(--ml-positive);
+  --success-color:   var(--ml-positive);
+  --warning-accent:  var(--ml-warning);
+  --warning-color:   var(--ml-warning);
+  --danger-accent:   var(--ml-negative);
+  --error-color:     var(--ml-negative);
+  --bs-light:        var(--ml-surface-2);
+}
+
+/* ── Light theme ─────────────────────────────────────────────── */
+html.ml-light,
+:root[data-bs-theme="light"] {
+  --ml-primary:   #2952cc;
+  --ml-bg-deep:   #ffffff;
+  --ml-bg:        #f4f5f7;
+  --ml-surface:   #ffffff;
+  --ml-surface-2: #eceef2;
+  --ml-border:    #e1e3e8;
+  --ml-text:      #111317;
+  --ml-text-dim:  #4a4f5a;
+  --ml-muted:     #8a8f99;
+  --ml-positive:  #047a5a;
+  --ml-negative:  #c8364a;
+  --ml-warning:   #b07a16;
+  --primary-dark: #1f3fa6;
+}

@@ -1,0 +1,40 @@
+/* Grouped-table mobile card */
+.dt-group-card {
+  background: var(--ml-surface, #1a1c25);
+  border: 1px solid var(--ml-border, #2a2d3a);
+  border-radius: 12px;
+  padding: 12px 14px;
+}
+
+.dt-group-card-toggle {
+  cursor: pointer;
+  user-select: none;
+}
+
+.dt-group-card-title {
+  flex: 1;
+  min-width: 0;
+}
+
+.dt-group-caret {
+  color: var(--ml-muted, #8a90a2);
+  font-size: 12px;
+  line-height: 1;
+}
+
+.dt-group-card-summary {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px 14px;
+  font-size: 12px;
+  color: var(--ml-muted, #8a90a2);
+  padding: 8px 0;
+  margin-top: 8px;
+  border-top: 1px solid var(--ml-border, #2a2d3a);
+}
+
+.dt-group-card-child {
+  background: var(--ml-surface-2, #2a2d3a);
+  border-radius: 8px;
+  padding: 8px 10px;
+}

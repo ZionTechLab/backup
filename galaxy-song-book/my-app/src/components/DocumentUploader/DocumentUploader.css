@@ -1,0 +1,200 @@
+/* Document uploader. Uses the app's --ml-* theme tokens so it adapts to dark
+   mode alongside the rest of the UI. */
+
+.ml-doc-uploader {
+  --dz-radius: 0.6rem;
+}
+
+.ml-doc-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 0.5rem;
+}
+
+.ml-doc-title {
+  margin: 0;
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: var(--ml-text, #1f2430);
+}
+
+.ml-doc-count {
+  font-size: 0.75rem;
+  color: var(--ml-text-dim, #8a93a6);
+  font-variant-numeric: tabular-nums;
+}
+
+/* Drop zone */
+.ml-doc-dropzone {
+  border: 1.5px dashed var(--ml-border, #d5dae3);
+  border-radius: var(--dz-radius);
+  background: var(--ml-bg-deep, rgba(0, 0, 0, 0.015));
+  padding: 1.15rem 1rem;
+  text-align: center;
+  cursor: pointer;
+  color: var(--ml-text-dim, #8a93a6);
+  transition: border-color 0.15s ease, background 0.15s ease, transform 0.05s ease;
+  outline: none;
+}
+
+.ml-doc-dropzone:hover,
+.ml-doc-dropzone:focus-visible {
+  border-color: var(--ml-primary, #4f7cff);
+  color: var(--ml-text, #1f2430);
+}
+
+.ml-doc-dropzone.is-drag {
+  border-color: var(--ml-primary, #4f7cff);
+  background: color-mix(in srgb, var(--ml-primary, #4f7cff) 8%, transparent);
+  color: var(--ml-text, #1f2430);
+}
+
+.ml-doc-dz-icon {
+  font-size: 1.5rem;
+  display: block;
+  margin-bottom: 0.25rem;
+  color: var(--ml-primary, #4f7cff);
+}
+
+.ml-doc-dz-text {
+  font-size: 0.9rem;
+}
+
+.ml-doc-dz-link {
+  color: var(--ml-primary, #4f7cff);
+  text-decoration: underline;
+  font-weight: 500;
+}
+
+.ml-doc-dz-hint {
+  font-size: 0.72rem;
+  opacity: 0.75;
+  margin-top: 0.15rem;
+}
+
+.ml-doc-uploading {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  font-size: 0.8rem;
+  color: var(--ml-text-dim, #8a93a6);
+  margin-top: 0.5rem;
+}
+
+.ml-doc-empty {
+  font-size: 0.8rem;
+  color: var(--ml-text-dim, #8a93a6);
+  margin: 0.25rem 0 0;
+}
+
+/* File cards */
+.ml-doc-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  margin-top: 0.6rem;
+}
+
+.ml-doc-card {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  border: 1px solid var(--ml-border, #d5dae3);
+  border-radius: var(--dz-radius);
+  padding: 0.5rem 0.7rem;
+  background: var(--ml-surface, #fff);
+  transition: border-color 0.15s ease, box-shadow 0.15s ease;
+}
+
+.ml-doc-card:hover {
+  border-color: var(--ml-primary, #4f7cff);
+  box-shadow: 0 1px 6px rgba(0, 0, 0, 0.06);
+}
+
+.ml-doc-card-icon {
+  font-size: 1.3rem;
+  color: var(--ml-text-dim, #8a93a6);
+  flex-shrink: 0;
+}
+
+.ml-doc-card-body {
+  flex: 1;
+  min-width: 0;
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.ml-doc-card-name {
+  flex: 0 1 auto;
+  max-width: 42%;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  color: var(--ml-primary, #4f7cff);
+  text-decoration: none;
+  font-size: 0.85rem;
+}
+
+.ml-doc-card-name:hover {
+  text-decoration: underline;
+}
+
+.ml-doc-muted {
+  color: var(--ml-text-dim, #8a93a6);
+}
+
+.ml-doc-card-comment {
+  flex: 1;
+  min-width: 0;
+  border: none;
+  border-bottom: 1px solid transparent;
+  background: transparent;
+  font-size: 0.82rem;
+  padding: 0.15rem 0.1rem;
+  color: var(--ml-text, #1f2430);
+}
+
+.ml-doc-card-comment::placeholder {
+  color: var(--ml-text-dim, #8a93a6);
+  opacity: 0.7;
+}
+
+.ml-doc-card-comment:focus {
+  outline: none;
+  border-bottom-color: var(--ml-primary, #4f7cff);
+}
+
+.ml-doc-card-comment:disabled {
+  color: var(--ml-text, #1f2430);
+  opacity: 1;
+}
+
+.ml-doc-card-remove {
+  flex-shrink: 0;
+  border: none;
+  background: transparent;
+  color: var(--ml-text-dim, #8a93a6);
+  padding: 0.25rem 0.4rem;
+  border-radius: 0.3rem;
+  line-height: 1;
+  transition: color 0.15s ease, background 0.15s ease;
+}
+
+.ml-doc-card-remove:hover {
+  color: var(--ml-negative, #e5484d);
+  background: color-mix(in srgb, var(--ml-negative, #e5484d) 10%, transparent);
+}
+
+/* Stack name over comment on narrow screens */
+@media (max-width: 575.98px) {
+  .ml-doc-card-body {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 0.2rem;
+  }
+  .ml-doc-card-name {
+    max-width: 100%;
+  }
+}

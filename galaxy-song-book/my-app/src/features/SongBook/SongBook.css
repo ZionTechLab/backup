@@ -1,0 +1,229 @@
+/* SongBook - Elegant Hymn Viewer */
+
+.songbook-page {
+
+  max-width: 600px;
+  margin: 0 auto;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  padding-bottom: 88px;
+}
+
+/* Top bar */
+.songbook-topbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px 16px;
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  background: var(--bs-body-bg, #f5f5f5);
+}
+
+.songbook-topbar-title {
+  font-size: 1rem;
+  font-weight: 600;
+  font-style: italic;
+  color: var(--text-primary, #212121);
+}
+
+.songbook-btn {
+  border: none;
+  background: transparent;
+  color: var(--primary-color, #1976d2);
+  font-size: 0.85rem;
+  padding: 6px 10px;
+  border-radius: 6px;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  transition: background 0.15s;
+}
+
+.songbook-btn:hover {
+  background: rgba(0, 0, 0, 0.06);
+}
+
+/* Header section */
+.songbook-header {
+  text-align: center;
+  padding: 24px 16px 8px;
+}
+.hw-ornament {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+}
+.hw-orn-line {
+    width: 48px;
+    height: 1px;
+    background: #c8a878;
+}
+.hw-orn-diamond {
+    width: 5px;
+    height: 5px;
+    background: #c8a878;
+    transform: rotate(45deg);
+}
+.songbook-hymn-no {
+      font-size: 11px;
+    color: #a07848;
+    letter-spacing
+
+: 0.28em;
+    margin-bottom: 0.55rem;
+        font-family: 'Lora', serif;
+}
+
+.songbook-title {
+
+font-family: 'Noto Sans Sinhala', sans-serif;
+    font-size: 25px;
+    font-weight: 500;
+    color: #2a1a08;
+    line-height: 1.35;
+    margin-bottom: 1rem;
+}
+
+.songbook-divider {
+  display: flex;
+  justify-content: center;
+}
+
+.songbook-divider span {
+  display: block;
+  width: 60px;
+  height: 3px;
+  border-radius: 2px;
+  background: var(--primary-color, #1976d2);
+  opacity: 0.5;
+}
+
+/* Lyrics */
+.songbook-lyrics {
+  flex: 1;
+    padding: 15px  ;
+   
+    font-family: 'Noto Sans Sinhala', sans-serif;
+    font-size: 15.5px;
+    font-weight: 300;
+    line-height: 1.95;
+
+      color: var(--text-primary, #212121);
+}
+
+.songbook-lyrics p {
+  margin-bottom: 1em;
+}
+
+.songbook-lyrics h1,
+.songbook-lyrics h2,
+.songbook-lyrics h3,
+.songbook-lyrics h4 {
+  text-align: center;
+  font-size: 0.85rem;
+  font-weight: 400;
+  color: var(--text-secondary, #757575);
+  margin: 20px 0 12px;
+  letter-spacing: 0.5px;
+}
+
+.songbook-lyrics hr {
+  border: none;
+  border-top: 1px solid var(--divider-color, #e0e0e0);
+  margin: 16px auto;
+  width: 40%;
+}
+
+/* Bottom navigation */
+.songbook-nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 12px 16px;
+  border-top: 1px solid var(--divider-color, #e0e0e0);
+  position: fixed;
+  left: 50%;
+  transform: translateX(-50%);
+  bottom: 0;
+  width: 100%;
+  max-width: 600px;
+  box-sizing: border-box;
+  background: var(--bs-body-bg, #f5f5f5);
+  z-index: 20;
+  box-shadow: 0 -6px 18px rgba(0, 0, 0, 0.06);
+      background-color: var(--primary-color);
+}
+
+.songbook-nav-btn {
+  border: none;
+  background: transparent;
+  color: var(--bs-body-bg, #1976d2);
+  font-size: 0.85rem;
+  font-weight: 500;
+  padding: 8px 14px;
+  border-radius: 6px;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  transition: background 0.15s;
+}
+
+.songbook-nav-btn:hover {
+  background: rgba(0, 0, 0, 0.06);
+}
+
+.songbook-nav-btn:disabled {
+  opacity: 0.35;
+  cursor: default;
+}
+
+.songbook-nav-btn:disabled:hover {
+  background: transparent;
+}
+
+/* QR Fullscreen overlay */
+.songbook-qr-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.7);
+  z-index: 1050;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  backdrop-filter: blur(4px);
+}
+
+.songbook-qr-content {
+  background: #fff;
+  border-radius: 12px;
+  padding: 32px;
+  text-align: center;
+  max-width: 320px;
+  width: 90%;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+}
+
+/* Right-side floating actions (desktop) */
+.songbook-actions-right {
+  position: fixed;
+  right: 12px;
+  top: 50%;
+  transform: translateY(-50%);
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  z-index: 25;
+}
+
+/* Ensure the right actions don't overlap small screens */
+@media (max-width: 767.98px) {
+  .songbook-actions-right {
+    display: none !important;
+  }
+}

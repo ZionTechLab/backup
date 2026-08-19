@@ -1,0 +1,24 @@
+.ml-perm-denied {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 24px;
+  border: 1px solid var(--ml-border);
+  border-radius: 12px;
+  background: var(--ml-surface);
+  color: var(--ml-muted);
+}
+
+.ml-perm-denied > i {
+  font-size: 24px;
+  color: var(--ml-muted);
+}
+
+.ml-perm-denied-title {
+  font-weight: 600;
+  color: var(--ml-text);
+}
+
+.ml-perm-denied-sub {
+  font-size: 13px;
+}

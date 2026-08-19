@@ -1,0 +1,233 @@
+/* ── Balance Sheet — screen-specific styles ── */
+
+.bs-layout {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+  margin-bottom: 12px;
+}
+
+/* ── Panel ── */
+.bs-panel {
+  background: var(--ml-surface);
+  border: 1px solid var(--ml-border);
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+.bs-panel-header {
+  font-family: var(--ml-font-mono);
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--ml-text);
+  background: var(--ml-surface-2);
+  padding: 12px 16px;
+  border-bottom: 1px solid var(--ml-border);
+}
+
+/* ── Table shell ── */
+.bs-table {
+  border-collapse: collapse;
+  width: 100%;
+}
+
+/* ── Column headers ── */
+.bs-col-header-row th {
+  font-family: var(--ml-font-mono);
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--ml-muted);
+  padding: 8px 16px;
+  border-bottom: 1px solid var(--ml-border);
+  background: var(--ml-surface-2);
+}
+
+.bs-col-account { width: 55%; }
+.bs-col-amount  { width: 22.5%; }
+
+/* ── Section header rows (CURRENT ASSETS etc.) ── */
+.bs-section-header-row td {
+  font-family: var(--ml-font-mono);
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--ml-muted);
+  padding: 8px 16px;
+  background: var(--ml-surface-2);
+  border-top: 1px solid var(--ml-border);
+  border-bottom: none;
+}
+
+/* ── Account rows ── */
+.bs-row td {
+  padding: 9px 16px;
+  vertical-align: middle;
+  border-bottom: 1px solid var(--ml-border);
+  background: var(--ml-surface);
+  font-size: 13px;
+}
+
+.bs-row:hover td {
+  background: var(--ml-surface-2);
+}
+
+.bs-account-chip {
+  display: inline-flex;
+  align-items: center;
+  min-width: 36px;
+  padding: 2px 6px;
+  margin-right: 10px;
+  font-family: var(--ml-font-mono);
+  font-size: 11px;
+  color: var(--ml-muted);
+  background: var(--ml-surface-2);
+  border: 1px solid var(--ml-border);
+  border-radius: 3px;
+  letter-spacing: 0.03em;
+}
+
+.bs-account-name {
+  font-size: 13px;
+  color: var(--ml-text);
+}
+
+/* ── Amount cells ── */
+.bs-amt {
+  font-family: var(--ml-font-mono);
+  font-size: 13px;
+  color: var(--ml-text);
+  letter-spacing: 0.02em;
+}
+
+.bs-amt-dim {
+  font-family: var(--ml-font-mono);
+  font-size: 13px;
+  color: var(--ml-text-dim);
+  letter-spacing: 0.02em;
+}
+
+.bs-amt-bold {
+  font-weight: 600;
+}
+
+.bs-negative {
+  color: var(--ml-negative) !important;
+}
+
+/* ── Subtotal rows ── */
+.bs-subtotal-row td {
+  padding: 9px 16px;
+  border-top: 1px solid var(--ml-border);
+  border-bottom: 1px solid var(--ml-border);
+  background: var(--ml-surface);
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--ml-text);
+}
+
+/* ── Grand total row ── */
+.bs-grand-total-row td {
+  padding: 13px 16px;
+  border-top: 2px solid var(--ml-border);
+  background: var(--ml-surface);
+}
+
+.bs-grand-amt {
+  font-family: var(--ml-font-mono);
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--ml-text);
+  letter-spacing: 0.02em;
+}
+
+.bs-grand-amt-dim {
+  font-family: var(--ml-font-mono);
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--ml-text-dim);
+  letter-spacing: 0.02em;
+}
+
+/* ── Compare PY button — active state ── */
+.bs-btn-active {
+  border-color: var(--ml-primary) !important;
+  color: var(--ml-primary) !important;
+  background: rgba(79, 124, 255, 0.06) !important;
+}
+
+/* ── Period select inside ghost button ── */
+.bs-period-select {
+  border: 0;
+  background: transparent;
+  color: inherit;
+  font-size: 13px;
+  font-family: inherit;
+  cursor: pointer;
+  outline: none;
+}
+
+/* ── Date input inside ghost button ── */
+.bs-date-input {
+  border: 0;
+  background: transparent;
+  color: inherit;
+  font-size: 13px;
+  font-family: var(--ml-font-mono);
+  cursor: pointer;
+  outline: none;
+  width: 130px;
+}
+
+/* ── Balanced / unbalanced status ── */
+.bs-status-balanced   { color: var(--ml-positive) !important; font-weight: 600; }
+.bs-status-unbalanced { color: var(--ml-negative) !important; font-weight: 600; }
+
+/* ── Status bar ── */
+.bs-status-bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 7px 16px;
+  background: var(--ml-surface);
+  border: 1px solid var(--ml-border);
+  border-radius: 8px;
+}
+
+.bs-status-items {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.bs-status-item {
+  font-family: var(--ml-font-mono);
+  font-size: 11px;
+  color: var(--ml-muted);
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+.bs-status-value {
+  color: var(--ml-text-dim);
+  font-weight: 600;
+}
+
+.bs-status-open { color: var(--ml-positive) !important; }
+
+.bs-status-divider {
+  color: var(--ml-border);
+  font-size: 13px;
+  user-select: none;
+}
+
+.bs-status-synced {
+  font-family: var(--ml-font-mono);
+  font-size: 11px;
+  color: var(--ml-muted);
+  letter-spacing: 0.06em;
+}

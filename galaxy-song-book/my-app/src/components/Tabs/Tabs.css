@@ -1,0 +1,92 @@
+.tabs-container {
+  width: 100%;
+  margin-bottom: 20px;
+}
+
+.tabs-header {
+  display: flex;
+  border-bottom: 2px solid var(--ml-border, #e9ecef);
+  margin-bottom: 20px;
+}
+
+.tab-button {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 12px 24px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: var(--ml-text-dim, #6c757d);
+  font-size: 14px;
+  font-weight: 500;
+  transition: color 0.2s ease, border-color 0.2s ease, background-color 0.2s ease;
+  border-bottom: 3px solid transparent;
+  position: relative;
+}
+
+.tab-button:hover:not(.disabled) {
+  color: var(--ml-primary, #4f7cff);
+  background-color: var(--ml-surface-2, #f8f9fa);
+}
+
+.tab-button.active {
+  color: var(--ml-primary, #4f7cff);
+  border-bottom-color: var(--ml-primary, #4f7cff);
+  background-color: var(--ml-surface-2, #f8f9fa);
+}
+
+.tab-button.disabled {
+  color: var(--ml-muted, #adb5bd);
+  cursor: not-allowed;
+  opacity: 0.6;
+}
+
+.tab-number {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  background-color: var(--ml-surface-2, #e9ecef);
+  color: var(--ml-text-dim, #6c757d);
+  font-size: 12px;
+  font-weight: 600;
+  transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+.tab-button.active .tab-number,
+.tab-button:hover:not(.disabled) .tab-number {
+  background-color: var(--ml-primary, #4f7cff);
+  color: white;
+}
+
+.tab-button.disabled .tab-number {
+  background-color: var(--ml-surface, #f8f9fa);
+  color: var(--ml-muted, #adb5bd);
+}
+
+.tab-label { font-weight: 500; }
+
+.tabs-content { min-height: 400px; }
+
+@media (max-width: 768px) {
+  .tab-button { padding: 10px 16px; font-size: 13px; }
+  .tab-number { width: 20px; height: 20px; font-size: 11px; }
+}
+
+@media (max-width: 576px) {
+  .tabs-header { flex-direction: column; }
+
+  .tab-button {
+    justify-content: flex-start;
+    border-bottom: none;
+    border-left: 3px solid transparent;
+  }
+
+  .tab-button.active {
+    border-left-color: var(--ml-primary, #4f7cff);
+    border-bottom-color: transparent;
+  }
+}

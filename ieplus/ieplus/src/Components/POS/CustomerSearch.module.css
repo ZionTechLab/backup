@@ -1,0 +1,90 @@
+.Margin {
+  margin-bottom: 10px;
+}
+
+.heading {
+  margin-bottom: 10px;
+}
+
+.srh {
+  display: grid;
+  margin-bottom: 10px;
+}
+
+.CustomerDetail {
+  display: grid;
+  grid-template: auto / 20% 10px auto;
+  font-size: 11px;
+  font-weight: 600;
+}
+
+.Route {
+  position: absolute;
+  right: 30px;
+  margin-top: -12px;
+  z-index: 100;
+  font-size: 40px;
+  color: rgb(250, 92, 0);
+}
+
+.grid {
+  display: grid;
+  grid-template: auto/ Auto Auto;
+  grid-gap: 8px;
+  margin: 10px auto;
+}
+
+.KpiContainer {
+  display: grid;
+  grid-template: auto/ Auto;
+  grid-gap: 8px;
+}
+
+@media (min-width:600px) {
+  .grid {
+    grid-template: auto/ Auto Auto Auto Auto;
+    grid-gap: 10px;
+  }
+
+  .KpiContainer {
+    grid-template: auto/ 50% 50%;
+  }
+}
+
+.GridHeader {
+  display: grid;
+  margin-top: 5px;
+  grid-template-columns: 18% 22% 30% 30%;
+  border: rgb(170, 170, 170);
+  border-style: solid none;
+  border-width: 1px;
+  padding: 3px 0px;
+  background-color: rgb(221, 221, 221);
+}
+
+.GridHeader div {
+  font-size: 10px;
+  font-weight: 600;
+  padding: 0px 3px;
+}
+
+.GridDetail {
+  display: grid;
+
+  grid-template-columns: 18% 22% 30% 30%;
+  border: rgb(216, 216, 216);
+  border-bottom-style: solid;
+  border-width: 1px;
+  padding: 3px 0px;
+
+}
+
+.GridDetail div {
+  font-size: 10px;
+  font-weight: 600;
+  padding: 0px 3px;
+}
+
+.right {
+  text-align: right;
+}

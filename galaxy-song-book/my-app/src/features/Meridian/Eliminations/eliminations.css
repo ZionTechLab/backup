@@ -1,0 +1,117 @@
+/* ── Elimination Report — screen-specific styles ── */
+
+/* Stat row (matches General Ledger) */
+.er-stat-row {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 16px;
+  margin-bottom: 16px;
+}
+
+.er-stat-card {
+  background: var(--ml-surface);
+  border: 1px solid var(--ml-border);
+  border-radius: 10px;
+  padding: 18px 22px;
+}
+
+.er-stat-card-accent {
+  border-left: 3px solid var(--ml-primary);
+}
+
+.er-stat-label {
+  font-family: var(--ml-font-mono);
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--ml-muted);
+  margin: 0 0 8px;
+}
+
+.er-stat-value {
+  font-family: var(--ml-font-mono);
+  font-size: 24px;
+  font-weight: 300;
+  letter-spacing: -0.01em;
+  color: var(--ml-text);
+  margin: 0;
+}
+
+.er-stat-currency {
+  font-size: 12px;
+  color: var(--ml-muted);
+  margin-right: 4px;
+}
+
+/* From → To cell */
+.er-route {
+  font-family: var(--ml-font-mono);
+  font-size: 12px;
+  color: var(--ml-text-dim);
+  letter-spacing: 0.04em;
+  white-space: nowrap;
+}
+
+.er-route-arrow {
+  color: var(--ml-muted);
+  margin: 0 6px;
+}
+
+/* Type cell */
+.er-type {
+  font-size: 13px;
+  color: var(--ml-text);
+}
+
+/* Amount cell */
+.er-amount {
+  font-family: var(--ml-font-mono);
+  font-size: 13px;
+  color: var(--ml-text);
+  letter-spacing: 0.02em;
+  white-space: nowrap;
+}
+
+.er-amount-currency {
+  color: var(--ml-muted);
+  margin-right: 4px;
+}
+
+/* Total row below DataTable */
+.er-total-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 14px 20px;
+  background: var(--ml-surface);
+  border: 1px solid var(--ml-border);
+  border-top: 2px solid var(--ml-primary);
+  border-radius: 0 0 10px 10px;
+  margin-top: -1px;
+}
+
+.er-total-label {
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--ml-text);
+}
+
+.er-total-amount {
+  font-family: var(--ml-font-mono);
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--ml-text);
+  letter-spacing: 0.02em;
+}
+
+/* Period select */
+.er-period-select {
+  border: 0;
+  background: transparent;
+  color: inherit;
+  font-size: 13px;
+  font-family: inherit;
+  cursor: pointer;
+  outline: none;
+}

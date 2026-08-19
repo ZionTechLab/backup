@@ -1,0 +1,682 @@
+/* ── Galaxy ERP — App shell styles ─────────────────────────
+   Overrides layout tokens and styles the topbar, sidebar,
+   and status bar to match the Galaxy design system.
+   Component styles use .ml- prefix throughout.
+──────────────────────────────────────────────────────────────── */
+
+/* Design tokens live in src/meridian-tokens.css (single source, loaded globally). */
+
+/* ── Light theme overrides ──────────────────────────────────── */
+/* Use compound selector to beat :root[data-bs-theme="dark"] (specificity 0,2,0) in themes.css,
+   which sets --topbar-color to near-white. Without this, icon buttons become invisible on the
+   white topbar when data-bs-theme="dark" is still present during the Meridian light mode. */
+
+body {
+  background-color: var(--ml-bg);
+  color: var(--ml-text);
+  font-family: var(--ml-font-sans);
+  background-image: var(--ml-bg-image, none);
+  background-size: var(--ml-bg-size, auto);
+  background-position: var(--ml-bg-pos, 0 0);
+  transition: background-color 200ms ease, color 200ms ease;
+}
+
+.content {
+  background-color: var(--ml-bg) !important;
+  background-image: var(--ml-bg-image, none);
+  background-size: var(--ml-bg-size, auto);
+  background-position: var(--ml-bg-pos, 0 0);
+  color: var(--ml-text);
+}
+
+/* ── Topbar ─────────────────────────────────────────────────── */
+.navbar-custom {
+  background-color: var(--topbar-bg) !important;
+  border-bottom: 1px solid var(--ml-border);
+  box-shadow: none !important;
+  height: var(--theme-header-height);
+  display: flex;
+  align-items: center;
+}
+
+.navbar-custom .drawer-toggle-btn {
+  color: var(--topbar-color, var(--ml-muted)) !important;
+  font-size: 18px;
+  padding: 6px 10px;
+  transition: background 0.15s, color 0.15s;
+}
+
+.navbar-custom .drawer-toggle-btn:hover {
+  background: var(--ml-surface) !important;
+  color: var(--ml-text) !important;
+}
+
+/* Page title */
+.ml-nav-title {
+  font-family: var(--ml-font-sans);
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--topbar-color, var(--ml-text-dim));
+  letter-spacing: 0.01em;
+  margin-left: 4px;
+}
+
+/* Icon buttons in topbar */
+.ml-nav-icon-btn {
+  background: none;
+  border: none;
+  color: var(--topbar-color, var(--ml-muted));
+  cursor: pointer;
+  padding: 6px 8px;
+  border-radius: 6px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background 0.15s, color 0.15s;
+  position: relative;
+}
+
+.ml-nav-icon-btn:hover {
+  background: rgba(128, 128, 128, 0.15);
+  color: var(--topbar-color, var(--ml-text));
+}
+
+/* Notification badge dot */
+.ml-nav-badge {
+  position: absolute;
+  top: 4px;
+  right: 4px;
+  width: 7px;
+  height: 7px;
+  background: var(--ml-negative);
+  border-radius: 50%;
+  border: 1.5px solid var(--topbar-bg, var(--ml-bg-deep));
+}
+
+/* User pill button */
+.ml-user-pill {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 4px 10px 4px 4px;
+  border-radius: 20px;
+  cursor: pointer;
+  background: none;
+  border: 1px solid transparent;
+  color: var(--topbar-color, var(--ml-text-dim));
+  font-family: var(--ml-font-sans);
+  font-size: 13px;
+  font-weight: 400;
+  transition: background 0.15s, border-color 0.15s, color 0.15s;
+}
+
+.ml-user-pill:hover {
+  background: rgba(128, 128, 128, 0.15);
+  border-color: rgba(128, 128, 128, 0.2);
+  color: var(--topbar-color, var(--ml-text));
+}
+
+.ml-user-avatar {
+  width: 26px;
+  height: 26px;
+  border-radius: 50%;
+  object-fit: cover;
+  flex-shrink: 0;
+}
+
+.ml-user-initials {
+  width: 26px;
+  height: 26px;
+  border-radius: 50%;
+  background: var(--ml-primary);
+  color: white;
+  font-size: 10px;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  font-family: var(--ml-font-sans);
+  letter-spacing: 0.03em;
+}
+
+/* Topbar dropdown menu */
+.ml-nav-dropdown .dropdown-menu {
+  background: var(--ml-surface);
+  border: 1px solid var(--ml-border);
+  border-radius: 8px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.5);
+  padding: 6px;
+  min-width: 190px;
+}
+
+.ml-dropdown-header {
+  padding: 10px 12px 8px;
+  border-bottom: 1px solid var(--ml-border);
+  margin-bottom: 4px;
+}
+
+.ml-dropdown-user-name {
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--ml-text);
+  font-family: var(--ml-font-sans);
+}
+
+.ml-dropdown-user-role {
+  font-size: 11px;
+  color: var(--ml-muted);
+  margin-top: 2px;
+  font-family: var(--ml-font-mono);
+  letter-spacing: 0.02em;
+}
+
+.ml-nav-dropdown .dropdown-item {
+  color: var(--ml-text-dim);
+  font-size: 13px;
+  border-radius: 6px;
+  padding: 7px 12px;
+  transition: background 0.15s, color 0.15s;
+  font-family: var(--ml-font-sans);
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.ml-nav-dropdown .dropdown-item:hover,
+.ml-nav-dropdown .dropdown-item:focus {
+  background: var(--ml-surface-2);
+  color: var(--ml-text);
+}
+
+.ml-nav-dropdown .dropdown-divider {
+  border-color: var(--ml-border);
+  margin: 4px 0;
+}
+
+.ml-nav-dropdown .dropdown-item.ml-danger {
+  color: var(--ml-negative) !important;
+}
+
+.ml-nav-dropdown .dropdown-item.ml-danger:hover {
+  background: rgba(255, 85, 102, 0.1) !important;
+}
+
+/* ── Sidebar (Drawer) ───────────────────────────────────────── */
+.drawer {
+  background-color: var(--drawer-color) !important;
+  border-right: 1px solid var(--ml-border) !important;
+  box-shadow: none !important;
+}
+
+/* Meridian brand in drawer header */
+.ml-drawer-brand {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 0 16px;
+  height: var(--theme-header-height);
+  border-bottom: 1px solid var(--ml-border);
+  flex-shrink: 0;
+}
+
+.ml-drawer-logo-mark {
+  width: 32px;
+  height: 32px;
+  border-radius: 6px;
+  background: var(--ml-primary);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--ml-font-serif);
+  font-size: 19px;
+  color: white;
+  flex-shrink: 0;
+}
+
+.ml-drawer-brand-text {
+  overflow: hidden;
+}
+
+.ml-drawer-brand-name {
+  font-family: var(--ml-font-serif);
+  font-size: 16px;
+  line-height: 1;
+  color: var(--drawer-link-active-color, var(--ml-text));
+  white-space: nowrap;
+}
+
+.ml-drawer-brand-sub {
+  font-family: var(--ml-font-mono);
+  font-size: 9px;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--drawer-link-color, var(--ml-muted));
+  margin-top: 3px;
+}
+
+.drawer.minimized .ml-drawer-brand {
+  justify-content: center;
+  padding: 0;
+}
+
+.drawer.minimized .ml-drawer-brand-text {
+  display: none;
+}
+
+/* Nav items */
+.drawer-nav .list-group-item {
+  background: transparent !important;
+  border: none !important;
+  padding: 1px 8px;
+}
+
+.drawer-nav .list-group-item:hover {
+  background: transparent !important;
+  color: inherit;
+}
+
+.drawer-nav .nav-link {
+  font-family: var(--ml-font-sans);
+  font-size: 13px;
+  color: var(--drawer-link-color, var(--ml-text-dim));
+  padding: 7px 10px;
+  border-radius: 6px;
+  border-left: 2px solid transparent;
+  gap: 8px;
+  transition: background 0.15s, color 0.15s, border-color 0.15s;
+}
+
+.drawer-nav .nav-link:hover {
+  background-color: var(--drawer-link-hover-bg, rgba(79, 124, 255, 0.08)) !important;
+  color: var(--drawer-link-active-color, var(--ml-text)) !important;
+}
+
+.drawer-nav .nav-link.active,
+.drawer-nav .nav-link[aria-current='page'] {
+  background-color: var(--drawer-link-active-bg, rgba(79, 124, 255, 0.14)) !important;
+  color: var(--drawer-link-active-color, var(--ml-primary)) !important;
+  border-left-color: var(--drawer-link-active-color, var(--ml-primary));
+}
+
+/* Group headers (collapsible parent items) */
+.drawer-nav .group-header {
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--drawer-link-color, var(--ml-muted)) !important;
+  padding: 14px 10px 5px;
+  border-radius: 0;
+  cursor: pointer;
+  justify-content: space-between;
+  border-left: 2px solid transparent !important;
+}
+
+.drawer-nav .group-header:hover {
+  background: none !important;
+  color: var(--drawer-link-active-color, var(--ml-text-dim)) !important;
+}
+
+/* Sub-group headers (3rd+ level — subtler than top-level groups) */
+.drawer-nav .sub-group-header {
+  font-size: 12px;
+  font-weight: 500;
+  letter-spacing: 0.04em;
+  text-transform: none;
+  color: var(--drawer-link-color, var(--ml-text-dim)) !important;
+  padding: 6px 10px 2px;
+  border-radius: 0;
+  cursor: pointer;
+  justify-content: space-between;
+  border-left: 2px solid transparent !important;
+}
+
+.drawer-nav .sub-group-header:hover {
+  background: var(--drawer-link-hover-bg, rgba(79, 124, 255, 0.05)) !important;
+  color: var(--drawer-link-active-color, var(--ml-text)) !important;
+}
+
+/* ── Minimized drawer: tidy icon-only layout ─────────────────── */
+.drawer.minimized .drawer-nav .list-group-item {
+  padding: 2px 6px;
+}
+
+.drawer.minimized .drawer-nav .nav-link,
+.drawer.minimized .drawer-nav .group-header {
+  justify-content: center;
+  padding: 9px 0;
+  gap: 0;
+  font-size: 13px;
+  border-left: 2px solid transparent;
+}
+
+.drawer.minimized .drawer-nav .nav-link > span,
+.drawer.minimized .drawer-nav .group-header > span {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+}
+
+.drawer.minimized .drawer-nav .nav-link i,
+.drawer.minimized .drawer-nav .group-header i {
+  font-size: 18px;
+  line-height: 1;
+  margin: 0 !important;
+}
+
+.drawer.minimized .drawer-nav .list-group.ms-2 {
+  margin-left: 0 !important;
+}
+
+/* Scrollbar */
+.drawer-nav::-webkit-scrollbar-thumb {
+  background-color: rgba(255, 255, 255, 0.08) !important;
+}
+
+/* ── Status bar ─────────────────────────────────────────────── */
+.ml-statusbar {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: var(--ml-statusbar-height, 26px);
+  background: var(--ml-bg-deep);
+  border-top: 1px solid var(--ml-border);
+  padding: 0 16px;
+  z-index: 1031;
+  font-family: var(--ml-font-mono);
+  font-size: 11px;
+  color: var(--ml-muted);
+  overflow: hidden;
+  user-select: none;
+}
+
+/* Full row — desktop/tablet. All segments side by side. */
+.ml-sb-row {
+  display: flex;
+  align-items: center;
+  height: 100%;
+}
+
+.ml-sb-seg {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  padding: 0 10px;
+  border-right: 1px solid var(--ml-border);
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+
+.ml-sb-seg:first-child { padding-left: 0; }
+.ml-sb-seg:last-child  { border-right: none; }
+
+/* Ticker tape — small screens. There isn't room for every segment side by
+   side, so instead of clipping the ones that don't fit, all of them scroll
+   past continuously (same technique as the login page's FX tape: the
+   segment list is duplicated once and slides from 0 to -50%, looping
+   seamlessly since the second half is identical to the first). */
+.ml-sb-tape {
+  height: 100%;
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+}
+
+.ml-sb-tape-inner {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+  white-space: nowrap;
+  animation: ml-sb-tape-scroll 22s linear infinite;
+}
+
+@keyframes ml-sb-tape-scroll {
+  from { transform: translateX(0); }
+  to   { transform: translateX(-50%); }
+}
+
+.ml-sb-tape-item {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  white-space: nowrap;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .ml-sb-tape-inner { animation: none; }
+}
+
+.ml-sb-ready { color: var(--ml-positive); }
+
+.ml-sb-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--ml-positive);
+  flex-shrink: 0;
+}
+
+.ml-sb-dot-hollow {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  border: 1.5px solid var(--ml-muted);
+  flex-shrink: 0;
+}
+
+.ml-sb-spacer { flex: 1; }
+
+/* ── Context dropdowns (GROUP / COMPANY / PERIOD) ───────────── */
+.ml-ctx-dropdown { flex-shrink: 0; }
+
+.ml-ctx-btn {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  padding: 5px 10px;
+  background: transparent;
+  border: 1px solid var(--ml-border);
+  border-radius: 6px;
+  cursor: pointer;
+  white-space: nowrap;
+  color: var(--topbar-color, var(--ml-text));
+  transition: background 0.15s, border-color 0.15s, color 0.15s;
+}
+
+.ml-ctx-btn:hover {
+  background: rgba(128, 128, 128, 0.15);
+  border-color: rgba(128, 128, 128, 0.25);
+  color: var(--topbar-color, var(--ml-text));
+}
+
+.ml-ctx-label {
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--ml-muted);
+  font-family: var(--ml-font-mono);
+}
+
+.ml-ctx-value {
+  font-size: 13px;
+  color: inherit;
+  font-family: var(--ml-font-sans);
+}
+
+.ml-ctx-chevron {
+  font-size: 9px !important;
+  color: var(--ml-muted);
+  margin-left: 2px;
+}
+
+.ml-ctx-sep {
+  color: #353948;
+  font-size: 18px;
+  user-select: none;
+  flex-shrink: 0;
+  line-height: 1;
+}
+
+.ml-ctx-menu {
+  background: var(--ml-surface);
+  border: 1px solid var(--ml-border);
+  border-radius: 8px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.5);
+  padding: 6px;
+  min-width: 180px;
+}
+
+.ml-ctx-item {
+  font-size: 13px;
+  color: var(--ml-text-dim);
+  border-radius: 6px;
+  padding: 7px 12px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-family: var(--ml-font-sans);
+  width: 100%;
+  background: none;
+  border: none;
+  text-align: left;
+}
+
+.ml-ctx-item:hover {
+  background: var(--ml-surface-2);
+  color: var(--ml-text);
+}
+
+.ml-ctx-locked {
+  font-family: var(--ml-font-mono);
+  font-size: 9px;
+  letter-spacing: 0.08em;
+  color: var(--ml-muted);
+  background: var(--ml-surface-2);
+  padding: 2px 5px;
+  border-radius: 3px;
+  margin-left: 8px;
+}
+
+/* ── Mobile context dropdown ────────────────────────────────── */
+.ml-ctx-btn-mobile {
+  gap: 6px;
+  max-width: 160px;
+}
+
+.ml-ctx-btn-mobile .ml-ctx-value {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.ml-ctx-mobile-icon {
+  font-size: 14px;
+  color: var(--ml-muted);
+}
+
+.ml-ctx-menu-mobile {
+  max-height: 70vh;
+  overflow-y: auto;
+}
+
+.ml-ctx-section {
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--ml-muted);
+  font-family: var(--ml-font-mono);
+  padding: 4px 12px;
+}
+
+/* ── Search pill ────────────────────────────────────────────── */
+.ml-search-pill {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 6px 12px;
+  background: var(--ml-surface);
+  border: 1px solid var(--ml-border);
+  border-radius: 6px;
+  cursor: pointer;
+  color: var(--ml-muted);
+  font-size: 13px;
+  font-family: var(--ml-font-sans);
+  white-space: nowrap;
+  min-width: 200px;
+  transition: border-color 0.15s;
+}
+
+.ml-search-pill:hover {
+  border-color: var(--ml-primary);
+  color: var(--ml-text-dim);
+}
+
+.ml-search-kbd {
+  margin-left: auto;
+  font-family: var(--ml-font-mono);
+  font-size: 10px;
+  color: var(--ml-muted);
+  background: var(--ml-surface-2);
+  border: 1px solid var(--ml-border);
+  border-radius: 4px;
+  padding: 1px 5px;
+}
+
+/* ── Notification count badge ───────────────────────────────── */
+.ml-nav-count {
+  position: absolute;
+  top: 2px;
+  right: 2px;
+  min-width: 14px;
+  height: 14px;
+  background: var(--ml-negative);
+  color: white;
+  font-size: 9px;
+  font-family: var(--ml-font-mono);
+  border-radius: 7px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0 3px;
+  border: 1.5px solid var(--ml-bg-deep);
+  font-weight: 600;
+  line-height: 1;
+}
+
+/* ── Sidebar footer ─────────────────────────────────────────── */
+.ml-drawer-footer {
+  padding: 12px 16px;
+  border-top: 1px solid var(--ml-border);
+  flex-shrink: 0;
+}
+
+.ml-drawer-footer-label {
+  font-family: var(--ml-font-mono);
+  font-size: 9px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--drawer-link-color, var(--ml-muted));
+  margin-bottom: 4px;
+}
+
+.ml-drawer-footer-name {
+  font-family: var(--ml-font-sans);
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--drawer-link-active-color, var(--ml-text));
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.ml-drawer-footer-sub {
+  font-family: var(--ml-font-mono);
+  font-size: 10px;
+  color: var(--drawer-link-color, var(--ml-muted));
+  margin-top: 2px;
+}

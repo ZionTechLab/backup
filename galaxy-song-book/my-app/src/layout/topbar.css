@@ -1,0 +1,46 @@
+.navbar-custom {
+  background-color: var(--topbar-bg);
+  color: var(--topbar-color);
+  height: var(--theme-header-height);
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1030;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.06);
+  transition: left 0.3s ease-in-out, background-color 200ms ease, color 200ms ease, border-color 200ms ease;
+}
+
+.navbar-custom .title { color: var(--ml-text); }
+
+.notification-bell { position: relative; }
+
+.notification-bell .badge {
+  position: absolute;
+  top: -5px;
+  right: -5px;
+  background-color: var(--badge-accent-bg, red);
+  color: #fff;
+  font-size: 0.65rem;
+  padding: 3px 6px;
+  border-radius: 50%;
+  box-shadow: 0 0 0 2px var(--ml-bg-deep, #08090c);
+}
+
+.search-box { width: 200px; }
+
+.navbar-profile-img {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+@media (min-width: 992px) {
+  body.drawer-expanded .navbar-custom  { left: var(--drawer-width); }
+  body.drawer-minimized .navbar-custom { left: 70px; }
+}
+
+@media (max-width: 991.98px) {
+  body.drawer-open .navbar-custom { left: 0; }
+}

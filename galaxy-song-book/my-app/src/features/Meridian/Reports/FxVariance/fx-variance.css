@@ -1,0 +1,164 @@
+/* ── FX Variance Report — screen-specific styles ── */
+
+/* Warning / alert banner */
+.fxv-alert {
+  display: flex;
+  gap: 14px;
+  align-items: flex-start;
+  padding: 14px 18px;
+  margin-bottom: 16px;
+  background: linear-gradient(180deg,
+    rgba(255, 176, 32, 0.10) 0%,
+    rgba(255, 176, 32, 0.04) 100%);
+  border: 1px solid rgba(255, 176, 32, 0.25);
+  border-radius: 10px;
+}
+
+.fxv-alert-icon {
+  font-size: 16px;
+  color: #f5a623;
+  margin-top: 1px;
+  flex-shrink: 0;
+}
+
+.fxv-alert-body { flex: 1; }
+
+.fxv-alert-title {
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--ml-text);
+  margin: 0 0 4px;
+}
+
+.fxv-alert-text {
+  font-size: 12px;
+  color: var(--ml-text-dim);
+  margin: 0;
+}
+
+.fxv-alert-amt {
+  font-family: var(--ml-font-mono);
+  font-weight: 600;
+  color: #f5a623;
+}
+
+/* Card with section header */
+.fxv-section-card {
+  background: var(--ml-surface);
+  border: 1px solid var(--ml-border);
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+.fxv-section-header {
+  padding: 12px 16px;
+  font-family: var(--ml-font-mono);
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--ml-muted);
+  background: var(--ml-surface-2);
+  border-bottom: 1px solid var(--ml-border);
+}
+
+/* Company chip */
+.fxv-company-chip {
+  display: inline-flex;
+  align-items: center;
+  padding: 2px 8px;
+  margin-right: 10px;
+  font-family: var(--ml-font-mono);
+  font-size: 11px;
+  color: var(--ml-text-dim);
+  background: var(--ml-surface-2);
+  border: 1px solid var(--ml-border);
+  border-radius: 3px;
+  letter-spacing: 0.04em;
+}
+
+.fxv-company-name {
+  font-size: 13px;
+  color: var(--ml-text);
+}
+
+/* Numeric cells */
+.fxv-num {
+  font-family: var(--ml-font-mono);
+  font-size: 13px;
+  color: var(--ml-text);
+  letter-spacing: 0.02em;
+}
+
+.fxv-num-dim {
+  font-family: var(--ml-font-mono);
+  font-size: 13px;
+  color: var(--ml-text-dim);
+  letter-spacing: 0.02em;
+}
+
+/* CTA value (primary color) */
+.fxv-cta {
+  font-family: var(--ml-font-mono);
+  font-size: 13px;
+  color: var(--ml-primary);
+  letter-spacing: 0.02em;
+  white-space: nowrap;
+}
+
+.fxv-cta-currency {
+  color: var(--ml-muted);
+  margin-right: 4px;
+}
+
+/* CCY code */
+.fxv-ccy {
+  font-family: var(--ml-font-mono);
+  font-size: 12px;
+  color: var(--ml-text-dim);
+  letter-spacing: 0.04em;
+}
+
+/* Total row */
+.fxv-total-row {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  align-items: center;
+  padding: 13px 16px;
+  background: var(--ml-surface);
+  border-top: 2px solid var(--ml-primary);
+}
+
+.fxv-total-label {
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--ml-text);
+}
+
+.fxv-total-amount {
+  font-family: var(--ml-font-mono);
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--ml-text);
+  letter-spacing: 0.02em;
+  padding-right: 80px; /* aligns approximately with the % OF EQUITY column */
+}
+
+/* Period select */
+.fxv-period-select {
+  border: 0;
+  background: transparent;
+  color: inherit;
+  font-size: 13px;
+  font-family: inherit;
+  cursor: pointer;
+  outline: none;
+}
+
+/* DataTable override — squash the bottom radii so total row docks cleanly */
+.fxv-table-wrap .ml-screen-card,
+.fxv-table-wrap > div {
+  border-bottom-left-radius: 0;
+  border-bottom-right-radius: 0;
+  border-bottom: none;
+}

@@ -1,0 +1,28 @@
+# Dependencies
+node_modules/
+express-be/node_modules/
+my-app/node_modules/
+
+# Build output
+my-app/build/
+
+# Logs
+*.log
+express-be/logs/
+my-app/logs/
+
+# Database
+express-be/database/*.db
+express-be/database/*.sqlite
+
+# Environment
+.env
+.env.local
+
+# IDE
+.vscode/
+.idea/
+
+# OS
+.DS_Store
+Thumbs.db

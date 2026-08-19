@@ -1,0 +1,29 @@
+runtime: nodejs24  # Update from nodejs20 to nodejs24
+instance_class: F1
+automatic_scaling:
+  max_instances: 1
+
+env_variables:
+  JWT_SECRET: "REPLACE_WITH_REAL_SECRET"
+  JWT_EXPIRES_IN: "1h"
+  REFRESH_TOKEN_DAYS: "7"
+  # DB_CLIENT: "sqlite3"
+  # DB_FILENAME: "/tmp/service_plus.db"
+  DB_CLIENT: "mysql"
+  DB_HOST: "10.0.0.67"
+  DB_PORT: "3306"
+  DB_NAME: "galaxy_DB"
+  DB_USER: "anoj.thilina.perera@gmail.com"
+  DB_PASSWORD: "Zion@123"
+  CORS_ORIGINS: "https://fin.zionsl.com,https://fnbe.zionsl.com"
+
+  # OCI Object Storage
+  STORAGE_DRIVER: "oci"
+  OCI_BUCKET_NAME: "bucket-20260718-1617"
+  OCI_NAMESPACE: "bmkxuvqdypkz"
+  OCI_REGION: "ap-mumbai-1"
+  OCI_OBJECT_PREFIX: "uploads/"
+  OCI_TENANCY_OCID: "ocid1.tenancy.oc1..aaaaaaaaostcfa3tjfeq6ssjj6usk36rvfgcavbafx5tf5jlpp3frnzbduaa"
+  OCI_USER_OCID: "ocid1.user.oc1..aaaaaaaag3yygcq3hi4dysnbs5uke5ikmloypir7h73sml36ptmxr5oqt75q"
+  OCI_FINGERPRINT: "b2:8a:cd:70:89:ad:e2:6d:17:c6:9f:ae:23:c2:71:72"
+  OCI_PRIVATE_KEY: "-----BEGIN PRIVATE KEY-----\nMIIEvgIBADANBgkqhkiG9w0BAQEFAASCBKgwggSkAgEAAoIBAQDx1jNjBKdXHEC4\nP7xQ2iL3gQc1ktrdRDkBo43gpbBWEL73KZ29CvXXd8hdFkH2iNDwJ2MKSXRED16L\nsagt2qvRTPthfooZ1kBh1BGk7GcBr8DuWfDSMiJqRe2q5qrHj8AjMB3zO2m56AOF\nLXq0fMRF3bNBm5vlbauYIkSZUHGtI1HpyRVzMAr7T/WcuMbntJJ6YROAY9IRUwKG\npcwOutfgXpmdhIjSi80adi07cdtISKETi1z7fXdyeB3QVQMyVZRa95AOAINlYX72\n0/CFBx0fj3vez1GoqRtVUJFoxTh+PVXv/iM/IRMI3ceo6ffhQaDAluxqp2q//ywe\n6IFDTvUnAgMBAAECggEAAZj4bcnPJy87qoB+bQspkUG1KSCCuTAuQacocCHTf08x\ncFNCRGztnBtqrMfjyc4PtiL9nUjagdaXS8w622WLnk5DqpEjNo0x2K8FvND0ZhmG\nVhp12t7BfCiqPedqnK3fNPxM4uuqDer6zdShcBfunf2JARwpQkPOIU+lyIE0dwk/\nw6DCgOnW9Zz1BncjMfeBvqVuzaJJxFq1QeInETgzlpeG/05+IQrdH0/319qLDKk5\nBHiXwLsSfgMX9DE3vLKNQ45BoDH2R3eaieE7mB1QWCt77ru+AkdRmlhGzvu7ju4W\nrC4GMQS2dnCfOjsqPgUM9iSpJhrafgb96McT6zFQ0QKBgQD6MPFyIxoInXLFpjxu\nIJMrydoPU22Ni70rlrCYG/AhjIPq10F8Hn82h0lWDC2KQtlO4ZHppGYYY+X8MkR7\nF5fQ8pN1i8yj1bDe3jlo142JbwTQ2E9ceDuNHccdLMxXIFdYfPdIWdgIda5aoGKV\nc6VEYagRU9abSA8LfU1M+vpsUQKBgQD3c5nvnhs8xDZEtHUHfnKKX7/QJGBB3HCa\n0mcajhDlwWQ9K4Kya+mEsFmP84avrk6xXiyCeyN8/tmd6+7eO/AXOja3yVzbzUG0\n+JilCdFT9paEtt0d2fGIVW18nMxAz67k63SfEABniIid0dparIpAjG9LqczIW9E/\nThxgWFOD9wKBgQCxjfZr1/lrz8FZ/4W3airH0rKMWdrPrzILMyAUcw9R39Tm3ui8\nWzBQ1GX5SR8wlgx+bJsOwvspqAvZlRsAeFfnk5+Oti3+v3KMWA1KGF97/2vdgwWf\nTDyHA3EBhX9m/a6/P8CGeixUpJ+d9WDBS5coFl4eHe+Zt+PldYFcdmkuYQKBgQCM\n0B3zO3eodsejBUXrg8tObvpKScj08aqqj7zYYau/8vNF0/LF8Z6rQWdWAXDNnFVv\nnXWastQZFzVjJpWBpX4U2a21nELZWc5gW28Ry6pxK0uwLhdaG2HVATgSx298GjMe\nVdbBhWuVfx6vIHIvUyxBWykiV3gPNCC484w2T00HNQKBgHW0K4J/JsYf2AU9ISEa\nrNN87dr4xZZvaQCANa5C4amHMK0geX4vQwQWCP82KvdLsIRePF7bxf1h1UI17Sjr\nGili+StZt/E8YGcotaFvXRDqPDoz2HYSsAIcLKos+0C7MwGsvGGI9T8R933wrEjt\n+iNQ3zUS/qBb7qAg9nexyqWl\n-----END PRIVATE KEY-----"

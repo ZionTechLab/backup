@@ -1,0 +1,43 @@
+<svg viewBox="0 0 620 260" xmlns="http://www.w3.org/2000/svg" font-family="Segoe UI, Arial, sans-serif">
+  <rect width="620" height="260" fill="#f4f6f9"/>
+  <text x="20" y="30" fill="#212529" font-size="16" font-weight="700">Notifications</text>
+  <text x="20" y="48" fill="#6c757d" font-size="10">Configure how and when you receive alerts</text>
+
+  <rect x="20" y="60" width="580" height="190" rx="6" fill="#fff" stroke="#dee2e6"/>
+
+  <g font-family="Segoe UI, Arial, sans-serif">
+    <!-- Row 1 -->
+    <line x1="34" y1="94" x2="586" y2="94" stroke="#eee"/>
+    <text x="34" y="82" fill="#212529" font-size="11" font-weight="600">New Assignment</text>
+    <text x="34" y="96" fill="#6c757d" font-size="9">When you are assigned a new activity</text>
+    <rect x="540" y="76" width="34" height="18" rx="9" fill="#0d6efd"/>
+    <circle cx="565" cy="85" r="7" fill="#fff"/>
+
+    <!-- Row 2 -->
+    <text x="34" y="120" fill="#212529" font-size="11" font-weight="600">Approval Requests</text>
+    <text x="34" y="134" fill="#6c757d" font-size="9">When an item needs your approval</text>
+    <rect x="540" y="114" width="34" height="18" rx="9" fill="#0d6efd"/>
+    <circle cx="565" cy="123" r="7" fill="#fff"/>
+    <line x1="34" y1="132" x2="586" y2="132" stroke="#eee"/>
+
+    <!-- Row 3 -->
+    <text x="34" y="158" fill="#212529" font-size="11" font-weight="600">Weekly Digest</text>
+    <text x="34" y="172" fill="#6c757d" font-size="9">Summary of weekly activities</text>
+    <rect x="540" y="152" width="34" height="18" rx="9" fill="#ced4da"/>
+    <circle cx="549" cy="161" r="7" fill="#fff"/>
+    <line x1="34" y1="170" x2="586" y2="170" stroke="#eee"/>
+
+    <!-- Row 4 -->
+    <text x="34" y="196" fill="#212529" font-size="11" font-weight="600">Desktop Notifications</text>
+    <text x="34" y="210" fill="#6c757d" font-size="9">Browser notifications</text>
+    <rect x="540" y="190" width="34" height="18" rx="9" fill="#0d6efd"/>
+    <circle cx="565" cy="199" r="7" fill="#fff"/>
+    <line x1="34" y1="208" x2="586" y2="208" stroke="#eee"/>
+
+    <!-- Row 5 -->
+    <text x="34" y="234" fill="#212529" font-size="11" font-weight="600">Mobile Push</text>
+    <text x="34" y="248" fill="#6c757d" font-size="9">Push notifications to mobile app</text>
+    <rect x="540" y="228" width="34" height="18" rx="9" fill="#ced4da"/>
+    <circle cx="549" cy="237" r="7" fill="#fff"/>
+  </g>
+</svg>

@@ -1,0 +1,11 @@
+{
+  "name": "galaxy-song-book",
+  "private": true,
+  "scripts": {
+    "dev": "concurrently --names \"API,WEB\" --prefix-colors \"cyan,magenta\" \"cd express-be && npm run dev\" \"set PORT=3001 && cd my-app && npm start\"",
+    "postinstall": "cd express-be && npm install && cd ../my-app && npm install"
+  },
+  "devDependencies": {
+    "concurrently": "^9.1.2"
+  }
+}

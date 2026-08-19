@@ -1,0 +1,35 @@
+
+.appBar2
+{
+bottom: 0px;
+    position: fixed;
+    left: 0;
+    width: 100%;
+    padding: 15px;
+    background-color: #bec0c7e5;   
+     box-shadow: 0px 2px 4px -1px rgb(0 0 0 / 20%), 0px 4px 5px 0px rgb(0 0 0 / 14%), 0px 1px 10px 0px rgb(0 0 0 / 12%);
+}
+
+.detail
+{
+
+}
+
+/* @media (min-width:0px) and (orientation: landscape) {
+    .appBar {
+      min-height: 48px;
+    }
+  }
+  @media (min-width:600px) {
+    .appBar {
+      padding-left: 24px;
+      padding-right: 24px;
+      min-height: 64px;
+    }
+  }
+  .IconUser
+  {
+    float: right;margin-left: auto; 
+    margin-right: 0;
+  }
+   */

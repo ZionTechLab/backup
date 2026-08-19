@@ -1,0 +1,81 @@
+.model {
+  background-color: rgb(253, 253, 253);
+
+  margin: 20px;
+  padding: 15px;
+
+}
+
+
+.grid1 {
+  display: grid;
+  grid-template-columns: auto 60px 60px;
+}
+
+.grid2 {
+  display: grid;
+  grid-template-columns: 100px 100px 75px;
+}
+
+.t1 {
+  font-size: 12px;
+  font-weight: 700;
+}
+
+.t2 {
+  font-size: 11px;
+  font-weight: 500;
+}
+
+.Amount {
+  text-align: right;
+  color: crimson;
+}
+
+.Qty {
+  display: grid;
+  grid-template-columns: 15px 30px 15px;
+  border: 1px solid #eeecec;
+}
+
+.btn_QtyChange {
+  border: none;
+  padding: 0px 4px;
+  text-align: center;
+  font-size: 12px;
+  font-weight: 400;
+  transition-duration: 0.4s;
+  cursor: pointer;
+}
+
+.btn_QtyChange:hover {
+  background-color: #181cf3;
+  color: white;
+}
+
+.Qty_Input {
+  padding: 0px;
+  font-size: 12px;
+  font-weight: 700;
+  border: 0px;
+  -webkit-transition: 0.9s;
+  transition: 0.9s;
+  text-align: center;
+}
+
+.Qty_Input:focus {
+  outline: none;
+  background-color: rgb(216, 216, 216);
+
+}
+
+.Qty_Input:hover {
+  background-color: rgba(197, 197, 197, 0.308);
+}
+
+.border {
+  /* margin: 5px; */
+  padding: 8px;
+  border-radius: 5px;
+  box-shadow: 0px 2px 4px -1px rgb(0 0 0 / 0%), 0px 4px 5px 0px rgb(0 0 0 / 14%), 0px 1px 10px 0px rgb(0 0 0 / 12%);
+}

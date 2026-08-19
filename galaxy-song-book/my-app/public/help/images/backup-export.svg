@@ -1,0 +1,77 @@
+<svg viewBox="0 0 620 380" xmlns="http://www.w3.org/2000/svg" font-family="Segoe UI, Arial, sans-serif">
+  <rect width="620" height="380" rx="8" fill="#161c27"/>
+  <rect x="1" y="1" width="618" height="378" rx="7" fill="none" stroke="#2c374a"/>
+
+  <text x="20" y="28" fill="#e8ebf1" font-size="15" font-weight="700">Backup</text>
+
+  <!-- Tabs -->
+  <rect x="168" y="12" width="100" height="30" rx="6" fill="#4f7cff"/>
+  <text x="218" y="32" fill="#fff" font-size="11" text-anchor="middle" font-weight="600">Export</text>
+  <rect x="272" y="12" width="100" height="30" rx="6" fill="none" stroke="#3a4560"/>
+  <text x="322" y="32" fill="#7d879b" font-size="11" text-anchor="middle">Restore</text>
+
+  <!-- Scope section -->
+  <text x="20" y="70" fill="#c3cad8" font-size="11" font-weight="700">SCOPE</text>
+
+  <!-- This Tenant -->
+  <circle cx="28" cy="90" r="7" fill="none" stroke="#3a4560"/>
+  <circle cx="28" cy="90" r="4" fill="#3a4560"/>
+  <text x="44" y="86" fill="#e8ebf1" font-size="12" font-weight="600">This Tenant</text>
+  <text x="44" y="100" fill="#7d879b" font-size="9">Every registered table, filtered to your tenant and company.</text>
+
+  <!-- Selected Modules (active) -->
+  <circle cx="28" cy="122" r="7" fill="none" stroke="#4f7cff"/>
+  <circle cx="28" cy="122" r="4" fill="#4f7cff"/>
+  <text x="44" y="118" fill="#e8ebf1" font-size="12" font-weight="600">Selected Module(s)</text>
+  <text x="44" y="132" fill="#7d879b" font-size="9">Only the tables belonging to the modules you pick below.</text>
+
+  <!-- Full Database -->
+  <circle cx="28" cy="154" r="7" fill="none" stroke="#3a4560"/>
+  <circle cx="28" cy="154" r="4" fill="#3a4560"/>
+  <text x="44" y="150" fill="#e8ebf1" font-size="12" font-weight="600">Full Database</text>
+  <text x="44" y="164" fill="#7d879b" font-size="9">Every table, every tenant, unfiltered.</text>
+
+  <line x1="20" y1="180" x2="600" y2="180" stroke="#2c374a"/>
+
+  <!-- Modules section -->
+  <text x="20" y="202" fill="#c3cad8" font-size="11" font-weight="700">MODULES</text>
+
+  <!-- Module checkboxes -->
+  <g font-size="11" fill="#c3cad8">
+    <rect x="20" y="212" width="16" height="16" rx="3" fill="#4f7cff"/>
+    <path d="M23 220 l4 4 l7 -8" stroke="#fff" stroke-width="1.4" fill="none"/>
+    <text x="42" y="224">Petty Cash</text>
+    <text x="185" y="224" fill="#7d879b" font-size="9">18 tables</text>
+
+    <rect x="260" y="212" width="16" height="16" rx="3" fill="none" stroke="#3a4560"/>
+    <text x="282" y="224">Business Partners</text>
+    <text x="440" y="224" fill="#7d879b" font-size="9">12 tables</text>
+
+    <rect x="20" y="240" width="16" height="16" rx="3" fill="#4f7cff"/>
+    <path d="M23 248 l4 4 l7 -8" stroke="#fff" stroke-width="1.4" fill="none"/>
+    <text x="42" y="252">Stock</text>
+    <text x="185" y="252" fill="#7d879b" font-size="9">6 tables</text>
+
+    <rect x="260" y="240" width="16" height="16" rx="3" fill="none" stroke="#3a4560"/>
+    <text x="282" y="252">Company Settings</text>
+    <text x="440" y="252" fill="#7d879b" font-size="9">8 tables</text>
+
+    <rect x="20" y="268" width="16" height="16" rx="3" fill="#4f7cff"/>
+    <path d="M23 276 l4 4 l7 -8" stroke="#fff" stroke-width="1.4" fill="none"/>
+    <text x="42" y="280">Images</text>
+    <text x="185" y="280" fill="#7d879b" font-size="9">1 table</text>
+
+    <rect x="260" y="268" width="16" height="16" rx="3" fill="none" stroke="#3a4560"/>
+    <text x="282" y="280">Vouchers</text>
+    <text x="440" y="280" fill="#7d879b" font-size="9">5 tables</text>
+  </g>
+
+  <line x1="20" y1="300" x2="600" y2="300" stroke="#2c374a"/>
+
+  <!-- Export button -->
+  <rect x="20" y="318" width="130" height="34" rx="6" fill="#4f7cff"/>
+  <text x="85" y="339" fill="#fff" font-size="12" text-anchor="middle" font-weight="600">Export</text>
+
+  <!-- Selected count hint -->
+  <text x="170" y="340" fill="#7d879b" font-size="10">3 modules selected — 25 tables</text>
+</svg>

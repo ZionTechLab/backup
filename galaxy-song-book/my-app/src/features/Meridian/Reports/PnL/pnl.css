@@ -1,0 +1,166 @@
+/* ── P&L Statement — screen-specific styles ── */
+
+/* ── Table shell ── */
+.pnl-table {
+  border-collapse: collapse;
+  width: 100%;
+}
+
+.pnl-col-account { width: 50%; }
+.pnl-col-amount  { width: 16%; min-width: 120px; }
+.pnl-col-var     { width: 10%; min-width: 70px; }
+
+/* ── Column header row ── */
+.pnl-col-header-row th {
+  font-family: var(--ml-font-mono);
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--ml-muted);
+  padding: 9px 20px;
+  border-bottom: 1px solid var(--ml-border);
+  background: var(--ml-surface-2);
+}
+
+/* ── Section header rows (REVENUE, COST OF GOODS SOLD …) ── */
+.pnl-section-row td {
+  font-family: var(--ml-font-mono);
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--ml-muted);
+  padding: 9px 20px;
+  background: var(--ml-surface-2);
+  border-top: 1px solid var(--ml-border);
+  border-bottom: none;
+}
+
+/* ── Account rows ── */
+.pnl-account-row td {
+  padding: 10px 20px;
+  vertical-align: middle;
+  border-bottom: 1px solid var(--ml-border);
+  background: var(--ml-surface);
+  font-size: 13px;
+}
+
+.pnl-account-row:hover td {
+  background: var(--ml-surface-2);
+}
+
+/* ── Subtotal rows (Total Revenue, Total COGS …) ── */
+.pnl-subtotal-row td {
+  padding: 10px 20px;
+  border-top: 1px solid var(--ml-border);
+  border-bottom: 1px solid var(--ml-border);
+  background: var(--ml-surface);
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--ml-text);
+}
+
+/* ── Metric rows (Gross Profit, Operating Income, Net Income …) ── */
+.pnl-metric-row td {
+  padding: 12px 20px;
+  border-top: 2px solid var(--ml-border);
+  border-bottom: 2px solid var(--ml-border);
+  background: var(--ml-surface-2);
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--ml-text);
+}
+
+/* ── Account code chip ── */
+.pnl-account-chip {
+  display: inline-flex;
+  align-items: center;
+  min-width: 36px;
+  padding: 2px 6px;
+  margin-right: 12px;
+  font-family: var(--ml-font-mono);
+  font-size: 11px;
+  color: var(--ml-muted);
+  background: var(--ml-surface-2);
+  border: 1px solid var(--ml-border);
+  border-radius: 3px;
+  letter-spacing: 0.03em;
+}
+
+.pnl-account-name {
+  font-size: 13px;
+  color: var(--ml-text);
+}
+
+/* ── Amount cells ── */
+.pnl-amt {
+  font-family: var(--ml-font-mono);
+  font-size: 13px;
+  color: var(--ml-text);
+  letter-spacing: 0.02em;
+}
+
+.pnl-amt-dim {
+  font-family: var(--ml-font-mono);
+  font-size: 13px;
+  color: var(--ml-text-dim);
+  letter-spacing: 0.02em;
+}
+
+.pnl-amt-bold { font-weight: 600; }
+
+.pnl-metric-row .pnl-amt,
+.pnl-metric-row .pnl-amt-dim {
+  font-size: 14px;
+  font-weight: 700;
+}
+
+.pnl-negative { color: var(--ml-negative) !important; }
+
+/* ── Variance column ── */
+.pnl-var-pos {
+  font-family: var(--ml-font-mono);
+  font-size: 12px;
+  font-weight: 500;
+  color: var(--ml-positive);
+  letter-spacing: 0.03em;
+}
+
+.pnl-var-neg {
+  font-family: var(--ml-font-mono);
+  font-size: 12px;
+  font-weight: 500;
+  color: var(--ml-negative);
+  letter-spacing: 0.03em;
+}
+
+/* ── Compare button active ── */
+.pnl-btn-active {
+  border-color: var(--ml-primary) !important;
+  color: var(--ml-primary) !important;
+  background: rgba(79, 124, 255, 0.06) !important;
+}
+
+/* ── Period select inside ghost button ── */
+.pnl-period-select {
+  border: 0;
+  background: transparent;
+  color: inherit;
+  font-size: 13px;
+  font-family: inherit;
+  cursor: pointer;
+  outline: none;
+}
+
+/* ── Date input inside ghost button ── */
+.pnl-date-input {
+  border: 0;
+  background: transparent;
+  color: inherit;
+  font-size: 13px;
+  font-family: var(--ml-font-mono);
+  cursor: pointer;
+  outline: none;
+  width: 130px;
+}

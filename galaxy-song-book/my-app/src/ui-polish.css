@@ -1,0 +1,677 @@
+/* ─────────────────────────────────────────────────────────────
+   UI Polish layer
+   Loaded after index.css + themes.css. Additive only.
+   Provides design tokens, focus rings, refined cards, tables,
+   forms, buttons, drawer/topbar polish, and PageHeader styles.
+   ───────────────────────────────────────────────────────────── */
+
+/* ============ Tokens ============ */
+:root {
+  /* Spacing scale (4px base) */
+  --space-0: 0;
+  --space-1: 4px;
+  --space-2: 8px;
+  --space-3: 12px;
+  --space-4: 16px;
+  --space-5: 20px;
+  --space-6: 24px;
+  --space-8: 32px;
+  --space-10: 40px;
+
+  /* Motion */
+  --dur-fast: 120ms;
+  --dur-med: 200ms;
+  --dur-slow: 320ms;
+  --ease-out: cubic-bezier(0.2, 0.8, 0.2, 1);
+  --ease-in-out: cubic-bezier(0.4, 0, 0.2, 1);
+
+  /* Focus ring */
+  --focus-ring-color: color-mix(in srgb, var(--primary-color, #1976d2) 35%, transparent);
+  --focus-ring-width: 3px;
+
+  /* Shadows refined */
+  --shadow-xs: 0 1px 2px rgba(15, 23, 42, 0.04);
+  --shadow-sm: 0 1px 3px rgba(15, 23, 42, 0.06), 0 1px 2px rgba(15, 23, 42, 0.04);
+  --shadow-md: 0 4px 12px rgba(15, 23, 42, 0.08), 0 2px 4px rgba(15, 23, 42, 0.04);
+  --shadow-lg: 0 12px 32px rgba(15, 23, 42, 0.10), 0 4px 8px rgba(15, 23, 42, 0.05);
+}
+
+:root[data-bs-theme="dark"] {
+  --shadow-xs: 0 1px 2px rgba(0, 0, 0, 0.4);
+  --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.5);
+  --shadow-md: 0 6px 16px rgba(0, 0, 0, 0.55);
+  --shadow-lg: 0 16px 36px rgba(0, 0, 0, 0.6);
+}
+
+/* ============ Global focus ring ============ */
+*:focus { outline: none; }
+
+button:focus-visible,
+a:focus-visible,
+.btn:focus-visible,
+.form-control:focus-visible,
+.form-select:focus-visible,
+.form-check-input:focus-visible,
+[role="button"]:focus-visible,
+[tabindex]:focus-visible {
+  outline: none;
+  box-shadow: 0 0 0 var(--focus-ring-width) var(--focus-ring-color);
+  border-color: var(--primary-color);
+}
+
+/* Bootstrap's built-in focus shadow conflicts; override */
+.form-control:focus,
+.form-select:focus {
+  border-color: var(--primary-color);
+  box-shadow: 0 0 0 var(--focus-ring-width) var(--focus-ring-color);
+}
+
+/* ============ Cards ============ */
+.card {
+  border: 1px solid var(--divider-color, #e6e8ec);
+  background-color: var(--surface-color, #fff);
+  box-shadow: var(--shadow-xs);
+  transition: box-shadow var(--dur-med) var(--ease-out),
+              transform var(--dur-med) var(--ease-out);
+}
+
+.card-header {
+  background-color: transparent;
+  color: var(--text-primary, #212121);
+  border-bottom: 1px solid var(--divider-color, #e6e8ec);
+  padding: var(--space-4) var(--space-5);
+  font-weight: 600;
+  font-size: 0.95rem;
+  letter-spacing: 0.01em;
+}
+
+.card-body { padding: var(--space-5); }
+.card-footer {
+  background-color: transparent;
+  border-top: 1px solid var(--divider-color, #e6e8ec);
+  padding: var(--space-3) var(--space-5);
+}
+
+/* Hover lift only on interactive cards */
+.card.card-hover:hover {
+  box-shadow: var(--shadow-md);
+  transform: translateY(-1px);
+}
+
+/* ============ Tables ============ */
+.table {
+  --bs-table-bg: transparent;
+  border-color: var(--divider-color, #e6e8ec);
+}
+
+.table thead th {
+  background-color: var(--table-head-bg, #f7f8fa);
+  color: var(--table-head-color, var(--text-secondary, #4b5563)) !important;
+  font-weight: 600;
+  font-size: 0.72rem;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  padding: var(--space-3) var(--space-4);
+  border-bottom: 1px solid var(--divider-color, #e6e8ec);
+  position: sticky;
+  top: 0;
+  z-index: 2;
+}
+
+.table tbody td {
+  padding: var(--space-3) var(--space-4);
+  border-top: 1px solid var(--divider-color, #eef0f3);
+  vertical-align: middle;
+  font-size: 0.875rem;
+}
+
+.table-hover tbody tr {
+  transition: background-color var(--dur-fast) var(--ease-out);
+}
+
+.table-hover tbody tr:hover {
+  background-color: var(--table-row-hover, rgba(0, 0, 0, 0.035));
+}
+
+/* Compact action cell */
+.table td.actions,
+.table td .table-actions {
+  white-space: nowrap;
+}
+
+/* ============ Forms / Inputs ============ */
+.form-label {
+  font-size: 0.8125rem;
+  font-weight: 500;
+  color: var(--text-secondary, #6b7280);
+  margin-bottom: var(--space-1);
+  letter-spacing: 0.01em;
+}
+
+.form-control,
+.form-select {
+  font-size: 0.875rem;
+  padding: 0.5rem 0.75rem;
+  background-color: var(--surface-color, #fff);
+  border: 1px solid var(--divider-color, #d8dce3);
+  color: var(--text-primary, #111827);
+  transition: border-color var(--dur-fast) var(--ease-out),
+              box-shadow var(--dur-fast) var(--ease-out);
+}
+
+.form-control::placeholder { color: var(--text-secondary, #9ca3af); opacity: 0.7; }
+
+.form-control:disabled,
+.form-select:disabled {
+  background-color: color-mix(in srgb, var(--divider-color) 30%, transparent);
+  cursor: not-allowed;
+}
+
+.form-control.is-invalid,
+.was-validated .form-control:invalid {
+  border-color: var(--danger-accent, #ef4444);
+  box-shadow: 0 0 0 var(--focus-ring-width)
+              color-mix(in srgb, var(--danger-accent, #ef4444) 25%, transparent);
+}
+
+.invalid-feedback,
+.error-message {
+  font-size: 0.75rem;
+  margin-top: var(--space-1);
+}
+
+/* Input groups: cleaner seam */
+.input-group > .form-control,
+.input-group > .form-select { box-shadow: none !important; }
+.input-group-text {
+  background-color: color-mix(in srgb, var(--divider-color) 40%, transparent);
+  border-color: var(--divider-color);
+  color: var(--text-secondary);
+  font-size: 0.8125rem;
+}
+
+/* Checkbox + switch accent */
+.form-check-input:checked {
+  background-color: var(--primary-color);
+  border-color: var(--primary-color);
+}
+
+/* ============ Buttons ============ */
+.btn {
+  font-size: 0.875rem;
+  font-weight: 500;
+  padding: 0.5rem 1rem;
+  letter-spacing: 0.01em;
+  transition: background-color var(--dur-fast) var(--ease-out),
+              border-color var(--dur-fast) var(--ease-out),
+              box-shadow var(--dur-fast) var(--ease-out),
+              transform var(--dur-fast) var(--ease-out);
+}
+
+.btn:active { transform: translateY(0.5px); }
+
+.btn-primary {
+  box-shadow: 0 1px 2px rgba(15, 23, 42, 0.12);
+}
+.btn-primary:hover { box-shadow: var(--shadow-sm); }
+
+.btn-sm { font-size: 0.8125rem; padding: 0.35rem 0.7rem; }
+.btn-lg { font-size: 0.95rem; padding: 0.7rem 1.4rem; }
+
+/* Ghost variant */
+.btn-ghost {
+  background: transparent;
+  color: var(--text-primary, #111827);
+  border: 1px solid transparent;
+}
+.btn-ghost:hover {
+  background-color: color-mix(in srgb, var(--text-primary) 6%, transparent);
+}
+.btn-ghost.btn-primary-ghost {
+  color: var(--primary-color);
+}
+.btn-ghost.btn-primary-ghost:hover {
+  background-color: color-mix(in srgb, var(--primary-color) 10%, transparent);
+}
+
+/* Icon-only button helper */
+.btn-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 34px;
+  height: 34px;
+  padding: 0;
+  border-radius: var(--radius-sm, 6px);
+}
+
+/* ============ Drawer polish ============ */
+.drawer-nav .nav-link {
+  position: relative;
+  padding: 0.55rem 0.85rem;
+  margin: 2px 8px;
+  color: var(--drawer-link-color, var(--text-secondary));
+  font-size: 0.875rem;
+  letter-spacing: 0.01em;
+}
+
+.drawer-nav .nav-link i,
+.drawer-nav .nav-link .bi {
+  font-size: 1rem;
+  width: 1.25rem;
+  text-align: center;
+  opacity: 0.85;
+}
+
+.drawer-nav .nav-link:hover {
+  background-color: var(--drawer-link-hover-bg, rgba(0, 0, 0, 0.04));
+}
+
+.drawer-nav .nav-link.active,
+.drawer-nav .nav-link[aria-current="page"] {
+  background-color: var(--drawer-link-active-bg, var(--primary-color));
+  color: var(--drawer-link-active-color, #fff);
+  font-weight: 600;
+}
+
+.drawer-nav .nav-link.active::before,
+.drawer-nav .nav-link[aria-current="page"]::before {
+  content: "";
+  position: absolute;
+  left: -8px;
+  top: 6px;
+  bottom: 6px;
+  width: 3px;
+  border-radius: 0 3px 3px 0;
+  background: var(--primary-color);
+}
+
+/* ============ Topbar polish ============ */
+.navbar-custom {
+  border-bottom: 1px solid var(--divider-color, #e6e8ec);
+  box-shadow: none;
+  backdrop-filter: saturate(140%);
+}
+
+.navbar-custom .title {
+  font-weight: 600;
+  letter-spacing: 0.01em;
+}
+
+.navbar-custom button:hover {
+  background-color: color-mix(in srgb, var(--text-primary) 7%, transparent);
+  border-radius: var(--radius-sm, 6px);
+}
+
+/* ============ Page header ============ */
+.page-header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: var(--space-4);
+  padding: var(--space-5) 0 var(--space-4);
+  margin-bottom: var(--space-4);
+  border-bottom: 1px solid var(--divider-color, #e6e8ec);
+}
+
+.page-header__left { min-width: 0; }
+
+.page-header__crumbs {
+  display: flex;
+  gap: var(--space-2);
+  align-items: center;
+  font-size: 0.75rem;
+  color: var(--text-secondary, #6b7280);
+  margin-bottom: var(--space-1);
+}
+
+.page-header__crumbs a {
+  color: inherit;
+  text-decoration: none;
+}
+.page-header__crumbs a:hover { color: var(--primary-color); }
+
+.page-header__crumbs .sep { opacity: 0.5; }
+
+.page-header__title {
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: var(--text-primary, #111827);
+  margin: 0;
+  letter-spacing: -0.005em;
+  line-height: 1.25;
+}
+
+.page-header__subtitle {
+  font-size: 0.8125rem;
+  color: var(--text-secondary, #6b7280);
+  margin-top: var(--space-1);
+}
+
+.page-header__actions {
+  display: flex;
+  gap: var(--space-2);
+  flex-shrink: 0;
+}
+
+/* ============ Neumorphic Style Specifics ============ */
+:root[data-theme="neumorphic"] .card,
+:root[data-theme="neumorphic"] .modal-content,
+:root[data-theme="neumorphic"] .offcanvas,
+:root[data-theme="neumorphic"] .dropdown-menu {
+  border: none;
+  background: var(--ml-surface);
+  box-shadow: var(--elevation-2);
+}
+
+:root[data-theme="neumorphic"] .btn {
+  border: none;
+  box-shadow: var(--elevation-1);
+  background: var(--ml-surface);
+  color: var(--ml-text);
+}
+
+:root[data-theme="neumorphic"] .btn-primary {
+  background: var(--primary-color);
+  color: #fff;
+  box-shadow: var(--elevation-1);
+}
+
+:root[data-theme="neumorphic"] .btn:active {
+  box-shadow: var(--elevation-inset);
+  transform: translateY(1px);
+}
+
+:root[data-theme="neumorphic"] .form-control,
+:root[data-theme="neumorphic"] .form-select,
+:root[data-theme="neumorphic"] .form-check-input {
+  border: none;
+  background: var(--ml-surface);
+  box-shadow: var(--elevation-inset);
+}
+
+/* ============ Searchable select (portal dropdown) ============ */
+/* Bootstrap adds a CSS background-image arrow to form-select; remove it on the button trigger */
+button.form-select {
+  background-image: none;
+  padding-right: 0.75rem;
+}
+
+.rv-select-portal {
+  padding: 0;
+  border: 1px solid var(--divider-color, #d8dce3);
+  background-color: var(--surface-color, #fff);
+  border-radius: var(--radius-md, 8px);
+  box-shadow: var(--shadow-lg);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+}
+
+.rv-select-search {
+  position: relative;
+  padding: var(--space-2);
+  border-bottom: 1px solid var(--divider-color, #e6e8ec);
+  background-color: color-mix(in srgb, var(--divider-color) 25%, transparent);
+}
+
+.rv-select-search-icon {
+  position: absolute;
+  left: calc(var(--space-2) + 10px);
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 0.85rem;
+  color: var(--text-secondary, #9ca3af);
+  pointer-events: none;
+}
+
+.rv-select-search-input {
+  width: 100%;
+  font-size: 0.875rem;
+  padding: 0.45rem 0.6rem 0.45rem 2rem;
+  background-color: var(--surface-color, #fff);
+  border: 1px solid var(--divider-color, #d8dce3);
+  border-radius: var(--radius-sm, 6px);
+  color: var(--text-primary, #111827);
+  outline: none;
+}
+
+.rv-select-search-input:focus {
+  border-color: var(--primary-color);
+  box-shadow: 0 0 0 var(--focus-ring-width) var(--focus-ring-color);
+}
+
+.rv-select-options {
+  flex: 1 1 auto;
+  overflow-y: auto;
+  padding: var(--space-1) 0;
+  min-height: 0;
+}
+
+.rv-select-option {
+  display: block;
+  width: 100%;
+  text-align: left;
+  padding: 0.5rem var(--space-4);
+  font-size: 0.875rem;
+  color: var(--text-primary, #111827);
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  transition: background-color var(--dur-fast) var(--ease-out);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.rv-select-option:hover,
+.rv-select-option.is-highlighted {
+  background-color: color-mix(in srgb, var(--primary-color) 8%, transparent);
+}
+
+.rv-select-option.is-active {
+  background-color: var(--primary-color);
+  color: #fff;
+  font-weight: 500;
+}
+
+.rv-select-placeholder {
+  /* background-color: color-mix(in srgb, var(--text-secondary) 20%, var(--bg-surface)); */
+  color: color-mix(in srgb, var(--text-secondary) 50%, transparent);
+  font-style: italic;
+  border-bottom: 1px solid color-mix(in srgb, var(--text-secondary) 25%, transparent);
+}
+
+.rv-select-placeholder.is-active {
+  background-color: color-mix(in srgb, var(--primary-color) 50%, transparent);
+  color:color-mix(in srgb, white 50%, black);
+  /* font-style: normal; */
+}
+
+.rv-select-clear {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  margin-right: 0.4rem;
+  width: 1.1rem;
+  height: 1.1rem;
+  border-radius: 50%;
+  font-size: 0.7rem;
+  line-height: 1;
+  color: var(--text-secondary, #9ca3af);
+  cursor: pointer;
+  transition: background-color var(--dur-fast) var(--ease-out), color var(--dur-fast) var(--ease-out);
+}
+
+.rv-select-clear:hover {
+  background-color: color-mix(in srgb, var(--text-secondary) 18%, transparent);
+  color: var(--text-primary, #111827);
+}
+
+.rv-select-empty {
+  padding: var(--space-3) var(--space-4);
+  font-size: 0.8125rem;
+  color: var(--text-secondary, #9ca3af);
+  text-align: center;
+}
+
+/* Custom scrollbar inside dropdown */
+.rv-select-options::-webkit-scrollbar { width: 8px; }
+.rv-select-options::-webkit-scrollbar-thumb {
+  background-color: color-mix(in srgb, var(--text-secondary) 30%, transparent);
+  border-radius: 8px;
+}
+
+/* Reduce motion respect */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    transition-duration: 0.01ms !important;
+    animation-duration: 0.01ms !important;
+  }
+}
+
+/* ===== Extracted inline styles ===== */
+
+/* Full-viewport centered loader screen */
+.app-loading-screen {
+  height: 100vh;
+}
+
+/* Error boundary fallback */
+.error-fallback {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 60vh;
+  padding: 2rem;
+  text-align: center;
+}
+
+/* Narrow centered status pages (404 / service unavailable) */
+.page-narrow {
+  max-width: 720px;
+}
+
+.page-error-code {
+  font-size: 72px;
+  font-weight: 700;
+  line-height: 1;
+}
+
+.page-error-icon {
+  font-size: 56px;
+}
+
+/* Navbar icon sizes */
+.nav-icon-lg {
+  font-size: 15px;
+}
+
+.nav-icon-sm {
+  font-size: 13px;
+}
+
+.nav-chevron {
+  font-size: 10px;
+  opacity: 0.6;
+}
+
+/* Modal display / stacking helpers */
+.modal-shown {
+  display: block;
+}
+
+.z-popup {
+  z-index: 2000;
+}
+
+.z-popup-backdrop {
+  z-index: 1999;
+}
+
+.z-colvis {
+  z-index: 1050;
+}
+
+.z-colvis-backdrop {
+  z-index: 1040;
+}
+
+.scroll-box-300 {
+  max-height: 300px;
+  overflow-y: auto;
+}
+
+/* Generic helpers */
+.cursor-pointer {
+  cursor: pointer;
+}
+
+.min-h-0 {
+  min-height: 0;
+}
+
+.col-w-40 {
+  width: 40px;
+}
+
+.col-w-80 {
+  width: 80px;
+}
+
+.col-w-120 {
+  width: 120px;
+}
+
+.cell-mw-160 {
+  max-width: 160px;
+}
+
+.cell-mw-140 {
+  max-width: 140px;
+}
+
+/* SongBook editor */
+.sb-editor-screen {
+  height: calc(100vh - 120px);
+}
+
+.sb-lyrics-textarea {
+  resize: none;
+  min-height: 0;
+  border-radius: 0 0 0.375rem 0.375rem;
+}
+
+.sb-page-input {
+  width: 140px;
+}
+
+/* Invoice QR placeholder */
+.invoice-qr-placeholder {
+  width: 150px;
+  height: 150px;
+  border: 1px solid #ddd;
+}
+
+/* Formik 'br' spacer row */
+.fb-spacer {
+  height: 0;
+}
+
+/* Business partner accordion */
+.bp-accordion-btn {
+  flex: 1;
+}
+
+.bp-type-badge {
+  width: 20px;
+  height: 20px;
+  font-weight: 600;
+  font-size: 12px;
+  flex-shrink: 0;
+  margin-right: 4px;
+}

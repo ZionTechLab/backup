@@ -1,0 +1,48 @@
+/* Reusable compressible id cell (UUID + show / copy controls) */
+
+.dt-id-text {
+  font-family: var(--ml-font-mono, ui-monospace, SFMono-Regular, Menlo, monospace);
+  color: var(--ml-text-dim, #9aa0b0);
+}
+
+.dt-id-full {
+  word-break: break-all;
+}
+
+/* Clickable id text (copy on click) */
+.dt-id-copy {
+  border: none;
+  background: transparent;
+  padding: 0;
+  line-height: 1;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  color: inherit;
+}
+
+.dt-id-copy:hover .dt-id-text {
+  color: var(--ml-primary, #6ea8fe);
+  text-decoration: underline;
+}
+
+.dt-id-copied {
+  color: var(--ml-success, #3fb950);
+  font-size: 13px;
+}
+
+/* Inline icon control (show/hide toggle) */
+.dt-id-btn {
+  border: none;
+  background: transparent;
+  color: var(--ml-text-dim, #9aa0b0);
+  padding: 0 2px;
+  line-height: 1;
+  cursor: pointer;
+  font-size: 13px;
+}
+
+.dt-id-btn:hover {
+  color: var(--ml-primary, #6ea8fe);
+}
