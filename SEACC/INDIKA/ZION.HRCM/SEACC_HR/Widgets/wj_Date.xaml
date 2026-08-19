@@ -1,0 +1,29 @@
+﻿<UserControl x:Class="Digiteq.wj_Date"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             mc:Ignorable="d" >
+    <Grid>
+        <StackPanel>
+            <StackPanel x:Name="Grd_Date" Orientation="Horizontal" Background="#FFFF6800">
+                <Grid Background="#26000000" >
+                    <TextBlock x:Name="txtDate" Text="01" Padding="5" Foreground="White" FontSize="42" FontFamily="Arial" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                </Grid>
+                <StackPanel Margin="5,0">
+                    <TextBlock x:Name="txtDay" Text="Day" Foreground="White" FontSize="22"/>
+                    <StackPanel Orientation="Horizontal">
+                        <TextBlock x:Name="txtMonth" Text="January"  Foreground="White" FontSize="14"/>
+                        <TextBlock Text=" | "  Foreground="White" FontSize="14" />
+                        <TextBlock x:Name="txtYear" Text="2016"  Foreground="White" FontSize="14" />
+                    </StackPanel>
+                </StackPanel>
+            </StackPanel>
+            <Grid Height="5"/>
+            <Grid Background="{Binding Background, ElementName=Grd_Date}" >
+                <Rectangle Fill="#26000000" ></Rectangle>
+                <TextBlock x:Name="txtDayType" Text="Working Day" Foreground="White" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="12" Margin="3"/>
+            </Grid>
+        </StackPanel>
+    </Grid>
+</UserControl>

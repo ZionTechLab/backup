@@ -1,0 +1,837 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003" ToolsVersion="4.0">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>8.0.50727</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{E1674E41-6DA2-45DE-BC55-C820F4BB8BF9}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Digiteq_Inventory</RootNamespace>
+    <AssemblyName>Digiteq_Inventory</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileUpgradeFlags>
+    </FileUpgradeFlags>
+    <UpgradeBackupLocation>
+    </UpgradeBackupLocation>
+    <OldToolsVersion>2.0</OldToolsVersion>
+    <PublishUrl>publish\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Disk</InstallFrom>
+    <UpdateEnabled>false</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <ApplicationRevision>0</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
+    <SccProjectName>SAK</SccProjectName>
+    <SccLocalPath>SAK</SccLocalPath>
+    <SccAuxPath>SAK</SccAuxPath>
+    <SccProvider>SAK</SccProvider>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>D:\Releases\Celcius\ERP\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="..\VersionInfo.cs">
+      <Link>VersionInfo.cs</Link>
+    </Compile>
+    <Compile Include="arc_audAuditTrailLog.cs" />
+    <Compile Include="arc_tbl_utlChat.cs" />
+    <Compile Include="arc_tbl_utlChat_Message.cs" />
+    <Compile Include="Commons_R2\tbl_securityFunctionMaster_Form_Advanced.cs" />
+    <Compile Include="Commons_R2\tbl_securityFunctionMaster_Report_Advanced.cs" />
+    <Compile Include="Factoring\tbl_audUserActivities.cs" />
+    <Compile Include="Factoring\tbl_bpsFactoringSchedule_detail.cs" />
+    <Compile Include="Commons_R2\tbl_securityFunctionMaster.cs" />
+    <Compile Include="Commons_R2\tbl_securityFunctionMaster_Form.cs" />
+    <Compile Include="Commons_R2\tbl_securityFunctionMaster_Permission.cs" />
+    <Compile Include="Commons_R2\tbl_securityFunctionMaster_Report.cs" />
+    <Compile Include="PCB\tbl_pcbTxExpenditure_Detail.cs" />
+    <Compile Include="PointofSales\tbl_posAdvanceReceived.cs" />
+    <Compile Include="PointofSales\tbl_posDayStartAndEnd.cs" />
+    <Compile Include="PointofSales\tbl_posDayStartAndEnd_Detail.cs" />
+    <Compile Include="PointofSales\tbl_posDayStartAndEnd_Detail_CashWithdrawal.cs" />
+    <Compile Include="PointofSales\tbl_posReceipt.cs" />
+    <Compile Include="PointofSales\tbl_posTransaction.cs" />
+    <Compile Include="Production_AKT\srh_pmsJobRegister.cs" />
+    <Compile Include="Production_AKT\srh_pmsPrePlan.cs" />
+    <Compile Include="Production_AKT\srh_WIP_OperaterWise_Wasteage.cs" />
+    <Compile Include="Production_AKT\srh_WIP_ProductionAndWasteage.cs" />
+    <Compile Include="Production_AKT\tbl_atlWIPEntry.cs" />
+    <Compile Include="Production_AKT\tbl_pmsNotification_ProductionOutput.cs" />
+    <Compile Include="Production_AKT\tbl_pmsPrePlan_SectionPath.cs" />
+    <Compile Include="Production_AKT\tbl_pmsPrePlan_SectionPath_InputItem.cs" />
+    <Compile Include="Production_AKT\tbl_pmsPrePlan_SectionPath_OutputItem.cs" />
+    <Compile Include="Production_AKT\tbl_pmsProductionJobRegister.cs" />
+    <Compile Include="Production_AKT\tbl_pmsWorkInProgress_Machine_ItemSerials.cs" />
+    <Compile Include="Production_AKT\tbl_pmsWorkInProgress_Machine_Shedule_InputItem.cs" />
+    <Compile Include="Production_AKT\tbl_pmsWorkInProgress_Machine_Shedule_InputItem_Tmp.cs" />
+    <Compile Include="Production_AKT\tbl_pmsWorkInProgress_Machine_Shedule_OutputItem.cs" />
+    <Compile Include="Production_AKT\tbl_pmsWorkInProgress_Machine_Shedule_OutputItem_Tmp.cs" />
+    <Compile Include="Production_AKT\tbl_pmsWorkInProgress_Machine_Shedule_Tmp.cs" />
+    <Compile Include="Production_AKT\tbl_pmsWorkInProgress_Tmp.cs" />
+    <Compile Include="Production_AKT\tbl_sasJobRegister_Material.cs" />
+    <Compile Include="Production_AKT\tbl_scsExternalGoodReceivedNote_TIEP.cs" />
+    <Compile Include="Production_AKT\tbl_scsExternalGoodReceivedNote_TIEP_Detail.cs" />
+    <Compile Include="Production_AKT\tbl_scsExternalGoodReceivedNote_TIEP_DetailBreakdown.cs" />
+    <Compile Include="Production_AKT\tbl_zJobProductionJobType.cs" />
+    <Compile Include="Production_Appral\tbl_prodTxBatch.cs" />
+    <Compile Include="Production_Appral\tbl_prodTxBatch_Closure_Detail.cs" />
+    <Compile Include="Production_Appral\tbl_prodTxBatch_Material.cs" />
+    <Compile Include="Production_Appral\tbl_prodTxFinishedGoodTransferAcceptance.cs" />
+    <Compile Include="Production_Appral\tbl_prodTxFinishedGoodTransferAcceptance_Detail.cs" />
+    <Compile Include="Production_Appral\tbl_prodTxFinishedGoodTransferNote_Detail.cs" />
+    <Compile Include="Production_Appral\tbl_prodTxItemSplitNote.cs" />
+    <Compile Include="Production_Appral\tbl_prodTxItemSplitNote_Input.cs" />
+    <Compile Include="Production_Appral\tbl_prodTxItemSplitNote_Output.cs" />
+    <Compile Include="Production_Appral\tbl_prodTxJobCard_SubIn_SFG.cs" />
+    <Compile Include="Production_Appral\tbl_prodTxJobCard_SubIn_SFG_Material.cs" />
+    <Compile Include="Production_Appral\tbl_prodTxJobCard_WIPFlow.cs" />
+    <Compile Include="Production_Appral\tbl_prodTxJobCard_WIPFlow_Detail.cs" />
+    <Compile Include="Production_Appral\tbl_prodTxSubContractInNote_ConsumedMaterial_ForSF.cs" />
+    <Compile Include="Production_Appral\tbl_prodTxSubContractOutNote_JobCard.cs" />
+    <Compile Include="Production_Appral\tbl_prodTxSubContractOutNote_SemiFinished.cs" />
+    <Compile Include="Production_Appral\tbl_prod_apparelTxCompetitiveProductInfo.cs" />
+    <Compile Include="Production_Appral\tbl_prod_apparelTxFinishedGoodSpecsSheet.cs" />
+    <Compile Include="Production_Pharma\tbl_prod_pharmaMasCostCenter.cs" />
+    <Compile Include="Production_Pharma\tbl_prod_pharmaMasCostFooter.cs" />
+    <Compile Include="Production_Pharma\tbl_prod_pharmaMasProductionOperation.cs" />
+    <Compile Include="Production_Pharma\tbl_prod_pharmaMasSectionActivity.cs" />
+    <Compile Include="Production_Pharma\tbl_prod_pharmaTxAttachments.cs" />
+    <Compile Include="Production_Pharma\tbl_prod_pharmaTxBatch.cs" />
+    <Compile Include="Production_Pharma\tbl_prod_pharmaTxBatch_Closure.cs" />
+    <Compile Include="Production_Pharma\tbl_prod_pharmaTxBatch_Material.cs" />
+    <Compile Include="Production_Pharma\tbl_prod_pharmaTxCompetitiveProductInfo.cs" />
+    <Compile Include="Production_Pharma\tbl_prod_pharmaTxFinishedGoodSpecsSheet.cs" />
+    <Compile Include="Production_Pharma\tbl_prod_pharmaTxFinishedGoodTransferAcceptance.cs" />
+    <Compile Include="Production_Pharma\tbl_prod_pharmaTxFinishedGoodTransferNote.cs" />
+    <Compile Include="Production_Pharma\tbl_prod_pharmaTxFinishedGoodTransferNote_Input.cs" />
+    <Compile Include="Production_Pharma\tbl_prod_pharmaTxFinishedGoodTransferNote_Output.cs" />
+    <Compile Include="Production_Pharma\tbl_prod_pharmaTxGoodIssueNote.cs" />
+    <Compile Include="Production_Pharma\tbl_prod_pharmaTxGoodIssueNote_Material.cs" />
+    <Compile Include="Production_Pharma\tbl_prod_pharmaTxGoodReturnNote.cs" />
+    <Compile Include="Production_Pharma\tbl_prod_pharmaTxGoodReturnNote_Material.cs" />
+    <Compile Include="Production_Pharma\tbl_prod_pharmaTxItemSplitNote.cs" />
+    <Compile Include="Production_Pharma\tbl_prod_pharmaTxItemSplitNote_Input.cs" />
+    <Compile Include="Production_Pharma\tbl_prod_pharmaTxItemSplitNote_Output.cs" />
+    <Compile Include="Production_Pharma\tbl_prod_pharmaTxJobCard.cs" />
+    <Compile Include="Production_Pharma\tbl_prod_pharmaTxJobCard_CostCenter.cs" />
+    <Compile Include="Production_Pharma\tbl_prod_pharmaTxJobCard_CostFooter.cs" />
+    <Compile Include="Production_Pharma\tbl_prod_pharmaTxJobCard_Delivery.cs" />
+    <Compile Include="Production_Pharma\tbl_prod_pharmaTxJobCard_Labour.cs" />
+    <Compile Include="Production_Pharma\tbl_prod_pharmaTxJobCard_Material.cs" />
+    <Compile Include="Production_Pharma\tbl_prod_pharmaTxJobCard_Material_Outsource.cs" />
+    <Compile Include="Production_Pharma\tbl_prod_pharmaTxJobCard_ProductionOperation.cs" />
+    <Compile Include="Production_Pharma\tbl_prod_pharmaTxJobCard_SectionSMV.cs" />
+    <Compile Include="Production_Pharma\tbl_prod_pharmaTxJobCard_WIPFlow.cs" />
+    <Compile Include="Production_Pharma\tbl_prod_pharmaTxJobCard_WIPFlow_Detail.cs" />
+    <Compile Include="Production_Pharma\tbl_prod_pharmaTxMaterialRequision.cs" />
+    <Compile Include="Production_Pharma\tbl_prod_pharmaTxMaterialRequision_JobCard.cs" />
+    <Compile Include="Production_Pharma\tbl_prod_pharmaTxMaterialRequision_Material.cs" />
+    <Compile Include="Production_Pharma\tbl_prod_pharmaTxSubContractInNote.cs" />
+    <Compile Include="Production_Pharma\tbl_prod_pharmaTxSubContractInNote_Material.cs" />
+    <Compile Include="Production_Pharma\tbl_prod_pharmaTxSubContractOutNote.cs" />
+    <Compile Include="Production_Pharma\tbl_prod_pharmaTxSubContractOutNote_JobCard.cs" />
+    <Compile Include="Production_Pharma\tbl_prod_pharmaTxSubContractOutNote_Material.cs" />
+    <Compile Include="Production_Pharma\tbl_prod_pharmaTxSubContractOutNote_SemiFinished.cs" />
+    <Compile Include="Production_Pharma\tbl_prod_pharmaTxWorkInProgress.cs" />
+    <Compile Include="Production_Pharma\tbl_prod_pharmaTxWorkInProgress_Material.cs" />
+    <Compile Include="Production_Poly\tbl_prod_polyAttachments.cs" />
+    <Compile Include="Production_Poly\tbl_prod_polyMasCostCenter.cs" />
+    <Compile Include="Production_Poly\tbl_prod_polyMasCostFooter.cs" />
+    <Compile Include="Production_Poly\tbl_prod_polyMasProductionOperation.cs" />
+    <Compile Include="Production_Poly\tbl_prod_polyTxCompetitiveProductInfo.cs" />
+    <Compile Include="Production_Poly\tbl_prod_polyTxFinishedGoodSpecsSheet.cs" />
+    <Compile Include="Production_Poly\tbl_prod_polyTxJobCard.cs" />
+    <Compile Include="Production_Poly\tbl_prod_polyTxJobCard_Closure.cs" />
+    <Compile Include="Production_Poly\tbl_prod_polyTxJobCard_CostCenter.cs" />
+    <Compile Include="Production_Poly\tbl_prod_polyTxJobCard_CostFooter.cs" />
+    <Compile Include="Production_Poly\tbl_prod_polyTxJobCard_Delivery.cs" />
+    <Compile Include="Production_Poly\tbl_prod_polyTxJobCard_Labour.cs" />
+    <Compile Include="Production_Poly\tbl_prod_polyTxJobCard_Material.cs" />
+    <Compile Include="Production_Poly\tbl_prod_polyTxJobCard_Material_Outsource.cs" />
+    <Compile Include="Production_Poly\tbl_prod_polyTxJobCard_ProductionOperation.cs" />
+    <Compile Include="Production_Poly\tbl_prod_polyTxMaterialRequision.cs" />
+    <Compile Include="Production_Poly\tbl_prod_polyTxMaterialRequision_JobCard.cs" />
+    <Compile Include="Production_Poly\tbl_prod_polyTxMaterialRequision_Material.cs" />
+    <Compile Include="Production_Poly\tbl_prod_polyTxWorkInProgress.cs" />
+    <Compile Include="Production_Poly\tbl_prod_polyTxWorkInProgress_Material.cs" />
+    <Compile Include="SEACC_Login\tbl_cfgModule.cs" />
+    <Compile Include="SEACC_Login\tbl_cfgModule_Permission.cs" />
+    <Compile Include="Production_AKT\srh_pmsAdhesiveInputAndOutput.cs" />
+    <Compile Include="Production_AKT\srh_pmsDailyProductuinJobApproved.cs" />
+    <Compile Include="Production_AKT\srh_pmsProductionAnalysis_FinishedGoodWeightWise.cs" />
+    <Compile Include="srh_bssCustomerOutstanding_RecieptDetail.cs" />
+    <Compile Include="srh_bssSupplierOutstanding.cs" />
+    <Compile Include="srh_scsFlowStock.cs" />
+    <Compile Include="srh_scsFlowStock_detail.cs" />
+    <Compile Include="srh_SCS_MonthlyMaterialUsage_Issues.cs" />
+    <Compile Include="srh_SCS_MonthlyMaterialUsage_Receive.cs" />
+    <Compile Include="tbl_accAccountPayableNote.cs" />
+    <Compile Include="tbl_accAccountPayableNote_Allocation.cs" />
+    <Compile Include="tbl_accAccountPayableNote_SubTotal.cs" />
+    <Compile Include="tbl_accAccountReceipt.cs" />
+    <Compile Include="tbl_accAccountReceipt_ChequeAmount.cs" />
+    <Compile Include="tbl_accAccountReceipt_Details.cs" />
+    <Compile Include="tbl_accBudget.cs" />
+    <Compile Include="tbl_accBudgetMaster_Object.cs" />
+    <Compile Include="tbl_accBudgetMaster_Program.cs" />
+    <Compile Include="tbl_accBudgetMaster_Project.cs" />
+    <Compile Include="tbl_accBudget_detail.cs" />
+    <Compile Include="tbl_accChequeBook.cs" />
+    <Compile Include="tbl_accChequeBook_Detail.cs" />
+    <Compile Include="tbl_accChequeReconciliation.cs" />
+    <Compile Include="tbl_accChequeReconciliation_Detail.cs" />
+    <Compile Include="tbl_accChequeRegister.cs" />
+    <Compile Include="tbl_accContraVoucher.cs" />
+    <Compile Include="tbl_accContraVoucher_Detail.cs" />
+    <Compile Include="tbl_accDebitNote.cs" />
+    <Compile Include="tbl_accDebitNote_Detail.cs" />
+    <Compile Include="tbl_accDebitNote_SubTotal.cs" />
+    <Compile Include="tbl_accDoubleEntrySlotDetails.cs" />
+    <Compile Include="tbl_accDoubleEntrySlotMaster.cs" />
+    <Compile Include="tbl_accFinancialYearMaster.cs" />
+    <Compile Include="tbl_accFinancialYearMaster_Month.cs" />
+    <Compile Include="tbl_accFinancialYearMaster_Month_OpenningBalance.cs" />
+    <Compile Include="tbl_accGLMaster.cs" />
+    <Compile Include="tbl_accGLMaster_Bank.cs" />
+    <Compile Include="tbl_accGLMaster_CompanyBranch.cs" />
+    <Compile Include="tbl_accGLMaster_CostCenter1.cs" />
+    <Compile Include="tbl_accGLMaster_CostCenter2.cs" />
+    <Compile Include="tbl_accGLMaster_Customer.cs" />
+    <Compile Include="tbl_accGLMaster_Employee.cs" />
+    <Compile Include="tbl_accGLMaster_Note.cs" />
+    <Compile Include="tbl_accGLMaster_Note_OpeningBalance.cs" />
+    <Compile Include="tbl_accGLMaster_OpenningBalance.cs" />
+    <Compile Include="tbl_accGLMaster_PNL.cs" />
+    <Compile Include="tbl_accGLMaster_Supplier.cs" />
+    <Compile Include="tbl_accGLPosting.cs" />
+    <Compile Include="tbl_accGLPosting_Batch.cs" />
+    <Compile Include="tbl_accGLPosting_Detail.cs" />
+    <Compile Include="tbl_accGLPosting_Detail_UnpostedTXN.cs" />
+    <Compile Include="tbl_accGLPosting_UnpostedTXN.cs" />
+    <Compile Include="tbl_accJournalEntry.cs" />
+    <Compile Include="tbl_accJournalEntry_Detail.cs" />
+    <Compile Include="tbl_accLocationMaster.cs" />
+    <Compile Include="tbl_accPaymentControlMaster.cs" />
+    <Compile Include="tbl_accPaymentVoucher.cs" />
+    <Compile Include="tbl_accPaymentVoucher_ChequeAmount.cs" />
+    <Compile Include="tbl_accPaymentVoucher_Detail.cs" />
+    <Compile Include="tbl_accPaymentVoucher_PO.cs" />
+    <Compile Include="tbl_accPaymentVoucher_SubTotal.cs" />
+    <Compile Include="tbl_accReceipt.cs" />
+    <Compile Include="tbl_accReceiptMultiple_Cheque.cs" />
+    <Compile Include="tbl_accReceiptVoucher.cs" />
+    <Compile Include="tbl_accReceiptVoucher_Detail.cs" />
+    <Compile Include="tbl_accReceipt_Detail.cs" />
+    <Compile Include="tbl_atlProcess_Print_Reports.cs" />
+    <Compile Include="tbl_Attachments.cs" />
+    <Compile Include="tbl_audBackupLog.cs" />
+    <Compile Include="tbl_audFifoTransaction.cs" />
+    <Compile Include="tbl_bpsBankReconciliation.cs" />
+    <Compile Include="tbl_bpsBEReconcilation.cs" />
+    <Compile Include="tbl_bpsCreditNote_SubTotal.cs" />
+    <Compile Include="tbl_bpsDebitNote_SubTotal.cs" />
+    <Compile Include="tbl_bpsFactoringAgreement.cs" />
+    <Compile Include="tbl_bpsFactoringInterest.cs" />
+    <Compile Include="Factoring\tbl_bpsFactoringSchedule.cs" />
+    <Compile Include="tbl_bpsGiftVoucher.cs" />
+    <Compile Include="tbl_cfgSearch.cs" />
+    <Compile Include="tbl_cfgSearchDetail.cs" />
+    <Compile Include="tbl_cfgTheme.cs" />
+    <Compile Include="tbl_cfgThemeDetail.cs" />
+    <Compile Include="tbl_cfgThemeElement.cs" />
+    <Compile Include="tbl_genCustomerDiscount.cs" />
+    <Compile Include="tbl_genCustomerMaster_Consignee.cs" />
+    <Compile Include="tbl_genItemMaster_Barcode.cs" />
+    <Compile Include="tbl_genItemMaster_Outsorce.cs" />
+    <Compile Include="tbl_genItemMaster_Pricing.cs" />
+    <Compile Include="tbl_genItemSerialNoMaster.cs" />
+    <Compile Include="tbl_genMerchantDeviceMaster.cs" />
+    <Compile Include="tbl_genRoute.cs" />
+    <Compile Include="tbl_genRoute_Town.cs" />
+    <Compile Include="tbl_genStore_Stock_reconciliation.cs" />
+    <Compile Include="tbl_genVersion.cs" />
+    <Compile Include="PCB\tbl_pcbMasAccount.cs" />
+    <Compile Include="PCB\tbl_pcbRefExpenditureCategory.cs" />
+    <Compile Include="PCB\tbl_pcbRefExpenditureType.cs" />
+    <Compile Include="PCB\tbl_pcbRefIncomeType.cs" />
+    <Compile Include="PCB\tbl_pcbTxExpenditure.cs" />
+    <Compile Include="PCB\tbl_pcbTxIOU.cs" />
+    <Compile Include="PCB\tbl_pcbTxIOURefund.cs" />
+    <Compile Include="PCB\tbl_pcbTxIOURequest.cs" />
+    <Compile Include="PCB\tbl_pcbTxIOUSettlement.cs" />
+    <Compile Include="PCB\tbl_pcbTxReimbursment.cs" />
+    <Compile Include="Production_AKT\tbl_pmsSectionPlan_Log.cs" />
+    <Compile Include="Production_AKT\tbl_pmsSectionPlan_LogDetail.cs" />
+    <Compile Include="Production_AKT\tbl_pmsSectionPlan_Master.cs" />
+    <Compile Include="PointofSales\tbl_posTransaction_Detail.cs" />
+    <Compile Include="Production_Appral\tbl_prodAttachments.cs" />
+    <Compile Include="Production_Appral\tbl_prodMasCostCenter.cs" />
+    <Compile Include="Production_Appral\tbl_prodMasCostFooter.cs" />
+    <Compile Include="Production_Appral\tbl_prodMasProductionOperation.cs" />
+    <Compile Include="Production_Appral\tbl_prodMasSectionActivity.cs" />
+    <Compile Include="Production_Appral\tbl_prodTxFinishedGoodTransferNote.cs" />
+    <Compile Include="Production_Appral\tbl_prodTxGoodIssueNote.cs" />
+    <Compile Include="Production_Appral\tbl_prodTxGoodIssueNote_Material.cs" />
+    <Compile Include="Production_Appral\tbl_prodTxGoodReturnNote.cs" />
+    <Compile Include="Production_Appral\tbl_prodTxGoodReturnNote_Material.cs" />
+    <Compile Include="Production_Appral\tbl_prodTxJobCard.cs" />
+    <Compile Include="Production_Appral\tbl_prodTxBatch_Closure.cs" />
+    <Compile Include="Production_Appral\tbl_prodTxJobCard_CostCenter.cs" />
+    <Compile Include="Production_Appral\tbl_prodTxJobCard_CostFooter.cs" />
+    <Compile Include="Production_Appral\tbl_prodTxJobCard_Delivery.cs" />
+    <Compile Include="Production_Appral\tbl_prodTxJobCard_Labour.cs" />
+    <Compile Include="Production_Appral\tbl_prodTxJobCard_Material.cs" />
+    <Compile Include="Production_Appral\tbl_prodTxJobCard_Material_Outsource.cs" />
+    <Compile Include="Production_Appral\tbl_prodTxJobCard_ProductionOperation.cs" />
+    <Compile Include="Production_Appral\tbl_prodTxMaterialRequision.cs" />
+    <Compile Include="Production_Appral\tbl_prodTxMaterialRequision_JobCard.cs" />
+    <Compile Include="Production_Appral\tbl_prodTxMaterialRequision_Material.cs" />
+    <Compile Include="Production_Appral\tbl_prodTxSubContractInNote.cs" />
+    <Compile Include="Production_Appral\tbl_prodTxSubContractInNote_Material.cs" />
+    <Compile Include="Production_Appral\tbl_prodTxSubContractOutNote.cs" />
+    <Compile Include="Production_Appral\tbl_prodTxSubContractOutNote_Material.cs" />
+    <Compile Include="Production_Appral\tbl_prodTxWorkInProgress.cs" />
+    <Compile Include="Production_Appral\tbl_prodTxWorkInProgress_Material.cs" />
+    <Compile Include="Production_AKT\tbl_proProductionPlan.cs" />
+    <Compile Include="Production_AKT\tbl_proProductionPlan_Job.cs" />
+    <Compile Include="Production_AKT\tbl_proWorkInProgress.cs" />
+    <Compile Include="Production_AKT\tbl_proWorkInProgress_Batch.cs" />
+    <Compile Include="Production_AKT\tbl_proWorkInProgress_Batch_InputItem.cs" />
+    <Compile Include="Production_AKT\tbl_proWorkInProgress_Batch_OutputItem.cs" />
+    <Compile Include="tbl_rbInsBalanceSheet.cs" />
+    <Compile Include="tbl_rpt_FloorStock_DAPL.cs" />
+    <Compile Include="tbl_sasAttachments.cs" />
+    <Compile Include="tbl_sasInvoice.cs" />
+    <Compile Include="tbl_sasInvoice_Discount.cs" />
+    <Compile Include="tbl_sasSalesCommission.cs" />
+    <Compile Include="tbl_sasSalesCommission_CreditNote.cs" />
+    <Compile Include="tbl_sasSalesCommission_Deduction.cs" />
+    <Compile Include="tbl_sasSalesCommission_Invoices.cs" />
+    <Compile Include="tbl_sasSalesCommission_Invoices_Payments.cs" />
+    <Compile Include="tbl_sasSalesCommission_OverDue.cs" />
+    <Compile Include="tbl_sasSalesCommission_PaymentSettlement.cs" />
+    <Compile Include="tbl_sasSalesCommission_Reimbursment.cs" />
+    <Compile Include="tbl_sasSalesCommission_Slab.cs" />
+    <Compile Include="srh_WIP_ProfitAndLoss.cs" />
+    <Compile Include="tbl_scsAssetsTransferNote.cs" />
+    <Compile Include="tbl_scsAssetsTransferNote_Detail.cs" />
+    <Compile Include="tbl_scsDocument_Barcode.cs" />
+    <Compile Include="tbl_scsExternalGoodReceivedNote_DetailBreakdown.cs" />
+    <Compile Include="tbl_scsFixedAsset.cs" />
+    <Compile Include="tbl_scsFixedAssetDepreciation.cs" />
+    <Compile Include="tbl_scsImportCosting.cs" />
+    <Compile Include="tbl_scsInventoryTxnDetail.cs" />
+    <Compile Include="tbl_scsInventoryTxnHeader.cs" />
+    <Compile Include="tbl_scsInventoryTxnSummary.cs" />
+    <Compile Include="tbl_scsStockTrackingReport.cs" />
+    <Compile Include="SEACC_Login\DBHandling.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="srh_bssCustomerOutstanding.cs" />
+    <Compile Include="srh_Cheque_Standard.cs" />
+    <Compile Include="srh_Item_Standard.cs" />
+    <Compile Include="srh_Item_Standard_Plus.cs" />
+    <Compile Include="tbl_atlActions.cs" />
+    <Compile Include="tbl_atlLoginAttempts.cs" />
+    <Compile Include="tbl_atlProcess_Modify.cs" />
+    <Compile Include="tbl_atlProcess_Print.cs" />
+    <Compile Include="tbl_audAditTrailLog.cs" />
+    <Compile Include="tbl_audAuditMaster.cs" />
+    <Compile Include="tbl_audAudit_Note.cs" />
+    <Compile Include="tbl_audAudit_Users.cs" />
+    <Compile Include="tbl_audTransactioin_ChequeRegister.cs" />
+    <Compile Include="tbl_audTransactioin_CreditNote.cs" />
+    <Compile Include="tbl_audTransactioin_DeliveryOrder.cs" />
+    <Compile Include="tbl_audTransactioin_Invoice.cs" />
+    <Compile Include="tbl_audTransactioin_Receipt.cs" />
+    <Compile Include="tbl_audTransactioin_SalesReturned.cs" />
+    <Compile Include="tbl_audTransaction_CustomerOrder.cs" />
+    <Compile Include="tbl_audTransaction_DebitNote.cs" />
+    <Compile Include="tbl_audTransaction_PurchaseReturned.cs" />
+    <Compile Include="tbl_audTransaction_ReturnedCheque.cs" />
+    <Compile Include="tbl_audTransaction_SupplierGoodReceive.cs" />
+    <Compile Include="tbl_bpsCashDeposit.cs" />
+    <Compile Include="tbl_bpsCashDeposit_Detail.cs" />
+    <Compile Include="tbl_bpsChequeDeposit.cs" />
+    <Compile Include="tbl_bpsChequeDeposit_Detail.cs" />
+    <Compile Include="tbl_bpsChequeReconciliation.cs" />
+    <Compile Include="tbl_bpsChequeReconciliation_Detail.cs" />
+    <Compile Include="tbl_bpsChequeRegister.cs" />
+    <Compile Include="tbl_bpsChequeReIssue.cs" />
+    <Compile Include="tbl_bpsChequeReIssue_Detail.cs" />
+    <Compile Include="tbl_bpsChequeReturnToSender.cs" />
+    <Compile Include="tbl_bpsChequeReturnToSender_Detail.cs" />
+    <Compile Include="tbl_bpsCreditNote.cs" />
+    <Compile Include="tbl_bpsCreditNote_Detail.cs" />
+    <Compile Include="tbl_bpsCreditNote_Invoice.cs" />
+    <Compile Include="tbl_bpsDebitNote.cs" />
+    <Compile Include="tbl_bpsDebitNote_Detail.cs" />
+    <Compile Include="tbl_bpsPaymentSettle.cs" />
+    <Compile Include="tbl_bpsPettyCashAccount.cs" />
+    <Compile Include="tbl_bpsPettyCashAccount_IOU.cs" />
+    <Compile Include="tbl_bpsPettyCashAccount_IOU_Detail.cs" />
+    <Compile Include="tbl_bpsPettyCashAccount_Permission.cs" />
+    <Compile Include="tbl_bpsPettyCashAccount_Transaction.cs" />
+    <Compile Include="tbl_bpsPettyCashReimbursement.cs" />
+    <Compile Include="tbl_bpsReceipt.cs" />
+    <Compile Include="tbl_bpsReceipt_Invoice.cs" />
+    <Compile Include="tbl_bpsReceipt_Payment.cs" />
+    <Compile Include="tbl_bpsReceipt_SubagentPayment.cs" />
+    <Compile Include="tbl_DataBaseBackup.cs" />
+    <Compile Include="tbl_genCompanyAccount.cs" />
+    <Compile Include="SEACC_Login\tbl_genCompanyBranchMaster.cs" />
+    <Compile Include="tbl_genCompanyCountryMaster.cs" />
+    <Compile Include="tbl_genCompanyImage.cs" />
+    <Compile Include="SEACC_Login\tbl_genCompanyInfo.cs" />
+    <Compile Include="tbl_genCustomerAccount.cs" />
+    <Compile Include="tbl_genCustomerAddressBook.cs" />
+    <Compile Include="tbl_genCustomerFinance.cs" />
+    <Compile Include="tbl_genCustomerMaster.cs" />
+    <Compile Include="tbl_genCustomerMaster_Branches.cs" />
+    <Compile Include="tbl_genCustomerMaster_Image.cs" />
+    <Compile Include="tbl_genCustomerMaster_Route.cs" />
+    <Compile Include="tbl_genDepartmentMaster.cs" />
+    <Compile Include="tbl_genDepartmentStock.cs" />
+    <Compile Include="tbl_genDepartment_Stock.cs" />
+    <Compile Include="tbl_genDepartment_StockSub.cs" />
+    <Compile Include="tbl_genDivisionMaster.cs" />
+    <Compile Include="tbl_genEmployeeMaster.cs" />
+    <Compile Include="tbl_genGoodsLenderMaster.cs" />
+    <Compile Include="tbl_genItemMaster.cs" />
+    <Compile Include="tbl_genItemMaster_CombinationMaterail.cs" />
+    <Compile Include="tbl_genItemMaster_Finance_Customer.cs" />
+    <Compile Include="tbl_genItemMaster_FinishedGood.cs" />
+    <Compile Include="tbl_genItemMaster_FinishedGood_Pvc.cs" />
+    <Compile Include="tbl_genItemMaster_Gem.cs" />
+    <Compile Include="tbl_genItemMaster_Gem_InforGem.cs" />
+    <Compile Include="tbl_genItemMaster_Gem_InforMetal.cs" />
+    <Compile Include="tbl_genItemMaster_Gem_Suppliers.cs" />
+    <Compile Include="tbl_genItemMaster_LaminatedMaterialDouble.cs" />
+    <Compile Include="tbl_genItemMaster_LaminatedMaterialSingle.cs" />
+    <Compile Include="tbl_genItemMaster_PricesCustomerWise.cs" />
+    <Compile Include="tbl_genItemMaster_PricesSalesRepWise.cs" />
+    <Compile Include="tbl_genItemMaster_SemiFinishedGood.cs" />
+    <Compile Include="tbl_genItemMaster_SemiFinishedGood_Material.cs" />
+    <Compile Include="tbl_genItemMaster_Sub.cs" />
+    <Compile Include="tbl_genItem_Image.cs" />
+    <Compile Include="tbl_genMachineMaster.cs" />
+    <Compile Include="tbl_genMachine_Helper.cs" />
+    <Compile Include="tbl_genMachine_Operator.cs" />
+    <Compile Include="tbl_genMachine_Specification.cs" />
+    <Compile Include="tbl_genMachine_Supervisor.cs" />
+    <Compile Include="tbl_genRouteMaster.cs" />
+    <Compile Include="tbl_genRouteMaster_Schedule.cs" />
+    <Compile Include="tbl_genRouteMaster_Schedule_SalesRep.cs" />
+    <Compile Include="tbl_genRouteMaster_Schedule_Town.cs" />
+    <Compile Include="tbl_genRouteMaster_Town.cs" />
+    <Compile Include="tbl_genSecion_StockSub.cs" />
+    <Compile Include="tbl_genSectionMaster.cs" />
+    <Compile Include="tbl_genSection_Stock.cs" />
+    <Compile Include="tbl_genShiftMaster.cs" />
+    <Compile Include="tbl_genStoreMaster.cs" />
+    <Compile Include="tbl_genStore_Stock.cs" />
+    <Compile Include="tbl_genStore_StockSub.cs" />
+    <Compile Include="tbl_genSupplierAccount.cs" />
+    <Compile Include="tbl_genSupplierMaster.cs" />
+    <Compile Include="Production_AKT\tbl_pmsPrePlan.cs" />
+    <Compile Include="Production_AKT\tbl_pmsProductionJobDetail.cs" />
+    <Compile Include="Production_AKT\tbl_pmsProductionJobManualSettle.cs" />
+    <Compile Include="Production_AKT\tbl_pmsProductionJobManualSettle_Detail.cs" />
+    <Compile Include="Production_AKT\tbl_pmsWorkInProgress.cs" />
+    <Compile Include="Production_AKT\tbl_pmsWorkInProgress_Machine.cs" />
+    <Compile Include="Production_AKT\tbl_pmsWorkInProgress_Machine_Shedule.cs" />
+    <Compile Include="tbl_rbInsReportFormula.cs" />
+    <Compile Include="tbl_rbInsReportItem.cs" />
+    <Compile Include="tbl_rbInsReportItem_Level_1.cs" />
+    <Compile Include="tbl_rbInsReportItem_Level_2.cs" />
+    <Compile Include="tbl_rbInsReportItem_Settings.cs" />
+    <Compile Include="tbl_rbInsReportMaster.cs" />
+    <Compile Include="tbl_rbReportItem.cs" />
+    <Compile Include="tbl_rbReportItem_Level_1.cs" />
+    <Compile Include="tbl_rbReportItem_Level_2.cs" />
+    <Compile Include="tbl_rbReportItem_Settings.cs" />
+    <Compile Include="tbl_rbReportMaster.cs" />
+    <Compile Include="tbl_rptTempProductionMachineWiser_Detail.cs" />
+    <Compile Include="tbl_sasAccountReceipt.cs" />
+    <Compile Include="tbl_sasBatchApproval.cs" />
+    <Compile Include="tbl_sasBatchApproval_Detail.cs" />
+    <Compile Include="tbl_sasCustomerOrder.cs" />
+    <Compile Include="tbl_sasCustomerOrder_Detail.cs" />
+    <Compile Include="tbl_sasCustomerOrder_Edit.cs" />
+    <Compile Include="tbl_sasCustomerOrder_Gem.cs" />
+    <Compile Include="tbl_sasCustomerOrder_Gem_InforGem.cs" />
+    <Compile Include="tbl_sasCustomerOrder_Gem_InforMetal.cs" />
+    <Compile Include="tbl_sasDeliveryOrder.cs" />
+    <Compile Include="tbl_sasDeliveryOrder_Detail.cs" />
+    <Compile Include="tbl_sasDeliveryOrder_DetailBreakdown.cs" />
+    <Compile Include="tbl_sasDeliveryPlan.cs" />
+    <Compile Include="tbl_sasDeliveryPlan_CustomerOrder.cs" />
+    <Compile Include="tbl_sasDeliveryPlan_CustomerOrder_Items.cs" />
+    <Compile Include="tbl_sasDeliveryPlan_Invoice.cs" />
+    <Compile Include="tbl_sasInquiry.cs" />
+    <Compile Include="tbl_sasInquiry_Detail.cs" />
+    <Compile Include="tbl_sasInvDeliveryOrder.cs" />
+    <Compile Include="tbl_sasInvDeliveryOrder_Detail.cs" />
+    <Compile Include="tbl_sasInvoice_Detail.cs" />
+    <Compile Include="tbl_sasInvoice_Detail_Tmp.cs" />
+    <Compile Include="tbl_sasInvoice_Sattled.cs" />
+    <Compile Include="tbl_sasInvoice_Tmp.cs" />
+    <Compile Include="tbl_sasJobRegister.cs" />
+    <Compile Include="tbl_sasJobRegister_ProductDetail.cs" />
+    <Compile Include="tbl_sasPickingNote.cs" />
+    <Compile Include="tbl_sasPickingNote_Detail.cs" />
+    <Compile Include="tbl_sasPreCosting.cs" />
+    <Compile Include="tbl_sasPreCosting_Labour.cs" />
+    <Compile Include="tbl_sasPreCosting_Machine.cs" />
+    <Compile Include="tbl_sasPreCosting_Material.cs" />
+    <Compile Include="tbl_sasPreCosting_Other.cs" />
+    <Compile Include="tbl_sasProformaInvoice.cs" />
+    <Compile Include="tbl_sasProformaInvoice_Detail.cs" />
+    <Compile Include="tbl_sasQuotation.cs" />
+    <Compile Include="tbl_sasQuotation_Detail.cs" />
+    <Compile Include="tbl_sasSalesReturnedNote.cs" />
+    <Compile Include="tbl_sasSalesReturnedNote_Detail.cs" />
+    <Compile Include="tbl_sasStockMovement.cs" />
+    <Compile Include="tbl_sasStockMovement_Detail.cs" />
+    <Compile Include="tbl_scsDamagedGoodNote.cs" />
+    <Compile Include="tbl_scsDamagedGoodNote_Detail.cs" />
+    <Compile Include="tbl_scsDepartmentGoodIssueNote.cs" />
+    <Compile Include="tbl_scsDepartmentGoodIssueNote_Detail.cs" />
+    <Compile Include="tbl_scsDepartmentGoodReceiveNote.cs" />
+    <Compile Include="tbl_scsDepartmentGoodReceiveNote_Detail.cs" />
+    <Compile Include="tbl_scsDepartmentReqositionNote.cs" />
+    <Compile Include="tbl_scsDepartmentReqositionNote_Detail.cs" />
+    <Compile Include="tbl_scsDiscardedGoodNote.cs" />
+    <Compile Include="tbl_scsDiscardedGoodNote_Detail.cs" />
+    <Compile Include="tbl_scsExternalGoodIssueNote.cs" />
+    <Compile Include="tbl_scsExternalGoodIssueNote_Detail.cs" />
+    <Compile Include="tbl_scsExternalGoodReceivedNote.cs" />
+    <Compile Include="tbl_scsExternalGoodReceivedNote_Detail.cs" />
+    <Compile Include="tbl_scsExternalGoodReceivedNote_Detail_Gem.cs" />
+    <Compile Include="tbl_scsGoodTransferNote.cs" />
+    <Compile Include="tbl_scsGoodTransferNote_Detail.cs" />
+    <Compile Include="tbl_scsItemSpred.cs" />
+    <Compile Include="tbl_scsItemSpred_Detail_From.cs" />
+    <Compile Include="tbl_scsItemSpred_Detail_To.cs" />
+    <Compile Include="tbl_scsLoanIn.cs" />
+    <Compile Include="tbl_scsLoanIn_Detail.cs" />
+    <Compile Include="tbl_scsLoanOut.cs" />
+    <Compile Include="tbl_scsLoanOut_Detail.cs" />
+    <Compile Include="tbl_scsLoanSettle.cs" />
+    <Compile Include="tbl_scsMatfor.cs" />
+    <Compile Include="tbl_scsMatfor_Detail.cs" />
+    <Compile Include="tbl_scsMatfor_Detail_POInstruction.cs" />
+    <Compile Include="tbl_scsMatfor_Entry.cs" />
+    <Compile Include="tbl_scsMatfor_Entry_Detail.cs" />
+    <Compile Include="tbl_scsMatfor_Entry_Detail_RwMaterial.cs" />
+    <Compile Include="tbl_scsPurchaseOrder.cs" />
+    <Compile Include="tbl_scsPurchaseOrder_Detail.cs" />
+    <Compile Include="tbl_scsPurchaseRequisition.cs" />
+    <Compile Include="tbl_scsPurchaseRequisition_Detail.cs" />
+    <Compile Include="tbl_scsPurchaseReturnedNote.cs" />
+    <Compile Include="tbl_scsPurchaseReturnedNote_Detail.cs" />
+    <Compile Include="tbl_scsSectionGoodIssueNote.cs" />
+    <Compile Include="tbl_scsSectionGoodIssueNote_Detail.cs" />
+    <Compile Include="tbl_scsSectionGoodReceiveNote.cs" />
+    <Compile Include="tbl_scsSectionGoodReceiveNote_Detail.cs" />
+    <Compile Include="tbl_scsSectionReqositionNote.cs" />
+    <Compile Include="tbl_scsSectionReqositionNote_Detail.cs" />
+    <Compile Include="tbl_scsStockAdd.cs" />
+    <Compile Include="tbl_scsStockAdd_Detail.cs" />
+    <Compile Include="tbl_scsStockAdjustment.cs" />
+    <Compile Include="tbl_scsStockAdjustment_Detail.cs" />
+    <Compile Include="tbl_scsStoreGoodIssueNote.cs" />
+    <Compile Include="tbl_scsStoreGoodIssueNote_Detail.cs" />
+    <Compile Include="tbl_scsStoreGoodReceiveNote.cs" />
+    <Compile Include="tbl_scsStoreGoodReceiveNote_Detail.cs" />
+    <Compile Include="tbl_scsStoreProduction.cs" />
+    <Compile Include="tbl_scsStoreProduction_Detail.cs" />
+    <Compile Include="tbl_scsStoreReqositionNote.cs" />
+    <Compile Include="tbl_scsStoreReqositionNote_Detail.cs" />
+    <Compile Include="tbl_scsTempStockTrackingReport.cs" />
+    <Compile Include="tbl_scsWeeklyStockTake.cs" />
+    <Compile Include="tbl_scsWeeklyStockTake_Detail.cs" />
+    <Compile Include="tbl_securityApprovalPermission.cs" />
+    <Compile Include="tbl_securityAuditPermission.cs" />
+    <Compile Include="tbl_securityBranchPermission.cs" />
+    <Compile Include="tbl_securityCheckingPermission.cs" />
+    <Compile Include="tbl_securityCompanyValues.cs" />
+    <Compile Include="tbl_securityConfigForms.cs" />
+    <Compile Include="tbl_securityConfigForms_Advanced.cs" />
+    <Compile Include="tbl_securityConfigStatus.cs" />
+    <Compile Include="tbl_securityConfigType_Status.cs" />
+    <Compile Include="tbl_securityConfigType_Value.cs" />
+    <Compile Include="tbl_securityConfigValue.cs" />
+    <Compile Include="tbl_securityDateSettings.cs" />
+    <Compile Include="tbl_securityFormCategory.cs" />
+    <Compile Include="tbl_securityFormMaster.cs" />
+    <Compile Include="tbl_SecurityGridSetting.cs" />
+    <Compile Include="SEACC_Login\tbl_securityGroup.cs" />
+    <Compile Include="tbl_securityGroupPermission.cs" />
+    <Compile Include="tbl_securityItemExceedLock.cs" />
+    <Compile Include="tbl_securityPaymentControlPermission.cs" />
+    <Compile Include="tbl_securityProcessNoteCatogory.cs" />
+    <Compile Include="tbl_securityProcessNoteMaster.cs" />
+    <Compile Include="tbl_securityProject.cs" />
+    <Compile Include="tbl_securityPurge.cs" />
+    <Compile Include="tbl_securityPurge_Detail.cs" />
+    <Compile Include="tbl_securityReportMaster.cs" />
+    <Compile Include="tbl_securityReportMaster_CompanyBranch.cs" />
+    <Compile Include="tbl_securityReportPermission.cs" />
+    <Compile Include="tbl_securityReportSetting.cs" />
+    <Compile Include="tbl_securityStockValidate.cs" />
+    <Compile Include="tbl_securityStorePermission.cs" />
+    <Compile Include="SEACC_Login\tbl_securityTerminalMaster.cs" />
+    <Compile Include="SEACC_Login\tbl_securityUserMaster.cs" />
+    <Compile Include="tbl_securityUserActivity.cs" />
+    <Compile Include="tbl_securityUserPermission.cs" />
+    <Compile Include="tbl_securityUserRole.cs" />
+    <Compile Include="tbl_securityUserRole_Permission.cs" />
+    <Compile Include="tbl_securityValue.cs" />
+    <Compile Include="tbl_securityWorkstationRegister.cs" />
+    <Compile Include="tbl_securtiyConfigActive.cs" />
+    <Compile Include="tbl_securityPaperMaster.cs" />
+    <Compile Include="tbl_tmpStockTracking.cs" />
+    <Compile Include="tbl_trcDBBackup.cs" />
+    <Compile Include="tbl_trcInvoiceEdit.cs" />
+    <Compile Include="tbl_trcItemTracking.cs" />
+    <Compile Include="tbl_trcItemTracking_MonthlyBalance.cs" />
+    <Compile Include="tbl_trcItemTracking_MonthlyBalance_Detail.cs" />
+    <Compile Include="tbl_txnUpdateHistory.cs" />
+    <Compile Include="tbl_utlAlert.cs" />
+    <Compile Include="tbl_utlAlertMailBox_Attachments.cs" />
+    <Compile Include="tbl_utlAlertMailBox_Pending.cs" />
+    <Compile Include="tbl_utlAlertMailBox_Receiver.cs" />
+    <Compile Include="tbl_utlAlertSettings.cs" />
+    <Compile Include="tbl_utlAlert_Config.cs" />
+    <Compile Include="tbl_utlAlert_EMail.cs" />
+    <Compile Include="tbl_utlAlert_EMailBox.cs" />
+    <Compile Include="tbl_utlAlert_Message.cs" />
+    <Compile Include="tbl_utlAlert_Shedule.cs" />
+    <Compile Include="tbl_utlChat.cs" />
+    <Compile Include="tbl_utlChatUser.cs" />
+    <Compile Include="tbl_utlChat_Message.cs" />
+    <Compile Include="tbl_utlEmailConfig.cs" />
+    <Compile Include="tbl_utlLoginStatus.cs" />
+    <Compile Include="SEACC_Login\tbl_utlUserPool.cs" />
+    <Compile Include="tbl_zAccAccountPaybleNoteType.cs" />
+    <Compile Include="tbl_zAccCostCenter.cs" />
+    <Compile Include="tbl_zAccCostCenter1.cs" />
+    <Compile Include="tbl_zAccCostCenter2.cs" />
+    <Compile Include="tbl_zAccGLMaster_AccountType.cs" />
+    <Compile Include="tbl_zAccGLMaster_MainCatagory.cs" />
+    <Compile Include="tbl_zAccGLMaster_SubCatagory.cs" />
+    <Compile Include="tbl_zAccJournalVoucherType.cs" />
+    <Compile Include="tbl_zAccPostingStatus.cs" />
+    <Compile Include="tbl_zAccSlotCategory.cs" />
+    <Compile Include="tbl_zArea.cs" />
+    <Compile Include="tbl_zAssistant.cs" />
+    <Compile Include="tbl_zAuditCategory.cs" />
+    <Compile Include="tbl_zBank.cs" />
+    <Compile Include="tbl_zBankBranches.cs" />
+    <Compile Include="tbl_zBatchApprovalStatus.cs" />
+    <Compile Include="tbl_zBatchNo.cs" />
+    <Compile Include="tbl_zBrand.cs" />
+    <Compile Include="tbl_zCancelReson_DO.cs" />
+    <Compile Include="tbl_zChequeFormat.cs" />
+    <Compile Include="tbl_zChequeFormat_Detail.cs" />
+    <Compile Include="tbl_zChequePrinting.cs" />
+    <Compile Include="tbl_zChequeStatus.cs" />
+    <Compile Include="tbl_zChequeType.cs" />
+    <Compile Include="tbl_zCity.cs" />
+    <Compile Include="tbl_zColour.cs" />
+    <Compile Include="tbl_zCommissionSlabSetting.cs" />
+    <Compile Include="tbl_zCostingType.cs" />
+    <Compile Include="tbl_zCost_Center1.cs" />
+    <Compile Include="tbl_zCost_Center2.cs" />
+    <Compile Include="tbl_zCost_Center3.cs" />
+    <Compile Include="tbl_zCost_Center4.cs" />
+    <Compile Include="tbl_zCountry.cs" />
+    <Compile Include="tbl_zCreditNoteType.cs" />
+    <Compile Include="tbl_zCurrency.cs" />
+    <Compile Include="tbl_zCurrency_History.cs" />
+    <Compile Include="tbl_zCustomerCategory.cs" />
+    <Compile Include="tbl_zCustomerClass.cs" />
+    <Compile Include="tbl_zCustomerType.cs" />
+    <Compile Include="tbl_zDebitNoteType.cs" />
+    <Compile Include="tbl_zDeductionMaster.cs" />
+    <Compile Include="tbl_zDiscount.cs" />
+    <Compile Include="tbl_zDistrict.cs" />
+    <Compile Include="tbl_zDriver.cs" />
+    <Compile Include="tbl_ZEmpAreaManager.cs" />
+    <Compile Include="tbl_zEmpAssistant.cs" />
+    <Compile Include="tbl_zEmployeeSlabSettings.cs" />
+    <Compile Include="tbl_zEmpOperator.cs" />
+    <Compile Include="tbl_ZEmpSalesExecutive.cs" />
+    <Compile Include="tbl_ZEmpSalesManager.cs" />
+    <Compile Include="tbl_ZEmpSalesRep.cs" />
+    <Compile Include="tbl_zEmpSupervisor.cs" />
+    <Compile Include="tbl_zFixedAssetType.cs" />
+    <Compile Include="tbl_zFont.cs" />
+    <Compile Include="tbl_zGemGem.cs" />
+    <Compile Include="tbl_zGemMettle.cs" />
+    <Compile Include="tbl_zGemPatternLength.cs" />
+    <Compile Include="tbl_zGemPatternSize.cs" />
+    <Compile Include="tbl_zInvoiceTypes.cs" />
+    <Compile Include="tbl_zIssuedRefNo.cs" />
+    <Compile Include="tbl_zItemCategory.cs" />
+    <Compile Include="tbl_zItemCategory_Sub.cs" />
+    <Compile Include="tbl_zItemCategory_Sub_Specification.cs" />
+    <Compile Include="tbl_zItemClass.cs" />
+    <Compile Include="tbl_zItemSerialNo.cs" />
+    <Compile Include="tbl_zItemSerialNo_GiftVoucher.cs" />
+    <Compile Include="tbl_zItemSerialNo_InforGem.cs" />
+    <Compile Include="tbl_zItemSerialNo_InforMetal.cs" />
+    <Compile Include="tbl_zItemSize.cs" />
+    <Compile Include="tbl_zItemSpecification.cs" />
+    <Compile Include="tbl_zItemSubCategory.cs" />
+    <Compile Include="tbl_zItemSubCategory2.cs" />
+    <Compile Include="tbl_zItemTag1.cs" />
+    <Compile Include="tbl_zItemTag2.cs" />
+    <Compile Include="Production_Appral\tbl_zItemTag3.cs" />
+    <Compile Include="tbl_zItemTag4.cs" />
+    <Compile Include="tbl_zItemType.cs" />
+    <Compile Include="tbl_zJobCategory.cs" />
+    <Compile Include="tbl_zJobGussestType.cs" />
+    <Compile Include="tbl_zJobHandleType.cs" />
+    <Compile Include="tbl_zJobLaminationMaterialType.cs" />
+    <Compile Include="tbl_zJobLaminationType.cs" />
+    <Compile Include="tbl_zJobMeasurementType.cs" />
+    <Compile Include="tbl_zJobPolytheneMaterialType.cs" />
+    <Compile Include="tbl_zJobPolytheneType.cs" />
+    <Compile Include="tbl_zJobPouchType.cs" />
+    <Compile Include="tbl_zJobPrintingMethod.cs" />
+    <Compile Include="tbl_zJobPrintingType.cs" />
+    <Compile Include="tbl_zJobSealingMethod.cs" />
+    <Compile Include="tbl_zJobSealingType.cs" />
+    <Compile Include="tbl_zJobSlittingType.cs" />
+    <Compile Include="tbl_zJobTreatnmentStatus.cs" />
+    <Compile Include="tbl_zLin.cs" />
+    <Compile Include="tbl_zMachineCategory.cs" />
+    <Compile Include="tbl_zMachineCategory_Sub.cs" />
+    <Compile Include="tbl_zMachineCategory_Sub_Specification.cs" />
+    <Compile Include="tbl_zMachineClass.cs" />
+    <Compile Include="tbl_zMachineSpecification.cs" />
+    <Compile Include="tbl_zMachineType.cs" />
+    <Compile Include="tbl_zModel.cs" />
+    <Compile Include="tbl_zMonth.cs" />
+    <Compile Include="tbl_zOrderRefNo.cs" />
+    <Compile Include="tbl_zPaperMaster.cs" />
+    <Compile Include="tbl_zPaymentControlMethod.cs" />
+    <Compile Include="tbl_zPaymentMethod.cs" />
+    <Compile Include="tbl_zPettyCashExpenditureType.cs" />
+    <Compile Include="tbl_zPettyCashIncomeType.cs" />
+    <Compile Include="tbl_zPettyCash_Level_1.cs" />
+    <Compile Include="tbl_zPettyCash_Level_2.cs" />
+    <Compile Include="tbl_zPettyCash_Level_3.cs" />
+    <Compile Include="tbl_zPettyCash_Level_4.cs" />
+    <Compile Include="tbl_zPrinterMaster.cs" />
+    <Compile Include="tbl_zProvince.cs" />
+    <Compile Include="tbl_zQuotationTerms.cs" />
+    <Compile Include="tbl_zQuotationType.cs" />
+    <Compile Include="tbl_zReportCategory.cs" />
+    <Compile Include="tbl_zRoleType.cs" />
+    <Compile Include="tbl_zRoute.cs" />
+    <Compile Include="tbl_zSalesNoteType.cs" />
+    <Compile Include="tbl_zSchedule.cs" />
+    <Compile Include="tbl_zStatus.cs" />
+    <Compile Include="tbl_zStockNoteType.cs" />
+    <Compile Include="tbl_zSupplierCategory.cs" />
+    <Compile Include="tbl_zSupplierClass.cs" />
+    <Compile Include="tbl_zSupplierType.cs" />
+    <Compile Include="tbl_zTax.cs" />
+    <Compile Include="tbl_zTown.cs" />
+    <Compile Include="tbl_zUom.cs" />
+    <Compile Include="tbl_zUomCategory.cs" />
+    <Compile Include="tbl_zVehicle.cs" />
+    <Compile Include="tbl_zYear.cs" />
+    <Compile Include="Tender\tbl_ttsAcceptanceLetter.cs" />
+    <Compile Include="Tender\tbl_ttsApplicationCollection.cs" />
+    <Compile Include="Tender\tbl_ttsAttachments.cs" />
+    <Compile Include="Tender\tbl_ttsDocumentSubmit.cs" />
+    <Compile Include="Tender\tbl_ttsMasCompetitor.cs" />
+    <Compile Include="Tender\tbl_ttsOfferLetter.cs" />
+    <Compile Include="Tender\tbl_ttsPreBidMeeting.cs" />
+    <Compile Include="Tender\tbl_ttsPreBidMeeting_Competitors.cs" />
+    <Compile Include="Tender\tbl_ttsTenderDocumentMaster.cs" />
+    <Compile Include="Tender\tbl_ttsTenderDocumentRenewal.cs" />
+    <Compile Include="Tender\tbl_ttsTenderDocumentRenewals.cs" />
+    <Compile Include="Tender\tbl_ttsTenderIndent.cs" />
+    <Compile Include="Tender\tbl_ttsTenderNotice.cs" />
+    <Compile Include="Tender\tbl_ttsTenderNotice_Delivery.cs" />
+    <Compile Include="Tender\tbl_ttsTenderNotice_Detail.cs" />
+    <Compile Include="Tender\tbl_ttsTenderReadings.cs" />
+    <Compile Include="Tender\tbl_ttsTenderReadingsDetails.cs" />
+    <Compile Include="Tender\tbl_ttsTenderRenewalType.cs" />
+    <Compile Include="Tender\tbl_ttsTenderSource.cs" />
+    <Compile Include="Tender\tbl_ttsTenderSponsor.cs" />
+    <Compile Include="vw_searchBpsChequeDepositAndReIssue.cs" />
+    <Compile Include="vw_searchChequeRegister.cs" />
+    <Compile Include="vw_search_bssReceipt.cs" />
+    <Compile Include="vw_search_genItem_FinishedGoods.cs" />
+    <Compile Include="vw_search_sasCustomerOrder.cs" />
+    <Compile Include="vw_search_sasDeliveryOrder.cs" />
+    <Compile Include="vw_search_sasInquiry.cs" />
+    <Compile Include="vw_search_sasInvoice.cs" />
+    <Compile Include="vw_search_sasSalesReturn.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include="Microsoft.Net.Client.3.5">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1 Client Profile</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Windows.Installer.3.1">
+      <Visible>False</Visible>
+      <ProductName>Windows Installer 3.1</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="ACC\" />
+  </ItemGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <PropertyGroup>
+    <PreBuildEvent>
+    </PreBuildEvent>
+  </PropertyGroup>
+</Project>

@@ -1,0 +1,178 @@
+﻿<UserControl
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:Digiteq"
+             xmlns:SEACC_WPFControls="clr-namespace:SEACC_WPFControls;assembly=SEACC_WPFControls"  
+             xmlns:SEACC_WPFControls1="clr-namespace:SEACC_WPFControls" 
+             x:Class="Digiteq.UC_HRCalander"  mc:Ignorable="d" Background="#FFFFFF">
+    <SEACC_WPFControls1:SEACC_Form x:Name="SEACC_Form">
+        <Grid Margin="0,0,0,50">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Name="coloumnA" Width="200"/>
+                <ColumnDefinition Width="5" />
+                <ColumnDefinition Width="*" />
+            </Grid.ColumnDefinitions>
+            <Grid HorizontalAlignment="Left">
+                <ScrollViewer HorizontalAlignment="Left">
+                    <StackPanel HorizontalAlignment="Left">
+                        <SEACC_WPFControls:SEACC_LableTextBox x:Name="txtYearID" Caption="Year" MouseDoubleClick="SEACC_LableTextBox_MouseDoubleClick_1"  />
+                        <local:UC_Calander x:Name="cal_1" HorizontalAlignment="Left" Margin="0,10,0,0" VerticalAlignment="Top" Width="165" Height="108" MonthSelected="UC_Calander_MonthSelected"/>
+                        <local:UC_Calander x:Name="cal_2" HorizontalAlignment="Left" Margin="0,10,0,0" VerticalAlignment="Top" Width="165" Height="108" MonthSelected="UC_Calander_MonthSelected"/>
+                        <local:UC_Calander x:Name="cal_3" HorizontalAlignment="Left" Margin="0,10,0,0" VerticalAlignment="Top" Width="165" Height="108" MonthSelected="UC_Calander_MonthSelected"/>
+                        <local:UC_Calander x:Name="cal_4" HorizontalAlignment="Left" Margin="0,10,0,0" VerticalAlignment="Top" Width="165" Height="108" MonthSelected="UC_Calander_MonthSelected"/>
+                        <local:UC_Calander x:Name="cal_5" HorizontalAlignment="Left" Margin="0,10,0,0" VerticalAlignment="Top" Width="165" Height="108" MonthSelected="UC_Calander_MonthSelected"/>
+                        <local:UC_Calander x:Name="cal_6" HorizontalAlignment="Left" Margin="0,10,0,0" VerticalAlignment="Top" Width="165" Height="108" MonthSelected="UC_Calander_MonthSelected"/>
+                        <local:UC_Calander x:Name="cal_7" HorizontalAlignment="Left" Margin="0,10,0,0" VerticalAlignment="Top" Width="165" Height="108" MonthSelected="UC_Calander_MonthSelected"/>
+                        <local:UC_Calander x:Name="cal_8" HorizontalAlignment="Left" Margin="0,10,0,0" VerticalAlignment="Top" Width="165" Height="108" MonthSelected="UC_Calander_MonthSelected"/>
+                        <local:UC_Calander x:Name="cal_9" HorizontalAlignment="Left" Margin="0,10,0,0" VerticalAlignment="Top" Width="165" Height="108" MonthSelected="UC_Calander_MonthSelected"/>
+                        <local:UC_Calander x:Name="cal_10" HorizontalAlignment="Left" Margin="0,10,0,0" VerticalAlignment="Top" Width="165" Height="108" MonthSelected="UC_Calander_MonthSelected"/>
+                        <local:UC_Calander x:Name="cal_11" HorizontalAlignment="Left" Margin="0,10,0,0" VerticalAlignment="Top" Width="165" Height="108" MonthSelected="UC_Calander_MonthSelected"/>
+                        <local:UC_Calander x:Name="cal_12" HorizontalAlignment="Left" Margin="0,10,0,0" VerticalAlignment="Top" Width="165" Height="108" MonthSelected="UC_Calander_MonthSelected"/>
+                    </StackPanel>
+                </ScrollViewer>
+            </Grid>
+            <GridSplitter Background="#D5D5D5" Grid.Column="1" Width="5" HorizontalAlignment="Stretch"  Margin="0,1,0,-1" />
+            <Grid Grid.Column="2" Margin="5,-30,0,0" >
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="30"/>
+                    <RowDefinition Height="*"/>
+                </Grid.RowDefinitions>
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="120"/>
+                        <ColumnDefinition Width="120"/>
+                    </Grid.ColumnDefinitions>
+                    <SEACC_WPFControls:SEACC_Button x:Name="btn_month" Grid.Column="1" Content="Month" Click="btn_month_Click" Background="{x:Null}" BorderBrush="{x:Null}"/>
+                    <SEACC_WPFControls:SEACC_Button x:Name="btn_Agenda" Grid.Column="2" Content="Agenda" Click="btn_Agenda_Click" Background="{x:Null}" BorderBrush="{x:Null}"/>
+                </Grid>
+
+                <Grid x:Name="grd_Calander" Grid.Row="1" >
+                    <local:UC_Calander Grid.Column="0" x:Name="cal_Big" Width="Auto" Height="auto" Date_MouseClick="cal_Big_Date_MouseClick" Loaded="cal_Big_Loaded" Background="#FF34495E"  />
+                </Grid>
+
+                <Grid x:Name="grd_Agenda" Grid.Row="1" Visibility="Hidden"  >
+                    <SEACC_WPFControls:SEACC_DataGrid x:Name="dgv_Holyday" MouseLeftButtonUp="dgv_Holyday_MouseLeftButtonUp" Padding="0,15,5,5" Margin="10,10,10,0" >
+                        <DataGrid.Columns>
+                            <DataGridTextColumn Binding="{Binding Code}" Width="100"   Header="Code"/>
+                            <DataGridTextColumn Binding="{Binding Date}" Width="100"   Header="Date"/>
+                            <DataGridTextColumn Binding="{Binding Type}" Width="120"   Header="Type"/>
+                            <DataGridTextColumn Binding="{Binding DurationType}" Width="100"   Header="Hours"/>
+                            <DataGridTextColumn Binding="{Binding Description}"  Width="200"  Header="Event"/>
+                            <DataGridTextColumn Binding="{Binding Status}" Width="80"   Header="Status"/>
+                        </DataGrid.Columns>
+                    </SEACC_WPFControls:SEACC_DataGrid>
+                </Grid>
+            </Grid>
+        </Grid>
+
+        <Popup x:Name="pop_Event" Placement="MousePoint" PopupAnimation="Scroll"  IsOpen="False"  AllowsTransparency="True" HorizontalAlignment="Left" >
+            <Border BorderThickness="0,0,1,1">
+                <Border.Effect>
+                    <DropShadowEffect BlurRadius="15"/>
+                </Border.Effect>
+
+                <TabControl>
+                    <TabItem Header="Holiday Creation" Height="0" >
+                        <Grid>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="35"/>
+                                <RowDefinition Height="auto"/>
+                            </Grid.RowDefinitions>
+                            <Grid Background="#FF29496A" Grid.Row="0">
+                                <SEACC_WPFControls:SEACC_Button_Close x:Name="btnClose1" Content="&#xE8BB;" Foreground="White" Margin="10,5"  FontSize="12" HorizontalAlignment="Right" FontFamily="Segoe MDL2 Assets" Background="{x:Null}" BorderBrush="{x:Null}" Click="btnClose_Click" />
+                                <TextBlock Text="Holiday Creation" HorizontalAlignment="Left" VerticalAlignment="Center" FontSize="18" Foreground="White" Margin="10,0,0,0"/>
+                            </Grid>
+
+                            <StackPanel Grid.Row="2">
+                                <SEACC_WPFControls:SEACC_LableTextBox x:Name="txtHoliID" Caption="Holiday Code" Visibility="Collapsed" />
+                                <SEACC_WPFControls:SEACC_LabelTimeSelector x:Name="dtpHolidate" Caption="Date" ShowDate="Visible" ShowTime="Hidden"/>
+                                <SEACC_WPFControls:SEACC_LableTextBox x:Name="txtHoliType" Caption="Holiday type" MouseDoubleClick="txtHoliType_MouseDoubleClick" />
+                                <SEACC_WPFControls:SEACC_LableTextBox x:Name="txtHoliDescription" Caption="Description"/>
+                                <SEACC_WPFControls:SEACC_LabelComboBox x:Name="cmbHoliDurationTypes" Caption="Duration Type" />
+                                <SEACC_WPFControls:SEACC_LabelCheckBox x:Name="chkHoliStatus" Caption="Active" IsChecked="True" />
+                                <Button Content="" Width="50" Height="10" Visibility="Hidden"/>
+                                <Button x:Name="btnHoliSave" Content="Save" Width="80" Height="25" Click="btnHoliSave_Click"/>
+                            </StackPanel>
+                        </Grid>
+                    </TabItem>
+
+                    <TabItem Header="Add Events" Visibility="Collapsed">
+                        <Grid Background="White" Width="750"  >
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="35"/>
+                                <RowDefinition Height="auto"/>
+                                <RowDefinition Height="*"/>
+                                <RowDefinition Height="35"/>
+                            </Grid.RowDefinitions>
+
+                            <Grid Background="#FF29496A" Grid.Row="0">
+                                <SEACC_WPFControls:SEACC_Button_Close x:Name="btnClose" Content="&#xE8BB;" Foreground="White" Margin="10,5"  FontSize="12" HorizontalAlignment="Right" FontFamily="Segoe MDL2 Assets" Background="{x:Null}" BorderBrush="{x:Null}" Click="btnClose_Click" />
+                                <TextBlock Text="Add Event" HorizontalAlignment="Left" VerticalAlignment="Center" FontSize="18" Foreground="White" Margin="10,0,0,0"/>
+                            </Grid>
+
+                            <Grid x:Name="grd_AgendaPOP" Grid.Row="1"   >
+                                <SEACC_WPFControls:SEACC_DataGrid x:Name="dgv_HolydayPoP" Padding="0,15,5,5" Margin="10,10,10,20" MouseLeftButtonUp="dgv_HolydayPoP_MouseLeftButtonUp" >
+                                    <DataGrid.Columns>
+                                        <DataGridTextColumn Binding="{Binding code}" Width="100"   Header="Code"/>
+                                        <DataGridTextColumn Binding="{Binding date}" Width="100"   Header="Date"/>
+                                        <DataGridTextColumn Binding="{Binding Type}" Width="120"   Header="Type"/>
+                                        <DataGridTextColumn Binding="{Binding hours}" Width="100"   Header="Hours"/>
+                                        <DataGridTextColumn Binding="{Binding Description}"  Width="200"  Header="Event"/>
+                                        <DataGridTextColumn Binding="{Binding Status}" Width="80"   Header="Status"/>
+                                    </DataGrid.Columns>
+                                </SEACC_WPFControls:SEACC_DataGrid>
+                            </Grid>
+
+
+                            <Grid Grid.Row="2">
+                                <Grid x:Name="Main" Margin="10,10,0,0">
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Name="coloumnAA" Width="300" />
+                                        <ColumnDefinition Width="5" />
+                                        <ColumnDefinition Width="*" />
+                                    </Grid.ColumnDefinitions>
+
+                                    <SEACC_WPFControls:SEACC_DataGrid_Advanced Name="dgr_Entitled" Grid.Column="0" Margin="0,0,5,0" />
+                                    <GridSplitter Background="#D5D5D5" x:Name="gridSplitter" Width="5" HorizontalAlignment="Stretch" Grid.Column="1" Margin="0,1,0,-1"  />
+
+
+
+                                    <StackPanel Grid.Column="2">
+                                        <SEACC_WPFControls:SEACC_LableTextBox x:Name="txtHolidayID" Caption="Holiday Code" MouseDoubleClick="txtHolidayID_MouseDoubleClick" Visibility="Visible" />
+                                        <SEACC_WPFControls:SEACC_LabelTimeSelector x:Name="dtpHoliday" Caption="Date" ShowDate="Visible" ShowTime="Hidden"/>
+                                        <SEACC_WPFControls:SEACC_LableTextBox x:Name="txtHolidayType" Caption="Holiday type" MouseDoubleClick="txtHolidayType_MouseDoubleClick"/>
+                                        <SEACC_WPFControls:SEACC_LableTextBox x:Name="txtDescription" Caption="Description"/>
+                                        <Grid>
+                                            <SEACC_WPFControls:SEACC_TimeSpan   x:Name="ts_HolidayHours"  Width="92" HorizontalAlignment="Left" Margin="121,3,0,0" />
+                                            <Label Content="Hours" HorizontalAlignment="Left" VerticalAlignment="Top"/>
+                                        </Grid>
+
+                                        <SEACC_WPFControls:SEACC_CheckBox x:Name="chkStatus" Margin="0,10,5,0" Content="Status" HorizontalAlignment="Left"  VerticalAlignment="Top" Height="27" Width="251"/>
+                                    </StackPanel>
+
+
+                                </Grid>
+
+                            </Grid>
+
+                            <Grid Grid.Row="3">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="*"/>
+                                    <ColumnDefinition Width="100"/>
+                                    <ColumnDefinition Width="100"/>
+                                </Grid.ColumnDefinitions>
+                                <SEACC_WPFControls:SEACC_Button Grid.Column="2" Margin="3" Visibility="Collapsed"/>
+                                <SEACC_WPFControls:SEACC_Button Content="Save" x:Name="btn_PoPSave" Grid.Column="1" Margin="3" Background="#FF41B1E1" Foreground="White"  Click="btn_PoPSave_Click"/>
+                            </Grid>
+                        </Grid>
+                    </TabItem>
+
+                </TabControl>
+            </Border>
+        </Popup>
+
+    </SEACC_WPFControls1:SEACC_Form>
+</UserControl>

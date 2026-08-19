@@ -1,0 +1,144 @@
+﻿<UserControl x:Class="Digiteq.UC_PayrollEarningsMaster"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:SEACC_WPFControls="clr-namespace:SEACC_WPFControls;assembly=SEACC_WPFControls" 
+              xmlns:SEACC_WPFControls1="clr-namespace:SEACC_WPFControls"
+             mc:Ignorable="d" Loaded="UserControl_Loaded">
+    <SEACC_WPFControls1:SEACC_Form x:Name="SEACC_Form" SizeChanged="SEACC_Form_SizeChanged_1">
+        <Grid Margin="15,0,0,50" >
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Name="coloumnA" Width="550" />
+                <ColumnDefinition Width="5" />
+                <ColumnDefinition Width="*" />
+            </Grid.ColumnDefinitions>
+            <Grid>
+                <DataGrid x:Name="grd_PayrollEarning" FontSize="11"  SelectionUnit="FullRow" HeadersVisibility="Column" GridLinesVisibility="None" AutoGenerateColumns="False"  CanUserResizeColumns="False" IsReadOnly="True" Background="#FF3D3D3D" BorderThickness="0" SelectionMode="Single" MouseLeftButtonUp="grd_PayrollEarning_MouseLeftButtonUp" >
+                    <DataGrid.Resources>
+                        <SolidColorBrush x:Key="{x:Static SystemColors.HighlightBrushKey}" Color="Transparent"/>
+                    </DataGrid.Resources>
+                    <DataGrid.CellStyle>
+                        <Style TargetType="{x:Type DataGridCell}">
+                            <Setter Property="Template">
+                                <Setter.Value>
+                                    <ControlTemplate TargetType="{x:Type DataGridCell}">
+                                        <Grid Background="{TemplateBinding Background}">
+                                            <ContentPresenter VerticalAlignment="Center" />
+                                        </Grid>
+                                    </ControlTemplate>
+                                </Setter.Value>
+                            </Setter>
+                            <Setter Property="BorderThickness" Value="0"/>
+                        </Style>
+                    </DataGrid.CellStyle>
+                    <DataGrid.RowStyle>
+                        <Style TargetType="{x:Type DataGridRow}">
+                            <Setter Property="Background" Value="#FF666666" />
+                            <Setter Property="Foreground" Value="#FFFFFFF3" />
+                            <Setter Property="BorderBrush" Value="#FF707070" />
+                            <Setter Property="VerticalAlignment" Value="Center" />
+                            <Setter Property="Height" Value="22" />
+                            <Setter Property="BorderThickness" Value="1" />
+                            <Style.Triggers>
+                                <Trigger Property="IsSelected" Value="True">
+                                    <Setter Property="Background"  Value="#FF5BA4C3" />
+                                </Trigger>
+                                <Trigger Property="IsMouseOver" Value="True">
+                                    <Setter Property="Background" Value="#FF707070" />
+                                    <Setter Property="Foreground" Value="Black" />
+                                </Trigger>
+                            </Style.Triggers>
+                        </Style>
+                    </DataGrid.RowStyle>
+                    <DataGrid.ColumnHeaderStyle>
+                        <Style TargetType="{x:Type DataGridColumnHeader}">
+                            <Setter Property="Background" Value="#FF0096D6" />
+                            <Setter Property="Height" Value="25" />
+                        </Style>
+                    </DataGrid.ColumnHeaderStyle>
+                    <DataGrid.Columns>
+                        <DataGridTextColumn Binding="{Binding EarningsCode}"  Header="Earning Code"   IsReadOnly="True" Width="100"/>
+                        <DataGridTextColumn Binding="{Binding Type}"          Header="Type" Width="100"  IsReadOnly="True"/>
+                        <DataGridTextColumn Binding="{Binding Description}"   Header="Description" Width="150"  IsReadOnly="True"/>
+                        <DataGridTextColumn Binding="{Binding GLCode}"        Header="GL Code" Width="100"   IsReadOnly="True"/>
+                        <DataGridTextColumn Binding="{Binding Status}"        Header="Status" Width="100"  IsReadOnly="True"/>
+                    </DataGrid.Columns>
+
+                </DataGrid>
+            </Grid>
+            <GridSplitter Grid.Column="1" Width="5" HorizontalAlignment="Stretch" Margin="10,0,0,0" />
+            <Grid  Grid.Column="2">
+                <ScrollViewer VerticalScrollBarVisibility="Auto">
+                    <StackPanel>
+                        <SEACC_WPFControls:SEACC_LableTextBox x:Name="txtEarningCodeID" Caption="Earning Code"  />
+                        <SEACC_WPFControls:SEACC_LableTextBox x:Name="txtType" Caption="Type"  />
+                        <SEACC_WPFControls:SEACC_LableTextBox x:Name="txtDescription" Caption="Description" MinHeight="65" />
+                        <SEACC_WPFControls:SEACC_LableTextBox x:Name="txtGL" Caption="GL Code"  />
+                        <Grid Height="30">
+                            <Label Content="Status" HorizontalAlignment="Left" Margin="0,4,0,0" VerticalAlignment="Top" />
+                            <SEACC_WPFControls:SEACC_CheckBox  HorizontalAlignment="Left" Margin="111,4,0,0"/>
+                        </Grid>
+                        <Grid Margin="0,50,0,0">
+                            <Label x:Name="lblDeduction" Content="Auto Deduction Setting" FontSize="15" FontWeight="SemiBold" Margin="0,-35,0,35"/>
+                            <DataGrid Margin="5,0,0,0" x:Name="grd_Containings" SelectionUnit="FullRow" HeadersVisibility="Column" GridLinesVisibility="None" AutoGenerateColumns="False"  CanUserResizeColumns="False" IsReadOnly="True" Background="#FF3D3D3D" BorderThickness="0"  >
+                                <DataGrid.Resources>
+                                    <SolidColorBrush x:Key="{x:Static SystemColors.HighlightBrushKey}" Color="Transparent"/>
+                                </DataGrid.Resources>
+                                <DataGrid.CellStyle>
+                                    <Style TargetType="{x:Type DataGridCell}">
+                                        <Setter Property="Template">
+                                            <Setter.Value>
+                                                <ControlTemplate TargetType="{x:Type DataGridCell}">
+                                                    <Grid Background="{TemplateBinding Background}">
+                                                        <ContentPresenter VerticalAlignment="Center" />
+                                                    </Grid>
+                                                </ControlTemplate>
+                                            </Setter.Value>
+                                        </Setter>
+                                        <Setter Property="BorderThickness" Value="0"/>
+                                    </Style>
+                                </DataGrid.CellStyle>
+                                <DataGrid.RowStyle>
+                                    <Style TargetType="{x:Type DataGridRow}">
+                                        <Setter Property="Background" Value="#FF666666" />
+                                        <Setter Property="Foreground" Value="#FFFFFFF3" />
+                                        <Setter Property="BorderBrush" Value="#FF707070" />
+                                        <Setter Property="VerticalAlignment" Value="Center" />
+                                        <Setter Property="Height" Value="22" />
+                                        <Setter Property="BorderThickness" Value="1" />
+                                        <Style.Triggers>
+                                            <Trigger Property="IsSelected" Value="True">
+                                                <Setter Property="Background"  Value="#FF5BA4C3" />
+                                            </Trigger>
+                                            <Trigger Property="IsMouseOver" Value="True">
+                                                <Setter Property="Background" Value="#FF707070" />
+                                                <Setter Property="Foreground" Value="Black" />
+                                            </Trigger>
+                                        </Style.Triggers>
+                                    </Style>
+                                </DataGrid.RowStyle>
+                                <DataGrid.ColumnHeaderStyle>
+                                    <Style TargetType="{x:Type DataGridColumnHeader}">
+                                        <Setter Property="Background" Value="#FF0096D6" />
+                                        <Setter Property="Height" Value="25" />
+                                    </Style>
+                                </DataGrid.ColumnHeaderStyle>
+                                <DataGrid.Columns>
+                                    <DataGridTextColumn Binding="{Binding Code}"  Header="Deduction Code" Width="100"/>
+                                    <DataGridTextColumn Binding="{Binding Type}"  Header="Deduction Type" Width="150"/>
+                                    <DataGridTextColumn Binding="{Binding From}"  Header="Deduct From" Width="145"/>
+                                </DataGrid.Columns>
+                            </DataGrid>
+                        </Grid>
+                        <Grid >
+                            <SEACC_WPFControls:SEACC_Button x:Name="btnAdd" Background="#FF0096D6" Height="23" Width="75" Content="Add" HorizontalAlignment="Left" Margin="241,10,0,0"/>
+                            <SEACC_WPFControls:SEACC_Button x:Name="btnSave" Background="#FF0096D6" Height="23" Width="75" Content="Delete" HorizontalAlignment="Left" Margin="321,10,0,0" />
+
+                        </Grid>
+                    </StackPanel>
+                </ScrollViewer>
+            </Grid>
+        </Grid>
+    </SEACC_WPFControls1:SEACC_Form>
+</UserControl>

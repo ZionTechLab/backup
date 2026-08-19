@@ -1,0 +1,46 @@
+﻿<UserControl x:Class="Digiteq.UC_CarderCount"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+                 xmlns:SEACC_WPFControls="clr-namespace:SEACC_WPFControls;assembly=SEACC_WPFControls" 
+             xmlns:SEACC_WPFControls1="clr-namespace:SEACC_WPFControls" Background="#FFFFFF">
+    
+    <SEACC_WPFControls1:SEACC_Form x:Name="SEACC_Form" SizeChanged="SEACC_Form_SizeChanged">
+        <Grid x:Name="Main" Margin="15,0,0,50">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Name="coloumnA" Width="472" />
+                <ColumnDefinition Width="5" />
+                <ColumnDefinition Width="*" />
+            </Grid.ColumnDefinitions>
+            <Grid Background="#FF34495E" Margin="0,0,5,0" >
+                <SEACC_WPFControls:SEACC_DataGrid x:Name="grd_CarderCount" Margin="10,20,10,0" CanUserResizeColumns="True" CanUserReorderColumns="False" >
+                    <DataGrid.Columns>
+                        <DataGridTextColumn Width="40" Binding="{Binding DivisionID}" ClipboardContentBinding="{x:Null}" Header="#"/>
+                        <DataGridTextColumn Width="120" Binding="{Binding DivisionID}" ClipboardContentBinding="{x:Null}" Header="Division"/>
+                        <DataGridTextColumn Width="120" Binding="{Binding DepartmentID}" ClipboardContentBinding="{x:Null}" Header="Department"/>
+                        <DataGridTextColumn Width="120" Binding="{Binding SectionID}" ClipboardContentBinding="{x:Null}" Header="Section"/>
+                        <DataGridTextColumn Width="120" Binding="{Binding shiftID}" ClipboardContentBinding="{x:Null}" Header="Shift"/>
+                        <DataGridTextColumn Width="120" Binding="{Binding EmpCount}" ClipboardContentBinding="{x:Null}" Header="EmployeeCount"/>
+                    </DataGrid.Columns>
+                </SEACC_WPFControls:SEACC_DataGrid>
+
+            </Grid>
+            <GridSplitter Background="#D5D5D5" x:Name="gridSplitter" Width="5" HorizontalAlignment="Stretch" Grid.Column="1" Margin="0,1,0,-1"  />
+            <Grid Grid.Column="2" Margin="10,0,0,0">
+                <SEACC_WPFControls:SEACC_ScrollViewer VerticalScrollBarVisibility="Auto"  >
+                    <StackPanel HorizontalAlignment="Left">
+
+                        <SEACC_WPFControls:SEACC_LableTextBox x:Name="txtDivisionID" Caption="Division" Height="27"  Width="350" />
+                        <SEACC_WPFControls:SEACC_LableTextBox x:Name="txtDepartmentID" Caption="Department" Height="27"  Width="350" />
+                        <SEACC_WPFControls:SEACC_LableTextBox x:Name="txtSectionID" Caption="Section " Height="27"  Width="350" />
+                        <SEACC_WPFControls:SEACC_LableTextBox x:Name="txtShiftID" Caption="Shift " Height="27"  Width="350" />
+                        <SEACC_WPFControls:SEACC_LableTextBox x:Name="txtEmpCount" Caption="Employee Count " Height="27"  Width="350" />
+                        <SEACC_WPFControls:SEACC_LableTextBox x:Name="txtRemarks" Caption="Remarks " Height="65"  Width="350" />
+                    </StackPanel>
+                </SEACC_WPFControls:SEACC_ScrollViewer>
+            </Grid>
+
+        </Grid>
+    </SEACC_WPFControls1:SEACC_Form>
+</UserControl>

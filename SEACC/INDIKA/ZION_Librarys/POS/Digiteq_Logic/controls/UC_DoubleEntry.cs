@@ -1,0 +1,60 @@
+﻿using System;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Drawing;
+using System.Data;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using System.Windows.Forms;
+using Digiteq_Logic;
+
+namespace Digiteq
+{
+    public partial class UC_DoubleEntry : UserControl
+    {
+        public UC_DoubleEntry()
+        {
+            InitializeComponent();
+
+            dgvDetail.AutoGenerateColumns = false;
+        }
+
+        public void ClearFields()
+        {
+            dgvDetail.DataSource = null;
+
+            txtCreditAmount.Tag = null;
+            txtDebitAmount.Tag = null;
+            txtCreditAmount.Clear();
+            txtDebitAmount.Clear();
+        }
+
+        public void Refresh(DataTable dt)
+        {
+            dgvDetail.DataSource = dt.DefaultView;
+
+            decimal dDebitAmount = 0, dCreditAmount = 0;
+            foreach (DataGridViewRow row in dgvDetail.Rows)
+            {
+                dDebitAmount += clsValidate.ValidateGridValue(dgvDetail, "debitAmount", row.Index, dDebitAmount);
+                dCreditAmount += clsValidate.ValidateGridValue(dgvDetail, "creditAmount", row.Index, dCreditAmount);
+            }
+
+            txtCreditAmount.Text = clsFormatter.FormatToCurrecyWithThousendSep(dCreditAmount);
+            txtDebitAmount.Text = clsFormatter.FormatToCurrecyWithThousendSep(dDebitAmount);
+        }
+
+        public bool CheckValidity_DebitCredit()
+        {
+            bool bIsOk = false;
+
+            if (decimal.Parse(txtDebitAmount.Text) == decimal.Parse(txtCreditAmount.Text))
+                bIsOk = true;
+            else
+                MessageBox.Show("Debit / Credit Total not matching....!", clsFormatter.GetMessageCaption(), MessageBoxButtons.OK, MessageBoxIcon.Error);
+
+            return bIsOk;
+        }
+    }
+}

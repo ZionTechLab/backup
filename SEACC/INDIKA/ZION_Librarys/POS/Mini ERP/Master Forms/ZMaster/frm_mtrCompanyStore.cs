@@ -1,0 +1,492 @@
+﻿using System;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Data;
+using System.Drawing;
+using System.Linq;
+using System.Text;
+using System.Windows.Forms;
+using DataTire;
+using System.IO;
+using Digiteq_Logic;
+
+namespace Digiteq
+{
+    public partial class frm_mtrCompanyStore : Form
+    {
+        #region Variables
+        //to manage update and insert
+        static bool IsUpdate = false;
+
+        //to keep form detail       
+        string sFormConfigCode;
+        public int iFormID;
+        public bool bNoAccess;
+        #endregion
+
+        #region Form Load
+        public frm_mtrCompanyStore()
+        {
+            sFormConfigCode = clsAutocode.getFormConfigCode(FormName.CompanyStoreMaster);
+            iFormID = clsSecurity.getFormID(FormName.CompanyStoreMaster);
+            if (!clsSecurity.PermissionToRead(clsSecurity.UserIDLoged, iFormID))
+            {
+                bNoAccess = true;
+            }
+            InitializeComponent();
+        }
+
+        private void frm_mtrBranch_Load(object sender, EventArgs e)
+        {
+            //add data to the datagrid and format
+            RefreshGrid();
+            CusDataGridViewFormat();
+            ClearFields();
+        }
+        #endregion
+
+        #region Btn New
+        private void btnNew_Click(object sender, EventArgs e)
+        {
+            ClearFields();
+        }
+        #endregion
+
+        #region Btn Delete
+        private void btnDelete_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                if (txtCompanyStoreID.TextLength > 0)
+                {
+                    if (clsSecurity.PermissionToDelete(clsSecurity.UserIDLoged, iFormID))
+                    {
+                        //delete one record
+                        Cursor = Cursors.WaitCursor;
+                        tbl_genStoreMaster detail = tbl_genStoreMaster.Select(txtCompanyStoreID.Text.Trim());
+                        if (detail != null)
+                        {
+                            detail.Delete();
+                        }
+
+                        Cursor = Cursors.Default;
+                        MessageBox.Show(clsFormatter.GetMessageFrom(MessageType.DeleteDone), clsFormatter.GetMessageCaption(), MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        ClearFields();
+                        RefreshGrid();
+                    }
+                   
+                }
+            }
+            catch (Exception ex)
+            {
+                Cursor = Cursors.Default;
+                clsValidate.WriteErrorLog("", iFormID,ex);
+                SEACCException.Show(ex);
+            }
+        }
+        #endregion
+
+        #region Btn Save
+        private void btnSave_Click(object sender, EventArgs e)
+        {
+            if (CheckValidity())
+            {
+                if (CheckNumberValidity())
+                {
+                    if (clsSecurity.PermissionToSave(clsSecurity.UserIDLoged, iFormID, IsUpdate))
+                    {
+                        if (CheckStoreTypeValidity())
+                        {
+                            try
+                            {
+                                Cursor = Cursors.WaitCursor;
+                                if (txtCompanyStoreID.TextLength > 0)
+                                {
+                                    if (IsUpdate)  //update records
+                                    {
+
+                                        tbl_genStoreMaster oldRecord = tbl_genStoreMaster.Select(txtCompanyStoreID.Text.Trim());
+                                        if (oldRecord != null)
+                                        {
+                                            //Country Header
+                                            tbl_genStoreMaster detail = new tbl_genStoreMaster(oldRecord.Line_No, txtCompanyStoreID.Text.Trim(), txtCompanyStoreName.Text.Trim(),
+                                            txtAddress.Text.Trim(), txtTelephone.Text.Trim(), txtFax.Text.Trim(), txtContactPerson.Text.Trim(), chkIsDamagedStore.Checked, oldRecord.IsSingleItemStockStore, chkIsMainStore.Checked, chkIsTradingStore.Checked, oldRecord.IsSalesRepStore, chkIsShowRoom.Checked, oldRecord.IsDepartment, chkIsDeActive.Checked, oldRecord.CompanyID, txtCompanyBranch.Tag.ToString(), chkIsAllowMinusStore.Checked , oldRecord.IsSubContractorStore);
+                                            detail.Update();
+                                            MessageBox.Show(clsFormatter.GetMessageFrom(MessageType.ModifyDone), clsFormatter.GetMessageCaption(), MessageBoxButtons.OK, MessageBoxIcon.Information);
+                                        }
+                                    }
+                                    else  //insert records
+                                    {
+                                        if (clsAutocode.IsAutoGenerated(sFormConfigCode))
+                                            txtCompanyStoreID.Text = clsAutocode.getAutoGeneratedCode(sFormConfigCode);
+
+                                        //Inquiry Header
+                                        tbl_genStoreMaster detail = new tbl_genStoreMaster(1, txtCompanyStoreID.Text.Trim(), txtCompanyStoreName.Text.Trim(),
+                                           txtAddress.Text.Trim(), txtTelephone.Text.Trim(), txtFax.Text.Trim(), txtContactPerson.Text.Trim(), chkIsDamagedStore.Checked, true, chkIsMainStore.Checked, chkIsTradingStore.Checked, false, chkIsShowRoom.Checked, false, chkIsDeActive.Checked, clsSecurity.CompanyID, txtCompanyBranch.Tag.ToString(), chkIsAllowMinusStore.Checked , false);
+                                        detail.Insert();
+                                        MessageBox.Show(clsFormatter.GetMessageFrom(MessageType.SaveDone), clsFormatter.GetMessageCaption(), MessageBoxButtons.OK, MessageBoxIcon.Information);
+                                    }
+                                }
+                                else
+                                {
+                                    MessageBox.Show(" Division " + clsFormatter.GetMessageFrom(MessageType.IDIsEmpty), clsFormatter.GetMessageCaption(), MessageBoxButtons.OK, MessageBoxIcon.Information);
+                                }
+                            }
+                            catch (Exception ex)
+                            {
+                                clsValidate.WriteErrorLog("", iFormID,ex);
+                                SEACCException.Show(ex);
+                            }
+                            finally
+                            {
+                                Cursor = Cursors.Default;
+                                ClearFields();
+                                RefreshGrid();
+                            }
+                        }
+                        else
+                        {
+                            MessageBox.Show(clsFormatter.GetMessageFrom(MessageType.MainStoreNotAllowed), clsFormatter.GetMessageCaption(), MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        }
+                    }
+                }
+            }
+        }
+        #endregion
+
+        #region Datagrid Format
+        private void CusDataGridViewFormat()
+        {
+            clsFormatter.ApplyGridFormat(dgvDetail);
+        }
+        #endregion
+
+        #region Clear Fields
+        private void ClearFields()
+        {
+            //set the flag and enble the id
+            IsUpdate = false;
+            clsCommon.SetEnableDisable_PrimaryKeyTextbox(txtCompanyStoreID, true);
+            clsCommon.SetEnableDisable_NormalLabel(lblStoreID, true);
+
+            txtCompanyBranch.Tag = null;
+            txtCompanyStoreID.Clear();
+            txtCompanyBranch.Clear();
+            txtCompanyStoreName.Clear();
+            txtAddress.Clear();
+            txtTelephone.Clear();
+            txtFax.Clear();
+            txtContactPerson.Clear();
+
+            chkSubContractorLocation.Enabled = false;
+
+            chkSubContractorLocation.Checked = false;
+            chkIsDamagedStore.Checked = false;
+            chkIsDeActive.Checked = false;
+            chkIsMainStore.Checked = false;
+            chkIsTradingStore.Checked = false;
+            chkIsShowRoom.Checked = false;
+            chkIsAllowMinusStore.Checked = false;
+
+            if (clsAutocode.IsAutoGenerated(sFormConfigCode))
+                txtCompanyStoreID.Text = "<Auto Generate>";
+            else
+                txtCompanyStoreID.Clear();
+            if (txtCompanyStoreID.Enabled)
+            {
+                txtCompanyStoreID.SelectAll();
+                txtCompanyStoreID.Focus();
+            }
+        }
+        #endregion
+
+        #region Refresh Grid
+        private void RefreshGrid()
+        {
+            try
+            {
+                int iRow;
+                dgvDetail.Rows.Clear();
+                List<tbl_genStoreMaster> details = tbl_genStoreMaster.SelectAll().Where(p=> p.Store_ID != "default" && !p.IsDepartment).ToList();
+                foreach (tbl_genStoreMaster detail in details)
+                {
+                    if (detail.CompanyBranch_ID.Trim() != "default")
+                    {
+                        dgvDetail.Rows.Add();
+                        iRow = dgvDetail.Rows.Count - 1;
+                        dgvDetail["DivisionID", iRow].Value = detail.Store_ID;
+                        dgvDetail["DivisionName", iRow].Value = detail.StoreName;
+                        dgvDetail["BranchID", iRow].Value = clsGenaralName.getName_CompanyBranchMaster(detail.CompanyBranch_ID);
+                        dgvDetail["Telephone", iRow].Value = detail.Telephone;
+                        dgvDetail["Fax", iRow].Value = detail.Fax;
+                        dgvDetail["ContactPerson", iRow].Value = detail.ContactPerson;
+                        dgvDetail["Address", iRow].Value = detail.Adress;
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                clsValidate.WriteErrorLog("", iFormID,ex);
+                SEACCException.Show(ex);
+            }
+        }
+        private void RefreshGrid_ByBranch()
+        {
+            if (txtCompanyBranch.Tag != null)
+            {
+                try
+                {
+                    int iRow;
+                    dgvDetail.Rows.Clear();
+                    foreach (tbl_genStoreMaster detail in tbl_genStoreMaster.SelectAll().Where(p => p.CompanyBranch_ID != "default" && p.CompanyBranch_ID == txtCompanyBranch.Tag.ToString().Trim() && !p.IsDeleted && p.Store_ID != "default" && !p.IsDepartment))
+                    {
+                        if (detail != null)
+                        {
+                            dgvDetail.Rows.Add();
+                            iRow = dgvDetail.Rows.Count - 1;
+                            dgvDetail["DivisionID", iRow].Value = detail.Store_ID;
+                            dgvDetail["DivisionName", iRow].Value = detail.StoreName;
+                            dgvDetail["BranchID", iRow].Value = clsGenaralName.getName_CompanyBranchMaster(detail.CompanyBranch_ID);
+                            dgvDetail["Telephone", iRow].Value = detail.Telephone;
+                            dgvDetail["Fax", iRow].Value = detail.Fax;
+                            dgvDetail["ContactPerson", iRow].Value = detail.ContactPerson;
+                            dgvDetail["Address", iRow].Value = detail.Adress;
+                        }
+                    }
+                }
+                catch (Exception ex)
+                {
+                    clsValidate.WriteErrorLog("", iFormID,ex);
+                    SEACCException.Show(ex);
+                }
+            }
+        }
+        #endregion
+
+        #region Fill Details
+        private void FillDetails(string sID)
+        {
+            try
+            {
+                if (sID.Length > 0)
+                {
+                    tbl_genStoreMaster detail = tbl_genStoreMaster.Select(sID);
+                    if (detail != null)
+                    {
+                        //set the update flag and Locked
+                        IsUpdate = true;
+                        clsCommon.SetEnableDisable_PrimaryKeyTextbox(txtCompanyStoreID, false);
+                        clsCommon.SetEnableDisable_NormalLabel(lblStoreID, false);
+
+                        //asign values
+                        txtCompanyBranch.Tag = detail.CompanyBranch_ID;
+                        txtCompanyBranch.Text = clsCommon.GetForeignKeyValue(clsGenaralName.getName_CompanyBranchMaster(detail.CompanyBranch_ID));
+                        txtCompanyStoreID.Text = detail.Store_ID;
+                        txtCompanyStoreName.Text = detail.StoreName;
+                        txtAddress.Text = detail.Adress;
+                        txtTelephone.Text = detail.Telephone;
+                        txtFax.Text = detail.Fax;
+                        txtContactPerson.Text = detail.ContactPerson;
+
+                        chkSubContractorLocation.Checked = detail.IsSubContractorStore;
+                        chkIsDamagedStore.Checked = detail.IsDamagedStore;
+                        chkIsDeActive.Checked = detail.IsDeleted;
+                        chkIsMainStore.Checked = detail.IsMainStore;
+                        chkIsTradingStore.Checked = detail.IsTradingStore;
+                        chkIsShowRoom.Checked = detail.IsShowRoom;
+                        chkIsAllowMinusStore.Checked = detail.IsAllowMinusStock;
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                clsValidate.WriteErrorLog("", iFormID,ex);
+                SEACCException.Show(ex);
+            }
+        }
+        #endregion
+
+
+        #region Check Validity
+        private bool CheckValidity()
+        {
+            string strMessage = "";
+            bool bStatus = true;
+            try
+            {
+                if (txtCompanyBranch.TextLength == 0)
+                {
+                    strMessage += "\n" + "Company Branch Name ";
+                    bStatus = false;
+                }
+                if (txtCompanyStoreName.TextLength == 0)
+                {
+                    strMessage += "\n" + "Company Store Name ";
+                    bStatus = false;
+                }
+                if (bStatus == false)
+                {
+                    MessageBox.Show(clsFormatter.getCommonStatusStripMessage(StatusStripMessageTypes.WhenInsert, strMessage), clsFormatter.GetMessageCaption(), MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+            }
+            catch (Exception ex)
+            {
+                clsValidate.WriteErrorLog("", iFormID,ex);
+                SEACCException.Show(ex);
+            }
+            return bStatus;
+        }
+
+        private bool CheckStoreTypeValidity()
+        {
+            bool bOk = true;
+            if (chkIsMainStore.Checked || chkIsTradingStore.Checked)
+            {
+                foreach (tbl_genStoreMaster oDetail in tbl_genStoreMaster.SelectAll().Where(p => p.Store_ID != "default" && !p.IsDeleted && p.CompanyBranch_ID == txtCompanyBranch.Tag.ToString().Trim()))
+                {
+                    if (oDetail != null)
+                    {
+                        if (oDetail.IsMainStore)
+                        {
+                            bOk = false;
+                            break;
+                        }
+                        if (oDetail.IsTradingStore)
+                        {
+                            bOk = false;
+                            break;
+                        }
+                    }
+                }
+            }
+            return bOk;
+        }
+
+        private bool CheckNumberValidity()
+        {
+            string strMessage = "";
+            bool bStatus = true;
+
+            try
+            {
+
+
+            }
+            catch (Exception ex)
+            {
+                clsValidate.WriteErrorLog("", iFormID,ex);
+                SEACCException.Show(ex);
+            }
+            if (bStatus == false)
+            {
+                MessageBox.Show(clsFormatter.getCommonStatusStripMessage(StatusStripMessageTypes.WhenInserNumber, strMessage), clsFormatter.GetMessageCaption(), MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+            return bStatus;
+        }
+        #endregion
+
+        #region Events KeyDown
+        private void txtCompanyStoreID_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.F1)
+            {
+                clsSearch.Search_MasterStore(ref txtCompanyStoreID, true);
+                FillDetails(txtCompanyStoreID.Tag.ToString());
+            }
+        }
+        private void txtCompanyBranchName_KeyDown(object sender, KeyEventArgs e)
+        {
+
+        }
+        private void frm_mtrBranch_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                SendKeys.Send("{TAB}");
+            }
+        }
+        #endregion
+
+        #region Events DoubleClick
+        private void txtCompanyStoreID_DoubleClick(object sender, EventArgs e)
+        {
+            clsSearch.Search_MasterStore(ref txtCompanyStoreID, true);
+            if (txtCompanyStoreID.Tag != null)
+            {
+                FillDetails(txtCompanyStoreID.Tag.ToString());
+                RefreshGrid_ByBranch();
+            }
+        }
+        private void txtBranchName_DoubleClick(object sender, EventArgs e)
+        {
+            Search_CompanyBranchID();
+        }
+        #endregion
+
+        #region Events Datagrid
+        private void dgvDetail_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            try
+            {
+                if (e.RowIndex >= 0)
+                {
+                    string sID = dgvDetail["DivisionID", e.RowIndex].Value.ToString();
+                    if (sID.Length > 0)
+                    {
+                        //fills the values to controls
+                        FillDetails(sID.Trim());
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                clsValidate.WriteErrorLog("", iFormID,ex);
+                SEACCException.Show(ex);
+            }
+        }
+
+        private void dgvDetail_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            dgvDetail_CellClick(sender, e);
+        }
+        #endregion
+
+        #region Event KeyPress
+        private void txtTelephone_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            clsValidate.AllowIntegerAndPlus(e);
+        }
+
+        private void txtFax_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            clsValidate.AllowIntegerAndPlus(e);
+        }
+        #endregion
+
+        #region Search Methods
+        private void Search_CompanyBranchID()
+        {
+            try
+            {
+                Form frmhelpsearch = new frmSearchMaster();
+                clsSearch.passValue_CompanyBranch();
+                frmhelpsearch.ShowDialog();
+
+                if (frmSearchMaster.s_SearchID.Length > 0)
+                {
+                    if (frmSearchMaster.s_SearchText.Length > 0)
+                        txtCompanyBranch.Text = frmSearchMaster.s_SearchText;
+                    if (frmSearchMaster.s_SearchID.Length > 0)
+                        txtCompanyBranch.Tag = frmSearchMaster.s_SearchID;
+                    RefreshGrid_ByBranch();
+                }
+            }
+            catch (Exception ex)
+            {
+                clsValidate.WriteErrorLog("", iFormID,ex);
+                SEACCException.Show(ex);
+            }
+        }
+        #endregion
+    }
+}

@@ -1,0 +1,14 @@
+﻿<Window
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:SEACC_WPFControls="clr-namespace:SEACC_WPFControls" xmlns:SEACC_WPFControls1="clr-namespace:SEACC_WPFControls;assembly=SEACC_WPFControls" x:Class="Digiteq.frm_ToolKit"
+        Title="frm_ToolKit" Height="450" Width="577.612">
+    <Grid>
+        <SEACC_WPFControls1:SEACC_Button x:Name="btn_genarate_Search_Enum" Content="genarate Search Enum" HorizontalAlignment="Left" Margin="5,10,0,0" VerticalAlignment="Top" Height="25" Click="btn_genarate_Search_Enum_Click" Width="201"/>
+        <TextBox x:Name="txtbox1" Margin="214,10,10,10" TextWrapping="Wrap" />
+        <SEACC_WPFControls1:SEACC_Button x:Name="btn_genarate_Search_Quary" Content="Genarate Search Quary" HorizontalAlignment="Left" Height="25" Margin="5,38,0,0" VerticalAlignment="Top" Width="201" Click="btn_genarate_Search_Quary_Click"/>
+        <SEACC_WPFControls1:SEACC_Button x:Name="btn_genarate_Form_Quary" Content="Genarate Form Quary" HorizontalAlignment="Left" Height="25" Margin="5,68,0,0" VerticalAlignment="Top" Width="201" Click="btn_genarate_Form_Quary_Click" />
+        <SEACC_WPFControls1:SEACC_Button x:Name="Btn_Device_Syncronization" Content="Device Syncronization" HorizontalAlignment="Left" Margin="5,98,0,0" VerticalAlignment="Top" Height="25" Click="Btn_Device_Syncronization_Click" Width="201"/>
+        <SEACC_WPFControls1:SEACC_Button x:Name="btn_genarate_Form_Enum" Content="Device Syncronization" HorizontalAlignment="Left"  VerticalAlignment="Top" Height="25"  Width="201" Margin="5,128,0,0" Click="btn_genarate_Form_Enum_Click"/>
+    </Grid>
+</Window>

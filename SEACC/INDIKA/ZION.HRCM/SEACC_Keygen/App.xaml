@@ -1,0 +1,9 @@
+﻿<Application x:Class="SEACC_Keygen.App"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:local="clr-namespace:SEACC_Keygen"
+             StartupUri="frm_Keygen.xaml">
+    <Application.Resources>
+         
+    </Application.Resources>
+</Application>

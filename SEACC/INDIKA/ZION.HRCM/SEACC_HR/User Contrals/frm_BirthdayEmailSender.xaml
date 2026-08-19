@@ -1,0 +1,106 @@
+﻿<Window x:Class="Digiteq.frm_BirthdayEmailSender"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:SEACC_WPFControls="clr-namespace:SEACC_WPFControls;assembly=SEACC_WPFControls" 
+             xmlns:SEACC_WPFControls1="clr-namespace:SEACC_WPFControls" 
+             mc:Ignorable="d" Background="{x:Null}" 
+             WindowStartupLocation="CenterScreen" ResizeMode="CanResizeWithGrip" WindowStyle="None" AllowsTransparency="True"
+             Width="500" Height="400" >
+    
+    <Grid >
+        <Border BorderThickness="0,0,8,8" Background="#FFCFD6E5" >
+            <Border.Effect>
+                <DropShadowEffect BlurRadius="15"/>
+            </Border.Effect>
+            <Grid>
+
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="35" />
+                    <RowDefinition Height="*" />
+                </Grid.RowDefinitions>
+
+                <Grid x:Name="grdTitleBar" Grid.Row="0" Background="#FF555555" MouseDown="grdTitleBar_MouseDown" >
+                    <Label x:Name="lbl_popupHeader" FontSize="15" Margin="5,0,0,0" Foreground="White"   />
+                    <SEACC_WPFControls:SEACC_Button x:Name="btnClose" Width="30" Content="&#xE8BB;"  Height="30" FontFamily="Segoe MDL2 Assets" Margin="456,0,0,0" Click="btnClose_Click" Background="#FF555555" Foreground="#FFD5D5D5" BorderBrush="{x:Null}" />
+                </Grid>
+
+                <Grid Grid.Row="1" >
+
+                    <StackPanel>
+                        <CheckBox x:Name="chk_selectAllEmployees"  Height="15" VerticalAlignment="Top" HorizontalAlignment="Left" Content="Select All"  Margin="42,5,0,5" Checked="chk_selectAllEmployees_Checked" Unchecked="chk_selectAllEmployees_Unchecked"  />
+                        <SEACC_WPFControls:SEACC_DataGrid x:Name="dgr_Birthdays" Grid.Column="0" Margin="5,0,5,5" Background="White" HeaderColor="#FF727272" CanUserResizeColumns="True" IsReadOnly="False" HorizontalScrollBarVisibility="Auto" CanUserAddRows="False" Width="490" MouseLeftButtonUp="dgr_Birthdays_MouseLeftButtonUp"  >
+                            <DataGrid.Resources>
+                                <SolidColorBrush x:Key="{x:Static SystemColors.HighlightBrushKey}"  Color="#FFF4E7A7"/>
+                            </DataGrid.Resources>
+                            <DataGrid.CellStyle>
+                                <Style TargetType="DataGridCell">
+                                    <Setter Property="Padding" Value="2"/>
+                                    <Setter Property="Template">
+                                        <Setter.Value>
+                                            <ControlTemplate TargetType="{x:Type DataGridCell}">
+                                                <Border Padding="{TemplateBinding Padding}" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" Background="{TemplateBinding Background}" SnapsToDevicePixels="True">
+                                                    <Grid Background="{TemplateBinding Background}">
+                                                        <ContentPresenter SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}"/>
+                                                        <ContentPresenter VerticalAlignment="Center" />
+                                                    </Grid>
+                                                </Border>
+                                            </ControlTemplate>
+                                        </Setter.Value>
+                                    </Setter>
+                                </Style>
+                            </DataGrid.CellStyle>
+                            <SEACC_WPFControls:SEACC_DataGrid.Columns>
+
+                                <DataGridTextColumn Binding="{Binding Line No ,Mode=TwoWay , UpdateSourceTrigger=PropertyChanged}" Foreground="Black"  Header="#" Width="15" IsReadOnly="False">
+                                    <DataGridTextColumn.ElementStyle>
+                                        <Style TargetType="TextBlock">
+                                            <Setter Property="HorizontalAlignment" Value="Right" />
+                                        </Style>
+                                    </DataGridTextColumn.ElementStyle>
+                                </DataGridTextColumn>
+
+                                <DataGridTextColumn Binding="{Binding IsSelect ,Mode=TwoWay , UpdateSourceTrigger=PropertyChanged}" Header="Select"  Width="50"   IsReadOnly="True" >
+                                    <DataGridTextColumn.ElementStyle>
+                                        <Style >
+                                            <Setter Property="TextBlock.HorizontalAlignment"  Value="Center" />
+                                            <Setter Property="TextBlock.Foreground"  Value="Black" />
+                                            <Setter Property="TextBlock.VerticalAlignment" Value="Center" />
+                                            <Setter Property="TextBlock.FontFamily" Value="Segoe MDL2 Assets" />
+                                        </Style>
+                                    </DataGridTextColumn.ElementStyle>
+                                </DataGridTextColumn>
+
+                                <DataGridTextColumn Binding="{Binding Emp No ,Mode=TwoWay , UpdateSourceTrigger=PropertyChanged}" Foreground="Black"  Header="Emp. No" Width="60" IsReadOnly="True" />
+
+                                <DataGridTextColumn Binding="{Binding EPF No ,Mode=TwoWay , UpdateSourceTrigger=PropertyChanged}" Foreground="Black"  Header="ETF No"  Width="60" IsReadOnly="True" />
+
+                                <DataGridTextColumn Binding="{Binding Employee Name ,Mode=TwoWay , UpdateSourceTrigger=PropertyChanged}" Foreground="Black"  Header="Employee Name" Width="140" IsReadOnly="True">
+                                    <DataGridTextColumn.ElementStyle>
+                                        <Style>
+                                            <Setter Property="TextBlock.TextWrapping" Value="Wrap" />
+                                            <Setter Property="TextBlock.TextAlignment" Value="Left"/>
+                                            <Setter Property="TextBlock.VerticalAlignment" Value="Center"/>
+                                        </Style>
+                                    </DataGridTextColumn.ElementStyle>
+                                </DataGridTextColumn>
+
+                                <DataGridTextColumn Binding="{Binding Alias Name ,Mode=TwoWay , UpdateSourceTrigger=PropertyChanged}" Foreground="Black"  Header="Alias Name" Width="80" IsReadOnly="True" />
+
+                                <DataGridTextColumn Binding="{Binding Age ,Mode=TwoWay , UpdateSourceTrigger=PropertyChanged}" Foreground="Black"  Header="Age (Years)" Width="70" IsReadOnly="True">
+                                    <DataGridTextColumn.ElementStyle>
+                                        <Style TargetType="TextBlock">
+                                            <Setter Property="HorizontalAlignment" Value="Right" />
+                                        </Style>
+                                    </DataGridTextColumn.ElementStyle>
+                                </DataGridTextColumn>
+
+                            </SEACC_WPFControls:SEACC_DataGrid.Columns>
+                        </SEACC_WPFControls:SEACC_DataGrid>
+                    </StackPanel>
+                </Grid>
+            </Grid>
+        </Border>
+    </Grid>
+</Window>

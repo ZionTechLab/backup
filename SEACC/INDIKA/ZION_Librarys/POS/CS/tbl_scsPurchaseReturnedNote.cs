@@ -1,0 +1,1238 @@
+using System;
+using System.Collections.Generic;
+using System.Data;
+using System.Data.SqlClient;
+
+namespace DataTire {
+	public sealed class tbl_scsPurchaseReturnedNote {
+		#region Fields
+		private string purchaseReturnedNote_ID;
+		private DateTime purchaseReturnedNoteDate;
+		private string supplier_ID;
+		private string externalGoodReceivedNote_ID;
+		private string store_ID;
+		private string issuedRefNo_ID;
+		private string currency_ID;
+		private decimal currencyRate;
+		private string remark;
+		private string deliveryOrderNo;
+		private string invoiceNo;
+		private string stockNoteType_ID;
+		private string glPosting_ID;
+		private string costCenter;
+		private string postingStatus_ID;
+		private string financialYear_ID;
+		private decimal discountPercentage;
+		private decimal nbtPercentage;
+		private decimal vatPercentage;
+		private decimal otherTaxPercentage;
+		private decimal subTotal;
+		private decimal discountTotal;
+		private decimal nbtTotal;
+		private decimal vatTotal;
+		private decimal otherTaxTotal;
+		private decimal grandTotal;
+		private string createUser_ID;
+		private string modifiedUser_ID;
+		private string checkedUser_ID;
+		private string approvedUser_ID;
+		private DateTime dateCreate;
+		private DateTime dateModified;
+		private DateTime dateChecked;
+		private DateTime dateApproved;
+		private bool isChecked;
+		private bool isApproved;
+		private bool isFinished;
+		private bool isDeleted;
+		private bool isLocked;
+		private decimal seattleAmount;
+		private bool isReturnable;
+		private bool isSeattled;
+		private int printCount;
+		private bool isWeightCalculation;
+		private bool isVAT;
+		private bool isSVAT;
+		private string companyID;
+		private string companyBranch_ID;
+		#endregion
+		
+		#region Constructors
+		/// <summary>
+		/// Initializes a new instance of the tbl_scsPurchaseReturnedNote class.
+		/// </summary>
+		public tbl_scsPurchaseReturnedNote() {
+		}
+		
+		/// <summary>
+		/// Initializes a new instance of the tbl_scsPurchaseReturnedNote class.
+		/// </summary>
+		public tbl_scsPurchaseReturnedNote(string purchaseReturnedNote_ID, DateTime purchaseReturnedNoteDate, string supplier_ID, string externalGoodReceivedNote_ID, string store_ID, string issuedRefNo_ID, string currency_ID, decimal currencyRate, string remark, string deliveryOrderNo, string invoiceNo, string stockNoteType_ID, string glPosting_ID, string costCenter, string postingStatus_ID, string financialYear_ID, decimal discountPercentage, decimal nbtPercentage, decimal vatPercentage, decimal otherTaxPercentage, decimal subTotal, decimal discountTotal, decimal nbtTotal, decimal vatTotal, decimal otherTaxTotal, decimal grandTotal, string createUser_ID, string modifiedUser_ID, string checkedUser_ID, string approvedUser_ID, DateTime dateCreate, DateTime dateModified, DateTime dateChecked, DateTime dateApproved, bool isChecked, bool isApproved, bool isFinished, bool isDeleted, bool isLocked, decimal seattleAmount, bool isReturnable, bool isSeattled, int printCount, bool isWeightCalculation, bool isVAT, bool isSVAT, string companyID, string companyBranch_ID) {
+			this.purchaseReturnedNote_ID = purchaseReturnedNote_ID;
+			this.purchaseReturnedNoteDate = purchaseReturnedNoteDate;
+			this.supplier_ID = supplier_ID;
+			this.externalGoodReceivedNote_ID = externalGoodReceivedNote_ID;
+			this.store_ID = store_ID;
+			this.issuedRefNo_ID = issuedRefNo_ID;
+			this.currency_ID = currency_ID;
+			this.currencyRate = currencyRate;
+			this.remark = remark;
+			this.deliveryOrderNo = deliveryOrderNo;
+			this.invoiceNo = invoiceNo;
+			this.stockNoteType_ID = stockNoteType_ID;
+			this.glPosting_ID = glPosting_ID;
+			this.costCenter = costCenter;
+			this.postingStatus_ID = postingStatus_ID;
+			this.financialYear_ID = financialYear_ID;
+			this.discountPercentage = discountPercentage;
+			this.nbtPercentage = nbtPercentage;
+			this.vatPercentage = vatPercentage;
+			this.otherTaxPercentage = otherTaxPercentage;
+			this.subTotal = subTotal;
+			this.discountTotal = discountTotal;
+			this.nbtTotal = nbtTotal;
+			this.vatTotal = vatTotal;
+			this.otherTaxTotal = otherTaxTotal;
+			this.grandTotal = grandTotal;
+			this.createUser_ID = createUser_ID;
+			this.modifiedUser_ID = modifiedUser_ID;
+			this.checkedUser_ID = checkedUser_ID;
+			this.approvedUser_ID = approvedUser_ID;
+			this.dateCreate = dateCreate;
+			this.dateModified = dateModified;
+			this.dateChecked = dateChecked;
+			this.dateApproved = dateApproved;
+			this.isChecked = isChecked;
+			this.isApproved = isApproved;
+			this.isFinished = isFinished;
+			this.isDeleted = isDeleted;
+			this.isLocked = isLocked;
+			this.seattleAmount = seattleAmount;
+			this.isReturnable = isReturnable;
+			this.isSeattled = isSeattled;
+			this.printCount = printCount;
+			this.isWeightCalculation = isWeightCalculation;
+			this.isVAT = isVAT;
+			this.isSVAT = isSVAT;
+			this.companyID = companyID;
+			this.companyBranch_ID = companyBranch_ID;
+		}
+		#endregion
+		
+		#region Properties
+		/// <summary>
+		/// Gets or sets the PurchaseReturnedNote_ID value.
+		/// </summary>
+		public string PurchaseReturnedNote_ID {
+			get { return purchaseReturnedNote_ID; }
+			set { purchaseReturnedNote_ID = value; }
+		}
+		
+		/// <summary>
+		/// Gets or sets the PurchaseReturnedNoteDate value.
+		/// </summary>
+		public DateTime PurchaseReturnedNoteDate {
+			get { return purchaseReturnedNoteDate; }
+			set { purchaseReturnedNoteDate = value; }
+		}
+		
+		/// <summary>
+		/// Gets or sets the Supplier_ID value.
+		/// </summary>
+		public string Supplier_ID {
+			get { return supplier_ID; }
+			set { supplier_ID = value; }
+		}
+		
+		/// <summary>
+		/// Gets or sets the ExternalGoodReceivedNote_ID value.
+		/// </summary>
+		public string ExternalGoodReceivedNote_ID {
+			get { return externalGoodReceivedNote_ID; }
+			set { externalGoodReceivedNote_ID = value; }
+		}
+		
+		/// <summary>
+		/// Gets or sets the Store_ID value.
+		/// </summary>
+		public string Store_ID {
+			get { return store_ID; }
+			set { store_ID = value; }
+		}
+		
+		/// <summary>
+		/// Gets or sets the IssuedRefNo_ID value.
+		/// </summary>
+		public string IssuedRefNo_ID {
+			get { return issuedRefNo_ID; }
+			set { issuedRefNo_ID = value; }
+		}
+		
+		/// <summary>
+		/// Gets or sets the Currency_ID value.
+		/// </summary>
+		public string Currency_ID {
+			get { return currency_ID; }
+			set { currency_ID = value; }
+		}
+		
+		/// <summary>
+		/// Gets or sets the CurrencyRate value.
+		/// </summary>
+		public decimal CurrencyRate {
+			get { return currencyRate; }
+			set { currencyRate = value; }
+		}
+		
+		/// <summary>
+		/// Gets or sets the Remark value.
+		/// </summary>
+		public string Remark {
+			get { return remark; }
+			set { remark = value; }
+		}
+		
+		/// <summary>
+		/// Gets or sets the DeliveryOrderNo value.
+		/// </summary>
+		public string DeliveryOrderNo {
+			get { return deliveryOrderNo; }
+			set { deliveryOrderNo = value; }
+		}
+		
+		/// <summary>
+		/// Gets or sets the InvoiceNo value.
+		/// </summary>
+		public string InvoiceNo {
+			get { return invoiceNo; }
+			set { invoiceNo = value; }
+		}
+		
+		/// <summary>
+		/// Gets or sets the StockNoteType_ID value.
+		/// </summary>
+		public string StockNoteType_ID {
+			get { return stockNoteType_ID; }
+			set { stockNoteType_ID = value; }
+		}
+		
+		/// <summary>
+		/// Gets or sets the GlPosting_ID value.
+		/// </summary>
+		public string GlPosting_ID {
+			get { return glPosting_ID; }
+			set { glPosting_ID = value; }
+		}
+		
+		/// <summary>
+		/// Gets or sets the CostCenter value.
+		/// </summary>
+		public string CostCenter {
+			get { return costCenter; }
+			set { costCenter = value; }
+		}
+		
+		/// <summary>
+		/// Gets or sets the PostingStatus_ID value.
+		/// </summary>
+		public string PostingStatus_ID {
+			get { return postingStatus_ID; }
+			set { postingStatus_ID = value; }
+		}
+		
+		/// <summary>
+		/// Gets or sets the FinancialYear_ID value.
+		/// </summary>
+		public string FinancialYear_ID {
+			get { return financialYear_ID; }
+			set { financialYear_ID = value; }
+		}
+		
+		/// <summary>
+		/// Gets or sets the DiscountPercentage value.
+		/// </summary>
+		public decimal DiscountPercentage {
+			get { return discountPercentage; }
+			set { discountPercentage = value; }
+		}
+		
+		/// <summary>
+		/// Gets or sets the NbtPercentage value.
+		/// </summary>
+		public decimal NbtPercentage {
+			get { return nbtPercentage; }
+			set { nbtPercentage = value; }
+		}
+		
+		/// <summary>
+		/// Gets or sets the VatPercentage value.
+		/// </summary>
+		public decimal VatPercentage {
+			get { return vatPercentage; }
+			set { vatPercentage = value; }
+		}
+		
+		/// <summary>
+		/// Gets or sets the OtherTaxPercentage value.
+		/// </summary>
+		public decimal OtherTaxPercentage {
+			get { return otherTaxPercentage; }
+			set { otherTaxPercentage = value; }
+		}
+		
+		/// <summary>
+		/// Gets or sets the SubTotal value.
+		/// </summary>
+		public decimal SubTotal {
+			get { return subTotal; }
+			set { subTotal = value; }
+		}
+		
+		/// <summary>
+		/// Gets or sets the DiscountTotal value.
+		/// </summary>
+		public decimal DiscountTotal {
+			get { return discountTotal; }
+			set { discountTotal = value; }
+		}
+		
+		/// <summary>
+		/// Gets or sets the NbtTotal value.
+		/// </summary>
+		public decimal NbtTotal {
+			get { return nbtTotal; }
+			set { nbtTotal = value; }
+		}
+		
+		/// <summary>
+		/// Gets or sets the VatTotal value.
+		/// </summary>
+		public decimal VatTotal {
+			get { return vatTotal; }
+			set { vatTotal = value; }
+		}
+		
+		/// <summary>
+		/// Gets or sets the OtherTaxTotal value.
+		/// </summary>
+		public decimal OtherTaxTotal {
+			get { return otherTaxTotal; }
+			set { otherTaxTotal = value; }
+		}
+		
+		/// <summary>
+		/// Gets or sets the GrandTotal value.
+		/// </summary>
+		public decimal GrandTotal {
+			get { return grandTotal; }
+			set { grandTotal = value; }
+		}
+		
+		/// <summary>
+		/// Gets or sets the CreateUser_ID value.
+		/// </summary>
+		public string CreateUser_ID {
+			get { return createUser_ID; }
+			set { createUser_ID = value; }
+		}
+		
+		/// <summary>
+		/// Gets or sets the ModifiedUser_ID value.
+		/// </summary>
+		public string ModifiedUser_ID {
+			get { return modifiedUser_ID; }
+			set { modifiedUser_ID = value; }
+		}
+		
+		/// <summary>
+		/// Gets or sets the CheckedUser_ID value.
+		/// </summary>
+		public string CheckedUser_ID {
+			get { return checkedUser_ID; }
+			set { checkedUser_ID = value; }
+		}
+		
+		/// <summary>
+		/// Gets or sets the ApprovedUser_ID value.
+		/// </summary>
+		public string ApprovedUser_ID {
+			get { return approvedUser_ID; }
+			set { approvedUser_ID = value; }
+		}
+		
+		/// <summary>
+		/// Gets or sets the DateCreate value.
+		/// </summary>
+		public DateTime DateCreate {
+			get { return dateCreate; }
+			set { dateCreate = value; }
+		}
+		
+		/// <summary>
+		/// Gets or sets the DateModified value.
+		/// </summary>
+		public DateTime DateModified {
+			get { return dateModified; }
+			set { dateModified = value; }
+		}
+		
+		/// <summary>
+		/// Gets or sets the DateChecked value.
+		/// </summary>
+		public DateTime DateChecked {
+			get { return dateChecked; }
+			set { dateChecked = value; }
+		}
+		
+		/// <summary>
+		/// Gets or sets the DateApproved value.
+		/// </summary>
+		public DateTime DateApproved {
+			get { return dateApproved; }
+			set { dateApproved = value; }
+		}
+		
+		/// <summary>
+		/// Gets or sets the IsChecked value.
+		/// </summary>
+		public bool IsChecked {
+			get { return isChecked; }
+			set { isChecked = value; }
+		}
+		
+		/// <summary>
+		/// Gets or sets the IsApproved value.
+		/// </summary>
+		public bool IsApproved {
+			get { return isApproved; }
+			set { isApproved = value; }
+		}
+		
+		/// <summary>
+		/// Gets or sets the IsFinished value.
+		/// </summary>
+		public bool IsFinished {
+			get { return isFinished; }
+			set { isFinished = value; }
+		}
+		
+		/// <summary>
+		/// Gets or sets the IsDeleted value.
+		/// </summary>
+		public bool IsDeleted {
+			get { return isDeleted; }
+			set { isDeleted = value; }
+		}
+		
+		/// <summary>
+		/// Gets or sets the IsLocked value.
+		/// </summary>
+		public bool IsLocked {
+			get { return isLocked; }
+			set { isLocked = value; }
+		}
+		
+		/// <summary>
+		/// Gets or sets the SeattleAmount value.
+		/// </summary>
+		public decimal SeattleAmount {
+			get { return seattleAmount; }
+			set { seattleAmount = value; }
+		}
+		
+		/// <summary>
+		/// Gets or sets the IsReturnable value.
+		/// </summary>
+		public bool IsReturnable {
+			get { return isReturnable; }
+			set { isReturnable = value; }
+		}
+		
+		/// <summary>
+		/// Gets or sets the IsSeattled value.
+		/// </summary>
+		public bool IsSeattled {
+			get { return isSeattled; }
+			set { isSeattled = value; }
+		}
+		
+		/// <summary>
+		/// Gets or sets the PrintCount value.
+		/// </summary>
+		public int PrintCount {
+			get { return printCount; }
+			set { printCount = value; }
+		}
+		
+		/// <summary>
+		/// Gets or sets the IsWeightCalculation value.
+		/// </summary>
+		public bool IsWeightCalculation {
+			get { return isWeightCalculation; }
+			set { isWeightCalculation = value; }
+		}
+		
+		/// <summary>
+		/// Gets or sets the IsVAT value.
+		/// </summary>
+		public bool IsVAT {
+			get { return isVAT; }
+			set { isVAT = value; }
+		}
+		
+		/// <summary>
+		/// Gets or sets the IsSVAT value.
+		/// </summary>
+		public bool IsSVAT {
+			get { return isSVAT; }
+			set { isSVAT = value; }
+		}
+		
+		/// <summary>
+		/// Gets or sets the CompanyID value.
+		/// </summary>
+		public string CompanyID {
+			get { return companyID; }
+			set { companyID = value; }
+		}
+		
+		/// <summary>
+		/// Gets or sets the CompanyBranch_ID value.
+		/// </summary>
+		public string CompanyBranch_ID {
+			get { return companyBranch_ID; }
+			set { companyBranch_ID = value; }
+		}
+		#endregion
+		
+		#region Methods
+		/// <summary>
+		/// Saves a record to the tbl_scsPurchaseReturnedNote table.
+		/// </summary>
+		public void Insert() {
+ 
+			SqlConnection scon = DBHandling.GetConnection();
+			SqlCommand scom = new SqlCommand("tbl_scsPurchaseReturnedNoteInsert", scon);
+			scom.CommandType = CommandType.StoredProcedure;
+ 
+ 
+			scom.Parameters.Add("@purchaseReturnedNote_ID", SqlDbType.VarChar,20);
+			scom.Parameters.Add("@purchaseReturnedNoteDate", SqlDbType.DateTime,8);
+			scom.Parameters.Add("@supplier_ID", SqlDbType.VarChar,20);
+			scom.Parameters.Add("@externalGoodReceivedNote_ID", SqlDbType.VarChar,20);
+			scom.Parameters.Add("@store_ID", SqlDbType.VarChar,20);
+			scom.Parameters.Add("@IssuedRefNo_ID", SqlDbType.VarChar,10);
+			scom.Parameters.Add("@currency_ID", SqlDbType.VarChar,10);
+			scom.Parameters.Add("@currencyRate", SqlDbType.Decimal,9);
+			scom.Parameters.Add("@remark", SqlDbType.VarChar,500);
+			scom.Parameters.Add("@deliveryOrderNo", SqlDbType.VarChar,50);
+			scom.Parameters.Add("@invoiceNo", SqlDbType.VarChar,50);
+			scom.Parameters.Add("@stockNoteType_ID", SqlDbType.VarChar,10);
+			scom.Parameters.Add("@glPosting_ID", SqlDbType.VarChar,20);
+			scom.Parameters.Add("@CostCenter", SqlDbType.VarChar,50);
+			scom.Parameters.Add("@postingStatus_ID", SqlDbType.VarChar,10);
+			scom.Parameters.Add("@financialYear_ID", SqlDbType.VarChar,20);
+			scom.Parameters.Add("@discountPercentage", SqlDbType.Decimal,9);
+			scom.Parameters.Add("@nbtPercentage", SqlDbType.Decimal,9);
+			scom.Parameters.Add("@vatPercentage", SqlDbType.Decimal,9);
+			scom.Parameters.Add("@otherTaxPercentage", SqlDbType.Decimal,9);
+			scom.Parameters.Add("@subTotal", SqlDbType.Decimal,9);
+			scom.Parameters.Add("@discountTotal", SqlDbType.Decimal,9);
+			scom.Parameters.Add("@nbtTotal", SqlDbType.Decimal,9);
+			scom.Parameters.Add("@vatTotal", SqlDbType.Decimal,9);
+			scom.Parameters.Add("@otherTaxTotal", SqlDbType.Decimal,9);
+			scom.Parameters.Add("@grandTotal", SqlDbType.Decimal,9);
+			scom.Parameters.Add("@createUser_ID", SqlDbType.VarChar,20);
+			scom.Parameters.Add("@modifiedUser_ID", SqlDbType.VarChar,20);
+			scom.Parameters.Add("@checkedUser_ID", SqlDbType.VarChar,20);
+			scom.Parameters.Add("@approvedUser_ID", SqlDbType.VarChar,20);
+			scom.Parameters.Add("@dateCreate", SqlDbType.DateTime,8);
+			scom.Parameters.Add("@dateModified", SqlDbType.DateTime,8);
+			scom.Parameters.Add("@dateChecked", SqlDbType.DateTime,8);
+			scom.Parameters.Add("@dateApproved", SqlDbType.DateTime,8);
+			scom.Parameters.Add("@isChecked", SqlDbType.Bit,1);
+			scom.Parameters.Add("@isApproved", SqlDbType.Bit,1);
+			scom.Parameters.Add("@isFinished", SqlDbType.Bit,1);
+			scom.Parameters.Add("@isDeleted", SqlDbType.Bit,1);
+			scom.Parameters.Add("@isLocked", SqlDbType.Bit,1);
+			scom.Parameters.Add("@seattleAmount", SqlDbType.Decimal,9);
+			scom.Parameters.Add("@isReturnable", SqlDbType.Bit,1);
+			scom.Parameters.Add("@isSeattled", SqlDbType.Bit,1);
+			scom.Parameters.Add("@printCount", SqlDbType.Int,4);
+			scom.Parameters.Add("@isWeightCalculation", SqlDbType.Bit,1);
+			scom.Parameters.Add("@isVAT", SqlDbType.Bit,1);
+			scom.Parameters.Add("@isSVAT", SqlDbType.Bit,1);
+			scom.Parameters.Add("@companyID", SqlDbType.VarChar,10);
+			scom.Parameters.Add("@companyBranch_ID", SqlDbType.VarChar,20);
+ 
+			scom.Parameters["@purchaseReturnedNote_ID"].Value = purchaseReturnedNote_ID;
+			scom.Parameters["@purchaseReturnedNoteDate"].Value = purchaseReturnedNoteDate;
+			scom.Parameters["@supplier_ID"].Value = supplier_ID;
+			scom.Parameters["@externalGoodReceivedNote_ID"].Value = externalGoodReceivedNote_ID;
+			scom.Parameters["@store_ID"].Value = store_ID;
+			scom.Parameters["@IssuedRefNo_ID"].Value = issuedRefNo_ID;
+			scom.Parameters["@currency_ID"].Value = currency_ID;
+			scom.Parameters["@currencyRate"].Value = currencyRate;
+			scom.Parameters["@remark"].Value = remark;
+			scom.Parameters["@deliveryOrderNo"].Value = deliveryOrderNo;
+			scom.Parameters["@invoiceNo"].Value = invoiceNo;
+			scom.Parameters["@stockNoteType_ID"].Value = stockNoteType_ID;
+			scom.Parameters["@glPosting_ID"].Value = glPosting_ID;
+			scom.Parameters["@CostCenter"].Value = costCenter;
+			scom.Parameters["@postingStatus_ID"].Value = postingStatus_ID;
+			scom.Parameters["@financialYear_ID"].Value = financialYear_ID;
+			scom.Parameters["@discountPercentage"].Value = discountPercentage;
+			scom.Parameters["@nbtPercentage"].Value = nbtPercentage;
+			scom.Parameters["@vatPercentage"].Value = vatPercentage;
+			scom.Parameters["@otherTaxPercentage"].Value = otherTaxPercentage;
+			scom.Parameters["@subTotal"].Value = subTotal;
+			scom.Parameters["@discountTotal"].Value = discountTotal;
+			scom.Parameters["@nbtTotal"].Value = nbtTotal;
+			scom.Parameters["@vatTotal"].Value = vatTotal;
+			scom.Parameters["@otherTaxTotal"].Value = otherTaxTotal;
+			scom.Parameters["@grandTotal"].Value = grandTotal;
+			scom.Parameters["@createUser_ID"].Value = createUser_ID;
+			scom.Parameters["@modifiedUser_ID"].Value = modifiedUser_ID;
+			scom.Parameters["@checkedUser_ID"].Value = checkedUser_ID;
+			scom.Parameters["@approvedUser_ID"].Value = approvedUser_ID;
+			scom.Parameters["@dateCreate"].Value = dateCreate;
+			scom.Parameters["@dateModified"].Value = dateModified;
+			scom.Parameters["@dateChecked"].Value = dateChecked;
+			scom.Parameters["@dateApproved"].Value = dateApproved;
+			scom.Parameters["@isChecked"].Value = isChecked;
+			scom.Parameters["@isApproved"].Value = isApproved;
+			scom.Parameters["@isFinished"].Value = isFinished;
+			scom.Parameters["@isDeleted"].Value = isDeleted;
+			scom.Parameters["@isLocked"].Value = isLocked;
+			scom.Parameters["@seattleAmount"].Value = seattleAmount;
+			scom.Parameters["@isReturnable"].Value = isReturnable;
+			scom.Parameters["@isSeattled"].Value = isSeattled;
+			scom.Parameters["@printCount"].Value = printCount;
+			scom.Parameters["@isWeightCalculation"].Value = isWeightCalculation;
+			scom.Parameters["@isVAT"].Value = isVAT;
+			scom.Parameters["@isSVAT"].Value = isSVAT;
+			scom.Parameters["@companyID"].Value = companyID;
+			scom.Parameters["@companyBranch_ID"].Value = companyBranch_ID;
+ 
+ 
+			scon.Open();
+			scom.ExecuteNonQuery();
+			scon.Close();
+		}
+		
+		/// <summary>
+		/// Updates a record in the tbl_scsPurchaseReturnedNote table.
+		/// </summary>
+		public void Update() {
+ 
+			SqlConnection scon = DBHandling.GetConnection();
+			SqlCommand scom = new SqlCommand("tbl_scsPurchaseReturnedNoteUpdate", scon);
+			scom.CommandType = CommandType.StoredProcedure;
+ 
+ 
+			scom.Parameters.Add("@purchaseReturnedNote_ID", SqlDbType.VarChar,20);
+			scom.Parameters.Add("@purchaseReturnedNoteDate", SqlDbType.DateTime,8);
+			scom.Parameters.Add("@supplier_ID", SqlDbType.VarChar,20);
+			scom.Parameters.Add("@externalGoodReceivedNote_ID", SqlDbType.VarChar,20);
+			scom.Parameters.Add("@store_ID", SqlDbType.VarChar,20);
+			scom.Parameters.Add("@IssuedRefNo_ID", SqlDbType.VarChar,10);
+			scom.Parameters.Add("@currency_ID", SqlDbType.VarChar,10);
+			scom.Parameters.Add("@currencyRate", SqlDbType.Decimal,9);
+			scom.Parameters.Add("@remark", SqlDbType.VarChar,500);
+			scom.Parameters.Add("@deliveryOrderNo", SqlDbType.VarChar,50);
+			scom.Parameters.Add("@invoiceNo", SqlDbType.VarChar,50);
+			scom.Parameters.Add("@stockNoteType_ID", SqlDbType.VarChar,10);
+			scom.Parameters.Add("@glPosting_ID", SqlDbType.VarChar,20);
+			scom.Parameters.Add("@CostCenter", SqlDbType.VarChar,50);
+			scom.Parameters.Add("@postingStatus_ID", SqlDbType.VarChar,10);
+			scom.Parameters.Add("@financialYear_ID", SqlDbType.VarChar,20);
+			scom.Parameters.Add("@discountPercentage", SqlDbType.Decimal,9);
+			scom.Parameters.Add("@nbtPercentage", SqlDbType.Decimal,9);
+			scom.Parameters.Add("@vatPercentage", SqlDbType.Decimal,9);
+			scom.Parameters.Add("@otherTaxPercentage", SqlDbType.Decimal,9);
+			scom.Parameters.Add("@subTotal", SqlDbType.Decimal,9);
+			scom.Parameters.Add("@discountTotal", SqlDbType.Decimal,9);
+			scom.Parameters.Add("@nbtTotal", SqlDbType.Decimal,9);
+			scom.Parameters.Add("@vatTotal", SqlDbType.Decimal,9);
+			scom.Parameters.Add("@otherTaxTotal", SqlDbType.Decimal,9);
+			scom.Parameters.Add("@grandTotal", SqlDbType.Decimal,9);
+			scom.Parameters.Add("@createUser_ID", SqlDbType.VarChar,20);
+			scom.Parameters.Add("@modifiedUser_ID", SqlDbType.VarChar,20);
+			scom.Parameters.Add("@checkedUser_ID", SqlDbType.VarChar,20);
+			scom.Parameters.Add("@approvedUser_ID", SqlDbType.VarChar,20);
+			scom.Parameters.Add("@dateCreate", SqlDbType.DateTime,8);
+			scom.Parameters.Add("@dateModified", SqlDbType.DateTime,8);
+			scom.Parameters.Add("@dateChecked", SqlDbType.DateTime,8);
+			scom.Parameters.Add("@dateApproved", SqlDbType.DateTime,8);
+			scom.Parameters.Add("@isChecked", SqlDbType.Bit,1);
+			scom.Parameters.Add("@isApproved", SqlDbType.Bit,1);
+			scom.Parameters.Add("@isFinished", SqlDbType.Bit,1);
+			scom.Parameters.Add("@isDeleted", SqlDbType.Bit,1);
+			scom.Parameters.Add("@isLocked", SqlDbType.Bit,1);
+			scom.Parameters.Add("@seattleAmount", SqlDbType.Decimal,9);
+			scom.Parameters.Add("@isReturnable", SqlDbType.Bit,1);
+			scom.Parameters.Add("@isSeattled", SqlDbType.Bit,1);
+			scom.Parameters.Add("@printCount", SqlDbType.Int,4);
+			scom.Parameters.Add("@isWeightCalculation", SqlDbType.Bit,1);
+			scom.Parameters.Add("@isVAT", SqlDbType.Bit,1);
+			scom.Parameters.Add("@isSVAT", SqlDbType.Bit,1);
+			scom.Parameters.Add("@companyID", SqlDbType.VarChar,10);
+			scom.Parameters.Add("@companyBranch_ID", SqlDbType.VarChar,20);
+ 
+ 
+			scom.Parameters["@purchaseReturnedNote_ID"].Value = purchaseReturnedNote_ID;
+			scom.Parameters["@purchaseReturnedNoteDate"].Value = purchaseReturnedNoteDate;
+			scom.Parameters["@supplier_ID"].Value = supplier_ID;
+			scom.Parameters["@externalGoodReceivedNote_ID"].Value = externalGoodReceivedNote_ID;
+			scom.Parameters["@store_ID"].Value = store_ID;
+			scom.Parameters["@IssuedRefNo_ID"].Value = issuedRefNo_ID;
+			scom.Parameters["@currency_ID"].Value = currency_ID;
+			scom.Parameters["@currencyRate"].Value = currencyRate;
+			scom.Parameters["@remark"].Value = remark;
+			scom.Parameters["@deliveryOrderNo"].Value = deliveryOrderNo;
+			scom.Parameters["@invoiceNo"].Value = invoiceNo;
+			scom.Parameters["@stockNoteType_ID"].Value = stockNoteType_ID;
+			scom.Parameters["@glPosting_ID"].Value = glPosting_ID;
+			scom.Parameters["@CostCenter"].Value = costCenter;
+			scom.Parameters["@postingStatus_ID"].Value = postingStatus_ID;
+			scom.Parameters["@financialYear_ID"].Value = financialYear_ID;
+			scom.Parameters["@discountPercentage"].Value = discountPercentage;
+			scom.Parameters["@nbtPercentage"].Value = nbtPercentage;
+			scom.Parameters["@vatPercentage"].Value = vatPercentage;
+			scom.Parameters["@otherTaxPercentage"].Value = otherTaxPercentage;
+			scom.Parameters["@subTotal"].Value = subTotal;
+			scom.Parameters["@discountTotal"].Value = discountTotal;
+			scom.Parameters["@nbtTotal"].Value = nbtTotal;
+			scom.Parameters["@vatTotal"].Value = vatTotal;
+			scom.Parameters["@otherTaxTotal"].Value = otherTaxTotal;
+			scom.Parameters["@grandTotal"].Value = grandTotal;
+			scom.Parameters["@createUser_ID"].Value = createUser_ID;
+			scom.Parameters["@modifiedUser_ID"].Value = modifiedUser_ID;
+			scom.Parameters["@checkedUser_ID"].Value = checkedUser_ID;
+			scom.Parameters["@approvedUser_ID"].Value = approvedUser_ID;
+			scom.Parameters["@dateCreate"].Value = dateCreate;
+			scom.Parameters["@dateModified"].Value = dateModified;
+			scom.Parameters["@dateChecked"].Value = dateChecked;
+			scom.Parameters["@dateApproved"].Value = dateApproved;
+			scom.Parameters["@isChecked"].Value = isChecked;
+			scom.Parameters["@isApproved"].Value = isApproved;
+			scom.Parameters["@isFinished"].Value = isFinished;
+			scom.Parameters["@isDeleted"].Value = isDeleted;
+			scom.Parameters["@isLocked"].Value = isLocked;
+			scom.Parameters["@seattleAmount"].Value = seattleAmount;
+			scom.Parameters["@isReturnable"].Value = isReturnable;
+			scom.Parameters["@isSeattled"].Value = isSeattled;
+			scom.Parameters["@printCount"].Value = printCount;
+			scom.Parameters["@isWeightCalculation"].Value = isWeightCalculation;
+			scom.Parameters["@isVAT"].Value = isVAT;
+			scom.Parameters["@isSVAT"].Value = isSVAT;
+			scom.Parameters["@companyID"].Value = companyID;
+			scom.Parameters["@companyBranch_ID"].Value = companyBranch_ID;
+ 
+ 
+			scon.Open();
+			scom.ExecuteNonQuery();
+			scon.Close();
+		}
+		
+		/// <summary>
+		/// Deletes a record from the tbl_scsPurchaseReturnedNote table by its primary key.
+		/// </summary>
+		public void Delete() {
+ 
+			SqlConnection scon = DBHandling.GetConnection();
+			SqlCommand scom = new SqlCommand("tbl_scsPurchaseReturnedNoteDelete", scon);
+			scom.CommandType = CommandType.StoredProcedure;
+ 
+			scom.Parameters.Add("@purchaseReturnedNote_ID", SqlDbType.VarChar,20);
+			scom.Parameters["@purchaseReturnedNote_ID"].Value = purchaseReturnedNote_ID;
+ 
+ 
+			scon.Open();
+			scom.ExecuteNonQuery();
+			scon.Close();
+		}
+		
+		/// <summary>
+		/// Selects all records from the tbl_scsPurchaseReturnedNote table by a foreign key.
+		/// </summary>
+		public static void DeleteAllBySupplier_ID(string supplier_ID) {
+ 
+			SqlConnection scon = DBHandling.GetConnection();
+			SqlCommand scom = new SqlCommand("tbl_scsPurchaseReturnedNoteDeleteAllBySupplier_ID", scon);
+			scom.CommandType = CommandType.StoredProcedure;
+			scon.Open();
+ 
+			scom.Parameters.Add("@supplier_ID", SqlDbType.VarChar,20);
+			scom.Parameters["@supplier_ID"].Value = supplier_ID;
+ 
+			scon.Open();
+			scom.ExecuteNonQuery();
+			scon.Close();
+		}
+		
+		/// <summary>
+		/// Selects all records from the tbl_scsPurchaseReturnedNote table by a foreign key.
+		/// </summary>
+		public static void DeleteAllByIssuedRefNo_ID(string issuedRefNo_ID) {
+ 
+			SqlConnection scon = DBHandling.GetConnection();
+			SqlCommand scom = new SqlCommand("tbl_scsPurchaseReturnedNoteDeleteAllByIssuedRefNo_ID", scon);
+			scom.CommandType = CommandType.StoredProcedure;
+			scon.Open();
+ 
+			scom.Parameters.Add("@IssuedRefNo_ID", SqlDbType.VarChar,10);
+			scom.Parameters["@IssuedRefNo_ID"].Value = issuedRefNo_ID;
+ 
+			scon.Open();
+			scom.ExecuteNonQuery();
+			scon.Close();
+		}
+		
+		/// <summary>
+		/// Selects all records from the tbl_scsPurchaseReturnedNote table by a foreign key.
+		/// </summary>
+		public static void DeleteAllByStore_ID(string store_ID) {
+ 
+			SqlConnection scon = DBHandling.GetConnection();
+			SqlCommand scom = new SqlCommand("tbl_scsPurchaseReturnedNoteDeleteAllByStore_ID", scon);
+			scom.CommandType = CommandType.StoredProcedure;
+			scon.Open();
+ 
+			scom.Parameters.Add("@store_ID", SqlDbType.VarChar,20);
+			scom.Parameters["@store_ID"].Value = store_ID;
+ 
+			scon.Open();
+			scom.ExecuteNonQuery();
+			scon.Close();
+		}
+		
+		/// <summary>
+		/// Selects all records from the tbl_scsPurchaseReturnedNote table by a foreign key.
+		/// </summary>
+		public static void DeleteAllByExternalGoodReceivedNote_ID(string externalGoodReceivedNote_ID) {
+ 
+			SqlConnection scon = DBHandling.GetConnection();
+			SqlCommand scom = new SqlCommand("tbl_scsPurchaseReturnedNoteDeleteAllByExternalGoodReceivedNote_ID", scon);
+			scom.CommandType = CommandType.StoredProcedure;
+			scon.Open();
+ 
+			scom.Parameters.Add("@externalGoodReceivedNote_ID", SqlDbType.VarChar,20);
+			scom.Parameters["@externalGoodReceivedNote_ID"].Value = externalGoodReceivedNote_ID;
+ 
+			scon.Open();
+			scom.ExecuteNonQuery();
+			scon.Close();
+		}
+		
+		/// <summary>
+		/// Selects a single record from the tbl_scsPurchaseReturnedNote table.
+		/// </summary>
+		public static tbl_scsPurchaseReturnedNote Select(string purchaseReturnedNote_ID_Incoming){
+
+			tbl_scsPurchaseReturnedNote tbl_scsPurchaseReturnedNoteins = new tbl_scsPurchaseReturnedNote();
+			SqlConnection scon = DBHandling.GetConnection();
+			SqlCommand scom = new SqlCommand("tbl_scsPurchaseReturnedNoteSelect", scon);
+			scom.CommandType = CommandType.StoredProcedure;
+			scon.Open();
+ 
+			scom.Parameters.Add("@purchaseReturnedNote_ID", SqlDbType.VarChar,20);
+			scom.Parameters["@purchaseReturnedNote_ID"].Value = purchaseReturnedNote_ID_Incoming;
+			using (SqlDataReader dataReader = scom.ExecuteReader()){
+				if (dataReader.Read()) {
+					tbl_scsPurchaseReturnedNoteins = Maketbl_scsPurchaseReturnedNote(dataReader);
+				} else {
+					tbl_scsPurchaseReturnedNoteins = null;
+				}
+			}
+			scon.Close();
+			return tbl_scsPurchaseReturnedNoteins;
+		}
+		
+		/// <summary>
+		/// Selects all records from the tbl_scsPurchaseReturnedNote table.
+		/// </summary>
+		public static List<tbl_scsPurchaseReturnedNote> SelectAll() {
+ 
+			SqlConnection scon = DBHandling.GetConnection();
+			SqlCommand scom = new SqlCommand("tbl_scsPurchaseReturnedNoteSelectAll", scon);
+			scom.CommandType = CommandType.StoredProcedure;
+			scon.Open();
+ 
+				List<tbl_scsPurchaseReturnedNote> tbl_scsPurchaseReturnedNoteList = new List<tbl_scsPurchaseReturnedNote>();
+			using (SqlDataReader dataReader = scom.ExecuteReader()){
+				while (dataReader.Read()) {
+					tbl_scsPurchaseReturnedNote tbl_scsPurchaseReturnedNote = Maketbl_scsPurchaseReturnedNote(dataReader);
+					tbl_scsPurchaseReturnedNoteList.Add(tbl_scsPurchaseReturnedNote);
+				}
+			}
+			scon.Close();
+			return tbl_scsPurchaseReturnedNoteList;
+		}
+		
+		/// <summary>
+		/// Selects all records from the tbl_scsPurchaseReturnedNote table by a foreign key.
+		/// </summary>
+		public static List<tbl_scsPurchaseReturnedNote> SelectAllBySupplier_ID(string supplier_ID) {
+ 
+			SqlConnection scon = DBHandling.GetConnection();
+			SqlCommand scom = new SqlCommand("tbl_scsPurchaseReturnedNoteSelectAllBySupplier_ID", scon);
+			scom.CommandType = CommandType.StoredProcedure;
+			scon.Open();
+ 
+			scom.Parameters.Add("@supplier_ID", SqlDbType.VarChar,20);
+			scom.Parameters["@supplier_ID"].Value = supplier_ID;
+				List<tbl_scsPurchaseReturnedNote> tbl_scsPurchaseReturnedNoteList = new List<tbl_scsPurchaseReturnedNote>();
+			using (SqlDataReader dataReader = scom.ExecuteReader()){
+				while (dataReader.Read()) {
+					tbl_scsPurchaseReturnedNote tbl_scsPurchaseReturnedNote = Maketbl_scsPurchaseReturnedNote(dataReader);
+					tbl_scsPurchaseReturnedNoteList.Add(tbl_scsPurchaseReturnedNote);
+				}
+			}
+			scon.Close();
+			return tbl_scsPurchaseReturnedNoteList;
+		}
+		
+		/// <summary>
+		/// Selects all records from the tbl_scsPurchaseReturnedNote table by a foreign key.
+		/// </summary>
+		public static List<tbl_scsPurchaseReturnedNote> SelectAllByIssuedRefNo_ID(string issuedRefNo_ID) {
+ 
+			SqlConnection scon = DBHandling.GetConnection();
+			SqlCommand scom = new SqlCommand("tbl_scsPurchaseReturnedNoteSelectAllByIssuedRefNo_ID", scon);
+			scom.CommandType = CommandType.StoredProcedure;
+			scon.Open();
+ 
+			scom.Parameters.Add("@IssuedRefNo_ID", SqlDbType.VarChar,10);
+			scom.Parameters["@IssuedRefNo_ID"].Value = issuedRefNo_ID;
+				List<tbl_scsPurchaseReturnedNote> tbl_scsPurchaseReturnedNoteList = new List<tbl_scsPurchaseReturnedNote>();
+			using (SqlDataReader dataReader = scom.ExecuteReader()){
+				while (dataReader.Read()) {
+					tbl_scsPurchaseReturnedNote tbl_scsPurchaseReturnedNote = Maketbl_scsPurchaseReturnedNote(dataReader);
+					tbl_scsPurchaseReturnedNoteList.Add(tbl_scsPurchaseReturnedNote);
+				}
+			}
+			scon.Close();
+			return tbl_scsPurchaseReturnedNoteList;
+		}
+		
+		/// <summary>
+		/// Selects all records from the tbl_scsPurchaseReturnedNote table by a foreign key.
+		/// </summary>
+		public static List<tbl_scsPurchaseReturnedNote> SelectAllByStore_ID(string store_ID) {
+ 
+			SqlConnection scon = DBHandling.GetConnection();
+			SqlCommand scom = new SqlCommand("tbl_scsPurchaseReturnedNoteSelectAllByStore_ID", scon);
+			scom.CommandType = CommandType.StoredProcedure;
+			scon.Open();
+ 
+			scom.Parameters.Add("@store_ID", SqlDbType.VarChar,20);
+			scom.Parameters["@store_ID"].Value = store_ID;
+				List<tbl_scsPurchaseReturnedNote> tbl_scsPurchaseReturnedNoteList = new List<tbl_scsPurchaseReturnedNote>();
+			using (SqlDataReader dataReader = scom.ExecuteReader()){
+				while (dataReader.Read()) {
+					tbl_scsPurchaseReturnedNote tbl_scsPurchaseReturnedNote = Maketbl_scsPurchaseReturnedNote(dataReader);
+					tbl_scsPurchaseReturnedNoteList.Add(tbl_scsPurchaseReturnedNote);
+				}
+			}
+			scon.Close();
+			return tbl_scsPurchaseReturnedNoteList;
+		}
+		
+		/// <summary>
+		/// Selects all records from the tbl_scsPurchaseReturnedNote table by a foreign key.
+		/// </summary>
+		public static List<tbl_scsPurchaseReturnedNote> SelectAllByExternalGoodReceivedNote_ID(string externalGoodReceivedNote_ID) {
+ 
+			SqlConnection scon = DBHandling.GetConnection();
+			SqlCommand scom = new SqlCommand("tbl_scsPurchaseReturnedNoteSelectAllByExternalGoodReceivedNote_ID", scon);
+			scom.CommandType = CommandType.StoredProcedure;
+			scon.Open();
+ 
+			scom.Parameters.Add("@externalGoodReceivedNote_ID", SqlDbType.VarChar,20);
+			scom.Parameters["@externalGoodReceivedNote_ID"].Value = externalGoodReceivedNote_ID;
+				List<tbl_scsPurchaseReturnedNote> tbl_scsPurchaseReturnedNoteList = new List<tbl_scsPurchaseReturnedNote>();
+			using (SqlDataReader dataReader = scom.ExecuteReader()){
+				while (dataReader.Read()) {
+					tbl_scsPurchaseReturnedNote tbl_scsPurchaseReturnedNote = Maketbl_scsPurchaseReturnedNote(dataReader);
+					tbl_scsPurchaseReturnedNoteList.Add(tbl_scsPurchaseReturnedNote);
+				}
+			}
+			scon.Close();
+			return tbl_scsPurchaseReturnedNoteList;
+		}
+		
+		/// <summary>
+		/// Creates a new instance of the tbl_scsPurchaseReturnedNote class and populates it with data from the specified SqlDataReader.
+		/// </summary>
+		private static tbl_scsPurchaseReturnedNote Maketbl_scsPurchaseReturnedNote(SqlDataReader dataReader) {
+			tbl_scsPurchaseReturnedNote tbl_scsPurchaseReturnedNote = new tbl_scsPurchaseReturnedNote();
+			
+			if (dataReader.IsDBNull(0) == false) {
+				tbl_scsPurchaseReturnedNote.PurchaseReturnedNote_ID = dataReader.GetString(0);
+			}
+			if (dataReader.IsDBNull(1) == false) {
+				tbl_scsPurchaseReturnedNote.PurchaseReturnedNoteDate = dataReader.GetDateTime(1);
+			}
+			if (dataReader.IsDBNull(2) == false) {
+				tbl_scsPurchaseReturnedNote.Supplier_ID = dataReader.GetString(2);
+			}
+			if (dataReader.IsDBNull(3) == false) {
+				tbl_scsPurchaseReturnedNote.ExternalGoodReceivedNote_ID = dataReader.GetString(3);
+			}
+			if (dataReader.IsDBNull(4) == false) {
+				tbl_scsPurchaseReturnedNote.Store_ID = dataReader.GetString(4);
+			}
+			if (dataReader.IsDBNull(5) == false) {
+				tbl_scsPurchaseReturnedNote.IssuedRefNo_ID = dataReader.GetString(5);
+			}
+			if (dataReader.IsDBNull(6) == false) {
+				tbl_scsPurchaseReturnedNote.Currency_ID = dataReader.GetString(6);
+			}
+			if (dataReader.IsDBNull(7) == false) {
+				tbl_scsPurchaseReturnedNote.CurrencyRate = dataReader.GetDecimal(7);
+			}
+			if (dataReader.IsDBNull(8) == false) {
+				tbl_scsPurchaseReturnedNote.Remark = dataReader.GetString(8);
+			}
+			if (dataReader.IsDBNull(9) == false) {
+				tbl_scsPurchaseReturnedNote.DeliveryOrderNo = dataReader.GetString(9);
+			}
+			if (dataReader.IsDBNull(10) == false) {
+				tbl_scsPurchaseReturnedNote.InvoiceNo = dataReader.GetString(10);
+			}
+			if (dataReader.IsDBNull(11) == false) {
+				tbl_scsPurchaseReturnedNote.StockNoteType_ID = dataReader.GetString(11);
+			}
+			if (dataReader.IsDBNull(12) == false) {
+				tbl_scsPurchaseReturnedNote.GlPosting_ID = dataReader.GetString(12);
+			}
+			if (dataReader.IsDBNull(13) == false) {
+				tbl_scsPurchaseReturnedNote.CostCenter = dataReader.GetString(13);
+			}
+			if (dataReader.IsDBNull(14) == false) {
+				tbl_scsPurchaseReturnedNote.PostingStatus_ID = dataReader.GetString(14);
+			}
+			if (dataReader.IsDBNull(15) == false) {
+				tbl_scsPurchaseReturnedNote.FinancialYear_ID = dataReader.GetString(15);
+			}
+			if (dataReader.IsDBNull(16) == false) {
+				tbl_scsPurchaseReturnedNote.DiscountPercentage = dataReader.GetDecimal(16);
+			}
+			if (dataReader.IsDBNull(17) == false) {
+				tbl_scsPurchaseReturnedNote.NbtPercentage = dataReader.GetDecimal(17);
+			}
+			if (dataReader.IsDBNull(18) == false) {
+				tbl_scsPurchaseReturnedNote.VatPercentage = dataReader.GetDecimal(18);
+			}
+			if (dataReader.IsDBNull(19) == false) {
+				tbl_scsPurchaseReturnedNote.OtherTaxPercentage = dataReader.GetDecimal(19);
+			}
+			if (dataReader.IsDBNull(20) == false) {
+				tbl_scsPurchaseReturnedNote.SubTotal = dataReader.GetDecimal(20);
+			}
+			if (dataReader.IsDBNull(21) == false) {
+				tbl_scsPurchaseReturnedNote.DiscountTotal = dataReader.GetDecimal(21);
+			}
+			if (dataReader.IsDBNull(22) == false) {
+				tbl_scsPurchaseReturnedNote.NbtTotal = dataReader.GetDecimal(22);
+			}
+			if (dataReader.IsDBNull(23) == false) {
+				tbl_scsPurchaseReturnedNote.VatTotal = dataReader.GetDecimal(23);
+			}
+			if (dataReader.IsDBNull(24) == false) {
+				tbl_scsPurchaseReturnedNote.OtherTaxTotal = dataReader.GetDecimal(24);
+			}
+			if (dataReader.IsDBNull(25) == false) {
+				tbl_scsPurchaseReturnedNote.GrandTotal = dataReader.GetDecimal(25);
+			}
+			if (dataReader.IsDBNull(26) == false) {
+				tbl_scsPurchaseReturnedNote.CreateUser_ID = dataReader.GetString(26);
+			}
+			if (dataReader.IsDBNull(27) == false) {
+				tbl_scsPurchaseReturnedNote.ModifiedUser_ID = dataReader.GetString(27);
+			}
+			if (dataReader.IsDBNull(28) == false) {
+				tbl_scsPurchaseReturnedNote.CheckedUser_ID = dataReader.GetString(28);
+			}
+			if (dataReader.IsDBNull(29) == false) {
+				tbl_scsPurchaseReturnedNote.ApprovedUser_ID = dataReader.GetString(29);
+			}
+			if (dataReader.IsDBNull(30) == false) {
+				tbl_scsPurchaseReturnedNote.DateCreate = dataReader.GetDateTime(30);
+			}
+			if (dataReader.IsDBNull(31) == false) {
+				tbl_scsPurchaseReturnedNote.DateModified = dataReader.GetDateTime(31);
+			}
+			if (dataReader.IsDBNull(32) == false) {
+				tbl_scsPurchaseReturnedNote.DateChecked = dataReader.GetDateTime(32);
+			}
+			if (dataReader.IsDBNull(33) == false) {
+				tbl_scsPurchaseReturnedNote.DateApproved = dataReader.GetDateTime(33);
+			}
+			if (dataReader.IsDBNull(34) == false) {
+				tbl_scsPurchaseReturnedNote.IsChecked = dataReader.GetBoolean(34);
+			}
+			if (dataReader.IsDBNull(35) == false) {
+				tbl_scsPurchaseReturnedNote.IsApproved = dataReader.GetBoolean(35);
+			}
+			if (dataReader.IsDBNull(36) == false) {
+				tbl_scsPurchaseReturnedNote.IsFinished = dataReader.GetBoolean(36);
+			}
+			if (dataReader.IsDBNull(37) == false) {
+				tbl_scsPurchaseReturnedNote.IsDeleted = dataReader.GetBoolean(37);
+			}
+			if (dataReader.IsDBNull(38) == false) {
+				tbl_scsPurchaseReturnedNote.IsLocked = dataReader.GetBoolean(38);
+			}
+			if (dataReader.IsDBNull(39) == false) {
+				tbl_scsPurchaseReturnedNote.SeattleAmount = dataReader.GetDecimal(39);
+			}
+			if (dataReader.IsDBNull(40) == false) {
+				tbl_scsPurchaseReturnedNote.IsReturnable = dataReader.GetBoolean(40);
+			}
+			if (dataReader.IsDBNull(41) == false) {
+				tbl_scsPurchaseReturnedNote.IsSeattled = dataReader.GetBoolean(41);
+			}
+			if (dataReader.IsDBNull(42) == false) {
+				tbl_scsPurchaseReturnedNote.PrintCount = dataReader.GetInt32(42);
+			}
+			if (dataReader.IsDBNull(43) == false) {
+				tbl_scsPurchaseReturnedNote.IsWeightCalculation = dataReader.GetBoolean(43);
+			}
+			if (dataReader.IsDBNull(44) == false) {
+				tbl_scsPurchaseReturnedNote.IsVAT = dataReader.GetBoolean(44);
+			}
+			if (dataReader.IsDBNull(45) == false) {
+				tbl_scsPurchaseReturnedNote.IsSVAT = dataReader.GetBoolean(45);
+			}
+			if (dataReader.IsDBNull(46) == false) {
+				tbl_scsPurchaseReturnedNote.CompanyID = dataReader.GetString(46);
+			}
+			if (dataReader.IsDBNull(47) == false) {
+				tbl_scsPurchaseReturnedNote.CompanyBranch_ID = dataReader.GetString(47);
+			}
+
+			return tbl_scsPurchaseReturnedNote;
+		}
+		/// <summary>
+		/// This makes tbl_scsPurchaseReturnedNote datatable according to the datatable.
+		/// IMPORTANT: you have to change the Column names according to your disire. becouse we cannot change it to your fit
+		///            We are still humans
+		/// </summary>
+		/// <param name="user">new tbl_scsPurchaseReturnedNote object</param>
+		/// <returns></returns>
+		public static DataTable CreateDataTable( tbl_scsPurchaseReturnedNote  tbl_scsPurchaseReturnedNote   )
+		{
+		DataTable dt = new DataTable();
+		
+			DataColumn col_purchaseReturnedNote_ID = new DataColumn("purchaseReturnedNote_ID" , typeof(string));
+			DataColumn col_purchaseReturnedNoteDate = new DataColumn("purchaseReturnedNoteDate" , typeof(DateTime));
+			DataColumn col_supplier_ID = new DataColumn("supplier_ID" , typeof(string));
+			DataColumn col_externalGoodReceivedNote_ID = new DataColumn("externalGoodReceivedNote_ID" , typeof(string));
+			DataColumn col_store_ID = new DataColumn("store_ID" , typeof(string));
+			DataColumn col_IssuedRefNo_ID = new DataColumn("IssuedRefNo_ID" , typeof(string));
+			DataColumn col_currency_ID = new DataColumn("currency_ID" , typeof(string));
+			DataColumn col_currencyRate = new DataColumn("currencyRate" , typeof(decimal));
+			DataColumn col_remark = new DataColumn("remark" , typeof(string));
+			DataColumn col_deliveryOrderNo = new DataColumn("deliveryOrderNo" , typeof(string));
+			DataColumn col_invoiceNo = new DataColumn("invoiceNo" , typeof(string));
+			DataColumn col_stockNoteType_ID = new DataColumn("stockNoteType_ID" , typeof(string));
+			DataColumn col_glPosting_ID = new DataColumn("glPosting_ID" , typeof(string));
+			DataColumn col_CostCenter = new DataColumn("CostCenter" , typeof(string));
+			DataColumn col_postingStatus_ID = new DataColumn("postingStatus_ID" , typeof(string));
+			DataColumn col_financialYear_ID = new DataColumn("financialYear_ID" , typeof(string));
+			DataColumn col_discountPercentage = new DataColumn("discountPercentage" , typeof(decimal));
+			DataColumn col_nbtPercentage = new DataColumn("nbtPercentage" , typeof(decimal));
+			DataColumn col_vatPercentage = new DataColumn("vatPercentage" , typeof(decimal));
+			DataColumn col_otherTaxPercentage = new DataColumn("otherTaxPercentage" , typeof(decimal));
+			DataColumn col_subTotal = new DataColumn("subTotal" , typeof(decimal));
+			DataColumn col_discountTotal = new DataColumn("discountTotal" , typeof(decimal));
+			DataColumn col_nbtTotal = new DataColumn("nbtTotal" , typeof(decimal));
+			DataColumn col_vatTotal = new DataColumn("vatTotal" , typeof(decimal));
+			DataColumn col_otherTaxTotal = new DataColumn("otherTaxTotal" , typeof(decimal));
+			DataColumn col_grandTotal = new DataColumn("grandTotal" , typeof(decimal));
+			DataColumn col_createUser_ID = new DataColumn("createUser_ID" , typeof(string));
+			DataColumn col_modifiedUser_ID = new DataColumn("modifiedUser_ID" , typeof(string));
+			DataColumn col_checkedUser_ID = new DataColumn("checkedUser_ID" , typeof(string));
+			DataColumn col_approvedUser_ID = new DataColumn("approvedUser_ID" , typeof(string));
+			DataColumn col_dateCreate = new DataColumn("dateCreate" , typeof(DateTime));
+			DataColumn col_dateModified = new DataColumn("dateModified" , typeof(DateTime));
+			DataColumn col_dateChecked = new DataColumn("dateChecked" , typeof(DateTime));
+			DataColumn col_dateApproved = new DataColumn("dateApproved" , typeof(DateTime));
+			DataColumn col_isChecked = new DataColumn("isChecked" , typeof(bool));
+			DataColumn col_isApproved = new DataColumn("isApproved" , typeof(bool));
+			DataColumn col_isFinished = new DataColumn("isFinished" , typeof(bool));
+			DataColumn col_isDeleted = new DataColumn("isDeleted" , typeof(bool));
+			DataColumn col_isLocked = new DataColumn("isLocked" , typeof(bool));
+			DataColumn col_seattleAmount = new DataColumn("seattleAmount" , typeof(decimal));
+			DataColumn col_isReturnable = new DataColumn("isReturnable" , typeof(bool));
+			DataColumn col_isSeattled = new DataColumn("isSeattled" , typeof(bool));
+			DataColumn col_printCount = new DataColumn("printCount" , typeof(int));
+			DataColumn col_isWeightCalculation = new DataColumn("isWeightCalculation" , typeof(bool));
+			DataColumn col_isVAT = new DataColumn("isVAT" , typeof(bool));
+			DataColumn col_isSVAT = new DataColumn("isSVAT" , typeof(bool));
+			DataColumn col_companyID = new DataColumn("companyID" , typeof(string));
+			DataColumn col_companyBranch_ID = new DataColumn("companyBranch_ID" , typeof(string));
+		dt.Columns.AddRange(new DataColumn[] { col_purchaseReturnedNote_ID,col_purchaseReturnedNoteDate,col_supplier_ID,col_externalGoodReceivedNote_ID,col_store_ID,col_IssuedRefNo_ID,col_currency_ID,col_currencyRate,col_remark,col_deliveryOrderNo,col_invoiceNo,col_stockNoteType_ID,col_glPosting_ID,col_CostCenter,col_postingStatus_ID,col_financialYear_ID,col_discountPercentage,col_nbtPercentage,col_vatPercentage,col_otherTaxPercentage,col_subTotal,col_discountTotal,col_nbtTotal,col_vatTotal,col_otherTaxTotal,col_grandTotal,col_createUser_ID,col_modifiedUser_ID,col_checkedUser_ID,col_approvedUser_ID,col_dateCreate,col_dateModified,col_dateChecked,col_dateApproved,col_isChecked,col_isApproved,col_isFinished,col_isDeleted,col_isLocked,col_seattleAmount,col_isReturnable,col_isSeattled,col_printCount,col_isWeightCalculation,col_isVAT,col_isSVAT,col_companyID,col_companyBranch_ID,});		return dt;
+		}
+		/// <summary>
+		/// This fills tbl_scsPurchaseReturnedNote datatable according to the Given user list.
+		/// </summary>
+		/// <param name="user">new tbl_scsPurchaseReturnedNote object</param>
+		/// <returns></returns>
+		public static void FillData(DataTable dt, tbl_scsPurchaseReturnedNote user) {
+		DataRow drow = dt.NewRow();
+		
+			drow["purchaseReturnedNote_ID"] = user.purchaseReturnedNote_ID;
+			drow["purchaseReturnedNoteDate"] = user.purchaseReturnedNoteDate;
+			drow["supplier_ID"] = user.supplier_ID;
+			drow["externalGoodReceivedNote_ID"] = user.externalGoodReceivedNote_ID;
+			drow["store_ID"] = user.store_ID;
+			drow["IssuedRefNo_ID"] = user.IssuedRefNo_ID;
+			drow["currency_ID"] = user.currency_ID;
+			drow["currencyRate"] = user.currencyRate;
+			drow["remark"] = user.remark;
+			drow["deliveryOrderNo"] = user.deliveryOrderNo;
+			drow["invoiceNo"] = user.invoiceNo;
+			drow["stockNoteType_ID"] = user.stockNoteType_ID;
+			drow["glPosting_ID"] = user.glPosting_ID;
+			drow["CostCenter"] = user.CostCenter;
+			drow["postingStatus_ID"] = user.postingStatus_ID;
+			drow["financialYear_ID"] = user.financialYear_ID;
+			drow["discountPercentage"] = user.discountPercentage;
+			drow["nbtPercentage"] = user.nbtPercentage;
+			drow["vatPercentage"] = user.vatPercentage;
+			drow["otherTaxPercentage"] = user.otherTaxPercentage;
+			drow["subTotal"] = user.subTotal;
+			drow["discountTotal"] = user.discountTotal;
+			drow["nbtTotal"] = user.nbtTotal;
+			drow["vatTotal"] = user.vatTotal;
+			drow["otherTaxTotal"] = user.otherTaxTotal;
+			drow["grandTotal"] = user.grandTotal;
+			drow["createUser_ID"] = user.createUser_ID;
+			drow["modifiedUser_ID"] = user.modifiedUser_ID;
+			drow["checkedUser_ID"] = user.checkedUser_ID;
+			drow["approvedUser_ID"] = user.approvedUser_ID;
+			drow["dateCreate"] = user.dateCreate;
+			drow["dateModified"] = user.dateModified;
+			drow["dateChecked"] = user.dateChecked;
+			drow["dateApproved"] = user.dateApproved;
+			drow["isChecked"] = user.isChecked;
+			drow["isApproved"] = user.isApproved;
+			drow["isFinished"] = user.isFinished;
+			drow["isDeleted"] = user.isDeleted;
+			drow["isLocked"] = user.isLocked;
+			drow["seattleAmount"] = user.seattleAmount;
+			drow["isReturnable"] = user.isReturnable;
+			drow["isSeattled"] = user.isSeattled;
+			drow["printCount"] = user.printCount;
+			drow["isWeightCalculation"] = user.isWeightCalculation;
+			drow["isVAT"] = user.isVAT;
+			drow["isSVAT"] = user.isSVAT;
+			drow["companyID"] = user.companyID;
+			drow["companyBranch_ID"] = user.companyBranch_ID;
+		dt.Rows.Add(drow);
+		}
+		#endregion
+	}
+}

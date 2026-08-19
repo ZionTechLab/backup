@@ -1,0 +1,360 @@
+﻿using DataTire;
+using Digiteq_Logic;
+using System;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Data;
+using System.Drawing;
+using System.Linq;
+using System.Text;
+using System.Windows.Forms;
+
+namespace Digiteq.Master_Forms.ZMaster
+{
+    public partial class frm_mtrItemTag2 : MettroForm
+    {
+        #region Variables
+        //to manage update and insert
+        static bool IsUpdate = false;
+
+        //to keep form detail       
+        string sFormConfigCode;
+        public int iFormID;
+        public bool bNoAccess;
+        #endregion
+
+        #region Form Load
+        public frm_mtrItemTag2()
+        {
+            sFormConfigCode = clsAutocode.getFormConfigCode(FormName.ZItemTag2);
+            iFormID = clsSecurity.getFormID(FormName.ZItemTag2);
+            if (!clsSecurity.PermissionToRead(clsSecurity.UserIDLoged, iFormID))
+            {
+                bNoAccess = true;
+            }
+            InitializeComponent();
+        }
+
+        private void frm_mtrItemTag2_Load(object sender, EventArgs e)
+        {
+            //add data to the datagrid and format
+            RefreshGrid();
+            CusDataGridViewFormat();
+            ClearFields();
+        }
+        #endregion
+
+        #region Btn New
+        private void btnNew_Click(object sender, EventArgs e)
+        {
+            ClearFields();
+        }
+        #endregion
+
+        #region Btn Delete
+        private void btnDelete_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                if (CheckValidity())
+                {
+                    if (clsSecurity.PermissionToDelete(clsSecurity.UserIDLoged, iFormID))
+                    {
+                        //delete one record
+                        Cursor = Cursors.WaitCursor;
+                        tbl_zItemTag2 detail = tbl_zItemTag2.Select(txtTag2ID.Text.Trim());
+                        if (detail != null)
+                        {
+                            detail.Delete();
+                            clsHelpMethods.InsertTransactionHistory(iFormID, txtTag2ID.Text, TxnActivity.Cancel);
+                        }
+
+                        Cursor = Cursors.Default;
+                        MessageBox.Show(clsFormatter.GetMessageFrom(MessageType.DeleteDone), clsFormatter.GetMessageCaption(), MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        ClearFields();
+                        RefreshGrid();
+                    }
+                    else //if no permission to delete
+                    {
+                        MessageBox.Show(clsFormatter.GetMessageFrom(MessageType.PermissionToDelete), clsFormatter.GetMessageCaption(), MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    }
+                }
+            }
+            catch (System.Data.SqlClient.SqlException sqlException)
+            {
+                if (sqlException.Number == 547)
+                    MessageBox.Show("Unable to delete the recode.\nPlease remove Item Master references befor delete seleted data. ", clsFormatter.GetMessageCaption(), MessageBoxButtons.OK, MessageBoxIcon.Information);
+                else
+                {
+                    clsValidate.WriteErrorLog("", iFormID,sqlException);
+                    SEACCException.Show(sqlException);
+                }
+            }
+            catch (Exception ex)
+            {
+
+               SEACCException.Show(ex);
+            }
+            finally { Cursor = Cursors.Default; }
+        }
+        #endregion
+
+        #region Btn Save
+        private void btnSave_Click(object sender, EventArgs e)
+        {
+            if (CheckValidity())
+            {
+                if (CheckNumberValidity())
+                {
+                    if (clsSecurity.PermissionToSave(clsSecurity.UserIDLoged, iFormID, IsUpdate))
+                    {
+                        try
+                        {
+                            Cursor = Cursors.WaitCursor;
+                            if (txtTag2ID.TextLength > 0)
+                            {
+                                if (IsUpdate)  //update records
+                                {
+                                    tbl_zItemTag2 oldRecord = tbl_zItemTag2.Select(txtTag2ID.Text.Trim());
+                                    if (oldRecord != null)
+                                    {
+                                        //Country Header
+                                        tbl_zItemTag2 detail = new tbl_zItemTag2(txtTag2ID.Text.Trim(), txtDescription.Text.Trim());
+                                        detail.Update();
+                                        clsHelpMethods.InsertTransactionHistory(iFormID, txtTag2ID.Text, TxnActivity.Update);
+                                        MessageBox.Show(clsFormatter.GetMessageFrom(MessageType.ModifyDone), clsFormatter.GetMessageCaption(), MessageBoxButtons.OK, MessageBoxIcon.Information);
+                                    }
+                                }
+                                else  //insert records
+                                {
+                                    if (clsAutocode.IsAutoGenerated(sFormConfigCode))
+                                        txtTag2ID.Text = clsAutocode.getAutoGeneratedCode(sFormConfigCode);
+
+                                    //Inquiry Header
+                                    tbl_zItemTag2 detail = new tbl_zItemTag2(txtTag2ID.Text.Trim(), txtDescription.Text.Trim());
+                                    detail.Insert();
+                                    clsHelpMethods.InsertTransactionHistory(iFormID, txtTag2ID.Text, TxnActivity.Insert);
+                                    MessageBox.Show(clsFormatter.GetMessageFrom(MessageType.SaveDone), clsFormatter.GetMessageCaption(), MessageBoxButtons.OK, MessageBoxIcon.Information);
+                                }
+                            }
+                            else
+                            {
+                                MessageBox.Show("Item Tag " + clsFormatter.GetMessageFrom(MessageType.IDIsEmpty), clsFormatter.GetMessageCaption(), MessageBoxButtons.OK, MessageBoxIcon.Information);
+                            }
+                        }
+                        catch (Exception ex)
+                        {
+                            clsValidate.WriteErrorLog("", iFormID,ex);
+                            SEACCException.Show(ex);
+                        }
+                        finally
+                        {
+                            Cursor = Cursors.Default;
+                            ClearFields();
+                            RefreshGrid();
+                        }
+                    }
+                }
+            }
+        }
+        #endregion
+
+        #region Datagrid Format
+        private void CusDataGridViewFormat()
+        {
+            clsFormatter.ApplyGridFormat(dgvDetail);
+        }
+        #endregion
+
+        #region Clear Fields
+        private void ClearFields()
+        {
+
+            //set the flag and enble the id
+
+            IsUpdate = false;
+            clsCommon.SetEnableDisable_PrimaryKeyTextbox(txtTag2ID, true);
+            clsCommon.SetEnableDisable_NormalLabel(lblTag2ID, true);
+
+            txtDescription.Clear();
+
+            if (clsAutocode.IsAutoGenerated(sFormConfigCode))
+                txtTag2ID.Text = "<Auto Generate>";
+            else
+                txtTag2ID.Clear();
+
+            if (txtTag2ID.Enabled)
+            {
+                txtTag2ID.SelectAll();
+                txtTag2ID.Focus();
+            }
+            //txtClassID.Text = "ok";
+        }
+        #endregion
+
+        #region Refresh Grid
+        private void RefreshGrid()
+        {
+            int iRow;
+            dgvDetail.Rows.Clear();
+            List<tbl_zItemTag2> details = tbl_zItemTag2.SelectAll();
+            foreach (tbl_zItemTag2 detail in details)
+            {
+                if (detail.Tag2_ID.Trim() != "default")
+                {
+                    dgvDetail.Rows.Add();
+                    iRow = dgvDetail.Rows.Count - 1;
+                    dgvDetail["Tag2ID", iRow].Value = detail.Tag2_ID;
+                    dgvDetail["Description", iRow].Value = detail.Description;
+                }
+            }
+        }
+        #endregion
+
+        #region Fill Details
+        private void FillDetails(string sID)
+        {
+            if (sID.Length > 0)
+            {
+                tbl_zItemTag2 detail = tbl_zItemTag2.Select(sID);
+                if (detail != null)
+                {
+                    //set the update flag and Locked
+                    IsUpdate = true;
+                    clsCommon.SetEnableDisable_PrimaryKeyTextbox(txtTag2ID, false);
+                    clsCommon.SetEnableDisable_NormalLabel(lblTag2ID, false);
+
+                    //asign values
+                    txtTag2ID.Text = detail.Tag2_ID;
+                    txtDescription.Text = detail.Description;
+                }
+            }
+        }
+        #endregion
+
+
+        #region Check Validity
+        private bool CheckValidity()
+        {
+            string strMessage = "";
+            bool bStatus = true;
+
+            if (txtDescription.TextLength == 0)
+            {
+                strMessage += "\n" + "Description ";
+                bStatus = false;
+            }
+            //foreach (DataGridViewRow row in dgvDetail.Rows)
+            //{
+            //    if (clsValidate.ValidateGridValue(dgvDetail, "Prifix", row.Index, "").ToString() == txtPrifix.Text.ToUpper() && IsUpdate == false && txtPrifix.TextLength != 0)
+            //    {
+            //        strMessage += "\n" + " You Can't Enter Same Prifix Name ";
+            //        bStatus = false;
+            //        break;
+            //    }
+            //}
+            if (bStatus == false)
+            {
+                MessageBox.Show(clsFormatter.getCommonStatusStripMessage(StatusStripMessageTypes.WhenInsert, strMessage), clsFormatter.GetMessageCaption(), MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+            return bStatus;
+        }
+
+        private bool CheckNumberValidity()
+        {
+            string strMessage = "";
+            bool bStatus = true;
+
+            try
+            {
+
+
+            }
+            catch (Exception ex)
+            {
+                clsValidate.WriteErrorLog("", iFormID,ex);
+                SEACCException.Show(ex);
+            }
+            if (bStatus == false)
+            {
+                MessageBox.Show(clsFormatter.getCommonStatusStripMessage(StatusStripMessageTypes.WhenInserNumber, strMessage), clsFormatter.GetMessageCaption(), MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+            return bStatus;
+        }
+        #endregion
+
+        #region Events KeyDown
+        private void txtTag1ID_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.F1)
+            {
+                Search_ItemID();
+            }
+        }
+        #endregion
+
+        #region Events DoubleClick
+        private void txtTag1ID_DoubleClick(object sender, EventArgs e)
+        {
+            Search_ItemID();
+        }
+        #endregion
+
+        #region Events Datagrid
+        private void dgvDetail_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            try
+            {
+                if (e.RowIndex >= 0)
+                {
+                    string sID = dgvDetail["Tag2ID", e.RowIndex].Value.ToString();
+                    if (sID.Length > 0)
+                    {
+                        //fills the values to controls
+                        FillDetails(sID.Trim());
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                clsValidate.WriteErrorLog("", iFormID,ex);
+                SEACCException.Show(ex);
+            }
+        }
+
+        private void dgvDetail_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            dgvDetail_CellClick(sender, e);
+        }
+        #endregion
+
+        #region Search Methods
+        private void Search_ItemID()
+        {
+            try
+            {
+                Form frmhelpsearch = new frmSearchMaster();
+                clsSearch.passValue_Tag2();
+                frmhelpsearch.ShowDialog();
+
+                if (frmSearchMaster.s_SearchID.Length > 0)
+                {
+                    txtTag2ID.Text = frmSearchMaster.s_SearchID;
+                    FillDetails(frmSearchMaster.s_SearchID);
+                }
+
+            }
+            catch (Exception ex)
+            {
+                clsValidate.WriteErrorLog("", iFormID,ex);
+                SEACCException.Show(ex);
+            }
+        }
+
+
+
+        #endregion
+
+
+    }
+}

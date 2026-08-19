@@ -1,0 +1,60 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="dts_sasDeliveryTracking" targetNamespace="http://tempuri.org/dts_sasDeliveryTracking.xsd" xmlns:mstns="http://tempuri.org/dts_sasDeliveryTracking.xsd" xmlns="http://tempuri.org/dts_sasDeliveryTracking.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop" attributeFormDefault="qualified" elementFormDefault="qualified">
+  <xs:annotation>
+    <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
+      <DataSource DefaultConnectionIndex="0" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
+        <Connections />
+        <Tables />
+        <Sources />
+      </DataSource>
+    </xs:appinfo>
+  </xs:annotation>
+  <xs:element name="dts_sasDeliveryTracking" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="true" msprop:Generator_DataSetName="dts_sasDeliveryTracking" msprop:Generator_UserDSName="dts_sasDeliveryTracking">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element name="dt_sasDeliveryTrackingJobWise" msprop:Generator_TableClassName="dt_sasDeliveryTrackingJobWiseDataTable" msprop:Generator_TableVarName="tabledt_sasDeliveryTrackingJobWise" msprop:Generator_RowChangedName="dt_sasDeliveryTrackingJobWiseRowChanged" msprop:Generator_TablePropName="dt_sasDeliveryTrackingJobWise" msprop:Generator_RowDeletingName="dt_sasDeliveryTrackingJobWiseRowDeleting" msprop:Generator_RowChangingName="dt_sasDeliveryTrackingJobWiseRowChanging" msprop:Generator_RowEvHandlerName="dt_sasDeliveryTrackingJobWiseRowChangeEventHandler" msprop:Generator_RowDeletedName="dt_sasDeliveryTrackingJobWiseRowDeleted" msprop:Generator_RowClassName="dt_sasDeliveryTrackingJobWiseRow" msprop:Generator_UserTableName="dt_sasDeliveryTrackingJobWise" msprop:Generator_RowEvArgName="dt_sasDeliveryTrackingJobWiseRowChangeEvent">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="jobCode" msprop:Generator_ColumnVarNameInTable="columnjobCode" msprop:Generator_ColumnPropNameInRow="jobCode" msprop:Generator_ColumnPropNameInTable="jobCodeColumn" msprop:Generator_UserColumnName="jobCode" type="xs:string" minOccurs="0" />
+              <xs:element name="jobDate" msprop:Generator_ColumnVarNameInTable="columnjobDate" msprop:Generator_ColumnPropNameInRow="jobDate" msprop:Generator_ColumnPropNameInTable="jobDateColumn" msprop:Generator_UserColumnName="jobDate" type="xs:dateTime" minOccurs="0" />
+              <xs:element name="customerName" msprop:Generator_ColumnVarNameInTable="columncustomerName" msprop:Generator_ColumnPropNameInRow="customerName" msprop:Generator_ColumnPropNameInTable="customerNameColumn" msprop:Generator_UserColumnName="customerName" type="xs:string" minOccurs="0" />
+              <xs:element name="orderNumber" msprop:Generator_ColumnVarNameInTable="columnorderNumber" msprop:Generator_ColumnPropNameInRow="orderNumber" msprop:Generator_ColumnPropNameInTable="orderNumberColumn" msprop:Generator_UserColumnName="orderNumber" type="xs:string" minOccurs="0" />
+              <xs:element name="jobQty" msprop:Generator_ColumnVarNameInTable="columnjobQty" msprop:Generator_ColumnPropNameInRow="jobQty" msprop:Generator_ColumnPropNameInTable="jobQtyColumn" msprop:Generator_UserColumnName="jobQty" type="xs:decimal" minOccurs="0" />
+              <xs:element name="uomCode" msprop:Generator_ColumnVarNameInTable="columnuomCode" msprop:Generator_ColumnPropNameInRow="uomCode" msprop:Generator_ColumnPropNameInTable="uomCodeColumn" msprop:Generator_UserColumnName="uomCode" type="xs:string" minOccurs="0" />
+              <xs:element name="jobTypeName" msprop:Generator_ColumnVarNameInTable="columnjobTypeName" msprop:Generator_ColumnPropNameInRow="jobTypeName" msprop:Generator_ColumnPropNameInTable="jobTypeNameColumn" msprop:Generator_UserColumnName="jobTypeName" type="xs:string" minOccurs="0" />
+              <xs:element name="brandName" msprop:Generator_ColumnVarNameInTable="columnbrandName" msprop:Generator_ColumnPropNameInRow="brandName" msprop:Generator_ColumnPropNameInTable="brandNameColumn" msprop:Generator_UserColumnName="brandName" type="xs:string" minOccurs="0" />
+              <xs:element name="isCompleted" msprop:Generator_ColumnVarNameInTable="columnisCompleted" msprop:Generator_ColumnPropNameInRow="isCompleted" msprop:Generator_ColumnPropNameInTable="isCompletedColumn" msprop:Generator_UserColumnName="isCompleted" type="xs:boolean" minOccurs="0" />
+              <xs:element name="SalesRepName" msprop:Generator_ColumnVarNameInTable="columnSalesRepName" msprop:Generator_ColumnPropNameInRow="SalesRepName" msprop:Generator_ColumnPropNameInTable="SalesRepNameColumn" msprop:Generator_UserColumnName="SalesRepName" type="xs:string" minOccurs="0" />
+              <xs:element name="combination" msprop:Generator_ColumnVarNameInTable="columncombination" msprop:Generator_ColumnPropNameInRow="combination" msprop:Generator_ColumnPropNameInTable="combinationColumn" msprop:Generator_UserColumnName="combination" type="xs:string" minOccurs="0" />
+              <xs:element name="measurement" msprop:Generator_ColumnVarNameInTable="columnmeasurement" msprop:Generator_ColumnPropNameInRow="measurement" msprop:Generator_ColumnPropNameInTable="measurementColumn" msprop:Generator_UserColumnName="measurement" type="xs:string" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="dt_sasDeliveryTrackingJobWise_Detail" msprop:Generator_TableClassName="dt_sasDeliveryTrackingJobWise_DetailDataTable" msprop:Generator_TableVarName="tabledt_sasDeliveryTrackingJobWise_Detail" msprop:Generator_RowChangedName="dt_sasDeliveryTrackingJobWise_DetailRowChanged" msprop:Generator_TablePropName="dt_sasDeliveryTrackingJobWise_Detail" msprop:Generator_RowDeletingName="dt_sasDeliveryTrackingJobWise_DetailRowDeleting" msprop:Generator_RowChangingName="dt_sasDeliveryTrackingJobWise_DetailRowChanging" msprop:Generator_RowEvHandlerName="dt_sasDeliveryTrackingJobWise_DetailRowChangeEventHandler" msprop:Generator_RowDeletedName="dt_sasDeliveryTrackingJobWise_DetailRowDeleted" msprop:Generator_RowClassName="dt_sasDeliveryTrackingJobWise_DetailRow" msprop:Generator_UserTableName="dt_sasDeliveryTrackingJobWise_Detail" msprop:Generator_RowEvArgName="dt_sasDeliveryTrackingJobWise_DetailRowChangeEvent">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="jobCode" msprop:Generator_ColumnVarNameInTable="columnjobCode" msprop:Generator_ColumnPropNameInRow="jobCode" msprop:Generator_ColumnPropNameInTable="jobCodeColumn" msprop:Generator_UserColumnName="jobCode" type="xs:string" minOccurs="0" />
+              <xs:element name="doCode" msprop:Generator_ColumnVarNameInTable="columndoCode" msprop:Generator_ColumnPropNameInRow="doCode" msprop:Generator_ColumnPropNameInTable="doCodeColumn" msprop:Generator_UserColumnName="doCode" type="xs:string" minOccurs="0" />
+              <xs:element name="doDate" msprop:Generator_ColumnVarNameInTable="columndoDate" msprop:Generator_ColumnPropNameInRow="doDate" msprop:Generator_ColumnPropNameInTable="doDateColumn" msprop:Generator_UserColumnName="doDate" type="xs:dateTime" minOccurs="0" />
+              <xs:element name="doQty" msprop:Generator_ColumnVarNameInTable="columndoQty" msprop:Generator_ColumnPropNameInRow="doQty" msprop:Generator_ColumnPropNameInTable="doQtyColumn" msprop:Generator_UserColumnName="doQty" type="xs:string" minOccurs="0" />
+              <xs:element name="returnedQty" msprop:Generator_ColumnVarNameInTable="columnreturnedQty" msprop:Generator_ColumnPropNameInRow="returnedQty" msprop:Generator_ColumnPropNameInTable="returnedQtyColumn" msprop:Generator_UserColumnName="returnedQty" type="xs:string" minOccurs="0" />
+              <xs:element name="srnCode" msprop:Generator_ColumnVarNameInTable="columnsrnCode" msprop:Generator_ColumnPropNameInRow="srnCode" msprop:Generator_ColumnPropNameInTable="srnCodeColumn" msprop:Generator_UserColumnName="srnCode" type="xs:string" minOccurs="0" />
+              <xs:element name="numberOfDays" msprop:Generator_ColumnVarNameInTable="columnnumberOfDays" msprop:Generator_ColumnPropNameInRow="numberOfDays" msprop:Generator_ColumnPropNameInTable="numberOfDaysColumn" msprop:Generator_UserColumnName="numberOfDays" type="xs:int" minOccurs="0" />
+              <xs:element name="Parentage" msprop:Generator_ColumnVarNameInTable="columnParentage" msprop:Generator_ColumnPropNameInRow="Parentage" msprop:Generator_ColumnPropNameInTable="ParentageColumn" msprop:Generator_UserColumnName="Parentage" type="xs:decimal" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="dt_sasDeliveryTrackingJobWise_CombinationMeterial" msprop:Generator_TableClassName="dt_sasDeliveryTrackingJobWise_CombinationMeterialDataTable" msprop:Generator_TableVarName="tabledt_sasDeliveryTrackingJobWise_CombinationMeterial" msprop:Generator_RowChangedName="dt_sasDeliveryTrackingJobWise_CombinationMeterialRowChanged" msprop:Generator_TablePropName="dt_sasDeliveryTrackingJobWise_CombinationMeterial" msprop:Generator_RowDeletingName="dt_sasDeliveryTrackingJobWise_CombinationMeterialRowDeleting" msprop:Generator_RowChangingName="dt_sasDeliveryTrackingJobWise_CombinationMeterialRowChanging" msprop:Generator_RowEvHandlerName="dt_sasDeliveryTrackingJobWise_CombinationMeterialRowChangeEventHandler" msprop:Generator_RowDeletedName="dt_sasDeliveryTrackingJobWise_CombinationMeterialRowDeleted" msprop:Generator_RowClassName="dt_sasDeliveryTrackingJobWise_CombinationMeterialRow" msprop:Generator_UserTableName="dt_sasDeliveryTrackingJobWise_CombinationMeterial" msprop:Generator_RowEvArgName="dt_sasDeliveryTrackingJobWise_CombinationMeterialRowChangeEvent">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="jobCode" msprop:Generator_ColumnVarNameInTable="columnjobCode" msprop:Generator_ColumnPropNameInRow="jobCode" msprop:Generator_ColumnPropNameInTable="jobCodeColumn" msprop:Generator_UserColumnName="jobCode" type="xs:string" minOccurs="0" />
+              <xs:element name="MaterialType" msprop:Generator_ColumnVarNameInTable="columnMaterialType" msprop:Generator_ColumnPropNameInRow="MaterialType" msprop:Generator_ColumnPropNameInTable="MaterialTypeColumn" msprop:Generator_UserColumnName="MaterialType" type="xs:string" minOccurs="0" />
+              <xs:element name="MaterialName" msprop:Generator_ColumnVarNameInTable="columnMaterialName" msprop:Generator_ColumnPropNameInRow="MaterialName" msprop:Generator_ColumnPropNameInTable="MaterialNameColumn" msprop:Generator_UserColumnName="MaterialName" type="xs:string" minOccurs="0" />
+              <xs:element name="Type" msprop:Generator_ColumnVarNameInTable="columnType" msprop:Generator_ColumnPropNameInRow="Type" msprop:Generator_ColumnPropNameInTable="TypeColumn" msprop:Generator_UserColumnName="Type" type="xs:string" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:choice>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

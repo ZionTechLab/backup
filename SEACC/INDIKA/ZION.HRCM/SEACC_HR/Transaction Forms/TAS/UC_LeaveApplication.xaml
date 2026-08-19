@@ -1,0 +1,88 @@
+﻿<UserControl
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:SEACC_WPFControls="clr-namespace:SEACC_WPFControls;assembly=SEACC_WPFControls" 
+             xmlns:SEACC_WPFControls1="clr-namespace:SEACC_WPFControls"
+             xmlns:local="clr-namespace:Digiteq" x:Class="Digiteq.UC_LeaveApplication"
+             mc:Ignorable="d" Background="#FFF6F6F6" >
+
+    <SEACC_WPFControls1:SEACC_Form x:Name="SEACC_Form" SizeChanged="SEACC_Form_SizeChanged">
+        <Grid Margin="15,10,0,50">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition x:Name="coloumnA" Width="550" />
+                <ColumnDefinition Width="5" />
+                <ColumnDefinition Width="*" />
+            </Grid.ColumnDefinitions>
+
+            <Grid Background="#FF34495E" Margin="0,0,5,0" >
+                <SEACC_WPFControls:SEACC_ScrollViewer VerticalScrollBarVisibility="Auto">
+                    <StackPanel >
+                        <local:UC_Vw_EmployeeDemography x:Name="Vw_EmployeeDemography"   Foreground="White" Background="#FF34495E" ColorTheam="#007a99" HorizontalAlignment="Stretch" Margin="0,0,0,12"/>
+                        <local:wj_Leave x:Name="wjLeave" LeaveSelected="wjLeave_LeaveSelected" />
+                    </StackPanel>
+                </SEACC_WPFControls:SEACC_ScrollViewer>
+            </Grid>
+
+            <GridSplitter Grid.Column="1" Width="5" HorizontalAlignment="Stretch" Background="#7FD5D5D5" />
+
+            <Grid Grid.Column="2" Margin="20,0,0,0">
+                <SEACC_WPFControls:SEACC_ScrollViewer VerticalScrollBarVisibility="Auto">
+                    <StackPanel Background="#FFF6F6F6">
+                        <SEACC_WPFControls:SEACC_LableTextBox x:Name="txtLeaveID" Caption="Leave ID" MouseDoubleClick="txtLeaveID_MouseDoubleClick"  />
+                        <SEACC_WPFControls:SEACC_LableTextBox Caption="Employee" x:Name="txtEmployeeNo" MouseDoubleClick="txtEmployeeNo_MouseDoubleClick" />
+                        <SEACC_WPFControls:SEACC_LabelTimeSelector Caption="From" x:Name="dtp_LeaveStart" DateTimeChanged="dtp_LeaveStart_DateTimeChanged" ShowDate="Visible"/>
+                        <SEACC_WPFControls:SEACC_LabelTimeSelector Caption="To" x:Name="dtp_LeaveEnd" DateTimeChanged="dtp_LeaveEnd_DateTimeChanged_1" ShowDate="Visible"/>
+                        <TextBlock x:Name="lblDateTimeValidation" Text=""  Foreground="Red" FontSize="16" Margin="120,0,0,20" Visibility="Collapsed"  />
+
+                        <SEACC_WPFControls:SEACC_LableTextBox Caption="Duration" x:Name="txtDuration"  />
+
+                        <SEACC_WPFControls:SEACC_LableTextBox x:Name="txtReason" Caption="Reason" MinHeight="65" />
+                        <SEACC_WPFControls:SEACC_LableTextBox Caption="Leave Type" x:Name="txtLeaveType" MouseDoubleClick="txtLeaveType_MouseDoubleClick"/>
+
+                        <!-- commented by Gayan 2016.05.24
+                        <SEACC_WPFControls:SEACC_DataGrid IsReadOnly="False"  x:Name="grd_LeaveBreakDown"  Margin="0,12" Width="470" HorizontalAlignment="Left" Background="Transparent" Foreground="Black" CanUserAddRows="False" >
+                            <SEACC_WPFControls:SEACC_DataGrid.Columns>
+                                <SEACC_WPFControls:SEACC_DataGridTextColumn  Binding="{Binding LeaveTypeName, Mode=TwoWay}" ClipboardContentBinding="{x:Null}" Header="Leave Type" Width="190" Foreground="Black" IsReadOnly="True"/>
+                                <SEACC_WPFControls:SEACC_DataGridTextColumn Binding="{Binding LeaveApplied}" ClipboardContentBinding="{x:Null}" Header="Applied Leaves" Width="90"  Foreground="Black" />
+                            </SEACC_WPFControls:SEACC_DataGrid.Columns>
+                        </SEACC_WPFControls:SEACC_DataGrid>
+                        -->
+
+                        <Expander x:Name="exp_Approvel" Header="Approvals" Foreground="#FF0096D6" FontSize="24"  IsEnabled="True" IsExpanded="True" Width="470" HorizontalAlignment="Left">
+                            <Grid>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition  Width="190" />
+                                    <ColumnDefinition Width="*" />
+                                </Grid.ColumnDefinitions>
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="40"/>
+                                    <RowDefinition Height="*"/>
+                                    <RowDefinition Height="*"/>
+                                    <RowDefinition Height="*"/>
+                                    <RowDefinition Height="40"/>
+                                    <RowDefinition Height="*"/>
+                                    <RowDefinition Height="*"/>
+                                    <RowDefinition Height="*"/>
+                                </Grid.RowDefinitions>
+                                <Label Content="Covering Persons" FontSize="16" Grid.Row="0" VerticalAlignment="Bottom"/>
+                                <Border Grid.ColumnSpan="2"  Grid.Row="1" Grid.Column="0" Height="1" Background="White"></Border>
+                                <CheckBox x:Name="cbx_Checked" Grid.Row="6"  Content="Checked" FontSize="12" VerticalAlignment="Center" />
+                                <CheckBox x:Name="cbx_Approved" Grid.Row="7"  Content="Approved" FontSize="12" VerticalAlignment="Center" />
+                                <SEACC_WPFControls:SEACC_UserIndicator_Small x:Name="Wusr_Checked" Grid.Row="6" Grid.Column="1" HorizontalAlignment="Left" Margin="5"/>
+                                <SEACC_WPFControls:SEACC_UserIndicator_Small x:Name="Wusr_Approved" Grid.Row="7" Grid.Column="1" HorizontalAlignment="Left" Margin="5"/>
+                                <Label Content="Supervisor and Manager" FontSize="16" Grid.Row="4" VerticalAlignment="Bottom"/>
+                                <Border Grid.ColumnSpan="2"  Grid.Row="5" Grid.Column="0" Height="1" Background="White"></Border>
+                                <CheckBox x:Name="cnx_CoveringP1" Grid.Row="2"  Content="Approved-Covering Person1" FontSize="12" VerticalAlignment="Center" />
+                                <CheckBox x:Name="cnx_CoveringP2" Grid.Row="3"  Content="Approved-Covering Person2" FontSize="12" VerticalAlignment="Center" />
+                                <SEACC_WPFControls:SEACC_UserIndicator_Small x:Name="Wusr_CoveringP1" Grid.Row="2" Grid.Column="1" HorizontalAlignment="Left" Margin="5" MouseDoubleClick="usr_CoveringP1_MouseDoubleClick"/>
+                                <SEACC_WPFControls:SEACC_UserIndicator_Small x:Name="Wusr_CoveringP2" Grid.Row="3" Grid.Column="1" HorizontalAlignment="Left" Margin="5" MouseDoubleClick="usr_CoveringP2_MouseDoubleClick"/>
+                            </Grid>
+                        </Expander>
+                    </StackPanel>
+                </SEACC_WPFControls:SEACC_ScrollViewer>
+            </Grid>
+        </Grid>
+    </SEACC_WPFControls1:SEACC_Form>
+</UserControl>

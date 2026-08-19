@@ -1,0 +1,118 @@
+﻿<UserControl
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+               xmlns:SEACC_WPFControls1="clr-namespace:SEACC_WPFControls" 
+             xmlns:SEACC_WPFControls="clr-namespace:SEACC_WPFControls;assembly=SEACC_WPFControls" x:Class="Digiteq.UC_CarderRequest" 
+             mc:Ignorable="d"  Background="White" >
+
+    <SEACC_WPFControls:SEACC_Form x:Name="SEACC_Form" SizeChanged="SEACC_Form_SizeChanged" Background="White">
+        <Grid Margin="15,0,0,50" Background="White" >
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition x:Name="coloumnA" Width="530" />
+                <ColumnDefinition Width="5" />
+                <ColumnDefinition Width="*" />
+            </Grid.ColumnDefinitions>
+            <Grid>
+                <DataGrid x:Name="grd_CarderRequest"  FontSize="11"   GridLinesVisibility="Horizontal" Background="#FF34495E" CanUserResizeColumns="True" CanUserReorderColumns="True" >
+                    <DataGrid.Resources>
+                        <SolidColorBrush x:Key="{x:Static SystemColors.HighlightBrushKey}" Color="#A0A0A0"/>
+                    </DataGrid.Resources>
+                    <DataGrid.CellStyle>
+                        <StaticResource ResourceKey="Body_Content_DataGrid_Centering"/>
+                    </DataGrid.CellStyle>
+                    <DataGrid.ColumnHeaderStyle>
+                        <StaticResource ResourceKey="HeaderStyle"/>
+                    </DataGrid.ColumnHeaderStyle>
+                    <DataGrid.Columns>
+                        <DataGridTextColumn Binding="{Binding ShiftID}"   Header="Division"   x:Name="ShiftID" IsReadOnly="True" Width="100"/>
+                        <DataGridTextColumn Binding="{Binding ShiftName}"  Header="Designatiom" Width="150"  x:Name="ShiftName"  IsReadOnly="True"/>
+                        <DataGridTextColumn Binding="{Binding StartTime}"  Header="Expect Date" Width="130"  x:Name="StartTime"  IsReadOnly="True"/>
+                        <DataGridTextColumn Binding="{Binding ShiftHours}"  Header="Reason" Width="135"  x:Name="EndTime"  IsReadOnly="True"/>
+                    </DataGrid.Columns>
+                    <DataGrid.RowStyle>
+                        <Style TargetType="{x:Type DataGridRow}">
+                            <Setter Property="Background" Value="White"/>
+                            <Style.Triggers>
+                                <Trigger Property="IsMouseOver" Value="True">
+                                    <Setter Property="Background" Value="#EDEDED"/>
+                                </Trigger>
+                            </Style.Triggers>
+                        </Style>
+                    </DataGrid.RowStyle>
+                </DataGrid>
+            </Grid>
+            <GridSplitter Grid.Column="1" Width="5" HorizontalAlignment="Stretch"/>
+            <Grid  Grid.Column="2">
+                <ScrollViewer VerticalScrollBarVisibility="Auto">
+                    <StackPanel>
+                        <Expander Header="Request Details"  FontSize="24" Foreground="#FF0096D6" IsExpanded="True">
+                            <Grid  Height="350" Width="450">
+                                <Grid>
+
+                                    <SEACC_WPFControls:SEACC_LableTextBox ToolTip="Double Click on Textbox to Select Department" FontSize="12" Caption="Department" Height="27" x:Name="txtDepartment"  MouseDoubleClick="txtDepartment_MouseDoubleClick" Margin="0,32,0,291"  />
+                                    <SEACC_WPFControls:SEACC_LableTextBox ToolTip="Double Click on Textbox to Select Section" FontSize="12" Caption="Section" Height="27" x:Name="txtSection" MouseDoubleClick="txtSection_MouseDoubleClick" Margin="0,59,0,264"  />
+                                    <SEACC_WPFControls:SEACC_LableTextBox HorizontalAlignment="Left" Margin="0,5,0,0" VerticalAlignment="Top" ToolTip="Double Click on Textbox to Select Division" FontSize="12" Caption="Division" Height="27" x:Name="txtDivision"/>
+                                </Grid>
+                                <Grid>
+                                    <Label Content="Date" FontSize="12" HorizontalAlignment="Left" Margin="1,88,0,0" VerticalAlignment="Top"/>
+                                    <DatePicker x:Name="dtp_Date" HorizontalAlignment="Left" FontSize="12" Margin="122,88,0,0" VerticalAlignment="Top" Width="110"/>
+                                </Grid>
+                                <SEACC_WPFControls:SEACC_LableTextBox x:Name="txtCarderRequestNo" Caption="No of Vacancies" FontSize="12" Height="27" HorizontalAlignment="Left" Margin="0,115,0,0" VerticalAlignment="Top"/>
+                                <SEACC_WPFControls:SEACC_LableTextBox ToolTip="Double Click on Textbox to Select Request By" x:Name="txtRequestBy" Height="27" FontSize="12" Caption="Requested By" HorizontalAlignment="Left" Margin="0,147,0,0" VerticalAlignment="Top" MouseDoubleClick="txtRequestBy_MouseDoubleClick"/>
+                                <Grid>
+                                    <Label FontSize="12" Content="Reason" HorizontalAlignment="Left" Margin="0,180,0,0" VerticalAlignment="Top"/>
+                                    <ComboBox x:Name="cmbReason" HorizontalAlignment="Right" FontSize="12" Margin="0,182,218,0" VerticalAlignment="Top" Width="110">
+                                        <ComboBoxItem Content="New Position"></ComboBoxItem>
+                                        <ComboBoxItem Content="Promotion"></ComboBoxItem>
+                                        <ComboBoxItem Content="Vacancy"></ComboBoxItem>
+                                    </ComboBox>
+                                    <Label FontSize="12" Content="Expected Date" HorizontalAlignment="Left" Margin="0,208,0,0" VerticalAlignment="Top"/>
+                                    <DatePicker x:Name="dtp_ExpectedDate" FontSize="12" HorizontalAlignment="Left" Margin="123,209,0,0" VerticalAlignment="Top" Width="109"/>
+                                    <Label Content="Recruitment Type" FontSize="12" HorizontalAlignment="Left" Margin="0,239,0,0" VerticalAlignment="Top"/>
+                                    <ComboBox  x:Name="cmbExpectedRequirtmentType" FontSize="12" Margin="123,241,218,0" VerticalAlignment="Top">
+                                        <ComboBoxItem Content="Internal"></ComboBoxItem>
+                                        <ComboBoxItem Content="External"></ComboBoxItem>
+                                    </ComboBox>
+                                </Grid>
+                                <SEACC_WPFControls:SEACC_LableTextBox ToolTip="Double Click on Textbox to Select Designation" x:Name="txtDesignation" FontSize="12" Height="27" Caption="Designation" HorizontalAlignment="Left" Margin="0,268,0,0" VerticalAlignment="Top" MouseDoubleClick="txtDesignation_MouseDoubleClick"/>
+                                <Grid>
+                                    <SEACC_WPFControls:SEACC_LableTextBox ToolTip="Double Click on Textbox to Select Currency Code" x:Name="txtSalaryFrom" Width="350" FontSize="12" Height="27" Caption="Gross Salary Range" HorizontalAlignment="Left" Margin="0,297,0,0" VerticalAlignment="Top" MouseDoubleClick="txtSalaryFrom_MouseDoubleClick"/>
+                                    <SEACC_WPFControls:SEACC_TextBox x:Name="txtSalaryFromAmount" Background="White" FontSize="12" HorizontalAlignment="Left" Margin="179,299,0,0" VerticalAlignment="Top" Width="84"/>
+                                    <Label Content="-" FontSize="12" HorizontalAlignment="Left" Margin="268,298,0,0" VerticalAlignment="Top"/>
+                                    <SEACC_WPFControls:SEACC_TextBox FontSize="12" ToolTip="Double Click on Textbox to Select Currency Code" x:Name="txtSalaryTo" Background="White" HorizontalAlignment="Left" Margin="296,299,0,0" VerticalAlignment="Top" Width="43" MouseDoubleClick="txtSalaryTo_MouseDoubleClick"/>
+                                    <SEACC_WPFControls:SEACC_TextBox FontSize="12" x:Name="txtSalaryToAmount" Background="White" HorizontalAlignment="Left" Margin="344,299,0,0" VerticalAlignment="Top" Width="84"/>
+                                </Grid>
+                            </Grid>
+                        </Expander>
+                        <Expander Header="Job Details" Foreground="#FF0096D6" FontSize="24">
+                            <StackPanel  Width="450" >
+                                <Grid Height="400">
+                                    <SEACC_WPFControls:SEACC_LableTextBox FontSize="12" x:Name="txtMainRole" Caption="Main Role" Width="350" Height="100" HorizontalAlignment="Left" VerticalAlignment="Top"/>
+                                    <SEACC_WPFControls:SEACC_LableTextBox FontSize="12" x:Name="txtResponsibility" Caption="Responsibilities" Width="350" Height="100" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="0,100,0,0"/>
+                                    <SEACC_WPFControls:SEACC_LableTextBox FontSize="12" x:Name="txtJobDescription" Caption="Job Description" Width="350" Height="100" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="0,200,0,0"/>
+                                    <Grid>
+                                        <Label Content="Reporting To" FontSize="12" HorizontalAlignment="Left" Margin="0,306,0,0" VerticalAlignment="Top"/>
+                                        <SEACC_WPFControls:SEACC_LableTextBox ToolTip="Duoble Click on textbox to select Reporting Person" x:Name="txtReporting_Functional" Height="27" FontSize="12" Caption="Functional" HorizontalAlignment="Left" Margin="118,306,0,0" VerticalAlignment="Top" MouseDoubleClick="txtReporting_Functional_MouseDoubleClick"/>
+                                        <SEACC_WPFControls:SEACC_LableTextBox FontSize="12" ToolTip="Duoble Click on textbox to select Reporting Person" x:Name="txtReporting_Admin" Height="27" Caption="Administrative" HorizontalAlignment="Left" Margin="118,337,0,0" VerticalAlignment="Top" MouseDoubleClick="txtReporting_Admin_MouseDoubleClick"/>
+
+                                    </Grid>
+                                </Grid>
+                            </StackPanel>
+                        </Expander>
+                        <Expander Header="Budget" FontSize="24" Foreground="#FF0096D6" >
+                            <Grid  Height="100"   Width="450">
+                                <SEACC_WPFControls:SEACC_LableTextBox ToolTip="Double Click on Textbox to Select Currency Code" x:Name="txtAvalibleBudget" Caption="Available Budget" Width="350" FontSize="12" Height="27" HorizontalAlignment="Left" Margin="0,12,0,0" VerticalAlignment="Top" MouseDoubleClick="txtAvalibleBudget_MouseDoubleClick"/>
+                                <SEACC_WPFControls:SEACC_TextBox x:Name="txtAvalibleBudgetAmount" FontSize="12" Width="84" Background="White" HorizontalAlignment="Left" Margin="179,14,0,0" VerticalAlignment="Top" />
+                                <SEACC_WPFControls:SEACC_LableTextBox ToolTip="Double Click on Textbox to Select Currency Code" x:Name="txtApprovedBudget" Caption="Approved Budget" Width="350" FontSize="12" Height="27" HorizontalAlignment="Left" Margin="0,44,0,0" VerticalAlignment="Top" MouseDoubleClick="txtApprovedBudget_MouseDoubleClick"/>
+                                <SEACC_WPFControls:SEACC_TextBox x:Name="ApprovedBudgetAmount" FontSize="12" Width="84" Background="White" HorizontalAlignment="Left" Margin="179,46,0,0" VerticalAlignment="Top" />
+
+                            </Grid>
+                        </Expander>
+                    </StackPanel>
+                </ScrollViewer>
+            </Grid>
+        </Grid>
+    </SEACC_WPFControls:SEACC_Form>
+</UserControl>

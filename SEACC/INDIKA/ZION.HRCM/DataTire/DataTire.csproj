@@ -1,0 +1,219 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{BFB246FE-1F01-49D4-ACF2-60A876A6F9F5}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>DataTire</RootNamespace>
+    <AssemblyName>DataTire</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <SccProjectName>SAK</SccProjectName>
+    <SccLocalPath>SAK</SccLocalPath>
+    <SccAuxPath>SAK</SccAuxPath>
+    <SccProvider>SAK</SccProvider>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="arc_tbl_utlChat.cs" />
+    <Compile Include="DBHandling.cs" />
+    <Compile Include="sp_genMasBankBranch.cs" />
+    <Compile Include="sp_genMasEmployee.cs" />
+    <Compile Include="sp_genMasTown.cs" />
+    <Compile Include="sp_tasDevice_RawData1.cs" />
+    <Compile Include="tbl_audAditTrailLog.cs" />
+    <Compile Include="tbl_audBackupLog.cs" />
+    <Compile Include="tbl_audTxEmployee_PaySlipItems.cs" />
+    <Compile Include="tbl_audUserActivities.cs" />
+    <Compile Include="tbl_ccMas_rate.cs" />
+    <Compile Include="tbl_ccTxDailyWashingProgress.cs" />
+    <Compile Include="tbl_ccTxDailyWorkingProgress.cs" />
+    <Compile Include="tbl_ccTxDailyWorkingProgress_Rate.cs" />
+    <Compile Include="tbl_ccTxEndOfWeekProgress.cs" />
+    <Compile Include="tbl_ccTxEndOfWeekProgress_rate.cs" />
+    <Compile Include="tbl_ccTxEndOfWeekWashingProgress.cs" />
+    <Compile Include="tbl_ccTxTemporaryWorkerDailyWage.cs" />
+    <Compile Include="tbl_cfgModule.cs" />
+    <Compile Include="tbl_cfgSearch.cs" />
+    <Compile Include="tbl_cfgSearchDetail.cs" />
+    <Compile Include="tbl_cfgWebLinks.cs" />
+    <Compile Include="tbl_cfg_Note.cs" />
+    <Compile Include="tbl_cfg_RequestLetter.cs" />
+    <Compile Include="tbl_Chat_Message.cs" />
+    <Compile Include="tbl_genCompanyAccount.cs" />
+    <Compile Include="tbl_genMasBank.cs" />
+    <Compile Include="tbl_genMasBankBranch.cs" />
+    <Compile Include="tbl_genMasCity.cs" />
+    <Compile Include="tbl_genMasCountry.cs" />
+    <Compile Include="tbl_genMasDepartment.cs" />
+    <Compile Include="tbl_genMasDistrict.cs" />
+    <Compile Include="tbl_genMasDivision.cs" />
+    <Compile Include="tbl_genMasEmpAttendanceProcessGroup1.cs" />
+    <Compile Include="tbl_genMasEmpAttendanceProcessGroup2.cs" />
+    <Compile Include="tbl_genMasEmpAttendanceProcessPeriod.cs" />
+    <Compile Include="tbl_genMasEmployee.cs" />
+    <Compile Include="tbl_genMasEmployee_PaySlipItems.cs" />
+    <Compile Include="tbl_genMasEmployee_PaySlipItems_Statutary.cs" />
+    <Compile Include="tbl_genMasNationality.cs" />
+    <Compile Include="tbl_genMasPaymentMethod.cs" />
+    <Compile Include="tbl_genMasPostalCode.cs" />
+    <Compile Include="tbl_genMasProvince.cs" />
+    <Compile Include="tbl_genMasReligion.cs" />
+    <Compile Include="tbl_genMasSection.cs" />
+    <Compile Include="tbl_genMasSubSection.cs" />
+    <Compile Include="tbl_genMasTitle.cs" />
+    <Compile Include="tbl_genMasTown.cs" />
+    <Compile Include="tbl_genRegistrationInfo.cs" />
+    <Compile Include="tbl_hrMasDesignation.cs" />
+    <Compile Include="tbl_hrMasDevice.cs" />
+    <Compile Include="tbl_hrMasEmployeeCategory1.cs" />
+    <Compile Include="tbl_hrMasEmployeeCategory2.cs" />
+    <Compile Include="tbl_hrMasEmployeeCategory3.cs" />
+    <Compile Include="tbl_hrMasEmployeeStatus.cs" />
+    <Compile Include="tbl_hrMasLeaveTypes.cs" />
+    <Compile Include="tbl_hrMasRecuirtmentType.cs" />
+    <Compile Include="tbl_hrm_Canteen.cs" />
+    <Compile Include="tbl_hrm_MealPlanRates.cs" />
+    <Compile Include="tbl_hrPeriod_Month.cs" />
+    <Compile Include="tbl_hrPeriod_Week.cs" />
+    <Compile Include="tbl_hrPeriod_Year.cs" />
+    <Compile Include="tbl_hr_MasGramaNiladhariUnit.cs" />
+    <Compile Include="tbl_Mast_HoliDay_Type.cs" />
+    <Compile Include="tbl_payMas_PAYE_TaxTable_1.cs" />
+    <Compile Include="tbl_PayMasPayrollLaval.cs" />
+    <Compile Include="tbl_payMas_PaySlipItems.cs" />
+    <Compile Include="tbl_payMas_PaySlipItems_Class.cs" />
+    <Compile Include="tbl_payMas_PaySlipItems_Statutary.cs" />
+    <Compile Include="tbl_payMas_PaySlipItems_Type.cs" />
+    <Compile Include="tbl_payMas_ProcessGroup.cs" />
+    <Compile Include="tbl_payMas_ProcessPeriod_Main.cs" />
+    <Compile Include="tbl_payMas_ProcessPeriod_Sub.cs" />
+    <Compile Include="tbl_payMas_StatutaryItems.cs" />
+    <Compile Include="tbl_payPeriod_Month.cs" />
+    <Compile Include="tbl_payTxSIPRawData.cs" />
+    <Compile Include="tbl_payTxSIPRawData_Attendance.cs" />
+    <Compile Include="tbl_payTxSIPRawData_PaySlipItems.cs" />
+    <Compile Include="tbl_payTxSIPRawData_PaySlipItems_Statutary.cs" />
+    <Compile Include="tbl_securityFunctionCategory.cs" />
+    <Compile Include="tbl_securityFunctionMaster.cs" />
+    <Compile Include="tbl_securityFunctionMaster_Form.cs" />
+    <Compile Include="tbl_securityFunctionMaster_Permission.cs" />
+    <Compile Include="tbl_securityFunctionMaster_Report.cs" />
+    <Compile Include="tbl_securityGroup.cs" />
+    <Compile Include="tbl_securityParollGroup_UserPermission.cs" />
+    <Compile Include="tbl_securityUserMaster.cs">
+      <SubType>
+      </SubType>
+    </Compile>
+    <Compile Include="tbl_securityUserRole.cs" />
+    <Compile Include="tbl_securityUserRole_Permission.cs" />
+    <Compile Include="tbl_tasDevice_RawData.cs" />
+    <Compile Include="tbl_tasEmployeeCategory.cs" />
+    <Compile Include="tbl_tasEmployeeLeaveCard.cs" />
+    <Compile Include="tbl_tasEmployeeLeaveCard_detail.cs" />
+    <Compile Include="tbl_tasEmployeeLeave_entitled.cs" />
+    <Compile Include="tbl_tasEmployeeLeave_settement.cs" />
+    <Compile Include="tbl_tasEmployeeShift.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="tbl_tasGreeting.cs" />
+    <Compile Include="tbl_tasGreeting_Detail.cs" />
+    <Compile Include="tbl_tasHolidayCalander.cs" />
+    <Compile Include="tbl_tasHolidayCalander_Entitled.cs" />
+    <Compile Include="tbl_tasHolidayType.cs" />
+    <Compile Include="tbl_tasMasEmployeeShift.cs" />
+    <Compile Include="tbl_tasShiftMaster.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="tbl_accFinancialYearMaster.cs" />
+    <Compile Include="tbl_accGLMaster_Employee.cs" />
+    <Compile Include="tbl_genCompanyBranchMaster.cs" />
+    <Compile Include="tbl_genCompanyImage.cs" />
+    <Compile Include="tbl_genCompanyInfo.cs" />
+    <Compile Include="tbl_genCustomerMaster.cs" />
+    <Compile Include="tbl_genItemMaster.cs" />
+    <Compile Include="tbl_genSection_Stock.cs" />
+    <Compile Include="tbl_genStoreMaster.cs" />
+    <Compile Include="tbl_genStore_Stock.cs" />
+    <Compile Include="tbl_genSupplierMaster.cs" />
+    <Compile Include="tbl_pmsProductionJobRegister.cs" />
+    <Compile Include="tbl_scsStoreGoodReceiveNote.cs" />
+    <Compile Include="tbl_scsStoreGoodReceiveNote_Detail.cs" />
+    <Compile Include="tbl_securityConfigForms.cs" />
+    <Compile Include="tbl_securityConfigStatus.cs" />
+    <Compile Include="tbl_securityConfigValue.cs" />
+    <Compile Include="tbl_securityItemExceedLock.cs" />
+    <Compile Include="tbl_securityProcessNoteMaster.cs" />
+    <Compile Include="tbl_securityReportPermission.cs" />
+    <Compile Include="tbl_securityTerminalMaster.cs" />
+    <Compile Include="tbl_securtiyConfigActive.cs" />
+    <Compile Include="tbl_tasTxDailyAttendance.cs" />
+    <Compile Include="tbl_tasTxDailyAttendance_revision.cs" />
+    <Compile Include="tbl_tasTxEmployeeRoster.cs" />
+    <Compile Include="tbl_tasTxGatePass.cs" />
+    <Compile Include="tbl_tasTxDeviceRawData.cs" />
+    <Compile Include="tbl_tasTxMonthlyAttendance.cs" />
+    <Compile Include="tbl_tasTxMonthlyAttendance_DayTypeBreakdown.cs" />
+    <Compile Include="tbl_tasTxWeeklyAttendance.cs" />
+    <Compile Include="tbl_ultChatMessage_User.cs" />
+    <Compile Include="tbl_utlAlert.cs" />
+    <Compile Include="tbl_utlAlertMailBox_Attachments.cs" />
+    <Compile Include="tbl_utlAlertMailBox_Pending.cs" />
+    <Compile Include="tbl_utlAlertMailBox_Receiver.cs" />
+    <Compile Include="tbl_utlAlert_detail.cs" />
+    <Compile Include="tbl_utlAlert_Sender.cs" />
+    <Compile Include="tbl_utlAlert_Shedule.cs" />
+    <Compile Include="tbl_utlChatUser.cs" />
+    <Compile Include="tbl_utlUserPool.cs" />
+    <Compile Include="tbl_zAccGLMaster_AccountType.cs" />
+    <Compile Include="tbl_zAccGLMaster_MainCatagory.cs" />
+    <Compile Include="tbl_zAccGLMaster_SubCatagory.cs" />
+    <Compile Include="tbl_zAccJournalVoucherType.cs" />
+    <Compile Include="tbl_zCurrency.cs" />
+    <Compile Include="tbl_zDebitNoteType.cs" />
+    <Compile Include="tbl_zDocument.cs" />
+    <Compile Include="tbl_zItemCategory.cs" />
+    <Compile Include="tbl_zItemType.cs" />
+    <Compile Include="tbl_zJobProductionJobType.cs" />
+    <Compile Include="tbl_zOrderRefNo.cs" />
+    <Compile Include="tbl_zSalesNoteType.cs" />
+    <Compile Include="tbl_zStockNoteType.cs" />
+    <Compile Include="tbl_zTax.cs" />
+    <Compile Include="tbl_zUom.cs" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

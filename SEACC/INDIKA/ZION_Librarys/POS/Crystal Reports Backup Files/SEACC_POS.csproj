@@ -1,0 +1,771 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{A29C5DCE-ECD4-480F-B2A6-6EA364771F96}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>SEACC_POS</RootNamespace>
+    <AssemblyName>SEACC_POS</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <ProjectTypeGuids>{60dc8134-eba5-43b8-bcc9-bb4bc16c2548};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+    <WarningLevel>4</WarningLevel>
+    <SccProjectName>SAK</SccProjectName>
+    <SccLocalPath>SAK</SccLocalPath>
+    <SccAuxPath>SAK</SccAuxPath>
+    <SccProvider>SAK</SccProvider>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>true</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>Resources\Main_Icons\POS_LIVE.ico</ApplicationIcon>
+  </PropertyGroup>
+  <PropertyGroup>
+    <NoWin32Manifest>true</NoWin32Manifest>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="CrystalDecisions.CrystalReports.Engine">
+      <HintPath>c:\program files (x86)\sap businessobjects\crystal reports for .net framework 4.0\common\sap businessobjects enterprise xi 4.0\win32_x86\dotnet\CrystalDecisions.CrystalReports.Engine.dll</HintPath>
+    </Reference>
+    <Reference Include="CrystalDecisions.ReportSource">
+      <HintPath>c:\program files (x86)\sap businessobjects\crystal reports for .net framework 4.0\common\sap businessobjects enterprise xi 4.0\win32_x86\dotnet\CrystalDecisions.ReportSource.dll</HintPath>
+    </Reference>
+    <Reference Include="CrystalDecisions.Shared">
+      <HintPath>c:\program files (x86)\sap businessobjects\crystal reports for .net framework 4.0\common\sap businessobjects enterprise xi 4.0\win32_x86\dotnet\CrystalDecisions.Shared.dll</HintPath>
+    </Reference>
+    <Reference Include="CrystalDecisions.Windows.Forms, Version=13.0.2000.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL" />
+    <Reference Include="Digiteq_Inventory, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>D:\01 Projects\SEACC Version Control\DEV\SEACC\CS\bin\Debug\Digiteq_Inventory.dll</HintPath>
+    </Reference>
+    <Reference Include="Digiteq_Logic, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>D:\01 Projects\SEACC Version Control\DEV\SEACC\Digiteq_Logic\bin\Debug\Digiteq_Logic.dll</HintPath>
+    </Reference>
+    <Reference Include="FlashControlV71, Version=1.0.3187.32366, Culture=neutral, PublicKeyToken=692fbea5521e1304" />
+    <Reference Include="Microsoft.Office.Interop.Excel, Version=15.0.0.0, Culture=neutral, PublicKeyToken=71e9bce111e9429c, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+      <HintPath>..\packages\Microsoft.Office.Interop.Excel.15.0.4795.1000\lib\net20\Microsoft.Office.Interop.Excel.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="PresentationFramework.Aero" />
+    <Reference Include="SEACC_WPFControls, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>\\192.168.10.1\07 Developer Common\01 DLL References\SEACC_WPFControls.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.Windows" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Xaml">
+      <RequiredTargetFramework>4.0</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="WindowsBase" />
+    <Reference Include="PresentationCore" />
+    <Reference Include="PresentationFramework" />
+    <Reference Include="WPFToolkit, Version=3.5.40128.1, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\WPFToolkit.3.5.50211.1\lib\WPFToolkit.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <ApplicationDefinition Include="App.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </ApplicationDefinition>
+    <Compile Include="Common\clsCommon_POS.cs" />
+    <Compile Include="Common\clsDataGridExtensions.cs" />
+    <Compile Include="Common\clsHelpMethods_POS.cs" />
+    <Compile Include="Common\clsRemoteLogin.cs" />
+    <Compile Include="Common\clsReport_writer.cs" />
+    <Compile Include="Controls\frm_TwoStepVerification_UserChange.xaml.cs">
+      <DependentUpon>frm_TwoStepVerification_UserChange.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\frm_TwoStepVerification.xaml.cs">
+      <DependentUpon>frm_TwoStepVerification.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="DataSet\BillPrint.cs">
+      <DependentUpon>BillPrint.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="DataSet\BillPrint.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>BillPrint.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="DataSet\dts_posDailySales.cs">
+      <DependentUpon>dts_posDailySales.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="DataSet\dts_posDailySales.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>dts_posDailySales.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="DataSet\dts_posStd.cs">
+      <DependentUpon>dts_posStd.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="DataSet\dts_posStd.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>dts_posStd.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="DataSet\dts_ReportExport.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>dts_ReportExport.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\SEACC_Form.cs" />
+    <Compile Include="Reports\NotePrint\rpt_pos_bill%2814cmX11.4cm%29_Cel3T.cs">
+      <DependentUpon>rpt_pos_bill%2814cmX11.4cm%29_Cel3T.rpt</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <SubType>Component</SubType>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="Reports\NotePrint\ToBeRemove\rpt_pos_bill%2814cmX11.4cm%29_Cel_2018_11_21.cs">
+      <DependentUpon>rpt_pos_bill%2814cmX11.4cm%29_Cel_2018_11_21.rpt</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <SubType>Component</SubType>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="Reports\NotePrint\ToBeRemove\rpt_pos_bill%2814cmX11.4cm%29_Cel2.cs">
+      <DependentUpon>rpt_pos_bill%2814cmX11.4cm%29_Cel2.rpt</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <SubType>Component</SubType>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="Reports\NotePrint\rpt_pos_Advance%2814cmX11.4cm%29.cs">
+      <DependentUpon>rpt_pos_Advance%2814cmX11.4cm%29.rpt</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <SubType>Component</SubType>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="Reports\NotePrint\rpt_pos_returnNote%2814cmX11.4cm%29.cs">
+      <DependentUpon>rpt_pos_returnNote%2814cmX11.4cm%29.rpt</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <SubType>Component</SubType>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="Reports\NotePrint\ToBeRemove\rpt_pos_bill%2814cmX11.4cm%29_Cel4.cs">
+      <DependentUpon>rpt_pos_bill%2814cmX11.4cm%29_Cel4.rpt</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <SubType>Component</SubType>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="Reports\NotePrint\rpt_pos_bill%2814cmX11.4cm%29_Cel3.cs">
+      <DependentUpon>rpt_pos_bill%2814cmX11.4cm%29_Cel3.rpt</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <SubType>Component</SubType>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="Reports\NotePrint\rpt_pos_bill%2814cmX11.4cm%29_MLED.cs">
+      <DependentUpon>rpt_pos_bill%2814cmX11.4cm%29_MLED.rpt</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <SubType>Component</SubType>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="Reports\NotePrint\rpt_pos_bill%2814cmX21.6cm%29_BTC.cs">
+      <DependentUpon>rpt_pos_bill%2814cmX21.6cm%29_BTC.rpt</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <SubType>Component</SubType>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="Reports\NotePrint\ToBeRemove\rpt_pos_bill%2814cmX11.4cm%29_Cel.cs">
+      <DependentUpon>rpt_pos_bill%2814cmX11.4cm%29_Cel.rpt</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <SubType>Component</SubType>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="Reports\NotePrint\rpt_pos_bill%28A4%29_MLED.cs">
+      <DependentUpon>rpt_pos_bill%28A4%29_MLED.rpt</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <SubType>Component</SubType>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="Reports\NotePrint\rpt_pos_bill_HSG.cs">
+      <DependentUpon>rpt_pos_bill_HSG.rpt</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <SubType>Component</SubType>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="Reports\Standard\rpt_DailySalesCollection_Detail_OtherPaymentReceivedCreditInvoice.cs">
+      <DependentUpon>rpt_DailySalesCollection_Detail_OtherPaymentReceivedCreditInvoice.rpt</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <SubType>Component</SubType>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="Reports\Standard\rpt_DailySalesCollection_Detail_CashAdvanceReceived.cs">
+      <DependentUpon>rpt_DailySalesCollection_Detail_CashAdvanceReceived.rpt</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <SubType>Component</SubType>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="Reports\Standard\rpt_DailySalesCollection_Detail_CashReceivedForCreditInvoice.cs">
+      <DependentUpon>rpt_DailySalesCollection_Detail_CashReceivedForCreditInvoice.rpt</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <SubType>Component</SubType>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="Reports\Standard\rpt_DailySalesCollection_Detail_CashOut.cs">
+      <DependentUpon>rpt_DailySalesCollection_Detail_CashOut.rpt</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <SubType>Component</SubType>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="Reports\Standard\rpt_DailySalesCollection_Detail_ChequeCreditCard.cs">
+      <DependentUpon>rpt_DailySalesCollection_Detail_ChequeCreditCard.rpt</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <SubType>Component</SubType>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="Reports\Standard\rpt_DailySalesCollection_Detail_CreditInvoice.cs">
+      <DependentUpon>rpt_DailySalesCollection_Detail_CreditInvoice.rpt</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <SubType>Component</SubType>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="Reports\Standard\rpt_DailySalesCollection_Detail_GiftVoucher.cs">
+      <DependentUpon>rpt_DailySalesCollection_Detail_GiftVoucher.rpt</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <SubType>Component</SubType>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="Reports\Standard\rpt_DailySalesCollection_Detail_InvoiceDiscount.cs">
+      <DependentUpon>rpt_DailySalesCollection_Detail_InvoiceDiscount.rpt</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <SubType>Component</SubType>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="Reports\Standard\rpt_DailySalesCollection_Detail.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>rpt_DailySalesCollection_Detail.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Reports\Standard\rpt_FreeItems.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>rpt_FreeItems.rpt</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\Standard\rpt_PoSTransactionSummary_SalesRepWise.cs">
+      <DependentUpon>rpt_PoSTransactionSummary_SalesRepWise.rpt</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <SubType>Component</SubType>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="TransactionForms\Frm_Item_Returns.xaml.cs">
+      <DependentUpon>Frm_Item_Returns.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="TransactionForms\Tools\Frm_PosPayment_Returns.xaml.cs">
+      <DependentUpon>Frm_PosPayment_Returns.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="TransactionForms\UC_AdavaceReceive.xaml.cs">
+      <DependentUpon>UC_AdavaceReceive.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="TransactionForms\UC_Branch_DayEnd.xaml.cs">
+      <DependentUpon>UC_Branch_DayEnd.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="TransactionForms\UC_Manager_SignOff.xaml.cs">
+      <DependentUpon>UC_Manager_SignOff.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="TransactionForms\UC_Cashier_SignIn.xaml.cs">
+      <DependentUpon>UC_Cashier_SignIn.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="TransactionForms\UC_GiftVoucher_Creation.xaml.cs">
+      <DependentUpon>UC_GiftVoucher_Creation.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="TransactionForms\Tools\Frm_PosPayment_Sales.xaml.cs">
+      <DependentUpon>Frm_PosPayment_Sales.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="frmSplash.xaml.cs">
+      <DependentUpon>frmSplash.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="frmLogin.xaml.cs">
+      <DependentUpon>frmLogin.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\UC_Reports.xaml.cs">
+      <DependentUpon>UC_Reports.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\Pos_DataGridLine.xaml.cs">
+      <DependentUpon>Pos_DataGridLine.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\R2Logo.xaml.cs">
+      <DependentUpon>R2Logo.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\frm_ReportViewer.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Reports\frm_ReportViewer.Designer.cs">
+      <DependentUpon>frm_ReportViewer.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\NotePrint\rpt_pos_bill%28A4%29_BTC.cs">
+      <DependentUpon>rpt_pos_bill%28A4%29_BTC.rpt</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <SubType>Component</SubType>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="Reports\NotePrint\rpt_pos_bill%28A5%29.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>rpt_pos_bill%28A5%29.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Reports\Register\rpt_PoSTransactionDetail.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>rpt_PoSTransactionDetail.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Reports\Register\rpt_PoSTransactionSummary.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>rpt_PoSTransactionSummary.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Reports\Standard\rpt_DailyCashBalanceReport.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>rpt_DailyCashBalanceReport.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="SearchForms\frmSearchForm.xaml.cs">
+      <DependentUpon>frmSearchForm.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="SearchForms\UC_ItemSearch.xaml.cs">
+      <DependentUpon>UC_ItemSearch.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UserManagement\UC_BranchStoreStock.xaml.cs">
+      <DependentUpon>UC_BranchStoreStock.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UserManagement\UC_UserDashboard.xaml.cs">
+      <DependentUpon>UC_UserDashboard.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UserManagement\UC_UserPermission.xaml.cs">
+      <DependentUpon>UC_UserPermission.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UserManagement\Widgets\UC_ChangePassword.xaml.cs">
+      <DependentUpon>UC_ChangePassword.xaml</DependentUpon>
+    </Compile>
+    <Page Include="Controls\frm_TwoStepVerification_UserChange.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Controls\frm_TwoStepVerification.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="TransactionForms\Frm_Item_Returns.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="TransactionForms\Tools\Frm_PosPayment_Returns.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="TransactionForms\UC_AdavaceReceive.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="TransactionForms\UC_Branch_DayEnd.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="TransactionForms\UC_Manager_SignOff.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="TransactionForms\UC_Cashier_SignIn.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="TransactionForms\UC_GiftVoucher_Creation.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="TransactionForms\Tools\Frm_PosPayment_Sales.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="frmSplash.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="frmLogin.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="TransactionForms\Frm_Item_Sales.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Reports\UC_Reports.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="frmAbout_Us.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Compile Include="App.xaml.cs">
+      <DependentUpon>App.xaml</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="TransactionForms\Frm_Item_Sales.xaml.cs">
+      <DependentUpon>Frm_Item_Sales.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="frmAbout_Us.xaml.cs">
+      <DependentUpon>frmAbout_Us.xaml</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Page Include="Controls\Pos_DataGridLine.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Controls\R2Logo.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="SearchForms\frmSearchForm.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="SearchForms\UC_ItemSearch.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UserManagement\UC_BranchStoreStock.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UserManagement\UC_UserDashboard.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="UserManagement\UC_UserPermission.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="UserManagement\Widgets\UC_ChangePassword.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Properties\AssemblyInfo.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\frm_ReportViewer.resx">
+      <DependentUpon>frm_ReportViewer.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\NotePrint\rpt_pos_bill%2814cmX11.4cm%29_Cel3T.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>rpt_pos_bill%2814cmX11.4cm%29_Cel3T.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\NotePrint\ToBeRemove\rpt_pos_bill%2814cmX11.4cm%29_Cel_2018_11_21.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>rpt_pos_bill%2814cmX11.4cm%29_Cel_2018_11_21.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\NotePrint\ToBeRemove\rpt_pos_bill%2814cmX11.4cm%29_Cel2.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>rpt_pos_bill%2814cmX11.4cm%29_Cel2.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\NotePrint\rpt_pos_Advance%2814cmX11.4cm%29.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>rpt_pos_Advance%2814cmX11.4cm%29.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\NotePrint\rpt_pos_returnNote%2814cmX11.4cm%29.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>rpt_pos_returnNote%2814cmX11.4cm%29.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\NotePrint\ToBeRemove\rpt_pos_bill%2814cmX11.4cm%29_Cel4.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>rpt_pos_bill%2814cmX11.4cm%29_Cel4.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\NotePrint\rpt_pos_bill%2814cmX11.4cm%29_Cel3.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>rpt_pos_bill%2814cmX11.4cm%29_Cel3.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\NotePrint\rpt_pos_bill%2814cmX21.6cm%29_BTC.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>rpt_pos_bill%2814cmX21.6cm%29_BTC.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\NotePrint\rpt_pos_bill%28A4%29_BTC.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>rpt_pos_bill%28A4%29_BTC.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\NotePrint\rpt_pos_bill%2814cmX11.4cm%29_MLED.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>rpt_pos_bill%2814cmX11.4cm%29_MLED.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\NotePrint\ToBeRemove\rpt_pos_bill%2814cmX11.4cm%29_Cel.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>rpt_pos_bill%2814cmX11.4cm%29_Cel.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\NotePrint\rpt_pos_bill%28A4%29_MLED.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>rpt_pos_bill%28A4%29_MLED.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\NotePrint\rpt_pos_bill_HSG.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>rpt_pos_bill_HSG.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\NotePrint\rpt_pos_bill%28A5%29.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>rpt_pos_bill%28A5%29.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\Register\rpt_PoSTransactionDetail.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>rpt_PoSTransactionDetail.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\Register\rpt_PoSTransactionSummary.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>rpt_PoSTransactionSummary.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\Standard\rpt_DailyCashBalanceReport.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>rpt_DailyCashBalanceReport.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\Standard\rpt_DailySalesCollection_Detail_OtherPaymentReceivedCreditInvoice.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>rpt_DailySalesCollection_Detail_OtherPaymentReceivedCreditInvoice.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\Standard\rpt_DailySalesCollection_Detail_CashAdvanceReceived.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>rpt_DailySalesCollection_Detail_CashAdvanceReceived.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\Standard\rpt_DailySalesCollection_Detail_CashReceivedForCreditInvoice.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>rpt_DailySalesCollection_Detail_CashReceivedForCreditInvoice.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\Standard\rpt_DailySalesCollection_Detail_CashOut.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>rpt_DailySalesCollection_Detail_CashOut.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\Standard\rpt_DailySalesCollection_Detail_ChequeCreditCard.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>rpt_DailySalesCollection_Detail_ChequeCreditCard.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\Standard\rpt_DailySalesCollection_Detail_CreditInvoice.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>rpt_DailySalesCollection_Detail_CreditInvoice.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\Standard\rpt_DailySalesCollection_Detail_GiftVoucher.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>rpt_DailySalesCollection_Detail_GiftVoucher.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\Standard\rpt_DailySalesCollection_Detail_InvoiceDiscount.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>rpt_DailySalesCollection_Detail_InvoiceDiscount.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\Standard\rpt_DailySalesCollection_Detail.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>rpt_DailySalesCollection_Detail.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\Standard\rpt_FreeItems.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>rpt_FreeItems.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\Standard\rpt_PoSTransactionSummary_SalesRepWise.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>rpt_PoSTransactionSummary_SalesRepWise.cs</LastGenOutput>
+    </EmbeddedResource>
+    <None Include="DataSet\BillPrint.xsc">
+      <DependentUpon>BillPrint.xsd</DependentUpon>
+    </None>
+    <None Include="DataSet\BillPrint.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>BillPrint.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="DataSet\BillPrint.xss">
+      <DependentUpon>BillPrint.xsd</DependentUpon>
+    </None>
+    <None Include="DataSet\dts_posDailySales.xsc">
+      <DependentUpon>dts_posDailySales.xsd</DependentUpon>
+    </None>
+    <None Include="DataSet\dts_posDailySales.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>dts_posDailySales.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="DataSet\dts_posDailySales.xss">
+      <DependentUpon>dts_posDailySales.xsd</DependentUpon>
+    </None>
+    <None Include="DataSet\dts_posStd.xsc">
+      <DependentUpon>dts_posStd.xsd</DependentUpon>
+    </None>
+    <None Include="DataSet\dts_posStd.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>dts_posStd.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="DataSet\dts_posStd.xss">
+      <DependentUpon>dts_posStd.xsd</DependentUpon>
+    </None>
+    <None Include="DataSet\dts_ReportExport.xsc">
+      <DependentUpon>dts_ReportExport.xsd</DependentUpon>
+    </None>
+    <None Include="DataSet\dts_ReportExport.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>dts_ReportExport.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="DataSet\dts_ReportExport.xss">
+      <DependentUpon>dts_ReportExport.xsd</DependentUpon>
+    </None>
+    <None Include="packages.config" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <AppDesigner Include="Properties\" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\User_Icons\POS_Girl.png" />
+    <Resource Include="Resources\Other_Icons\canteenEmp.png" />
+    <Resource Include="Resources\Other_Icons\digiteq_Logo.png" />
+    <Resource Include="Resources\Other_Icons\dtq.PNG" />
+    <Resource Include="Resources\Other_Icons\Icon.ico" />
+    <Resource Include="Resources\PaymentType_Icons\receive_cash-64.png" />
+    <Resource Include="Resources\PaymentType_Icons\mastercard-64.png" />
+    <Resource Include="Resources\PaymentType_Icons\visa-64.png" />
+    <Resource Include="Resources\PaymentType_Icons\amex-64.png" />
+    <Resource Include="Resources\PaymentType_Icons\check_book-64.png" />
+    <Resource Include="Resources\PaymentType_Icons\coins-64.png" />
+    <Resource Include="Resources\User_Icons\About-64.png" />
+    <Resource Include="Resources\User_Icons\Exit-64.png" />
+    <Resource Include="Resources\User_Icons\Help-64.png" />
+    <Resource Include="Resources\User_Icons\About-50.png" />
+    <Resource Include="Resources\User_Icons\Logout Rounded-64.png" />
+    <Resource Include="Resources\User_Icons\About Us Male-64.png" />
+    <Resource Include="Resources\User_Icons\shutdown-50.png" />
+    <Resource Include="Resources\User_Icons\shutdown-32.png" />
+    <Resource Include="Resources\User_Icons\shutdown-25.png" />
+    <Resource Include="Resources\User_Icons\about_us_male-32.png" />
+    <Resource Include="Resources\User_Icons\posLogin.jpg" />
+    <Resource Include="Resources\Other_Icons\download %283%29.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{C0C07587-41A7-46C8-8FBD-3F9C8EBE2DDC}" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Main_Icons\Report Card-50.png" />
+    <Resource Include="Resources\Main_Icons\Settings-50.png" />
+    <Resource Include="Resources\PaymentType_Icons\Coins-50.png" />
+    <Resource Include="Resources\Other_Icons\point_of_sale_icon_10_Ban_icon.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Other_Icons\point_of_sale_icon_test.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\PaymentType_Icons\Payment.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\PaymentType_Icons\PaymentAdvance.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\PaymentType_Icons\PaymentAdv.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\PaymentType_Icons\card-payment-50.png" />
+    <Resource Include="Resources\PaymentType_Icons\check-book-50.png" />
+    <Resource Include="Resources\PaymentType_Icons\gift-card-50.png" />
+    <Resource Include="Resources\PaymentType_Icons\receive-cash-50.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Main_Icons\voucher-50.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Main_Icons\LandingPage.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Main_Icons\LandingPageIcon2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Main_Icons\no-image-available.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\NoImageAvailable.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\no-image-available.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Main_Icons\POS_LIVE.ico" />
+    <Resource Include="Resources\Main_Icons\POS_TEST.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\User_Icons\Customer-32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\PaymentType_Icons\PCRN.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\PaymentType_Icons\PCRN_2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\PaymentType_Icons\AdvancePayment.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="ToBeDelete\" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Digiteq_Logic_POS\Digiteq_Logic_POS.csproj">
+      <Project>{0eeb171f-9c64-4203-90d4-e85aedc55d15}</Project>
+      <Name>Digiteq_Logic_POS</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

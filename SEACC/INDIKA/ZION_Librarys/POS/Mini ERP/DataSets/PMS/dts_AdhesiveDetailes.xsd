@@ -1,0 +1,36 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="dts_AdhesiveDetailes" targetNamespace="http://tempuri.org/dts_AdhesiveDetailes.xsd" xmlns:mstns="http://tempuri.org/dts_AdhesiveDetailes.xsd" xmlns="http://tempuri.org/dts_AdhesiveDetailes.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop" attributeFormDefault="qualified" elementFormDefault="qualified">
+  <xs:annotation>
+    <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
+      <DataSource DefaultConnectionIndex="0" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
+        <Connections />
+        <Tables />
+        <Sources />
+      </DataSource>
+    </xs:appinfo>
+  </xs:annotation>
+  <xs:element name="dts_AdhesiveDetailes" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="true" msprop:Generator_DataSetName="dts_AdhesiveDetailes" msprop:Generator_UserDSName="dts_AdhesiveDetailes">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element name="dt_AdhesiveDetails" msprop:Generator_TableClassName="dt_AdhesiveDetailsDataTable" msprop:Generator_TableVarName="tabledt_AdhesiveDetails" msprop:Generator_TablePropName="dt_AdhesiveDetails" msprop:Generator_RowDeletingName="dt_AdhesiveDetailsRowDeleting" msprop:Generator_RowChangingName="dt_AdhesiveDetailsRowChanging" msprop:Generator_RowEvHandlerName="dt_AdhesiveDetailsRowChangeEventHandler" msprop:Generator_RowDeletedName="dt_AdhesiveDetailsRowDeleted" msprop:Generator_UserTableName="dt_AdhesiveDetails" msprop:Generator_RowChangedName="dt_AdhesiveDetailsRowChanged" msprop:Generator_RowEvArgName="dt_AdhesiveDetailsRowChangeEvent" msprop:Generator_RowClassName="dt_AdhesiveDetailsRow">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="JobNo" msprop:Generator_ColumnVarNameInTable="columnJobNo" msprop:Generator_ColumnPropNameInRow="JobNo" msprop:Generator_ColumnPropNameInTable="JobNoColumn" msprop:Generator_UserColumnName="JobNo" type="xs:string" minOccurs="0" />
+              <xs:element name="CustomerName" msprop:Generator_ColumnVarNameInTable="columnCustomerName" msprop:Generator_ColumnPropNameInRow="CustomerName" msprop:Generator_ColumnPropNameInTable="CustomerNameColumn" msprop:Generator_UserColumnName="CustomerName" type="xs:string" minOccurs="0" />
+              <xs:element name="ItemCode" msprop:Generator_ColumnVarNameInTable="columnItemCode" msprop:Generator_ColumnPropNameInRow="ItemCode" msprop:Generator_ColumnPropNameInTable="ItemCodeColumn" msprop:Generator_UserColumnName="ItemCode" type="xs:string" minOccurs="0" />
+              <xs:element name="ItemName" msprop:Generator_ColumnVarNameInTable="columnItemName" msprop:Generator_ColumnPropNameInRow="ItemName" msprop:Generator_ColumnPropNameInTable="ItemNameColumn" msprop:Generator_UserColumnName="ItemName" type="xs:string" minOccurs="0" />
+              <xs:element name="Structure" msprop:Generator_ColumnVarNameInTable="columnStructure" msprop:Generator_ColumnPropNameInRow="Structure" msprop:Generator_ColumnPropNameInTable="StructureColumn" msprop:Generator_UserColumnName="Structure" type="xs:string" minOccurs="0" />
+              <xs:element name="InputMaterial" msprop:Generator_ColumnVarNameInTable="columnInputMaterial" msprop:Generator_ColumnPropNameInRow="InputMaterial" msprop:Generator_ColumnPropNameInTable="InputMaterialColumn" msprop:Generator_UserColumnName="InputMaterial" type="xs:string" minOccurs="0" />
+              <xs:element name="MachineNo" msprop:Generator_ColumnVarNameInTable="columnMachineNo" msprop:Generator_ColumnPropNameInRow="MachineNo" msprop:Generator_ColumnPropNameInTable="MachineNoColumn" msprop:Generator_UserColumnName="MachineNo" type="xs:string" minOccurs="0" />
+              <xs:element name="AdesiveQTY" msprop:Generator_ColumnVarNameInTable="columnAdesiveQTY" msprop:Generator_ColumnPropNameInRow="AdesiveQTY" msprop:Generator_ColumnPropNameInTable="AdesiveQTYColumn" msprop:Generator_UserColumnName="AdesiveQTY" type="xs:decimal" minOccurs="0" />
+              <xs:element name="HardnerQTY" msprop:Generator_ColumnVarNameInTable="columnHardnerQTY" msprop:Generator_ColumnPropNameInRow="HardnerQTY" msprop:Generator_ColumnPropNameInTable="HardnerQTYColumn" msprop:Generator_UserColumnName="HardnerQTY" type="xs:decimal" minOccurs="0" />
+              <xs:element name="OutPutQTY" msprop:Generator_ColumnVarNameInTable="columnOutPutQTY" msprop:Generator_ColumnPropNameInRow="OutPutQTY" msprop:Generator_ColumnPropNameInTable="OutPutQTYColumn" msprop:Generator_UserColumnName="OutPutQTY" type="xs:decimal" minOccurs="0" />
+              <xs:element name="CutBackSize" msprop:Generator_ColumnVarNameInTable="columnCutBackSize" msprop:Generator_ColumnPropNameInRow="CutBackSize" msprop:Generator_ColumnPropNameInTable="CutBackSizeColumn" msprop:Generator_UserColumnName="CutBackSize" type="xs:decimal" minOccurs="0" />
+              <xs:element name="ProductionJobDate" msprop:Generator_ColumnVarNameInTable="columnProductionJobDate" msprop:Generator_ColumnPropNameInRow="ProductionJobDate" msprop:Generator_ColumnPropNameInTable="ProductionJobDateColumn" msprop:Generator_UserColumnName="ProductionJobDate" type="xs:dateTime" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:choice>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

@@ -1,0 +1,96 @@
+﻿<UserControl x:Class="Digiteq.wj_DBinfo"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+            mc:Ignorable="d" Background="#FFB04444" Margin="5" d:DesignWidth="399.295" d:DesignHeight="223.246" Foreground="White">
+    <Grid >
+      
+        <Border BorderBrush="White" BorderThickness="1" Margin="5">
+            <Border.Effect>
+                <DropShadowEffect BlurRadius="10" ShadowDepth="10"/>
+            </Border.Effect>
+        </Border>
+        <Image Source="black-white-metro-accept-database-icon.png" HorizontalAlignment="Left" VerticalAlignment="Top" Height="150" Width="148" Margin="15,46,0,0" Opacity="0.3">
+            <Image.Effect>
+                <DropShadowEffect Color="White" BlurRadius="10" ShadowDepth="10" Opacity="0.5"/>
+            </Image.Effect>
+        </Image>
+
+        <Grid Margin="15,0,15,0">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="40"/>
+                <RowDefinition/>
+            </Grid.RowDefinitions>
+            <TextBlock Text="Database info"  FontSize="20" Foreground="White" Grid.Row="0" HorizontalAlignment="Left"  VerticalAlignment="Top" Margin="0,8,0,0"/>
+            <Border BorderBrush="White" BorderThickness="0,0,0,1"></Border>
+            <Grid Grid.Row="1" Margin="0,10,0,0" Height="162" VerticalAlignment="Top" >
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+
+                </Grid.RowDefinitions>
+
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="25" MinWidth="75"/>
+                    <ColumnDefinition Width="5"/>
+                    <ColumnDefinition Width="*" MinWidth="75"/>
+                </Grid.ColumnDefinitions>
+                <TextBlock Text="Database Engine" Grid.Row="0" Grid.Column="0" FontSize="9" Foreground="White"  />
+                <TextBlock Text="Database Instance" Grid.Row="1" Grid.Column="0" FontSize="9" Foreground="White" />
+                <TextBlock Text="Database Name" Grid.Row="2" Grid.Column="0" FontSize="9" Foreground="White" />
+                <TextBlock Text="Database Size" Grid.Row="3" Grid.Column="0" FontSize="9" Foreground="White" />
+                <TextBlock Text="No of Tables" Grid.Row="4" Grid.Column="0" FontSize="9" Foreground="White"/>
+                <TextBlock Text="No of Fields" Grid.Row="5" Grid.Column="0" FontSize="9" Foreground="White" />
+                <TextBlock Text="No of sp's" Grid.Row="6" Grid.Column="0" FontSize="9" Foreground="White" />
+                <TextBlock Text="No of functions" Grid.Row="7" Grid.Column="0" FontSize="9" Foreground="White"/>
+                <TextBlock Text="No of Views" Grid.Row="8" Grid.Column="0" FontSize="9" Foreground="White"/>
+                <TextBlock Text="No of Records" Grid.Row="9" Grid.Column="0" FontSize="9" Foreground="White"/>
+
+                <TextBlock Text=":" Grid.Row="0" Grid.Column="1" FontSize="9" Foreground="White"/>
+                <TextBlock Text=":" Grid.Row="1" Grid.Column="1" FontSize="9" Foreground="White"/>
+                <TextBlock Text=":" Grid.Row="2" Grid.Column="1" FontSize="9" Foreground="White"/>
+                <TextBlock Text=":" Grid.Row="3" Grid.Column="1" FontSize="9" Foreground="White"/>
+                <TextBlock Text=":" Grid.Row="4" Grid.Column="1" FontSize="9" Foreground="White"/>
+                <TextBlock Text=":" Grid.Row="5" Grid.Column="1" FontSize="9" Foreground="White"/>
+                <TextBlock Text=":" Grid.Row="6" Grid.Column="1" FontSize="9" Foreground="White"/>
+                <TextBlock Text=":" Grid.Row="7" Grid.Column="1" FontSize="9" Foreground="White"/>
+                <TextBlock Text=":" Grid.Row="8" Grid.Column="1" FontSize="9" Foreground="White"/>
+                <TextBlock Text=":" Grid.Row="9" Grid.Column="1" FontSize="9" Foreground="White"/>
+
+
+                <TextBlock Text="Sql Server" Grid.Row="0" Grid.Column="2" FontSize="9" Foreground="White"/>
+                <TextBlock Text="DTQSRV\DTQPUB" Grid.Row="1" Grid.Column="2" FontSize="9" Foreground="White"/>
+                <TextBlock Text="SEACC_Payroll" Grid.Row="2" Grid.Column="2" FontSize="9" Foreground="White"/>
+                <TextBlock Text="17,542 kb" Grid.Row="3" Grid.Column="2" FontSize="9" Foreground="White"/>
+                <TextBlock Text="139" Grid.Row="4" Grid.Column="2" FontSize="9" Foreground="White"/>
+                <TextBlock Text="2,502" Grid.Row="5" Grid.Column="2" FontSize="9" Foreground="White"/>
+                <TextBlock Text="556" Grid.Row="6" Grid.Column="2" FontSize="9" Foreground="White"/>
+                <TextBlock Text="422" Grid.Row="7" Grid.Column="2" FontSize="9" Foreground="White"/>
+                <TextBlock Text="18" Grid.Row="8" Grid.Column="2" FontSize="9" Foreground="White"/>
+                <TextBlock Text="17,581" Grid.Row="9" Grid.Column="2" FontSize="9" Foreground="White"/>
+
+                <StackPanel  >
+                    <!--Database Engine - sql server-->
+                    <!--Database instanc -->
+                    <!--Database name -->
+                    <!--Database Size -->
+                    <!--No of tables -->
+                    <!--No of fields -->
+                    <!--No of sp -->
+                    <!--No of functions -->
+                    <!--No of views -->
+                    <!--No of records -->
+                </StackPanel>
+            </Grid>
+        </Grid>
+    </Grid>
+</UserControl>

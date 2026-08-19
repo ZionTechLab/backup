@@ -1,0 +1,2654 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{BB9E4FD0-40C5-4C7A-A070-43B65634AFEC}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Digiteq</RootNamespace>
+    <AssemblyName>SEACC_HR</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <ProjectTypeGuids>{60dc8134-eba5-43b8-bcc9-bb4bc16c2548};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+    <WarningLevel>4</WarningLevel>
+    <SccProjectName>SAK</SccProjectName>
+    <SccLocalPath>SAK</SccLocalPath>
+    <SccAuxPath>SAK</SccAuxPath>
+    <SccProvider>SAK</SccProvider>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <ExpressionBlendVersion>5.0.40218.0</ExpressionBlendVersion>
+    <TargetFrameworkProfile>
+    </TargetFrameworkProfile>
+    <PublishUrl>publish\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Disk</InstallFrom>
+    <UpdateEnabled>false</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <ApplicationRevision>0</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>0</WarningLevel>
+    <Prefer32Bit>true</Prefer32Bit>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+    <UseVSHostingProcess>false</UseVSHostingProcess>
+    <GenerateSerializationAssemblies>Off</GenerateSerializationAssemblies>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>Resources\Icon.ico</ApplicationIcon>
+  </PropertyGroup>
+  <PropertyGroup>
+    <StartupObject>Digiteq.App</StartupObject>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Accessibility" />
+    <Reference Include="CrystalDecisions.CrystalReports.Engine, Version=13.0.2000.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL" />
+    <Reference Include="CrystalDecisions.Data.AdoDotNetInterop, Version=13.0.2000.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>C:\Program Files (x86)\SAP BusinessObjects\Crystal Reports for .NET Framework 4.0\Common\SAP BusinessObjects Enterprise XI 4.0\win32_x86\dotnet\CrystalDecisions.Data.AdoDotNetInterop.dll</HintPath>
+    </Reference>
+    <Reference Include="CrystalDecisions.ReportSource, Version=13.0.2000.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL" />
+    <Reference Include="CrystalDecisions.Shared, Version=13.0.2000.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL" />
+    <Reference Include="CrystalDecisions.Web, Version=13.0.2000.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL" />
+    <Reference Include="CrystalDecisions.Windows.Forms, Version=13.0.2000.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL" />
+    <Reference Include="EPPlus">
+      <HintPath>..\..\SEACC\packages\EPPlus.5.2.1\lib\net45\EPPlus.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Expression.Interactions" />
+    <Reference Include="Microsoft.Office.Interop.Excel, Version=15.0.0.0, Culture=neutral, PublicKeyToken=71e9bce111e9429c, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+      <HintPath>\\192.168.10.1\07 Developer Common\01 DLL References\Microsoft.Office.Interop.Excel.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Office.Interop.Word, Version=15.0.0.0, Culture=neutral, PublicKeyToken=71e9bce111e9429c, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+      <HintPath>\\192.168.10.1\07 Developer Common\01 DLL References\Microsoft.Office.Interop.Word.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json, Version=12.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.12.0.3\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="PresentationFramework.Aero" />
+    <Reference Include="PresentationUI, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
+    <Reference Include="ReachFramework" />
+    <Reference Include="SAPBusinessObjects.WPF.Viewer, Version=13.0.3500.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>C:\Program Files (x86)\SAP BusinessObjects\Crystal Reports for .NET Framework 4.0\Common\SAP BusinessObjects Enterprise XI 4.0\win32_x86\dotnet\SAPBusinessObjects.WPF.Viewer.dll</HintPath>
+    </Reference>
+    <Reference Include="SEACC_WPFControls, Version=1.5.55.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>\\192.168.10.1\07 Developer Common\01 DLL References\SEACC_WPFControls.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.configuration" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Printing" />
+    <Reference Include="System.Security" />
+    <Reference Include="System.Threading.Tasks" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Windows.Interactivity" />
+    <Reference Include="System.Xml" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Xaml">
+      <RequiredTargetFramework>4.0</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="UIAutomationProvider" />
+    <Reference Include="UIAutomationTypes" />
+    <Reference Include="WindowsBase" />
+    <Reference Include="PresentationCore" />
+    <Reference Include="PresentationFramework" />
+    <Reference Include="WindowsFormsIntegration" />
+  </ItemGroup>
+  <ItemGroup>
+    <ApplicationDefinition Include="App.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </ApplicationDefinition>
+    <Compile Include="App.xaml.cs">
+      <DependentUpon>App.xaml</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Common\Cast.cs" />
+    <Compile Include="Reports\PAY\rpt_SignatureSheet_Salary.cs">
+      <DependentUpon>rpt_SignatureSheet_Salary.rpt</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Reports\PAY\rpt_payslip_Indika.cs">
+      <DependentUpon>rpt_payslip_Indika.rpt</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Reports\Tools\cls_SalaryRegister.cs" />
+    <Compile Include="Common\clsHelpMethods.cs" />
+    <Compile Include="DataSets\dts_Generel.cs">
+      <DependentUpon>dts_Generel.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="DataSets\dts_Masters.cs">
+      <DependentUpon>dts_Masters.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="DataSets\dts_Masters.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>dts_Masters.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="DataSets\dts_PAY.cs">
+      <DependentUpon>dts_PAY.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="DataSets\dts_PAY.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>dts_PAY.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="DataSets\dts_CC.cs">
+      <DependentUpon>dts_CC.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="DataSets\dts_CC.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>dts_CC.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="DeviceSyncronization.xaml.cs">
+      <DependentUpon>DeviceSyncronization.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Master Forms\UC_CompanyAccount.xaml.cs">
+      <DependentUpon>UC_CompanyAccount.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Master Forms\UC_AttendanceGroup1.xaml.cs">
+      <DependentUpon>UC_AttendanceGroup1.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Master Forms\UC_HRWeek.xaml.cs">
+      <DependentUpon>UC_HRWeek.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\EMP\rpt_EmployeeBirthdayCalendar.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>rpt_EmployeeBirthdayCalendar.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Reports\EMP\rpt_EmployeeBirthdayList.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>rpt_EmployeeBirthdayList.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Reports\EMP\rpt_employeeDemography-Personal Details.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>rpt_employeeDemography-Personal Details.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Reports\EMP\rpt_EmployeeInformationSheet.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>rpt_EmployeeInformationSheet.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Reports\EMP\rpt_EmployeeRecruitmentMonthWise.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>rpt_EmployeeRecruitmentMonthWise.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Reports\EMP\rpt_EmployeeRetirementsDetails.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>rpt_EmployeeRetirementsDetails.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Reports\EMP\rpt_EmployeeServiceRecordsDetails.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>rpt_EmployeeServiceRecordsDetails.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Reports\EMP\rpt_ResignedEmployeeSheet.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>rpt_ResignedEmployeeSheet.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Reports\PAY\rpt_payroll_Details_NewResignEmpoyees_CEL.cs">
+      <DependentUpon>rpt_payroll_Details_NewResignEmpoyees_CEL.rpt</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Reports\PAY\rpt_payslip_Indika_OLD.cs">
+      <DependentUpon>rpt_payslip_Indika_OLD.rpt</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Reports\PAY\rpt_SalaryRegister_Indika.cs">
+      <DependentUpon>rpt_SalaryRegister_Indika.rpt</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Reports\TAS\rpt_Daily_NopayReport.cs">
+      <DependentUpon>rpt_Daily_NopayReport.rpt</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Reports\TAS\rpt_FingerPrints_MoreThanTwoReport.cs">
+      <DependentUpon>rpt_FingerPrints_MoreThanTwoReport.rpt</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Reports\TAS\rpt_AttendanceIncentiveReport.cs">
+      <DependentUpon>rpt_AttendanceIncentiveReport.rpt</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Reports\Test\CrossTab_RnD.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>CrossTab_RnD.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Reports\Test\CrossTab_RnD2.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>CrossTab_RnD2.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Transaction Forms\PAY\frm_Employee_SalaryAddustment.xaml.cs">
+      <DependentUpon>frm_Employee_SalaryAddustment.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Transaction Forms\Test\frm_ReportViwerTest.xaml.cs">
+      <DependentUpon>frm_ReportViwerTest.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\Test\rpt_SalaryRegisterSummary_AKT_Test.cs">
+      <DependentUpon>rpt_SalaryRegisterSummary_AKT_Test.rpt</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Transaction Forms\TAS\UC_AttendanceProcessPeriod.xaml.cs">
+      <DependentUpon>UC_AttendanceProcessPeriod.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\CC\rpt_TemporaryWorkersPayment.cs">
+      <DependentUpon>rpt_TemporaryWorkersPayment.rpt</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Reports\CC\rpt_CoconutWashingPayment.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>rpt_CoconutWashingPayment.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Reports\CC\rpt_ShellRemovingAtteandanceAllowance.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>rpt_ShellRemovingAtteandanceAllowance.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Reports\CC\rpt_ShellRemovingEPF-ETF-Summary.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>rpt_ShellRemovingEPF-ETF-Summary.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Reports\CC\rpt_ShellRemovingMonthlySummary_PermanentEmployees.cs">
+      <DependentUpon>rpt_ShellRemovingMonthlySummary_PermanentEmployees.rpt</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Reports\CC\rpt_ShellRemovingMonthlySummary.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>rpt_ShellRemovingMonthlySummary.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Reports\CC\rpt_ShellRemovingPayment.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>rpt_ShellRemovingPayment.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Reports\CC\rpt_ShellRemovingPayment_NightTime.cs">
+      <DependentUpon>rpt_ShellRemovingPayment_NightTime.rpt</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Reports\frm_ReportViwer_Winform.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Reports\frm_ReportViwer_Winform.Designer.cs">
+      <DependentUpon>frm_ReportViwer_Winform.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\PAY\rpt_CoinAnalysisReport_UnprocessedPayslipItem_AKT.cs">
+      <DependentUpon>rpt_CoinAnalysisReport_UnprocessedPayslipItem_AKT.rpt</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Reports\PAY\rpt_CoinAnalysisReport_SalaryAdvance_AKT.cs">
+      <DependentUpon>rpt_CoinAnalysisReport_SalaryAdvance_AKT.rpt</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Reports\PAY\rpt_EPF-ETF_Sheet.cs">
+      <DependentUpon>rpt_EPF-ETF_Sheet.rpt</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Reports\PAY\rpt_ETF_FormII_Return.cs">
+      <DependentUpon>rpt_ETF_FormII_Return.rpt</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Reports\PAY\rpt_OverTimeAmountReport_Summary.cs">
+      <DependentUpon>rpt_OverTimeAmountReport_Summary.rpt</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Reports\PAY\rpt_PAYE_Deduction_EmployeeWise.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>rpt_PAYE_Deduction_EmployeeWise.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Reports\PAY\rpt_ETF_R1-Form.cs">
+      <DependentUpon>rpt_ETF_R1-Form.rpt</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Reports\PAY\rpt_payroll_EmployeeCatWise_Summary_CEL.cs">
+      <DependentUpon>rpt_payroll_EmployeeCatWise_Summary_CEL.rpt</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Reports\PAY\rpt_payroll_Detail_CEL.cs">
+      <DependentUpon>rpt_payroll_Detail_CEL.rpt</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Reports\PAY\rpt_payslip_CEL.cs">
+      <DependentUpon>rpt_payslip_CEL.rpt</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Reports\PAY\rpt_payroll_Summary_CEL.cs">
+      <DependentUpon>rpt_payroll_Summary_CEL.rpt</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Reports\PAY\rpt_PayslipItemAmount_ForSixMonths.cs">
+      <DependentUpon>rpt_PayslipItemAmount_ForSixMonths.rpt</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Reports\PAY\rpt_ETF_FormII_Return-OLD.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>rpt_ETF_FormII_Return-OLD.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Reports\PAY\rpt_PaidEmployee_List.cs">
+      <DependentUpon>rpt_PaidEmployee_List.rpt</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Reports\PAY\rpt_payslip_AKT_2.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>rpt_payslip_AKT_2.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Reports\PAY\rpt_payslip_AKT_New.cs">
+      <DependentUpon>rpt_payslip_AKT_New.rpt</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Reports\PAY\rpt_SalaryRegister_CEL.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>rpt_SalaryRegister_CEL.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Reports\PAY\rpt_UnprocessedPayslipItem_SignatureSheet.cs">
+      <DependentUpon>rpt_UnprocessedPayslipItem_SignatureSheet.rpt</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Reports\TAS\rpt_Headcount_Details.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>rpt_Headcount_Details.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Reports\TAS\rpt_AttendanceSummary_DeviceRawData-Details.cs">
+      <DependentUpon>rpt_AttendanceSummary_DeviceRawData-Details.rpt</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Reports\TAS\rpt_LeaveBalance.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>rpt_LeaveBalance.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Reports\TAS\rpt_LeaveEncashment_EmployeeWise.cs">
+      <DependentUpon>rpt_LeaveEncashment_EmployeeWise.rpt</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Reports\PAY\rpt_PayslipItemAmount_SignatureSheet.cs">
+      <DependentUpon>rpt_PayslipItemAmount_SignatureSheet.rpt</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Reports\PAY\rpt_CoinAnalysisReport_AKT.cs">
+      <DependentUpon>rpt_CoinAnalysisReport_AKT.rpt</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Reports\PAY\rpt_EPF_C-Form_AKT.cs">
+      <DependentUpon>rpt_EPF_C-Form_AKT.rpt</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Reports\PAY\rpt_SalaryRegisterDetail_AKT.cs">
+      <DependentUpon>rpt_SalaryRegisterDetail_AKT.rpt</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Reports\PAY\rpt_SignatureSheet_Salary_AKT.cs">
+      <DependentUpon>rpt_SignatureSheet_Salary_AKT.rpt</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Reports\PAY\rpt_allowanceSheet_HeroNature.cs">
+      <DependentUpon>rpt_allowanceSheet_HeroNature.rpt</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Reports\PAY\rpt_allowanceSheet_HeroZipper.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>rpt_allowanceSheet_HeroZipper.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Reports\PAY\rpt_PayslipItemAmount_EmployeeWise_AKT.cs">
+      <DependentUpon>rpt_PayslipItemAmount_EmployeeWise_AKT.rpt</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Reports\PAY\rpt_Denomination_Allowance_Hero.cs">
+      <DependentUpon>rpt_Denomination_Allowance_Hero.rpt</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Reports\PAY\rpt_BankTranferSalary_Hero.cs">
+      <DependentUpon>rpt_BankTranferSalary_Hero.rpt</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Reports\PAY\rpt_EPF_C-Form.cs">
+      <DependentUpon>rpt_EPF_C-Form.rpt</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Reports\PAY\rpt_EPF-ETF_Sheet_Hero.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>rpt_EPF-ETF_Sheet_Hero.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Reports\PAY\rpt_payslip_HeroZipper-New.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>rpt_payslip_HeroZipper-New.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Reports\PAY\rpt_Denomination_Hero.cs">
+      <DependentUpon>rpt_Denomination_Hero.rpt</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Reports\PAY\rpt_payslip_HeroZipper.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>rpt_payslip_HeroZipper.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Reports\PAY\rpt_payslip_PPS.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>rpt_payslip_PPS.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Reports\PAY\rpt_payslip_AKT.cs">
+      <DependentUpon>rpt_payslip_AKT.rpt</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Reports\PAY\rpt_SalaryRegisterSummary_AKT.cs">
+      <DependentUpon>rpt_SalaryRegisterSummary_AKT.rpt</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Reports\PAY\rpt_SalaryRegister-DeptWiseGrouping_AKT.cs">
+      <DependentUpon>rpt_SalaryRegister-DeptWiseGrouping_AKT.rpt</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Reports\PAY\rpt_TotalEarningsLabour_Hero.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>rpt_TotalEarningsLabour_Hero.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Reports\PAY\rpt_SalaryRegister_AKT.cs">
+      <DependentUpon>rpt_SalaryRegister_AKT.rpt</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Reports\PAY\rpt_SalaryRegister_Hero.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>rpt_SalaryRegister_Hero.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Reports\TAS\rpt_AttendanceSummary_EmployeeWise%28Detail%29  CEL.cs">
+      <DependentUpon>rpt_AttendanceSummary_EmployeeWise%28Detail%29  CEL.rpt</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Reports\TAS\rpt_AttendanceSummary_EmployeeWise%28Detail%29_AKT.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>rpt_AttendanceSummary_EmployeeWise%28Detail%29_AKT.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Reports\TAS\rpt_AttendanceSummary_EmployeeWise_AKT.cs">
+      <DependentUpon>rpt_AttendanceSummary_EmployeeWise_AKT.rpt</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Reports\TAS\rpt_AttendanceSummary_EmployeeWise_heroZip.cs">
+      <DependentUpon>rpt_AttendanceSummary_EmployeeWise_heroZip.rpt</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Reports\TAS\rpt_AttendanceSummary_DeviceRawData.cs">
+      <DependentUpon>rpt_AttendanceSummary_DeviceRawData.rpt</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Reports\TAS\rpt_OvertimeReport.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>rpt_OvertimeReport.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Reports\PAY\rpt_OverTimeAmountReport_Details.cs">
+      <DependentUpon>rpt_OverTimeAmountReport_Details.rpt</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Transaction Forms\CC\UC_CoconutWashingDailyEntry.xaml.cs">
+      <DependentUpon>UC_CoconutWashingDailyEntry.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Transaction Forms\CC\UC_CoconutWashingEndofWeekProcess.xaml.cs">
+      <DependentUpon>UC_CoconutWashingEndofWeekProcess.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Transaction Forms\CC\UC_TemporaryWorkersDailyEntry.xaml.cs">
+      <DependentUpon>UC_TemporaryWorkersDailyEntry.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Transaction Forms\PAY\frm_Employee_Payroll_RawData.xaml.cs">
+      <DependentUpon>frm_Employee_Payroll_RawData.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Transaction Forms\PAY\frm_Employee_PaySlipItems.xaml.cs">
+      <DependentUpon>frm_Employee_PaySlipItems.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Master Forms\UC_Documents.xaml.cs">
+      <DependentUpon>UC_Documents.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Master Forms\UC_SecurityFormMaster.xaml.cs">
+      <DependentUpon>UC_SecurityFormMaster.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Master Forms\UC_SecurityReportMaster.xaml.cs">
+      <DependentUpon>UC_SecurityReportMaster.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\HRM\Reff\rpt_genBank.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>rpt_genBank.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Reports\HRM\Reff\rpt_genBankBranch.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>rpt_genBankBranch.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Reports\HRM\Reff\rpt_genCity.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>rpt_genCity.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Reports\HRM\Reff\rpt_genCountry.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>rpt_genCountry.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Reports\HRM\Reff\rpt_genDistrict.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>rpt_genDistrict.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Reports\HRM\Reff\rpt_hrDesignation.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>rpt_hrDesignation.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Reports\CC\rpt_payslip_HeroNature_CoconutCutting.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>rpt_payslip_HeroNature_CoconutCutting.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Reports\TAS\rpt_Headcount.cs">
+      <DependentUpon>rpt_Headcount.rpt</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Reports\TAS\rpt_LeaveCard1.cs">
+      <DependentUpon>rpt_LeaveCard1.rpt</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Master Forms\UC_CompanyMaster.xaml.cs">
+      <DependentUpon>UC_CompanyMaster.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Master Forms\UC_Customization.xaml.cs">
+      <DependentUpon>UC_Customization.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\CC\rpt_DeShellingClearingDailyOutput.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>rpt_DeShellingClearingDailyOutput.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Reports\CC\rpt_ShellRemovingWorkersSalary - Allowance Only.cs">
+      <DependentUpon>rpt_ShellRemovingWorkersSalary - Allowance Only.rpt</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Reports\CC\rpt_ShellRemovingWorkersSalary_Round.cs">
+      <DependentUpon>rpt_ShellRemovingWorkersSalary_Round.rpt</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Reports\CC\rpt_ShellRemovingWorkersSalary.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>rpt_ShellRemovingWorkersSalary.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Reports\CC\rpt_ShellRemovingWorkersSalary_Denomination.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>rpt_ShellRemovingWorkersSalary_Denomination.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Reports\CC\rpt_ShellRemovingWorkersTravellingAllowance.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>rpt_ShellRemovingWorkersTravellingAllowance.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Reports\TAS\rpt_AttendanceReportEntireYear_HeroZipper.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>rpt_AttendanceReportEntireYear_HeroZipper.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Reports\TAS\rpt_AttendanceSummary_EmployeeWise%28Detail%29.cs">
+      <DependentUpon>rpt_AttendanceSummary_EmployeeWise%28Detail%29.rpt</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Reports\TAS\rpt_CheckRollreport_TW.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>rpt_CheckRollreport_TW.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Reports\TAS\NotePrint\rpt_genGatePass.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>rpt_genGatePass.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Reports\PAY\rpt_SalaryIncrement_Hero.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>rpt_SalaryIncrement_Hero.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Transaction Forms\CC\UC_CoconutCuttingDailyEntry.xaml.cs">
+      <DependentUpon>UC_CoconutCuttingDailyEntry.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Transaction Forms\CC\UC_CoconutCuttingEndofWeekProcess.xaml.cs">
+      <DependentUpon>UC_CoconutCuttingEndofWeekProcess.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Transaction Forms\PAY\frm_Employee_Salary.xaml.cs">
+      <DependentUpon>frm_Employee_Salary.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Transaction Forms\PAY\UC_Employee_PaySlipItem_Amount.xaml.cs">
+      <DependentUpon>UC_Employee_PaySlipItem_Amount.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Transaction Forms\PAY\UC_PayrollControlPannel.xaml.cs">
+      <DependentUpon>UC_PayrollControlPannel.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Transaction Forms\PAY\UC_PayrollUserPermissions.xaml.cs">
+      <DependentUpon>UC_PayrollUserPermissions.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Transaction Forms\PAY\UC_PayslipItems.xaml.cs">
+      <DependentUpon>UC_PayslipItems.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Transaction Forms\PAY\UC_Payslip_Items_Statutary.xaml.cs">
+      <DependentUpon>UC_Payslip_Items_Statutary.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Transaction Forms\PAY\UC_PayslipItems_Class.xaml.cs">
+      <DependentUpon>UC_PayslipItems_Class.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Transaction Forms\PAY\UC_PayslipItems_Type.xaml.cs">
+      <DependentUpon>UC_PayslipItems_Type.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Transaction Forms\PAY\UC_Paymas_ProcessGroup.xaml.cs">
+      <DependentUpon>UC_Paymas_ProcessGroup.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Transaction Forms\PAY\UC_Paymass_ProcessPeriod_Main.xaml.cs">
+      <DependentUpon>UC_Paymass_ProcessPeriod_Main.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Transaction Forms\PAY\UC_Paymass_ProcessPeriod_Sub.xaml.cs">
+      <DependentUpon>UC_Paymass_ProcessPeriod_Sub.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Transaction Forms\TAS\Frm_EmployeeMonthlyAttendance.xaml.cs">
+      <DependentUpon>Frm_EmployeeMonthlyAttendance.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Transaction Forms\TAS\UC_GreetingsEmailScheduler.xaml.cs">
+      <DependentUpon>UC_GreetingsEmailScheduler.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Transaction Forms\PAY\UC_PAYE_TaxTable-1.xaml.cs">
+      <DependentUpon>UC_PAYE_TaxTable-1.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Master Forms\UC_CompanyRegInfo.xaml.cs">
+      <DependentUpon>UC_CompanyRegInfo.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Transaction Forms\TAS\UC_MonthlyAttendanceControlPanel.xaml.cs">
+      <DependentUpon>UC_MonthlyAttendanceControlPanel.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Transaction Forms\Test\UC_Report_Test.xaml.cs">
+      <DependentUpon>UC_Report_Test.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Transaction Forms\TAS\UC_Roster.xaml.cs">
+      <DependentUpon>UC_Roster.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Transaction Forms\TAS\UC_WeeklyAttendanceControlPanel.xaml.cs">
+      <DependentUpon>UC_WeeklyAttendanceControlPanel.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="User Contrals\frm_AlertPreview.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="User Contrals\frm_AlertPreview.Designer.cs">
+      <DependentUpon>frm_AlertPreview.cs</DependentUpon>
+    </Compile>
+    <Compile Include="User Contrals\frm_BirthdayEmailSender.xaml.cs">
+      <DependentUpon>frm_BirthdayEmailSender.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="User Management\DTQ\frm_DTQ_Testings.xaml.cs">
+      <DependentUpon>frm_DTQ_Testings.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="User Management\DTQ\UC_RollbackPayroll.xaml.cs">
+      <DependentUpon>UC_RollbackPayroll.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="User Management\DTQ\UC_RollbackTimeAttendance.xaml.cs">
+      <DependentUpon>UC_RollbackTimeAttendance.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="User Management\UC_SystemBackup.xaml.cs">
+      <DependentUpon>UC_SystemBackup.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="User Management\UC_FunctionMaster_EnablePermission.xaml.cs">
+      <DependentUpon>UC_FunctionMaster_EnablePermission.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\Tools\cls_ReportUtils.cs" />
+    <Compile Include="vw_Leave.xaml.cs">
+      <DependentUpon>vw_Leave.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Widgets\dashboard_employee.xaml.cs">
+      <DependentUpon>dashboard_employee.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Widgets\dashboard_management.xaml.cs">
+      <DependentUpon>dashboard_management.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Widgets\Dashboord_IT.xaml.cs">
+      <DependentUpon>Dashboord_IT.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="DataSets\dts_AttendanceSummary.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>dts_AttendanceSummary.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="DataSets\dts_Generel.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>dts_Generel.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="DataSets\dts_ReportExport.cs">
+      <DependentUpon>dts_ReportExport.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="DataSets\dts_TAS.cs">
+      <DependentUpon>dts_TAS.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="frmCanteen.xaml.cs">
+      <DependentUpon>frmCanteen.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\TAS\rpt_LateEmployees.cs">
+      <DependentUpon>rpt_LateEmployees.rpt</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Search Forms\frmSearch_ShiftAdv.xaml.cs">
+      <DependentUpon>frmSearch_ShiftAdv.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Widgets\frm_DashBord.xaml.cs">
+      <DependentUpon>frm_DashBord.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\TAS\rpt_DailyMissedPunchReport.cs">
+      <DependentUpon>rpt_DailyMissedPunchReport.rpt</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Reports\TAS\rpt_Daily_Absenteesim.cs">
+      <DependentUpon>rpt_Daily_Absenteesim.rpt</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Reports\TAS\rpt_tasDailyMispunchReport.cs">
+      <DependentUpon>rpt_tasDailyMispunchReport.rpt</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Reports\TAS\rpt_AttendanceSummary_EmployeeWise.cs">
+      <DependentUpon>rpt_AttendanceSummary_EmployeeWise.rpt</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Reports\TAS\rpt_EmployeeLeaveCard.cs">
+      <DependentUpon>rpt_EmployeeLeaveCard.rpt</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Reports\TAS\rpt_GatePassDetail.cs">
+      <DependentUpon>rpt_GatePassDetail.rpt</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Transaction Forms\TAS\UC_Approvals.xaml.cs">
+      <DependentUpon>UC_Approvals.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Transaction Forms\Other\UC_CompanyAwardsAndCeritificates.xaml.cs">
+      <DependentUpon>UC_CompanyAwardsAndCeritificates.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Transaction Forms\Other\UC_CompanyBrands.xaml.cs">
+      <DependentUpon>UC_CompanyBrands.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Transaction Forms\Other\UC_CompanyEvents.xaml.cs">
+      <DependentUpon>UC_CompanyEvents.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Transaction Forms\Other\UC_EmployeeIncedentalDiary.xaml.cs">
+      <DependentUpon>UC_EmployeeIncedentalDiary.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Transaction Forms\TAS\UC_OTApproval.xaml.cs">
+      <DependentUpon>UC_OTApproval.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Master Forms\UC_Skill_CategoryMaster.xaml.cs">
+      <DependentUpon>UC_Skill_CategoryMaster.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Transaction Forms\Other\UC_Vacencies.xaml.cs">
+      <DependentUpon>UC_Vacencies.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="User Contrals\UC_AttendanceEntryRivision_Mini.xaml.cs">
+      <DependentUpon>UC_AttendanceEntryRivision_Mini.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Widgets\frm_RequestNewAccount.xaml.cs">
+      <DependentUpon>frm_RequestNewAccount.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Widgets\UC_ChangePassword.xaml.cs">
+      <DependentUpon>UC_ChangePassword.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Widgets\UC_DeviceRowDataMini.xaml.cs">
+      <DependentUpon>UC_DeviceRowDataMini.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Widgets\UC_HotKeys.xaml.cs">
+      <DependentUpon>UC_HotKeys.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Widgets\UC_Leave_GP_History.xaml.cs">
+      <DependentUpon>UC_Leave_GP_History.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Widgets\R2Logo.xaml.cs">
+      <DependentUpon>R2Logo.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Widgets\UC_Chat.xaml.cs">
+      <DependentUpon>UC_Chat.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Widgets\UC_Clock.xaml.cs">
+      <DependentUpon>UC_Clock.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Widgets\UC_Notes.xaml.cs">
+      <DependentUpon>UC_Notes.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Widgets\UC_RequestForLetter.xaml.cs">
+      <DependentUpon>UC_RequestForLetter.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Transaction Forms\Other\UC_Staff_Loan.xaml.cs">
+      <DependentUpon>UC_Staff_Loan.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Widgets\UC_WebLinks.xaml.cs">
+      <DependentUpon>UC_WebLinks.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="ToBeDeleted\frm_EPF.xaml.cs">
+      <DependentUpon>frm_EPF.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="ToBeDeleted\frm_ETF.xaml.cs">
+      <DependentUpon>frm_ETF.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Widgets\frm_forgetPassword.xaml.cs">
+      <DependentUpon>frm_forgetPassword.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="frm_LandingPage.xaml.cs">
+      <DependentUpon>frm_LandingPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="ToBeDeleted\frm_pays.xaml.cs">
+      <DependentUpon>frm_pays.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="ToBeDeleted\frm_Print.xaml.cs">
+      <DependentUpon>frm_Print.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="DataSets\dts_ReportExport.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>dts_ReportExport.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="DataSets\dts_TAS.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>dts_TAS.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="ToBeDeleted\frm_salary.xaml.cs">
+      <DependentUpon>frm_salary.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="ToBeDeleted\frm_salarypf.xaml.cs">
+      <DependentUpon>frm_salarypf.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="ToBeDeleted\frm_salsum.xaml.cs">
+      <DependentUpon>frm_salsum.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="ToBeDeleted\frm_saltax.xaml.cs">
+      <DependentUpon>frm_saltax.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="ToBeDeleted\frm_slips.xaml.cs">
+      <DependentUpon>frm_slips.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="frm_ToolKit.xaml.cs">
+      <DependentUpon>frm_ToolKit.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="ToBeDeleted\frm_UpdaidEmp.xaml.cs">
+      <DependentUpon>frm_UpdaidEmp.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Master Forms\UC_EmployeeTitleMaster.xaml.cs">
+      <DependentUpon>UC_EmployeeTitleMaster.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Master Forms\UC_HolidayTypeMaster.xaml.cs">
+      <DependentUpon>UC_HolidayTypeMaster.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Master Forms\UC_TownMaster.xaml.cs">
+      <DependentUpon>UC_TownMaster.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\HRM\Reff\rpt_DeviceDetail.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>rpt_DeviceDetail.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Transaction Forms\TAS\UC_Approve_GatePass.xaml.cs">
+      <DependentUpon>UC_Approve_GatePass.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Master Forms\UC_CarderCount.xaml.cs">
+      <DependentUpon>UC_CarderCount.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Master Forms\UC_EmployeeEntitleLeaves.xaml.cs">
+      <DependentUpon>UC_EmployeeEntitleLeaves.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Master Forms\UC_GSDivision.xaml.cs">
+      <DependentUpon>UC_GSDivision.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Master Forms\UC_PayrollLevel.xaml.cs">
+      <DependentUpon>UC_PayrollLevel.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Master Forms\UC_Province.xaml.cs">
+      <DependentUpon>UC_Province.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\UC_Report.xaml.cs">
+      <DependentUpon>UC_Report.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="User Management\UC_UserPermission.xaml.cs">
+      <DependentUpon>UC_UserPermission.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Widgets\UC_Vw_EmployeeDemography.xaml.cs">
+      <DependentUpon>UC_Vw_EmployeeDemography.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Transaction Forms\Other\UC_YearEndProcess.xaml.cs">
+      <DependentUpon>UC_YearEndProcess.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Master Forms\UC_BudgetPlan.xaml.cs">
+      <DependentUpon>UC_BudgetPlan.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="User Contrals\SEACC_Form.cs" />
+    <Compile Include="User Contrals\UC_Calander.xaml.cs">
+      <DependentUpon>UC_Calander.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="User Contrals\UC_CalanderDate.xaml.cs">
+      <DependentUpon>UC_CalanderDate.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Master Forms\UC_CarderRequest.xaml.cs">
+      <DependentUpon>UC_CarderRequest.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Master Forms\UC_CompanyBranchMaster.xaml.cs">
+      <DependentUpon>UC_CompanyBranchMaster.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Master Forms\UC_DivisionMaster.xaml.cs">
+      <DependentUpon>UC_DivisionMaster.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Master Forms\UC_EmployeeCategory2.xaml.cs">
+      <DependentUpon>UC_EmployeeCategory2.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Master Forms\UC_EmployeeCategory3.xaml.cs">
+      <DependentUpon>UC_EmployeeCategory3.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Master Forms\UC_EmployeeSalaryMaster.xaml.cs">
+      <DependentUpon>UC_EmployeeSalaryMaster.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Master Forms\UC_EmployeeStatus.xaml.cs">
+      <DependentUpon>UC_EmployeeStatus.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Transaction Forms\TAS\UC_GatePass.xaml.cs">
+      <DependentUpon>UC_GatePass.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Transaction Forms\Other\UC_HRCalander.xaml.cs">
+      <DependentUpon>UC_HRCalander.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Master Forms\UC_LoadTypeMaster.xaml.cs">
+      <DependentUpon>UC_LoadTypeMaster.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Transaction Forms\PAY\to be deleted\UC_LumpSum.xaml.cs">
+      <DependentUpon>UC_LumpSum.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Master Forms\UC_MealPlanRates.xaml.cs">
+      <DependentUpon>UC_MealPlanRates.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Transaction Forms\PAY\to be deleted\UC_PayrollDeductionCreation.xaml.cs">
+      <DependentUpon>UC_PayrollDeductionCreation.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Transaction Forms\PAY\to be deleted\UC_PayrollDeduction_TAX.xaml.cs">
+      <DependentUpon>UC_PayrollDeduction_TAX.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Master Forms\UC_PayrollEarningsMaster.xaml.cs">
+      <DependentUpon>UC_PayrollEarningsMaster.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Transaction Forms\PAY\to be deleted\UC_SalarySheet.xaml.cs">
+      <DependentUpon>UC_SalarySheet.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Transaction Forms\PAY\to be deleted\UC_SelectedCV.xaml.cs">
+      <DependentUpon>UC_SelectedCV.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="User Management\UC_UserMaster.xaml.cs">
+      <DependentUpon>UC_UserMaster.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="User Contrals\frm_UserMenu.xaml.cs">
+      <DependentUpon>frm_UserMenu.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\frm_ReportViwer.xaml.cs">
+      <DependentUpon>frm_ReportViwer.xaml</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Reports\TAS\rpt_EmployeeWiseDeviceRawData.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>rpt_EmployeeWiseDeviceRawData.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="User Contrals\UC_AdminPanal.xaml.cs">
+      <DependentUpon>UC_AdminPanal.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Transaction Forms\TAS\UC_DailyAttendanceControlPanel.xaml.cs">
+      <DependentUpon>UC_DailyAttendanceControlPanel.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Master Forms\UC_Bank.xaml.cs">
+      <DependentUpon>UC_Bank.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Master Forms\UC_BankBranch.xaml.cs">
+      <DependentUpon>UC_BankBranch.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Master Forms\UC_CityMaster.xaml.cs">
+      <DependentUpon>UC_CityMaster.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Master Forms\UC_CountryMaster.xaml.cs">
+      <DependentUpon>UC_CountryMaster.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Master Forms\UC_DeptMaster.xaml.cs">
+      <DependentUpon>UC_DeptMaster.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Master Forms\UC_DesignationMaster.xaml.cs">
+      <DependentUpon>UC_DesignationMaster.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Master Forms\UC_DeviceMaster.xaml.cs">
+      <DependentUpon>UC_DeviceMaster.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Transaction Forms\TAS\UC_DeviceRawData.xaml.cs">
+      <DependentUpon>UC_DeviceRawData.xaml</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Master Forms\UC_DistrictMaster.xaml.cs">
+      <DependentUpon>UC_DistrictMaster.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Master Forms\UC_EmployeeCategory1.xaml.cs">
+      <DependentUpon>UC_EmployeeCategory1.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Master Forms\UC_EmployeeMaster.xaml.cs">
+      <DependentUpon>UC_EmployeeMaster.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Transaction Forms\TAS\UC_EmpShiftAdjustment.xaml.cs">
+      <DependentUpon>UC_EmpShiftAdjustment.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Master Forms\UC_HolidayMast.xaml.cs">
+      <DependentUpon>UC_HolidayMast.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Master Forms\UC_HRMonth.xaml.cs">
+      <DependentUpon>UC_HRMonth.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Master Forms\UC_HRYear.xaml.cs">
+      <DependentUpon>UC_HRYear.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Transaction Forms\TAS\UC_LeaveApplication.xaml.cs">
+      <DependentUpon>UC_LeaveApplication.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Master Forms\UC_LeaveTypesMaster.xaml.cs">
+      <DependentUpon>UC_LeaveTypesMaster.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Master Forms\UC_NationalityMaster.xaml.cs">
+      <DependentUpon>UC_NationalityMaster.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Master Forms\UC_PostalCodesMaster.xaml.cs">
+      <DependentUpon>UC_PostalCodesMaster.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Master Forms\UC_RecuirtmentType.xaml.cs">
+      <DependentUpon>UC_RecuirtmentType.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Master Forms\UC_Religion.xaml.cs">
+      <DependentUpon>UC_Religion.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Master Forms\UC_SectionMaster.xaml.cs">
+      <DependentUpon>UC_SectionMaster.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Master Forms\UC_ShiftMaster.xaml.cs">
+      <DependentUpon>UC_ShiftMaster.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Master Forms\UC_SubSectionMaster.xaml.cs">
+      <DependentUpon>UC_SubSectionMaster.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="User Contrals\UC_UserIndicator.xaml.cs">
+      <DependentUpon>UC_UserIndicator.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Search Forms\frmSearch.xaml.cs">
+      <DependentUpon>frmSearch.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Widgets\wj_Backup.xaml.cs">
+      <DependentUpon>wj_Backup.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Widgets\WJ_Chat.xaml.cs">
+      <DependentUpon>WJ_Chat.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Widgets\wj_DBinfo.xaml.cs">
+      <DependentUpon>wj_DBinfo.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Widgets\wj_memo.xaml.cs">
+      <DependentUpon>wj_memo.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Widgets\wj_TestMail.xaml.cs">
+      <DependentUpon>wj_TestMail.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Widgets\wj_UserAccess.xaml.cs">
+      <DependentUpon>wj_UserAccess.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Widgets\wj_version.xaml.cs">
+      <DependentUpon>wj_version.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Widgets\Wj_ChangePassword.xaml.cs">
+      <DependentUpon>Wj_ChangePassword.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Widgets\wj_Date.xaml.cs">
+      <DependentUpon>wj_Date.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Widgets\wj_Leave.xaml.cs">
+      <DependentUpon>wj_Leave.xaml</DependentUpon>
+    </Compile>
+    <Page Include="DeviceSyncronization.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Master Forms\UC_CompanyAccount.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Master Forms\UC_AttendanceGroup1.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Master Forms\UC_HRWeek.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Transaction Forms\PAY\frm_Employee_SalaryAddustment.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Transaction Forms\Test\frm_ReportViwerTest.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Transaction Forms\TAS\UC_AttendanceProcessPeriod.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Transaction Forms\CC\UC_CoconutWashingDailyEntry.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Transaction Forms\CC\UC_CoconutWashingEndofWeekProcess.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Transaction Forms\CC\UC_TemporaryWorkersDailyEntry.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Transaction Forms\PAY\frm_Employee_Payroll_RawData.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Transaction Forms\PAY\frm_Employee_PaySlipItems.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Master Forms\UC_CompanyMaster.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Master Forms\UC_Documents.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Master Forms\UC_SecurityFormMaster.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Master Forms\UC_SecurityReportMaster.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Master Forms\UC_Customization.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Transaction Forms\CC\UC_CoconutCuttingDailyEntry.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Transaction Forms\CC\UC_CoconutCuttingEndofWeekProcess.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Transaction Forms\PAY\frm_Employee_Salary.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Transaction Forms\PAY\UC_Employee_PaySlipItem_Amount.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Transaction Forms\PAY\UC_PayrollControlPannel.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Transaction Forms\PAY\UC_PayrollUserPermissions.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Transaction Forms\PAY\UC_PayslipItems.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Transaction Forms\PAY\UC_Payslip_Items_Statutary.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Transaction Forms\PAY\UC_PayslipItems_Class.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Transaction Forms\PAY\UC_PayslipItems_Type.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Transaction Forms\PAY\UC_Paymas_ProcessGroup.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Transaction Forms\PAY\UC_Paymass_ProcessPeriod_Main.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Transaction Forms\PAY\UC_Paymass_ProcessPeriod_Sub.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Transaction Forms\TAS\Frm_EmployeeMonthlyAttendance.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Transaction Forms\TAS\UC_GreetingsEmailScheduler.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Transaction Forms\PAY\UC_PAYE_TaxTable-1.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Master Forms\UC_CompanyRegInfo.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Transaction Forms\TAS\UC_MonthlyAttendanceControlPanel.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Transaction Forms\Test\UC_Report_Test.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Transaction Forms\TAS\UC_Roster.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Transaction Forms\TAS\UC_WeeklyAttendanceControlPanel.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="User Contrals\frm_BirthdayEmailSender.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="User Management\DTQ\frm_DTQ_Testings.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="User Management\DTQ\UC_RollbackPayroll.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="User Management\DTQ\UC_RollbackTimeAttendance.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="User Management\UC_SystemBackup.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="User Management\UC_FunctionMaster_EnablePermission.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="vw_Leave.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Widgets\dashboard_employee.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Widgets\dashboard_management.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Widgets\Dashboord_IT.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="frmCanteen.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Search Forms\frmSearch_ShiftAdv.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Widgets\frm_DashBord.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Transaction Forms\TAS\UC_Approvals.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Transaction Forms\Other\UC_CompanyAwardsAndCeritificates.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Transaction Forms\Other\UC_CompanyBrands.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Transaction Forms\Other\UC_CompanyEvents.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Transaction Forms\Other\UC_EmployeeIncedentalDiary.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Transaction Forms\TAS\UC_OTApproval.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Master Forms\UC_Skill_CategoryMaster.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Transaction Forms\Other\UC_Vacencies.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="User Contrals\UC_AttendanceEntryRivision_Mini.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Widgets\frm_RequestNewAccount.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Widgets\UC_ChangePassword.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Widgets\UC_DeviceRowDataMini.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Widgets\UC_HotKeys.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Widgets\UC_Leave_GP_History.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Widgets\R2Logo.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="ToBeDeleted\frm_EPF.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="ToBeDeleted\frm_ETF.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Widgets\frm_forgetPassword.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="frm_LandingPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="ToBeDeleted\frm_pays.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="ToBeDeleted\frm_Print.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="frmSplash.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="ToBeDeleted\frm_salary.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="ToBeDeleted\frm_salarypf.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="ToBeDeleted\frm_salsum.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="ToBeDeleted\frm_saltax.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="ToBeDeleted\frm_slips.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="frm_ToolKit.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="ToBeDeleted\frm_UpdaidEmp.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Master Forms\UC_EmployeeTitleMaster.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Master Forms\UC_HolidayTypeMaster.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Master Forms\UC_TownMaster.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Widgets\UC_Chat.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Widgets\UC_Clock.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Widgets\UC_Notes.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Widgets\UC_RequestForLetter.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Transaction Forms\Other\UC_Staff_Loan.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Widgets\UC_WebLinks.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Transaction Forms\TAS\UC_Approve_GatePass.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Master Forms\UC_CarderCount.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Master Forms\UC_EmployeeEntitleLeaves.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Master Forms\UC_GSDivision.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Master Forms\UC_PayrollLevel.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Master Forms\UC_Province.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Reports\UC_Report.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="User Management\UC_UserPermission.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Widgets\UC_Vw_EmployeeDemography.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Transaction Forms\Other\UC_YearEndProcess.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Master Forms\UC_BudgetPlan.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="User Contrals\UC_Calander.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="User Contrals\UC_CalanderDate.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Master Forms\UC_CarderRequest.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Master Forms\UC_CompanyBranchMaster.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Master Forms\UC_DivisionMaster.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Master Forms\UC_EmployeeCategory2.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Master Forms\UC_EmployeeCategory3.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Master Forms\UC_EmployeeSalaryMaster.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Master Forms\UC_EmployeeStatus.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Transaction Forms\TAS\UC_GatePass.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Transaction Forms\Other\UC_HRCalander.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Master Forms\UC_LoadTypeMaster.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Transaction Forms\PAY\to be deleted\UC_LumpSum.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Master Forms\UC_MealPlanRates.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Transaction Forms\PAY\to be deleted\UC_PayrollDeductionCreation.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Transaction Forms\PAY\to be deleted\UC_PayrollDeduction_TAX.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Master Forms\UC_PayrollEarningsMaster.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Transaction Forms\PAY\to be deleted\UC_SalarySheet.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Transaction Forms\PAY\to be deleted\UC_SelectedCV.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="User Management\UC_UserMaster.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="User Contrals\frm_UserMenu.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Reports\frm_ReportViwer.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="User Contrals\UC_AdminPanal.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Transaction Forms\TAS\UC_DailyAttendanceControlPanel.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Master Forms\UC_Bank.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Master Forms\UC_BankBranch.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Master Forms\UC_CityMaster.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Master Forms\UC_CountryMaster.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Master Forms\UC_DeptMaster.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Master Forms\UC_DesignationMaster.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Master Forms\UC_DeviceMaster.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Transaction Forms\TAS\UC_DeviceRawData.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Master Forms\UC_DistrictMaster.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Master Forms\UC_EmployeeCategory1.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Master Forms\UC_EmployeeMaster.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Transaction Forms\TAS\UC_EmpShiftAdjustment.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Master Forms\UC_HolidayMast.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Master Forms\UC_HRMonth.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Master Forms\UC_HRYear.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Transaction Forms\TAS\UC_LeaveApplication.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Master Forms\UC_LeaveTypesMaster.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Master Forms\UC_NationalityMaster.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Master Forms\UC_PostalCodesMaster.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Master Forms\UC_RecuirtmentType.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Master Forms\UC_Religion.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Master Forms\UC_SectionMaster.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Master Forms\UC_ShiftMaster.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Master Forms\UC_SubSectionMaster.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="User Contrals\UC_UserIndicator.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="frm_Login.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Search Forms\frmSearch.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Widgets\wj_Backup.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Widgets\WJ_Chat.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Widgets\wj_DBinfo.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Widgets\wj_memo.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Widgets\wj_TestMail.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Widgets\wj_UserAccess.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Widgets\wj_version.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Widgets\Wj_ChangePassword.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Widgets\wj_Date.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Widgets\wj_Leave.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="frmSplash.xaml.cs">
+      <DependentUpon>frmSplash.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="frm_Login.xaml.cs">
+      <DependentUpon>frm_Login.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+    <EmbeddedResource Include="Reports\CC\rpt_TemporaryWorkersPayment.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>rpt_TemporaryWorkersPayment.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\CC\rpt_CoconutWashingPayment.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>rpt_CoconutWashingPayment.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\CC\rpt_ShellRemovingAtteandanceAllowance.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>rpt_ShellRemovingAtteandanceAllowance.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\CC\rpt_ShellRemovingEPF-ETF-Summary.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>rpt_ShellRemovingEPF-ETF-Summary.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\CC\rpt_ShellRemovingMonthlySummary_PermanentEmployees.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>rpt_ShellRemovingMonthlySummary_PermanentEmployees.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\CC\rpt_ShellRemovingMonthlySummary.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>rpt_ShellRemovingMonthlySummary.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\CC\rpt_ShellRemovingPayment.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>rpt_ShellRemovingPayment.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\CC\rpt_ShellRemovingPayment_NightTime.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>rpt_ShellRemovingPayment_NightTime.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\EMP\rpt_EmployeeBirthdayCalendar.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>rpt_EmployeeBirthdayCalendar.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\EMP\rpt_EmployeeBirthdayList.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>rpt_EmployeeBirthdayList.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\EMP\rpt_employeeDemography-Personal Details.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>rpt_employeeDemography-Personal Details.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\EMP\rpt_EmployeeInformationSheet.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>rpt_EmployeeInformationSheet.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\EMP\rpt_EmployeeRecruitmentMonthWise.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>rpt_EmployeeRecruitmentMonthWise.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\EMP\rpt_EmployeeRetirementsDetails.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>rpt_EmployeeRetirementsDetails.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\EMP\rpt_EmployeeServiceRecordsDetails.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>rpt_EmployeeServiceRecordsDetails.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\EMP\rpt_ResignedEmployeeSheet.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>rpt_ResignedEmployeeSheet.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\PAY\rpt_payroll_Details_NewResignEmpoyees_CEL.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>rpt_payroll_Details_NewResignEmpoyees_CEL.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\PAY\rpt_SignatureSheet_Salary.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>rpt_SignatureSheet_Salary.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\PAY\rpt_payslip_Indika.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>rpt_payslip_Indika.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\PAY\rpt_payslip_Indika_OLD.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>rpt_payslip_Indika_OLD.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\PAY\rpt_SalaryRegister_Indika.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>rpt_SalaryRegister_Indika.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\TAS\rpt_Daily_NopayReport.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>rpt_Daily_NopayReport.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\TAS\rpt_FingerPrints_MoreThanTwoReport.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>rpt_FingerPrints_MoreThanTwoReport.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\TAS\rpt_AttendanceIncentiveReport.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>rpt_AttendanceIncentiveReport.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\Test\CrossTab_RnD.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>CrossTab_RnD.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\Test\CrossTab_RnD2.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>CrossTab_RnD2.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\frm_ReportViwer_Winform.resx">
+      <DependentUpon>frm_ReportViwer_Winform.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\HRM\Reff\rpt_genBank.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>rpt_genBank.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\HRM\Reff\rpt_genBankBranch.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>rpt_genBankBranch.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\HRM\Reff\rpt_genCity.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>rpt_genCity.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\HRM\Reff\rpt_genCountry.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>rpt_genCountry.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\HRM\Reff\rpt_genDistrict.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>rpt_genDistrict.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\HRM\Reff\rpt_hrDesignation.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>rpt_hrDesignation.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\PAY\rpt_CoinAnalysisReport_UnprocessedPayslipItem_AKT.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>rpt_CoinAnalysisReport_UnprocessedPayslipItem_AKT.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\PAY\rpt_CoinAnalysisReport_SalaryAdvance_AKT.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>rpt_CoinAnalysisReport_SalaryAdvance_AKT.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\PAY\rpt_EPF-ETF_Sheet.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>rpt_EPF-ETF_Sheet.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\PAY\rpt_ETF_FormII_Return.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>rpt_ETF_FormII_Return.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\PAY\rpt_OverTimeAmountReport_Summary.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>rpt_OverTimeAmountReport_Summary.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\PAY\rpt_PAYE_Deduction_EmployeeWise.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>rpt_PAYE_Deduction_EmployeeWise.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\PAY\rpt_ETF_R1-Form.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>rpt_ETF_R1-Form.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\PAY\rpt_payroll_EmployeeCatWise_Summary_CEL.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>rpt_payroll_EmployeeCatWise_Summary_CEL.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\PAY\rpt_payroll_Detail_CEL.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>rpt_payroll_Detail_CEL.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\PAY\rpt_payslip_CEL.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>rpt_payslip_CEL.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\PAY\rpt_payroll_Summary_CEL.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>rpt_payroll_Summary_CEL.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\PAY\rpt_PayslipItemAmount_ForSixMonths.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>rpt_PayslipItemAmount_ForSixMonths.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\PAY\rpt_ETF_FormII_Return-OLD.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>rpt_ETF_FormII_Return-OLD.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\PAY\rpt_PaidEmployee_List.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>rpt_PaidEmployee_List.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\PAY\rpt_payslip_AKT_2.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>rpt_payslip_AKT_2.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\PAY\rpt_payslip_AKT_New.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>rpt_payslip_AKT_New.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\Test\rpt_SalaryRegisterSummary_AKT_Test.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>rpt_SalaryRegisterSummary_AKT_Test.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\PAY\rpt_SalaryRegister_CEL.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>rpt_SalaryRegister_CEL.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\PAY\rpt_UnprocessedPayslipItem_SignatureSheet.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>rpt_UnprocessedPayslipItem_SignatureSheet.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\TAS\rpt_Headcount_Details.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>rpt_Headcount_Details.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\TAS\rpt_AttendanceSummary_DeviceRawData-Details.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>rpt_AttendanceSummary_DeviceRawData-Details.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\TAS\rpt_LeaveBalance.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>rpt_LeaveBalance.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\TAS\rpt_LeaveEncashment_EmployeeWise.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>rpt_LeaveEncashment_EmployeeWise.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\PAY\rpt_PayslipItemAmount_SignatureSheet.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>rpt_PayslipItemAmount_SignatureSheet.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\PAY\rpt_CoinAnalysisReport_AKT.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>rpt_CoinAnalysisReport_AKT.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\PAY\rpt_EPF_C-Form_AKT.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>rpt_EPF_C-Form_AKT.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\PAY\rpt_SalaryRegisterDetail_AKT.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>rpt_SalaryRegisterDetail_AKT.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\PAY\rpt_SignatureSheet_Salary_AKT.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>rpt_SignatureSheet_Salary_AKT.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\PAY\rpt_allowanceSheet_HeroNature.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>rpt_allowanceSheet_HeroNature.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\PAY\rpt_allowanceSheet_HeroZipper.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>rpt_allowanceSheet_HeroZipper.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\PAY\rpt_PayslipItemAmount_EmployeeWise_AKT.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>rpt_PayslipItemAmount_EmployeeWise_AKT.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\PAY\rpt_Denomination_Allowance_Hero.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>rpt_Denomination_Allowance_Hero.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\PAY\rpt_BankTranferSalary_Hero.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>rpt_BankTranferSalary_Hero.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\PAY\rpt_EPF_C-Form.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>rpt_EPF_C-Form.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\PAY\rpt_EPF-ETF_Sheet_Hero.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>rpt_EPF-ETF_Sheet_Hero.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\CC\rpt_payslip_HeroNature_CoconutCutting.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>rpt_payslip_HeroNature_CoconutCutting.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\PAY\rpt_payslip_HeroZipper-New.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>rpt_payslip_HeroZipper-New.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\PAY\rpt_Denomination_Hero.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>rpt_Denomination_Hero.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\PAY\rpt_payslip_HeroZipper.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>rpt_payslip_HeroZipper.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\PAY\rpt_payslip_PPS.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>rpt_payslip_PPS.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\PAY\rpt_payslip_AKT.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>rpt_payslip_AKT.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\PAY\rpt_SalaryRegisterSummary_AKT.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>rpt_SalaryRegisterSummary_AKT.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\PAY\rpt_SalaryRegister-DeptWiseGrouping_AKT.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>rpt_SalaryRegister-DeptWiseGrouping_AKT.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\PAY\rpt_TotalEarningsLabour_Hero.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>rpt_TotalEarningsLabour_Hero.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\PAY\rpt_SalaryRegister_AKT.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>rpt_SalaryRegister_AKT.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\PAY\rpt_SalaryRegister_Hero.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>rpt_SalaryRegister_Hero.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\TAS\rpt_DailyMissedPunchReport.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>rpt_DailyMissedPunchReport.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\TAS\rpt_Daily_Absenteesim.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>rpt_Daily_Absenteesim.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\TAS\rpt_Headcount.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>rpt_Headcount.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\TAS\rpt_LateEmployees.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>rpt_LateEmployees.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\TAS\rpt_LeaveCard1.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>rpt_LeaveCard1.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\TAS\rpt_tasDailyMispunchReport.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>rpt_tasDailyMispunchReport.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\TAS\rpt_AttendanceSummary_EmployeeWise.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>rpt_AttendanceSummary_EmployeeWise.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\TAS\rpt_EmployeeLeaveCard.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>rpt_EmployeeLeaveCard.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\TAS\rpt_GatePassDetail.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>rpt_GatePassDetail.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\CC\rpt_DeShellingClearingDailyOutput.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>rpt_DeShellingClearingDailyOutput.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\CC\rpt_ShellRemovingWorkersSalary - Allowance Only.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>rpt_ShellRemovingWorkersSalary - Allowance Only.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\CC\rpt_ShellRemovingWorkersSalary_Round.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>rpt_ShellRemovingWorkersSalary_Round.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\CC\rpt_ShellRemovingWorkersSalary.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>rpt_ShellRemovingWorkersSalary.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\CC\rpt_ShellRemovingWorkersSalary_Denomination.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>rpt_ShellRemovingWorkersSalary_Denomination.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\CC\rpt_ShellRemovingWorkersTravellingAllowance.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>rpt_ShellRemovingWorkersTravellingAllowance.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\TAS\rpt_AttendanceReportEntireYear_HeroZipper.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>rpt_AttendanceReportEntireYear_HeroZipper.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\TAS\rpt_AttendanceSummary_EmployeeWise%28Detail%29  CEL.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>rpt_AttendanceSummary_EmployeeWise%28Detail%29  CEL.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\TAS\rpt_AttendanceSummary_EmployeeWise%28Detail%29.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>rpt_AttendanceSummary_EmployeeWise%28Detail%29.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\TAS\rpt_AttendanceSummary_EmployeeWise%28Detail%29_AKT.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>rpt_AttendanceSummary_EmployeeWise%28Detail%29_AKT.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\TAS\rpt_AttendanceSummary_EmployeeWise_AKT.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>rpt_AttendanceSummary_EmployeeWise_AKT.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\TAS\rpt_AttendanceSummary_EmployeeWise_heroZip.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>rpt_AttendanceSummary_EmployeeWise_heroZip.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\TAS\rpt_CheckRollreport_TW.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>rpt_CheckRollreport_TW.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\TAS\NotePrint\rpt_genGatePass.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>rpt_genGatePass.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\TAS\rpt_EmployeeWiseDeviceRawData.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>rpt_EmployeeWiseDeviceRawData.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\HRM\Reff\rpt_DeviceDetail.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>rpt_DeviceDetail.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\PAY\rpt_SalaryIncrement_Hero.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>rpt_SalaryIncrement_Hero.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\TAS\rpt_AttendanceSummary_DeviceRawData.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>rpt_AttendanceSummary_DeviceRawData.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\TAS\rpt_OvertimeReport.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>rpt_OvertimeReport.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\PAY\rpt_OverTimeAmountReport_Details.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>rpt_OverTimeAmountReport_Details.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="User Contrals\frm_AlertPreview.resx">
+      <DependentUpon>frm_AlertPreview.cs</DependentUpon>
+    </EmbeddedResource>
+    <None Include="DataSets\dts_AttendanceSummary.xsc">
+      <DependentUpon>dts_AttendanceSummary.xsd</DependentUpon>
+    </None>
+    <None Include="DataSets\dts_AttendanceSummary.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>dts_AttendanceSummary.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="DataSets\dts_AttendanceSummary.xss">
+      <DependentUpon>dts_AttendanceSummary.xsd</DependentUpon>
+    </None>
+    <None Include="DataSets\dts_Generel.xsc">
+      <DependentUpon>dts_Generel.xsd</DependentUpon>
+    </None>
+    <None Include="DataSets\dts_Generel.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>dts_Generel.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="DataSets\dts_Generel.xss">
+      <DependentUpon>dts_Generel.xsd</DependentUpon>
+    </None>
+    <None Include="DataSets\dts_Masters.xsc">
+      <DependentUpon>dts_Masters.xsd</DependentUpon>
+    </None>
+    <None Include="DataSets\dts_Masters.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>dts_Masters.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="DataSets\dts_Masters.xss">
+      <DependentUpon>dts_Masters.xsd</DependentUpon>
+    </None>
+    <None Include="DataSets\dts_PAY.xsc">
+      <DependentUpon>dts_PAY.xsd</DependentUpon>
+    </None>
+    <None Include="DataSets\dts_PAY.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>dts_PAY.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="DataSets\dts_PAY.xss">
+      <DependentUpon>dts_PAY.xsd</DependentUpon>
+    </None>
+    <None Include="DataSets\dts_ReportExport.xsc">
+      <DependentUpon>dts_ReportExport.xsd</DependentUpon>
+    </None>
+    <None Include="DataSets\dts_ReportExport.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>dts_ReportExport.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="DataSets\dts_ReportExport.xss">
+      <DependentUpon>dts_ReportExport.xsd</DependentUpon>
+    </None>
+    <None Include="DataSets\dts_TAS.xsc">
+      <DependentUpon>dts_TAS.xsd</DependentUpon>
+    </None>
+    <None Include="DataSets\dts_TAS.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>dts_TAS.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="DataSets\dts_TAS.xss">
+      <DependentUpon>dts_TAS.xsd</DependentUpon>
+    </None>
+    <None Include="DataSets\dts_CC.xsc">
+      <DependentUpon>dts_CC.xsd</DependentUpon>
+    </None>
+    <None Include="DataSets\dts_CC.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>dts_CC.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="DataSets\dts_CC.xss">
+      <DependentUpon>dts_CC.xsd</DependentUpon>
+    </None>
+    <None Include="packages.config" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <AppDesigner Include="Properties\" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\DataTire\DataTire.csproj">
+      <Project>{bfb246fe-1f01-49d4-acf2-60a876a6f9f5}</Project>
+      <Name>DataTire</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Digiteq_Logic\Digiteq_Logic.csproj">
+      <Project>{186bfd56-ca91-45ef-ba5f-1810e229825a}</Project>
+      <Name>Digiteq_Logic</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\SEACC_Alert_Engine\SEACC_Alert_Engine.csproj">
+      <Project>{183A2C5F-8BCA-46B1-A2BA-E1F356D9D419}</Project>
+      <Name>SEACC_Alert_Engine</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ZION.HRCM.DATA\ZION.HRCM.DATA.csproj">
+      <Project>{9a9631f3-744c-4d90-88f7-58f712f52b49}</Project>
+      <Name>ZION.HRCM.DATA</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ZION.HRCM.DOMAIN\ZION.HRCM.DOMAIN.csproj">
+      <Project>{c38d6ba4-a3e0-492a-9a82-6b9d4e26132b}</Project>
+      <Name>ZION.HRCM.DOMAIN</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\digiteq_Logo.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{C0C07587-41A7-46C8-8FBD-3F9C8EBE2DDC}" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="ToBeDeleted\GatePass.JPG" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Icon.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\menu.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="ToBeDeleted\form c1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="ToBeDeleted\Monthly-ETF1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="ToBeDeleted\UNPAID Employees1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="ToBeDeleted\Pay Sheet-Qtrly1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="ToBeDeleted\Salary Journal1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="ToBeDeleted\slips1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="ToBeDeleted\SALARY SHEET1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="ToBeDeleted\Pay Sheet-PAYE1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="ToBeDeleted\Pay Sheet-SUMM1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Service References\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Cafetaria.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include=".NETFramework,Version=v4.5">
+      <Visible>False</Visible>
+      <ProductName>Microsoft .NET Framework 4.5 %28x86 and x64%29</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Client.3.5">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1 Client Profile</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Patern_1.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\SEACC HRCM Logo_Transperent_SML.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\dtq.PNG" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\user.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Preview32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Setting50.png" />
+    <Resource Include="Resources\Settings-50.png" />
+    <Resource Include="Resources\Calendar-50.png" />
+    <Resource Include="Resources\logo.PNG" />
+    <Resource Include="Resources\PayrollCalendar.png" />
+    <Resource Include="Resources\Paroll_GroupPremission.png" />
+    <Resource Include="Resources\person.png" />
+    <Resource Include="Resources\Payroll.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Preview-96.png" />
+  </ItemGroup>
+  <ItemGroup />
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <PropertyGroup>
+    <PostBuildEvent>rd /s /q "de", "en", "es", "fr", "it", "ja", "ko", "ru", "zh-Hans", "zh-Hant"</PostBuildEvent>
+  </PropertyGroup>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

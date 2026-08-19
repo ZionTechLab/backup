@@ -1,0 +1,12 @@
+﻿<Window x:Class="Digiteq.frm_salary"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Report Viewer" Height="536.842" Width="663.158" WindowState="Maximized">
+    <Grid>
+        <ScrollViewer>
+           
+ <Image  Source="Salary Journal1.png" Stretch="Fill"/>
+  
+        </ScrollViewer>
+         </Grid>
+</Window>

@@ -1,0 +1,72 @@
+﻿<UserControl xmlns:Digiteq="clr-namespace:Digiteq" 
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:SEACC_WPFControls="clr-namespace:SEACC_WPFControls;assembly=SEACC_WPFControls" 
+             xmlns:SEACC_WPFControls1="clr-namespace:SEACC_WPFControls" 
+             xmlns:Themes="clr-namespace:Microsoft.Windows.Themes;assembly=PresentationFramework.Aero" x:Class="Digiteq.Transaction_Forms.CoconutCuting.UC_CoconutCuttingEndofWeekProcess"
+             mc:Ignorable="d" Background="#FFFFFF" >
+    <SEACC_WPFControls1:SEACC_Form x:Name="SEACC_Form" >
+        <Grid  Margin="15,10,0,50">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition x:Name="coloumnA" Width="300" />
+                <ColumnDefinition x:Name="coloumnB" Width="480" />
+                <ColumnDefinition Width="5" />
+                <ColumnDefinition Width="*" />
+            </Grid.ColumnDefinitions>
+            <Grid Background="#FF34495E" Margin="0,0,5,0" Grid.Column="0">
+                <SEACC_WPFControls:SEACC_DataGrid_Advanced x:Name="dgr_Main_Week" Background="#FF34495E" MouseLeftButtonUp1="dgr_Main_Week_MouseLeftButtonUp1"  />
+                <TextBlock Text="Weeks" Foreground="White" FontSize="14" HorizontalAlignment="Center" Height="30" VerticalAlignment="Top" />
+            </Grid>
+            <Grid Background="#FF34495E" Margin="0,0,5,0" Grid.Column="1">
+                <SEACC_WPFControls:SEACC_DataGrid_Advanced x:Name="dgr_Main_Employees" Background="#FF34495E" MouseLeftButtonUp1="dgr_Main_Employees_MouseLeftButtonUp1"  />
+                <TextBlock Text="Employees" Foreground="White" FontSize="14" HorizontalAlignment="Center" Height="30" VerticalAlignment="Top" />
+                <CheckBox x:Name="chkSelectAll" Content="Select All" Foreground="White" FontSize="12" HorizontalAlignment="Right" Margin="235,12,12,0" VerticalAlignment="Top" Checked="chkSelectAll_Checked" Unchecked="chkSelectAll_Unchecked"/>
+            </Grid>
+            <GridSplitter Background="#D5D5D5" x:Name="gridSplitter" Width="5" HorizontalAlignment="Stretch" Grid.Column="2" Margin="0,1,0,-1"  />
+            <Grid Grid.Column="3" Margin="10,0,0,0">
+                <ScrollViewer VerticalScrollBarVisibility="Auto">
+                    <StackPanel>
+                        <Expander x:Name="exp_Selection" Header="Employee Selection" FontSize="24" Foreground="#FF0096D6" IsExpanded="True">
+                            <StackPanel>
+                                <SEACC_WPFControls:SEACC_LableTextBox FontSize="12" Caption="Year" x:Name="txtYearID" MouseDoubleClick="txtYearID_MouseDoubleClick" />
+                                <SEACC_WPFControls:SEACC_LableTextBox FontSize="12" Caption="Employee" x:Name="txtEmpNo" MouseDoubleClick="txtEmpNo_MouseDoubleClick"  />
+                                <SEACC_WPFControls:SEACC_LableTextBox FontSize="12" Caption="Designation" x:Name="txtDesignation" MouseDoubleClick="txtDesignation_MouseDoubleClick" Visibility="Collapsed"  />
+                                <SEACC_WPFControls:SEACC_LableTextBox FontSize="12" Caption="Division" x:Name="txtDivision" MouseDoubleClick="txtDivision_MouseDoubleClick" Visibility="Collapsed"  />
+                                <SEACC_WPFControls:SEACC_LableTextBox FontSize="12" Caption="Department" x:Name="txtDepartment" MouseDoubleClick="txtDepartment_MouseDoubleClick" Visibility="Collapsed"  />
+                                <SEACC_WPFControls:SEACC_LableTextBox FontSize="12" Caption="Section" x:Name="txtSection" MouseDoubleClick="txtSection_MouseDoubleClick"  />
+                                <SEACC_WPFControls:SEACC_LableTextBox FontSize="12" Caption="Sub Section" x:Name="txtSubSection" MouseDoubleClick="txtSubSection_MouseDoubleClick" Visibility="Collapsed"   />
+                                <SEACC_WPFControls:SEACC_LableTextBox FontSize="12" Caption="Empl Category 1" x:Name="txtEmpCategory1" MouseDoubleClick="txtEmpCategory1_MouseDoubleClick" Visibility="Collapsed"  />
+                                <SEACC_WPFControls:SEACC_LableTextBox FontSize="12" Caption="Empl Category 2" x:Name="txtEmpCategory2" MouseDoubleClick="txtEmpCategory2_MouseDoubleClick" Visibility="Collapsed"  />
+                                <SEACC_WPFControls:SEACC_LableTextBox FontSize="12" Caption="Empl Category 3" x:Name="txtEmpCategory3" MouseDoubleClick="txtEmpCategory3_MouseDoubleClick" Visibility="Collapsed"  />
+                                <SEACC_WPFControls:SEACC_Button x:Name="btnLoad" FontSize="12" Content="Load" Background="#FF41B1E1" Foreground="White"  Width="75" Height="23" HorizontalAlignment="Left" Margin="195,20,0,0" Click="btnLoad_Click" />
+                            </StackPanel>
+                        </Expander>
+                        <Expander x:Name="exp_Process" Header="Process / Rollback" FontSize="24" Foreground="#FF0096D6" IsExpanded="True">
+                            <StackPanel>
+                                <CheckBox x:Name="chkWeekProcessCompleted" Content="Process of all employees is completed for selected week" FontSize="12" Margin="5" />
+                                <SEACC_WPFControls:SEACC_Button x:Name="btnProcess" FontSize="12" Content="End of Week Process" Background="Green" Foreground="White"  Width="120" Height="30" Margin="40,5,5,5" HorizontalAlignment="Left" Click="btnProcess_Click" />
+                                <SEACC_WPFControls:SEACC_Button x:Name="btnRoleBack" FontSize="12" Content="Rollback" Background="Red" Foreground="White"  Width="120" Height="30" HorizontalAlignment="Left" Margin="40,15,5,5" Visibility="Hidden" />
+                            </StackPanel>
+                        </Expander>
+
+                        <Expander x:Name="exp_Configd" Header="Configuration Details" FontSize="24" Foreground="#FF0096D6">
+                            <StackPanel>
+                                <SEACC_WPFControls:SEACC_LableTextBox FontSize="12" Caption="Daily Target Nuts " x:Name="txtDailyTargetNuts" />
+                                <SEACC_WPFControls:SEACC_LableTextBox FontSize="12" Caption="Daily Margin Nuts" x:Name="txtDailyMarginNuts" />
+                                <SEACC_WPFControls:SEACC_LableTextBox FontSize="12" Caption="Incre. Rate Per Nut" x:Name="txtIncreRatePerNut" />
+                                <SEACC_WPFControls:SEACC_LableTextBox FontSize="12" Caption="Salary Gen. Rate" x:Name="txtSalaryGenRate" />
+                                <SEACC_WPFControls:SEACC_LableTextBox FontSize="12" Caption="BRA 1 Amount" x:Name="txtBRA1Amount" />
+                                <SEACC_WPFControls:SEACC_LableTextBox FontSize="12" Caption="BRA 2 Amount" x:Name="txtBRA2Amount" />
+                                <SEACC_WPFControls:SEACC_LableTextBox FontSize="12" Caption="BRA 3 Amount" x:Name="txtBRA3Amount"  />
+                                <SEACC_WPFControls:SEACC_LableTextBox FontSize="12" Caption="Atten. Allowance" x:Name="txtAtteandaceAllowanceAmount"  />
+                            </StackPanel>
+                        </Expander>
+
+                    </StackPanel>
+                </ScrollViewer>
+            </Grid>
+        </Grid>
+    </SEACC_WPFControls1:SEACC_Form>
+</UserControl>
