@@ -1,0 +1,89 @@
+@page
+@model IndexModel
+@{
+    ViewData["Title"] = "Report Selector";
+    Layout = "_Layout";
+}
+
+<div class="page-wrapper">
+
+    <!-- Header card -->
+    <div class="header-card">
+        <div class="header-accent"></div>
+        <div class="header-text">
+            <h1>Report Selector</h1>
+            <p>Choose a report to copy to the destination path</p>
+        </div>
+    </div>
+
+    <!-- Status alert -->
+    @if (!string.IsNullOrEmpty(Model.StatusMessage))
+    {
+        <div class="status-card @(Model.IsSuccess ? "success" : "error")" id="statusAlert">
+            <span class="status-icon">@(Model.IsSuccess ? "✓" : "✕")</span>
+            <span class="status-message">@Model.StatusMessage</span>
+            <button class="status-close" onclick="document.getElementById('statusAlert').remove()">✕</button>
+        </div>
+    }
+
+    <!-- Report buttons -->
+    <div class="btn-cards">
+
+        <form method="post" asp-page-handler="CopyOldReport" onsubmit="showSpinner()">
+            <button type="submit" class="report-card old-report">
+                <div class="card-icon-wrap">
+                    <svg class="card-icon" viewBox="0 0 24 24">
+                        <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/>
+                        <polyline points="14 2 14 8 20 8"/>
+                        <line x1="16" y1="13" x2="8" y2="13"/>
+                        <line x1="16" y1="17" x2="8" y2="17"/>
+                        <polyline points="10 9 9 9 8 9"/>
+                    </svg>
+                </div>
+                <div class="card-body-text">
+                    <span class="card-title">Old Report</span>
+                    <span class="card-subtitle">Copy previous report to destination</span>
+                </div>
+                <div class="card-arrow">
+                    <svg viewBox="0 0 24 24"><polyline points="9 18 15 12 9 6"/></svg>
+                </div>
+            </button>
+        </form>
+
+        <form method="post" asp-page-handler="CopyNewReport" onsubmit="showSpinner()">
+            <button type="submit" class="report-card new-report">
+                <div class="card-icon-wrap">
+                    <svg class="card-icon" viewBox="0 0 24 24">
+                        <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/>
+                        <polyline points="14 2 14 8 20 8"/>
+                        <line x1="12" y1="18" x2="12" y2="12"/>
+                        <line x1="9" y1="15" x2="15" y2="15"/>
+                    </svg>
+                </div>
+                <div class="card-body-text">
+                    <span class="card-title">New Report</span>
+                    <span class="card-subtitle">Copy latest report to destination</span>
+                </div>
+                <div class="card-arrow">
+                    <svg viewBox="0 0 24 24"><polyline points="9 18 15 12 9 6"/></svg>
+                </div>
+            </button>
+        </form>
+
+    </div>
+
+    <div class="footer-note">Paths configured in appsettings.json</div>
+</div>
+
+<!-- Spinner overlay -->
+<div class="spinner-overlay" id="spinnerOverlay">
+    <div class="spinner-ring"></div>
+</div>
+
+@section Scripts {
+<script>
+    function showSpinner() {
+        document.getElementById('spinnerOverlay').classList.add('active');
+    }
+</script>
+}

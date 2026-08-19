@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 18
+VisualStudioVersion = 18.4.11605.240 stable
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FileCopyApp", "FileCopyApp.csproj", "{77A2CF2E-345C-909E-B22B-88BEBA90B1DB}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{77A2CF2E-345C-909E-B22B-88BEBA90B1DB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{77A2CF2E-345C-909E-B22B-88BEBA90B1DB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{77A2CF2E-345C-909E-B22B-88BEBA90B1DB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{77A2CF2E-345C-909E-B22B-88BEBA90B1DB}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {02EBB73A-8E43-41ED-85D5-64F213559A98}
+	EndGlobalSection
+EndGlobal
