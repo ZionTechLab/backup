@@ -1,0 +1,22 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <ItemGroup>
+    <ProjectReference Include="..\Core\ReportEngine.Core.csproj" />
+    <ProjectReference Include="..\Output\ReportEngine.Output.csproj" />
+  </ItemGroup>
+
+  <!-- Ship the sample template next to the executable so the demo can find it at runtime. -->
+  <ItemGroup>
+    <None Include="..\Templates\PatientReport.json" Link="Templates\PatientReport.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
+
+  <PropertyGroup>
+    <OutputType>Exe</OutputType>
+    <TargetFramework>net8.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+  </PropertyGroup>
+
+</Project>

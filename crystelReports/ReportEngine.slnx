@@ -1,0 +1,17 @@
+<Solution>
+  <Folder Name="/Core/">
+    <Project Path="Core/ReportEngine.Core.csproj" />
+  </Folder>
+  <Folder Name="/Demo/">
+    <Project Path="Demo/ReportEngine.Demo.csproj" />
+  </Folder>
+  <Folder Name="/Migrator/">
+    <Project Path="Migrator/ReportEngine.Migrator.csproj" />
+  </Folder>
+  <Folder Name="/Output/">
+    <Project Path="Output/ReportEngine.Output.csproj" />
+  </Folder>
+  <Folder Name="/Tests/">
+    <Project Path="Tests/ReportEngine.Tests.csproj" />
+  </Folder>
+</Solution>

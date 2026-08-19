@@ -1,0 +1,86 @@
+/* Styles for ReviewPage component */
+.review-section {
+    padding: 2rem; /* Equivalent to p-8 */
+}
+
+.review-section h2 {
+    font-size: 1.5rem; /* Equivalent to text-2xl */
+    font-weight: 600; /* Equivalent to font-semibold */
+    color: #2d3748; /* Equivalent to text-gray-800 */
+    margin-bottom: 1.5rem; /* Equivalent to mb-6 */
+    text-align: center;
+}
+
+.itinerary-placeholder {
+    background-color: #f7fafc; /* bg-gray-50 */
+    padding: 1.5rem;
+    border-radius: 0.75rem; /* rounded-xl */
+    text-align: center;
+    color: #718096; /* text-gray-500 */
+    margin-bottom: 2rem; /* mb-8 */
+    border: 1px solid #e2e8f0; /* border-gray-200 */
+}
+
+.itinerary-placeholder p {
+    margin-bottom: 0.5rem;
+}
+
+.itinerary-placeholder ul {
+    list-style: disc;
+    padding-left: 20px; /* Adjust as needed for alignment */
+    margin-top: 0.5rem;
+    text-align: left;
+    display: inline-block; /* To center the block of list items */
+}
+
+.itinerary-placeholder li {
+    margin-bottom: 0.25rem;
+}
+
+.action-buttons-container {
+    display: flex;
+    justify-content: center;
+    gap: 1rem; /* Adds space between buttons */
+    margin-top: 1.5rem; /* Add some space above the buttons */
+}
+
+.action-button, .secondary-action-button {
+    padding: 0.75rem 2rem; /* px-8 py-3 */
+    border-radius: 0.5rem; /* rounded-lg */
+    font-weight: 500; /* font-medium */
+    border: none;
+    cursor: pointer;
+    transition: all 0.2s ease-in-out;
+    font-size: 0.9rem; /* Slightly smaller text */
+}
+
+.action-button {
+    background: linear-gradient(135deg, #6b8bfa 0%, #4e6cef 100%); /* gradient-bg */
+    color: white;
+}
+
+.action-button:hover {
+    opacity: 0.9; /* hover:opacity-90 */
+    transform: scale(1.02); /* scale-on-hover */
+}
+
+.secondary-action-button {
+    background-color: #e2e8f0; /* bg-gray-200 */
+    color: #4a5568; /* text-gray-700 */
+    border: 1px solid #cbd5e0; /* border-gray-300 */
+}
+
+.secondary-action-button:hover {
+    background-color: #cbd5e0; /* hover:bg-gray-300 */
+    transform: scale(1.02);
+}
+
+/* Responsive adjustments if needed */
+@media (max-width: 480px) {
+    .action-buttons-container {
+        flex-direction: column; /* Stack buttons on very small screens */
+    }
+    .action-button, .secondary-action-button {
+        width: 100%; /* Make buttons full width when stacked */
+    }
+}

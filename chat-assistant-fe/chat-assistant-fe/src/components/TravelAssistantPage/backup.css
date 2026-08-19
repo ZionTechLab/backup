@@ -1,0 +1,68 @@
+.onboarding-section h2 {
+    font-size: 1.5rem; /* Equivalent to text-2xl */
+    font-weight: 600; /* Equivalent to font-semibold */
+    color: #2d3748; /* Equivalent to text-gray-800 */
+    margin-bottom: 1.5rem; /* mb-6 */
+    text-align: center; /* Center the onboarding heading */
+}
+.onboarding-section .card h3 {
+    font-size: 1.125rem; /* text-lg */
+    font-weight: 500;  /* font-medium */
+    color: #4a5568;    /* text-gray-700 */
+    margin-bottom: 1rem; /* mb-4 */
+}
+
+/* General Form Elements Styling (primarily for onboarding form) */
+.onboarding-section label {
+    display: block;
+    font-size: 0.875rem; /* text-sm */
+    font-weight: 500;  /* font-medium */
+    color: #4a5568;    /* text-gray-700 */
+    margin-bottom: 0.25rem; /* mb-1 */
+}.form-input-group .date-inputs {
+    margin-bottom: 0; /* Reset margin for date-inputs wrapper if it's inside a form-input-group */
+}
+
+
+.onboarding-section input[type="text"],
+.onboarding-section input[type="number"],
+.onboarding-section input[type="date"],
+
+.onboarding-section textarea {
+
+
+    
+    width: 100%;
+    padding: 0.5rem 1rem;   /* px-4 py-2 */
+    border: 1px solid #cbd5e0; /* border-gray-300 */
+    border-radius: 0.5rem;   /* rounded-lg */
+    box-sizing: border-box;
+    transition: border-color 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+    font-size: 0.9rem; /* Ensure consistent font size */
+}
+
+
+.onboarding-section input[type="text"]:focus,
+.onboarding-section input[type="number"]:focus,
+.onboarding-section input[type="date"]:focus,
+/* .onboarding-section select:focus, */
+.onboarding-section textarea:focus {
+    outline: none;
+    border-color: #4e6cef; /* focus:border-blue-500 */
+    box-shadow: 0 0 0 2px rgba(78, 108, 239, 0.3); /* focus:ring-2 focus:ring-blue-500 */
+}.onboarding-section .action-button {
+    background: linear-gradient(135deg, #6b8bfa 0%, #4e6cef 100%); /* gradient-bg */
+    color: white;
+    padding: 0.75rem 2rem; /* px-8 py-3 */
+    border-radius: 0.5rem; /* rounded-lg */
+    font-weight: 500; /* font-medium */
+    border: none;
+    cursor: pointer;
+    transition: all 0.2s ease-in-out;
+    font-size: 1rem; /* Make main action button text a bit larger */
+}
+
+.onboarding-section .action-button:hover {
+    opacity: 0.9; /* hover:opacity-90 */
+    transform: scale(1.02); /* scale-on-hover */
+}

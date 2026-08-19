@@ -1,0 +1,32 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <ItemGroup>
+    <ProjectReference Include="..\Core\ReportEngine.Core.csproj" />
+  </ItemGroup>
+
+  <PropertyGroup>
+    <OutputType>Exe</OutputType>
+    <!-- net*-windows because the Crystal extraction path uses System.Drawing (Windows-only). -->
+    <TargetFramework>net8.0-windows</TargetFramework>
+    <AssemblyName>RptMigrator</AssemblyName>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+
+    <!--
+      The Crystal Reports SDK (CrystalDecisions.*) is not referenced by default because it
+      is not available in this environment and ships only for .NET Framework. The extraction
+      code in RptExtractor.cs is compiled ONLY when the CRYSTAL symbol is defined. To enable it:
+
+        1. Install "SAP Crystal Reports, developer version for Microsoft Visual Studio".
+        2. Reference CrystalDecisions.CrystalReports.Engine + CrystalDecisions.Shared
+           (and re-target to net48 if the installed SDK requires .NET Framework).
+        3. Build with:  dotnet build -p:DefineConstants=CRYSTAL
+    -->
+  </PropertyGroup>
+
+  <!-- System.Drawing.Common is only needed by the gated Crystal extraction path. -->
+  <ItemGroup Condition="$(DefineConstants.Contains('CRYSTAL'))">
+    <PackageReference Include="System.Drawing.Common" Version="8.0.10" />
+  </ItemGroup>
+
+</Project>

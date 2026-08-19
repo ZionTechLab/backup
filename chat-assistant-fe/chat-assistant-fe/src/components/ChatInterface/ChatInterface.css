@@ -1,0 +1,191 @@
+/* Styles for ChatInterface component */
+.chat-interface {
+    display: flex;
+    flex-direction: column;
+height: calc(100vh - 20px - var(--theme-header-height) - var(--theme-footer-height));
+    background-color: #ffffff; /* Ensure it has a background if not part of a card */
+    border-radius: 1rem; /* Match parent card styling if applicable */
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08); /* shadow-soft, if standalone */
+    overflow: hidden; /* Important for rounded corners and layout */
+    width: 100%; /* Take full width of its container */
+}
+
+.chat-header {
+    background: linear-gradient(135deg, #6b8bfa 0%, #4e6cef 100%); /* gradient-bg */
+    color: white;
+    padding: 1rem; /* p-4 */
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-top-left-radius: 1rem; /* Match parent if this is the top element */
+    border-top-right-radius: 1rem; /* Match parent if this is the top element */
+}
+
+.chat-header-info {
+    display: flex;
+    align-items: center;
+}
+
+.avatar-image {
+    height: 2rem; /* h-8 */
+    width: 2rem; /* w-8 */
+    border-radius: 50%; /* Circular avatar */
+    margin-right: 0.75rem; /* mr-3 */
+    object-fit: cover; /* Ensure image covers the area */
+}
+
+.chat-header h2 {
+    font-weight: 500; /* font-medium */
+    font-size: 1.125rem; /* text-lg */
+    margin: 0 0 0.15rem 0; /* Resetting margin for h2 inside header, add small bottom margin if thread id is present */
+}
+
+.chat-header-info div > h2:only-child { /* If only h2 (no thread id), remove bottom margin */
+    margin-bottom: 0;
+}
+
+.thread-id-display {
+    font-size: 0.7rem; /* text-xs */
+    font-weight: 400;
+    color: rgba(255, 255, 255, 0.8); /* Lighter white */
+    margin: 0;
+    line-height: 1;
+}
+
+.back-button {
+    font-size: 0.875rem; /* text-sm */
+    background-color: rgba(255, 255, 255, 0.2); /* bg-white bg-opacity-20 */
+    padding: 0.35rem 0.85rem; /* px-3 py-1, adjusted for better feel */
+    border-radius: 9999px; /* rounded-full */
+    border: none;
+    color: white;
+    cursor: pointer;
+    transition: background-color 0.2s ease-in-out;
+    width:120px
+}
+
+.back-button:hover {
+    background-color: rgba(255, 255, 255, 0.3); /* hover:bg-opacity-30 */
+}
+
+/* Messages Area */
+.messages-area {
+    flex-grow: 1; /* flex-1 */
+    padding: 1rem; /* p-4 */
+    overflow-y: auto;
+    background-color: #f7fafc; /* bg-gray-50 */
+}
+
+.message-bubble-container {
+    display: flex;
+    margin-bottom: 0.75rem; /* mb-3, slightly reduced */
+}
+
+.message-bubble-container.user-message {
+    justify-content: flex-end;
+}
+
+.chat-bubble {
+    max-width: 80%; /* Max width of a bubble */
+    border-radius: 1rem; /* Softer radius */
+    padding: 0.65rem 1rem; /* p-2.5 px-4, adjusted padding */
+    word-wrap: break-word;
+    line-height: 1.45;
+    box-shadow: 0 1px 2px rgba(0,0,0,0.05); /* Softer shadow */
+}
+
+.assistant-message .chat-bubble {
+    background-color: #ffffff; /* bg-white */
+    color: #2d3748; /* text-gray-800 */
+    border: 1px solid #e2e8f0; /* Light border for assistant bubbles */
+}
+
+.user-message .chat-bubble {
+    background: linear-gradient(135deg, #6b8bfa 0%, #4e6cef 100%);
+    color: white;
+}
+
+/* Input Area */
+.input-area {
+    padding: 0.75rem 1rem; /* p-3 p-4, adjusted */
+    border-top: 1px solid #e2e8f0; /* border-t border-gray-200 */
+    background-color: #ffffff;
+    display: flex; /* Use flex to align textarea and button */
+    align-items: flex-end; /* Align items to the bottom for multi-line textarea */
+    border-bottom-left-radius: 1rem; /* Match parent if this is the bottom element */
+    border-bottom-right-radius: 1rem; /* Match parent if this is the bottom element */
+}
+
+.input-area textarea {
+    flex-grow: 1; /* flex-1 */
+    padding: 0.6rem 0.8rem; /* Adjusted padding */
+    border: 1px solid #cbd5e0; /* border-gray-300 */
+    border-radius: 0.5rem; /* rounded-lg */
+    box-sizing: border-box;
+    resize: none; /* Prevent manual resize */
+    min-height: calc(1.45em + 1.2rem + 2px); /* line-height + padding + border */
+    max-height: 120px; /* Max height before scrolling within textarea */
+    overflow-y: auto; /* Scroll within textarea if content exceeds max-height */
+    line-height: 1.45;
+    font-family: inherit; /* Ensure it uses the same font as the page */
+    font-size: 0.9rem; /* Match general text size */
+}
+
+.input-area textarea:focus {
+    outline: none;
+    border-color: #4e6cef; /* Equivalent to focus:border-blue-500 */
+    box-shadow: 0 0 0 2px rgba(78, 108, 239, 0.3); /* Equivalent to focus:ring-2 focus:ring-blue-500 */
+}
+
+.send-button {
+    background: linear-gradient(135deg, #6b8bfa 0%, #4e6cef 100%); /* gradient-bg */
+    color: white;
+    padding: 0.6rem 1rem; /* px-4 py-2, match textarea padding */
+    border-radius: 0.5rem; /* rounded-lg */
+    border: none;
+    cursor: pointer;
+    transition: opacity 0.2s ease-in-out;
+    margin-left: 0.5rem; /* space-x-2 */
+    height: calc(1.45em + 1.2rem + 2px); /* Match textarea initial height */
+    align-self: flex-end; /* Align with bottom of textarea */
+    width:100px
+}
+
+.send-button:hover {
+    opacity: 0.9; /* hover:opacity-90 */
+}
+.send-button:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+
+.disclaimer-text {
+    font-size: 0.75rem; /* text-xs */
+    color: #a0aec0; /* text-gray-500 */
+    text-align: center;
+    padding: 0.5rem 1rem 0.75rem; /* pt-2 pb-3 px-4 */
+    background-color: #ffffff; /* Match input area background */
+    border-bottom-left-radius: 1rem; /* Ensure it is part of the rounded structure if chat-interface is standalone */
+    border-bottom-right-radius: 1rem;
+    margin:0; /* Reset margin */
+    border-top: 1px solid #e2e8f0; /* Add a separator if input area doesn't have bottom border */
+}
+
+/* Responsive adjustments */
+@media (max-width: 480px) {
+    .chat-header h2 {
+        font-size: 1rem;
+    }
+    .avatar-image {
+        height: 1.75rem; /* Slightly smaller */
+        width: 1.75rem;
+        margin-right: 0.5rem;
+    }
+    .back-button {
+        padding: 0.3rem 0.75rem;
+        font-size: 0.8rem;
+    }
+    .input-area textarea, .send-button {
+        font-size: 0.85rem; /* Slightly smaller font in input on mobile */
+    }
+}

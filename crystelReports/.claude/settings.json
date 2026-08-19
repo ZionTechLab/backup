@@ -1,0 +1,13 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(dotnet --version)",
+      "Bash(dotnet --list-sdks)",
+      "Bash(dotnet --list-runtimes)",
+      "Bash(dotnet run *)",
+      "Bash(mkdir -p _scratch/reports _scratch/templates)",
+      "Bash(:)",
+      "Bash(echo \"exit=$?\")"
+    ]
+  }
+}

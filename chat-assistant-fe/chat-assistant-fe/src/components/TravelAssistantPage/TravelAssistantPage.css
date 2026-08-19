@@ -1,0 +1,178 @@
+.travel-assistant-content-wrapper {
+    background-color: var(--theme-bg-primary) ;
+    border-radius: 1rem;   
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08); 
+    overflow: hidden; 
+    transition: all 0.2s ease-in-out;
+    width: 100%;
+
+    padding: 1px;
+}
+
+.onboarding-section {
+    padding: 2rem; /* p-8 */
+}
+
+
+/* Card styling for the onboarding form */
+.onboarding-section .card {
+    background-color: #f7fafc; /* bg-gray-50 */
+    padding: 1.5rem;          /* p-6 */
+    border-radius: 0.75rem;    /* rounded-xl */
+    margin-bottom: 1.5rem;    /* mb-6 */
+    border: 1px solid #e2e8f0; /* Add a light border to cards */
+}
+.onboarding-section .card:last-child {
+    margin-bottom: 2rem; /* mb-8 for last card before action button */
+}
+
+
+
+
+
+/* General Input Group styling for error message positioning */
+.form-input-group {
+    position: relative;
+    /* Adjust margin-bottom if error messages are absolutely positioned below the input.
+       This creates space for the error message so it doesn't overlap subsequent elements.
+       The exact value might need tweaking based on the error message's height.
+       Let's assume error message height is around 1rem + padding.
+    */
+    margin-bottom: 1.75rem; /* Default margin, will be larger if error is shown */
+}
+
+
+
+
+.input-number-small {
+    max-width: 80px; /* Or a suitable small width */
+    /* To center it if the parent is a flex/grid cell and aligns items to start */
+    /* margin-left: auto;
+    margin-right: auto; */
+    /* Or, if the grid cell itself should be smaller, that's a different approach */
+}
+
+
+
+
+/* Grid layouts for form elements */
+
+
+/* Make .full-name-input-group's input span full width if it's not already by default */
+.full-name-input-group input[type="text"] {
+    width: 100%;
+}
+
+
+
+/* Date inputs specific styling */
+.onboarding-section .date-inputs {
+    display: flex;
+    align-items: center;
+}
+
+.onboarding-section .date-inputs input[type="date"]:first-child {
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 0;
+}
+.onboarding-section .date-inputs input[type="date"]:last-child {
+    border-top-left-radius: 0;
+    border-bottom-left-radius: 0;
+}
+.onboarding-section .date-inputs span {
+    background-color: #f7fafc; /* bg-gray-100 */
+    padding: 0.5rem 0.5rem;
+    height: calc(0.9rem + 1rem + 2px + 2px); /* font-size + py-2 + border + adjustment for line-height */
+    line-height: calc(0.9rem + 2px); /* Match input text line-height */
+    border-top: 1px solid #cbd5e0;
+    border-bottom: 1px solid #cbd5e0;
+    color: #4a5568;
+    font-size: 0.9rem;
+}
+
+/* Preferences styling */
+.onboarding-section .preferences-description {
+    font-size: 0.875rem; /* text-sm */
+    color: #718096; /* text-gray-500 */
+    margin-bottom: 0.75rem; /* mb-3 */
+}
+
+.onboarding-section .preference-item {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem; /* space-x-2 */
+    font-size: 0.875rem;
+    color: #4a5568; /* text-gray-700 */
+    padding: 0.25rem; /* Add some padding for easier clicking */
+}
+
+.onboarding-section .preference-item input[type="checkbox"] {
+    width: auto; /* Override full width for checkbox */
+    height: 1rem; /* Consistent checkbox size */
+    width: 1rem;  /* Consistent checkbox size */
+    border-radius: 0.25rem; /* rounded */
+    border-color: #cbd5e0; /* border-gray-300 */
+    color: #4e6cef; /* text-blue-600 */
+    cursor: pointer;
+}
+.onboarding-section .preference-item input[type="checkbox"]:focus {
+    box-shadow: 0 0 0 2px rgba(78, 108, 239, 0.3); /* focus:ring-blue-500 */
+}
+.onboarding-section .preference-item span {
+    cursor: pointer; /* Make the label text clickable too */
+}
+
+
+/* Action Button for the onboarding form */
+.onboarding-section .action-button-container {
+    display: flex;
+    justify-content: center;
+    margin-top: 1.5rem; /* Add some space above the button */
+}
+
+
+/* Styles for ReviewPage and ChatInterface have been moved to their respective CSS files. */
+/* src/components/ReviewPage/ReviewPage.css */
+/* src/components/ChatInterface/ChatInterface.css */
+
+
+/* Global responsive adjustments for elements remaining in TravelAssistantPage.css */
+/* (Primarily for the onboarding form now) */
+@media (max-width: 768px) {
+    .onboarding-section {
+        padding: 1.5rem;
+    }
+    .onboarding-section .card {
+        padding: 1rem;
+    }
+    /* .onboarding-section .grid-col-4 { 
+        grid-template-columns: repeat(2, 1fr); 
+    } */
+}
+
+@media (max-width: 480px) {
+    /* .onboarding-section .grid-col-4 { 
+        grid-template-columns: repeat(1, 1fr); 
+    } */
+    .onboarding-section .action-button {
+        width: 100%; /* Make button full width */
+        font-size: 0.9rem;
+    }
+}
+
+/* Error Message Styling for Travel Assistant Form */
+.travel-form-error-message {
+  color: var(--theme-error-text, #D32F2F); /* Consistent with login page error color */
+  font-size: 0.75rem; /* text-xs */
+  padding-top: 0.25rem; /* pt-1 */
+  /* Position it absolutely below the input it refers to */
+  position: absolute;
+  top: 100%; /* Position right below the input field (assuming input is direct child or wrapped) */
+  left: 0.25rem; /* Align with typical input padding */
+  width: calc(100% - 0.5rem); /* Adjust width considering padding */
+  text-align: left;
+  /* Ensure it's visible if the input group doesn't have enough margin by default */
+  margin-top: 0.1rem; /* Small gap between input and error message */
+}
+
+/* Specific adjustment for date inputs error message, as it's below the .date-inputs div */
