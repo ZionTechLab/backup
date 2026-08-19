@@ -1,0 +1,45 @@
+{
+  "rows_loaded": 4212,
+  "brands_before_norm": 57,
+  "brands_after_norm": 56,
+  "model_with_trim_cardinality": 2408,
+  "model_base_cardinality": 433,
+  "districts": 110,
+  "transmission_marked_unknown": 765,
+  "fuel_type_marked_unknown": 765,
+  "dropped_no_price": 133,
+  "dropped_price_out_of_band": 13,
+  "price_median": "9,500,000",
+  "dropped_bad_year": 2,
+  "mileage_x1000_corrected": 20,
+  "mileage_set_missing": 25,
+  "mileage_missing_total": 32,
+  "rows_before_dedup": 4064,
+  "duplicates_removed": 492,
+  "rows_after_dedup": 3572,
+  "import_era_counts": {
+    "pre_ban": 2066,
+    "post_ban": 1434,
+    "ban_window": 71,
+    "future": 1
+  },
+  "models_before_grouping": 423,
+  "models_after_grouping": 128,
+  "rows_in_other_bucket": 534,
+  "pct_in_other_bucket": "14.9%",
+  "split_counts": {
+    "train": 2504,
+    "val": 536,
+    "test": 532
+  },
+  "rows_final": 3572,
+  "source_mix": {
+    "ikman": 3221,
+    "riyasewana": 351
+  },
+  "body_type_mix": {
+    "car": 1911,
+    "suv": 909,
+    "van": 752
+  }
+}
