@@ -1,0 +1,727 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Nuwara Ridge — Plantations</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,500;12..96,600;12..96,700;12..96,800&family=Manrope:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#F0F2EC;
+  --card:#FFFFFF;
+  --ink:#0C1F19;
+  --panel:#0C1F19;
+  --sub:#5C6C64;
+  --lime:#B9F227;
+  --mint:#8ADCC0;
+  --clay:#E4623C;
+  --edge:rgba(12,31,25,.10);
+  --edgeD:rgba(240,242,236,.14);
+  --r:28px;
+  --rs:18px;
+  --disp:'Bricolage Grotesque',system-ui,sans-serif;
+  --body:'Manrope',system-ui,sans-serif;
+  --mono:'JetBrains Mono',monospace;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{
+  background:var(--bg);color:var(--ink);font-family:var(--body);
+  font-size:16px;line-height:1.55;-webkit-font-smoothing:antialiased;overflow-x:hidden;
+}
+img{display:block;width:100%;height:100%;object-fit:cover}
+a{color:inherit;text-decoration:none}
+button{font:inherit;border:0;background:none;color:inherit;cursor:pointer}
+:focus-visible{outline:2.5px solid var(--clay);outline-offset:3px;border-radius:6px}
+.wrap{max-width:1300px;margin:0 auto;padding:0 24px}
+
+h1,h2,h3,h4{font-family:var(--disp);font-weight:600;line-height:.98;letter-spacing:-.035em}
+h1{font-size:clamp(2.9rem,7.4vw,6.4rem)}
+h2{font-size:clamp(2.1rem,4.6vw,4rem)}
+h3{font-size:clamp(1.25rem,2vw,1.7rem);letter-spacing:-.025em}
+h4{font-size:1.05rem;letter-spacing:-.02em}
+p{color:var(--sub)}
+.lede{font-size:clamp(1.02rem,1.4vw,1.22rem);color:var(--sub);max-width:54ch}
+.mono{font-family:var(--mono);font-size:.7rem;letter-spacing:.06em;text-transform:uppercase}
+.sm{font-size:.9rem}
+
+.chip{
+  display:inline-flex;align-items:center;gap:8px;font-family:var(--mono);font-size:.66rem;
+  letter-spacing:.1em;text-transform:uppercase;padding:8px 14px;border-radius:999px;
+  border:1px solid var(--edge);background:rgba(255,255,255,.7);color:var(--sub);
+}
+.chip.lime{background:var(--lime);border-color:transparent;color:var(--ink)}
+.chip b{width:6px;height:6px;border-radius:50%;background:var(--clay)}
+
+.btn{
+  display:inline-flex;align-items:center;gap:10px;font-weight:600;font-size:.94rem;
+  padding:15px 24px;border-radius:999px;background:var(--panel);color:#fff;
+  transition:transform .35s cubic-bezier(.2,.8,.2,1),box-shadow .35s;
+}
+.btn:hover{transform:translateY(-3px);box-shadow:0 14px 30px -12px rgba(12,31,25,.5)}
+.btn.lime{background:var(--lime);color:var(--ink)}
+.btn.line{background:transparent;border:1.5px solid var(--edge);color:var(--ink)}
+.btn.line:hover{border-color:var(--ink)}
+.btn i{font-style:normal;transition:transform .35s}
+.btn:hover i{transform:translateX(4px)}
+
+/* ---------- floating nav ---------- */
+header{position:fixed;top:16px;left:0;right:0;z-index:99;display:flex;justify-content:center;padding:0 16px}
+.navbar{
+  display:flex;align-items:center;gap:22px;width:100%;max-width:1180px;
+  padding:9px 9px 9px 22px;border-radius:999px;
+  background:rgba(255,255,255,.72);backdrop-filter:blur(18px) saturate(1.4);
+  border:1px solid rgba(255,255,255,.9);box-shadow:0 10px 34px -18px rgba(12,31,25,.45);
+}
+.brand{display:flex;align-items:center;gap:9px;font-family:var(--disp);font-weight:700;font-size:1.05rem;letter-spacing:-.03em}
+.dot{width:15px;height:15px;border-radius:50% 50% 50% 6px;background:var(--lime);border:1.5px solid var(--ink);transform:rotate(-18deg)}
+.navbar nav{margin-left:auto}
+.navbar ul{display:flex;gap:4px;list-style:none}
+.navbar ul button{padding:9px 14px;border-radius:999px;font-size:.86rem;font-weight:500;color:var(--sub);transition:background .25s,color .25s}
+.navbar ul button:hover{background:rgba(12,31,25,.06);color:var(--ink)}
+.navbar ul button[aria-current="true"]{background:var(--panel);color:#fff}
+.navbar .cta{padding:11px 20px;border-radius:999px;background:var(--lime);font-weight:600;font-size:.88rem}
+.burger{display:none;padding:11px 16px;border-radius:999px;background:var(--panel);color:#fff;font-size:.85rem;font-weight:600}
+
+.page{display:none}
+.page.on{display:block}
+section{padding:clamp(48px,7vw,96px) 0}
+
+/* ---------- bento ---------- */
+.bento{display:grid;grid-template-columns:repeat(12,1fr);gap:14px}
+.tile{
+  background:var(--card);border-radius:var(--r);padding:30px;position:relative;overflow:hidden;
+  border:1px solid var(--edge);
+}
+.tile.dark{background:var(--panel);color:#fff;border-color:transparent}
+.tile.dark p,.tile.dark .lede{color:rgba(255,255,255,.7)}
+.tile.lime{background:var(--lime);border-color:transparent}
+.tile.flat{padding:0;border:0}
+.tile.mint{background:var(--mint);border-color:transparent}
+.tile img{border-radius:0}
+.photo{border-radius:var(--r);overflow:hidden;position:relative;background:#dfe3dc}
+.photo img{transition:transform 1.2s cubic-bezier(.2,.8,.2,1)}
+.photo:hover img{transform:scale(1.05)}
+.photo .lbl{position:absolute;left:14px;bottom:14px;z-index:2}
+
+.hero{padding-top:120px}
+.hero h1{letter-spacing:-.045em}
+.hero h1 span{
+  background:linear-gradient(96deg,var(--clay),#E8A33C 60%,var(--lime));
+  -webkit-background-clip:text;background-clip:text;color:transparent;
+}
+.blob{
+  position:absolute;width:520px;height:520px;border-radius:50%;filter:blur(90px);opacity:.5;pointer-events:none;z-index:0;
+}
+.stat b{display:block;font-family:var(--disp);font-size:clamp(2.4rem,4.6vw,3.6rem);font-weight:700;letter-spacing:-.05em;line-height:1}
+.stat span{display:block;margin-top:8px;font-family:var(--mono);font-size:.64rem;letter-spacing:.12em;text-transform:uppercase;opacity:.6}
+
+/* ---------- marquee ---------- */
+.marq{overflow:hidden;border-top:1px solid var(--edge);border-bottom:1px solid var(--edge);background:var(--bg)}
+.marq div{display:flex;gap:48px;padding:15px 0;white-space:nowrap;width:max-content;animation:run 30s linear infinite}
+.marq span{font-family:var(--mono);font-size:.72rem;letter-spacing:.12em;text-transform:uppercase;color:var(--sub);display:flex;gap:10px;align-items:center}
+.marq b{color:var(--ink);font-weight:500}
+@keyframes run{to{transform:translateX(-50%)}}
+
+/* ---------- estate switcher ---------- */
+.switch{display:grid;grid-template-columns:1fr 1.25fr;gap:14px}
+.picker{display:grid;gap:8px;align-content:start}
+.opt{
+  display:flex;align-items:center;gap:14px;padding:16px 18px;border-radius:var(--rs);
+  border:1px solid var(--edge);background:var(--card);text-align:left;transition:.3s;width:100%;
+}
+.opt:hover{border-color:var(--ink)}
+.opt[aria-selected="true"]{background:var(--panel);color:#fff;border-color:transparent}
+.opt[aria-selected="true"] .alt{color:var(--lime)}
+.opt .nm{font-family:var(--disp);font-weight:600;font-size:1.06rem;letter-spacing:-.02em}
+.opt .alt{margin-left:auto;font-family:var(--mono);font-size:.74rem;color:var(--sub)}
+.stage{position:relative;border-radius:var(--r);overflow:hidden;min-height:440px;background:var(--panel)}
+.stage img{position:absolute;inset:0;opacity:0;transition:opacity .7s,transform 7s linear;transform:scale(1.02)}
+.stage img.on{opacity:1;transform:scale(1.09)}
+.stage .info{position:absolute;left:0;right:0;bottom:0;z-index:2;padding:26px;color:#fff;
+  background:linear-gradient(to top,rgba(12,31,25,.92),transparent)}
+.stage .info h3{font-size:1.9rem}
+.stage .info p{color:rgba(255,255,255,.75);margin-top:6px}
+.bars{display:flex;gap:8px;margin-top:16px;flex-wrap:wrap}
+.bars span{font-family:var(--mono);font-size:.64rem;letter-spacing:.1em;text-transform:uppercase;
+  padding:7px 11px;border-radius:999px;background:rgba(255,255,255,.14);backdrop-filter:blur(6px)}
+
+/* ---------- lists / tables ---------- */
+.rows{list-style:none;display:grid;gap:8px}
+.rows li{
+  display:flex;align-items:center;gap:20px;padding:20px 24px;border-radius:var(--rs);
+  background:var(--card);border:1px solid var(--edge);transition:.3s;
+}
+.rows li:hover{transform:translateX(6px);border-color:var(--ink)}
+.rows .d{font-family:var(--mono);font-size:.72rem;color:var(--clay);flex:none;width:88px}
+.rows .r{margin-left:auto;font-family:var(--mono);font-size:.72rem;color:var(--sub)}
+table{width:100%;border-collapse:separate;border-spacing:0 8px}
+th{font-family:var(--mono);font-size:.64rem;letter-spacing:.12em;text-transform:uppercase;color:var(--sub);text-align:left;font-weight:400;padding:0 18px 4px}
+td{background:var(--card);padding:18px;border-top:1px solid var(--edge);border-bottom:1px solid var(--edge);color:var(--sub);font-size:.94rem}
+td:first-child{border-left:1px solid var(--edge);border-radius:var(--rs) 0 0 var(--rs);color:var(--ink);font-weight:600}
+td:last-child{border-right:1px solid var(--edge);border-radius:0 var(--rs) var(--rs) 0}
+td.n{font-family:var(--mono);font-size:.84rem}
+
+/* ---------- forms ---------- */
+form{display:grid;gap:12px}
+.fld{background:var(--card);border:1px solid var(--edge);border-radius:var(--rs);padding:12px 18px;transition:border-color .25s}
+.fld:focus-within{border-color:var(--ink)}
+label{display:block;font-family:var(--mono);font-size:.62rem;letter-spacing:.12em;text-transform:uppercase;color:var(--sub)}
+input,select,textarea{width:100%;border:0;background:none;font-family:var(--body);font-size:1rem;color:var(--ink);padding:5px 0;outline:0;resize:vertical}
+
+.reveal{opacity:0;transform:translateY(26px);transition:opacity .8s cubic-bezier(.2,.8,.2,1),transform .8s cubic-bezier(.2,.8,.2,1)}
+.reveal.in{opacity:1;transform:none}
+
+footer{background:var(--panel);color:#fff;border-radius:var(--r) var(--r) 0 0;margin-top:40px;padding:70px 0 30px}
+footer p,footer a{color:rgba(255,255,255,.66)}
+footer a:hover{color:var(--lime)}
+.fgrid{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:34px}
+footer h4{font-family:var(--mono);font-size:.64rem;letter-spacing:.14em;text-transform:uppercase;color:var(--lime);font-weight:400;margin-bottom:16px}
+footer ul{list-style:none;display:grid;gap:10px;font-size:.93rem}
+.legal{display:flex;justify-content:space-between;flex-wrap:wrap;gap:14px;margin-top:56px;padding-top:22px;
+  border-top:1px solid var(--edgeD);font-family:var(--mono);font-size:.66rem;color:rgba(255,255,255,.5)}
+
+@media(max-width:1024px){
+  .navbar ul{display:none;position:absolute;top:64px;left:0;right:0;flex-direction:column;gap:2px;
+    background:rgba(255,255,255,.96);backdrop-filter:blur(18px);border-radius:24px;padding:12px;
+    border:1px solid var(--edge);box-shadow:0 20px 40px -20px rgba(12,31,25,.4)}
+  .navbar ul.open{display:flex}
+  .navbar .cta{display:none}
+  .burger{display:block;margin-left:auto}
+  .switch{grid-template-columns:1fr}
+  .fgrid{grid-template-columns:1fr 1fr}
+}
+@media(max-width:760px){
+  :root{--r:22px;--rs:16px}
+  .tile{padding:22px}
+  .bento>*{grid-column:1/-1!important}
+  .rows li{flex-wrap:wrap;gap:10px}
+  .rows .r{margin-left:0;width:100%}
+  .fgrid{grid-template-columns:1fr}
+  .stage{min-height:340px}
+}
+@media(prefers-reduced-motion:reduce){
+  *{animation:none!important;transition:none!important}
+  .reveal{opacity:1;transform:none}
+  html{scroll-behavior:auto}
+}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="navbar">
+    <a class="brand" href="#" data-go="home"><span class="dot"></span> Nuwara Ridge</a>
+    <button class="burger" id="burger" aria-expanded="false" aria-controls="nav">Menu</button>
+    <nav>
+      <ul id="nav">
+        <li><button data-go="home" aria-current="true">Home</button></li>
+        <li><button data-go="about">About</button></li>
+        <li><button data-go="estates">Estates</button></li>
+        <li><button data-go="products">Products</button></li>
+        <li><button data-go="sustainability">Impact</button></li>
+        <li><button data-go="investors">Investors</button></li>
+        <li><button data-go="news">News</button></li>
+        <li><button data-go="careers">Careers</button></li>
+      </ul>
+    </nav>
+    <button class="cta" data-go="contact">Contact</button>
+  </div>
+</header>
+
+<main>
+
+<!-- ============ HOME ============ -->
+<div class="page on" id="home">
+  <section class="hero" style="position:relative">
+    <div class="blob" style="background:var(--mint);top:-140px;left:-120px"></div>
+    <div class="blob" style="background:var(--lime);top:60px;right:-160px;opacity:.35"></div>
+    <div class="wrap" style="position:relative;z-index:2">
+      <div class="bento">
+        <div class="tile" style="grid-column:span 8;padding:44px">
+          <span class="chip"><b></b> Est. 1884 · Sri Lanka</span>
+          <h1 style="margin:26px 0 22px">Grown at<br><span>1,640 metres.</span></h1>
+          <p class="lede">Six estates from sea level to the cloud line. Tea, rubber, coconut and cinnamon — traceable to the field it was picked from.</p>
+          <div style="display:flex;gap:10px;flex-wrap:wrap;margin-top:32px">
+            <button class="btn" data-go="products">Explore products <i>&rarr;</i></button>
+            <button class="btn line" data-go="estates">See the estates</button>
+          </div>
+        </div>
+        <div class="tile flat photo" style="grid-column:span 4;min-height:340px">
+          <img src="https://picsum.photos/seed/nr-hero-a/900/1100" alt="Tea fields at first light">
+          <span class="chip lime lbl">Kirimetiya · 1,640 m</span>
+        </div>
+
+        <div class="tile dark stat" style="grid-column:span 3"><b data-count="2555">0</b><span>Hectares planted</span></div>
+        <div class="tile lime stat" style="grid-column:span 3"><b data-count="6">0</b><span>Estates</span></div>
+        <div class="tile stat" style="grid-column:span 3"><b data-count="4180">0</b><span>Employees</span></div>
+        <div class="tile stat" style="grid-column:span 3"><b data-count="31">0</b><span>Export markets</span></div>
+      </div>
+    </div>
+  </section>
+
+  <div class="marq">
+    <div>
+      <span>Colombo auction · High grown BOP <b>LKR 1,486/kg</b></span>
+      <span>Crop YTD <b>3.42 M kg</b></span>
+      <span>RSS 1 <b>LKR 742/kg</b></span>
+      <span>Rainfall this month <b>214 mm</b></span>
+      <span>Rainforest Alliance <b>Certified</b></span>
+      <span>Colombo auction · High grown BOP <b>LKR 1,486/kg</b></span>
+      <span>Crop YTD <b>3.42 M kg</b></span>
+      <span>RSS 1 <b>LKR 742/kg</b></span>
+      <span>Rainfall this month <b>214 mm</b></span>
+      <span>Rainforest Alliance <b>Certified</b></span>
+    </div>
+  </div>
+
+  <section>
+    <div class="wrap">
+      <div class="bento reveal">
+        <div class="tile flat photo" style="grid-column:span 5;min-height:420px">
+          <img src="https://picsum.photos/seed/nr-pluck/900/1100" alt="Plucking round">
+        </div>
+        <div class="tile" style="grid-column:span 7;padding:44px;display:flex;flex-direction:column;justify-content:center">
+          <span class="chip">Who we are</span>
+          <h2 style="margin:22px 0 20px">We plant it, pick it<br>and ship it.</h2>
+          <p class="lede">No trader between the field and your container. Every kilo carries an estate, a division and a plucking date.</p>
+          <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:32px">
+            <div class="tile" style="background:var(--bg)"><h4>Own factories</h4><p class="sm" style="margin-top:6px">Five, one per tea and rubber estate.</p></div>
+            <div class="tile" style="background:var(--bg)"><h4>Field traceability</h4><p class="sm" style="margin-top:6px">Live since 2024, all six estates.</p></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section style="padding-top:0">
+    <div class="wrap">
+      <div class="reveal" style="display:flex;justify-content:space-between;align-items:flex-end;gap:24px;flex-wrap:wrap;margin-bottom:26px">
+        <div><span class="chip">Six estates</span><h2 style="margin-top:18px">Pick a height.</h2></div>
+        <p class="sm" style="max-width:34ch">Elevation sets the crop, the plucking round and the character of the cup.</p>
+      </div>
+      <div class="switch reveal">
+        <div class="picker" id="picker">
+          <button class="opt" aria-selected="true" data-e="0"><span class="nm">Kirimetiya</span><span class="alt">1,640 m</span></button>
+          <button class="opt" data-e="1"><span class="nm">Hunugala</span><span class="alt">1,285 m</span></button>
+          <button class="opt" data-e="2"><span class="nm">Wewelpitiya</span><span class="alt">940 m</span></button>
+          <button class="opt" data-e="3"><span class="nm">Deniyagoda</span><span class="alt">610 m</span></button>
+          <button class="opt" data-e="4"><span class="nm">Panapitiya</span><span class="alt">180 m</span></button>
+          <button class="opt" data-e="5"><span class="nm">Maragahawewa</span><span class="alt">40 m</span></button>
+        </div>
+        <div class="stage" id="stage">
+          <img class="on" src="https://picsum.photos/seed/nr-e0/1200/900" alt="Kirimetiya Estate">
+          <img src="https://picsum.photos/seed/nr-e1/1200/900" alt="Hunugala Estate">
+          <img src="https://picsum.photos/seed/nr-e2/1200/900" alt="Wewelpitiya Estate">
+          <img src="https://picsum.photos/seed/nr-e3/1200/900" alt="Deniyagoda Estate">
+          <img src="https://picsum.photos/seed/nr-e4/1200/900" alt="Panapitiya Estate">
+          <img src="https://picsum.photos/seed/nr-e5/1200/900" alt="Maragahawewa Estate">
+          <div class="info">
+            <h3 id="eName">Kirimetiya</h3>
+            <p id="eDesc">High grown tea. Long, cool plucking rounds and a bright, light liquor.</p>
+            <div class="bars" id="eBars"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section style="padding-top:0">
+    <div class="wrap">
+      <div class="bento reveal">
+        <div class="tile dark" style="grid-column:span 7;padding:44px">
+          <span class="chip" style="background:rgba(255,255,255,.1);border-color:var(--edgeD);color:rgba(255,255,255,.75)">Impact</span>
+          <h2 style="margin:22px 0 18px;color:#fff">11,300 people<br>live on this land.</h2>
+          <p class="lede">Housing, water, crèches and clinics are part of running the estate — not a programme beside it.</p>
+          <button class="btn lime" style="margin-top:30px" data-go="sustainability">Our approach <i>&rarr;</i></button>
+        </div>
+        <div class="tile flat photo" style="grid-column:span 5;min-height:320px">
+          <img src="https://picsum.photos/seed/nr-community/900/800" alt="Estate community">
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section style="padding-top:0">
+    <div class="wrap reveal">
+      <span class="chip">Latest</span>
+      <ul class="rows" style="margin-top:22px">
+        <li><span class="d">12.06.26</span><h4>Q1 FY2026/27 interim results released</h4><span class="r">Investors</span></li>
+        <li><span class="d">28.05.26</span><h4>Hunugala completes Rainforest Alliance recertification</h4><span class="r">Impact</span></li>
+        <li><span class="d">04.05.26</span><h4>Solar array commissioned at Deniyagoda</h4><span class="r">Energy</span></li>
+      </ul>
+    </div>
+  </section>
+</div>
+
+<!-- ============ ABOUT ============ -->
+<div class="page" id="about">
+  <section class="hero">
+    <div class="wrap">
+      <div class="bento">
+        <div class="tile" style="grid-column:span 7;padding:44px">
+          <span class="chip"><b></b> About</span>
+          <h1 style="margin:24px 0 20px;font-size:clamp(2.4rem,5.4vw,4.4rem)">142 planting seasons.</h1>
+          <p class="lede">Founded as a single 90-hectare garden in 1884. Locally owned since 1972, listed since 1993, still run by people who walk the fields.</p>
+        </div>
+        <div class="tile flat photo" style="grid-column:span 5;min-height:320px"><img src="https://picsum.photos/seed/nr-about/900/800" alt="Withering loft"></div>
+        <div class="tile mint" style="grid-column:span 4"><h4>Vision</h4><p class="sm" style="margin-top:8px;color:var(--ink)">The plantation company buyers choose when provenance has to be provable.</p></div>
+        <div class="tile" style="grid-column:span 4"><h4>Mission</h4><p class="sm" style="margin-top:8px">Grow quality crop on well-managed land, with fair work and honest reporting.</p></div>
+        <div class="tile" style="grid-column:span 4"><h4>Values</h4><p class="sm" style="margin-top:8px">Care for the land. Care for the people on it. Tell the truth about the crop.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section style="padding-top:0">
+    <div class="wrap reveal">
+      <span class="chip">Milestones</span>
+      <ul class="rows" style="margin-top:22px">
+        <li><span class="d">1884</span><h4>Kirimetiya planted — 90 hectares of tea</h4></li>
+        <li><span class="d">1927</span><h4>First estate factory at Hunugala</h4></li>
+        <li><span class="d">1972</span><h4>Ownership transfers to local shareholders</h4></li>
+        <li><span class="d">1993</span><h4>Listed on the Colombo Stock Exchange</h4></li>
+        <li><span class="d">2011</span><h4>Low-country rubber and coconut acquired</h4></li>
+        <li><span class="d">2024</span><h4>Field-level traceability across all six estates</h4></li>
+      </ul>
+    </div>
+  </section>
+
+  <section style="padding-top:0">
+    <div class="wrap reveal">
+      <span class="chip">Leadership</span>
+      <div class="bento" style="margin-top:22px">
+        <div class="tile flat" style="grid-column:span 4"><div class="photo" style="aspect-ratio:4/5"><img src="https://picsum.photos/seed/nr-d1/700/900" alt="Chairman"></div><h4 style="margin-top:14px">[Name]</h4><p class="mono" style="color:var(--clay);margin-top:6px">Chairman</p></div>
+        <div class="tile flat" style="grid-column:span 4"><div class="photo" style="aspect-ratio:4/5"><img src="https://picsum.photos/seed/nr-d2/700/900" alt="Managing Director"></div><h4 style="margin-top:14px">[Name]</h4><p class="mono" style="color:var(--clay);margin-top:6px">Managing Director</p></div>
+        <div class="tile flat" style="grid-column:span 4"><div class="photo" style="aspect-ratio:4/5"><img src="https://picsum.photos/seed/nr-d3/700/900" alt="Finance Director"></div><h4 style="margin-top:14px">[Name]</h4><p class="mono" style="color:var(--clay);margin-top:6px">Finance Director</p></div>
+      </div>
+    </div>
+  </section>
+</div>
+
+<!-- ============ ESTATES ============ -->
+<div class="page" id="estates">
+  <section class="hero">
+    <div class="wrap">
+      <div class="bento">
+        <div class="tile" style="grid-column:span 7;padding:44px">
+          <span class="chip"><b></b> Estates</span>
+          <h1 style="margin:24px 0 20px;font-size:clamp(2.4rem,5.4vw,4.4rem)">Read the land by height.</h1>
+          <p class="lede">2,555 hectares across three elevation zones, five factories and one packing centre.</p>
+        </div>
+        <div class="tile flat photo" style="grid-column:span 5;min-height:300px"><img src="https://picsum.photos/seed/nr-estates/900/800" alt="Terraced fields"></div>
+      </div>
+    </div>
+  </section>
+
+  <section style="padding-top:0">
+    <div class="wrap reveal">
+      <table>
+        <thead><tr><th>Estate</th><th>District</th><th>Elevation</th><th>Extent</th><th>Crop</th><th>Factory</th></tr></thead>
+        <tbody>
+          <tr><td>Kirimetiya</td><td>Nuwara Eliya</td><td class="n">1,640 m</td><td class="n">412 ha</td><td>Tea</td><td>Yes</td></tr>
+          <tr><td>Hunugala</td><td>Nuwara Eliya</td><td class="n">1,285 m</td><td class="n">366 ha</td><td>Tea</td><td>Yes</td></tr>
+          <tr><td>Wewelpitiya</td><td>Kandy</td><td class="n">940 m</td><td class="n">288 ha</td><td>Tea</td><td>Yes</td></tr>
+          <tr><td>Deniyagoda</td><td>Matara</td><td class="n">610 m</td><td class="n">254 ha</td><td>Tea, cinnamon</td><td>Yes</td></tr>
+          <tr><td>Panapitiya</td><td>Kalutara</td><td class="n">180 m</td><td class="n">505 ha</td><td>Rubber</td><td>Yes</td></tr>
+          <tr><td>Maragahawewa</td><td>Puttalam</td><td class="n">40 m</td><td class="n">730 ha</td><td>Coconut</td><td>—</td></tr>
+        </tbody>
+      </table>
+      <p class="mono" style="color:var(--sub);margin-top:20px">Drop an interactive map embed above this table.</p>
+    </div>
+  </section>
+</div>
+
+<!-- ============ PRODUCTS ============ -->
+<div class="page" id="products">
+  <section class="hero">
+    <div class="wrap">
+      <div class="bento">
+        <div class="tile" style="grid-column:span 6;padding:44px">
+          <span class="chip"><b></b> Products</span>
+          <h1 style="margin:24px 0 20px;font-size:clamp(2.4rem,5.4vw,4.4rem)">Tasted, graded, lotted.</h1>
+          <p class="lede">Sold through the Colombo auction or on direct contract. Minimum direct shipment: one 20 ft container.</p>
+          <button class="btn lime" style="margin-top:30px" data-go="contact">Request a sample <i>&rarr;</i></button>
+        </div>
+        <div class="tile flat photo" style="grid-column:span 3;min-height:300px"><img src="https://picsum.photos/seed/nr-p1/700/900" alt="Tea"><span class="chip lime lbl">Tea</span></div>
+        <div class="tile flat photo" style="grid-column:span 3;min-height:300px"><img src="https://picsum.photos/seed/nr-p2/700/900" alt="Cinnamon"><span class="chip lime lbl">Cinnamon</span></div>
+
+        <div class="tile" style="grid-column:span 4"><h3>High Grown Tea</h3><p class="sm" style="margin-top:10px">BOP, BOPF and OP grades. Bright, light liquor from Kirimetiya and Hunugala.</p></div>
+        <div class="tile" style="grid-column:span 4"><h3>Natural Rubber</h3><p class="sm" style="margin-top:10px">Ribbed smoked sheet 1–3 and centrifuged latex at 60% DRC.</p></div>
+        <div class="tile" style="grid-column:span 4"><h3>Coconut</h3><p class="sm" style="margin-top:10px">Desiccated coconut, copra and coir fibre from Maragahawewa.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section style="padding-top:0">
+    <div class="wrap reveal">
+      <span class="chip">Tea grades</span>
+      <table style="margin-top:20px">
+        <thead><tr><th>Grade</th><th>Elevation</th><th>Leaf</th><th>Cup</th><th>Packing</th></tr></thead>
+        <tbody>
+          <tr><td>BOP</td><td class="n">High</td><td>Broken orange pekoe</td><td>Bright, light</td><td>50 kg sack</td></tr>
+          <tr><td>BOPF</td><td class="n">High</td><td>Fannings</td><td>Quick, strong</td><td>50 kg sack</td></tr>
+          <tr><td>OP1</td><td class="n">Mid</td><td>Long wiry leaf</td><td>Mellow, golden</td><td>40 kg carton</td></tr>
+          <tr><td>FBOP</td><td class="n">Low</td><td>Flowery, tippy</td><td>Full body, dark</td><td>40 kg carton</td></tr>
+          <tr><td>Silver Tips</td><td class="n">High</td><td>Unopened bud</td><td>Delicate, seasonal</td><td>2 kg tin</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+</div>
+
+<!-- ============ IMPACT ============ -->
+<div class="page" id="sustainability">
+  <section class="hero">
+    <div class="wrap">
+      <div class="bento">
+        <div class="tile dark" style="grid-column:span 12;padding:48px">
+          <span class="chip" style="background:rgba(255,255,255,.1);border-color:var(--edgeD);color:rgba(255,255,255,.75)"><b></b> Impact</span>
+          <h1 style="margin:24px 0 20px;color:#fff;font-size:clamp(2.4rem,5.4vw,4.4rem)">Handed over in better condition.</h1>
+          <p class="lede">Four reporting areas, audited annually and published in full in the integrated annual report.</p>
+        </div>
+        <div class="tile lime stat" style="grid-column:span 3"><b data-count="1240">0</b><span>Homes upgraded</span></div>
+        <div class="tile stat" style="grid-column:span 3"><b data-count="92">0</b><span>% waste diverted</span></div>
+        <div class="tile stat" style="grid-column:span 3"><b data-count="184">0</b><span>Ha forest buffer</span></div>
+        <div class="tile mint stat" style="grid-column:span 3"><b data-count="38">0</b><span>% grid draw offset</span></div>
+
+        <div class="tile flat" style="grid-column:span 4"><div class="photo" style="aspect-ratio:1"><img src="https://picsum.photos/seed/nr-s1/700/700" alt="Stream reservation"></div><h3 style="margin-top:16px">Soil &amp; water</h3><p class="sm" style="margin-top:8px">Contour drains and shade cover on every replanted field.</p></div>
+        <div class="tile flat" style="grid-column:span 4"><div class="photo" style="aspect-ratio:1"><img src="https://picsum.photos/seed/nr-s2/700/700" alt="Solar"></div><h3 style="margin-top:16px">Energy</h3><p class="sm" style="margin-top:8px">Fuelwood from company-grown gliricidia; solar at two factories.</p></div>
+        <div class="tile flat" style="grid-column:span 4"><div class="photo" style="aspect-ratio:1"><img src="https://picsum.photos/seed/nr-s3/700/700" alt="Crèche"></div><h3 style="margin-top:16px">People</h3><p class="sm" style="margin-top:8px">Housing, crèches, estate clinics and school transport.</p></div>
+      </div>
+      <p class="mono" style="color:var(--sub);margin-top:26px">Rainforest Alliance · Fairtrade · ISO 22000 · HACCP · GMP</p>
+    </div>
+  </section>
+</div>
+
+<!-- ============ INVESTORS ============ -->
+<div class="page" id="investors">
+  <section class="hero">
+    <div class="wrap">
+      <div class="bento">
+        <div class="tile" style="grid-column:span 8;padding:44px">
+          <span class="chip"><b></b> Investor relations</span>
+          <h1 style="margin:24px 0 20px;font-size:clamp(2.4rem,5.4vw,4.4rem)">Reports and disclosures.</h1>
+          <p class="lede">Listed on the Colombo Stock Exchange as NRPL.N0000. Filings published the day they are released.</p>
+        </div>
+        <div class="tile lime" style="grid-column:span 4;display:flex;flex-direction:column;justify-content:center">
+          <span class="mono">Ticker</span>
+          <b style="font-family:var(--disp);font-size:2.2rem;letter-spacing:-.04em;margin-top:10px">NRPL.N0000</b>
+          <p class="sm" style="color:var(--ink);margin-top:8px">24,000,000 shares · FY end 31 March</p>
+        </div>
+      </div>
+
+      <div class="bento reveal" style="margin-top:14px">
+        <div class="tile flat" style="grid-column:span 6">
+          <span class="chip">Annual reports</span>
+          <ul class="rows" style="margin-top:16px">
+            <li><span class="d">2025/26</span><h4>Integrated Annual Report</h4><span class="r">PDF</span></li>
+            <li><span class="d">2024/25</span><h4>Integrated Annual Report</h4><span class="r">PDF</span></li>
+            <li><span class="d">2023/24</span><h4>Integrated Annual Report</h4><span class="r">PDF</span></li>
+          </ul>
+        </div>
+        <div class="tile flat" style="grid-column:span 6">
+          <span class="chip">Quarterly results</span>
+          <ul class="rows" style="margin-top:16px">
+            <li><span class="d">Q1 26/27</span><h4>Interim financial statements</h4><span class="r">PDF</span></li>
+            <li><span class="d">Q4 25/26</span><h4>Interim financial statements</h4><span class="r">PDF</span></li>
+            <li><span class="d">Q3 25/26</span><h4>Interim financial statements</h4><span class="r">PDF</span></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+</div>
+
+<!-- ============ NEWS ============ -->
+<div class="page" id="news">
+  <section class="hero">
+    <div class="wrap">
+      <div class="bento">
+        <div class="tile flat photo" style="grid-column:span 7;min-height:400px">
+          <img src="https://picsum.photos/seed/nr-news/1100/800" alt="Silver tips lot">
+          <span class="chip lime lbl">19.04.26</span>
+        </div>
+        <div class="tile" style="grid-column:span 5;padding:40px;display:flex;flex-direction:column;justify-content:center">
+          <span class="chip"><b></b> News</span>
+          <h2 style="margin:20px 0 16px;font-size:clamp(1.8rem,3.4vw,2.6rem)">Silver Tips lot sets a season record</h2>
+          <p class="lede">A 42 kg lot from Kirimetiya's upper division drew the highest price of the season at the Colombo auction.</p>
+        </div>
+      </div>
+      <ul class="rows reveal" style="margin-top:14px">
+        <li><span class="d">12.06.26</span><h4>Q1 FY2026/27 interim financial statements released</h4><span class="r">Investors</span></li>
+        <li><span class="d">28.05.26</span><h4>Hunugala completes Rainforest Alliance recertification</h4><span class="r">Impact</span></li>
+        <li><span class="d">04.05.26</span><h4>Solar array commissioned at Deniyagoda Estate</h4><span class="r">Energy</span></li>
+        <li><span class="d">02.03.26</span><h4>Replanting reaches 120 hectares at Wewelpitiya</h4><span class="r">Field</span></li>
+      </ul>
+    </div>
+  </section>
+</div>
+
+<!-- ============ CAREERS ============ -->
+<div class="page" id="careers">
+  <section class="hero">
+    <div class="wrap">
+      <div class="bento">
+        <div class="tile" style="grid-column:span 7;padding:44px">
+          <span class="chip"><b></b> Careers</span>
+          <h1 style="margin:24px 0 20px;font-size:clamp(2.4rem,5.4vw,4.4rem)">Work where it's grown.</h1>
+          <p class="lede">Field officers, factory staff, engineers and finance professionals — on estate and at head office in Colombo.</p>
+        </div>
+        <div class="tile flat photo" style="grid-column:span 5;min-height:300px"><img src="https://picsum.photos/seed/nr-careers/900/800" alt="Field officer"></div>
+      </div>
+
+      <ul class="rows reveal" style="margin-top:14px">
+        <li><span class="d">30.08.26</span><h4>Assistant Superintendent</h4><span class="r">Kirimetiya Estate</span></li>
+        <li><span class="d">22.08.26</span><h4>Factory Officer</h4><span class="r">Hunugala Estate</span></li>
+        <li><span class="d">15.08.26</span><h4>Management Accountant</h4><span class="r">Colombo 03</span></li>
+      </ul>
+
+      <div class="tile reveal" style="margin-top:14px;padding:40px">
+        <h2 style="font-size:2rem">Apply</h2>
+        <form id="jobForm" style="margin-top:22px;max-width:560px">
+          <div class="fld"><label for="jn">Full name</label><input id="jn" required></div>
+          <div class="fld"><label for="je">Email</label><input id="je" type="email" required></div>
+          <div class="fld"><label for="jr">Position</label><select id="jr"><option>Assistant Superintendent</option><option>Factory Officer</option><option>Management Accountant</option><option>General application</option></select></div>
+          <div class="fld"><label for="jm">Message</label><textarea id="jm" rows="3"></textarea></div>
+          <div><button class="btn" type="submit">Send application <i>&rarr;</i></button></div>
+          <p class="mono" id="jobMsg" hidden style="color:var(--clay)">Application sent. We reply within 10 working days.</p>
+        </form>
+      </div>
+    </div>
+  </section>
+</div>
+
+<!-- ============ CONTACT ============ -->
+<div class="page" id="contact">
+  <section class="hero">
+    <div class="wrap">
+      <div class="bento">
+        <div class="tile" style="grid-column:span 5;padding:40px">
+          <span class="chip"><b></b> Contact</span>
+          <h1 style="margin:24px 0 24px;font-size:clamp(2.4rem,5vw,3.8rem)">Talk to us.</h1>
+          <h4>Head office</h4>
+          <p class="sm" style="margin-top:8px">No. 00, Example Road, Colombo 03<br>+94 11 000 0000 · info@example.com</p>
+          <h4 style="margin-top:24px">Estate offices</h4>
+          <p class="sm" style="margin-top:8px">Kirimetiya, Nuwara Eliya · +94 52 000 0000<br>Panapitiya, Kalutara · +94 34 000 0000</p>
+          <h4 style="margin-top:24px">Sales</h4>
+          <p class="sm" style="margin-top:8px">sales@example.com · +94 11 000 0001</p>
+        </div>
+        <div class="tile" style="grid-column:span 7;padding:40px">
+          <form id="cForm">
+            <div class="fld"><label for="cn">Name</label><input id="cn" required></div>
+            <div class="fld"><label for="ce">Email</label><input id="ce" type="email" required></div>
+            <div class="fld"><label for="cc">Company</label><input id="cc"></div>
+            <div class="fld"><label for="ct">Enquiry type</label><select id="ct"><option>Product / sample request</option><option>Investor relations</option><option>Media</option><option>Other</option></select></div>
+            <div class="fld"><label for="cm">Message</label><textarea id="cm" rows="4" required></textarea></div>
+            <div><button class="btn lime" type="submit">Send enquiry <i>&rarr;</i></button></div>
+            <p class="mono" id="cMsg" hidden style="color:var(--clay)">Enquiry sent. We reply within two working days.</p>
+          </form>
+        </div>
+        <div class="tile flat photo" style="grid-column:span 12;min-height:280px">
+          <img src="https://picsum.photos/seed/nr-map/1600/600" alt="Map placeholder" style="opacity:.5">
+          <span class="chip lime lbl">Map embed here</span>
+        </div>
+      </div>
+    </div>
+  </section>
+</div>
+
+</main>
+
+<footer>
+  <div class="wrap">
+    <div class="fgrid">
+      <div>
+        <div class="brand" style="color:#fff;margin-bottom:14px"><span class="dot"></span> Nuwara Ridge</div>
+        <p class="sm">No. 00, Example Road, Colombo 03, Sri Lanka<br>+94 11 000 0000 · info@example.com</p>
+      </div>
+      <div><h4>Company</h4><ul><li><a href="#" data-go="about">About</a></li><li><a href="#" data-go="estates">Estates</a></li><li><a href="#" data-go="careers">Careers</a></li></ul></div>
+      <div><h4>Business</h4><ul><li><a href="#" data-go="products">Products</a></li><li><a href="#" data-go="sustainability">Impact</a></li><li><a href="#" data-go="investors">Investors</a></li></ul></div>
+      <div><h4>Legal</h4><ul><li><a href="#">Privacy policy</a></li><li><a href="#">Terms of use</a></li><li><a href="#">Cookie notice</a></li></ul></div>
+    </div>
+    <div class="legal"><span>© 2026 Nuwara Ridge Plantations PLC</span><span>CSE: NRPL.N0000</span></div>
+  </div>
+</footer>
+
+<script>
+(function(){
+  var pages=document.querySelectorAll('.page'),
+      navBtns=document.querySelectorAll('#nav button'),
+      list=document.getElementById('nav'),
+      burger=document.getElementById('burger');
+
+  /* reveal */
+  var io=new IntersectionObserver(function(es){
+    es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}});
+  },{threshold:.1});
+  function watch(s){s.querySelectorAll('.reveal:not(.in)').forEach(function(n){io.observe(n)})}
+
+  /* counters */
+  function up(el){
+    var t=+el.dataset.count,s=performance.now(),d=1300;
+    (function step(n){
+      var p=Math.min((n-s)/d,1),e=1-Math.pow(1-p,3);
+      el.textContent=Math.round(t*e).toLocaleString();
+      if(p<1)requestAnimationFrame(step);
+    })(s);
+  }
+  var cio=new IntersectionObserver(function(es){
+    es.forEach(function(e){if(e.isIntersecting){up(e.target);cio.unobserve(e.target)}});
+  },{threshold:.4});
+  function watchC(s){s.querySelectorAll('[data-count]').forEach(function(n){cio.observe(n)})}
+
+  /* routing */
+  function go(id){
+    pages.forEach(function(p){p.classList.toggle('on',p.id===id)});
+    navBtns.forEach(function(b){b.setAttribute('aria-current',b.dataset.go===id?'true':'false')});
+    list.classList.remove('open');burger.setAttribute('aria-expanded','false');
+    window.scrollTo(0,0);
+    var el=document.getElementById(id);watch(el);watchC(el);
+  }
+  document.addEventListener('click',function(e){
+    var t=e.target.closest('[data-go]');if(!t)return;e.preventDefault();go(t.dataset.go);
+  });
+  burger.addEventListener('click',function(){
+    var o=list.classList.toggle('open');burger.setAttribute('aria-expanded',o?'true':'false');
+  });
+
+  /* estate switcher */
+  var data=[
+    ['Kirimetiya','High grown tea. Long, cool plucking rounds and a bright, light liquor.',['1,640 m','412 ha','Nuwara Eliya','Factory on site']],
+    ['Hunugala','High grown tea. Our oldest factory, built in 1927 and still withering by air.',['1,285 m','366 ha','Nuwara Eliya','Factory on site']],
+    ['Wewelpitiya','Mid grown tea. Fuller body, golden colour, orthodox rolled leaf.',['940 m','288 ha','Kandy','Factory on site']],
+    ['Deniyagoda','Low grown tea and hand-peeled Ceylon cinnamon.',['610 m','254 ha','Matara','Factory on site']],
+    ['Panapitiya','Rubber. Ribbed smoked sheet and centrifuged latex at 60% DRC.',['180 m','505 ha','Kalutara','Factory on site']],
+    ['Maragahawewa','Coconut. Desiccated coconut, copra and coir fibre.',['40 m','730 ha','Puttalam','No factory']]
+  ];
+  var imgs=document.querySelectorAll('#stage img'),
+      nm=document.getElementById('eName'),ds=document.getElementById('eDesc'),bs=document.getElementById('eBars');
+  function paint(i){
+    imgs.forEach(function(im,k){im.classList.toggle('on',k===i)});
+    nm.textContent=data[i][0];ds.textContent=data[i][1];
+    bs.innerHTML=data[i][2].map(function(x){return '<span>'+x+'</span>'}).join('');
+    document.querySelectorAll('.opt').forEach(function(o,k){o.setAttribute('aria-selected',k===i?'true':'false')});
+  }
+  var picker=document.getElementById('picker');
+  if(picker){
+    picker.addEventListener('click',function(e){
+      var b=e.target.closest('.opt');if(!b)return;paint(+b.dataset.e);
+    });
+    paint(0);
+  }
+
+  /* forms */
+  [['cForm','cMsg'],['jobForm','jobMsg']].forEach(function(pair){
+    var f=document.getElementById(pair[0]);if(!f)return;
+    f.addEventListener('submit',function(e){
+      e.preventDefault();document.getElementById(pair[1]).hidden=false;f.reset();
+    });
+  });
+
+  watch(document);watchC(document.getElementById('home'));
+})();
+</script>
+</body>
+</html>
