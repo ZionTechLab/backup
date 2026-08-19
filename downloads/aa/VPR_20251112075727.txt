@@ -1,0 +1,6 @@
+P,1100021160_700029401_700029424_700029425_700029499,115010053368,Hayleys PLC,7083,002,002010240896,,5131657.39,LKR  ,251112,,0773577507,kushan.kavinda@finance.hayleys.com,lasitha.dias@finance.hayleys.com,nirmal.dias@finance.hayleys.com,paymentadvice@fedexlk.com,,EMAIL,0773577507,kushan.kavinda@finance.hayleys.com,lasitha.dias@finance.hayleys.com,nirmal.dias@finance.hayleys.com,paymentadvice@fedexlk.com,,IC Settle/Aug/Sep 2025,CEFT
+E,251028,700029401,,205128.00
+ E,251028,700029424,,510331.73
+ E,251028,700029425,,3592.35
+ E,251028,700029499,,4412605.31
+
