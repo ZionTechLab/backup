@@ -1,0 +1,51 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="dts_Jobdetail" targetNamespace="http://tempuri.org/dts_Jobdetail.xsd" xmlns:mstns="http://tempuri.org/dts_Jobdetail.xsd" xmlns="http://tempuri.org/dts_Jobdetail.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop" attributeFormDefault="qualified" elementFormDefault="qualified">
+  <xs:annotation>
+    <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
+      <DataSource DefaultConnectionIndex="0" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
+        <Connections />
+        <Tables />
+        <Sources />
+      </DataSource>
+    </xs:appinfo>
+  </xs:annotation>
+  <xs:element name="dts_Jobdetail" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="true" msprop:Generator_DataSetName="dts_Jobdetail" msprop:Generator_UserDSName="dts_Jobdetail">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element name="dt_Pms_JobDetail" msprop:Generator_TableClassName="dt_Pms_JobDetailDataTable" msprop:Generator_TableVarName="tabledt_Pms_JobDetail" msprop:Generator_RowChangedName="dt_Pms_JobDetailRowChanged" msprop:Generator_TablePropName="dt_Pms_JobDetail" msprop:Generator_RowDeletingName="dt_Pms_JobDetailRowDeleting" msprop:Generator_RowChangingName="dt_Pms_JobDetailRowChanging" msprop:Generator_RowEvHandlerName="dt_Pms_JobDetailRowChangeEventHandler" msprop:Generator_RowDeletedName="dt_Pms_JobDetailRowDeleted" msprop:Generator_RowClassName="dt_Pms_JobDetailRow" msprop:Generator_UserTableName="dt_Pms_JobDetail" msprop:Generator_RowEvArgName="dt_Pms_JobDetailRowChangeEvent">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="ItemName" msprop:Generator_ColumnVarNameInTable="columnItemName" msprop:Generator_ColumnPropNameInRow="ItemName" msprop:Generator_ColumnPropNameInTable="ItemNameColumn" msprop:Generator_UserColumnName="ItemName" type="xs:string" minOccurs="0" />
+              <xs:element name="CustomerName" msprop:Generator_ColumnVarNameInTable="columnCustomerName" msprop:Generator_ColumnPropNameInRow="CustomerName" msprop:Generator_ColumnPropNameInTable="CustomerNameColumn" msprop:Generator_UserColumnName="CustomerName" type="xs:string" minOccurs="0" />
+              <xs:element name="OderQTY" msprop:Generator_ColumnVarNameInTable="columnOderQTY" msprop:Generator_ColumnPropNameInRow="OderQTY" msprop:Generator_ColumnPropNameInTable="OderQTYColumn" msprop:Generator_UserColumnName="OderQTY" type="xs:decimal" minOccurs="0" />
+              <xs:element name="PendingQTY" msprop:Generator_ColumnVarNameInTable="columnPendingQTY" msprop:Generator_ColumnPropNameInRow="PendingQTY" msprop:Generator_ColumnPropNameInTable="PendingQTYColumn" msprop:Generator_UserColumnName="PendingQTY" type="xs:decimal" minOccurs="0" />
+              <xs:element name="ProductionJobNo" msprop:Generator_ColumnVarNameInTable="columnProductionJobNo" msprop:Generator_ColumnPropNameInRow="ProductionJobNo" msprop:Generator_ColumnPropNameInTable="ProductionJobNoColumn" msprop:Generator_UserColumnName="ProductionJobNo" type="xs:string" minOccurs="0" />
+              <xs:element name="OrderNo" msprop:Generator_ColumnVarNameInTable="columnOrderNo" msprop:Generator_ColumnPropNameInRow="OrderNo" msprop:Generator_ColumnPropNameInTable="OrderNoColumn" msprop:Generator_UserColumnName="OrderNo" type="xs:string" minOccurs="0" />
+              <xs:element name="PoNo" msprop:Generator_ColumnVarNameInTable="columnPoNo" msprop:Generator_ColumnPropNameInRow="PoNo" msprop:Generator_ColumnPropNameInTable="PoNoColumn" msprop:Generator_UserColumnName="PoNo" type="xs:string" minOccurs="0" />
+              <xs:element name="UnitPrice" msprop:Generator_ColumnVarNameInTable="columnUnitPrice" msprop:Generator_ColumnPropNameInRow="UnitPrice" msprop:Generator_ColumnPropNameInTable="UnitPriceColumn" msprop:Generator_UserColumnName="UnitPrice" type="xs:decimal" minOccurs="0" />
+              <xs:element name="OrderDate" msprop:Generator_ColumnVarNameInTable="columnOrderDate" msprop:Generator_ColumnPropNameInRow="OrderDate" msprop:Generator_ColumnPropNameInTable="OrderDateColumn" msprop:Generator_UserColumnName="OrderDate" type="xs:dateTime" minOccurs="0" />
+              <xs:element name="DeliverDate" msprop:Generator_ColumnVarNameInTable="columnDeliverDate" msprop:Generator_ColumnPropNameInRow="DeliverDate" msprop:Generator_ColumnPropNameInTable="DeliverDateColumn" msprop:Generator_UserColumnName="DeliverDate" type="xs:dateTime" minOccurs="0" />
+              <xs:element name="ItemUOM" msprop:Generator_ColumnVarNameInTable="columnItemUOM" msprop:Generator_ColumnPropNameInRow="ItemUOM" msprop:Generator_ColumnPropNameInTable="ItemUOMColumn" msprop:Generator_UserColumnName="ItemUOM" type="xs:string" minOccurs="0" />
+              <xs:element name="IsWeightCalculation" msprop:Generator_ColumnVarNameInTable="columnIsWeightCalculation" msprop:Generator_ColumnPropNameInRow="IsWeightCalculation" msprop:Generator_ColumnPropNameInTable="IsWeightCalculationColumn" msprop:Generator_UserColumnName="IsWeightCalculation" type="xs:boolean" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="dt_Pms_JobDetail_Delivery" msprop:Generator_TableClassName="dt_Pms_JobDetail_DeliveryDataTable" msprop:Generator_TableVarName="tabledt_Pms_JobDetail_Delivery" msprop:Generator_RowChangedName="dt_Pms_JobDetail_DeliveryRowChanged" msprop:Generator_TablePropName="dt_Pms_JobDetail_Delivery" msprop:Generator_RowDeletingName="dt_Pms_JobDetail_DeliveryRowDeleting" msprop:Generator_RowChangingName="dt_Pms_JobDetail_DeliveryRowChanging" msprop:Generator_RowEvHandlerName="dt_Pms_JobDetail_DeliveryRowChangeEventHandler" msprop:Generator_RowDeletedName="dt_Pms_JobDetail_DeliveryRowDeleted" msprop:Generator_RowClassName="dt_Pms_JobDetail_DeliveryRow" msprop:Generator_UserTableName="dt_Pms_JobDetail_Delivery" msprop:Generator_RowEvArgName="dt_Pms_JobDetail_DeliveryRowChangeEvent">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="DoCode" msprop:Generator_ColumnVarNameInTable="columnDoCode" msprop:Generator_ColumnPropNameInRow="DoCode" msprop:Generator_ColumnPropNameInTable="DoCodeColumn" msprop:Generator_UserColumnName="DoCode" type="xs:string" minOccurs="0" />
+              <xs:element name="DoDate" msprop:Generator_ColumnVarNameInTable="columnDoDate" msprop:Generator_ColumnPropNameInRow="DoDate" msprop:Generator_ColumnPropNameInTable="DoDateColumn" msprop:Generator_UserColumnName="DoDate" type="xs:dateTime" minOccurs="0" />
+              <xs:element name="DoWeight" msprop:Generator_ColumnVarNameInTable="columnDoWeight" msprop:Generator_ColumnPropNameInRow="DoWeight" msprop:Generator_ColumnPropNameInTable="DoWeightColumn" msprop:Generator_UserColumnName="DoWeight" type="xs:decimal" minOccurs="0" />
+              <xs:element name="DoQTY" msprop:Generator_ColumnVarNameInTable="columnDoQTY" msprop:Generator_ColumnPropNameInRow="DoQTY" msprop:Generator_ColumnPropNameInTable="DoQTYColumn" msprop:Generator_UserColumnName="DoQTY" type="xs:decimal" minOccurs="0" />
+              <xs:element name="DoUOM" msprop:Generator_ColumnVarNameInTable="columnDoUOM" msprop:Generator_ColumnPropNameInRow="DoUOM" msprop:Generator_ColumnPropNameInTable="DoUOMColumn" msprop:Generator_UserColumnName="DoUOM" type="xs:string" minOccurs="0" />
+              <xs:element name="SRNCode" msprop:Generator_ColumnVarNameInTable="columnSRNCode" msprop:Generator_ColumnPropNameInRow="SRNCode" msprop:Generator_ColumnPropNameInTable="SRNCodeColumn" msprop:Generator_UserColumnName="SRNCode" type="xs:string" minOccurs="0" />
+              <xs:element name="SRNDate" msprop:Generator_ColumnVarNameInTable="columnSRNDate" msprop:Generator_ColumnPropNameInRow="SRNDate" msprop:Generator_ColumnPropNameInTable="SRNDateColumn" msprop:Generator_UserColumnName="SRNDate" type="xs:dateTime" minOccurs="0" />
+              <xs:element name="SRNWeight" msprop:Generator_ColumnVarNameInTable="columnSRNWeight" msprop:Generator_ColumnPropNameInRow="SRNWeight" msprop:Generator_ColumnPropNameInTable="SRNWeightColumn" msprop:Generator_UserColumnName="SRNWeight" type="xs:decimal" minOccurs="0" />
+              <xs:element name="SRNQTY" msprop:Generator_ColumnVarNameInTable="columnSRNQTY" msprop:Generator_ColumnPropNameInRow="SRNQTY" msprop:Generator_ColumnPropNameInTable="SRNQTYColumn" msprop:Generator_UserColumnName="SRNQTY" type="xs:decimal" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:choice>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

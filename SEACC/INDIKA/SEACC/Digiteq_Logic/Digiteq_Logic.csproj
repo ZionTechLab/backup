@@ -1,0 +1,267 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{59283A6A-239F-4DF0-B5B8-026175062E29}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Digiteq_Logic</RootNamespace>
+    <AssemblyName>Digiteq_Logic</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <SccProjectName>SAK</SccProjectName>
+    <SccLocalPath>SAK</SccLocalPath>
+    <SccAuxPath>SAK</SccAuxPath>
+    <SccProvider>SAK</SccProvider>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <UseVSHostingProcess>true</UseVSHostingProcess>
+    <CodeAnalysisRuleSet>SecurityRules.ruleset</CodeAnalysisRuleSet>
+    <GenerateSerializationAssemblies>Auto</GenerateSerializationAssemblies>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Ionic.Zip">
+      <HintPath>\\192.168.10.1\07 Developer Common\01 DLL References\Ionic.Zip.dll</HintPath>
+    </Reference>
+    <Reference Include="SEACC.DATA, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\..\..\..\Anoj\SEACC_REF\SEACC.DATA.dll</HintPath>
+    </Reference>
+    <Reference Include="SEACC_Alert_Engine, Version=1.0.0.1, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\..\..\..\Anoj\SEACC_REF\SEACC_Alert_Engine.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Windows.Forms.DataVisualization" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="..\VersionInfo.cs">
+      <Link>VersionInfo.cs</Link>
+    </Compile>
+    <Compile Include="clsAlerts_Email.cs" />
+    <Compile Include="clsAutoCode.cs" />
+    <Compile Include="clsBackProcess.cs" />
+    <Compile Include="clsCommon.cs" />
+    <Compile Include="clsConfig.cs" />
+    <Compile Include="clsDB.cs" />
+    <Compile Include="clsEmailConfig.cs" />
+    <Compile Include="clsEnum.cs" />
+    <Compile Include="clsFill.cs" />
+    <Compile Include="clsFormatter.cs" />
+    <Compile Include="clsGenaralName.cs" />
+    <Compile Include="clsGetValues.cs" />
+    <Compile Include="clsHelpMethods.cs" />
+    <Compile Include="clsLog.cs" />
+    <Compile Include="clsMethods_GL.cs" />
+    <Compile Include="clsProcessMethods.cs" />
+    <Compile Include="clsSearch.cs" />
+    <Compile Include="clsSecurity.cs" />
+    <Compile Include="clsUtil.cs" />
+    <Compile Include="clsValidate.cs" />
+    <Compile Include="clsCript.cs" />
+    <Compile Include="DataSets_Alerts\dts_POS.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>dts_POS.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Search\frmItemSearchStock.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Search\frmItemSearchStock.Designer.cs">
+      <DependentUpon>frmItemSearchStock.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Search\frmSearch.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Search\frmSearch.Designer.cs">
+      <DependentUpon>frmSearch.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Search\frmSearchMaster.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Search\frmSearchMaster.designer.cs">
+      <DependentUpon>frmSearchMaster.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Search\frmSearchMaster_MultipleSelection.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Search\frmSearchMaster_MultipleSelection.designer.cs">
+      <DependentUpon>frmSearchMaster_MultipleSelection.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Search\frmSearchTransaction.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Search\frmSearchTransaction.designer.cs">
+      <DependentUpon>frmSearchTransaction.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Search\frmSearchTransactionAdvance.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Search\frmSearchTransactionAdvance.designer.cs">
+      <DependentUpon>frmSearchTransactionAdvance.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+      <DependentUpon>Settings.settings</DependentUpon>
+    </Compile>
+    <Compile Include="Search\frmSearchMaster_ItemCategory.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Search\frmSearchMaster_ItemCategory.Designer.cs">
+      <DependentUpon>frmSearchMaster_ItemCategory.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Search\frmSearchMaster_ItemType.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Search\frmSearchMaster_ItemType.Designer.cs">
+      <DependentUpon>frmSearchMaster_ItemType.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Search\frmSearchMaster_Multiple_ProductionJob.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Search\frmSearchMaster_Multiple_ProductionJob.Designer.cs">
+      <DependentUpon>frmSearchMaster_Multiple_ProductionJob.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Search\frmSearchMaster_WC.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Search\frmSearchMaster_WC.designer.cs">
+      <DependentUpon>frmSearchMaster_WC.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Search\frmSearchTransaction_mini.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Search\frmSearchTransaction_mini.designer.cs">
+      <DependentUpon>frmSearchTransaction_mini.cs</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\CS\Digiteq_Inventory.csproj">
+      <Project>{e1674e41-6da2-45de-bc55-c820f4bb8bf9}</Project>
+      <Name>Digiteq_Inventory</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\SEACC.DATA\SEACC.DATA.csproj">
+      <Project>{3DF423AA-8FE7-4E1D-8A47-9A29A09FB3F0}</Project>
+      <Name>SEACC.DATA</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="app.config" />
+    <None Include="DataSets_Alerts\dts_POS.xsc">
+      <DependentUpon>dts_POS.xsd</DependentUpon>
+    </None>
+    <None Include="DataSets_Alerts\dts_POS.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>dts_POS.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="DataSets_Alerts\dts_POS.xss">
+      <DependentUpon>dts_POS.xsd</DependentUpon>
+    </None>
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Search\frmItemSearchStock.resx">
+      <DependentUpon>frmItemSearchStock.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Search\frmSearch.resx">
+      <DependentUpon>frmSearch.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Search\frmSearchMaster.resx">
+      <DependentUpon>frmSearchMaster.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Search\frmSearchMaster_MultipleSelection.resx">
+      <DependentUpon>frmSearchMaster_MultipleSelection.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Search\frmSearchTransaction.resx">
+      <DependentUpon>frmSearchTransaction.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Search\frmSearchTransactionAdvance.resx">
+      <DependentUpon>frmSearchTransactionAdvance.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Search\frmSearchMaster_ItemCategory.resx">
+      <DependentUpon>frmSearchMaster_ItemCategory.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Search\frmSearchMaster_ItemType.resx">
+      <DependentUpon>frmSearchMaster_ItemType.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Search\frmSearchMaster_Multiple_ProductionJob.resx">
+      <DependentUpon>frmSearchMaster_Multiple_ProductionJob.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Search\frmSearchMaster_WC.resx">
+      <DependentUpon>frmSearchMaster_WC.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Search\frmSearchTransaction_mini.resx">
+      <DependentUpon>frmSearchTransaction_mini.cs</DependentUpon>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{C0C07587-41A7-46C8-8FBD-3F9C8EBE2DDC}" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\SEACC.WinFormControls\SEACC.WinFormControls.csproj">
+      <Project>{905a7f0a-9028-4ce9-8a62-21cf428f7d96}</Project>
+      <Name>SEACC.WinFormControls</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\SEACC.WinFormControls\SEACC.WinFormControls.csproj">
+      <Project>{905a7f0a-9028-4ce9-8a62-21cf428f7d96}</Project>
+      <Name>SEACC.WinFormControls</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ZION.ERP.Reports\ZION.ERP.Reports.csproj">
+      <Project>{785FD767-BCB7-4896-A23A-FEE287E85AF0}</Project>
+      <Name>ZION.ERP.Reports</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

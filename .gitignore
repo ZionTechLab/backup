@@ -1,0 +1,124 @@
+# ===== Node.js =====
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+lerna-debug.log*
+.pnpm-store/
+
+# ===== Build / Dist =====
+dist/
+build/
+out/
+*.tsbuildinfo
+
+# ===== .NET =====
+bin/
+obj/
+*.user
+*.suo
+*.userosscache
+*.sln.docstates
+*.userprefs
+[Dd]ebug/
+[Rr]elease/
+x64/
+x86/
+[Bb]uild/
+bld/
+*.nupkg
+*.snupkg
+packages/
+*.dotCover
+.vs/
+*.sln.ide/
+
+# ===== Python =====
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+*.egg-info/
+.eggs/
+dist/
+*.egg
+.Python
+env/
+venv/
+.venv/
+pip-log.txt
+pip-delete-this-directory.txt
+.pytest_cache/
+*.sage.py
+
+# ===== Java / Gradle / Maven =====
+*.class
+*.jar
+*.war
+*.nar
+*.ear
+.gradle/
+build/
+!gradle/wrapper/gradle-wrapper.jar
+target/
+!.mvn/wrapper/maven-wrapper.jar
+
+# ===== IDE / Editor =====
+.idea/
+*.iml
+*.iws
+*.ipr
+.vscode/
+*.swp
+*.swo
+*~
+.DS_Store
+Thumbs.db
+Desktop.ini
+*.orig
+
+# ===== Environment / Config =====
+.env
+.env.local
+.env.*.local
+*.env
+
+# ===== Logs =====
+logs/
+*.log
+
+# ===== OS =====
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+
+# ===== Archives / Temp =====
+*.zip
+*.tar
+*.tar.gz
+*.tgz
+*.rar
+*.7z
+*.tmp
+*.temp
+
+# ===== Coverage =====
+coverage/
+*.lcov
+.nyc_output/
+
+# ===== Terraform =====
+.terraform/
+*.tfstate
+*.tfstate.*
+.terraform.lock.hcl
+
+# ===== Nx =====
+.nx/
+*.gz
+*.rw

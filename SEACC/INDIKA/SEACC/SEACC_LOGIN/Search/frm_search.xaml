@@ -1,0 +1,46 @@
+﻿<Window x:Class="SEACC_LOGIN.Search.frm_search"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:SEACC_WPFControls1="clr-namespace:SEACC_WPFControls;assembly=SEACC_WPFControls" 
+    x:Name="frmSearch1" WindowStartupLocation="CenterScreen"
+    Topmost="True" Height="429" Width="310" Loaded="frmSearch_Loaded"
+    Background="{x:Null}" 
+    AllowsTransparency="True" WindowStyle="None" ResizeMode="CanResizeWithGrip" ShowInTaskbar="True">
+
+    <Grid x:Name="frm_Search" Background="White" Margin="15">
+
+        <Grid.Effect>
+            <DropShadowEffect ShadowDepth="4" Opacity="0.8" BlurRadius="15"/>
+        </Grid.Effect>
+
+        <Grid Background="#FF009688"  MouseDown="Grid_MouseDown_1" Height="66" VerticalAlignment="Top">
+            <Button x:Name="btn_Close" Content="&#xE8BB;" FontFamily="Segoe MDL2 Assets" FontSize="10" Click="btn_Close_Click" Height="22" Width="22" HorizontalAlignment="Right"  VerticalAlignment="Top" BorderBrush="#FFEC0000"/>
+            <Button x:Name="btnMinimize" Content="&#xE921;" HorizontalAlignment="Right" Width="23" FontFamily="Segoe MDL2 Assets" Foreground="#FF9F9C9C" Background="{x:Null}" BorderBrush="{x:Null}" Margin="0,0,24,45" Click="btnMinimize_Click"/>
+            <Button x:Name="btn_Settings" Content="&#xE115;" FontFamily="Segoe MDL2 Assets" FontSize="12"  Height="22" Width="22" HorizontalAlignment="Right"  VerticalAlignment="Top" Margin="0,-1,49,0" Background="#7FFFFFFF" BorderBrush="{x:Null}" Click="btn_Settings_Click"/>
+            <Label x:Name="lblHeader" Content="Label"  FontSize="18" Foreground="White" HorizontalAlignment="Left" VerticalAlignment="Top" Padding="10,5,5,5" />
+            <Grid Background="White" Margin="10,35,10,5">
+                <DockPanel>
+                    <ComboBox x:Name="cbxSearch"  IsReadOnly="True" IsEditable="True" BorderBrush="{x:Null}" Margin="2" SelectionChanged="cbxSearch_SelectionChanged"/>
+                    <TextBox x:Name="txtFillter"  KeyUp="txtFillter_KeyDown"  HorizontalAlignment="Stretch" BorderBrush="{x:Null}"  Margin="2"/>
+                </DockPanel>
+            </Grid>
+        </Grid>
+
+        <DataGrid x:Name="dgvSearch" Margin="10,71,10,10" IsReadOnly="True" CanUserResizeColumns="True" CanUserResizeRows="False" HeadersVisibility="Column" SelectionMode="Single" SelectionUnit="FullRow"
+                  AutoGenerateColumns="False" HorizontalGridLinesBrush="#FFA7C5C2" Background="White" BorderBrush="White" GridLinesVisibility="Horizontal" LoadingRow="dgvSearch_LoadingRow" PreviewMouseLeftButtonUp="dgvSearch_PreviewMouseLeftButtonUp" PreviewKeyDown="dgvSearch_PreviewKeyDown" KeyDown="txtFillter_KeyDown" PreviewKeyUp="dgvSearch_PreviewKeyUp" PreviewMouseDoubleClick="dgvSearch_PreviewMouseDoubleClick">
+            <DataGrid.ColumnHeaderStyle>
+                <Style TargetType="{x:Type DataGridColumnHeader}">
+                    <Setter Property="Background" Value="#FFC1C1C1" />
+                    <Setter Property="Height" Value="22" />
+                    <Setter Property="Padding" Value="3"/>
+                </Style>
+            </DataGrid.ColumnHeaderStyle>
+        </DataGrid>
+
+        <Grid Height="0" x:Name="Grd_Settings"  Margin="121,22,0,0" VerticalAlignment="Top" Background="#FFBFBFBF" >
+            <Border BorderBrush="Black" BorderThickness="1">
+                <CheckBox x:Name="cbx_ShowAll" Content="Show Hidden records" Margin="9,9,-9,81" Checked="cbx_ShowAll_Checked" Unchecked="cbx_ShowAll_Unchecked"/>
+            </Border>
+        </Grid>
+    </Grid>
+</Window>

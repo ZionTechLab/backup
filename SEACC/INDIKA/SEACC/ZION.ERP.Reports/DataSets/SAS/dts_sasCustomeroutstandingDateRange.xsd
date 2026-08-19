@@ -1,0 +1,51 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="dts_sasCustomeroutstandingDateRange" targetNamespace="http://tempuri.org/dts_sasCustomeroutstandingDateRange.xsd" xmlns:mstns="http://tempuri.org/dts_sasCustomeroutstandingDateRange.xsd" xmlns="http://tempuri.org/dts_sasCustomeroutstandingDateRange.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop" attributeFormDefault="qualified" elementFormDefault="qualified">
+  <xs:annotation>
+    <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
+      <DataSource DefaultConnectionIndex="0" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
+        <Connections />
+        <Tables />
+        <Sources />
+      </DataSource>
+    </xs:appinfo>
+  </xs:annotation>
+  <xs:element name="dts_sasCustomeroutstandingDateRange" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="true" msprop:Generator_DataSetName="dts_sasCustomeroutstandingDateRange" msprop:Generator_UserDSName="dts_sasCustomeroutstandingDateRange">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element name="dt_sasCustOutstanding_Customer" msprop:Generator_TableClassName="dt_sasCustOutstanding_CustomerDataTable" msprop:Generator_TableVarName="tabledt_sasCustOutstanding_Customer" msprop:Generator_TablePropName="dt_sasCustOutstanding_Customer" msprop:Generator_RowDeletingName="dt_sasCustOutstanding_CustomerRowDeleting" msprop:Generator_RowChangingName="dt_sasCustOutstanding_CustomerRowChanging" msprop:Generator_RowEvHandlerName="dt_sasCustOutstanding_CustomerRowChangeEventHandler" msprop:Generator_RowDeletedName="dt_sasCustOutstanding_CustomerRowDeleted" msprop:Generator_UserTableName="dt_sasCustOutstanding_Customer" msprop:Generator_RowChangedName="dt_sasCustOutstanding_CustomerRowChanged" msprop:Generator_RowEvArgName="dt_sasCustOutstanding_CustomerRowChangeEvent" msprop:Generator_RowClassName="dt_sasCustOutstanding_CustomerRow">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="customerCode" msprop:Generator_ColumnVarNameInTable="columncustomerCode" msprop:Generator_ColumnPropNameInRow="customerCode" msprop:Generator_ColumnPropNameInTable="customerCodeColumn" msprop:Generator_UserColumnName="customerCode" type="xs:string" minOccurs="0" />
+              <xs:element name="customerName" msprop:Generator_ColumnVarNameInTable="columncustomerName" msprop:Generator_ColumnPropNameInRow="customerName" msprop:Generator_ColumnPropNameInTable="customerNameColumn" msprop:Generator_UserColumnName="customerName" type="xs:string" minOccurs="0" />
+              <xs:element name="openingBalance" msprop:Generator_ColumnVarNameInTable="columnopeningBalance" msprop:Generator_ColumnPropNameInRow="openingBalance" msprop:Generator_ColumnPropNameInTable="openingBalanceColumn" msprop:Generator_UserColumnName="openingBalance" type="xs:decimal" minOccurs="0" />
+              <xs:element name="closingBalance" msprop:Generator_ColumnVarNameInTable="columnclosingBalance" msprop:Generator_ColumnPropNameInRow="closingBalance" msprop:Generator_ColumnPropNameInTable="closingBalanceColumn" msprop:Generator_UserColumnName="closingBalance" type="xs:decimal" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="dt_sasCustOutstanding_Document" msprop:Generator_TableClassName="dt_sasCustOutstanding_DocumentDataTable" msprop:Generator_TableVarName="tabledt_sasCustOutstanding_Document" msprop:Generator_TablePropName="dt_sasCustOutstanding_Document" msprop:Generator_RowDeletingName="dt_sasCustOutstanding_DocumentRowDeleting" msprop:Generator_RowChangingName="dt_sasCustOutstanding_DocumentRowChanging" msprop:Generator_RowEvHandlerName="dt_sasCustOutstanding_DocumentRowChangeEventHandler" msprop:Generator_RowDeletedName="dt_sasCustOutstanding_DocumentRowDeleted" msprop:Generator_UserTableName="dt_sasCustOutstanding_Document" msprop:Generator_RowChangedName="dt_sasCustOutstanding_DocumentRowChanged" msprop:Generator_RowEvArgName="dt_sasCustOutstanding_DocumentRowChangeEvent" msprop:Generator_RowClassName="dt_sasCustOutstanding_DocumentRow">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="customerCode" msprop:Generator_ColumnVarNameInTable="columncustomerCode" msprop:Generator_ColumnPropNameInRow="customerCode" msprop:Generator_ColumnPropNameInTable="customerCodeColumn" msprop:Generator_UserColumnName="customerCode" type="xs:string" minOccurs="0" />
+              <xs:element name="documentCode" msprop:Generator_ColumnVarNameInTable="columndocumentCode" msprop:Generator_ColumnPropNameInRow="documentCode" msprop:Generator_ColumnPropNameInTable="documentCodeColumn" msprop:Generator_UserColumnName="documentCode" type="xs:string" minOccurs="0" />
+              <xs:element name="documentName" msprop:Generator_ColumnVarNameInTable="columndocumentName" msprop:Generator_ColumnPropNameInRow="documentName" msprop:Generator_ColumnPropNameInTable="documentNameColumn" msprop:Generator_UserColumnName="documentName" type="xs:string" minOccurs="0" />
+              <xs:element name="openingBalance" msprop:Generator_ColumnVarNameInTable="columnopeningBalance" msprop:Generator_ColumnPropNameInRow="openingBalance" msprop:Generator_ColumnPropNameInTable="openingBalanceColumn" msprop:Generator_UserColumnName="openingBalance" type="xs:decimal" minOccurs="0" />
+              <xs:element name="colsingBalance" msprop:Generator_ColumnVarNameInTable="columncolsingBalance" msprop:Generator_ColumnPropNameInRow="colsingBalance" msprop:Generator_ColumnPropNameInTable="colsingBalanceColumn" msprop:Generator_UserColumnName="colsingBalance" type="xs:decimal" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="dt_sasCustOutstanding_Detail" msprop:Generator_TableClassName="dt_sasCustOutstanding_DetailDataTable" msprop:Generator_TableVarName="tabledt_sasCustOutstanding_Detail" msprop:Generator_TablePropName="dt_sasCustOutstanding_Detail" msprop:Generator_RowDeletingName="dt_sasCustOutstanding_DetailRowDeleting" msprop:Generator_RowChangingName="dt_sasCustOutstanding_DetailRowChanging" msprop:Generator_RowEvHandlerName="dt_sasCustOutstanding_DetailRowChangeEventHandler" msprop:Generator_RowDeletedName="dt_sasCustOutstanding_DetailRowDeleted" msprop:Generator_UserTableName="dt_sasCustOutstanding_Detail" msprop:Generator_RowChangedName="dt_sasCustOutstanding_DetailRowChanged" msprop:Generator_RowEvArgName="dt_sasCustOutstanding_DetailRowChangeEvent" msprop:Generator_RowClassName="dt_sasCustOutstanding_DetailRow">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="customerCode" msprop:Generator_ColumnVarNameInTable="columncustomerCode" msprop:Generator_ColumnPropNameInRow="customerCode" msprop:Generator_ColumnPropNameInTable="customerCodeColumn" msprop:Generator_UserColumnName="customerCode" type="xs:string" minOccurs="0" />
+              <xs:element name="documentCode" msprop:Generator_ColumnVarNameInTable="columndocumentCode" msprop:Generator_ColumnPropNameInRow="documentCode" msprop:Generator_ColumnPropNameInTable="documentCodeColumn" msprop:Generator_UserColumnName="documentCode" type="xs:string" minOccurs="0" />
+              <xs:element name="txnCode" msprop:Generator_ColumnVarNameInTable="columntxnCode" msprop:Generator_ColumnPropNameInRow="txnCode" msprop:Generator_ColumnPropNameInTable="txnCodeColumn" msprop:Generator_UserColumnName="txnCode" type="xs:string" minOccurs="0" />
+              <xs:element name="txnDate" msprop:Generator_ColumnVarNameInTable="columntxnDate" msprop:Generator_ColumnPropNameInRow="txnDate" msprop:Generator_ColumnPropNameInTable="txnDateColumn" msprop:Generator_UserColumnName="txnDate" type="xs:dateTime" minOccurs="0" />
+              <xs:element name="narration" msprop:Generator_ColumnVarNameInTable="columnnarration" msprop:Generator_ColumnPropNameInRow="narration" msprop:Generator_ColumnPropNameInTable="narrationColumn" msprop:Generator_UserColumnName="narration" type="xs:string" minOccurs="0" />
+              <xs:element name="amount" msprop:Generator_ColumnVarNameInTable="columnamount" msprop:Generator_ColumnPropNameInRow="amount" msprop:Generator_ColumnPropNameInTable="amountColumn" msprop:Generator_UserColumnName="amount" type="xs:decimal" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:choice>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

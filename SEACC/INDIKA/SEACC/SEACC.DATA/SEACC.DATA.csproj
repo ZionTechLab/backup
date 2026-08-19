@@ -1,0 +1,131 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{3DF423AA-8FE7-4E1D-8A47-9A29A09FB3F0}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>SEACC.DATA</RootNamespace>
+    <AssemblyName>SEACC.DATA</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <Deterministic>true</Deterministic>
+    <SccProjectName>SAK</SccProjectName>
+    <SccLocalPath>SAK</SccLocalPath>
+    <SccAuxPath>SAK</SccAuxPath>
+    <SccProvider>SAK</SccProvider>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Dapper">
+      <HintPath>..\packages\Dapper.1.50.1\lib\net45\Dapper.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json, Version=6.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Newtonsoft.Json.12.0.3\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Data\ACC\AccChequeDate_Data.cs" />
+    <Compile Include="Data\ACC\AccountsMasterData.cs" />
+    <Compile Include="Data\BSS\ChequeData.cs" />
+    <Compile Include="Data\BSS\DebterSettlement.cs" />
+    <Compile Include="Data\BSS\DebtorOutstandingData.cs" />
+    <Compile Include="Data\CFG\ConfigValueData.cs" />
+    <Compile Include="Data\CFG\SecurityData.cs" />
+    <Compile Include="Data\CFG\securityRoutePermission.cs" />
+    <Compile Include="Data\CFG\UserData.cs" />
+    <Compile Include="Data\Com\CommishionData.cs" />
+    <Compile Include="Data\Com\ComPercentageDefinition_Data.cs" />
+    <Compile Include="Data\FYValidationData.cs" />
+    <Compile Include="Data\MAS\BookNoData.cs" />
+    <Compile Include="Data\MAS\DeliveryOfficer_Data.cs" />
+    <Compile Include="Data\MAS\ItemMaster.cs" />
+    <Compile Include="Data\MAS\masCustomerWiseItemPricingData.cs" />
+    <Compile Include="Data\MAS\masRouteWiseItemPricingData.cs" />
+    <Compile Include="Data\MAS\RouteWiseItemDiscData.cs" />
+    <Compile Include="Data\RouteLockData.cs" />
+    <Compile Include="Data\sasDeliveryOrder_DoDateData.cs" />
+    <Compile Include="Data\SAS\SasDeliveryOrder_data.cs" />
+    <Compile Include="Data\SCS\InventoryTxnData.cs" />
+    <Compile Include="Data\SCS\ProductionData.cs" />
+    <Compile Include="Data\SCS\StockReportsData.cs" />
+    <Compile Include="DBHandling.cs" />
+    <Compile Include="Domain\ACC\tbl_accChequeDate.cs" />
+    <Compile Include="Domain\Array_Str_Dtm.cs" />
+    <Compile Include="Domain\BSS\DebtorOutstanding.cs" />
+    <Compile Include="Domain\BSS\ReturnedCheque.cs" />
+    <Compile Include="Domain\BSS\tmptbl_ChqReconcilation.cs" />
+    <Compile Include="Domain\CFG\ConfigValue.cs" />
+    <Compile Include="Domain\CFG\PortalUI.cs" />
+    <Compile Include="Domain\CFG\tbl_genCompanyInfo.cs" />
+    <Compile Include="Domain\CFG\tbl_securityFormCategory.cs" />
+    <Compile Include="Domain\CFG\tbl_securityFormMaster.cs" />
+    <Compile Include="Domain\CFG\tbl_securityRoutePermission.cs" />
+    <Compile Include="Domain\Com\comCommissionCalculation_Detail.cs" />
+    <Compile Include="Domain\Com\Commishion.cs" />
+    <Compile Include="Domain\Com\CommishionDateSlab.cs" />
+    <Compile Include="Domain\Com\CommissionCalculation_Summary.cs" />
+    <Compile Include="Domain\Com\CommissionCollectors_SavePara.cs" />
+    <Compile Include="Domain\Com\CommissionSalesRep.cs" />
+    <Compile Include="Domain\Com\Dataset_Dynamic.cs" />
+    <Compile Include="Domain\Com\tbl_comCollectorsPercentageDef.cs" />
+    <Compile Include="Domain\Com\tbl_comCommissionCalculation_Drivers_Summary.cs" />
+    <Compile Include="Domain\CustomerWisePricing\masCustomerWiseItemPricing.cs" />
+    <Compile Include="Domain\MAS\ItemMaster_Pricing.cs" />
+    <Compile Include="Domain\MAS\tbl_genRoute.cs" />
+    <Compile Include="Domain\MAS\tbl_RefBooks_Receipt_Pages.cs" />
+    <Compile Include="Domain\MAS\tbl_zDeliveryOfficer.cs" />
+    <Compile Include="Domain\MAS\tbl_ZEmpSalesRep.cs" />
+    <Compile Include="Domain\ResponseMessage.cs" />
+    <Compile Include="Domain\RouteWiseItemDisc.cs" />
+    <Compile Include="Domain\sasDeliveryOrderDomain.cs" />
+    <Compile Include="Domain\RouteWiseItemPricing\masRouteWiseItemPricing.cs" />
+    <Compile Include="Domain\SAS\Para_DeliveryOrder_Save.cs" />
+    <Compile Include="Domain\SAS\tbl_sasDeliveryOrder.cs" />
+    <Compile Include="Domain\SAS\tbl_sasDeliveryOrder_Detail.cs" />
+    <Compile Include="Domain\SAS\tbl_sasInvoice.cs" />
+    <Compile Include="Domain\SAS\tbl_sasInvoice_Settlement.cs" />
+    <Compile Include="Domain\SCS\FinishGood.cs" />
+    <Compile Include="Domain\SCS\StockReport.cs" />
+    <Compile Include="Domain\SCS\StockReportUiDomain.cs" />
+    <Compile Include="Domain\SCS\tbl_genItemMaster.cs" />
+    <Compile Include="Domain\SCS\tbl_genStoreMaster.cs" />
+    <Compile Include="Domain\SCS\tbl_zItemCategory.cs" />
+    <Compile Include="Domain\SCS\tbl_zItemClass.cs" />
+    <Compile Include="Domain\SCS\tbl_zItemType.cs" />
+    <Compile Include="Domain\SelectionList.cs" />
+    <Compile Include="Domain\StringArray.cs" />
+    <Compile Include="Helpers\cast.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup />
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>

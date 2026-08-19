@@ -1,0 +1,275 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{362FE17D-7B8A-4842-8749-BA0B4A288B6A}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <RootNamespace>DataTire_OLD</RootNamespace>
+    <AssemblyName>DataTire_OLD</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <Deterministic>true</Deterministic>
+    <SccProjectName>SAK</SccProjectName>
+    <SccLocalPath>SAK</SccLocalPath>
+    <SccAuxPath>SAK</SccAuxPath>
+    <SccProvider>SAK</SccProvider>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Factoring\tbl_audUserActivities.cs" />
+    <Compile Include="Factoring\tbl_bpsFactoringSchedule.cs" />
+    <Compile Include="Factoring\tbl_bpsFactoringSchedule_detail.cs" />
+    <Compile Include="Form1.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form1.Designer.cs">
+      <DependentUpon>Form1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PCB\tbl_pcbMasAccount.cs" />
+    <Compile Include="PCB\tbl_pcbRefExpenditureCategory.cs" />
+    <Compile Include="PCB\tbl_pcbRefExpenditureType.cs" />
+    <Compile Include="PCB\tbl_pcbRefIncomeType.cs" />
+    <Compile Include="PCB\tbl_pcbTxExpenditure.cs" />
+    <Compile Include="PCB\tbl_pcbTxExpenditure_Detail.cs" />
+    <Compile Include="PCB\tbl_pcbTxIOU.cs" />
+    <Compile Include="PCB\tbl_pcbTxIOURefund.cs" />
+    <Compile Include="PCB\tbl_pcbTxIOURequest.cs" />
+    <Compile Include="PCB\tbl_pcbTxIOUSettlement.cs" />
+    <Compile Include="PCB\tbl_pcbTxReimbursment.cs" />
+    <Compile Include="PointofSales\tbl_posAdvanceReceived.cs" />
+    <Compile Include="PointofSales\tbl_posDayStartAndEnd.cs" />
+    <Compile Include="PointofSales\tbl_posDayStartAndEnd_Detail.cs" />
+    <Compile Include="PointofSales\tbl_posDayStartAndEnd_Detail_CashWithdrawal.cs" />
+    <Compile Include="PointofSales\tbl_posReceipt.cs" />
+    <Compile Include="PointofSales\tbl_posTransaction.cs" />
+    <Compile Include="PointofSales\tbl_posTransaction_Detail.cs" />
+    <Compile Include="Production_Appral\tbl_prodAttachments.cs" />
+    <Compile Include="Production_Appral\tbl_prodMasCostCenter.cs" />
+    <Compile Include="Production_Appral\tbl_prodMasCostFooter.cs" />
+    <Compile Include="Production_Appral\tbl_prodMasProductionOperation.cs" />
+    <Compile Include="Production_Appral\tbl_prodMasSectionActivity.cs" />
+    <Compile Include="Production_Appral\tbl_prodTxBatch.cs" />
+    <Compile Include="Production_Appral\tbl_prodTxBatch_Closure.cs" />
+    <Compile Include="Production_Appral\tbl_prodTxBatch_Closure_Detail.cs" />
+    <Compile Include="Production_Appral\tbl_prodTxBatch_Material.cs" />
+    <Compile Include="Production_Appral\tbl_prodTxFinishedGoodTransferAcceptance.cs" />
+    <Compile Include="Production_Appral\tbl_prodTxFinishedGoodTransferAcceptance_Detail.cs" />
+    <Compile Include="Production_Appral\tbl_prodTxFinishedGoodTransferNote.cs" />
+    <Compile Include="Production_Appral\tbl_prodTxFinishedGoodTransferNote_Detail.cs" />
+    <Compile Include="Production_Appral\tbl_prodTxGoodIssueNote.cs" />
+    <Compile Include="Production_Appral\tbl_prodTxGoodIssueNote_Material.cs" />
+    <Compile Include="Production_Appral\tbl_prodTxGoodReturnNote.cs" />
+    <Compile Include="Production_Appral\tbl_prodTxGoodReturnNote_Material.cs" />
+    <Compile Include="Production_Appral\tbl_prodTxItemSplitNote.cs" />
+    <Compile Include="Production_Appral\tbl_prodTxItemSplitNote_Input.cs" />
+    <Compile Include="Production_Appral\tbl_prodTxItemSplitNote_Output.cs" />
+    <Compile Include="Production_Appral\tbl_prodTxJobCard.cs" />
+    <Compile Include="Production_Appral\tbl_prodTxJobCard_CostCenter.cs" />
+    <Compile Include="Production_Appral\tbl_prodTxJobCard_CostFooter.cs" />
+    <Compile Include="Production_Appral\tbl_prodTxJobCard_Delivery.cs" />
+    <Compile Include="Production_Appral\tbl_prodTxJobCard_Labour.cs" />
+    <Compile Include="Production_Appral\tbl_prodTxJobCard_Material.cs" />
+    <Compile Include="Production_Appral\tbl_prodTxJobCard_Material_Outsource.cs" />
+    <Compile Include="Production_Appral\tbl_prodTxJobCard_ProductionOperation.cs" />
+    <Compile Include="Production_Appral\tbl_prodTxJobCard_SubIn_SFG.cs" />
+    <Compile Include="Production_Appral\tbl_prodTxJobCard_SubIn_SFG_Material.cs" />
+    <Compile Include="Production_Appral\tbl_prodTxJobCard_WIPFlow.cs" />
+    <Compile Include="Production_Appral\tbl_prodTxJobCard_WIPFlow_Detail.cs" />
+    <Compile Include="Production_Appral\tbl_prodTxMaterialRequision.cs" />
+    <Compile Include="Production_Appral\tbl_prodTxMaterialRequision_JobCard.cs" />
+    <Compile Include="Production_Appral\tbl_prodTxMaterialRequision_Material.cs" />
+    <Compile Include="Production_Appral\tbl_prodTxSubContractInNote.cs" />
+    <Compile Include="Production_Appral\tbl_prodTxSubContractInNote_ConsumedMaterial_ForSF.cs" />
+    <Compile Include="Production_Appral\tbl_prodTxSubContractInNote_Material.cs" />
+    <Compile Include="Production_Appral\tbl_prodTxSubContractOutNote.cs" />
+    <Compile Include="Production_Appral\tbl_prodTxSubContractOutNote_JobCard.cs" />
+    <Compile Include="Production_Appral\tbl_prodTxSubContractOutNote_Material.cs" />
+    <Compile Include="Production_Appral\tbl_prodTxSubContractOutNote_SemiFinished.cs" />
+    <Compile Include="Production_Appral\tbl_prodTxWorkInProgress.cs" />
+    <Compile Include="Production_Appral\tbl_prodTxWorkInProgress_Material.cs" />
+    <Compile Include="Production_Appral\tbl_prod_apparelTxCompetitiveProductInfo.cs" />
+    <Compile Include="Production_Appral\tbl_prod_apparelTxFinishedGoodSpecsSheet.cs" />
+    <Compile Include="Production_Appral\tbl_zItemTag3.cs" />
+    <Compile Include="Production_Pharma\tbl_prod_pharmaMasCostCenter.cs" />
+    <Compile Include="Production_Pharma\tbl_prod_pharmaMasCostFooter.cs" />
+    <Compile Include="Production_Pharma\tbl_prod_pharmaMasProductionOperation.cs" />
+    <Compile Include="Production_Pharma\tbl_prod_pharmaMasSectionActivity.cs" />
+    <Compile Include="Production_Pharma\tbl_prod_pharmaTxAttachments.cs" />
+    <Compile Include="Production_Pharma\tbl_prod_pharmaTxBatch.cs" />
+    <Compile Include="Production_Pharma\tbl_prod_pharmaTxBatch_Closure.cs" />
+    <Compile Include="Production_Pharma\tbl_prod_pharmaTxBatch_Material.cs" />
+    <Compile Include="Production_Pharma\tbl_prod_pharmaTxCompetitiveProductInfo.cs" />
+    <Compile Include="Production_Pharma\tbl_prod_pharmaTxFinishedGoodSpecsSheet.cs" />
+    <Compile Include="Production_Pharma\tbl_prod_pharmaTxFinishedGoodTransferAcceptance.cs" />
+    <Compile Include="Production_Pharma\tbl_prod_pharmaTxFinishedGoodTransferNote.cs" />
+    <Compile Include="Production_Pharma\tbl_prod_pharmaTxFinishedGoodTransferNote_Input.cs" />
+    <Compile Include="Production_Pharma\tbl_prod_pharmaTxFinishedGoodTransferNote_Output.cs" />
+    <Compile Include="Production_Pharma\tbl_prod_pharmaTxGoodIssueNote.cs" />
+    <Compile Include="Production_Pharma\tbl_prod_pharmaTxGoodIssueNote_Material.cs" />
+    <Compile Include="Production_Pharma\tbl_prod_pharmaTxGoodReturnNote.cs" />
+    <Compile Include="Production_Pharma\tbl_prod_pharmaTxGoodReturnNote_Material.cs" />
+    <Compile Include="Production_Pharma\tbl_prod_pharmaTxItemSplitNote.cs" />
+    <Compile Include="Production_Pharma\tbl_prod_pharmaTxItemSplitNote_Input.cs" />
+    <Compile Include="Production_Pharma\tbl_prod_pharmaTxItemSplitNote_Output.cs" />
+    <Compile Include="Production_Pharma\tbl_prod_pharmaTxJobCard.cs" />
+    <Compile Include="Production_Pharma\tbl_prod_pharmaTxJobCard_CostCenter.cs" />
+    <Compile Include="Production_Pharma\tbl_prod_pharmaTxJobCard_CostFooter.cs" />
+    <Compile Include="Production_Pharma\tbl_prod_pharmaTxJobCard_Delivery.cs" />
+    <Compile Include="Production_Pharma\tbl_prod_pharmaTxJobCard_Labour.cs" />
+    <Compile Include="Production_Pharma\tbl_prod_pharmaTxJobCard_Material.cs" />
+    <Compile Include="Production_Pharma\tbl_prod_pharmaTxJobCard_Material_Outsource.cs" />
+    <Compile Include="Production_Pharma\tbl_prod_pharmaTxJobCard_ProductionOperation.cs" />
+    <Compile Include="Production_Pharma\tbl_prod_pharmaTxJobCard_SectionSMV.cs" />
+    <Compile Include="Production_Pharma\tbl_prod_pharmaTxJobCard_WIPFlow.cs" />
+    <Compile Include="Production_Pharma\tbl_prod_pharmaTxJobCard_WIPFlow_Detail.cs" />
+    <Compile Include="Production_Pharma\tbl_prod_pharmaTxMaterialRequision.cs" />
+    <Compile Include="Production_Pharma\tbl_prod_pharmaTxMaterialRequision_JobCard.cs" />
+    <Compile Include="Production_Pharma\tbl_prod_pharmaTxMaterialRequision_Material.cs" />
+    <Compile Include="Production_Pharma\tbl_prod_pharmaTxSubContractInNote.cs" />
+    <Compile Include="Production_Pharma\tbl_prod_pharmaTxSubContractInNote_Material.cs" />
+    <Compile Include="Production_Pharma\tbl_prod_pharmaTxSubContractOutNote.cs" />
+    <Compile Include="Production_Pharma\tbl_prod_pharmaTxSubContractOutNote_JobCard.cs" />
+    <Compile Include="Production_Pharma\tbl_prod_pharmaTxSubContractOutNote_Material.cs" />
+    <Compile Include="Production_Pharma\tbl_prod_pharmaTxSubContractOutNote_SemiFinished.cs" />
+    <Compile Include="Production_Pharma\tbl_prod_pharmaTxWorkInProgress.cs" />
+    <Compile Include="Production_Pharma\tbl_prod_pharmaTxWorkInProgress_Material.cs" />
+    <Compile Include="Production_Poly\tbl_prod_polyAttachments.cs" />
+    <Compile Include="Production_Poly\tbl_prod_polyMasCostCenter.cs" />
+    <Compile Include="Production_Poly\tbl_prod_polyMasCostFooter.cs" />
+    <Compile Include="Production_Poly\tbl_prod_polyMasProductionOperation.cs" />
+    <Compile Include="Production_Poly\tbl_prod_polyTxCompetitiveProductInfo.cs" />
+    <Compile Include="Production_Poly\tbl_prod_polyTxFinishedGoodSpecsSheet.cs" />
+    <Compile Include="Production_Poly\tbl_prod_polyTxJobCard.cs" />
+    <Compile Include="Production_Poly\tbl_prod_polyTxJobCard_Closure.cs" />
+    <Compile Include="Production_Poly\tbl_prod_polyTxJobCard_CostCenter.cs" />
+    <Compile Include="Production_Poly\tbl_prod_polyTxJobCard_CostFooter.cs" />
+    <Compile Include="Production_Poly\tbl_prod_polyTxJobCard_Delivery.cs" />
+    <Compile Include="Production_Poly\tbl_prod_polyTxJobCard_Labour.cs" />
+    <Compile Include="Production_Poly\tbl_prod_polyTxJobCard_Material.cs" />
+    <Compile Include="Production_Poly\tbl_prod_polyTxJobCard_Material_Outsource.cs" />
+    <Compile Include="Production_Poly\tbl_prod_polyTxJobCard_ProductionOperation.cs" />
+    <Compile Include="Production_Poly\tbl_prod_polyTxMaterialRequision.cs" />
+    <Compile Include="Production_Poly\tbl_prod_polyTxMaterialRequision_JobCard.cs" />
+    <Compile Include="Production_Poly\tbl_prod_polyTxMaterialRequision_Material.cs" />
+    <Compile Include="Production_Poly\tbl_prod_polyTxWorkInProgress.cs" />
+    <Compile Include="Production_Poly\tbl_prod_polyTxWorkInProgress_Material.cs" />
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="srh_pmsAdhesiveInputAndOutput.cs" />
+    <Compile Include="srh_pmsDailyProductuinJobApproved.cs" />
+    <Compile Include="srh_pmsJobRegister.cs" />
+    <Compile Include="srh_pmsPrePlan.cs" />
+    <Compile Include="srh_pmsProductionAnalysis_FinishedGoodWeightWise.cs" />
+    <Compile Include="srh_WIP_OperaterWise_Wasteage.cs" />
+    <Compile Include="srh_WIP_ProductionAndWasteage.cs" />
+    <Compile Include="tbl_atlWIPEntry.cs" />
+    <Compile Include="tbl_pmsNotification_ProductionOutput.cs" />
+    <Compile Include="tbl_pmsPrePlan.cs" />
+    <Compile Include="tbl_pmsPrePlan_SectionPath.cs" />
+    <Compile Include="tbl_pmsPrePlan_SectionPath_InputItem.cs" />
+    <Compile Include="tbl_pmsPrePlan_SectionPath_OutputItem.cs" />
+    <Compile Include="tbl_pmsProductionJobDetail.cs" />
+    <Compile Include="tbl_pmsProductionJobManualSettle.cs" />
+    <Compile Include="tbl_pmsProductionJobManualSettle_Detail.cs" />
+    <Compile Include="tbl_pmsProductionJobRegister.cs" />
+    <Compile Include="tbl_pmsSectionPlan_Log.cs" />
+    <Compile Include="tbl_pmsSectionPlan_LogDetail.cs" />
+    <Compile Include="tbl_pmsSectionPlan_Master.cs" />
+    <Compile Include="tbl_pmsWorkInProgress.cs" />
+    <Compile Include="tbl_pmsWorkInProgress_Machine.cs" />
+    <Compile Include="tbl_pmsWorkInProgress_Machine_ItemSerials.cs" />
+    <Compile Include="tbl_pmsWorkInProgress_Machine_Shedule.cs" />
+    <Compile Include="tbl_pmsWorkInProgress_Machine_Shedule_InputItem.cs" />
+    <Compile Include="tbl_pmsWorkInProgress_Machine_Shedule_InputItem_Tmp.cs" />
+    <Compile Include="tbl_pmsWorkInProgress_Machine_Shedule_OutputItem.cs" />
+    <Compile Include="tbl_pmsWorkInProgress_Machine_Shedule_OutputItem_Tmp.cs" />
+    <Compile Include="tbl_pmsWorkInProgress_Machine_Shedule_Tmp.cs" />
+    <Compile Include="tbl_pmsWorkInProgress_Tmp.cs" />
+    <Compile Include="tbl_proProductionPlan.cs" />
+    <Compile Include="tbl_proProductionPlan_Job.cs" />
+    <Compile Include="tbl_proWorkInProgress.cs" />
+    <Compile Include="tbl_proWorkInProgress_Batch.cs" />
+    <Compile Include="tbl_proWorkInProgress_Batch_InputItem.cs" />
+    <Compile Include="tbl_proWorkInProgress_Batch_OutputItem.cs" />
+    <Compile Include="tbl_sasJobRegister_Material.cs" />
+    <Compile Include="tbl_scsExternalGoodReceivedNote_TIEP.cs" />
+    <Compile Include="tbl_scsExternalGoodReceivedNote_TIEP_Detail.cs" />
+    <Compile Include="tbl_scsExternalGoodReceivedNote_TIEP_DetailBreakdown.cs" />
+    <Compile Include="tbl_zJobProductionJobType.cs" />
+    <Compile Include="Tender\tbl_ttsAcceptanceLetter.cs" />
+    <Compile Include="Tender\tbl_ttsApplicationCollection.cs" />
+    <Compile Include="Tender\tbl_ttsAttachments.cs" />
+    <Compile Include="Tender\tbl_ttsDocumentSubmit.cs" />
+    <Compile Include="Tender\tbl_ttsMasCompetitor.cs" />
+    <Compile Include="Tender\tbl_ttsOfferLetter.cs" />
+    <Compile Include="Tender\tbl_ttsPreBidMeeting.cs" />
+    <Compile Include="Tender\tbl_ttsPreBidMeeting_Competitors.cs" />
+    <Compile Include="Tender\tbl_ttsTenderDocumentMaster.cs" />
+    <Compile Include="Tender\tbl_ttsTenderDocumentRenewal.cs" />
+    <Compile Include="Tender\tbl_ttsTenderDocumentRenewals.cs" />
+    <Compile Include="Tender\tbl_ttsTenderIndent.cs" />
+    <Compile Include="Tender\tbl_ttsTenderNotice.cs" />
+    <Compile Include="Tender\tbl_ttsTenderNotice_Delivery.cs" />
+    <Compile Include="Tender\tbl_ttsTenderNotice_Detail.cs" />
+    <Compile Include="Tender\tbl_ttsTenderReadings.cs" />
+    <Compile Include="Tender\tbl_ttsTenderReadingsDetails.cs" />
+    <Compile Include="Tender\tbl_ttsTenderRenewalType.cs" />
+    <Compile Include="Tender\tbl_ttsTenderSource.cs" />
+    <Compile Include="Tender\tbl_ttsTenderSponsor.cs" />
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>

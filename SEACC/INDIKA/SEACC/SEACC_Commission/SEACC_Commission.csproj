@@ -1,0 +1,148 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{7C131B6F-9F37-4102-8A06-CB0825CFFAAC}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>SEACC_Commission</RootNamespace>
+    <AssemblyName>SEACC_Commission</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <SccProjectName>SAK</SccProjectName>
+    <SccLocalPath>SAK</SccLocalPath>
+    <SccAuxPath>SAK</SccAuxPath>
+    <SccProvider>SAK</SccProvider>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup>
+    <StartupObject />
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="frm_CommissionCalc.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frm_CommissionCalc.Designer.cs">
+      <DependentUpon>frm_CommissionCalc.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frm_CommissionPeriod.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frm_CommissionPeriod.designer.cs">
+      <DependentUpon>frm_CommissionPeriod.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MettroForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MettroForm.Designer.cs">
+      <DependentUpon>MettroForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="SEACC_Exception.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="SEACC_Exception.Designer.cs">
+      <DependentUpon>SEACC_Exception.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ucExpander2.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ucExpander2.Designer.cs">
+      <DependentUpon>ucExpander2.cs</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="frm_CommissionCalc.resx">
+      <DependentUpon>frm_CommissionCalc.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frm_CommissionPeriod.resx">
+      <DependentUpon>frm_CommissionPeriod.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MettroForm.resx">
+      <DependentUpon>MettroForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <EmbeddedResource Include="SEACC_Exception.resx">
+      <DependentUpon>SEACC_Exception.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ucExpander2.resx">
+      <DependentUpon>ucExpander2.cs</DependentUpon>
+    </EmbeddedResource>
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\CS\Digiteq_Inventory.csproj">
+      <Project>{E1674E41-6DA2-45DE-BC55-C820F4BB8BF9}</Project>
+      <Name>Digiteq_Inventory</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Digiteq_Logic\Digiteq_Logic.csproj">
+      <Project>{59283A6A-239F-4DF0-B5B8-026175062E29}</Project>
+      <Name>Digiteq_Logic</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Service References\" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

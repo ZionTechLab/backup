@@ -1,0 +1,32 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="dts_ProductionAnalysis" targetNamespace="http://tempuri.org/dts_ProductionAnalysis.xsd" xmlns:mstns="http://tempuri.org/dts_ProductionAnalysis.xsd" xmlns="http://tempuri.org/dts_ProductionAnalysis.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop" attributeFormDefault="qualified" elementFormDefault="qualified">
+  <xs:annotation>
+    <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
+      <DataSource DefaultConnectionIndex="0" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
+        <Connections />
+        <Tables />
+        <Sources />
+      </DataSource>
+    </xs:appinfo>
+  </xs:annotation>
+  <xs:element name="dts_ProductionAnalysis" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="true" msprop:Generator_DataSetName="dts_ProductionAnalysis" msprop:Generator_UserDSName="dts_ProductionAnalysis">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element name="dt_ProductionAnalysis" msprop:Generator_TableClassName="dt_ProductionAnalysisDataTable" msprop:Generator_TableVarName="tabledt_ProductionAnalysis" msprop:Generator_TablePropName="dt_ProductionAnalysis" msprop:Generator_RowDeletingName="dt_ProductionAnalysisRowDeleting" msprop:Generator_RowChangingName="dt_ProductionAnalysisRowChanging" msprop:Generator_RowEvHandlerName="dt_ProductionAnalysisRowChangeEventHandler" msprop:Generator_RowDeletedName="dt_ProductionAnalysisRowDeleted" msprop:Generator_UserTableName="dt_ProductionAnalysis" msprop:Generator_RowChangedName="dt_ProductionAnalysisRowChanged" msprop:Generator_RowEvArgName="dt_ProductionAnalysisRowChangeEvent" msprop:Generator_RowClassName="dt_ProductionAnalysisRow">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="ProductionJobID" msprop:Generator_ColumnVarNameInTable="columnProductionJobID" msprop:Generator_ColumnPropNameInRow="ProductionJobID" msprop:Generator_ColumnPropNameInTable="ProductionJobIDColumn" msprop:Generator_UserColumnName="ProductionJobID" type="xs:string" minOccurs="0" />
+              <xs:element name="StartDate" msprop:Generator_ColumnVarNameInTable="columnStartDate" msprop:Generator_ColumnPropNameInRow="StartDate" msprop:Generator_ColumnPropNameInTable="StartDateColumn" msprop:Generator_UserColumnName="StartDate" type="xs:dateTime" minOccurs="0" />
+              <xs:element name="CustomerName" msprop:Generator_ColumnVarNameInTable="columnCustomerName" msprop:Generator_ColumnPropNameInRow="CustomerName" msprop:Generator_ColumnPropNameInTable="CustomerNameColumn" msprop:Generator_UserColumnName="CustomerName" type="xs:string" minOccurs="0" />
+              <xs:element name="Less100" msprop:Generator_ColumnVarNameInTable="columnLess100" msprop:Generator_ColumnPropNameInRow="Less100" msprop:Generator_ColumnPropNameInTable="Less100Column" msprop:Generator_UserColumnName="Less100" type="xs:decimal" minOccurs="0" />
+              <xs:element name="Less300" msprop:Generator_ColumnVarNameInTable="columnLess300" msprop:Generator_ColumnPropNameInRow="Less300" msprop:Generator_ColumnPropNameInTable="Less300Column" msprop:Generator_UserColumnName="Less300" type="xs:decimal" minOccurs="0" />
+              <xs:element name="Less500" msprop:Generator_ColumnVarNameInTable="columnLess500" msprop:Generator_ColumnPropNameInRow="Less500" msprop:Generator_ColumnPropNameInTable="Less500Column" msprop:Generator_UserColumnName="Less500" type="xs:decimal" minOccurs="0" />
+              <xs:element name="More500" msprop:Generator_ColumnVarNameInTable="columnMore500" msprop:Generator_ColumnPropNameInRow="More500" msprop:Generator_ColumnPropNameInTable="More500Column" msprop:Generator_UserColumnName="More500" type="xs:decimal" minOccurs="0" />
+              <xs:element name="Total" msprop:Generator_ColumnVarNameInTable="columnTotal" msprop:Generator_ColumnPropNameInRow="Total" msprop:Generator_ColumnPropNameInTable="TotalColumn" msprop:Generator_UserColumnName="Total" type="xs:decimal" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:choice>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

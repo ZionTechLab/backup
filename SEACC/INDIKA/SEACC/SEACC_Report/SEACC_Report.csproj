@@ -1,0 +1,152 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{ADAC6D31-D533-4CF9-8D43-A41BF0D8FE95}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>SEACC_Report</RootNamespace>
+    <AssemblyName>SEACC_Report</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <SccProjectName>SAK</SccProjectName>
+    <SccLocalPath>SAK</SccLocalPath>
+    <SccAuxPath>SAK</SccAuxPath>
+    <SccProvider>SAK</SccProvider>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup>
+    <StartupObject>
+    </StartupObject>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="EPPlus, Version=4.5.3.1, Culture=neutral, PublicKeyToken=ea159fdaa78159a1, processorArchitecture=MSIL">
+      <HintPath>..\packages\EPPlus.4.5.3.1\lib\net40\EPPlus.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="PresentationCore" />
+    <Reference Include="System" />
+    <Reference Include="System.configuration" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Security" />
+    <Reference Include="System.Windows" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xml" />
+    <Reference Include="WindowsBase" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Classes\clsHelpMethods_Local.cs" />
+    <Compile Include="Excel_Class\cls_sasCollectionReportSummary_RepWise.cs" />
+    <Compile Include="Excel_Class\cls_sasMonthlyReturnsAgainst_Sales.cs" />
+    <Compile Include="Excel_Class\cls_sasPendingOrders.cs" />
+    <Compile Include="Excel_Class\cls_sasSalesReportSummary_YTD.cs" />
+    <Compile Include="Excel_Class\cls_sasStockStatement.cs" />
+    <Compile Include="Excel_DataTable\cls_sasCollectionReportSummary_RepWise_DTO.cs" />
+    <Compile Include="Excel_DataTable\cls_sasMonthlyReturnsAgainst_Sales_DTO_Temp.cs" />
+    <Compile Include="Excel_DataTable\cls_sasMonthlyReturnsAgainst_Sales_DTO.cs" />
+    <Compile Include="Excel_DataTable\cls_sasPendingOrders_DTO.cs" />
+    <Compile Include="Excel_DataTable\cls_sasSalesReportSummaryYTD_DTO.cs" />
+    <Compile Include="Excel_DataTable\cls_sasSalesReportSummary_DTO.cs" />
+    <Compile Include="Excel_DataTable\cls_sasSalesReportDetail_InvoiceWise_DTO.cs" />
+    <Compile Include="Excel_Class\cls_sasSalesReportSummary.cs" />
+    <Compile Include="Excel_Class\cls_sasSalesReportDetail_InvoiceWise.cs" />
+    <Compile Include="Excel_Class\cls_sasSalesReportDetail_InvoiceItemWise.cs" />
+    <Compile Include="Excel_DataTable\cls_sasSalesReportDetail_InvoiceItemWise_DTO.cs" />
+    <Compile Include="Excel_DataTable\cls_scsStockStatement_DTO.cs" />
+    <Compile Include="frm_rpt_StockCustom_Reports.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frm_rpt_StockCustom_Reports.designer.cs">
+      <DependentUpon>frm_rpt_StockCustom_Reports.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frm_rpt_SalesCustom_Reports.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frm_rpt_SalesCustom_Reports.designer.cs">
+      <DependentUpon>frm_rpt_SalesCustom_Reports.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MettroForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MettroForm.Designer.cs">
+      <DependentUpon>MettroForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ucTittleBar.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ucTittleBar.Designer.cs">
+      <DependentUpon>ucTittleBar.cs</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="app.config" />
+    <None Include="Excel_Templates\CollectionReportSummary_RepWise.xlsx" />
+    <None Include="Excel_Templates\MonthlyReturnsAgainst_Sales.xlsx" />
+    <None Include="Excel_Templates\SalesReport_PendingOrders.xlsx" />
+    <None Include="Excel_Templates\SalesReportDetail_InvoiceItemWise.xlsx" />
+    <None Include="Excel_Templates\SalesReportDetail_InvoiceWise.xlsx" />
+    <None Include="Excel_Templates\SalesReportSummary.xlsx" />
+    <None Include="Excel_Templates\SalesReportSummary_YTD.xlsx" />
+    <None Include="Excel_Templates\StockStatement.xlsx" />
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\CS\Digiteq_Inventory.csproj">
+      <Project>{e1674e41-6da2-45de-bc55-c820f4bb8bf9}</Project>
+      <Name>Digiteq_Inventory</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Digiteq_Logic\Digiteq_Logic.csproj">
+      <Project>{59283a6a-239f-4df0-b5b8-026175062e29}</Project>
+      <Name>Digiteq_Logic</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="frm_rpt_StockCustom_Reports.resx">
+      <DependentUpon>frm_rpt_StockCustom_Reports.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frm_rpt_SalesCustom_Reports.resx">
+      <DependentUpon>frm_rpt_SalesCustom_Reports.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MettroForm.resx">
+      <DependentUpon>MettroForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ucTittleBar.resx">
+      <DependentUpon>ucTittleBar.cs</DependentUpon>
+    </EmbeddedResource>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

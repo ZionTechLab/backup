@@ -1,0 +1,52 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="dts_bss_OutstandingAnalysis" targetNamespace="http://tempuri.org/dts_bss_OutstandingAnalysis.xsd" xmlns:mstns="http://tempuri.org/dts_bss_OutstandingAnalysis.xsd" xmlns="http://tempuri.org/dts_bss_OutstandingAnalysis.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop" attributeFormDefault="qualified" elementFormDefault="qualified">
+  <xs:annotation>
+    <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
+      <DataSource DefaultConnectionIndex="0" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
+        <Connections />
+        <Tables />
+        <Sources />
+      </DataSource>
+    </xs:appinfo>
+  </xs:annotation>
+  <xs:element name="dts_bss_OutstandingAnalysis" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="true" msprop:Generator_DataSetName="dts_bss_OutstandingAnalysis" msprop:Generator_UserDSName="dts_bss_OutstandingAnalysis">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element name="dt_Company" msprop:Generator_TableClassName="dt_CompanyDataTable" msprop:Generator_TableVarName="tabledt_Company" msprop:Generator_RowChangedName="dt_CompanyRowChanged" msprop:Generator_TablePropName="dt_Company" msprop:Generator_RowDeletingName="dt_CompanyRowDeleting" msprop:Generator_RowChangingName="dt_CompanyRowChanging" msprop:Generator_RowEvHandlerName="dt_CompanyRowChangeEventHandler" msprop:Generator_RowDeletedName="dt_CompanyRowDeleted" msprop:Generator_RowClassName="dt_CompanyRow" msprop:Generator_UserTableName="dt_Company" msprop:Generator_RowEvArgName="dt_CompanyRowChangeEvent">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="digiteqName" msprop:Generator_ColumnVarNameInTable="columndigiteqName" msprop:Generator_ColumnPropNameInRow="digiteqName" msprop:Generator_ColumnPropNameInTable="digiteqNameColumn" msprop:Generator_UserColumnName="digiteqName" type="xs:string" minOccurs="0" />
+              <xs:element name="digiteqEmail" msprop:Generator_ColumnVarNameInTable="columndigiteqEmail" msprop:Generator_ColumnPropNameInRow="digiteqEmail" msprop:Generator_ColumnPropNameInTable="digiteqEmailColumn" msprop:Generator_UserColumnName="digiteqEmail" type="xs:string" minOccurs="0" />
+              <xs:element name="companyName" msprop:Generator_ColumnVarNameInTable="columncompanyName" msprop:Generator_ColumnPropNameInRow="companyName" msprop:Generator_ColumnPropNameInTable="companyNameColumn" msprop:Generator_UserColumnName="companyName" type="xs:string" minOccurs="0" />
+              <xs:element name="companyAddress1" msprop:Generator_ColumnVarNameInTable="columncompanyAddress1" msprop:Generator_ColumnPropNameInRow="companyAddress1" msprop:Generator_ColumnPropNameInTable="companyAddress1Column" msprop:Generator_UserColumnName="companyAddress1" type="xs:string" minOccurs="0" />
+              <xs:element name="companyAddress2" msprop:Generator_ColumnVarNameInTable="columncompanyAddress2" msprop:Generator_ColumnPropNameInRow="companyAddress2" msprop:Generator_ColumnPropNameInTable="companyAddress2Column" msprop:Generator_UserColumnName="companyAddress2" type="xs:string" minOccurs="0" />
+              <xs:element name="CompanyImage" msprop:Generator_ColumnVarNameInTable="columnCompanyImage" msprop:Generator_ColumnPropNameInRow="CompanyImage" msprop:Generator_ColumnPropNameInTable="CompanyImageColumn" msprop:Generator_UserColumnName="CompanyImage" type="xs:base64Binary" minOccurs="0" />
+              <xs:element name="reportTitleMain" msprop:Generator_ColumnVarNameInTable="columnreportTitleMain" msprop:Generator_ColumnPropNameInRow="reportTitleMain" msprop:Generator_ColumnPropNameInTable="reportTitleMainColumn" msprop:Generator_UserColumnName="reportTitleMain" type="xs:string" minOccurs="0" />
+              <xs:element name="reportTitleSub" msprop:Generator_ColumnVarNameInTable="columnreportTitleSub" msprop:Generator_ColumnPropNameInRow="reportTitleSub" msprop:Generator_ColumnPropNameInTable="reportTitleSubColumn" msprop:Generator_UserColumnName="reportTitleSub" type="xs:string" minOccurs="0" />
+              <xs:element name="dateRange" msprop:Generator_ColumnVarNameInTable="columndateRange" msprop:Generator_ColumnPropNameInRow="dateRange" msprop:Generator_ColumnPropNameInTable="dateRangeColumn" msprop:Generator_UserColumnName="dateRange" type="xs:string" minOccurs="0" />
+              <xs:element name="userName" msprop:Generator_ColumnVarNameInTable="columnuserName" msprop:Generator_ColumnPropNameInRow="userName" msprop:Generator_ColumnPropNameInTable="userNameColumn" msprop:Generator_UserColumnName="userName" type="xs:string" minOccurs="0" />
+              <xs:element name="fillter" msprop:Generator_ColumnVarNameInTable="columnfillter" msprop:Generator_ColumnPropNameInRow="fillter" msprop:Generator_ColumnPropNameInTable="fillterColumn" msprop:Generator_UserColumnName="fillter" type="xs:string" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="dt_OutstandingAnalysis" msprop:Generator_TableClassName="dt_OutstandingAnalysisDataTable" msprop:Generator_TableVarName="tabledt_OutstandingAnalysis" msprop:Generator_RowChangedName="dt_OutstandingAnalysisRowChanged" msprop:Generator_TablePropName="dt_OutstandingAnalysis" msprop:Generator_RowDeletingName="dt_OutstandingAnalysisRowDeleting" msprop:Generator_RowChangingName="dt_OutstandingAnalysisRowChanging" msprop:Generator_RowEvHandlerName="dt_OutstandingAnalysisRowChangeEventHandler" msprop:Generator_RowDeletedName="dt_OutstandingAnalysisRowDeleted" msprop:Generator_RowClassName="dt_OutstandingAnalysisRow" msprop:Generator_UserTableName="dt_OutstandingAnalysis" msprop:Generator_RowEvArgName="dt_OutstandingAnalysisRowChangeEvent">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="CustomerID" msprop:Generator_ColumnVarNameInTable="columnCustomerID" msprop:Generator_ColumnPropNameInRow="CustomerID" msprop:Generator_ColumnPropNameInTable="CustomerIDColumn" msprop:Generator_UserColumnName="CustomerID" type="xs:string" minOccurs="0" />
+              <xs:element name="CustomerName" msprop:Generator_ColumnVarNameInTable="columnCustomerName" msprop:Generator_ColumnPropNameInRow="CustomerName" msprop:Generator_ColumnPropNameInTable="CustomerNameColumn" msprop:Generator_UserColumnName="CustomerName" type="xs:string" minOccurs="0" />
+              <xs:element name="SalesmanID" msprop:Generator_ColumnVarNameInTable="columnSalesmanID" msprop:Generator_ColumnPropNameInRow="SalesmanID" msprop:Generator_ColumnPropNameInTable="SalesmanIDColumn" msprop:Generator_UserColumnName="SalesmanID" type="xs:string" minOccurs="0" />
+              <xs:element name="SalesmanName" msprop:Generator_ColumnVarNameInTable="columnSalesmanName" msprop:Generator_ColumnPropNameInRow="SalesmanName" msprop:Generator_ColumnPropNameInTable="SalesmanNameColumn" msprop:Generator_UserColumnName="SalesmanName" type="xs:string" minOccurs="0" />
+              <xs:element name="Amount_OpeningBalance" msprop:Generator_ColumnVarNameInTable="columnAmount_OpeningBalance" msprop:Generator_ColumnPropNameInRow="Amount_OpeningBalance" msprop:Generator_ColumnPropNameInTable="Amount_OpeningBalanceColumn" msprop:Generator_UserColumnName="Amount_OpeningBalance" type="xs:decimal" minOccurs="0" />
+              <xs:element name="Amount_InvoiceTotal" msprop:Generator_ColumnVarNameInTable="columnAmount_InvoiceTotal" msprop:Generator_ColumnPropNameInRow="Amount_InvoiceTotal" msprop:Generator_ColumnPropNameInTable="Amount_InvoiceTotalColumn" msprop:Generator_UserColumnName="Amount_InvoiceTotal" type="xs:decimal" minOccurs="0" />
+              <xs:element name="Amount_Cash" msprop:Generator_ColumnVarNameInTable="columnAmount_Cash" msprop:Generator_ColumnPropNameInRow="Amount_Cash" msprop:Generator_ColumnPropNameInTable="Amount_CashColumn" msprop:Generator_UserColumnName="Amount_Cash" type="xs:decimal" minOccurs="0" />
+              <xs:element name="Amount_Cheque" msprop:Generator_ColumnVarNameInTable="columnAmount_Cheque" msprop:Generator_ColumnPropNameInRow="Amount_Cheque" msprop:Generator_ColumnPropNameInTable="Amount_ChequeColumn" msprop:Generator_UserColumnName="Amount_Cheque" type="xs:decimal" minOccurs="0" />
+              <xs:element name="Amount_Credit" msprop:Generator_ColumnVarNameInTable="columnAmount_Credit" msprop:Generator_ColumnPropNameInRow="Amount_Credit" msprop:Generator_ColumnPropNameInTable="Amount_CreditColumn" msprop:Generator_UserColumnName="Amount_Credit" type="xs:decimal" minOccurs="0" />
+              <xs:element name="Amount_Debit" msprop:Generator_ColumnVarNameInTable="columnAmount_Debit" msprop:Generator_ColumnPropNameInRow="Amount_Debit" msprop:Generator_ColumnPropNameInTable="Amount_DebitColumn" msprop:Generator_UserColumnName="Amount_Debit" type="xs:decimal" minOccurs="0" />
+              <xs:element name="Amount_ClosingBalance" msprop:Generator_ColumnVarNameInTable="columnAmount_ClosingBalance" msprop:Generator_ColumnPropNameInRow="Amount_ClosingBalance" msprop:Generator_ColumnPropNameInTable="Amount_ClosingBalanceColumn" msprop:Generator_UserColumnName="Amount_ClosingBalance" type="xs:decimal" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:choice>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

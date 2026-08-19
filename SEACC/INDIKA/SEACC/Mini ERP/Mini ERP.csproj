@@ -1,0 +1,3912 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">x86</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{097A2767-6BE4-452D-A852-B9204449C8BC}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Digiteq</RootNamespace>
+    <AssemblyName>Mini ERP</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <TargetFrameworkProfile>
+    </TargetFrameworkProfile>
+    <FileAlignment>512</FileAlignment>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <SccProjectName>SAK</SccProjectName>
+    <SccLocalPath>SAK</SccLocalPath>
+    <SccAuxPath>SAK</SccAuxPath>
+    <SccProvider>SAK</SccProvider>
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
+    <PublishUrl>publish\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Disk</InstallFrom>
+    <UpdateEnabled>false</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <ApplicationRevision>2</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <PublishWizardCompleted>true</PublishWizardCompleted>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|x86' ">
+    <PlatformTarget>x86</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>0</WarningLevel>
+    <GenerateSerializationAssemblies>Auto</GenerateSerializationAssemblies>
+    <UseVSHostingProcess>false</UseVSHostingProcess>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|x86' ">
+    <PlatformTarget>x86</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+    <RunCodeAnalysis>true</RunCodeAnalysis>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>Desktop.ico</ApplicationIcon>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ManifestCertificateThumbprint>BBB940C76F6750D4B7FDF8500F484DFABE0C072A</ManifestCertificateThumbprint>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ManifestKeyFile>Mini ERP_TemporaryKey.pfx</ManifestKeyFile>
+  </PropertyGroup>
+  <PropertyGroup>
+    <GenerateManifests>true</GenerateManifests>
+  </PropertyGroup>
+  <PropertyGroup>
+    <SignManifests>false</SignManifests>
+  </PropertyGroup>
+  <PropertyGroup>
+    <StartupObject>
+    </StartupObject>
+  </PropertyGroup>
+  <PropertyGroup />
+  <PropertyGroup />
+  <PropertyGroup />
+  <PropertyGroup />
+  <PropertyGroup />
+  <PropertyGroup />
+  <ItemGroup>
+    <Reference Include="CrystalDecisions.CrystalReports.Design, Version=13.0.2000.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL" />
+    <Reference Include="CrystalDecisions.CrystalReports.Engine, Version=13.0.2000.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL" />
+    <Reference Include="CrystalDecisions.Shared, Version=13.0.2000.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL" />
+    <Reference Include="CrystalDecisions.Windows.Forms, Version=13.0.2000.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL" />
+    <Reference Include="EPPlus, Version=5.2.1.0, Culture=neutral, PublicKeyToken=ea159fdaa78159a1, processorArchitecture=MSIL">
+      <HintPath>..\packages\EPPlus.5.2.1\lib\net45\EPPlus.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="GenCode128">
+      <HintPath>\\192.168.10.1\07 Developer Common\01 DLL References\GenCode128.dll</HintPath>
+    </Reference>
+    <Reference Include="Ionic.Zip, Version=1.9.1.8, Culture=neutral, PublicKeyToken=edbe51ad942a3f5c, processorArchitecture=MSIL">
+      <HintPath>\\192.168.10.1\07 Developer Common\01 DLL References\Ionic.Zip.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json, Version=12.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.12.0.3\lib\net45\Newtonsoft.Json.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Windows.Forms.DataVisualization" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="..\VersionInfo.cs">
+      <Link>VersionInfo.cs</Link>
+    </Compile>
+    <Compile Include="Classes\Cast.cs" />
+    <Compile Include="Classes\ExcelReports.cs" />
+    <Compile Include="Classes\ReportHelper.cs" />
+    <Compile Include="frm_BookNoAllocate.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frm_BookNoAllocate.Designer.cs">
+      <DependentUpon>frm_BookNoAllocate.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frm_BookNoAllocate_Receipt.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frm_BookNoAllocate_Receipt.Designer.cs">
+      <DependentUpon>frm_BookNoAllocate_Receipt.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frm_BookNoShowAll.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frm_BookNoShowAll.Designer.cs">
+      <DependentUpon>frm_BookNoShowAll.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frm_BookNoShowAll_Receipt.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frm_BookNoShowAll_Receipt.Designer.cs">
+      <DependentUpon>frm_BookNoShowAll_Receipt.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frm_BillOfFormation.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frm_BillOfFormation.designer.cs">
+      <DependentUpon>frm_BillOfFormation.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frm_CustomerWiseItemPricing.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frm_CustomerWiseItemPricing.designer.cs">
+      <DependentUpon>frm_CustomerWiseItemPricing.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frm_routeWiseItemPricing.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frm_routeWiseItemPricing.designer.cs">
+      <DependentUpon>frm_routeWiseItemPricing.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Master Forms\ZMaster\frm_mtrDeliveryOfficer.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Master Forms\ZMaster\frm_mtrDeliveryOfficer.designer.cs">
+      <DependentUpon>frm_mtrDeliveryOfficer.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\COM\frm_rpt_CommissionRegister.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Reports\COM\frm_rpt_CommissionRegister.Designer.cs">
+      <DependentUpon>frm_rpt_CommissionRegister.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\SCS\frm_StockReports.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Reports\SCS\frm_StockReports.Designer.cs">
+      <DependentUpon>frm_StockReports.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ToBeRemoved\frmSetGLCode.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ToBeRemoved\frmSetGLCode.Designer.cs">
+      <DependentUpon>frmSetGLCode.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Tools\LegacyForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Tools\LegacyForm.Designer.cs">
+      <DependentUpon>LegacyForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Tools\MettroForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Tools\MettroForm.designer.cs">
+      <DependentUpon>MettroForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Transaction Forms\ACC\Tools And Views\frm_accChequeDateChangeTool.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Transaction Forms\ACC\Tools And Views\frm_accChequeDateChangeTool.Designer.cs">
+      <DependentUpon>frm_accChequeDateChangeTool.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Transaction Forms\ACC\Tools And Views\frm_AccountsTools.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Transaction Forms\ACC\Tools And Views\frm_AccountsTools.Designer.cs">
+      <DependentUpon>frm_AccountsTools.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Transaction Forms\BSS\Bank Reconcilation\frm_bpsChequeReturn.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Transaction Forms\BSS\Bank Reconcilation\frm_bpsChequeReturn.Designer.cs">
+      <DependentUpon>frm_bpsChequeReturn.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Transaction Forms\BSS\Bank Reconcilation\frm_bpsChequeReturn_New.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Transaction Forms\BSS\Bank Reconcilation\frm_bpsChequeReturn_New.Designer.cs">
+      <DependentUpon>frm_bpsChequeReturn_New.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Transaction Forms\BSS\Bank Reconcilation\frm_bpsReturnCheque.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Transaction Forms\BSS\Bank Reconcilation\frm_bpsReturnCheque.Designer.cs">
+      <DependentUpon>frm_bpsReturnCheque.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Tools\frm_Calendar.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Tools\frm_Calendar.Designer.cs">
+      <DependentUpon>frm_Calendar.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\BSS\frm_rpt_TaxReports.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Reports\BSS\frm_rpt_TaxReports.Designer.cs">
+      <DependentUpon>frm_rpt_TaxReports.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Transaction Forms\ACC\Tools And Views\frm_accCheckPosting.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Transaction Forms\ACC\Tools And Views\frm_accCheckPosting.Designer.cs">
+      <DependentUpon>frm_accCheckPosting.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Transaction Forms\BSS\Bank Reconcilation\frm_ChequeReturn.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Transaction Forms\BSS\Bank Reconcilation\frm_ChequeReturn.Designer.cs">
+      <DependentUpon>frm_ChequeReturn.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Transaction Forms\BSS\frm_bpsDebitNote_New.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Transaction Forms\BSS\frm_bpsDebitNote_New.Designer.cs">
+      <DependentUpon>frm_bpsDebitNote_New.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\BSS\frm_rpt_BillsCustomizedReports.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Reports\BSS\frm_rpt_BillsCustomizedReports.designer.cs">
+      <DependentUpon>frm_rpt_BillsCustomizedReports.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Transaction Forms\BSS\frm_bpsCreditNote2.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Transaction Forms\BSS\frm_bpsCreditNote2.Designer.cs">
+      <DependentUpon>frm_bpsCreditNote2.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Transaction Forms\ACC\Tools And Views\frm_masAccChequePrinting_New.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Transaction Forms\ACC\Tools And Views\frm_masAccChequePrinting_New.designer.cs">
+      <DependentUpon>frm_masAccChequePrinting_New.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Master Forms\ZMaster\frm_mtrChequeFormat.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Master Forms\ZMaster\frm_mtrChequeFormat.Designer.cs">
+      <DependentUpon>frm_mtrChequeFormat.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Master Forms\ZMaster\frm_mtrFont.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Master Forms\ZMaster\frm_mtrFont.Designer.cs">
+      <DependentUpon>frm_mtrFont.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Tools\frm_SetLedgerAccounts.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Tools\frm_SetLedgerAccounts.Designer.cs">
+      <DependentUpon>frm_SetLedgerAccounts.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Transaction Forms\ACC\frm_accAccountpayableNote_NEW.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Transaction Forms\ACC\frm_accAccountpayableNote_NEW.Designer.cs">
+      <DependentUpon>frm_accAccountpayableNote_NEW.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frm_VersionInfo.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frm_VersionInfo.Designer.cs">
+      <DependentUpon>frm_VersionInfo.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\BSS\frm_rpt_AccountReceivableReports_New.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Reports\BSS\frm_rpt_AccountReceivableReports_New.designer.cs">
+      <DependentUpon>frm_rpt_AccountReceivableReports_New.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ToBeRemoved\frm_LoanSettlemnet.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ToBeRemoved\frm_LoanSettlemnet.designer.cs">
+      <DependentUpon>frm_LoanSettlemnet.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Tools\frm_Attachments.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Tools\frm_Attachments.Designer.cs">
+      <DependentUpon>frm_Attachments.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Tools\SEACC_DataGrid.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="frmMainNew.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmMainNew.designer.cs">
+      <DependentUpon>frmMainNew.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Master Forms\ZMaster\frm_mtrItemSubCategory_New.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Master Forms\ZMaster\frm_mtrItemSubCategory_New.Designer.cs">
+      <DependentUpon>frm_mtrItemSubCategory_New.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Transaction Forms\ACC\frm_AccDebitNote_New.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Transaction Forms\ACC\frm_AccDebitNote_New.Designer.cs">
+      <DependentUpon>frm_AccDebitNote_New.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Transaction Forms\ACC\frm_accSupplierAccountpayableNote.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Transaction Forms\ACC\frm_accSupplierAccountpayableNote.Designer.cs">
+      <DependentUpon>frm_accSupplierAccountpayableNote.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Transaction Forms\BSS\Settlement\frm_bpsCreditorSettlement.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Transaction Forms\BSS\Settlement\frm_bpsCreditorSettlement.designer.cs">
+      <DependentUpon>frm_bpsCreditorSettlement.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Transaction Forms\BSS\Settlement\frm_bpsInvoiceSettlement.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Transaction Forms\BSS\Settlement\frm_bpsInvoiceSettlement.Designer.cs">
+      <DependentUpon>frm_bpsInvoiceSettlement.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Transaction Forms\BSS\Tools And Views\frm_RepresentableChqUpdate.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Transaction Forms\BSS\Tools And Views\frm_RepresentableChqUpdate.Designer.cs">
+      <DependentUpon>frm_RepresentableChqUpdate.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Transaction Forms\COM\frm_masComComissionPeriod.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Transaction Forms\COM\frm_masComComissionPeriod.Designer.cs">
+      <DependentUpon>frm_masComComissionPeriod.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Transaction Forms\COM\frm_masComPercentageDefinition_Collectors.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Transaction Forms\COM\frm_masComPercentageDefinition_Collectors.Designer.cs">
+      <DependentUpon>frm_masComPercentageDefinition_Collectors.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Transaction Forms\COM\frm_masItemCategory_ComissionWiseBreakDown.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Transaction Forms\COM\frm_masItemCategory_ComissionWiseBreakDown.Designer.cs">
+      <DependentUpon>frm_masItemCategory_ComissionWiseBreakDown.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Transaction Forms\COM\frm_txComComissionCalculation_Salesman.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Transaction Forms\COM\frm_txComComissionCalculation_Salesman.Designer.cs">
+      <DependentUpon>frm_txComComissionCalculation_Salesman.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Transaction Forms\COM\frm_txComComissionCalculation_Collectors.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Transaction Forms\COM\frm_txComComissionCalculation_Collectors.Designer.cs">
+      <DependentUpon>frm_txComComissionCalculation_Collectors.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Transaction Forms\COM\frm_txComComissionCalculation_Driver.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Transaction Forms\COM\frm_txComComissionCalculation_Driver.Designer.cs">
+      <DependentUpon>frm_txComComissionCalculation_Driver.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Transaction Forms\COM\frm_txComComissionCalculation_Collector.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Transaction Forms\COM\frm_txComComissionCalculation_Collector.Designer.cs">
+      <DependentUpon>frm_txComComissionCalculation_Collector.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Transaction Forms\frm_masAccChartOfAccount1.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Transaction Forms\frm_masAccChartOfAccount1.designer.cs">
+      <DependentUpon>frm_masAccChartOfAccount1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Transaction Forms\SAS\frm_DOBulkPrint.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Transaction Forms\SAS\frm_DOBulkPrint.Designer.cs">
+      <DependentUpon>frm_DOBulkPrint.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Transaction Forms\SAS\frm_sasDeliveryOrder_ALL.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Transaction Forms\SAS\frm_sasDeliveryOrder_ALL.designer.cs">
+      <DependentUpon>frm_sasDeliveryOrder_ALL.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Transaction Forms\SAS\frm_sasSalseReturnNote.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Transaction Forms\SAS\frm_sasSalseReturnNote.designer.cs">
+      <DependentUpon>frm_sasSalseReturnNote.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Transaction Forms\SAS\Tools And Views\frm_BulkPrintReverce.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Transaction Forms\SAS\Tools And Views\frm_BulkPrintReverce.Designer.cs">
+      <DependentUpon>frm_BulkPrintReverce.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Transaction Forms\SAS\Tools And Views\frm_sasDeliveryOrder_DoDate.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Transaction Forms\SAS\Tools And Views\frm_sasDeliveryOrder_DoDate.designer.cs">
+      <DependentUpon>frm_sasDeliveryOrder_DoDate.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Transaction Forms\SCS\UC_scsBarcodePrint.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Transaction Forms\SCS\UC_scsBarcodePrint.Designer.cs">
+      <DependentUpon>UC_scsBarcodePrint.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Transaction Forms\BSS\Bank Reconcilation\frm_bpsBankReconcilation.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Transaction Forms\BSS\Bank Reconcilation\frm_bpsBankReconcilation.Designer.cs">
+      <DependentUpon>frm_bpsBankReconcilation.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Transaction Forms\BSS\Bank Reconcilation\frm_bpsCashDeposit.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Transaction Forms\BSS\Bank Reconcilation\frm_bpsCashDeposit.Designer.cs">
+      <DependentUpon>frm_bpsCashDeposit.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Transaction Forms\BSS\Bank Reconcilation\frm_bpsCashDepositSummary.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Transaction Forms\BSS\Bank Reconcilation\frm_bpsCashDepositSummary.Designer.cs">
+      <DependentUpon>frm_bpsCashDepositSummary.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Transaction Forms\BSS\Bank Reconcilation\frm_bpsChequeDeposit.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Transaction Forms\BSS\Bank Reconcilation\frm_bpsChequeDeposit.Designer.cs">
+      <DependentUpon>frm_bpsChequeDeposit.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Transaction Forms\BSS\frm_bpsIntercompanyTransactions.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Transaction Forms\BSS\frm_bpsIntercompanyTransactions.designer.cs">
+      <DependentUpon>frm_bpsIntercompanyTransactions.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Transaction Forms\BSS\Bank Reconcilation\frm_bpsNewReconcilation.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Transaction Forms\BSS\Bank Reconcilation\frm_bpsNewReconcilation.Designer.cs">
+      <DependentUpon>frm_bpsNewReconcilation.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Transaction Forms\BSS\Bank Reconcilation\frm_bpsReconcilationBankStatement.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Transaction Forms\BSS\Bank Reconcilation\frm_bpsReconcilationBankStatement.Designer.cs">
+      <DependentUpon>frm_bpsReconcilationBankStatement.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Tools\UC_DoubleEntry.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Tools\UC_DoubleEntry.Designer.cs">
+      <DependentUpon>UC_DoubleEntry.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Tools\UC_ExchangeRate.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Tools\UC_ExchangeRate.Designer.cs">
+      <DependentUpon>UC_ExchangeRate.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Tools\UC_FinanceTextBox.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Tools\UC_FinanceTextBox.Designer.cs">
+      <DependentUpon>UC_FinanceTextBox.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Tools\UC_Supplier.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Tools\UC_Supplier.Designer.cs">
+      <DependentUpon>UC_Supplier.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Tools\UC_TotalCalc.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Tools\UC_TotalCalc.Designer.cs">
+      <DependentUpon>UC_TotalCalc.cs</DependentUpon>
+    </Compile>
+    <Compile Include="User Management\frmAttachmentConfiguration.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="User Management\frmAttachmentConfiguration.Designer.cs">
+      <DependentUpon>frmAttachmentConfiguration.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Transaction Forms\ACC\frm_masAccCustomerControlAccounts.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Transaction Forms\ACC\frm_masAccCustomerControlAccounts.Designer.cs">
+      <DependentUpon>frm_masAccCustomerControlAccounts.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Transaction Forms\ACC\frm_masAccSupplierControlAccounts.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Transaction Forms\ACC\frm_masAccSupplierControlAccounts.Designer.cs">
+      <DependentUpon>frm_masAccSupplierControlAccounts.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Transaction Forms\ACC\UC_AccSupplierOpeningBalance.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Transaction Forms\ACC\UC_AccSupplierOpeningBalance.designer.cs">
+      <DependentUpon>UC_AccSupplierOpeningBalance.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Transaction Forms\ACC\UC_AccCustomerOpeningBalance.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Transaction Forms\ACC\UC_AccCustomerOpeningBalance.designer.cs">
+      <DependentUpon>UC_AccCustomerOpeningBalance.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Master Forms\ZMaster\UC_mtrCompanyDepartment_New.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Master Forms\ZMaster\UC_mtrCompanyDepartment_New.Designer.cs">
+      <DependentUpon>UC_mtrCompanyDepartment_New.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Master Forms\ZMaster\UC_mtrCompanyStore_New.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Master Forms\ZMaster\UC_mtrCompanyStore_New.Designer.cs">
+      <DependentUpon>UC_mtrCompanyStore_New.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Tools\frmTransactionList.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Tools\frmTransactionList.Designer.cs">
+      <DependentUpon>frmTransactionList.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Transaction Forms\ACC\FA\UC_AccAssetTransferNote.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Transaction Forms\ACC\FA\UC_AccAssetTransferNote.Designer.cs">
+      <DependentUpon>UC_AccAssetTransferNote.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Transaction Forms\ACC\FA\UC_AccFixedAssetRegistration.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Transaction Forms\ACC\FA\UC_AccFixedAssetRegistration.Designer.cs">
+      <DependentUpon>UC_AccFixedAssetRegistration.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Transaction Forms\SAS\frm_sasInvoice2.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Transaction Forms\SAS\frm_sasInvoice2.designer.cs">
+      <DependentUpon>frm_sasInvoice2.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Master Forms\ZMaster\UC_MtrCostCenter1.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Master Forms\ZMaster\UC_MtrCostCenter1.Designer.cs">
+      <DependentUpon>UC_MtrCostCenter1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Tools\SEACC_Form.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Tools\SEACC_Form.Designer.cs">
+      <DependentUpon>SEACC_Form.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Transaction Forms\ACC\Tools And Views\frm_masAccCreateFinancialYear_New.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Transaction Forms\ACC\Tools And Views\frm_masAccCreateFinancialYear_New.Designer.cs">
+      <DependentUpon>frm_masAccCreateFinancialYear_New.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Transaction Forms\ACC\frm_masAccFinancialYear_New.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Transaction Forms\ACC\frm_masAccFinancialYear_New.Designer.cs">
+      <DependentUpon>frm_masAccFinancialYear_New.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Tools\chart.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Tools\frm_cht_Sales.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Tools\frm_cht_Sales.Designer.cs">
+      <DependentUpon>frm_cht_Sales.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Tools\frm_cht_DailyCollection.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Tools\frm_cht_DailyCollection.Designer.cs">
+      <DependentUpon>frm_cht_DailyCollection.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Tools\ucChartType.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Tools\ucChartType.Designer.cs">
+      <DependentUpon>ucChartType.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Classes\clsAlerts.cs" />
+    <Compile Include="Classes\clsEvent.cs" />
+    <Compile Include="Tools\frmApprovedCheckedValidity.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Tools\frmApprovedCheckedValidity.Designer.cs">
+      <DependentUpon>frmApprovedCheckedValidity.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Transaction Forms\SCS\Tools And Views\frm_iSRPendingQty_Display.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Transaction Forms\SCS\Tools And Views\frm_iSRPendingQty_Display.Designer.cs">
+      <DependentUpon>frm_iSRPendingQty_Display.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Tools\NewMessageDisplayPopup.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Tools\NewMessageDisplayPopup.Designer.cs">
+      <DependentUpon>NewMessageDisplayPopup.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Master Forms\General\frm_masItemMasterCustomerWiseSalesCode.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Master Forms\General\frm_masItemMasterCustomerWiseSalesCode.designer.cs">
+      <DependentUpon>frm_masItemMasterCustomerWiseSalesCode.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Transaction Forms\ACC\frm_accAccountpayableNote.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Transaction Forms\ACC\frm_accAccountpayableNote.designer.cs">
+      <DependentUpon>frm_accAccountpayableNote.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Transaction Forms\ACC\Tools And Views\frm_accChequeToNewMode_PV.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Transaction Forms\ACC\Tools And Views\frm_accChequeToNewMode_PV.Designer.cs">
+      <DependentUpon>frm_accChequeToNewMode_PV.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Transaction Forms\ACC\Tools And Views\frm_AccPostingConfigaration.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Transaction Forms\ACC\Tools And Views\frm_AccPostingConfigaration.Designer.cs">
+      <DependentUpon>frm_AccPostingConfigaration.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Transaction Forms\ACC\Tools And Views\frm_accNotPostedTransactions.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Transaction Forms\ACC\Tools And Views\frm_accNotPostedTransactions.Designer.cs">
+      <DependentUpon>frm_accNotPostedTransactions.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Transaction Forms\ACC\frm_AccProfitAndLoss.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Transaction Forms\ACC\frm_AccProfitAndLoss.Designer.cs">
+      <DependentUpon>frm_AccProfitAndLoss.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ToBeRemoved\frm_accUpdateAccountType.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ToBeRemoved\frm_accUpdateAccountType.Designer.cs">
+      <DependentUpon>frm_accUpdateAccountType.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Transaction Forms\SAS\Tools And Views\frm_sasCustomerOrderManuallySettleTool.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Transaction Forms\SAS\Tools And Views\frm_sasCustomerOrderManuallySettleTool.Designer.cs">
+      <DependentUpon>frm_sasCustomerOrderManuallySettleTool.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Transaction Forms\BSS\Tools And Views\frm_bpsTools.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Transaction Forms\BSS\Tools And Views\frm_bpsTools.designer.cs">
+      <DependentUpon>frm_bpsTools.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Transaction Forms\SCS\Tools And Views\frm_scsAddNewBarcode.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Transaction Forms\SCS\Tools And Views\frm_scsAddNewBarcode.Designer.cs">
+      <DependentUpon>frm_scsAddNewBarcode.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Transaction Forms\ACC\frm_accPayment Voucher.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Transaction Forms\ACC\frm_accPayment Voucher.designer.cs">
+      <DependentUpon>frm_accPayment Voucher.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Tools\SEACC_Attachments.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Tools\SEACC_Attachments.Designer.cs">
+      <DependentUpon>SEACC_Attachments.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Transaction Forms\BSS\Tools And Views\frm_bpsCashDepositCancelation.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Transaction Forms\BSS\Tools And Views\frm_bpsCashDepositCancelation.Designer.cs">
+      <DependentUpon>frm_bpsCashDepositCancelation.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Master Forms\frmMasterNew.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Master Forms\frmMasterNew.Designer.cs">
+      <DependentUpon>frmMasterNew.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Master Forms\ZMaster\frm_mtrItemTag1.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Master Forms\ZMaster\frm_mtrItemTag1.Designer.cs">
+      <DependentUpon>frm_mtrItemTag1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Master Forms\ZMaster\frm_mtrItemTag2.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Master Forms\ZMaster\frm_mtrItemTag2.Designer.cs">
+      <DependentUpon>frm_mtrItemTag2.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ToBeRemoved\frm_accSystemSynchronization.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ToBeRemoved\frm_accSystemSynchronization.Designer.cs">
+      <DependentUpon>frm_accSystemSynchronization.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ToBeRemoved\frm_AccountType_Supplier.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ToBeRemoved\frm_AccountType_Supplier.designer.cs">
+      <DependentUpon>frm_AccountType_Supplier.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Master Forms\ZMaster\ACC\frm_AccSlotChange.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Master Forms\ZMaster\ACC\frm_AccSlotChange.designer.cs">
+      <DependentUpon>frm_AccSlotChange.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ToBeRemoved\frm_AccountType_Customer.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ToBeRemoved\frm_AccountType_Customer.designer.cs">
+      <DependentUpon>frm_AccountType_Customer.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Master Forms\ZMaster\frm_CommissionSlabSetting.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Master Forms\ZMaster\frm_CommissionSlabSetting.designer.cs">
+      <DependentUpon>frm_CommissionSlabSetting.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Master Forms\ZMaster\frm_mtrEmployeeSlabSettings.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Master Forms\ZMaster\frm_mtrEmployeeSlabSettings.designer.cs">
+      <DependentUpon>frm_mtrEmployeeSlabSettings.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Reports\BSS\frm_rpt_BillsRegisterReports.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Reports\BSS\frm_rpt_BillsRegisterReports.designer.cs">
+      <DependentUpon>frm_rpt_BillsRegisterReports.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Transaction Forms\ACC\Budget\frm_accBudget.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Transaction Forms\ACC\Budget\frm_accBudget.Designer.cs">
+      <DependentUpon>frm_accBudget.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Transaction Forms\BSS\Tools And Views\frm_bpsChequeSetting.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Transaction Forms\BSS\Tools And Views\frm_bpsChequeSetting.Designer.cs">
+      <DependentUpon>frm_bpsChequeSetting.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Transaction Forms\SAS\Tools And Views\frm_sasTaxTypeSelect.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Transaction Forms\SAS\Tools And Views\frm_sasTaxTypeSelect.Designer.cs">
+      <DependentUpon>frm_sasTaxTypeSelect.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Transaction Forms\SCS\frm_scsGoodTransferNote_new.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Transaction Forms\SCS\frm_scsGoodTransferNote_new.designer.cs">
+      <DependentUpon>frm_scsGoodTransferNote_new.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Transaction Forms\PMS\Tools And Views\frm_pmsExtraHours.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Transaction Forms\PMS\Tools And Views\frm_pmsExtraHours.designer.cs">
+      <DependentUpon>frm_pmsExtraHours.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Transaction Forms\SAS\Tools And Views\frm_sasMultipleItemSelect_SRN.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Transaction Forms\SAS\Tools And Views\frm_sasMultipleItemSelect_SRN.Designer.cs">
+      <DependentUpon>frm_sasMultipleItemSelect_SRN.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Transaction Forms\SAS\Tools And Views\frm_sasAllocationRemoveTool.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Transaction Forms\SAS\Tools And Views\frm_sasAllocationRemoveTool.Designer.cs">
+      <DependentUpon>frm_sasAllocationRemoveTool.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Transaction Forms\SCS\Tools And Views\frm_scsMultipleItemSelect_SplitNote.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Transaction Forms\SCS\Tools And Views\frm_scsMultipleItemSelect_SplitNote.Designer.cs">
+      <DependentUpon>frm_scsMultipleItemSelect_SplitNote.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Transaction Forms\ACC\UC_AccJournalEntry.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Transaction Forms\ACC\UC_AccJournalEntry.Designer.cs">
+      <DependentUpon>UC_AccJournalEntry.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Tools\ucSasProcessFlow.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Tools\ucSasProcessFlow.Designer.cs">
+      <DependentUpon>ucSasProcessFlow.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Transaction Forms\BSS\UC_bpsReceiptSales.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Transaction Forms\BSS\UC_bpsReceiptSales.Designer.cs">
+      <DependentUpon>UC_bpsReceiptSales.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Master Forms\frmCompanyBankAccount.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Master Forms\frmCompanyBankAccount.Designer.cs">
+      <DependentUpon>frmCompanyBankAccount.cs</DependentUpon>
+    </Compile>
+    <Compile Include="User Management\frmMonthPicker.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="User Management\frmMonthPicker.Designer.cs">
+      <DependentUpon>frmMonthPicker.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Master Forms\ZMaster\ChequeMaster.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Master Forms\ZMaster\ChequeMaster.Designer.cs">
+      <DependentUpon>ChequeMaster.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Master Forms\ZMaster\frm_DebitNoteTypeMaster.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Master Forms\ZMaster\frm_DebitNoteTypeMaster.Designer.cs">
+      <DependentUpon>frm_DebitNoteTypeMaster.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Master Forms\ZMaster\frm_CreditNoteTypeMaster.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Master Forms\ZMaster\frm_CreditNoteTypeMaster.Designer.cs">
+      <DependentUpon>frm_CreditNoteTypeMaster.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Master Forms\ZMaster\frm_ItemSerialNo_GiftVoucher.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Master Forms\ZMaster\frm_ItemSerialNo_GiftVoucher.designer.cs">
+      <DependentUpon>frm_ItemSerialNo_GiftVoucher.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Transaction Forms\ACC\frm_AccountsOpeningBalance.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Transaction Forms\ACC\frm_AccountsOpeningBalance.designer.cs">
+      <DependentUpon>frm_AccountsOpeningBalance.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Master Forms\ZMaster\frm_infoFonts.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Master Forms\ZMaster\frm_infoFonts.Designer.cs">
+      <DependentUpon>frm_infoFonts.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\ADM\dts_Admin.cs" />
+    <Compile Include="Reports\ADM\frm_rpt_AdminRegiser.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Reports\ADM\frm_rpt_AdminRegiser.designer.cs">
+      <DependentUpon>frm_rpt_AdminRegiser.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\ADM\frm_rpt_AdminStandardReport.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Reports\ADM\frm_rpt_AdminStandardReport.designer.cs">
+      <DependentUpon>frm_rpt_AdminStandardReport.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\BSS\frm_rpt_AccountPayableReports.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Reports\BSS\frm_rpt_AccountPayableReports.designer.cs">
+      <DependentUpon>frm_rpt_AccountPayableReports.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\SAS\frm_rpt_SalesRegister.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Reports\SAS\frm_rpt_SalesRegister.designer.cs">
+      <DependentUpon>frm_rpt_SalesRegister.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\SAS\frm_rpt_SalesStrandedReprots.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Reports\SAS\frm_rpt_SalesStrandedReprots.designer.cs">
+      <DependentUpon>frm_rpt_SalesStrandedReprots.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Tools\frm_cht_Stock.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Tools\frm_cht_Stock.Designer.cs">
+      <DependentUpon>frm_cht_Stock.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Transaction Forms\ACC\frm_AccDebitNote.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Transaction Forms\ACC\frm_AccDebitNote.Designer.cs">
+      <DependentUpon>frm_AccDebitNote.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Transaction Forms\BSS\frm_bpsCreditNote.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Transaction Forms\BSS\frm_bpsCreditNote.designer.cs">
+      <DependentUpon>frm_bpsCreditNote.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Transaction Forms\PMS\Tools And Views\frm_pmsproductionJobmanualSettle.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Transaction Forms\PMS\Tools And Views\frm_pmsproductionJobmanualSettle.Designer.cs">
+      <DependentUpon>frm_pmsproductionJobmanualSettle.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Transaction Forms\SAS\frm_sasCustomerOrder.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Transaction Forms\SAS\frm_sasCustomerOrder.designer.cs">
+      <DependentUpon>frm_sasCustomerOrder.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Transaction Forms\SAS\Tools And Views\frm_sasViewerCustomerOrder.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Transaction Forms\SAS\Tools And Views\frm_sasViewerCustomerOrder.designer.cs">
+      <DependentUpon>frm_sasViewerCustomerOrder.cs</DependentUpon>
+    </Compile>
+    <Compile Include="User Management\frmPendingApprovals.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="User Management\frmPendingApprovals.Designer.cs">
+      <DependentUpon>frmPendingApprovals.cs</DependentUpon>
+    </Compile>
+    <Compile Include="User Management\frmSecurityConfigValue.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="User Management\frmSecurityConfigValue.designer.cs">
+      <DependentUpon>frmSecurityConfigValue.cs</DependentUpon>
+    </Compile>
+    <Compile Include="User Management\Permission\frm_RouteWiseUserPermission.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="User Management\Permission\frm_RouteWiseUserPermission.Designer.cs">
+      <DependentUpon>frm_RouteWiseUserPermission.cs</DependentUpon>
+    </Compile>
+    <Compile Include="User Management\security\frmDatabaseBackup.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="User Management\security\frmDatabaseBackup.designer.cs">
+      <DependentUpon>frmDatabaseBackup.cs</DependentUpon>
+    </Compile>
+    <Compile Include="User Management\frmImageViewer.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="User Management\frmImageViewer.Designer.cs">
+      <DependentUpon>frmImageViewer.cs</DependentUpon>
+    </Compile>
+    <Compile Include="User Management\Alert\frm_Alert_Home.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="User Management\Alert\frm_Alert_Home.designer.cs">
+      <DependentUpon>frm_Alert_Home.cs</DependentUpon>
+    </Compile>
+    <Compile Include="User Management\Alert\frm_AlertMaster.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="User Management\Alert\frm_AlertMaster.designer.cs">
+      <DependentUpon>frm_AlertMaster.cs</DependentUpon>
+    </Compile>
+    <Compile Include="User Management\Alert\frm_AlertShedules.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="User Management\Alert\frm_AlertShedules.designer.cs">
+      <DependentUpon>frm_AlertShedules.cs</DependentUpon>
+    </Compile>
+    <Compile Include="User Management\Alert\frm_Alert_Configuration.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="User Management\Alert\frm_Alert_Configuration.designer.cs">
+      <DependentUpon>frm_Alert_Configuration.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\MAS\frm_rpt_ItemMasterReport.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Reports\MAS\frm_rpt_ItemMasterReport.designer.cs">
+      <DependentUpon>frm_rpt_ItemMasterReport.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Classes\clsChart.cs" />
+    <Compile Include="Classes\clsHelpMethods.cs" />
+    <Compile Include="Master Forms\frm_masAccountsMaster.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Master Forms\frm_masAccountsMaster.designer.cs">
+      <DependentUpon>frm_masAccountsMaster.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Master Forms\frm_masCompanyMaster.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Master Forms\frm_masCompanyMaster.designer.cs">
+      <DependentUpon>frm_masCompanyMaster.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Master Forms\frm_masFinanceMaster.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Master Forms\frm_masFinanceMaster.designer.cs">
+      <DependentUpon>frm_masFinanceMaster.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Master Forms\General\frm_masItemMasterFinance.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Master Forms\General\frm_masItemMasterFinance.designer.cs">
+      <DependentUpon>frm_masItemMasterFinance.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Master Forms\ZMaster\ACC\frm_mtrReportExpenditureNameSearch.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Master Forms\ZMaster\ACC\frm_mtrReportExpenditureNameSearch.designer.cs">
+      <DependentUpon>frm_mtrReportExpenditureNameSearch.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Master Forms\ZMaster\frm_mtrAccCostCenter1.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Master Forms\ZMaster\frm_mtrAccCostCenter1.designer.cs">
+      <DependentUpon>frm_mtrAccCostCenter1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Master Forms\ZMaster\frm_mtrAccCostCenter2.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Master Forms\ZMaster\frm_mtrAccCostCenter2.designer.cs">
+      <DependentUpon>frm_mtrAccCostCenter2.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Master Forms\ZMaster\frm_mtrAccountGLNote.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Master Forms\ZMaster\frm_mtrAccountGLNote.designer.cs">
+      <DependentUpon>frm_mtrAccountGLNote.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Master Forms\ZMaster\frm_mtrAlert.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Master Forms\ZMaster\frm_mtrAlert.designer.cs">
+      <DependentUpon>frm_mtrAlert.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Master Forms\ZMaster\UC_MtrCostCenter2.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Master Forms\ZMaster\UC_MtrCostCenter2.designer.cs">
+      <DependentUpon>UC_MtrCostCenter2.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Master Forms\ZMaster\UC_MtrCostCenter3.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Master Forms\ZMaster\UC_MtrCostCenter3.designer.cs">
+      <DependentUpon>UC_MtrCostCenter3.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Master Forms\ZMaster\frm_mtrCostCenter4.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Master Forms\ZMaster\frm_mtrCostCenter4.designer.cs">
+      <DependentUpon>frm_mtrCostCenter4.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Master Forms\ZMaster\frm_mtrItemCategory_Sub.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Master Forms\ZMaster\frm_mtrItemCategory_Sub.designer.cs">
+      <DependentUpon>frm_mtrItemCategory_Sub.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Master Forms\ZMaster\frm_jobGussestType.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Master Forms\ZMaster\frm_jobGussestType.designer.cs">
+      <DependentUpon>frm_jobGussestType.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Master Forms\General\frm_masPrinterMaster.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Master Forms\General\frm_masPrinterMaster.designer.cs">
+      <DependentUpon>frm_masPrinterMaster.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Master Forms\General\frm_masSalesAreaMaster.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Master Forms\General\frm_masSalesAreaMaster.designer.cs">
+      <DependentUpon>frm_masSalesAreaMaster.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Master Forms\ZMaster\frm_mtrBrand.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Master Forms\ZMaster\frm_mtrBrand.designer.cs">
+      <DependentUpon>frm_mtrBrand.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Master Forms\ZMaster\frm_mtrCurrency.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Master Forms\ZMaster\frm_mtrCurrency.designer.cs">
+      <DependentUpon>frm_mtrCurrency.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Master Forms\ZMaster\frm_mtrEmpAssistan.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Master Forms\ZMaster\frm_mtrEmpAssistan.designer.cs">
+      <DependentUpon>frm_mtrEmpAssistan.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Master Forms\ZMaster\frm_mtrEmpOperator.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Master Forms\ZMaster\frm_mtrEmpOperator.designer.cs">
+      <DependentUpon>frm_mtrEmpOperator.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Master Forms\ZMaster\frm_mtrEmpSupervisor.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Master Forms\ZMaster\frm_mtrEmpSupervisor.designer.cs" />
+    <Compile Include="Master Forms\ZMaster\frm_mtrJobLaminationMaterialType.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Master Forms\ZMaster\frm_mtrJobLaminationMaterialType.designer.cs">
+      <DependentUpon>frm_mtrJobLaminationMaterialType.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Master Forms\ZMaster\frm_mtrJobLaminationType.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Master Forms\ZMaster\frm_mtrJobLaminationType.designer.cs">
+      <DependentUpon>frm_mtrJobLaminationType.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Master Forms\ZMaster\frm_mtrJobMarkupPrecentage.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Master Forms\ZMaster\frm_mtrJobMarkupPrecentage.designer.cs">
+      <DependentUpon>frm_mtrJobMarkupPrecentage.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Master Forms\ZMaster\frm_mtrJobPolytheneMaterialType.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Master Forms\ZMaster\frm_mtrJobPolytheneMaterialType.designer.cs">
+      <DependentUpon>frm_mtrJobPolytheneMaterialType.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Master Forms\ZMaster\frm_mtrPaper.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Master Forms\ZMaster\frm_mtrPaper.designer.cs">
+      <DependentUpon>frm_mtrPaper.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Master Forms\ZMaster\frm_mtrSchdule.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Master Forms\ZMaster\frm_mtrSchdule.designer.cs">
+      <DependentUpon>frm_mtrSchdule.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Master Forms\ZMaster\frm_mtrTax.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Master Forms\ZMaster\frm_mtrTax.designer.cs">
+      <DependentUpon>frm_mtrTax.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Master Forms\ZMaster\frm_mtrVehicle.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Master Forms\ZMaster\frm_mtrVehicle.designer.cs">
+      <DependentUpon>frm_mtrVehicle.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Master Forms\ZMaster\frm_paymentMethod.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Master Forms\ZMaster\frm_paymentMethod.designer.cs">
+      <DependentUpon>frm_paymentMethod.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Master Forms\ZMaster\frm_securityConfigStatus.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Master Forms\ZMaster\frm_securityConfigStatus.designer.cs">
+      <DependentUpon>frm_securityConfigStatus.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Master Forms\ZMaster\frm_securityConfigStatusType.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Master Forms\ZMaster\frm_securityConfigStatusType.designer.cs">
+      <DependentUpon>frm_securityConfigStatusType.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Master Forms\ZMaster\frm_securityConfigTypeValue.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Master Forms\ZMaster\frm_securityConfigTypeValue.designer.cs">
+      <DependentUpon>frm_securityConfigTypeValue.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Master Forms\ZMaster\frm_securityConfigValue.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Master Forms\ZMaster\frm_securityConfigValue.designer.cs">
+      <DependentUpon>frm_securityConfigValue.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\ACC\frm_rpt_AccountStandardReport.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Reports\ACC\frm_rpt_AccountStandardReport.designer.cs">
+      <DependentUpon>frm_rpt_AccountStandardReport.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\ACC\frm_rpt_AccountRegisterReport.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Reports\ACC\frm_rpt_AccountRegisterReport.designer.cs">
+      <DependentUpon>frm_rpt_AccountRegisterReport.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\BSS\frm_rpt_BankManagementReports.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Reports\BSS\frm_rpt_BankManagementReports.designer.cs">
+      <DependentUpon>frm_rpt_BankManagementReports.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\MAS\frm_rpt_MasterReport.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Reports\MAS\frm_rpt_MasterReport.designer.cs">
+      <DependentUpon>frm_rpt_MasterReport.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\SCS\frm_rpt_FlowStock.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Reports\SCS\frm_rpt_FlowStock.designer.cs">
+      <DependentUpon>frm_rpt_FlowStock.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\BSS\frm_rpt_ChequeStanded.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Reports\BSS\frm_rpt_ChequeStanded.designer.cs">
+      <DependentUpon>frm_rpt_ChequeStanded.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\MAS\frm_rpt_CustomerMasterReport.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Reports\MAS\frm_rpt_CustomerMasterReport.designer.cs">
+      <DependentUpon>frm_rpt_CustomerMasterReport.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\MIS\frm_rpt_dashBord.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Reports\MIS\frm_rpt_dashBord.designer.cs">
+      <DependentUpon>frm_rpt_dashBord.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\PET\frm_rpt_MasterPettyCashAccount.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Reports\PET\frm_rpt_MasterPettyCashAccount.designer.cs">
+      <DependentUpon>frm_rpt_MasterPettyCashAccount.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\ACC\frm_rpt_ChartOfAccount.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Reports\ACC\frm_rpt_ChartOfAccount.designer.cs">
+      <DependentUpon>frm_rpt_ChartOfAccount.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\SCS\frm_rpt_StockRegister.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Reports\SCS\frm_rpt_StockRegister.designer.cs">
+      <DependentUpon>frm_rpt_StockRegister.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\SCS\frm_rpt_StockStandedReport.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Reports\SCS\frm_rpt_StockStandedReport.designer.cs">
+      <DependentUpon>frm_rpt_StockStandedReport.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ToBeRemoved\frm_rpt_StockStatement.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ToBeRemoved\frm_rpt_StockStatement.designer.cs">
+      <DependentUpon>frm_rpt_StockStatement.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Master Forms\General\frm_masEmployeeMasterViewer.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Master Forms\General\frm_masEmployeeMasterViewer.designer.cs">
+      <DependentUpon>frm_masEmployeeMasterViewer.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Master Forms\General\frm_masEmployeeMaster.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Master Forms\General\frm_masEmployeeMaster.designer.cs">
+      <DependentUpon>frm_masEmployeeMaster.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Master Forms\General\frm_masPettyCashIncomeType.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Master Forms\General\frm_masPettyCashIncomeType.designer.cs">
+      <DependentUpon>frm_masPettyCashIncomeType.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Master Forms\General\frm_masPettyExpenditureType.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Master Forms\General\frm_masPettyExpenditureType.designer.cs">
+      <DependentUpon>frm_masPettyExpenditureType.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Master Forms\General\frm_masUserMaster.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Master Forms\General\frm_masUserMaster.designer.cs">
+      <DependentUpon>frm_masUserMaster.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Master Forms\ZMaster\frm_mtrAccountChartFieldSub.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Master Forms\ZMaster\frm_mtrAccountChartFieldSub.designer.cs">
+      <DependentUpon>frm_mtrAccountChartFieldSub.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Master Forms\ZMaster\frm_mtrAccountHead.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Master Forms\ZMaster\frm_mtrAccountHead.designer.cs">
+      <DependentUpon>frm_mtrAccountHead.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Master Forms\ZMaster\frm_mtrAccountMasterCategory.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Master Forms\ZMaster\frm_mtrAccountMasterCategory.designer.cs">
+      <DependentUpon>frm_mtrAccountMasterCategory.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Master Forms\ZMaster\frm_mtrAccountTypes.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Master Forms\ZMaster\frm_mtrAccountTypes.designer.cs">
+      <DependentUpon>frm_mtrAccountTypes.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Master Forms\ZMaster\frm_mtrArea.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Master Forms\ZMaster\frm_mtrArea.designer.cs">
+      <DependentUpon>frm_mtrArea.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Master Forms\ZMaster\frm_mtrAssistan.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Master Forms\ZMaster\frm_mtrAssistan.designer.cs">
+      <DependentUpon>frm_mtrAssistan.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Master Forms\ZMaster\frm_mtrBank.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Master Forms\ZMaster\frm_mtrBank.designer.cs">
+      <DependentUpon>frm_mtrBank.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Master Forms\ZMaster\frm_mtrBranch.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Master Forms\ZMaster\frm_mtrBranch.designer.cs">
+      <DependentUpon>frm_mtrBranch.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Master Forms\ZMaster\frm_mtrCity.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Master Forms\ZMaster\frm_mtrCity.designer.cs">
+      <DependentUpon>frm_mtrCity.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Master Forms\ZMaster\frm_mtrCompanyBranch.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Master Forms\ZMaster\frm_mtrCompanyBranch.designer.cs">
+      <DependentUpon>frm_mtrCompanyBranch.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Master Forms\ZMaster\frm_mtrCompanyCountryMaster.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Master Forms\ZMaster\frm_mtrCompanyCountryMaster.designer.cs">
+      <DependentUpon>frm_mtrCompanyCountryMaster.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Master Forms\ZMaster\frm_mtrCompanyDepartment.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Master Forms\ZMaster\frm_mtrCompanyDepartment.designer.cs">
+      <DependentUpon>frm_mtrCompanyDepartment.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Master Forms\ZMaster\frm_mtrCompanyDivision.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Master Forms\ZMaster\frm_mtrCompanyDivision.designer.cs">
+      <DependentUpon>frm_mtrCompanyDivision.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Master Forms\ZMaster\frm_mtrCompanySection.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Master Forms\ZMaster\frm_mtrCompanySection.designer.cs">
+      <DependentUpon>frm_mtrCompanySection.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Master Forms\ZMaster\frm_mtrCompanyStore.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Master Forms\ZMaster\frm_mtrCompanyStore.designer.cs">
+      <DependentUpon>frm_mtrCompanyStore.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Master Forms\ZMaster\frm_mtrCountry.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Master Forms\ZMaster\frm_mtrCountry.designer.cs">
+      <DependentUpon>frm_mtrCountry.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Master Forms\General\frm_masCustomerMaster.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Master Forms\General\frm_masCustomerMaster.designer.cs">
+      <DependentUpon>frm_masCustomerMaster.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Master Forms\General\frm_masItemMaster.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Master Forms\General\frm_masItemMaster.designer.cs">
+      <DependentUpon>frm_masItemMaster.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Master Forms\General\frmSupplierMaster.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Master Forms\General\frmSupplierMaster.designer.cs">
+      <DependentUpon>frmSupplierMaster.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Master Forms\ZMaster\frm_mtrCustomerCategory.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Master Forms\ZMaster\frm_mtrCustomerCategory.designer.cs">
+      <DependentUpon>frm_mtrCustomerCategory.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Master Forms\ZMaster\frm_mtrCustomerCategoryType.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Master Forms\ZMaster\frm_mtrCustomerCategoryType.designer.cs">
+      <DependentUpon>frm_mtrCustomerCategoryType.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Master Forms\ZMaster\frm_mtrCustomerClass.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Master Forms\ZMaster\frm_mtrCustomerClass.designer.cs">
+      <DependentUpon>frm_mtrCustomerClass.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Master Forms\ZMaster\frm_mtrDistrict.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Master Forms\ZMaster\frm_mtrDistrict.designer.cs">
+      <DependentUpon>frm_mtrDistrict.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Master Forms\ZMaster\frm_mtrDriver.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Master Forms\ZMaster\frm_mtrDriver.designer.cs">
+      <DependentUpon>frm_mtrDriver.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Master Forms\ZMaster\frm_mtrEmpAreaManager.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Master Forms\ZMaster\frm_mtrEmpAreaManager.designer.cs">
+      <DependentUpon>frm_mtrEmpAreaManager.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Master Forms\ZMaster\frm_mtrEmpSaleseRep.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Master Forms\ZMaster\frm_mtrEmpSaleseRep.designer.cs">
+      <DependentUpon>frm_mtrEmpSaleseRep.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Master Forms\ZMaster\frm_mtrEmpSalesExecutivecs.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Master Forms\ZMaster\frm_mtrEmpSalesExecutivecs.designer.cs">
+      <DependentUpon>frm_mtrEmpSalesExecutivecs.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Master Forms\ZMaster\frm_mtrEmpSalesManager.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Master Forms\ZMaster\frm_mtrEmpSalesManager.designer.cs">
+      <DependentUpon>frm_mtrEmpSalesManager.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Master Forms\ZMaster\frm_mtrItemCategory.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Master Forms\ZMaster\frm_mtrItemCategory.designer.cs">
+      <DependentUpon>frm_mtrItemCategory.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Master Forms\ZMaster\frm_mtrItemClass.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Master Forms\ZMaster\frm_mtrItemClass.designer.cs">
+      <DependentUpon>frm_mtrItemClass.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Master Forms\ZMaster\frm_mtrItemSpecification.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Master Forms\ZMaster\frm_mtrItemSpecification.designer.cs">
+      <DependentUpon>frm_mtrItemSpecification.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Master Forms\ZMaster\frm_mtrItemSubCategory.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Master Forms\ZMaster\frm_mtrItemSubCategory.designer.cs">
+      <DependentUpon>frm_mtrItemSubCategory.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Master Forms\ZMaster\frm_mtrItemSubSpecification.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Master Forms\ZMaster\frm_mtrItemSubSpecification.designer.cs">
+      <DependentUpon>frm_mtrItemSubSpecification.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Master Forms\ZMaster\frm_mtrItemType.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Master Forms\ZMaster\frm_mtrItemType.designer.cs">
+      <DependentUpon>frm_mtrItemType.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Master Forms\ZMaster\frm_mtrMachineCategory.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Master Forms\ZMaster\frm_mtrMachineCategory.designer.cs">
+      <DependentUpon>frm_mtrMachineCategory.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Master Forms\ZMaster\frm_mtrMachineClass.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Master Forms\ZMaster\frm_mtrMachineClass.designer.cs">
+      <DependentUpon>frm_mtrMachineClass.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Master Forms\ZMaster\frm_mtrMachineSpecification.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Master Forms\ZMaster\frm_mtrMachineSpecification.designer.cs">
+      <DependentUpon>frm_mtrMachineSpecification.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Master Forms\ZMaster\frm_mtrMachineSubCategory.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Master Forms\ZMaster\frm_mtrMachineSubCategory.designer.cs">
+      <DependentUpon>frm_mtrMachineSubCategory.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Master Forms\ZMaster\frm_mtrMachineSubSpecification.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Master Forms\ZMaster\frm_mtrMachineSubSpecification.designer.cs">
+      <DependentUpon>frm_mtrMachineSubSpecification.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Master Forms\ZMaster\frm_mtrMachineType.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Master Forms\ZMaster\frm_mtrMachineType.designer.cs">
+      <DependentUpon>frm_mtrMachineType.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Master Forms\ZMaster\frm_mtrProvince.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Master Forms\ZMaster\frm_mtrProvince.designer.cs">
+      <DependentUpon>frm_mtrProvince.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Master Forms\ZMaster\frm_mtrSupplierCategory.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Master Forms\ZMaster\frm_mtrSupplierCategory.designer.cs">
+      <DependentUpon>frm_mtrSupplierCategory.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Master Forms\ZMaster\frm_mtrSupplierClass.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Master Forms\ZMaster\frm_mtrSupplierClass.designer.cs">
+      <DependentUpon>frm_mtrSupplierClass.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Master Forms\ZMaster\frm_mtrSupplierType.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Master Forms\ZMaster\frm_mtrSupplierType.designer.cs">
+      <DependentUpon>frm_mtrSupplierType.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Master Forms\ZMaster\frm_mtrTwon.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Master Forms\ZMaster\frm_mtrTwon.designer.cs">
+      <DependentUpon>frm_mtrTwon.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Master Forms\ZMaster\frm_mtrUom.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Master Forms\ZMaster\frm_mtrUom.designer.cs">
+      <DependentUpon>frm_mtrUom.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Master Forms\ZMaster\frm_mtrUomCategory.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Master Forms\ZMaster\frm_mtrUomCategory.designer.cs">
+      <DependentUpon>frm_mtrUomCategory.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Program.cs" />
+    <Compile Include="Reports\PET\frm_rpt_PettyCashAccount.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Reports\PET\frm_rpt_PettyCashAccount.designer.cs">
+      <DependentUpon>frm_rpt_PettyCashAccount.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Transaction Forms\ACC\frm_accAccountpayableNote_OLD.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Transaction Forms\ACC\frm_accAccountpayableNote_OLD.designer.cs">
+      <DependentUpon>frm_accAccountpayableNote_OLD.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Transaction Forms\ACC\frm_accAccountReceipt.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Transaction Forms\ACC\frm_accAccountReceipt.designer.cs">
+      <DependentUpon>frm_accAccountReceipt.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Transaction Forms\ACC\frm_accJournalVoucher.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Transaction Forms\ACC\frm_accJournalVoucher.designer.cs">
+      <DependentUpon>frm_accJournalVoucher.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Transaction Forms\ACC\Tools And Views\frm_masAccChequePrinting.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Transaction Forms\ACC\Tools And Views\frm_masAccChequePrinting.designer.cs">
+      <DependentUpon>frm_masAccChequePrinting.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Transaction Forms\BSS\Tools And Views\frmMultipleCheque.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Transaction Forms\BSS\Tools And Views\frmMultipleCheque.designer.cs">
+      <DependentUpon>frmMultipleCheque.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Transaction Forms\BSS\Tools And Views\frm_accReceiptMultipleCheque.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Transaction Forms\BSS\Tools And Views\frm_accReceiptMultipleCheque.designer.cs">
+      <DependentUpon>frm_accReceiptMultipleCheque.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Transaction Forms\BSS\frm_bpsDebitNote.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Transaction Forms\BSS\frm_bpsDebitNote.designer.cs">
+      <DependentUpon>frm_bpsDebitNote.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Transaction Forms\BSS\Petty Cash\frm_bpsPettyCashReimbursement.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Transaction Forms\BSS\Petty Cash\frm_bpsPettyCashReimbursement.designer.cs">
+      <DependentUpon>frm_bpsPettyCashReimbursement.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ToBeRemoved\frm_bpsDebitNote_PolyPS.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ToBeRemoved\frm_bpsDebitNote_PolyPS.designer.cs">
+      <DependentUpon>frm_bpsDebitNote_PolyPS.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ToBeRemoved\frm_bpsCreditNote_PolyPS.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ToBeRemoved\frm_bpsCreditNote_PolyPS.designer.cs">
+      <DependentUpon>frm_bpsCreditNote_PolyPS.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Transaction Forms\BSS\Tools And Views\frm_bpsReceipt_PaymentAdvice_SubAgent.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Transaction Forms\BSS\Tools And Views\frm_bpsReceipt_PaymentAdvice_SubAgent.Designer.cs">
+      <DependentUpon>frm_bpsReceipt_PaymentAdvice_SubAgent.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Transaction Forms\PMS\Tools And Views\frm_pmsSectionCloser.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Transaction Forms\PMS\Tools And Views\frm_pmsSectionCloser.designer.cs">
+      <DependentUpon>frm_pmsSectionCloser.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Transaction Forms\SAS\Tools And Views\frm_sasCustomerOrder_EditPO.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Transaction Forms\SAS\Tools And Views\frm_sasCustomerOrder_EditPO.designer.cs">
+      <DependentUpon>frm_sasCustomerOrder_EditPO.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Transaction Forms\SAS\Tools And Views\frm_sasDeliveryOrderManuslSettle.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Transaction Forms\SAS\Tools And Views\frm_sasDeliveryOrderManuslSettle.designer.cs">
+      <DependentUpon>frm_sasDeliveryOrderManuslSettle.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ToBeRemoved\frm_sasInvDeliveryOrder.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ToBeRemoved\frm_sasInvDeliveryOrder.designer.cs">
+      <DependentUpon>frm_sasInvDeliveryOrder.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Transaction Forms\SAS\frm_sasDeliveryPlan.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Transaction Forms\SAS\frm_sasDeliveryPlan.designer.cs">
+      <DependentUpon>frm_sasDeliveryPlan.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ToBeRemoved\frm_sasOrderReferanceUpdate.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ToBeRemoved\frm_sasOrderReferanceUpdate.designer.cs">
+      <DependentUpon>frm_sasOrderReferanceUpdate.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Transaction Forms\SAS\frm_sasProformaInvoice.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Transaction Forms\SAS\frm_sasProformaInvoice.designer.cs">
+      <DependentUpon>frm_sasProformaInvoice.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Transaction Forms\SAS\frm_sasQuotation.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Transaction Forms\SAS\frm_sasQuotation.designer.cs">
+      <DependentUpon>frm_sasQuotation.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Transaction Forms\SAS\Tools And Views\frm_sasTools.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Transaction Forms\SAS\Tools And Views\frm_sasTools.designer.cs">
+      <DependentUpon>frm_sasTools.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Transaction Forms\SCS\frm_scsLoan.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Transaction Forms\SCS\frm_scsLoan.designer.cs">
+      <DependentUpon>frm_scsLoan.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Transaction Forms\SCS\Tools And Views\frm_sasStockTransfer_ManualSettle.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Transaction Forms\SCS\Tools And Views\frm_sasStockTransfer_ManualSettle.designer.cs">
+      <DependentUpon>frm_sasStockTransfer_ManualSettle.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Transaction Forms\SCS\frm_scsDepartmentRequisitionNote.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Transaction Forms\SCS\frm_scsDepartmentRequisitionNote.designer.cs">
+      <DependentUpon>frm_scsDepartmentRequisitionNote.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Transaction Forms\SCS\frm_scsPurchaseRequisitionNote.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Transaction Forms\SCS\frm_scsPurchaseRequisitionNote.designer.cs">
+      <DependentUpon>frm_scsPurchaseRequisitionNote.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Transaction Forms\SCS\Tools And Views\frm_scsStockControl.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Transaction Forms\SCS\Tools And Views\frm_scsStockControl.designer.cs">
+      <DependentUpon>frm_scsStockControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="User Management\frmItemPriceSeting.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="User Management\frmItemPriceSeting.designer.cs">
+      <DependentUpon>frmItemPriceSeting.cs</DependentUpon>
+    </Compile>
+    <Compile Include="User Management\Settings\frmDateSettings.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="User Management\Settings\frmDateSettings.designer.cs">
+      <DependentUpon>frmDateSettings.cs</DependentUpon>
+    </Compile>
+    <Compile Include="User Management\frmMessageForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="User Management\frmMessageForm.designer.cs">
+      <DependentUpon>frmMessageForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="User Management\frmFormListPrint.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="User Management\frmFormListPrint.designer.cs">
+      <DependentUpon>frmFormListPrint.cs</DependentUpon>
+    </Compile>
+    <Compile Include="User Management\frmOption.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="User Management\frmOption.designer.cs">
+      <DependentUpon>frmOption.cs</DependentUpon>
+    </Compile>
+    <Compile Include="User Management\frmReportSetting.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="User Management\frmReportSetting.designer.cs">
+      <DependentUpon>frmReportSetting.cs</DependentUpon>
+    </Compile>
+    <Compile Include="User Management\frmSelectSection.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="User Management\frmSelectSection.designer.cs">
+      <DependentUpon>frmSelectSection.cs</DependentUpon>
+    </Compile>
+    <Compile Include="User Management\frmItemViewer.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="User Management\frmItemViewer.Designer.cs">
+      <DependentUpon>frmItemViewer.cs</DependentUpon>
+    </Compile>
+    <Compile Include="User Management\Alert\frm_Alert_EmailConfig.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="User Management\Alert\frm_Alert_EmailConfig.designer.cs">
+      <DependentUpon>frm_Alert_EmailConfig.cs</DependentUpon>
+    </Compile>
+    <Compile Include="User Management\Permission\frmUserPermission_StorWise.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="User Management\Permission\frmUserPermission_StorWise.designer.cs">
+      <DependentUpon>frmUserPermission_StorWise.cs</DependentUpon>
+    </Compile>
+    <Compile Include="User Management\Permission\frmBranchPermission.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="User Management\Permission\frmBranchPermission.designer.cs">
+      <DependentUpon>frmBranchPermission.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Tools\frm_toolAttachmentUpload.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Tools\frm_toolAttachmentUpload.Designer.cs">
+      <DependentUpon>frm_toolAttachmentUpload.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Transaction Forms\BSS\Tools And Views\frm_bpsCashDepositCancelation_NewVersion.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Transaction Forms\BSS\Tools And Views\frm_bpsCashDepositCancelation_NewVersion.Designer.cs">
+      <DependentUpon>frm_bpsCashDepositCancelation_NewVersion.cs</DependentUpon>
+    </Compile>
+    <Compile Include="User Management\Tools\frm_toolPaymentAllocate.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="User Management\Tools\frm_toolPaymentAllocate.designer.cs">
+      <DependentUpon>frm_toolPaymentAllocate.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Transaction Forms\BSS\Tools And Views\frm_toolChequeToNewMode.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Transaction Forms\BSS\Tools And Views\frm_toolChequeToNewMode.designer.cs">
+      <DependentUpon>frm_toolChequeToNewMode.cs</DependentUpon>
+    </Compile>
+    <Compile Include="User Management\Tools\frm_toolRecordPurge.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="User Management\Tools\frm_toolRecordPurge.designer.cs">
+      <DependentUpon>frm_toolRecordPurge.cs</DependentUpon>
+    </Compile>
+    <Compile Include="User Management\Tools\frm_toolReplaceDefaultValuesAllMaster.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="User Management\Tools\frm_toolReplaceDefaultValuesAllMaster.designer.cs">
+      <DependentUpon>frm_toolReplaceDefaultValuesAllMaster.cs</DependentUpon>
+    </Compile>
+    <Compile Include="User Management\Tools\frm_toolSetReportMaster.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="User Management\Tools\frm_toolSetReportMaster.designer.cs">
+      <DependentUpon>frm_toolSetReportMaster.cs</DependentUpon>
+    </Compile>
+    <Compile Include="User Management\Tools\frm_toolDemo.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="User Management\Tools\frm_toolDemo.designer.cs">
+      <DependentUpon>frm_toolDemo.cs</DependentUpon>
+    </Compile>
+    <Compile Include="User Management\Tools\frm_toolSetFormMaster.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="User Management\Tools\frm_toolSetFormMaster.designer.cs">
+      <DependentUpon>frm_toolSetFormMaster.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ToBeRemoved\frm_toolCheckToDepositeMode.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ToBeRemoved\frm_toolCheckToDepositeMode.designer.cs">
+      <DependentUpon>frm_toolCheckToDepositeMode.cs</DependentUpon>
+    </Compile>
+    <Compile Include="User Management\Tools\frm_toolUnsetteldRecode.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="User Management\Tools\frm_toolUnsetteldRecode.designer.cs">
+      <DependentUpon>frm_toolUnsetteldRecode.cs</DependentUpon>
+    </Compile>
+    <Compile Include="User Management\Tools\frm_toolForLatestUpdate.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="User Management\Tools\frm_toolForLatestUpdate.designer.cs">
+      <DependentUpon>frm_toolForLatestUpdate.cs</DependentUpon>
+    </Compile>
+    <Compile Include="User Management\Permission\frmAuditPermission.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="User Management\Permission\frmAuditPermission.designer.cs">
+      <DependentUpon>frmAuditPermission.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Transaction Forms\ACC\frm_masAccChartOfAccount.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Transaction Forms\ACC\frm_masAccChartOfAccount.designer.cs">
+      <DependentUpon>frm_masAccChartOfAccount.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Transaction Forms\BSS\Tools And Views\frm_bpsReceiptTracer.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Transaction Forms\BSS\Tools And Views\frm_bpsReceiptTracer.designer.cs">
+      <DependentUpon>frm_bpsReceiptTracer.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Transaction Forms\PMS\Tools And Views\frm_pmsProductionJobClose.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Transaction Forms\PMS\Tools And Views\frm_pmsProductionJobClose.designer.cs">
+      <DependentUpon>frm_pmsProductionJobClose.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Transaction Forms\BSS\Tools And Views\frm_bpsReceiptAgeingViewer.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Transaction Forms\BSS\Tools And Views\frm_bpsReceiptAgeingViewer.designer.cs">
+      <DependentUpon>frm_bpsReceiptAgeingViewer.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Transaction Forms\SAS\Tools And Views\frm_sasCustomerOrderViewer.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Transaction Forms\SAS\Tools And Views\frm_sasCustomerOrderViewer.designer.cs">
+      <DependentUpon>frm_sasCustomerOrderViewer.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Transaction Forms\SAS\Tools And Views\frm_sasCustomerOrder_Edit.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Transaction Forms\SAS\Tools And Views\frm_sasCustomerOrder_Edit.Designer.cs">
+      <DependentUpon>frm_sasCustomerOrder_Edit.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Transaction Forms\SAS\Tools And Views\frm_sasDeliveryOrderViewer.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Transaction Forms\SAS\Tools And Views\frm_sasDeliveryOrderViewer.designer.cs">
+      <DependentUpon>frm_sasDeliveryOrderViewer.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Transaction Forms\SAS\Tools And Views\frm_sasInquiryViewer.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Transaction Forms\SAS\Tools And Views\frm_sasInquiryViewer.designer.cs">
+      <DependentUpon>frm_sasInquiryViewer.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Transaction Forms\SAS\Tools And Views\frm_sasInvoiceViewer.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Transaction Forms\SAS\Tools And Views\frm_sasInvoiceViewer.designer.cs">
+      <DependentUpon>frm_sasInvoiceViewer.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Transaction Forms\SCS\frm_sasItemSplitNote.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Transaction Forms\SCS\frm_sasItemSplitNote.designer.cs">
+      <DependentUpon>frm_sasItemSplitNote.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Transaction Forms\SAS\frm_sasInquiry.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Transaction Forms\SAS\frm_sasInquiry.designer.cs">
+      <DependentUpon>frm_sasInquiry.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Transaction Forms\BSS\Tools And Views\frm_bpsAccountCashBookPaymente.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Transaction Forms\BSS\Tools And Views\frm_bpsAccountCashBookPaymente.designer.cs">
+      <DependentUpon>frm_bpsAccountCashBookPaymente.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Transaction Forms\BSS\Tools And Views\frm_bpsAccountCashBookReceipt.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Transaction Forms\BSS\Tools And Views\frm_bpsAccountCashBookReceipt.designer.cs">
+      <DependentUpon>frm_bpsAccountCashBookReceipt.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Transaction Forms\BSS\Petty Cash\frm_bpsPettyCashIOUDetails.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Transaction Forms\BSS\Petty Cash\frm_bpsPettyCashIOUDetails.designer.cs">
+      <DependentUpon>frm_bpsPettyCashIOUDetails.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Transaction Forms\PMS\Tools And Views\frm_pmsMachineLineViwer.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Transaction Forms\PMS\Tools And Views\frm_pmsMachineLineViwer.designer.cs">
+      <DependentUpon>frm_pmsMachineLineViwer.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Transaction Forms\PMS\Tools And Views\frm_pmsOffcutEntry.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Transaction Forms\PMS\Tools And Views\frm_pmsOffcutEntry.designer.cs">
+      <DependentUpon>frm_pmsOffcutEntry.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Transaction Forms\SAS\Tools And Views\frm_sasOpeningBalance.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Transaction Forms\SAS\Tools And Views\frm_sasOpeningBalance.Designer.cs">
+      <DependentUpon>frm_sasOpeningBalance.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Transaction Forms\SAS\Tools And Views\frm_sasViewerInvoice.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Transaction Forms\SAS\Tools And Views\frm_sasViewerInvoice.designer.cs">
+      <DependentUpon>frm_sasViewerInvoice.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Transaction Forms\SCS\frm_scsDamageGoodsNote.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Transaction Forms\SCS\frm_scsDamageGoodsNote.designer.cs">
+      <DependentUpon>frm_scsDamageGoodsNote.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Transaction Forms\SCS\frm_scsDiscardedGoodNote.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Transaction Forms\SCS\frm_scsDiscardedGoodNote.designer.cs">
+      <DependentUpon>frm_scsDiscardedGoodNote.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Transaction Forms\SCS\frm_scsExternalGoodIssueNote.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Transaction Forms\SCS\frm_scsExternalGoodIssueNote.designer.cs">
+      <DependentUpon>frm_scsExternalGoodIssueNote.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Transaction Forms\SCS\frm_scsExternalGoodReceiveNote.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Transaction Forms\SCS\frm_scsExternalGoodReceiveNote.designer.cs">
+      <DependentUpon>frm_scsExternalGoodReceiveNote.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Transaction Forms\SCS\frm_scsPurchaseOrder.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Transaction Forms\SCS\frm_scsPurchaseOrder.designer.cs">
+      <DependentUpon>frm_scsPurchaseOrder.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Transaction Forms\SCS\frm_scsPurchaseReturnNote.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Transaction Forms\SCS\frm_scsPurchaseReturnNote.designer.cs">
+      <DependentUpon>frm_scsPurchaseReturnNote.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Transaction Forms\SCS\frm_scsQuotaionRequest.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Transaction Forms\SCS\frm_scsQuotaionRequest.Designer.cs">
+      <DependentUpon>frm_scsQuotaionRequest.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Transaction Forms\SAS\Tools And Views\frm_sasViewerCustomer.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Transaction Forms\SAS\Tools And Views\frm_sasViewerCustomer.designer.cs">
+      <DependentUpon>frm_sasViewerCustomer.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Transaction Forms\SCS\Tools And Views\frm_scsItemViewer_SemiFinishedGood.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Transaction Forms\SCS\Tools And Views\frm_scsItemViewer_SemiFinishedGood.designer.cs">
+      <DependentUpon>frm_scsItemViewer_SemiFinishedGood.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Transaction Forms\SCS\frm_scsSectionRequisitionNote.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Transaction Forms\SCS\frm_scsSectionRequisitionNote.designer.cs">
+      <DependentUpon>frm_scsSectionRequisitionNote.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ToBeRemoved\frm_scsSectionGoodIssueNote.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ToBeRemoved\frm_scsSectionGoodIssueNote.designer.cs">
+      <DependentUpon>frm_scsSectionGoodIssueNote.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ToBeRemoved\frm_scsSectionGoodReceiveNote.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ToBeRemoved\frm_scsSectionGoodReceiveNote.designer.cs">
+      <DependentUpon>frm_scsSectionGoodReceiveNote.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Transaction Forms\PMS\Tools And Views\frm_pmsSectionViwer.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Transaction Forms\PMS\Tools And Views\frm_pmsSectionViwer.Designer.cs">
+      <DependentUpon>frm_pmsSectionViwer.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Transaction Forms\SCS\Tools And Views\frm_scsItemViewer_LaminatedMaterial.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Transaction Forms\SCS\Tools And Views\frm_scsItemViewer_LaminatedMaterial.Designer.cs">
+      <DependentUpon>frm_scsItemViewer_LaminatedMaterial.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Transaction Forms\SCS\Tools And Views\frm_scsItemViewer_RawMaterial.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Transaction Forms\SCS\Tools And Views\frm_scsItemViewer_RawMaterial.Designer.cs">
+      <DependentUpon>frm_scsItemViewer_RawMaterial.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Transaction Forms\SCS\Tools And Views\frm_scsItemViewer_FinishedGood.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Transaction Forms\SCS\Tools And Views\frm_scsItemViewer_FinishedGood.Designer.cs">
+      <DependentUpon>frm_scsItemViewer_FinishedGood.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Transaction Forms\SCS\Tools And Views\frm_scsItemViewer_CombinationMaterial.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Transaction Forms\SCS\Tools And Views\frm_scsItemViewer_CombinationMaterial.Designer.cs">
+      <DependentUpon>frm_scsItemViewer_CombinationMaterial.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Transaction Forms\BSS\Tools And Views\frm_bpsAccountViewer.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Transaction Forms\BSS\Tools And Views\frm_bpsAccountViewer.Designer.cs">
+      <DependentUpon>frm_bpsAccountViewer.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Transaction Forms\BSS\Tools And Views\frm_bpsChequeViewer.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Transaction Forms\BSS\Tools And Views\frm_bpsChequeViewer.Designer.cs">
+      <DependentUpon>frm_bpsChequeViewer.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Transaction Forms\BSS\Petty Cash\frm_bpsPettyCashAccount.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Transaction Forms\BSS\Petty Cash\frm_bpsPettyCashAccount.designer.cs">
+      <DependentUpon>frm_bpsPettyCashAccount.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Transaction Forms\BSS\Petty Cash\frm_bpsPettyCashIncomeAndExpenditure.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Transaction Forms\BSS\Petty Cash\frm_bpsPettyCashIncomeAndExpenditure.designer.cs">
+      <DependentUpon>frm_bpsPettyCashIncomeAndExpenditure.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Transaction Forms\BSS\Petty Cash\frm_bpsPettyCashIOU.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Transaction Forms\BSS\Petty Cash\frm_bpsPettyCashIOU.designer.cs">
+      <DependentUpon>frm_bpsPettyCashIOU.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Transaction Forms\BSS\Petty Cash\frm_bpsPettyCashPermission.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Transaction Forms\BSS\Petty Cash\frm_bpsPettyCashPermission.designer.cs">
+      <DependentUpon>frm_bpsPettyCashPermission.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Transaction Forms\BSS\Tools And Views\frm_bpsReceiptViewer.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Transaction Forms\BSS\Tools And Views\frm_bpsReceiptViewer.Designer.cs">
+      <DependentUpon>frm_bpsReceiptViewer.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Transaction Forms\BSS\Petty Cash\frm_bpsUpdatePettyCashAccounts.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Transaction Forms\BSS\Petty Cash\frm_bpsUpdatePettyCashAccounts.designer.cs">
+      <DependentUpon>frm_bpsUpdatePettyCashAccounts.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Transaction Forms\SAS\frm_sasDeliveryOrder.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Transaction Forms\SAS\frm_sasDeliveryOrder.designer.cs">
+      <DependentUpon>frm_sasDeliveryOrder.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Transaction Forms\SAS\frm_sasInvoice.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Transaction Forms\SAS\frm_sasInvoice.designer.cs">
+      <DependentUpon>frm_sasInvoice.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Transaction Forms\PMS\Tools And Views\frm_sasJobRegisterTemplate.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Transaction Forms\PMS\Tools And Views\frm_sasJobRegisterTemplate.designer.cs">
+      <DependentUpon>frm_sasJobRegisterTemplate.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Transaction Forms\PMS\Tools And Views\frm_sasJobViewer.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Transaction Forms\PMS\Tools And Views\frm_sasJobViewer.designer.cs">
+      <DependentUpon>frm_sasJobViewer.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Transaction Forms\PMS\Tools And Views\frm_sasPreCosting.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Transaction Forms\PMS\Tools And Views\frm_sasPreCosting.Designer.cs">
+      <DependentUpon>frm_sasPreCosting.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Transaction Forms\PMS\Tools And Views\frm_sasPreCostingTemplate.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Transaction Forms\PMS\Tools And Views\frm_sasPreCostingTemplate.designer.cs">
+      <DependentUpon>frm_sasPreCostingTemplate.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Transaction Forms\SCS\frm_scsStoreGoodReceiveNote.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Transaction Forms\SCS\frm_scsStoreGoodReceiveNote.designer.cs">
+      <DependentUpon>frm_scsStoreGoodReceiveNote.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Transaction Forms\BSS\Tools And Views\frm_bpsChequeTracer.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Transaction Forms\BSS\Tools And Views\frm_bpsChequeTracer.designer.cs">
+      <DependentUpon>frm_bpsChequeTracer.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Transaction Forms\SCS\frm_scsStockAdjustment.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Transaction Forms\SCS\frm_scsStockAdjustment.Designer.cs">
+      <DependentUpon>frm_scsStockAdjustment.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Transaction Forms\SCS\frm_scsStoreGoodIssueNote.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Transaction Forms\SCS\frm_scsStoreGoodIssueNote.designer.cs">
+      <DependentUpon>frm_scsStoreGoodIssueNote.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Transaction Forms\SCS\frm_scsFinishedGoodsTransferNote.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Transaction Forms\SCS\frm_scsFinishedGoodsTransferNote.designer.cs">
+      <DependentUpon>frm_scsFinishedGoodsTransferNote.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Transaction Forms\SCS\frm_scsStoreRequisitionNote.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Transaction Forms\SCS\frm_scsStoreRequisitionNote.designer.cs">
+      <DependentUpon>frm_scsStoreRequisitionNote.cs</DependentUpon>
+    </Compile>
+    <Compile Include="User Management\Permission\frmCheckingPermission.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="User Management\Permission\frmCheckingPermission.designer.cs">
+      <DependentUpon>frmCheckingPermission.cs</DependentUpon>
+    </Compile>
+    <Compile Include="User Management\Permission\frmApprovalPermission.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="User Management\Permission\frmApprovalPermission.designer.cs">
+      <DependentUpon>frmApprovalPermission.cs</DependentUpon>
+    </Compile>
+    <Compile Include="User Management\frmSetChecked.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="User Management\frmSetChecked.designer.cs">
+      <DependentUpon>frmSetChecked.cs</DependentUpon>
+    </Compile>
+    <Compile Include="User Management\frmDocumentApproval.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="User Management\frmDocumentApproval.designer.cs">
+      <DependentUpon>frmDocumentApproval.cs</DependentUpon>
+    </Compile>
+    <Compile Include="User Management\frmUserRemove.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="User Management\frmUserRemove.designer.cs">
+      <DependentUpon>frmUserRemove.cs</DependentUpon>
+    </Compile>
+    <Compile Include="User Management\Chat\frmChatUserView.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="User Management\Chat\frmChatUserView.Designer.cs">
+      <DependentUpon>frmChatUserView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="User Management\frmReportMaster.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="User Management\frmReportMaster.designer.cs">
+      <DependentUpon>frmReportMaster.cs</DependentUpon>
+    </Compile>
+    <Compile Include="User Management\Permission\frmReportPermission.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="User Management\Permission\frmReportPermission.designer.cs">
+      <DependentUpon>frmReportPermission.cs</DependentUpon>
+    </Compile>
+    <Compile Include="User Management\frmFormList.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="User Management\frmFormList.Designer.cs">
+      <DependentUpon>frmFormList.cs</DependentUpon>
+    </Compile>
+    <Compile Include="User Management\frmGroupApproval.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="User Management\frmGroupApproval.Designer.cs">
+      <DependentUpon>frmGroupApproval.cs</DependentUpon>
+    </Compile>
+    <Compile Include="User Management\frmManageRoute.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="User Management\frmManageRoute.Designer.cs">
+      <DependentUpon>frmManageRoute.cs</DependentUpon>
+    </Compile>
+    <Compile Include="User Management\frmDigiteqLogin.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="User Management\frmDigiteqLogin.designer.cs">
+      <DependentUpon>frmDigiteqLogin.cs</DependentUpon>
+    </Compile>
+    <Compile Include="User Management\frmSetCostPrice.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="User Management\frmSetCostPrice.designer.cs">
+      <DependentUpon>frmSetCostPrice.cs</DependentUpon>
+    </Compile>
+    <Compile Include="User Management\frmSetCostingConfirm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="User Management\frmSetCostingConfirm.designer.cs">
+      <DependentUpon>frmSetCostingConfirm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="User Management\Alert\frmAlert.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="User Management\Alert\frmAlert.designer.cs">
+      <DependentUpon>frmAlert.cs</DependentUpon>
+    </Compile>
+    <Compile Include="User Management\frmAutoFormNumber.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="User Management\frmAutoFormNumber.designer.cs">
+      <DependentUpon>frmAutoFormNumber.cs</DependentUpon>
+    </Compile>
+    <Compile Include="User Management\frmCompanyInfor.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="User Management\frmCompanyInfor.designer.cs">
+      <DependentUpon>frmCompanyInfor.cs</DependentUpon>
+    </Compile>
+    <Compile Include="User Management\security\frmDigiteqPannel.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="User Management\security\frmDigiteqPannel.designer.cs">
+      <DependentUpon>frmDigiteqPannel.cs</DependentUpon>
+    </Compile>
+    <Compile Include="User Management\frmForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="User Management\frmForm.designer.cs">
+      <DependentUpon>frmForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="User Management\frmFormCategory.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="User Management\frmFormCategory.designer.cs">
+      <DependentUpon>frmFormCategory.cs</DependentUpon>
+    </Compile>
+    <Compile Include="User Management\frmSetApproved.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="User Management\frmSetApproved.designer.cs">
+      <DependentUpon>frmSetApproved.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Transaction Forms\SAS\Tools And Views\frmCancel_DO.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Transaction Forms\SAS\Tools And Views\frmCancel_DO.designer.cs">
+      <DependentUpon>frmCancel_DO.cs</DependentUpon>
+    </Compile>
+    <Compile Include="User Management\Permission\frmUserPermission.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="User Management\Permission\frmUserPermission.designer.cs">
+      <DependentUpon>frmUserPermission.cs</DependentUpon>
+    </Compile>
+    <Compile Include="User Management\frmMyPortal.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="User Management\frmMyPortal.designer.cs">
+      <DependentUpon>frmMyPortal.cs</DependentUpon>
+    </Compile>
+    <Compile Include="User Management\frmSecurityType_Value.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="User Management\frmSecurityType_Value.designer.cs">
+      <DependentUpon>frmSecurityType_Value.cs</DependentUpon>
+    </Compile>
+    <Compile Include="User Management\frmSecurityType_Status.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="User Management\frmSecurityType_Status.designer.cs">
+      <DependentUpon>frmSecurityType_Status.cs</DependentUpon>
+    </Compile>
+    <Compile Include="User Management\frmSecurityConfigStatus.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="User Management\frmSecurityConfigStatus.designer.cs">
+      <DependentUpon>frmSecurityConfigStatus.cs</DependentUpon>
+    </Compile>
+    <Compile Include="User Management\Chat\frmChat.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="User Management\Chat\frmChat.designer.cs">
+      <DependentUpon>frmChat.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ToBeRemoved\frm_mtrSecurityItemExceedLock.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ToBeRemoved\frm_mtrSecurityItemExceedLock.designer.cs">
+      <DependentUpon>frm_mtrSecurityItemExceedLock.cs</DependentUpon>
+    </Compile>
+    <Compile Include="User Management\frmDesktopAlert.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="User Management\frmDesktopAlert.designer.cs">
+      <DependentUpon>frmDesktopAlert.cs</DependentUpon>
+    </Compile>
+    <Compile Include="User Management\Tools\frm_toolUnlockRecode.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="User Management\Tools\frm_toolUnlockRecode.designer.cs">
+      <DependentUpon>frm_toolUnlockRecode.cs</DependentUpon>
+    </Compile>
+    <None Include="packages.config" />
+    <EmbeddedResource Include="frmMainNew.resx">
+      <DependentUpon>frmMainNew.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frm_BillOfFormation.resx">
+      <DependentUpon>frm_BillOfFormation.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frm_BookNoAllocate.resx">
+      <DependentUpon>frm_BookNoAllocate.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frm_BookNoAllocate_Receipt.resx">
+      <DependentUpon>frm_BookNoAllocate_Receipt.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frm_BookNoShowAll.resx">
+      <DependentUpon>frm_BookNoShowAll.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frm_BookNoShowAll_Receipt.resx">
+      <DependentUpon>frm_BookNoShowAll_Receipt.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frm_CustomerWiseItemPricing.resx">
+      <DependentUpon>frm_CustomerWiseItemPricing.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frm_routeWiseItemPricing.resx">
+      <DependentUpon>frm_routeWiseItemPricing.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Master Forms\ZMaster\frm_mtrDeliveryOfficer.resx">
+      <DependentUpon>frm_mtrDeliveryOfficer.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\COM\frm_rpt_CommissionRegister.resx">
+      <DependentUpon>frm_rpt_CommissionRegister.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\SCS\frm_StockReports.resx">
+      <DependentUpon>frm_StockReports.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Tools\MettroForm.resx">
+      <DependentUpon>MettroForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Transaction Forms\ACC\Tools And Views\frm_accChequeDateChangeTool.resx">
+      <DependentUpon>frm_accChequeDateChangeTool.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Transaction Forms\ACC\Tools And Views\frm_AccountsTools.resx">
+      <DependentUpon>frm_AccountsTools.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Transaction Forms\BSS\Bank Reconcilation\frm_bpsChequeReturn_New.resx">
+      <DependentUpon>frm_bpsChequeReturn_New.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Transaction Forms\BSS\Bank Reconcilation\frm_bpsReturnCheque.resx">
+      <DependentUpon>frm_bpsReturnCheque.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Tools\frm_Calendar.resx">
+      <DependentUpon>frm_Calendar.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\BSS\frm_rpt_TaxReports.resx">
+      <DependentUpon>frm_rpt_TaxReports.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Transaction Forms\ACC\frm_accAccountpayableNote_NEW.resx">
+      <DependentUpon>frm_accAccountpayableNote_NEW.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Transaction Forms\ACC\Tools And Views\frm_accCheckPosting.resx">
+      <DependentUpon>frm_accCheckPosting.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Transaction Forms\BSS\Bank Reconcilation\frm_ChequeReturn.resx">
+      <DependentUpon>frm_ChequeReturn.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Transaction Forms\BSS\frm_bpsCreditNote2.resx">
+      <DependentUpon>frm_bpsCreditNote2.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Transaction Forms\ACC\Tools And Views\frm_masAccChequePrinting_New.resx">
+      <DependentUpon>frm_masAccChequePrinting_New.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Tools\frm_SetLedgerAccounts.resx">
+      <DependentUpon>frm_SetLedgerAccounts.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frm_VersionInfo.resx">
+      <DependentUpon>frm_VersionInfo.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Master Forms\ZMaster\frm_mtrChequeFormat.resx">
+      <DependentUpon>frm_mtrChequeFormat.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Master Forms\ZMaster\frm_mtrFont.resx">
+      <DependentUpon>frm_mtrFont.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\BSS\frm_rpt_AccountReceivableReports_New.resx">
+      <DependentUpon>frm_rpt_AccountReceivableReports_New.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\BSS\frm_rpt_BillsCustomizedReports.resx">
+      <DependentUpon>frm_rpt_BillsCustomizedReports.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ToBeRemoved\frm_LoanSettlemnet.resx">
+      <DependentUpon>frm_LoanSettlemnet.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Tools\frm_Attachments.resx">
+      <DependentUpon>frm_Attachments.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Master Forms\ZMaster\frm_mtrItemSubCategory_New.resx">
+      <DependentUpon>frm_mtrItemSubCategory_New.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Transaction Forms\ACC\frm_AccDebitNote_New.resx">
+      <DependentUpon>frm_AccDebitNote_New.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Transaction Forms\BSS\frm_bpsDebitNote_New.resx">
+      <DependentUpon>frm_bpsDebitNote_New.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Transaction Forms\ACC\frm_accSupplierAccountpayableNote.resx">
+      <DependentUpon>frm_accSupplierAccountpayableNote.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Transaction Forms\BSS\Settlement\frm_bpsCreditorSettlement.resx">
+      <DependentUpon>frm_bpsCreditorSettlement.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Transaction Forms\BSS\Settlement\frm_bpsInvoiceSettlement.resx">
+      <DependentUpon>frm_bpsInvoiceSettlement.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Transaction Forms\BSS\Tools And Views\frm_RepresentableChqUpdate.resx">
+      <DependentUpon>frm_RepresentableChqUpdate.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Transaction Forms\COM\frm_masComComissionPeriod.resx">
+      <DependentUpon>frm_masComComissionPeriod.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Transaction Forms\COM\frm_masComPercentageDefinition_Collectors.resx">
+      <DependentUpon>frm_masComPercentageDefinition_Collectors.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Transaction Forms\COM\frm_masItemCategory_ComissionWiseBreakDown.resx">
+      <DependentUpon>frm_masItemCategory_ComissionWiseBreakDown.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Transaction Forms\COM\frm_txComComissionCalculation_Salesman.resx">
+      <DependentUpon>frm_txComComissionCalculation_Salesman.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Transaction Forms\COM\frm_txComComissionCalculation_Collectors.resx">
+      <DependentUpon>frm_txComComissionCalculation_Collectors.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Transaction Forms\COM\frm_txComComissionCalculation_Driver.resx">
+      <DependentUpon>frm_txComComissionCalculation_Driver.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Transaction Forms\COM\frm_txComComissionCalculation_Collector.resx">
+      <DependentUpon>frm_txComComissionCalculation_Collector.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Transaction Forms\frm_masAccChartOfAccount1.resx">
+      <DependentUpon>frm_masAccChartOfAccount1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Transaction Forms\SAS\frm_DOBulkPrint.resx">
+      <DependentUpon>frm_DOBulkPrint.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Transaction Forms\SAS\frm_sasDeliveryOrder_ALL.resx">
+      <DependentUpon>frm_sasDeliveryOrder_ALL.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Transaction Forms\SAS\frm_sasSalseReturnNote.resx">
+      <DependentUpon>frm_sasSalseReturnNote.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Transaction Forms\SAS\Tools And Views\frm_BulkPrintReverce.resx">
+      <DependentUpon>frm_BulkPrintReverce.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Transaction Forms\SAS\Tools And Views\frm_sasDeliveryOrder_DoDate.resx">
+      <DependentUpon>frm_sasDeliveryOrder_DoDate.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Transaction Forms\SCS\UC_scsBarcodePrint.resx">
+      <DependentUpon>UC_scsBarcodePrint.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Transaction Forms\BSS\Bank Reconcilation\frm_bpsBankReconcilation.resx">
+      <DependentUpon>frm_bpsBankReconcilation.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Transaction Forms\BSS\Bank Reconcilation\frm_bpsCashDeposit.resx">
+      <DependentUpon>frm_bpsCashDeposit.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Transaction Forms\BSS\Bank Reconcilation\frm_bpsCashDepositSummary.resx">
+      <DependentUpon>frm_bpsCashDepositSummary.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Transaction Forms\BSS\Bank Reconcilation\frm_bpsChequeDeposit.resx">
+      <DependentUpon>frm_bpsChequeDeposit.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Transaction Forms\BSS\frm_bpsIntercompanyTransactions.resx">
+      <DependentUpon>frm_bpsIntercompanyTransactions.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Transaction Forms\BSS\Bank Reconcilation\frm_bpsNewReconcilation.resx">
+      <DependentUpon>frm_bpsNewReconcilation.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Transaction Forms\BSS\Bank Reconcilation\frm_bpsReconcilationBankStatement.resx">
+      <DependentUpon>frm_bpsReconcilationBankStatement.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Tools\UC_DoubleEntry.resx">
+      <DependentUpon>UC_DoubleEntry.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Tools\UC_ExchangeRate.resx">
+      <DependentUpon>UC_ExchangeRate.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Tools\UC_FinanceTextBox.resx">
+      <DependentUpon>UC_FinanceTextBox.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Tools\UC_Supplier.resx">
+      <DependentUpon>UC_Supplier.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Tools\UC_TotalCalc.resx">
+      <DependentUpon>UC_TotalCalc.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="User Management\frmAttachmentConfiguration.resx">
+      <DependentUpon>frmAttachmentConfiguration.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Transaction Forms\ACC\frm_masAccCustomerControlAccounts.resx">
+      <DependentUpon>frm_masAccCustomerControlAccounts.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Transaction Forms\ACC\frm_masAccSupplierControlAccounts.resx">
+      <DependentUpon>frm_masAccSupplierControlAccounts.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Transaction Forms\ACC\UC_AccSupplierOpeningBalance.resx">
+      <DependentUpon>UC_AccSupplierOpeningBalance.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Transaction Forms\ACC\UC_AccCustomerOpeningBalance.resx">
+      <DependentUpon>UC_AccCustomerOpeningBalance.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Master Forms\ZMaster\UC_mtrCompanyDepartment_New.resx">
+      <DependentUpon>UC_mtrCompanyDepartment_New.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Master Forms\ZMaster\UC_mtrCompanyStore_New.resx">
+      <DependentUpon>UC_mtrCompanyStore_New.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Tools\frmTransactionList.resx">
+      <DependentUpon>frmTransactionList.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Transaction Forms\ACC\FA\UC_AccAssetTransferNote.resx">
+      <DependentUpon>UC_AccAssetTransferNote.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Transaction Forms\ACC\FA\UC_AccFixedAssetRegistration.resx">
+      <DependentUpon>UC_AccFixedAssetRegistration.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Transaction Forms\SAS\frm_sasInvoice2.resx">
+      <DependentUpon>frm_sasInvoice2.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Master Forms\ZMaster\UC_MtrCostCenter1.resx">
+      <DependentUpon>UC_MtrCostCenter1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Tools\SEACC_Form.resx">
+      <DependentUpon>SEACC_Form.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Transaction Forms\ACC\Tools And Views\frm_masAccCreateFinancialYear_New.resx">
+      <DependentUpon>frm_masAccCreateFinancialYear_New.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Transaction Forms\ACC\frm_masAccFinancialYear_New.resx">
+      <DependentUpon>frm_masAccFinancialYear_New.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Tools\frm_cht_Sales.resx">
+      <DependentUpon>frm_cht_Sales.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Tools\frm_cht_DailyCollection.resx">
+      <DependentUpon>frm_cht_DailyCollection.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Tools\ucChartType.resx">
+      <DependentUpon>ucChartType.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Tools\frmApprovedCheckedValidity.resx">
+      <DependentUpon>frmApprovedCheckedValidity.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Tools\NewMessageDisplayPopup.resx">
+      <DependentUpon>NewMessageDisplayPopup.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Master Forms\General\frm_masItemMasterCustomerWiseSalesCode.resx">
+      <DependentUpon>frm_masItemMasterCustomerWiseSalesCode.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Transaction Forms\ACC\frm_accAccountpayableNote.resx">
+      <DependentUpon>frm_accAccountpayableNote.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Transaction Forms\ACC\Tools And Views\frm_AccPostingConfigaration.resx">
+      <DependentUpon>frm_AccPostingConfigaration.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Transaction Forms\ACC\frm_AccProfitAndLoss.resx">
+      <DependentUpon>frm_AccProfitAndLoss.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Transaction Forms\ACC\Tools And Views\frm_accNotPostedTransactions.resx">
+      <DependentUpon>frm_accNotPostedTransactions.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ToBeRemoved\frm_accUpdateAccountType.resx">
+      <DependentUpon>frm_accUpdateAccountType.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Transaction Forms\ACC\Tools And Views\frm_accChequeToNewMode_PV.resx">
+      <DependentUpon>frm_accChequeToNewMode_PV.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Transaction Forms\SAS\Tools And Views\frm_sasCustomerOrderManuallySettleTool.resx">
+      <DependentUpon>frm_sasCustomerOrderManuallySettleTool.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Transaction Forms\ACC\frm_accPayment Voucher.resx">
+      <DependentUpon>frm_accPayment Voucher.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Tools\SEACC_Attachments.resx">
+      <DependentUpon>SEACC_Attachments.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Transaction Forms\BSS\Tools And Views\frm_bpsCashDepositCancelation.resx">
+      <DependentUpon>frm_bpsCashDepositCancelation.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Master Forms\frmMasterNew.resx">
+      <DependentUpon>frmMasterNew.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Master Forms\ZMaster\frm_mtrItemTag1.resx">
+      <DependentUpon>frm_mtrItemTag1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Master Forms\ZMaster\frm_mtrItemTag2.resx">
+      <DependentUpon>frm_mtrItemTag2.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ToBeRemoved\frm_accSystemSynchronization.resx">
+      <DependentUpon>frm_accSystemSynchronization.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ToBeRemoved\frm_AccountType_Supplier.resx">
+      <DependentUpon>frm_AccountType_Supplier.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Master Forms\ZMaster\ACC\frm_AccSlotChange.resx">
+      <DependentUpon>frm_AccSlotChange.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ToBeRemoved\frm_AccountType_Customer.resx">
+      <DependentUpon>frm_AccountType_Customer.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Master Forms\ZMaster\frm_CommissionSlabSetting.resx">
+      <DependentUpon>frm_CommissionSlabSetting.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Master Forms\ZMaster\frm_mtrEmployeeSlabSettings.resx">
+      <DependentUpon>frm_mtrEmployeeSlabSettings.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\BSS\frm_rpt_BillsRegisterReports.resx">
+      <DependentUpon>frm_rpt_BillsRegisterReports.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Transaction Forms\ACC\Budget\frm_accBudget.resx">
+      <DependentUpon>frm_accBudget.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Transaction Forms\BSS\Tools And Views\frm_bpsTools.resx">
+      <DependentUpon>frm_bpsTools.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Transaction Forms\BSS\Tools And Views\frm_bpsChequeSetting.resx">
+      <DependentUpon>frm_bpsChequeSetting.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Transaction Forms\SAS\Tools And Views\frm_sasTaxTypeSelect.resx">
+      <DependentUpon>frm_sasTaxTypeSelect.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Transaction Forms\SCS\Tools And Views\frm_scsAddNewBarcode.resx">
+      <DependentUpon>frm_scsAddNewBarcode.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Transaction Forms\SCS\frm_scsGoodTransferNote_new.resx">
+      <DependentUpon>frm_scsGoodTransferNote_new.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Transaction Forms\PMS\Tools And Views\frm_pmsExtraHours.resx">
+      <DependentUpon>frm_pmsExtraHours.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Transaction Forms\SAS\Tools And Views\frm_sasMultipleItemSelect_SRN.resx">
+      <DependentUpon>frm_sasMultipleItemSelect_SRN.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Transaction Forms\SAS\Tools And Views\frm_sasAllocationRemoveTool.resx">
+      <DependentUpon>frm_sasAllocationRemoveTool.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Transaction Forms\SCS\Tools And Views\frm_iSRPendingQty_Display.resx">
+      <DependentUpon>frm_iSRPendingQty_Display.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Transaction Forms\SCS\Tools And Views\frm_scsMultipleItemSelect_SplitNote.resx">
+      <DependentUpon>frm_scsMultipleItemSelect_SplitNote.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Transaction Forms\ACC\UC_AccJournalEntry.resx">
+      <DependentUpon>UC_AccJournalEntry.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Tools\ucSasProcessFlow.resx">
+      <DependentUpon>ucSasProcessFlow.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Transaction Forms\BSS\UC_bpsReceiptSales.resx">
+      <DependentUpon>UC_bpsReceiptSales.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Master Forms\frmCompanyBankAccount.resx">
+      <DependentUpon>frmCompanyBankAccount.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="User Management\frmMonthPicker.resx">
+      <DependentUpon>frmMonthPicker.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Master Forms\frm_masAccountsMaster.resx">
+      <DependentUpon>frm_masAccountsMaster.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Master Forms\frm_masCompanyMaster.resx">
+      <DependentUpon>frm_masCompanyMaster.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Master Forms\frm_masFinanceMaster.resx">
+      <DependentUpon>frm_masFinanceMaster.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Master Forms\ZMaster\ChequeMaster.resx">
+      <DependentUpon>ChequeMaster.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Master Forms\ZMaster\frm_DebitNoteTypeMaster.resx">
+      <DependentUpon>frm_DebitNoteTypeMaster.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Master Forms\ZMaster\frm_CreditNoteTypeMaster.resx">
+      <DependentUpon>frm_CreditNoteTypeMaster.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Master Forms\ZMaster\frm_ItemSerialNo_GiftVoucher.resx">
+      <DependentUpon>frm_ItemSerialNo_GiftVoucher.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Transaction Forms\ACC\frm_AccountsOpeningBalance.resx">
+      <DependentUpon>frm_AccountsOpeningBalance.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Master Forms\ZMaster\frm_infoFonts.resx">
+      <DependentUpon>frm_infoFonts.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\ADM\frm_rpt_AdminRegiser.resx">
+      <DependentUpon>frm_rpt_AdminRegiser.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\ADM\frm_rpt_AdminStandardReport.resx">
+      <DependentUpon>frm_rpt_AdminStandardReport.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\BSS\frm_rpt_AccountPayableReports.resx">
+      <DependentUpon>frm_rpt_AccountPayableReports.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\SAS\frm_rpt_SalesRegister.resx">
+      <DependentUpon>frm_rpt_SalesRegister.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\SAS\frm_rpt_SalesStrandedReprots.resx">
+      <DependentUpon>frm_rpt_SalesStrandedReprots.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Tools\frm_cht_Stock.resx">
+      <DependentUpon>frm_cht_Stock.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Transaction Forms\ACC\frm_AccDebitNote.resx">
+      <DependentUpon>frm_AccDebitNote.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Transaction Forms\BSS\frm_bpsCreditNote.resx">
+      <DependentUpon>frm_bpsCreditNote.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Transaction Forms\PMS\Tools And Views\frm_pmsproductionJobmanualSettle.resx">
+      <DependentUpon>frm_pmsproductionJobmanualSettle.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Transaction Forms\SAS\frm_sasCustomerOrder.resx">
+      <DependentUpon>frm_sasCustomerOrder.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Transaction Forms\SAS\Tools And Views\frm_sasViewerCustomerOrder.resx">
+      <DependentUpon>frm_sasViewerCustomerOrder.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="User Management\frmPendingApprovals.resx">
+      <DependentUpon>frmPendingApprovals.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="User Management\frmSecurityConfigValue.resx">
+      <DependentUpon>frmSecurityConfigValue.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="User Management\Permission\frm_RouteWiseUserPermission.resx">
+      <DependentUpon>frm_RouteWiseUserPermission.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="User Management\security\frmDatabaseBackup.resx">
+      <DependentUpon>frmDatabaseBackup.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="User Management\frmImageViewer.resx">
+      <DependentUpon>frmImageViewer.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="User Management\Alert\frm_Alert_Home.resx">
+      <DependentUpon>frm_Alert_Home.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="User Management\Alert\frm_AlertMaster.resx">
+      <DependentUpon>frm_AlertMaster.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="User Management\Alert\frm_AlertShedules.resx">
+      <DependentUpon>frm_AlertShedules.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="User Management\Alert\frm_Alert_Configuration.resx">
+      <DependentUpon>frm_Alert_Configuration.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Master Forms\General\frm_masItemMasterFinance.resx">
+      <DependentUpon>frm_masItemMasterFinance.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Master Forms\ZMaster\ACC\frm_mtrReportExpenditureNameSearch.resx">
+      <DependentUpon>frm_mtrReportExpenditureNameSearch.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Master Forms\ZMaster\frm_mtrAccCostCenter1.resx">
+      <DependentUpon>frm_mtrAccCostCenter1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Master Forms\ZMaster\frm_mtrAccCostCenter2.resx">
+      <DependentUpon>frm_mtrAccCostCenter2.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Master Forms\ZMaster\frm_mtrAccountGLNote.resx">
+      <DependentUpon>frm_mtrAccountGLNote.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Master Forms\ZMaster\frm_mtrAlert.resx">
+      <DependentUpon>frm_mtrAlert.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Master Forms\ZMaster\UC_MtrCostCenter2.resx">
+      <DependentUpon>UC_MtrCostCenter2.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Master Forms\ZMaster\UC_MtrCostCenter3.resx">
+      <DependentUpon>UC_MtrCostCenter3.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Master Forms\ZMaster\frm_mtrCostCenter4.resx">
+      <DependentUpon>frm_mtrCostCenter4.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Master Forms\ZMaster\frm_mtrItemCategory_Sub.resx">
+      <DependentUpon>frm_mtrItemCategory_Sub.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Master Forms\ZMaster\frm_jobGussestType.resx">
+      <DependentUpon>frm_jobGussestType.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Master Forms\General\frm_masPrinterMaster.resx">
+      <DependentUpon>frm_masPrinterMaster.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Master Forms\General\frm_masSalesAreaMaster.resx">
+      <DependentUpon>frm_masSalesAreaMaster.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Master Forms\ZMaster\frm_mtrBrand.resx">
+      <DependentUpon>frm_mtrBrand.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Master Forms\ZMaster\frm_mtrCurrency.resx">
+      <DependentUpon>frm_mtrCurrency.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Master Forms\ZMaster\frm_mtrEmpAssistan.resx">
+      <DependentUpon>frm_mtrEmpAssistan.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Master Forms\ZMaster\frm_mtrEmpOperator.resx">
+      <DependentUpon>frm_mtrEmpOperator.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Master Forms\ZMaster\frm_mtrEmpSupervisor.resx" />
+    <EmbeddedResource Include="Master Forms\ZMaster\frm_mtrJobLaminationMaterialType.resx">
+      <DependentUpon>frm_mtrJobLaminationMaterialType.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Master Forms\ZMaster\frm_mtrJobLaminationType.resx">
+      <DependentUpon>frm_mtrJobLaminationType.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Master Forms\ZMaster\frm_mtrJobMarkupPrecentage.resx">
+      <DependentUpon>frm_mtrJobMarkupPrecentage.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Master Forms\ZMaster\frm_mtrJobPolytheneMaterialType.resx">
+      <DependentUpon>frm_mtrJobPolytheneMaterialType.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Master Forms\ZMaster\frm_mtrPaper.resx">
+      <DependentUpon>frm_mtrPaper.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Master Forms\ZMaster\frm_mtrSchdule.resx">
+      <DependentUpon>frm_mtrSchdule.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Master Forms\ZMaster\frm_mtrTax.resx">
+      <DependentUpon>frm_mtrTax.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Master Forms\ZMaster\frm_mtrVehicle.resx">
+      <DependentUpon>frm_mtrVehicle.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Master Forms\ZMaster\frm_paymentMethod.resx">
+      <DependentUpon>frm_paymentMethod.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Master Forms\ZMaster\frm_securityConfigStatus.resx">
+      <DependentUpon>frm_securityConfigStatus.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Master Forms\ZMaster\frm_securityConfigStatusType.resx">
+      <DependentUpon>frm_securityConfigStatusType.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Master Forms\ZMaster\frm_securityConfigTypeValue.resx">
+      <DependentUpon>frm_securityConfigTypeValue.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Master Forms\ZMaster\frm_securityConfigValue.resx">
+      <DependentUpon>frm_securityConfigValue.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\ACC\frm_rpt_AccountStandardReport.resx">
+      <DependentUpon>frm_rpt_AccountStandardReport.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\ACC\frm_rpt_AccountRegisterReport.resx">
+      <DependentUpon>frm_rpt_AccountRegisterReport.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\BSS\frm_rpt_BankManagementReports.resx">
+      <DependentUpon>frm_rpt_BankManagementReports.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\MAS\frm_rpt_ItemMasterReport.resx">
+      <DependentUpon>frm_rpt_ItemMasterReport.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\MAS\frm_rpt_MasterReport.resx">
+      <DependentUpon>frm_rpt_MasterReport.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\SCS\frm_rpt_FlowStock.resx">
+      <DependentUpon>frm_rpt_FlowStock.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\BSS\frm_rpt_ChequeStanded.resx">
+      <DependentUpon>frm_rpt_ChequeStanded.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\MAS\frm_rpt_CustomerMasterReport.resx">
+      <DependentUpon>frm_rpt_CustomerMasterReport.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\MIS\frm_rpt_dashBord.resx">
+      <DependentUpon>frm_rpt_dashBord.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\PET\frm_rpt_MasterPettyCashAccount.resx">
+      <DependentUpon>frm_rpt_MasterPettyCashAccount.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\ACC\frm_rpt_ChartOfAccount.resx">
+      <DependentUpon>frm_rpt_ChartOfAccount.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ToBeRemoved\frm_rpt_StockStatement.resx">
+      <DependentUpon>frm_rpt_StockStatement.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Transaction Forms\ACC\frm_accAccountpayableNote_OLD.resx">
+      <DependentUpon>frm_accAccountpayableNote_OLD.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Transaction Forms\ACC\frm_accAccountReceipt.resx">
+      <DependentUpon>frm_accAccountReceipt.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Transaction Forms\ACC\frm_accJournalVoucher.resx">
+      <DependentUpon>frm_accJournalVoucher.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Transaction Forms\ACC\Tools And Views\frm_masAccChequePrinting.resx">
+      <DependentUpon>frm_masAccChequePrinting.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Transaction Forms\BSS\Tools And Views\frmMultipleCheque.resx">
+      <DependentUpon>frmMultipleCheque.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Transaction Forms\BSS\Tools And Views\frm_accReceiptMultipleCheque.resx">
+      <DependentUpon>frm_accReceiptMultipleCheque.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Transaction Forms\BSS\frm_bpsDebitNote.resx">
+      <DependentUpon>frm_bpsDebitNote.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Transaction Forms\BSS\Petty Cash\frm_bpsPettyCashReimbursement.resx">
+      <DependentUpon>frm_bpsPettyCashReimbursement.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ToBeRemoved\frm_bpsDebitNote_PolyPS.resx">
+      <DependentUpon>frm_bpsDebitNote_PolyPS.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ToBeRemoved\frm_bpsCreditNote_PolyPS.resx">
+      <DependentUpon>frm_bpsCreditNote_PolyPS.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Transaction Forms\BSS\Tools And Views\frm_bpsReceipt_PaymentAdvice_SubAgent.resx">
+      <DependentUpon>frm_bpsReceipt_PaymentAdvice_SubAgent.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Transaction Forms\PMS\Tools And Views\frm_pmsSectionCloser.resx">
+      <DependentUpon>frm_pmsSectionCloser.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Transaction Forms\SAS\Tools And Views\frm_sasCustomerOrder_EditPO.resx">
+      <DependentUpon>frm_sasCustomerOrder_EditPO.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Transaction Forms\SAS\Tools And Views\frm_sasDeliveryOrderManuslSettle.resx">
+      <DependentUpon>frm_sasDeliveryOrderManuslSettle.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ToBeRemoved\frm_sasInvDeliveryOrder.resx">
+      <DependentUpon>frm_sasInvDeliveryOrder.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Transaction Forms\SAS\frm_sasDeliveryPlan.resx">
+      <DependentUpon>frm_sasDeliveryPlan.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ToBeRemoved\frm_sasOrderReferanceUpdate.resx">
+      <DependentUpon>frm_sasOrderReferanceUpdate.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Transaction Forms\SAS\frm_sasProformaInvoice.resx">
+      <DependentUpon>frm_sasProformaInvoice.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Transaction Forms\SAS\frm_sasQuotation.resx">
+      <DependentUpon>frm_sasQuotation.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Transaction Forms\SAS\Tools And Views\frm_sasTools.resx">
+      <DependentUpon>frm_sasTools.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Transaction Forms\SCS\frm_scsLoan.resx">
+      <DependentUpon>frm_scsLoan.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Transaction Forms\SCS\Tools And Views\frm_sasStockTransfer_ManualSettle.resx">
+      <DependentUpon>frm_sasStockTransfer_ManualSettle.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Transaction Forms\SCS\frm_scsDepartmentRequisitionNote.resx">
+      <DependentUpon>frm_scsDepartmentRequisitionNote.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Transaction Forms\SCS\frm_scsPurchaseRequisitionNote.resx">
+      <DependentUpon>frm_scsPurchaseRequisitionNote.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Transaction Forms\SCS\Tools And Views\frm_scsStockControl.resx">
+      <DependentUpon>frm_scsStockControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="User Management\frmItemPriceSeting.resx">
+      <DependentUpon>frmItemPriceSeting.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="User Management\Settings\frmDateSettings.resx">
+      <DependentUpon>frmDateSettings.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="User Management\frmMessageForm.resx">
+      <DependentUpon>frmMessageForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="User Management\frmFormListPrint.resx">
+      <DependentUpon>frmFormListPrint.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="User Management\frmOption.resx">
+      <DependentUpon>frmOption.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="User Management\frmReportSetting.resx">
+      <DependentUpon>frmReportSetting.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="User Management\frmSelectSection.resx">
+      <DependentUpon>frmSelectSection.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="User Management\frmItemViewer.resx">
+      <DependentUpon>frmItemViewer.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="User Management\Alert\frm_Alert_EmailConfig.resx">
+      <DependentUpon>frm_Alert_EmailConfig.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="User Management\Permission\frmUserPermission_StorWise.resx">
+      <DependentUpon>frmUserPermission_StorWise.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="User Management\Permission\frmBranchPermission.resx">
+      <DependentUpon>frmBranchPermission.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Tools\frm_toolAttachmentUpload.resx">
+      <DependentUpon>frm_toolAttachmentUpload.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Transaction Forms\BSS\Tools And Views\frm_bpsCashDepositCancelation_NewVersion.resx">
+      <DependentUpon>frm_bpsCashDepositCancelation_NewVersion.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="User Management\Tools\frm_toolForLatestUpdate.resx">
+      <DependentUpon>frm_toolForLatestUpdate.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="User Management\Tools\frm_toolPaymentAllocate.resx">
+      <DependentUpon>frm_toolPaymentAllocate.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Transaction Forms\BSS\Tools And Views\frm_toolChequeToNewMode.resx">
+      <DependentUpon>frm_toolChequeToNewMode.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="User Management\Tools\frm_toolRecordPurge.resx">
+      <DependentUpon>frm_toolRecordPurge.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="User Management\Tools\frm_toolReplaceDefaultValuesAllMaster.resx">
+      <DependentUpon>frm_toolReplaceDefaultValuesAllMaster.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="User Management\Tools\frm_toolSetReportMaster.resx">
+      <DependentUpon>frm_toolSetReportMaster.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="User Management\Tools\frm_toolDemo.resx">
+      <DependentUpon>frm_toolDemo.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="User Management\Tools\frm_toolSetFormMaster.resx">
+      <DependentUpon>frm_toolSetFormMaster.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ToBeRemoved\frm_toolCheckToDepositeMode.resx">
+      <DependentUpon>frm_toolCheckToDepositeMode.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="User Management\Tools\frm_toolUnsetteldRecode.resx">
+      <DependentUpon>frm_toolUnsetteldRecode.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="User Management\Permission\frmAuditPermission.resx">
+      <DependentUpon>frmAuditPermission.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Transaction Forms\SAS\Tools And Views\frm_sasCustomerOrder_Edit.resx">
+      <DependentUpon>frm_sasCustomerOrder_Edit.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="User Management\Permission\frmCheckingPermission.resx">
+      <DependentUpon>frmCheckingPermission.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="User Management\Permission\frmApprovalPermission.resx">
+      <DependentUpon>frmApprovalPermission.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="User Management\frmSetChecked.resx">
+      <DependentUpon>frmSetChecked.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="User Management\frmDocumentApproval.resx">
+      <DependentUpon>frmDocumentApproval.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="User Management\frmDesktopAlert.resx">
+      <DependentUpon>frmDesktopAlert.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="User Management\Tools\frm_toolUnlockRecode.resx">
+      <DependentUpon>frm_toolUnlockRecode.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\SCS\frm_rpt_StockRegister.resx">
+      <DependentUpon>frm_rpt_StockRegister.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\SCS\frm_rpt_StockStandedReport.resx">
+      <DependentUpon>frm_rpt_StockStandedReport.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Transaction Forms\ACC\frm_masAccChartOfAccount.resx">
+      <DependentUpon>frm_masAccChartOfAccount.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Transaction Forms\BSS\Tools And Views\frm_bpsReceiptTracer.resx">
+      <DependentUpon>frm_bpsReceiptTracer.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Transaction Forms\PMS\Tools And Views\frm_pmsProductionJobClose.resx">
+      <DependentUpon>frm_pmsProductionJobClose.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Transaction Forms\BSS\Tools And Views\frm_bpsReceiptAgeingViewer.resx">
+      <DependentUpon>frm_bpsReceiptAgeingViewer.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Transaction Forms\SAS\Tools And Views\frm_sasCustomerOrderViewer.resx">
+      <DependentUpon>frm_sasCustomerOrderViewer.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Transaction Forms\SAS\Tools And Views\frm_sasDeliveryOrderViewer.resx">
+      <DependentUpon>frm_sasDeliveryOrderViewer.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Transaction Forms\SAS\Tools And Views\frm_sasInquiryViewer.resx">
+      <DependentUpon>frm_sasInquiryViewer.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Transaction Forms\SAS\Tools And Views\frm_sasInvoiceViewer.resx">
+      <DependentUpon>frm_sasInvoiceViewer.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Transaction Forms\SCS\frm_sasItemSplitNote.resx">
+      <DependentUpon>frm_sasItemSplitNote.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Transaction Forms\SCS\frm_scsFinishedGoodsTransferNote.resx">
+      <DependentUpon>frm_scsFinishedGoodsTransferNote.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="User Management\frmUserRemove.resx">
+      <DependentUpon>frmUserRemove.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="User Management\Chat\frmChatUserView.resx">
+      <DependentUpon>frmChatUserView.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="User Management\frmReportMaster.resx">
+      <DependentUpon>frmReportMaster.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="User Management\Permission\frmReportPermission.resx">
+      <DependentUpon>frmReportPermission.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="User Management\frmFormList.resx">
+      <DependentUpon>frmFormList.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="User Management\frmGroupApproval.resx">
+      <DependentUpon>frmGroupApproval.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="User Management\frmManageRoute.resx">
+      <DependentUpon>frmManageRoute.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="User Management\frmMyPortal.resx">
+      <DependentUpon>frmMyPortal.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="User Management\frmSecurityType_Value.resx">
+      <DependentUpon>frmSecurityType_Value.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="User Management\frmSecurityType_Status.resx">
+      <DependentUpon>frmSecurityType_Status.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="User Management\frmSecurityConfigStatus.resx">
+      <DependentUpon>frmSecurityConfigStatus.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="User Management\Chat\frmChat.resx">
+      <DependentUpon>frmChat.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ToBeRemoved\frm_mtrSecurityItemExceedLock.resx">
+      <DependentUpon>frm_mtrSecurityItemExceedLock.cs</DependentUpon>
+    </EmbeddedResource>
+    <None Include="app.config" />
+    <EmbeddedResource Include="Master Forms\General\frm_masEmployeeMasterViewer.resx">
+      <DependentUpon>frm_masEmployeeMasterViewer.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Master Forms\General\frm_masEmployeeMaster.resx">
+      <DependentUpon>frm_masEmployeeMaster.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Master Forms\General\frm_masPettyCashIncomeType.resx">
+      <DependentUpon>frm_masPettyCashIncomeType.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Master Forms\General\frm_masPettyExpenditureType.resx">
+      <DependentUpon>frm_masPettyExpenditureType.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Master Forms\General\frm_masUserMaster.resx">
+      <DependentUpon>frm_masUserMaster.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Master Forms\ZMaster\frm_mtrAccountChartFieldSub.resx">
+      <DependentUpon>frm_mtrAccountChartFieldSub.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Master Forms\ZMaster\frm_mtrAccountHead.resx">
+      <DependentUpon>frm_mtrAccountHead.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Master Forms\ZMaster\frm_mtrAccountMasterCategory.resx">
+      <DependentUpon>frm_mtrAccountMasterCategory.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Master Forms\ZMaster\frm_mtrAccountTypes.resx">
+      <DependentUpon>frm_mtrAccountTypes.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Master Forms\ZMaster\frm_mtrArea.resx">
+      <DependentUpon>frm_mtrArea.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Master Forms\ZMaster\frm_mtrAssistan.resx">
+      <DependentUpon>frm_mtrAssistan.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Master Forms\ZMaster\frm_mtrBank.resx">
+      <DependentUpon>frm_mtrBank.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Master Forms\ZMaster\frm_mtrBranch.resx">
+      <DependentUpon>frm_mtrBranch.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Master Forms\ZMaster\frm_mtrCity.resx">
+      <DependentUpon>frm_mtrCity.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Master Forms\ZMaster\frm_mtrCompanyBranch.resx">
+      <DependentUpon>frm_mtrCompanyBranch.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Master Forms\ZMaster\frm_mtrCompanyCountryMaster.resx">
+      <DependentUpon>frm_mtrCompanyCountryMaster.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Master Forms\ZMaster\frm_mtrCompanyDepartment.resx">
+      <DependentUpon>frm_mtrCompanyDepartment.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Master Forms\ZMaster\frm_mtrCompanyDivision.resx">
+      <DependentUpon>frm_mtrCompanyDivision.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Master Forms\ZMaster\frm_mtrCompanySection.resx">
+      <DependentUpon>frm_mtrCompanySection.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Master Forms\ZMaster\frm_mtrCompanyStore.resx">
+      <DependentUpon>frm_mtrCompanyStore.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Master Forms\ZMaster\frm_mtrCountry.resx">
+      <DependentUpon>frm_mtrCountry.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Master Forms\ZMaster\frm_mtrCustomerCategory.resx">
+      <DependentUpon>frm_mtrCustomerCategory.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Master Forms\ZMaster\frm_mtrCustomerCategoryType.resx">
+      <DependentUpon>frm_mtrCustomerCategoryType.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Master Forms\ZMaster\frm_mtrCustomerClass.resx">
+      <DependentUpon>frm_mtrCustomerClass.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Master Forms\ZMaster\frm_mtrDistrict.resx">
+      <DependentUpon>frm_mtrDistrict.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Master Forms\ZMaster\frm_mtrDriver.resx">
+      <DependentUpon>frm_mtrDriver.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Master Forms\ZMaster\frm_mtrEmpAreaManager.resx">
+      <DependentUpon>frm_mtrEmpAreaManager.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Master Forms\ZMaster\frm_mtrEmpSaleseRep.resx">
+      <DependentUpon>frm_mtrEmpSaleseRep.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Master Forms\ZMaster\frm_mtrEmpSalesExecutivecs.resx">
+      <DependentUpon>frm_mtrEmpSalesExecutivecs.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Master Forms\ZMaster\frm_mtrEmpSalesManager.resx">
+      <DependentUpon>frm_mtrEmpSalesManager.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Master Forms\ZMaster\frm_mtrItemCategory.resx">
+      <DependentUpon>frm_mtrItemCategory.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Master Forms\ZMaster\frm_mtrItemClass.resx">
+      <DependentUpon>frm_mtrItemClass.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Master Forms\ZMaster\frm_mtrItemSpecification.resx">
+      <DependentUpon>frm_mtrItemSpecification.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Master Forms\ZMaster\frm_mtrItemSubCategory.resx">
+      <DependentUpon>frm_mtrItemSubCategory.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Master Forms\ZMaster\frm_mtrItemSubSpecification.resx">
+      <DependentUpon>frm_mtrItemSubSpecification.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Master Forms\ZMaster\frm_mtrItemType.resx">
+      <DependentUpon>frm_mtrItemType.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Master Forms\ZMaster\frm_mtrMachineCategory.resx">
+      <DependentUpon>frm_mtrMachineCategory.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Master Forms\ZMaster\frm_mtrMachineClass.resx">
+      <DependentUpon>frm_mtrMachineClass.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Master Forms\ZMaster\frm_mtrMachineSpecification.resx">
+      <DependentUpon>frm_mtrMachineSpecification.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Master Forms\ZMaster\frm_mtrMachineSubCategory.resx">
+      <DependentUpon>frm_mtrMachineSubCategory.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Master Forms\ZMaster\frm_mtrMachineSubSpecification.resx">
+      <DependentUpon>frm_mtrMachineSubSpecification.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Master Forms\ZMaster\frm_mtrMachineType.resx">
+      <DependentUpon>frm_mtrMachineType.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Master Forms\ZMaster\frm_mtrProvince.resx">
+      <DependentUpon>frm_mtrProvince.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Master Forms\ZMaster\frm_mtrSupplierCategory.resx">
+      <DependentUpon>frm_mtrSupplierCategory.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Master Forms\ZMaster\frm_mtrSupplierClass.resx">
+      <DependentUpon>frm_mtrSupplierClass.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Master Forms\ZMaster\frm_mtrSupplierType.resx">
+      <DependentUpon>frm_mtrSupplierType.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Master Forms\ZMaster\frm_mtrTwon.resx">
+      <DependentUpon>frm_mtrTwon.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Master Forms\ZMaster\frm_mtrUom.resx">
+      <DependentUpon>frm_mtrUom.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Master Forms\ZMaster\frm_mtrUomCategory.resx">
+      <DependentUpon>frm_mtrUomCategory.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\PET\frm_rpt_PettyCashAccount.resx">
+      <DependentUpon>frm_rpt_PettyCashAccount.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Transaction Forms\SAS\frm_sasInquiry.resx">
+      <DependentUpon>frm_sasInquiry.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Transaction Forms\BSS\Tools And Views\frm_bpsAccountCashBookPaymente.resx">
+      <DependentUpon>frm_bpsAccountCashBookPaymente.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Transaction Forms\BSS\Tools And Views\frm_bpsAccountCashBookReceipt.resx">
+      <DependentUpon>frm_bpsAccountCashBookReceipt.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Transaction Forms\BSS\Petty Cash\frm_bpsPettyCashIOUDetails.resx">
+      <DependentUpon>frm_bpsPettyCashIOUDetails.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Transaction Forms\PMS\Tools And Views\frm_pmsMachineLineViwer.resx">
+      <DependentUpon>frm_pmsMachineLineViwer.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Transaction Forms\PMS\Tools And Views\frm_pmsOffcutEntry.resx">
+      <DependentUpon>frm_pmsOffcutEntry.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Transaction Forms\SAS\Tools And Views\frm_sasOpeningBalance.resx">
+      <DependentUpon>frm_sasOpeningBalance.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Transaction Forms\SAS\Tools And Views\frm_sasViewerInvoice.resx">
+      <DependentUpon>frm_sasViewerInvoice.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Transaction Forms\SCS\frm_scsDamageGoodsNote.resx">
+      <DependentUpon>frm_scsDamageGoodsNote.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Transaction Forms\SCS\frm_scsDiscardedGoodNote.resx">
+      <DependentUpon>frm_scsDiscardedGoodNote.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Transaction Forms\SCS\frm_scsExternalGoodIssueNote.resx">
+      <DependentUpon>frm_scsExternalGoodIssueNote.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Transaction Forms\SCS\frm_scsExternalGoodReceiveNote.resx">
+      <DependentUpon>frm_scsExternalGoodReceiveNote.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Transaction Forms\SCS\frm_scsPurchaseOrder.resx">
+      <DependentUpon>frm_scsPurchaseOrder.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Transaction Forms\SCS\frm_scsPurchaseReturnNote.resx">
+      <DependentUpon>frm_scsPurchaseReturnNote.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Transaction Forms\SCS\frm_scsQuotaionRequest.resx">
+      <DependentUpon>frm_scsQuotaionRequest.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Transaction Forms\SAS\Tools And Views\frm_sasViewerCustomer.resx">
+      <DependentUpon>frm_sasViewerCustomer.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Transaction Forms\SCS\Tools And Views\frm_scsItemViewer_SemiFinishedGood.resx">
+      <DependentUpon>frm_scsItemViewer_SemiFinishedGood.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Transaction Forms\SCS\frm_scsSectionRequisitionNote.resx">
+      <DependentUpon>frm_scsSectionRequisitionNote.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ToBeRemoved\frm_scsSectionGoodIssueNote.resx">
+      <DependentUpon>frm_scsSectionGoodIssueNote.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ToBeRemoved\frm_scsSectionGoodReceiveNote.resx">
+      <DependentUpon>frm_scsSectionGoodReceiveNote.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Transaction Forms\PMS\Tools And Views\frm_pmsSectionViwer.resx">
+      <DependentUpon>frm_pmsSectionViwer.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Transaction Forms\SCS\Tools And Views\frm_scsItemViewer_LaminatedMaterial.resx">
+      <DependentUpon>frm_scsItemViewer_LaminatedMaterial.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Transaction Forms\SCS\Tools And Views\frm_scsItemViewer_RawMaterial.resx">
+      <DependentUpon>frm_scsItemViewer_RawMaterial.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Transaction Forms\SCS\Tools And Views\frm_scsItemViewer_FinishedGood.resx">
+      <DependentUpon>frm_scsItemViewer_FinishedGood.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Transaction Forms\SCS\Tools And Views\frm_scsItemViewer_CombinationMaterial.resx">
+      <DependentUpon>frm_scsItemViewer_CombinationMaterial.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Transaction Forms\BSS\Tools And Views\frm_bpsAccountViewer.resx">
+      <DependentUpon>frm_bpsAccountViewer.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Transaction Forms\BSS\Tools And Views\frm_bpsChequeViewer.resx">
+      <DependentUpon>frm_bpsChequeViewer.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Transaction Forms\BSS\Petty Cash\frm_bpsPettyCashAccount.resx">
+      <DependentUpon>frm_bpsPettyCashAccount.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Transaction Forms\BSS\Petty Cash\frm_bpsPettyCashIncomeAndExpenditure.resx">
+      <DependentUpon>frm_bpsPettyCashIncomeAndExpenditure.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Transaction Forms\BSS\Petty Cash\frm_bpsPettyCashIOU.resx">
+      <DependentUpon>frm_bpsPettyCashIOU.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Transaction Forms\BSS\Petty Cash\frm_bpsPettyCashPermission.resx">
+      <DependentUpon>frm_bpsPettyCashPermission.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Transaction Forms\BSS\Tools And Views\frm_bpsReceiptViewer.resx">
+      <DependentUpon>frm_bpsReceiptViewer.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Transaction Forms\BSS\Petty Cash\frm_bpsUpdatePettyCashAccounts.resx">
+      <DependentUpon>frm_bpsUpdatePettyCashAccounts.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Transaction Forms\SAS\frm_sasDeliveryOrder.resx">
+      <DependentUpon>frm_sasDeliveryOrder.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Transaction Forms\SAS\frm_sasInvoice.resx">
+      <DependentUpon>frm_sasInvoice.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Transaction Forms\PMS\Tools And Views\frm_sasJobRegisterTemplate.resx">
+      <DependentUpon>frm_sasJobRegisterTemplate.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Transaction Forms\PMS\Tools And Views\frm_sasJobViewer.resx">
+      <DependentUpon>frm_sasJobViewer.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Transaction Forms\PMS\Tools And Views\frm_sasPreCosting.resx">
+      <DependentUpon>frm_sasPreCosting.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Transaction Forms\PMS\Tools And Views\frm_sasPreCostingTemplate.resx">
+      <DependentUpon>frm_sasPreCostingTemplate.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Transaction Forms\SCS\frm_scsStoreGoodReceiveNote.resx">
+      <DependentUpon>frm_scsStoreGoodReceiveNote.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Transaction Forms\BSS\Tools And Views\frm_bpsChequeTracer.resx">
+      <DependentUpon>frm_bpsChequeTracer.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Transaction Forms\SCS\frm_scsStockAdjustment.resx">
+      <DependentUpon>frm_scsStockAdjustment.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Transaction Forms\SCS\frm_scsStoreGoodIssueNote.resx">
+      <DependentUpon>frm_scsStoreGoodIssueNote.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Transaction Forms\SCS\frm_scsStoreRequisitionNote.resx">
+      <DependentUpon>frm_scsStoreRequisitionNote.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="User Management\frmDigiteqLogin.resx">
+      <DependentUpon>frmDigiteqLogin.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="User Management\frmSetCostPrice.resx">
+      <DependentUpon>frmSetCostPrice.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="User Management\frmSetCostingConfirm.resx">
+      <DependentUpon>frmSetCostingConfirm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="User Management\Alert\frmAlert.resx">
+      <DependentUpon>frmAlert.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="User Management\frmSetApproved.resx">
+      <DependentUpon>frmSetApproved.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Transaction Forms\SAS\Tools And Views\frmCancel_DO.resx">
+      <DependentUpon>frmCancel_DO.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="User Management\Permission\frmUserPermission.resx">
+      <DependentUpon>frmUserPermission.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="User Management\frmAutoFormNumber.resx">
+      <DependentUpon>frmAutoFormNumber.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="User Management\frmCompanyInfor.resx">
+      <DependentUpon>frmCompanyInfor.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="User Management\security\frmDigiteqPannel.resx">
+      <DependentUpon>frmDigiteqPannel.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="User Management\frmForm.resx">
+      <DependentUpon>frmForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="User Management\frmFormCategory.resx">
+      <DependentUpon>frmFormCategory.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Master Forms\General\frm_masCustomerMaster.resx">
+      <DependentUpon>frm_masCustomerMaster.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Master Forms\General\frm_masItemMaster.resx">
+      <DependentUpon>frm_masItemMaster.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Master Forms\General\frmSupplierMaster.resx">
+      <DependentUpon>frmSupplierMaster.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <SubType>Designer</SubType>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include=".NETFramework,Version=v4.0">
+      <Visible>False</Visible>
+      <ProductName>Microsoft .NET Framework 4 %28x86 and x64%29</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Client.3.5">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1 Client Profile</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Windows.Installer.3.1">
+      <Visible>False</Visible>
+      <ProductName>Windows Installer 3.1</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Desktop.ico" />
+    <Content Include="DesktopT.ico" />
+    <None Include="Resources\warning.png" />
+    <None Include="Resources\error.png" />
+    <None Include="Resources\info.png" />
+    <None Include="Resources\Doc_Delete.png" />
+    <None Include="Resources\Doc_Add.png" />
+    <None Include="Resources\delete.png" />
+    <None Include="Resources\icons8-attach-20.png" />
+    <None Include="Resources\information.png" />
+    <Content Include="Resources\jpg.png" />
+    <None Include="Resources\plus.png" />
+    <Content Include="Resources\png.png" />
+    <None Include="Resources\success.png" />
+    <Content Include="Resources\txt.png" />
+    <None Include="Resources\2.png" />
+    <None Include="Resources\b.jpg" />
+    <Content Include="Resources\blue-check-mark-3.jpg" />
+    <Content Include="Resources\blue-check-mark-3.png" />
+    <Content Include="Resources\check-mark-16.png" />
+    <None Include="Resources\mis-03.png" />
+    <None Include="Resources\images.jpeg" />
+    <None Include="Resources\images_thumb_4_43_SplashScreenImage.jpg_200px-SplashScreenImage.jpg" />
+    <None Include="Resources\images_thumb_4_43_SplashScreenImage.jpg_200px-SplashScreenImage1.jpg" />
+    <Content Include="Resources\trash.png" />
+    <None Include="Resources\Folder.jpg" />
+    <None Include="Resources\_Resources_Printer-windows-8-metro-style.png.bmp" />
+    <None Include="Resources\Printer-windows-8-metro-style.png" />
+    <None Include="Resources\SEACCSplash.png" />
+    <None Include="Resources\B-icon-.PNG" />
+    <None Include="Resources\icons-email_0.png" />
+    <None Include="Resources\Picture1.png" />
+    <None Include="Resources\Image1.bmp" />
+    <None Include="Resources\Docx.png" />
+    <None Include="Resources\others.png" />
+    <None Include="Resources\PDF.png" />
+    <None Include="Resources\ppt.png" />
+    <None Include="Resources\Xls.png" />
+    <None Include="Resources\Zip.png" />
+    <None Include="Resources\Attach-201.png" />
+    <None Include="Resources\Attach_20.bmp" />
+    <None Include="Resources\Attach-20.png" />
+    <None Include="Resources\FileFlip.png" />
+    <None Include="Resources\SEACC_LogoTransparent.png" />
+    <None Include="Resources\digiteq_Logo.png" />
+    <None Include="Resources\month.png" />
+    <None Include="Resources\day.png" />
+    <None Include="Resources\week.png" />
+    <None Include="Resources\Stop.png" />
+    <None Include="Resources\00450_printer.png" />
+    <None Include="Resources\pie-chart-icon.png" />
+    <None Include="Resources\Line-Chart-icon.png" />
+    <None Include="Resources\Chart-Bar-Big-icon.png" />
+    <None Include="Resources\Cus_Branch.png" />
+    <None Include="Resources\A_UP_RIGHT.png" />
+    <None Include="Resources\A_UP_LEFT.png" />
+    <None Include="Resources\A_UP.png" />
+    <None Include="Resources\A_RIGHT.png" />
+    <None Include="Resources\A_LEFT.png" />
+    <None Include="Resources\A_DOWN_RIGHT.png" />
+    <None Include="Resources\A_DOWN_LEFT.png" />
+    <None Include="Resources\A_DOWN.png" />
+    <None Include="Resources\UP_RIGHT.png" />
+    <None Include="Resources\UP_LEFT.png" />
+    <None Include="Resources\UP.png" />
+    <None Include="Resources\RIGHT.png" />
+    <None Include="Resources\LEFT.png" />
+    <None Include="Resources\DOWN_RIGHT.png" />
+    <None Include="Resources\DOWN_LEFT.png" />
+    <None Include="Resources\DOWN.png" />
+    <None Include="Resources\Free.png" />
+    <None Include="Resources\Store.png" />
+    <None Include="Resources\Section.png" />
+    <None Include="Resources\Division.png" />
+    <None Include="Resources\Department.png" />
+    <None Include="Resources\Country.png" />
+    <None Include="Resources\Branch.png" />
+    <None Include="Resources\SR.png" />
+    <None Include="Resources\GRN.png" />
+    <None Include="Resources\GIN.png" />
+    <None Include="Resources\1331288348_go-previous-rtl.png" />
+    <None Include="Resources\_download.png" />
+    <None Include="Resources\_Arrow-Up.png" />
+    <None Include="Resources\_Arrow-Down.png" />
+    <None Include="Resources\_arrow_cycle.png" />
+    <None Include="Resources\Option.png" />
+    <None Include="Resources\Op_SMS.png" />
+    <None Include="Resources\Op_print.png" />
+    <None Include="Resources\Op_export.png" />
+    <None Include="Resources\Op_EMail.png" />
+    <None Include="Resources\Op_delete.png" />
+    <None Include="Resources\email.png" />
+    <None Include="Resources\SEACC-Crystal-2 %28Pix100%29.png" />
+    <None Include="Resources\SEACC-ePACK %28Pix100%29.png" />
+    <None Include="Resources\SEACC-Crystal-II %28Pix75%29.png" />
+    <None Include="Resources\mail_web.png" />
+    <None Include="Resources\mail.png" />
+    <None Include="Resources\char.png" />
+    <None Include="Resources\Transperant CANCELLED.png" />
+    <None Include="Resources\CANCELLED.jpg" />
+    <None Include="Resources\auto.png" />
+    <None Include="Resources\SEACC-Splash-Screen %28OLD%29.png" />
+    <None Include="Resources\security.png" />
+    <None Include="Resources\network.png" />
+    <None Include="Resources\link_add.png" />
+    <None Include="Resources\search.png" />
+    <None Include="Resources\download.png" />
+    <None Include="Resources\settings.png" />
+    <None Include="Resources\Dollar Cost.png" />
+    <None Include="Resources\refresh.png" />
+    <None Include="Resources\dollar_sign_16.png" />
+    <None Include="Resources\suivant-natural-icon.png" />
+    <None Include="Resources\folder1.png" />
+    <None Include="Resources\no_image.gif" />
+    <None Include="Resources\Printer.png" />
+    <None Include="Resources\new_page.png" />
+    <None Include="Resources\Login.png" />
+    <None Include="Resources\block.png" />
+    <None Include="Resources\add_page.png" />
+    <None Include="Resources\add.png" />
+    <None Include="Resources\accept.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <PublishFile Include="Microsoft.SqlServer.Diagnostics.STrace">
+      <Visible>False</Visible>
+      <Group>
+      </Group>
+      <TargetPath>
+      </TargetPath>
+      <PublishState>Include</PublishState>
+      <IncludeHash>True</IncludeHash>
+      <FileType>Assembly</FileType>
+    </PublishFile>
+    <PublishFile Include="Microsoft.SqlServer.Dmf">
+      <Visible>False</Visible>
+      <Group>
+      </Group>
+      <TargetPath>
+      </TargetPath>
+      <PublishState>Include</PublishState>
+      <IncludeHash>True</IncludeHash>
+      <FileType>Assembly</FileType>
+    </PublishFile>
+    <PublishFile Include="Microsoft.SqlServer.Management.SmoMetadataProvider">
+      <Visible>False</Visible>
+      <Group>
+      </Group>
+      <TargetPath>
+      </TargetPath>
+      <PublishState>Include</PublishState>
+      <IncludeHash>True</IncludeHash>
+      <FileType>Assembly</FileType>
+    </PublishFile>
+    <PublishFile Include="Microsoft.SqlServer.Management.SqlParser">
+      <Visible>False</Visible>
+      <Group>
+      </Group>
+      <TargetPath>
+      </TargetPath>
+      <PublishState>Include</PublishState>
+      <IncludeHash>True</IncludeHash>
+      <FileType>Assembly</FileType>
+    </PublishFile>
+    <PublishFile Include="Microsoft.SqlServer.RegSvrEnum">
+      <Visible>False</Visible>
+      <Group>
+      </Group>
+      <TargetPath>
+      </TargetPath>
+      <PublishState>Include</PublishState>
+      <IncludeHash>True</IncludeHash>
+      <FileType>Assembly</FileType>
+    </PublishFile>
+    <PublishFile Include="Microsoft.SqlServer.ServiceBrokerEnum">
+      <Visible>False</Visible>
+      <Group>
+      </Group>
+      <TargetPath>
+      </TargetPath>
+      <PublishState>Include</PublishState>
+      <IncludeHash>True</IncludeHash>
+      <FileType>Assembly</FileType>
+    </PublishFile>
+    <PublishFile Include="Microsoft.SqlServer.SqlClrProvider">
+      <Visible>False</Visible>
+      <Group>
+      </Group>
+      <TargetPath>
+      </TargetPath>
+      <PublishState>Include</PublishState>
+      <IncludeHash>True</IncludeHash>
+      <FileType>Assembly</FileType>
+    </PublishFile>
+    <PublishFile Include="Microsoft.SqlServer.SqlTDiagM">
+      <Visible>False</Visible>
+      <Group>
+      </Group>
+      <TargetPath>
+      </TargetPath>
+      <PublishState>Include</PublishState>
+      <IncludeHash>True</IncludeHash>
+      <FileType>Assembly</FileType>
+    </PublishFile>
+    <PublishFile Include="Microsoft.SqlServer.SString">
+      <Visible>False</Visible>
+      <Group>
+      </Group>
+      <TargetPath>
+      </TargetPath>
+      <PublishState>Include</PublishState>
+      <IncludeHash>True</IncludeHash>
+      <FileType>Assembly</FileType>
+    </PublishFile>
+    <PublishFile Include="Microsoft.VisualBasic.PowerPacks.Vs">
+      <Visible>False</Visible>
+      <Group>
+      </Group>
+      <TargetPath>
+      </TargetPath>
+      <PublishState>Include</PublishState>
+      <IncludeHash>True</IncludeHash>
+      <FileType>Assembly</FileType>
+    </PublishFile>
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{C0C07587-41A7-46C8-8FBD-3F9C8EBE2DDC}" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Transaction Forms\ACC\POS\" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\CS\Digiteq_Inventory.csproj">
+      <Project>{e1674e41-6da2-45de-bc55-c820f4bb8bf9}</Project>
+      <Name>Digiteq_Inventory</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Digiteq_Logic\Digiteq_Logic.csproj">
+      <Project>{59283a6a-239f-4df0-b5b8-026175062e29}</Project>
+      <Name>Digiteq_Logic</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\SEACC.DATA\SEACC.DATA.csproj">
+      <Project>{3df423aa-8fe7-4e1d-8a47-9a29a09fb3f0}</Project>
+      <Name>SEACC.DATA</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\SEACC.WinFormControls\SEACC.WinFormControls.csproj">
+      <Project>{905a7f0a-9028-4ce9-8a62-21cf428f7d96}</Project>
+      <Name>SEACC.WinFormControls</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ZION.ERP.Reports\ZION.ERP.Reports.csproj">
+      <Project>{785fd767-bcb7-4896-a23a-fee287e85af0}</Project>
+      <Name>ZION.ERP.Reports</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Service References\" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <PropertyGroup>
+    <PostBuildEvent>
+    </PostBuildEvent>
+  </PropertyGroup>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
