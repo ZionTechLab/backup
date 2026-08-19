@@ -1,0 +1,146 @@
+﻿<UserControl
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:SEACC_WPFControls="clr-namespace:SEACC_WPFControls" xmlns:SEACC_WPFControls1="clr-namespace:SEACC_WPFControls;assembly=SEACC_WPFControls" x:Class="Digiteq.UC_SalarySheet" 
+             mc:Ignorable="d" Background="#FFFFFF" >
+    <SEACC_WPFControls:SEACC_Form x:Name="SEACC_Form"  >
+        <Grid Margin="15,0,0,50" >
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition x:Name="coloumnA" Width="530" />
+                <ColumnDefinition Width="5" />
+                <ColumnDefinition Width="*" />
+            </Grid.ColumnDefinitions>
+
+
+            <Grid  >
+                <ScrollViewer VerticalScrollBarVisibility="Auto"  >
+                    <StackPanel>
+                        <StackPanel  Orientation="Horizontal">
+                            <StackPanel   Width="242">
+                            <SEACC_WPFControls1:SEACC_LableTextBox Caption="PAYROLL MONTH"/>
+                            <SEACC_WPFControls1:SEACC_LableTextBox  Caption="DEPT"/>
+                            <SEACC_WPFControls1:SEACC_LableTextBox  Caption="EMP #"/>
+                            <SEACC_WPFControls1:SEACC_LableTextBox  Caption="NIC#/SSN#"/>
+                            <SEACC_WPFControls1:SEACC_LableTextBox  Caption="Initails"/>
+                            <SEACC_WPFControls1:SEACC_LableTextBox  Caption="Surname"/>
+                            <SEACC_WPFControls1:SEACC_LableTextBox  Caption="Pay Mode 1"/>
+                            <SEACC_WPFControls1:SEACC_LableTextBox  Caption="Payment-1 Trf Details"/>
+                        </StackPanel>
+                            <StackPanel Width="248" >
+                                <SEACC_WPFControls1:SEACC_LableTextBox   Caption="PREV. PAY MONTH"/>
+                                <SEACC_WPFControls1:SEACC_LableTextBox  Caption="Status"/>
+                                <SEACC_WPFControls1:SEACC_LableTextBox  Caption="Shift" />
+                                <SEACC_WPFControls1:SEACC_LableTextBox  Caption="Passport #" />
+                                <SEACC_WPFControls1:SEACC_LableTextBox  Caption="Nationality" />
+                                <SEACC_WPFControls1:SEACC_LableTextBox  Caption="Resident ?" />
+                                <SEACC_WPFControls1:SEACC_LableTextBox  Caption="Emp. Catg." />
+                                <SEACC_WPFControls1:SEACC_LableTextBox  Caption="Pay Mode" />
+                                <SEACC_WPFControls1:SEACC_LableTextBox  Caption="Payment-1 Trf Details" />
+                            </StackPanel>
+                        </StackPanel>
+                        
+                      
+                        <SEACC_WPFControls1:SEACC_LableTextBox   Caption="Annual Days" Height="26" />
+                        <SEACC_WPFControls1:SEACC_LableTextBox   Caption="Casual Days" Height="26"/>
+                        <SEACC_WPFControls1:SEACC_LableTextBox  Caption="Medical Days" Height="26" />
+                        <SEACC_WPFControls1:SEACC_LableTextBox  Caption="No Pay Days" Height="26"/>
+                        <SEACC_WPFControls1:SEACC_LableTextBox   Caption="OT Days" Height="26"/>
+                        <Expander Header="PF EARNINGS"  FontSize="24" Foreground="#FF0096D6" Margin="0,15,0,0" >
+                            <StackPanel>
+                                <SEACC_WPFControls1:SEACC_LableTextBox Caption="Basic Salary" FontSize="12" />
+                                <SEACC_WPFControls1:SEACC_LableTextBox Caption="Less: No Pay" FontSize="12" />
+                                <SEACC_WPFControls1:SEACC_LableTextBox Caption="Add: Arrears" FontSize="12" />
+                            </StackPanel>
+                        </Expander>
+                        <Expander Header="PF DEDUCTIONS" Foreground="#FF0096D6" FontSize="24">
+                            <StackPanel >
+                                <SEACC_WPFControls1:SEACC_LableTextBox Caption="EPF 8% " FontSize="12" />
+                                <Label Content="Staff Loan Recovery : 1 Of 6" FontSize="12"></Label>
+                                <SEACC_WPFControls1:SEACC_LableTextBox Caption="Union-1 1%" FontSize="12"/>
+                                <SEACC_WPFControls1:SEACC_LableTextBox Caption="Union-2 1%" FontSize="12"/>
+                                <SEACC_WPFControls1:SEACC_LableTextBox Caption="Standing Order" FontSize="12"/>
+                                <Grid Height="50">
+                                    <Label Content="Total Deductions" FontWeight="SemiBold" FontSize="15" HorizontalAlignment="Left" Margin="0,10,0,0" VerticalAlignment="Top"/>
+                                    <Label Content="0.00" FontSize="15" FontWeight="SemiBold" HorizontalAlignment="Left" Margin="127,10,0,0" VerticalAlignment="Top"/>
+                                    <Label Content="NET SALARY" FontSize="15" FontWeight="SemiBold" HorizontalAlignment="Left" Margin="241,10,0,0" VerticalAlignment="Top"/>
+                                    <Label Content="0.00" FontSize="15" FontWeight="SemiBold" HorizontalAlignment="Left" Margin="353,10,0,0" VerticalAlignment="Top"/>
+
+                                </Grid>
+                            </StackPanel>
+                        </Expander>
+                        <Expander Header="PROVIDENT FUND CONTRIBUTION" FontSize="24" Foreground="#FF0096D6" >
+                            <StackPanel>
+                                <SEACC_WPFControls1:SEACC_LableTextBox Caption="EPF 8%" FontSize="12" />
+                                <SEACC_WPFControls1:SEACC_LableTextBox Caption="EPF 12%" FontSize="12" />
+                                <SEACC_WPFControls1:SEACC_LableTextBox Caption="ETF 3%" FontSize="12" />
+                            </StackPanel>
+                        </Expander>
+                        <Expander Header="NON-PF EARNINGS / REIMBURSED" FontSize="24" Foreground="#FF0096D6" >
+                            <StackPanel>
+                                <SEACC_WPFControls1:SEACC_LableTextBox ToolTip="All Inclusive" Caption="Bungalow" FontSize="12" />
+                                <SEACC_WPFControls1:SEACC_LableTextBox ToolTip="All Inclusive" Caption="Vehicle" FontSize="12" />
+                                <SEACC_WPFControls1:SEACC_LableTextBox ToolTip="All Inclusive" Caption="Special Allowance " FontSize="12" />
+                            </StackPanel>
+                        </Expander>
+                    </StackPanel>
+                </ScrollViewer>
+            </Grid>
+            <Grid Grid.Column="2">
+                <ScrollViewer>
+                    <StackPanel>
+                        <DataGrid IsReadOnly="True" x:Name="grdBalanceLeave"  AutoGenerateColumns="False" BorderThickness="0" Background="#FF34495E" GridLinesVisibility="Horizontal" HorizontalGridLinesBrush="#FFA8A8A8" RowBackground="#FF34495E" SelectionMode="Single" SelectionUnit="CellOrRowHeader" Foreground="White" Height="180" VerticalAlignment="Top" FontSize="12" Grid.Column="2" HorizontalAlignment="Left"  >
+                            <DataGrid.ColumnHeaderStyle>
+                                <Style TargetType="{x:Type DataGridColumnHeader}">
+                                    <Setter Property="Background" Value="#FF009688" />
+                                    <Setter Property="Height" Value="40" />
+                                    <Setter Property="Padding" Value="5"/>
+                                </Style>
+                            </DataGrid.ColumnHeaderStyle>
+                            <DataGrid.Columns>
+                                <DataGridTextColumn Binding="{Binding Day}" ClipboardContentBinding="{x:Null}" Header="Day" Width="35"/>
+                                <DataGridTextColumn Binding="{Binding Shift}" ClipboardContentBinding="{x:Null}" Header="Shift" Width="90"/>
+                                <DataGridTextColumn Binding="{Binding Worked}" ClipboardContentBinding="{x:Null}" Header="Worked" Width="100"/>
+                                <DataGridTextColumn Binding="{Binding NoPay}" ClipboardContentBinding="{x:Null}" Header="No Pay" Width="90"/>
+                                <DataGridTextColumn Binding="{Binding OT}" ClipboardContentBinding="{x:Null}" Header="OT " Width="90"/>
+                            </DataGrid.Columns>
+                        </DataGrid>
+                        <Grid >
+                            <Label Content="RATE-1" Margin="0,0,279,0"></Label>
+                            <Label Content="1.0" Margin="89,0,171,0"></Label>
+                            <Label Content="1,666.67" HorizontalAlignment="Left" Width="75" Margin="188,0,0,0"/>
+                        </Grid>
+                        <Grid >
+                            <Label Content="RATE-1.5" Margin="0,0,279,0"></Label>
+                            <Label Content="1.5" Margin="89,0,171,0"></Label>
+                            <Label Content="2,500.00" HorizontalAlignment="Left" Width="75" Margin="188,0,0,0"/>
+                        </Grid>
+
+                        <Grid >
+                            <Label Content="Mandatory" Margin="0,0,279,0"></Label>
+                            <Label Content="" Margin="89,0,171,0"></Label>
+                            <Label Content="216" HorizontalAlignment="Left" Width="75" Margin="188,0,0,0"/>
+                        </Grid>
+                        <Grid >
+                            <Label Content="No Pay" Margin="0,0,279,0"></Label>
+                            <Label Content="" Margin="89,0,171,0"></Label>
+                            <Label Content="0.00" HorizontalAlignment="Left" Width="75" Margin="188,0,0,0"/>
+                        </Grid>
+                        <Grid >
+                            <Label Content="SUB TOTAL" Margin="0,0,279,0"></Label>
+                            <Label Content="" Margin="89,0,171,0"></Label>
+                            <Label Content="216" HorizontalAlignment="Left" Width="75" Margin="188,0,0,0"/>
+                        </Grid>
+                        <Grid >
+                            <Label Content="SUB TOTAL" Margin="0,0,279,0"></Label>
+                            <Label Content="" Margin="89,0,171,0"></Label>
+                            <Label Content="216" HorizontalAlignment="Left" Width="75" Margin="188,0,0,0"/>
+                        </Grid>
+                    </StackPanel>
+                </ScrollViewer>
+            </Grid>
+        </Grid>
+
+    </SEACC_WPFControls:SEACC_Form>
+</UserControl>

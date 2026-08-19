@@ -1,0 +1,57 @@
+﻿<Window x:Class="SEACC_Keygen.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+        xmlns:local="clr-namespace:SEACC_Keygen"
+        xmlns:SEACC_WPFControls="clr-namespace:SEACC_WPFControls;assembly=SEACC_WPFControls" 
+        mc:Ignorable="d"
+        Title="SEACC Keygen" Height="370"  Width="375" WindowStartupLocation="CenterScreen" ResizeMode="NoResize" WindowStyle="None" AllowsTransparency="True" Loaded="Window_Loaded" Background="{x:Null}" >
+    <Grid Margin="10">
+        <Border Background="#FFDADADA" >
+            <Border.Effect>
+                <DropShadowEffect ShadowDepth="5" Opacity="0.5" Color="Black" />
+            </Border.Effect>
+        </Border>
+        <Grid>
+
+            <Grid.RowDefinitions>
+                <RowDefinition Height="40"/>
+                <RowDefinition Height="auto"/>
+                <RowDefinition Height="auto"/>
+            </Grid.RowDefinitions>
+
+            <Grid x:Name="grdTitleBar" Grid.Row="0" MouseDown="grdTitleBar_MouseDown" >
+                <Grid.Background>
+                    <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                        <GradientStop Color="#FF364758" Offset="0"/>
+                        <GradientStop Color="#FF051a2f" Offset="1"/>
+                    </LinearGradientBrush>
+                </Grid.Background>
+                <Label x:Name="lblTitleBar" Content=" SEACC Keygen"  FontSize="20" Foreground="White" />
+                <Button x:Name="btnClose" Content="&#xE8BB;" VerticalAlignment="Top" HorizontalAlignment="Right" Width="30" Height="40" FontFamily="Segoe MDL2 Assets" Foreground="#FF9F9C9C" Background="{x:Null}" BorderBrush="{x:Null}" Click="btnClose_Click" />
+            </Grid>
+
+            <StackPanel Grid.Row="1" Margin="0,10,0,0">
+                <SEACC_WPFControls:SEACC_LableTextBox x:Name="txtCompanyName" Caption="Company Name" BoxForeground="Black"/>
+                <SEACC_WPFControls:SEACC_LableTextBox x:Name="txtSW_Product" Caption="Software Product" BoxForeground="Black"/>
+                <SEACC_WPFControls:SEACC_LabelTimeSelector x:Name="dtpExpireDate" Caption="Product Expire Date" ShowTime="Hidden"  ShowDate="Visible" />
+                <SEACC_WPFControls:SEACC_LableTextBox x:Name="txtUserName" Caption="User Name"  BoxForeground="Black"/>
+                <Grid >
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="119" />
+                        <ColumnDefinition />
+                    </Grid.ColumnDefinitions>
+                    <Label Grid.Column="0" Content="Password" Height="25" />
+                    <PasswordBox x:Name="pbUserPassword" Grid.Column="1" Height="25" Width="227" HorizontalAlignment="Left" />
+                </Grid>
+                <SEACC_WPFControls:SEACC_LableTextBox x:Name="txtQuary" Caption="Quary" MinHeight="110" />
+                <Separator Style="{StaticResource {x:Static ToolBar.SeparatorStyleKey}}" Margin="5,10,5,5" Background="#FF876E6E"/>
+            </StackPanel>
+            
+            <StackPanel Grid.Row="2" Orientation="Horizontal" Margin="0,5" HorizontalAlignment="Center">
+                <Button x:Name="btnActivate" Content="Generate" Width="100" Height="25" Margin="0,0,5,0" Click="btnActivate_Click" IsDefault="True" />
+            </StackPanel>
+        </Grid>
+    </Grid>
+</Window>

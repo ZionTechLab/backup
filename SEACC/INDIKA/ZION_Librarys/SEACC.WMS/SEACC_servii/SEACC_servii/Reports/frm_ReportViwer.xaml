@@ -1,0 +1,44 @@
+﻿<!--<Window x:Class="SEACC_servii.Reports.frm_ReportViwer"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:SEACC_servii.Reports"
+        mc:Ignorable="d"
+        Title="frm_ReportViwer" Height="300" Width="300">
+    <Grid>
+        
+    </Grid>
+</Window>-->
+    
+<Window
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+          xmlns:my="clr-namespace:SAPBusinessObjects.WPF.Viewer;assembly=SAPBusinessObjects.WPF.Viewer"
+        xmlns:SEACC_WPFControls="clr-namespace:SEACC_WPFControls;assembly=SEACC_WPFControls" x:Class="SEACC_servii.Reports.frm_ReportViwer"
+        Title="SEACC Report Viewer" Height="300" Width="300"
+         AllowsTransparency="True" WindowStyle="None" WindowState="Maximized" Background="#FF685252">
+    <Grid  >
+        <Grid.RowDefinitions>
+            <RowDefinition Height="70"/>
+            <RowDefinition/>
+
+        </Grid.RowDefinitions>
+        <Grid  x:Name="GRD_Titlebar" Grid.Row="0" Background="White" >
+            <SEACC_WPFControls:SEACC_Button x:Name="bun_Exit" Content="&#xE760;" FontFamily="Segoe MDL2 Assets"  HorizontalAlignment="Left" Width="70" FontSize="40" Foreground="Black" BorderBrush="{x:Null}" Background="{x:Null}" FontWeight="Thin" Height="70" VerticalAlignment="Top" Click="SEACC_Button_Click" />
+
+            <TextBlock x:Name="lbl_Title" HorizontalAlignment="Left" Text="SEACC Report Viewer" Foreground="Black"  VerticalAlignment="Top"  FontSize="30" Margin="59,15,0,0" FontWeight="ExtraLight"/>
+
+        </Grid>
+
+        <Grid x:Name="grd_containt" Grid.Row="1" >
+            <my:CrystalReportsViewer x:Name="crystalReportsViewer" ShowToolbar="True" ShowToggleSidePanelButton="True" ShowStatusbar="True" ShowSearchTextButton="True" ShowRefreshButton="True" ShowPrintButton="True" ShowPrevPageButton="True" ShowNextPageButton="True" ShowLogo="False" Background="White" />
+            
+
+        </Grid>
+
+    </Grid>
+
+</Window>
+
+

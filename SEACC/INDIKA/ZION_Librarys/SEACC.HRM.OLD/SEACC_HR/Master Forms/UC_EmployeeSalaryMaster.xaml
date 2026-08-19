@@ -1,0 +1,301 @@
+﻿<UserControl
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:SEACC_WPFControls="clr-namespace:SEACC_WPFControls" xmlns:SEACC_WPFControls1="clr-namespace:SEACC_WPFControls;assembly=SEACC_WPFControls" x:Class="Digiteq.UC_EmployeeSalaryMaster" 
+             mc:Ignorable="d" Loaded="UserControl_Loaded"  Background="#FFFFFF">
+    <!--<SEACC_WPFControls1:SEACC_Form x:Name="SEACC_Form"  >
+        <Grid Margin="15,15,0,50" >
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition x:Name="coloumnA" Width="472" />
+                <ColumnDefinition Width="5" />
+                <ColumnDefinition Width="*" />
+            </Grid.ColumnDefinitions>
+            <Grid Background="#FF34495E">
+                <TextBlock Text="Employee Demography" FontSize="22" Padding="5" Height="48" VerticalAlignment="Top" Background="#FF009688" Foreground="White" />
+                <ScrollViewer Margin="0,53,0,0" >
+
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition  Width="150" />
+                            <ColumnDefinition />
+                        </Grid.ColumnDefinitions>
+
+
+                        <StackPanel>
+                            <Label Content="Employee #" Foreground="White" />
+                            <Label Content="PF #" Foreground="White" />
+                            <Label Content="Nationality" Foreground="White" />
+                            <Label Content="NIC/SSN#" Foreground="White" />
+                            <Label Content="PP#" Foreground="White" />
+                            <Label Content="Status" Foreground="White" />
+                            <Label Content="Phone #" Foreground="White" />
+                            <Label Content="Email" Foreground="White" />
+                            <Label Content="Name With Initials" Foreground="White" />
+                            <Label Content="Full Name" Foreground="White" />
+                            <Label Content="Date of Birth" Foreground="White" />
+                            <Label Content="Date of Joined" Foreground="White" />
+                            <Label Content="Probation Period" Foreground="White" />
+                            <Label Content="Confirmed Date" Foreground="White" />
+                            <Label Content="Last Date of Work" Foreground="White" />
+                            <Label Content="Resign. Date" Foreground="White" />
+                            <Label Content="Visa #" Foreground="White" />
+                            <Label Content="Visa Start Date" Foreground="White" />
+                            <Label Content="Visa End Date" Foreground="White" />
+                            <Label Content="Work Permit End Date" Foreground="White" />
+                            <Label Content="Div" Foreground="White" />
+                            <Label Content="Dept" Foreground="White" />
+                            <Label Content="Section" Foreground="White" />
+                            <Label Content="HoD" Foreground="White" />
+                            <Label Content="HoD-Phone#" Foreground="White" />
+                            <Label Content="HoD-Email" Foreground="White" />
+                            <Label Content="Supervisor-Phone#" Foreground="White" />
+                            <Label Content="Supervisor-Email" Foreground="White" />
+                            <Label Content="Emp. Category" Foreground="White" />
+                            <Label Content="Emp. Designation" Foreground="White" />
+                            <Label Content="Medical Plan#" Foreground="White" />
+                        </StackPanel>
+                        <StackPanel Grid.Column="1">
+                            <Label Content=": S901" Foreground="White" />
+                            <Label Content=": 889" Foreground="White" />
+                            <Label Content=": Srilankan" Foreground="White" />
+                            <Label Content=": 88236354v" Foreground="White" />
+                            <Label Content=": 225654871" Foreground="White" />
+                            <Label Content=": Active" Foreground="White" />
+                            <Label Content=": 071-5548733" Foreground="White" />
+                            <Label Content=": asankaj@gmail.com" Foreground="White" />
+                            <Label Content=":S. A. Fernando" Foreground="White" />
+                            <Label Content=": Suran Asanka Fernando" Foreground="White" />
+                            <Label Content=": 1988-08-23" Foreground="White" />
+                            <Label Content=": 2013-02-01" Foreground="White" />
+                            <Label Content=": 6 Months" Foreground="White" />
+                            <Label Content=": 2013-08-01" Foreground="White" />
+                            <Label Content=": -" Foreground="White" />
+                            <Label Content=": -" Foreground="White" />
+                            <Label Content=": -" Foreground="White" />
+                            <Label Content=": -" Foreground="White" />
+                            <Label Content=": -" Foreground="White" />
+                            <Label Content=": -" Foreground="White" />
+                            <Label Content=": Digiteq" Foreground="White" />
+                            <Label Content=": Engenering" Foreground="White" />
+                            <Label Content=": Research and Development" Foreground="White" />
+                            <Label Content=": V. Fernando" Foreground="White" />
+                            <Label Content=": 011-854568" Foreground="White" />
+                            <Label Content=": hod@digiteq.biz" Foreground="White" />
+                            <Label Content=": -" Foreground="White" />
+                            <Label Content=": -" Foreground="White" />
+                            <Label Content=": -" Foreground="White" />
+                            <Label Content=": -" Foreground="White" />
+                            <Label Content=": -" Foreground="White" />
+                        </StackPanel>
+                    </Grid>
+                </ScrollViewer>
+            </Grid>
+            <GridSplitter Grid.Column="1" Width="5" HorizontalAlignment="Stretch"  />
+            <Grid Grid.Column="2" >
+                <ScrollViewer>
+                    <StackPanel>
+                        <SEACC_WPFControls1:SEACC_LableTextBox Caption="Employee #"/>
+                        <Expander Header="Leave Entitlement"  FontSize="24" Foreground="#FF0096D6" IsExpanded="True">
+                            <StackPanel>
+                                <DataGrid IsReadOnly="True" x:Name="grdBalanceLeave"  AutoGenerateColumns="False" BorderThickness="0" Background="#FF34495E" GridLinesVisibility="Horizontal" HorizontalGridLinesBrush="#FFA8A8A8" RowBackground="#FF34495E" SelectionMode="Single" SelectionUnit="CellOrRowHeader" Foreground="White" Height="180" VerticalAlignment="Top" FontSize="12" Margin="10" >
+                                    <DataGrid.ColumnHeaderStyle>
+                                        <Style TargetType="{x:Type DataGridColumnHeader}">
+                                            <Setter Property="Background" Value="#FF009688" />
+                                            <Setter Property="Height" Value="40" />
+                                            <Setter Property="Padding" Value="5"/>
+                                        </Style>
+                                    </DataGrid.ColumnHeaderStyle>
+                                    <DataGrid.Columns>
+                                        <DataGridTextColumn Binding="{Binding LeaveType}" ClipboardContentBinding="{x:Null}" Header="Leave of Absence Type" Width="155"/>
+                                        <DataGridTextColumn Binding="{Binding EntitleLeave}" ClipboardContentBinding="{x:Null}" Header="Entitled" Width="90"/>
+                                        <DataGridTextColumn Binding="{Binding PerMonth}" ClipboardContentBinding="{x:Null}" Header="Per Month Max" Width="100"/>
+                                        <DataGridTextColumn Binding="{Binding OTable}" ClipboardContentBinding="{x:Null}" Header="OT'able" Width="90"/>
+                                        <DataGridTextColumn Binding="{Binding OTRate}" ClipboardContentBinding="{x:Null}" Header="OT Rate" Width="90"/>
+                                    </DataGrid.Columns>
+                                </DataGrid>
+                                <Grid>
+                                    <Label Content="Total Leave per HR Year - 143.00 | 5.7 month(s)" Margin="10" FontSize="12"/>
+                                    <SEACC_WPFControls:SEACC_Button Background="#FF009688" Content="Add" Width="75" Height="23" FontSize="12" HorizontalAlignment="Left" Margin="278,10,0,0" VerticalAlignment="Top"/>
+                                    <SEACC_WPFControls:SEACC_Button Background="#FF009688" Width="75" Height="23" FontSize="12" Content="Delete" HorizontalAlignment="Left" Margin="358,10,0,0" VerticalAlignment="Top"/>
+                                </Grid>
+                            </StackPanel>
+                        </Expander>
+                        <Expander Header="Earnings"  FontSize="24" Foreground="#FF0096D6" IsExpanded="True">
+                            <StackPanel>
+                                <Grid Margin="10,0,0,0">
+                                    <Label Content="Confidential Salary List" FontSize="12"></Label>
+                                    <SEACC_WPFControls:SEACC_CheckBox  FontSize="12" Width="85" HorizontalAlignment="Left" Margin="246,0,0,0"/>-->
+                                <!--</Grid>
+                                <Grid Margin="10,0,0,0">
+                                    <Label Content="Non-Sri Lankan" FontSize="12" ></Label>
+                                    <SEACC_WPFControls1:SEACC_CheckBox  FontSize="12" Width="85" HorizontalAlignment="Left" Margin="246,0,0,0"/>
+                                </Grid>
+                                <Grid Margin="10,0,0,0">
+                                    <Label Content="Resident" FontSize="12" ></Label>
+                                    <SEACC_WPFControls1:SEACC_CheckBox  FontSize="12" Width="85" HorizontalAlignment="Left" Margin="246,0,0,0"/>
+                                </Grid>
+                                <Expander Header="Fixed Payments"  FontSize="24" Foreground="#FF0096D6" IsExpanded="True" Padding="20,0,0,0">
+                                    <StackPanel>
+                                        <DataGrid x:Name="grd_FixedPayement" IsReadOnly="True"  AutoGenerateColumns="False" BorderThickness="0" Background="#FF34495E" GridLinesVisibility="Horizontal" HorizontalGridLinesBrush="#FFA8A8A8" RowBackground="#FF34495E" SelectionMode="Single" SelectionUnit="CellOrRowHeader" Foreground="White" Height="180" VerticalAlignment="Top" FontSize="12" Margin="10" >
+                                            <DataGrid.ColumnHeaderStyle>
+                                                <Style TargetType="{x:Type DataGridColumnHeader}">
+                                                    <Setter Property="Background" Value="#FF009688" />
+                                                    <Setter Property="Height" Value="40" />
+                                                    <Setter Property="Padding" Value="5"/>
+                                                </Style>
+                                            </DataGrid.ColumnHeaderStyle>-->
+
+                                            <!--<DataGrid.Columns>
+                                                <DataGridTextColumn HeaderStyle="{StaticResource RightAlignHeader}" CellStyle="{StaticResource RightCellStyle}"  Binding="{Binding Amount}" ClipboardContentBinding="{x:Null}" Header="Amount"  Width="90" />
+                                                <DataGridTextColumn Binding="{Binding EarningItem}" ClipboardContentBinding="{x:Null}" Header="Earning Item" Width="90"/>
+                                                <DataGridTextColumn Binding="{Binding Period}" ClipboardContentBinding="{x:Null}" Header="PERIOD" Width="90"/>
+                                                <DataGridTextColumn Binding="{Binding PF1}" ClipboardContentBinding="{x:Null}" Header="PF-1" Width="100"/>
+                                                <DataGridTextColumn Binding="{Binding PF2}" ClipboardContentBinding="{x:Null}" Header="PF-2" Width="90"/>
+                                                <DataGridTextColumn Binding="{Binding PF3}" ClipboardContentBinding="{x:Null}" Header="PF-3" Width="90"/>
+                                                <DataGridTextColumn Binding="{Binding Tax}" ClipboardContentBinding="{x:Null}" Header="Tax" Width="90"/>
+                                                <DataGridTextColumn Binding="{Binding Printable}" ClipboardContentBinding="{x:Null}" Header="Printable" Width="90"/>
+                                                <DataGridTextColumn Binding="{Binding GLCode}" ClipboardContentBinding="{x:Null}" Header="GL Code" Width="90"/>
+                                            </DataGrid.Columns>
+                                        </DataGrid>
+                                        <Grid>
+                                            <Label Content="Total Fixed Earnings - 1,775,000.00" Margin="5" FontSize="12"/>
+                                            <SEACC_WPFControls1:SEACC_Button Background="#FF009688" Content="Add" Width="75" Height="23" FontSize="12" HorizontalAlignment="Left"  Margin="278,10,0,0" VerticalAlignment="Top"/>
+                                            <SEACC_WPFControls1:SEACC_Button Background="#FF009688" Width="75" Height="23" FontSize="12" Content="Delete" HorizontalAlignment="Left" Margin="358,10,0,0" VerticalAlignment="Top"/>
+                                        </Grid>
+                                    </StackPanel>
+                                </Expander>
+                                <Expander Header="Lump Sums"  FontSize="24" Foreground="#FF0096D6" IsExpanded="True" Padding="20,0,0,0">
+                                    <StackPanel>
+                                        <DataGrid x:Name="grd_lumpSum" IsReadOnly="True"  AutoGenerateColumns="False" BorderThickness="0" Background="#FF34495E" GridLinesVisibility="Horizontal" HorizontalGridLinesBrush="#FFA8A8A8" RowBackground="#FF34495E" SelectionMode="Single" SelectionUnit="CellOrRowHeader" Foreground="White" Height="180" VerticalAlignment="Top" FontSize="12" Margin="10" >
+                                            <DataGrid.ColumnHeaderStyle>
+                                                <Style TargetType="{x:Type DataGridColumnHeader}">
+                                                    <Setter Property="Background" Value="#FF009688" />
+                                                    <Setter Property="Height" Value="40" />
+                                                    <Setter Property="Padding" Value="5"/>
+                                                </Style>
+                                            </DataGrid.ColumnHeaderStyle>
+                                            <DataGrid.Columns>
+                                                <DataGridTextColumn HeaderStyle="{StaticResource RightAlignHeader}" CellStyle="{StaticResource RightCellStyle}" Binding="{Binding Amount}" ClipboardContentBinding="{x:Null}" Header="Amount" Width="90"/>
+                                                <DataGridTextColumn Binding="{Binding EarnItem}" ClipboardContentBinding="{x:Null}" Header="Earning Item" Width="90"/>
+                                                <DataGridTextColumn Binding="{Binding Period}" ClipboardContentBinding="{x:Null}" Header="PERIOD" Width="90"/>
+                                                <DataGridTextColumn Binding="{Binding PF1}" ClipboardContentBinding="{x:Null}" Header="PF-1" Width="100"/>
+                                                <DataGridTextColumn Binding="{Binding PF2}" ClipboardContentBinding="{x:Null}" Header="PF-2" Width="90"/>
+                                                <DataGridTextColumn Binding="{Binding PF3}" ClipboardContentBinding="{x:Null}" Header="PF-3" Width="90"/>
+                                                <DataGridTextColumn Binding="{Binding Tax}" ClipboardContentBinding="{x:Null}" Header="Tax" Width="90"/>
+                                                <DataGridTextColumn Binding="{Binding Printable}" ClipboardContentBinding="{x:Null}" Header="Printable" Width="90"/>
+                                            </DataGrid.Columns>
+                                        </DataGrid>
+                                        <Grid>
+                                            <Label Content="Total Lump Sum Earnings - 280,000.00" Margin="5" FontSize="12"/>
+                                            <SEACC_WPFControls1:SEACC_Button Background="#FF009688" Content="Add" Width="75" FontSize="12" HorizontalAlignment="Left" Margin="278,10,0,0"/>
+                                            <SEACC_WPFControls1:SEACC_Button Background="#FF009688" Width="75" Height="23" FontSize="12" Content="Delete" HorizontalAlignment="Left" Margin="358,10,0,0" />-->
+
+
+                                        <!--</Grid>
+                                    </StackPanel>
+                                </Expander>
+                            </StackPanel>
+                        </Expander>
+                        <Expander Header="Deduction"  FontSize="24" Foreground="#FF0096D6" IsExpanded="True">
+                            <StackPanel>
+                                <Label Content="Max Salary Deductions Allowed by law : [60%]" Margin="5" FontSize="12"/>
+                                <Expander Header="Statutory Deduction"  FontSize="24" Foreground="#FF0096D6" IsExpanded="True" Padding="20,0,0,0">
+                                    <StackPanel>
+
+                                        <DataGrid x:Name="grd_StatDeduction" IsReadOnly="True"  AutoGenerateColumns="False" BorderThickness="0" Background="#FF34495E" GridLinesVisibility="Horizontal" HorizontalGridLinesBrush="#FFA8A8A8" RowBackground="#FF34495E" SelectionMode="Single" SelectionUnit="CellOrRowHeader" Foreground="White" Height="180" VerticalAlignment="Top" FontSize="12" Margin="10" >
+                                            <DataGrid.ColumnHeaderStyle>
+                                                <Style TargetType="{x:Type DataGridColumnHeader}">
+                                                    <Setter Property="Background" Value="#FF009688" />
+                                                    <Setter Property="Height" Value="40" />
+                                                    <Setter Property="Padding" Value="5"/>
+                                                </Style>
+                                            </DataGrid.ColumnHeaderStyle>
+                                            <DataGrid.Columns>
+                                                <DataGridTextColumn Binding="{Binding DeductFrom}" ClipboardContentBinding="{x:Null}" Header="Deduct From" Width="90"/>
+                                                <DataGridTextColumn Binding="{Binding Item}" ClipboardContentBinding="{x:Null}" Header="Deduction Item" Width="110"/>
+                                                <DataGridTextColumn Binding="{Binding Percentage}" ClipboardContentBinding="{x:Null}" Header="%" Width="90"/>
+                                                <DataGridTextColumn Binding="{Binding StartDate}" ClipboardContentBinding="{x:Null}" Header="Start Date" Width="100"/>
+                                                <DataGridTextColumn Binding="{Binding EndDate}" ClipboardContentBinding="{x:Null}" Header="Start Date" Width="100"/>
+                                                <DataGridTextColumn Binding="{Binding GLCOde}" ClipboardContentBinding="{x:Null}" Header="GL Code" Width="100"/>
+                                            </DataGrid.Columns>
+                                        </DataGrid>
+                                        <Grid>
+                                            <Label Content="Total Fixed Earnings - 28.00%" Margin="5" FontSize="12"/>
+                                            <SEACC_WPFControls1:SEACC_Button Background="#FF009688" Content="Add" Width="75" Height="23" FontSize="12" HorizontalAlignment="Left" Margin="278,10,0,0" VerticalAlignment="Top"/>
+                                            <SEACC_WPFControls1:SEACC_Button Background="#FF009688" Width="75" Height="23" FontSize="12" Content="Delete" HorizontalAlignment="Left" Margin="358,10,0,0" VerticalAlignment="Top"/>
+                                        </Grid>
+                                    </StackPanel>
+                                </Expander>
+                                <Expander Header="Other  Deduction"  FontSize="24" Foreground="#FF0096D6" IsExpanded="True" Padding="20,0,0,0">
+                                    <StackPanel>
+
+                                        <DataGrid x:Name="grd_other" IsReadOnly="True"  AutoGenerateColumns="False" BorderThickness="0" Background="#FF34495E" GridLinesVisibility="Horizontal" HorizontalGridLinesBrush="#FFA8A8A8" RowBackground="#FF34495E" SelectionMode="Single" SelectionUnit="CellOrRowHeader" Foreground="White" Height="180" VerticalAlignment="Top" FontSize="12" Margin="10" >
+                                            <DataGrid.ColumnHeaderStyle>
+                                                <Style TargetType="{x:Type DataGridColumnHeader}">
+                                                    <Setter Property="Background" Value="#FF009688" />
+                                                    <Setter Property="Height" Value="40" />
+                                                    <Setter Property="Padding" Value="5"/>
+                                                </Style>
+                                            </DataGrid.ColumnHeaderStyle>
+                                            <DataGrid.Columns>
+                                                <DataGridTextColumn Binding="{Binding DeductFrom}"  Header="Deduct From" Width="90"/>
+                                                <DataGridTextColumn Binding="{Binding Deductitem}"  Header="Deduction Item" Width="110"/>
+                                                <DataGridTextColumn Binding="{Binding Percentage}"  Header="%" Width="90"/>
+                                                <DataGridTextColumn Binding="{Binding SatrtDate}"  Header="Start Date" Width="100"/>
+                                                <DataGridTextColumn Binding="{Binding GLCode}"  Header="GL Code" Width="100"/>
+                                            </DataGrid.Columns>
+                                        </DataGrid>
+                                        <Grid>
+                                            <Label Content="Total Fixed Earnings -2.00%" Margin="5" FontSize="12"/>
+                                            <SEACC_WPFControls1:SEACC_Button Background="#FF009688" Content="Add" Width="75" Height="23" FontSize="12" HorizontalAlignment="Left" Margin="278,10,0,0" VerticalAlignment="Top"/>
+                                            <SEACC_WPFControls1:SEACC_Button Background="#FF009688" Width="75" Height="23" FontSize="12" Content="Delete" HorizontalAlignment="Left" Margin="358,10,0,0" VerticalAlignment="Top"/>
+                                        </Grid>-->
+                                    <!--</StackPanel>
+                                </Expander>
+                                <Expander Header="Institutional Deductions (Standing Orders)"  FontSize="24" Foreground="#FF0096D6" IsExpanded="True" Padding="20,0,0,0">
+                                    <StackPanel>
+
+                                        <DataGrid x:Name="grd_Institute" IsReadOnly="True"  AutoGenerateColumns="False" BorderThickness="0" Background="#FF34495E" GridLinesVisibility="Horizontal" HorizontalGridLinesBrush="#FFA8A8A8" RowBackground="#FF34495E" SelectionMode="Single" SelectionUnit="CellOrRowHeader" Foreground="White" Height="180" VerticalAlignment="Top" FontSize="12" Margin="10" >
+                                            <DataGrid.ColumnHeaderStyle>
+                                                <Style TargetType="{x:Type DataGridColumnHeader}">
+                                                    <Setter Property="Background" Value="#FF009688" />
+                                                    <Setter Property="Height" Value="40" />
+                                                    <Setter Property="Padding" Value="5"/>
+                                                </Style>
+                                            </DataGrid.ColumnHeaderStyle>
+                                            <DataGrid.Columns>
+                                                <DataGridTextColumn HeaderStyle="{StaticResource RightAlignHeader}" CellStyle="{StaticResource RightCellStyle}" Binding="{Binding Amount}" ClipboardContentBinding="{x:Null}" Header="Amount" Width="90"/>
+                                                <DataGridTextColumn Binding="{Binding PayType}" ClipboardContentBinding="{x:Null}" Header="Pay Mode" Width="90"/>
+                                                <DataGridTextColumn Binding="{Binding Valuedate}" ClipboardContentBinding="{x:Null}" Header="Value Date" Width="110"/>
+                                                <DataGridTextColumn Binding="{Binding StartDate}" ClipboardContentBinding="{x:Null}" Header="Start Date" Width="90"/>
+                                                <DataGridTextColumn Binding="{Binding EndDate}" ClipboardContentBinding="{x:Null}" Header="End Date" Width="100"/>
+                                                <DataGridTextColumn Binding="{Binding Remarks}" ClipboardContentBinding="{x:Null}" Header="Remarks" Width="100"/>
+                                                <DataGridTextColumn Binding="{Binding Country}" ClipboardContentBinding="{x:Null}" Header="Country" Width="100"/>
+                                                <DataGridTextColumn Binding="{Binding BankCode}" ClipboardContentBinding="{x:Null}" Header="Bank Code" Width="100"/>
+                                                <DataGridTextColumn Binding="{Binding BranchCode}" ClipboardContentBinding="{x:Null}" Header="Branch Code" Width="100"/>
+                                                <DataGridTextColumn Binding="{Binding Account}" ClipboardContentBinding="{x:Null}" Header="Account#" Width="100"/>
+                                                <DataGridTextColumn Binding="{Binding AccountName}" ClipboardContentBinding="{x:Null}" Header="Account Name" Width="100"/>
+                                                <DataGridTextColumn Binding="{Binding GLCode}" ClipboardContentBinding="{x:Null}" Header="Account Name" Width="100"/>
+                                            </DataGrid.Columns>
+                                        </DataGrid>
+                                        <Grid>
+                                            <Label Content="Total Fixed Earnings - 1,309,909.00" Margin="5" FontSize="12"/>
+                                            <SEACC_WPFControls1:SEACC_Button Background="#FF009688" Content="Add" Width="75" Height="23" FontSize="12" HorizontalAlignment="Left" Margin="278,10,0,0" VerticalAlignment="Top"/>
+                                            <SEACC_WPFControls1:SEACC_Button Background="#FF009688" Width="75" Height="23" FontSize="12" Content="Delete" HorizontalAlignment="Left" Margin="358,10,0,0" VerticalAlignment="Top"/>
+                                        </Grid>
+                                    </StackPanel>
+                                </Expander>
+
+
+
+                            </StackPanel>
+                        </Expander>
+
+                    </StackPanel>
+                </ScrollViewer>
+            </Grid>
+        </Grid>-->
+    <!--</SEACC_WPFControls1:SEACC_Form>-->
+</UserControl>

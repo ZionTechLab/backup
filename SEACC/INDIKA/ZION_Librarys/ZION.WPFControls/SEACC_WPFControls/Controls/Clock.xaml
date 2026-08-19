@@ -1,0 +1,19 @@
+﻿<UserControl x:Name="userControl" x:Class="SEACC_WPFControls.Clock"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             mc:Ignorable="d" Background="#FFB04444"  Height="63" FontSize="10"  >
+    <Grid>
+        <StackPanel Orientation="Horizontal" VerticalAlignment="Center">
+            <Label Foreground="{Binding Foreground, ElementName=userControl}" FontSize="35" x:Name="dateText" Content="00:00 AM" FontWeight="Thin" VerticalAlignment="Top" Margin="10,0,0,0"/>
+            <Grid>
+                <Label Foreground="{Binding Foreground, ElementName=userControl}"  FontSize="16" x:Name="lblDay" Content="Date"  VerticalAlignment="Top" Margin="0,10,0,0" />
+                <Label Foreground="{Binding Foreground, ElementName=userControl}"  FontSize="10" x:Name="lblDate" Content="Date" Margin="0,28,0,0"  VerticalAlignment="Top"/>
+            </Grid>
+        </StackPanel>
+
+
+
+    </Grid>
+</UserControl>

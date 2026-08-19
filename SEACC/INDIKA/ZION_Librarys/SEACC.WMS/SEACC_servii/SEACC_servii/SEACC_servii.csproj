@@ -1,0 +1,558 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{E0CFDE17-5192-41FA-8C22-FA6AB7E2223A}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>SEACC_servii</RootNamespace>
+    <AssemblyName>SEACC_servii</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <ProjectTypeGuids>{60dc8134-eba5-43b8-bcc9-bb4bc16c2548};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+    <WarningLevel>4</WarningLevel>
+    <SccProjectName>SAK</SccProjectName>
+    <SccLocalPath>SAK</SccLocalPath>
+    <SccAuxPath>SAK</SccAuxPath>
+    <SccProvider>SAK</SccProvider>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="CrystalDecisions.CrystalReports.Engine, Version=13.0.2000.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL" />
+    <Reference Include="CrystalDecisions.ReportSource, Version=13.0.2000.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL" />
+    <Reference Include="CrystalDecisions.Shared, Version=13.0.2000.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL" />
+    <Reference Include="Ionic.Zip">
+      <HintPath>\\192.168.10.10\06 Support\06 DLL References\Ionic.Zip.dll</HintPath>
+    </Reference>
+    <Reference Include="PresentationFramework.Aero" />
+    <Reference Include="SAPBusinessObjects.WPF.Viewer, Version=13.0.3500.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>C:\Program Files (x86)\SAP BusinessObjects\Crystal Reports for .NET Framework 4.0\Common\SAP BusinessObjects Enterprise XI 4.0\win32_x86\dotnet\SAPBusinessObjects.WPF.Viewer.dll</HintPath>
+    </Reference>
+    <Reference Include="SEACC_WPFControls, Version=1.1.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\SEACC_HRCM\SEACC_WPFControls\bin\Debug\SEACC_WPFControls.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Xaml">
+      <RequiredTargetFramework>4.0</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="WindowsBase" />
+    <Reference Include="PresentationCore" />
+    <Reference Include="PresentationFramework" />
+  </ItemGroup>
+  <ItemGroup>
+    <ApplicationDefinition Include="App.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </ApplicationDefinition>
+    <Compile Include="DataSets\dts_Estimation.cs">
+      <DependentUpon>dts_Estimation.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="DataSets\dts_Estimation.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>dts_Estimation.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="DataSets\dts_GIN.cs">
+      <DependentUpon>dts_GIN.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="DataSets\dts_GIN.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>dts_GIN.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="DataSets\dts_GRN.cs">
+      <DependentUpon>dts_GRN.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="DataSets\dts_GRN.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>dts_GRN.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="DataSets\dts_ReportExport.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>dts_ReportExport.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="DataSets\dts_VehicleTracker.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>dts_VehicleTracker.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="frm_ItemDesc.xaml.cs">
+      <DependentUpon>frm_ItemDesc.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Master Forms\UC_BrokerMaster.xaml.cs">
+      <DependentUpon>UC_BrokerMaster.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Master Forms\UC_CityMaster.xaml.cs">
+      <DependentUpon>UC_CityMaster.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Master Forms\UC_CountryMaster.xaml.cs">
+      <DependentUpon>UC_CountryMaster.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Master Forms\UC_CustomerCategoryMaster.xaml.cs">
+      <DependentUpon>UC_CustomerCategoryMaster.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Master Forms\UC_CustomerClassMater.xaml.cs">
+      <DependentUpon>UC_CustomerClassMater.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Master Forms\UC_CustomerMaster.xaml.cs">
+      <DependentUpon>UC_CustomerMaster.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Master Forms\UC_CustomerTypeMaster.xaml.cs">
+      <DependentUpon>UC_CustomerTypeMaster.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Master Forms\UC_DistrictMaster.xaml.cs">
+      <DependentUpon>UC_DistrictMaster.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\frm_ReportViwer.xaml.cs">
+      <DependentUpon>frm_ReportViwer.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\rpt_EstimationDetail.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>rpt_EstimationDetail.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Reports\rpt_GINDetail.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>rpt_GINDetail.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Reports\rpt_GIN_Summary.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>rpt_GIN_Summary.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Reports\rpt_GRNDetail.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>rpt_GRNDetail.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Reports\rpt_GRN_Stock_Summery.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>rpt_GRN_Stock_Summery.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Reports\rpt_GRN_Summary.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>rpt_GRN_Summary.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Reports\rpt_Vehicle_Detail.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>rpt_Vehicle_Detail.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="RGChrome.cs" />
+    <Compile Include="RGGlassEffect.cs" />
+    <Compile Include="Transaction Forms\UC_Estimation.xaml.cs">
+      <DependentUpon>UC_Estimation.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Master Forms\UC_ItemBrandMaster.xaml.cs">
+      <DependentUpon>UC_ItemBrandMaster.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Master Forms\UC_ItemCategoryMaster.xaml.cs">
+      <DependentUpon>UC_ItemCategoryMaster.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Master Forms\UC_ItemClassMaster.xaml.cs">
+      <DependentUpon>UC_ItemClassMaster.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Master Forms\UC_ItemMaster.xaml.cs">
+      <DependentUpon>UC_ItemMaster.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Master Forms\UC_ItemTypeMaster.xaml.cs">
+      <DependentUpon>UC_ItemTypeMaster.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Master Forms\UC_Province.xaml.cs">
+      <DependentUpon>UC_Province.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Master Forms\UC_TaxMaster.xaml.cs">
+      <DependentUpon>UC_TaxMaster.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Master Forms\UC_TownMaster.xaml.cs">
+      <DependentUpon>UC_TownMaster.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Master Forms\UC_UomCategoryMaster.xaml.cs">
+      <DependentUpon>UC_UomCategoryMaster.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Master Forms\UC_UomMaster.xaml.cs">
+      <DependentUpon>UC_UomMaster.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Transaction Forms\UC_VehicleCheckInOut.xaml.cs">
+      <DependentUpon>UC_VehicleCheckInOut.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Master Forms\UC_WarehouseMaster.xaml.cs">
+      <DependentUpon>UC_WarehouseMaster.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Search Forms\frmSearch.xaml.cs">
+      <DependentUpon>frmSearch.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Transaction Forms\UC_GoodReceivedNote.xaml.cs">
+      <DependentUpon>UC_GoodReceivedNote.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Transaction Forms\UC_GoodIssueNote.xaml.cs">
+      <DependentUpon>UC_GoodIssueNote.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Transaction Forms\UC_Report.xaml.cs">
+      <DependentUpon>UC_Report.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="User Management Forms\UC_SystemBackup.xaml.cs">
+      <DependentUpon>UC_SystemBackup.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\frm_UserMenu.xaml.cs">
+      <DependentUpon>frm_UserMenu.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\SEACC_Form.cs" />
+    <Compile Include="UserControls\UC_UserIndicator.xaml.cs">
+      <DependentUpon>UC_UserIndicator.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="User Management Forms\UC_UserMaster.xaml.cs">
+      <DependentUpon>UC_UserMaster.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="User Management Forms\UC_UserPermission.xaml.cs">
+      <DependentUpon>UC_UserPermission.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Widgets\frm_DashBord.xaml.cs">
+      <DependentUpon>frm_DashBord.xaml</DependentUpon>
+    </Compile>
+    <Page Include="frmSplash.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Compile Include="App.xaml.cs">
+      <DependentUpon>App.xaml</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Common\clsHelpMethods.cs" />
+    <Compile Include="frmSplash.xaml.cs">
+      <DependentUpon>frmSplash.xaml</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Page Include="frm_ItemDesc.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="frm_LandingPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="frm_Login.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Master Forms\UC_BrokerMaster.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Master Forms\UC_CityMaster.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Master Forms\UC_CountryMaster.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Master Forms\UC_CustomerCategoryMaster.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Master Forms\UC_CustomerClassMater.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Master Forms\UC_CustomerMaster.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Master Forms\UC_CustomerTypeMaster.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Master Forms\UC_DistrictMaster.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Reports\frm_ReportViwer.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Transaction Forms\UC_Estimation.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Master Forms\UC_ItemBrandMaster.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Master Forms\UC_ItemCategoryMaster.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Master Forms\UC_ItemClassMaster.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Master Forms\UC_ItemMaster.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Master Forms\UC_ItemTypeMaster.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Master Forms\UC_Province.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Master Forms\UC_TaxMaster.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Master Forms\UC_TownMaster.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Master Forms\UC_UomCategoryMaster.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Master Forms\UC_UomMaster.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Transaction Forms\UC_VehicleCheckInOut.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Master Forms\UC_WarehouseMaster.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Search Forms\frmSearch.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Transaction Forms\UC_GoodReceivedNote.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Transaction Forms\UC_GoodIssueNote.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Transaction Forms\UC_Report.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="User Management Forms\UC_SystemBackup.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UserControls\frm_UserMenu.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UserControls\UC_UserIndicator.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="User Management Forms\UC_UserMaster.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="User Management Forms\UC_UserPermission.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Widgets\frm_DashBord.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="frm_LandingPage.xaml.cs">
+      <DependentUpon>frm_LandingPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="frm_Login.xaml.cs">
+      <DependentUpon>frm_Login.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\rpt_EstimationDetail.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>rpt_EstimationDetail.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\rpt_GINDetail.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>rpt_GINDetail.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\rpt_GIN_Summary.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>rpt_GIN_Summary.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\rpt_GRNDetail.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>rpt_GRNDetail.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\rpt_GRN_Stock_Summery.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>rpt_GRN_Stock_Summery.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\rpt_GRN_Summary.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>rpt_GRN_Summary.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\rpt_Vehicle_Detail.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>rpt_Vehicle_Detail.cs</LastGenOutput>
+    </EmbeddedResource>
+    <None Include="DataSets\dts_Estimation.xsc">
+      <DependentUpon>dts_Estimation.xsd</DependentUpon>
+    </None>
+    <None Include="DataSets\dts_Estimation.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>dts_Estimation.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="DataSets\dts_Estimation.xss">
+      <DependentUpon>dts_Estimation.xsd</DependentUpon>
+    </None>
+    <None Include="DataSets\dts_GIN.xsc">
+      <DependentUpon>dts_GIN.xsd</DependentUpon>
+    </None>
+    <None Include="DataSets\dts_GIN.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>dts_GIN.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="DataSets\dts_GIN.xss">
+      <DependentUpon>dts_GIN.xsd</DependentUpon>
+    </None>
+    <None Include="DataSets\dts_GRN.xsc">
+      <DependentUpon>dts_GRN.xsd</DependentUpon>
+    </None>
+    <None Include="DataSets\dts_GRN.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>dts_GRN.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="DataSets\dts_GRN.xss">
+      <DependentUpon>dts_GRN.xsd</DependentUpon>
+    </None>
+    <None Include="DataSets\dts_ReportExport.xsc">
+      <DependentUpon>dts_ReportExport.xsd</DependentUpon>
+    </None>
+    <None Include="DataSets\dts_ReportExport.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>dts_ReportExport.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="DataSets\dts_ReportExport.xss">
+      <DependentUpon>dts_ReportExport.xsd</DependentUpon>
+    </None>
+    <None Include="DataSets\dts_VehicleTracker.xsc">
+      <DependentUpon>dts_VehicleTracker.xsd</DependentUpon>
+    </None>
+    <None Include="DataSets\dts_VehicleTracker.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>dts_VehicleTracker.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="DataSets\dts_VehicleTracker.xss">
+      <DependentUpon>dts_VehicleTracker.xsd</DependentUpon>
+    </None>
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <AppDesigner Include="Properties\" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Service References\" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\DataTire\DataTire.csproj">
+      <Project>{bfb246fe-1f01-49d4-acf2-60a876a6f9f5}</Project>
+      <Name>DataTire</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Digiteq_Logic\Digiteq_Logic.csproj">
+      <Project>{186bfd56-ca91-45ef-ba5f-1810e229825a}</Project>
+      <Name>Digiteq_Logic</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{C0C07587-41A7-46C8-8FBD-3F9C8EBE2DDC}" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="ez_logo.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="DataSets\NewFolder1\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\user.png" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

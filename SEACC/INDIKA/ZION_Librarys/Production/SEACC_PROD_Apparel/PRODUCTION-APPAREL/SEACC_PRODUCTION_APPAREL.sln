@@ -1,0 +1,35 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 14
+VisualStudioVersion = 14.0.25420.1
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SEACC_PRODUCTION_APPAREL", "SEACC_PRODUCTION_APPAREL\SEACC_PRODUCTION_APPAREL.csproj", "{010A60C6-1C7A-4931-ADA9-A5832F739899}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{010A60C6-1C7A-4931-ADA9-A5832F739899}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{010A60C6-1C7A-4931-ADA9-A5832F739899}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{010A60C6-1C7A-4931-ADA9-A5832F739899}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{010A60C6-1C7A-4931-ADA9-A5832F739899}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {BF7F7C64-3776-4EE0-B565-47F3E5CCCEFA}
+	EndGlobalSection
+	GlobalSection(TeamFoundationVersionControl) = preSolution
+		SccNumberOfProjects = 1
+		SccEnterpriseProvider = {4CA58AB2-18FA-4F8D-95D4-32DDF27D184C}
+		SccTeamFoundationServer = https://digiteqdevteam.visualstudio.com/
+		SccProjectUniqueName0 = SEACC_PRODUCTION_APPAREL\\SEACC_PRODUCTION_APPAREL.csproj
+		SccProjectName0 = SEACC_PRODUCTION_APPAREL
+		SccAuxPath0 = https://digiteqdevteam.visualstudio.com
+		SccLocalPath0 = SEACC_PRODUCTION_APPAREL
+		SccProvider0 = {4CA58AB2-18FA-4F8D-95D4-32DDF27D184C}
+	EndGlobalSection
+EndGlobal

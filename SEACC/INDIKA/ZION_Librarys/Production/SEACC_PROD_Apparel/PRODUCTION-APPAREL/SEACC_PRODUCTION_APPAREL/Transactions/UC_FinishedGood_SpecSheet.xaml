@@ -1,0 +1,271 @@
+﻿<UserControl x:Class="SEACC_PRODUCTION_APPAREL.UC_FinishedGood_SpecSheet"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             mc:Ignorable="d" 
+             xmlns:sys="clr-namespace:System;assembly=mscorlib" 
+             xmlns:SEACC_WPFControls="clr-namespace:SEACC_WPFControls;assembly=SEACC_WPFControls" 
+             xmlns:SEACC_WPFControls_Local="clr-namespace:SEACC_PRODUCTION_APPAREL.Controls" Background="#FFFFFF" FontWeight="Normal">
+   
+    <SEACC_WPFControls_Local:SEACC_Form x:Name="SEACC_Form" SizeChanged="SEACC_Form_SizeChanged" PreviewKeyDown="SEACC_Form_PreviewKeyDown">
+        <Grid Margin="15,10,0,50">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Name="coloumnA" Width="472" />
+                <ColumnDefinition Width="5" />
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+            <SEACC_WPFControls:SEACC_DataGrid_Advanced x:Name="dgr_Main" Margin="0,0,5,0" Background="#FF515151" HeaderColor="#FFF49F6D" MouseLeftButtonUp1="dgr_Main_MouseLeftButtonUp1" LoadingRow="dgr_Main_LoadingRow" />
+            <GridSplitter Background="#D5D5D5"  Grid.Column="1" Width="5" HorizontalAlignment="Stretch"  Margin="0,1,0,-1" />
+            <Grid  Grid.Column="2" Margin="10,0">
+                <SEACC_WPFControls:SEACC_ScrollViewer VerticalScrollBarVisibility="Auto" PreviewMouseWheel="UIElement_OnPreviewMouseWheel" >
+                    
+                    <StackPanel>
+                        <Expander x:Name="exp_FGspecs" Header="Finished Good Specifications" FontSize="24" Foreground="#FF0096D6" IsExpanded="True" >
+                            <Grid>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="*"/>
+                                    <ColumnDefinition Width="*"/>
+                                </Grid.ColumnDefinitions>
+
+                                <StackPanel  Grid.Column="0" >
+                                    <SEACC_WPFControls:SEACC_LableTextBox x:Name="txtItemID" FontSize="12" Caption="Finished Good ID" />
+                                    <SEACC_WPFControls:SEACC_LableTextBox x:Name="txtItemID_Template" FontSize="12" Caption="Previous Template" MouseDoubleClick="txtItemID_Template_MouseDoubleClick"    />
+                                    <SEACC_WPFControls:SEACC_LabelComboBox x:Name="cmbProdIndustry" FontSize="12"  Caption="Production Industry" />
+                                    <SEACC_WPFControls:SEACC_LableTextBox x:Name="txtCustomer" FontSize="12" Caption="Customer" MouseDoubleClick="txtCustomer_MouseDoubleClick" TextBox_TextChanged="txt_TextBox_TextChanged" />
+                                    <SEACC_WPFControls:SEACC_LableTextBox x:Name="txtRemark1" FontSize="12" Caption="Instr. (Sales)" MinHeight="125" />
+                                    <SEACC_WPFControls:SEACC_LableTextBox x:Name="txtRemark2" FontSize="12" Caption="Instr. (Prodution)" MinHeight="125" />
+                                    <SEACC_WPFControls:SEACC_LableTextBox x:Name="txtRemark3" FontSize="12" Caption="Instr. (Accounts)" MinHeight="125" />
+                                    <SEACC_WPFControls:SEACC_LableTextBox x:Name="txtRemark4" FontSize="12" Caption="Instr. (Stores)" MinHeight="125" />
+                                    <SEACC_WPFControls:SEACC_LableTextBox x:Name="txtRemark5" FontSize="12" Caption="Instr. (Suppliers)" MinHeight="125" />
+                                </StackPanel>
+
+                                <StackPanel  Grid.Column="1">
+                                    <SEACC_WPFControls:SEACC_LableTextBox x:Name="txtJobName" FontSize="12" Caption="FG Job Name" MouseDoubleClick="txtJobName_MouseDoubleClick" TextBox_TextChanged="txt_TextBox_TextChanged" Margin="3,0,0,0"  />
+                                    <SEACC_WPFControls:SEACC_LableTextBox x:Name="txtJobType" FontSize="12" Caption="FG Job Type" MouseDoubleClick="txtJobType_MouseDoubleClick" TextBox_TextChanged="txt_TextBox_TextChanged" Margin="3,0,0,0"  />
+                                    <SEACC_WPFControls:SEACC_LableTextBox x:Name="txtProdRange" FontSize="12" Caption="FG Range" MouseDoubleClick="txtProdRange_MouseDoubleClick" TextBox_TextChanged="txt_TextBox_TextChanged" Margin="3,0,0,0"  />
+                                    <SEACC_WPFControls:SEACC_LableTextBox x:Name="txtProdCategory" FontSize="12" Caption="FG Category" MouseDoubleClick="txtProdCategory_MouseDoubleClick" TextBox_TextChanged="txt_TextBox_TextChanged" Margin="3,0,0,0"   />
+                                    <SEACC_WPFControls:SEACC_LableTextBox x:Name="txtProdSize" FontSize="12" Caption="FG Size" MouseDoubleClick="txtProdSize_MouseDoubleClick" TextBox_TextChanged="txt_TextBox_TextChanged" Margin="3,0,0,0"  />
+                                    <SEACC_WPFControls:SEACC_LableTextBox x:Name="txtProdColour" FontSize="12" Caption="FG Colour" MouseDoubleClick="txtProdColour_MouseDoubleClick"  TextBox_TextChanged="txt_TextBox_TextChanged" Margin="3,0,0,0"  />
+
+                                    <GroupBox Header="Fabric" FontSize="14" BorderBrush="#FFC2C3C9" BorderThickness="0" Margin="0,5,0,0" >
+                                        <StackPanel>
+                                            <SEACC_WPFControls:SEACC_LabelTextBoxWithCheckBox x:Name="txtFabricLayer1" FontSize="12" Caption="Layer 1" MouseDoubleClick="txtFabricLayer1_MouseDoubleClick" TextBox_Checked="txt_TextBox_TextChanged" TextBox_UnChecked="txt_TextBox_TextChanged" TextBox_TextChanged="txt_TextBox_TextChanged" />
+                                            <SEACC_WPFControls:SEACC_LabelTextBoxWithCheckBox x:Name="txtFabricLayer2" FontSize="12" Caption="Layer 2" MouseDoubleClick="txtFabricLayer2_MouseDoubleClick" TextBox_Checked="txt_TextBox_TextChanged" TextBox_UnChecked="txt_TextBox_TextChanged" TextBox_TextChanged="txt_TextBox_TextChanged" />
+                                            <SEACC_WPFControls:SEACC_LabelTextBoxWithCheckBox x:Name="txtFabricLayer3" FontSize="12" Caption="Layer 3" MouseDoubleClick="txtFabricLayer3_MouseDoubleClick" TextBox_Checked="txt_TextBox_TextChanged" TextBox_UnChecked="txt_TextBox_TextChanged" TextBox_TextChanged="txt_TextBox_TextChanged"  />
+                                        </StackPanel>
+                                    </GroupBox>
+
+                                    <GroupBox Header="Padding" FontSize="14"  BorderBrush="#FFC2C3C9" BorderThickness="0" >
+                                        <StackPanel>
+                                            <SEACC_WPFControls:SEACC_LabelTextBoxWithCheckBox x:Name="txtPaddingLayer1" FontSize="12" Caption="Layer 1" MouseDoubleClick="txtPaddingLayer1_MouseDoubleClick" TextBox_Checked="txt_TextBox_TextChanged" TextBox_UnChecked="txt_TextBox_TextChanged" TextBox_TextChanged="txt_TextBox_TextChanged"  />
+                                            <SEACC_WPFControls:SEACC_LabelTextBoxWithCheckBox x:Name="txtPaddingLayer2" FontSize="12" Caption="Layer 2" MouseDoubleClick="txtPaddingLayer2_MouseDoubleClick" TextBox_Checked="txt_TextBox_TextChanged" TextBox_UnChecked="txt_TextBox_TextChanged" TextBox_TextChanged="txt_TextBox_TextChanged"   />
+                                        </StackPanel>
+                                    </GroupBox>
+
+                                    <GroupBox Header="Fiber" FontSize="14"  BorderBrush="#FFC2C3C9" BorderThickness="0" >
+                                        <StackPanel>
+                                            <SEACC_WPFControls:SEACC_LabelTextBoxWithCheckBox x:Name="txtFilling1" FontSize="12" Caption="Filling 1" MouseDoubleClick="txtFilling1_MouseDoubleClick" TextBox_Checked="txt_TextBox_TextChanged" TextBox_UnChecked="txt_TextBox_TextChanged" TextBox_TextChanged="txt_TextBox_TextChanged"  />
+                                            <SEACC_WPFControls:SEACC_LabelTextBoxWithCheckBox x:Name="txtFilling2" FontSize="12" Caption="Filling 2" MouseDoubleClick="txtFilling2_MouseDoubleClick" TextBox_Checked="txt_TextBox_TextChanged" TextBox_UnChecked="txt_TextBox_TextChanged" TextBox_TextChanged="txt_TextBox_TextChanged"  />
+                                        </StackPanel>
+                                    </GroupBox>
+
+                                    <SEACC_WPFControls:SEACC_LabelTextBoxWithCheckBox x:Name="txtDescriptionSuffix" FontSize="12" Caption="FG Desc. Suffix" Margin="6,0,0,0"  TextBox_Checked="txt_TextBox_TextChanged" TextBox_UnChecked="txt_TextBox_TextChanged" TextBox_TextChanged="txt_TextBox_TextChanged" />
+                                    <SEACC_WPFControls:SEACC_LableTextBox x:Name="txtFinishGoodDescription" FontSize="12" Caption="FG Description" MinHeight="100" Margin="3,10,0,0" />
+                                    <SEACC_WPFControls:SEACC_LableTextBox x:Name="txtFinishGoodSalesCode" FontSize="12" Caption="FG Sales Code" MinHeight="75" Margin="3,0,0,0"    />
+                                    <SEACC_WPFControls:SEACC_LableTextBox x:Name="txtFinishGoodSalesName" FontSize="12" Caption="FG Sales Name" MinHeight="50" Margin="3,0,0,0" TextBox_TextChanged="txtFinishGoodSalesName_TextBox_TextChanged"   />
+                                    <SEACC_WPFControls:SEACC_LableTextBox x:Name="txtFinishGoodQtyUOM" FontSize="12" Caption="FG Quantity UoM" MouseDoubleClick="txtFinishGoodUOM_MouseDoubleClick" Margin="3,0,0,0"  />
+                                    <SEACC_WPFControls:SEACC_LableTextBox x:Name="txtFinishGoodWeiUOM" FontSize="12" Caption="FG Weight UoM" MouseDoubleClick="txtFinishGoodWeiUOM_MouseDoubleClick" Margin="3,0,0,0" />
+
+                                </StackPanel>
+
+                            </Grid>
+                        </Expander>
+
+                        <Expander x:Name="expCompetProduct" Header="Competitive Product Info. (Among Directors Only)" FontSize="24" Foreground="#FF0096D6" IsExpanded="False" >
+                            <StackPanel >
+                                <Grid>
+
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="*"/>
+                                        <ColumnDefinition Width="*"/>
+                                    </Grid.ColumnDefinitions>
+
+                                    <StackPanel Grid.Column="0">
+                                        <SEACC_WPFControls:SEACC_LableTextBox x:Name="txtBrand" FontSize="12" Caption="Brand" MouseDoubleClick="txtBrand_MouseDoubleClick" />
+                                        <SEACC_WPFControls:SEACC_LableTextBox x:Name="txtModel" FontSize="12" Caption="Model" MouseDoubleClick="txtModel_MouseDoubleClick" />
+                                        <SEACC_WPFControls:SEACC_LableTextBox x:Name="txtCompany" FontSize="12" Caption="Company" />
+                                        <SEACC_WPFControls:SEACC_LableTextBox x:Name="txtCountry" FontSize="12" Caption="Country" MouseDoubleClick="txtCountry_MouseDoubleClick" />
+                                        <SEACC_WPFControls:SEACC_LableTextBox x:Name="txtRemark6" FontSize="12" Caption="Remarks" MinHeight="65" />
+                                    </StackPanel>
+
+                                    <StackPanel Grid.Column="1">
+                                        <SEACC_WPFControls:SEACC_LableTextBox x:Name="txtMRP" FontSize="12" Caption="MPR" Margin="3,0,0,0" />
+                                        <SEACC_WPFControls:SEACC_LableTextBox x:Name="txtPrice1" FontSize="12" Caption="Price 1" Margin="3,0,0,0" />
+                                        <SEACC_WPFControls:SEACC_LableTextBox x:Name="txtPrice2" FontSize="12" Caption="Price 2" Margin="3,0,0,0" />
+                                        <SEACC_WPFControls:SEACC_LableTextBox x:Name="txtPrice3" FontSize="12" Caption="Price 3" Margin="3,0,0,0" />
+                                        <SEACC_WPFControls:SEACC_LableTextBox x:Name="txtPrice4" FontSize="12" Caption="Price 4" Margin="3,0,0,0" />
+                                    </StackPanel>
+
+                                </Grid>
+
+                                <Grid>
+                                    <StackPanel  Orientation="Horizontal"  VerticalAlignment="Top" HorizontalAlignment="Right" Margin="5,5,15,5"   Height="20" >
+                                        <SEACC_WPFControls:SEACC_Button x:Name="btnCPInfoAdd" Content="&#xE109;" Width="30" FontFamily="Segoe MDL2 Assets" FontSize="12" Margin="0,0,5,0"  Foreground="#FFE2E2E2" Background="#FF727272" BorderBrush="{x:Null}" Height="20" VerticalAlignment="Bottom" Click="btnCPInfoAdd_Click" />
+                                        <SEACC_WPFControls:SEACC_Button x:Name="btnCPInfoDelete" Content="&#xE894;" Width="30" FontFamily="Segoe MDL2 Assets" FontSize="12" Background="#FF727272" BorderBrush="{x:Null}" Foreground="#FFD31111" Click="btnCPInfoDelete_Click" />
+                                    </StackPanel>
+                                    <SEACC_WPFControls:SEACC_DataGrid x:Name="dgr_CopmeteProdInfo"  Margin="0,32,0,0" Background="White" HeaderColor="#FF727272" IsReadOnly="False" CanUserAddRows="False" MinHeight="80" Foreground="Black" RowHeight="{x:Static sys:Double.NaN}" CanUserResizeColumns="True" LoadingRow="dgr_CopmeteProdInfo_LoadingRow"  >
+                                        <DataGrid.Resources>
+                                            <SolidColorBrush x:Key="{x:Static SystemColors.HighlightBrushKey}"  Color="#FFF4E7A7"/>
+                                        </DataGrid.Resources>
+
+                                        <DataGrid.CellStyle>
+                                            <Style TargetType="DataGridCell">
+                                                <Setter Property="Padding" Value="2"/>
+                                                <Setter Property="Template">
+                                                    <Setter.Value>
+                                                        <ControlTemplate TargetType="{x:Type DataGridCell}">
+                                                            <Border Padding="{TemplateBinding Padding}" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" Background="{TemplateBinding Background}" SnapsToDevicePixels="True">
+                                                                <Grid Background="{TemplateBinding Background}">
+                                                                    <ContentPresenter SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}"/>
+                                                                    <ContentPresenter VerticalAlignment="Center" />
+                                                                </Grid>
+                                                            </Border>
+                                                        </ControlTemplate>
+                                                    </Setter.Value>
+                                                </Setter>
+                                            </Style>
+                                        </DataGrid.CellStyle>
+
+                                        <SEACC_WPFControls:SEACC_DataGrid.Columns>
+
+                                            <DataGridTextColumn Binding="{Binding LineNo ,Mode=TwoWay , UpdateSourceTrigger=PropertyChanged}"  Foreground="Black" Header="#" Width="25" IsReadOnly="True">
+                                                <DataGridTextColumn.ElementStyle>
+                                                    <Style TargetType="TextBlock">
+                                                        <Setter Property="HorizontalAlignment" Value="Right" />
+                                                        <Setter Property="VerticalAlignment" Value="Center" />
+                                                    </Style>
+                                                </DataGridTextColumn.ElementStyle>
+                                            </DataGridTextColumn>
+
+                                            <DataGridTextColumn Binding="{Binding Brand_ID ,Mode=TwoWay , UpdateSourceTrigger=PropertyChanged}" Foreground="Black"  Header="Brand ID" Width="80" Visibility="Collapsed"  IsReadOnly="True" />
+
+                                            <DataGridTextColumn Binding="{Binding Brand_Name ,Mode=TwoWay , UpdateSourceTrigger=PropertyChanged}" Foreground="Black"  Header="Brand Name" Width="100" IsReadOnly="True" >
+                                                <DataGridTextColumn.ElementStyle>
+                                                    <Style>
+                                                        <Setter Property="TextBlock.TextWrapping" Value="Wrap" />
+                                                        <Setter Property="TextBlock.TextAlignment" Value="Left"/>
+                                                        <Setter Property="TextBlock.VerticalAlignment" Value="Center"/>
+                                                    </Style>
+                                                </DataGridTextColumn.ElementStyle>
+                                            </DataGridTextColumn>
+
+                                            <DataGridTextColumn Binding="{Binding Model_ID ,Mode=TwoWay , UpdateSourceTrigger=PropertyChanged}" Foreground="Black"  Header="Model ID" Width="80" Visibility="Collapsed"  IsReadOnly="True" />
+
+                                            <DataGridTextColumn Binding="{Binding Model_Name ,Mode=TwoWay , UpdateSourceTrigger=PropertyChanged}" Foreground="Black"  Header="Model Name" Width="100" IsReadOnly="True" >
+                                                <DataGridTextColumn.ElementStyle>
+                                                    <Style>
+                                                        <Setter Property="TextBlock.TextWrapping" Value="Wrap" />
+                                                        <Setter Property="TextBlock.TextAlignment" Value="Left"/>
+                                                        <Setter Property="TextBlock.VerticalAlignment" Value="Center"/>
+                                                    </Style>
+                                                </DataGridTextColumn.ElementStyle>
+                                            </DataGridTextColumn>
+
+                                            <DataGridTextColumn Binding="{Binding Competitor_Name ,Mode=TwoWay , UpdateSourceTrigger=PropertyChanged}" Foreground="Black"  Header="Company Name" Width="200" IsReadOnly="True" >
+                                                <DataGridTextColumn.ElementStyle>
+                                                    <Style>
+                                                        <Setter Property="TextBlock.TextWrapping" Value="Wrap" />
+                                                        <Setter Property="TextBlock.TextAlignment" Value="Left"/>
+                                                        <Setter Property="TextBlock.VerticalAlignment" Value="Center"/>
+                                                    </Style>
+                                                </DataGridTextColumn.ElementStyle>
+                                            </DataGridTextColumn>
+
+                                            <DataGridTextColumn Binding="{Binding Country_ID ,Mode=TwoWay , UpdateSourceTrigger=PropertyChanged}" Foreground="Black"  Header="Country ID" Width="80" Visibility="Collapsed"  IsReadOnly="True" />
+
+                                            <DataGridTextColumn Binding="{Binding Country_Name ,Mode=TwoWay , UpdateSourceTrigger=PropertyChanged}" Foreground="Black"  Header="Country" Width="100" IsReadOnly="True" >
+                                                <DataGridTextColumn.ElementStyle>
+                                                    <Style>
+                                                        <Setter Property="TextBlock.TextWrapping" Value="Wrap" />
+                                                        <Setter Property="TextBlock.TextAlignment" Value="Left"/>
+                                                        <Setter Property="TextBlock.VerticalAlignment" Value="Center"/>
+                                                    </Style>
+                                                </DataGridTextColumn.ElementStyle>
+                                            </DataGridTextColumn>
+
+                                            <DataGridTextColumn Binding="{Binding MRP ,Mode=TwoWay , UpdateSourceTrigger=PropertyChanged}" Foreground="Black"  Header="MRP"  Width="80"   IsReadOnly="False" >
+                                                <DataGridTextColumn.ElementStyle>
+                                                    <Style TargetType="TextBlock">
+                                                        <Setter Property="HorizontalAlignment" Value="Right" />
+                                                        <Setter Property="VerticalAlignment" Value="Center" />
+                                                    </Style>
+                                                </DataGridTextColumn.ElementStyle>
+                                            </DataGridTextColumn>
+
+                                            <DataGridTextColumn Binding="{Binding Price1 ,Mode=TwoWay , UpdateSourceTrigger=PropertyChanged}" Foreground="Black"  Header="Price 1"  Width="80"   IsReadOnly="False" >
+                                                <DataGridTextColumn.ElementStyle>
+                                                    <Style TargetType="TextBlock">
+                                                        <Setter Property="HorizontalAlignment" Value="Right" />
+                                                        <Setter Property="VerticalAlignment" Value="Center" />
+                                                    </Style>
+                                                </DataGridTextColumn.ElementStyle>
+                                            </DataGridTextColumn>
+
+                                            <DataGridTextColumn Binding="{Binding Price2 ,Mode=TwoWay , UpdateSourceTrigger=PropertyChanged}" Foreground="Black"  Header="Price 2"  Width="80"   IsReadOnly="False" >
+                                                <DataGridTextColumn.ElementStyle>
+                                                    <Style TargetType="TextBlock">
+                                                        <Setter Property="HorizontalAlignment" Value="Right" />
+                                                        <Setter Property="VerticalAlignment" Value="Center" />
+                                                    </Style>
+                                                </DataGridTextColumn.ElementStyle>
+                                            </DataGridTextColumn>
+
+                                            <DataGridTextColumn Binding="{Binding Price3 ,Mode=TwoWay , UpdateSourceTrigger=PropertyChanged}" Foreground="Black"  Header="Price 3"  Width="80"   IsReadOnly="False" >
+                                                <DataGridTextColumn.ElementStyle>
+                                                    <Style TargetType="TextBlock">
+                                                        <Setter Property="HorizontalAlignment" Value="Right" />
+                                                        <Setter Property="VerticalAlignment" Value="Center" />
+                                                    </Style>
+                                                </DataGridTextColumn.ElementStyle>
+                                            </DataGridTextColumn>
+
+                                            <DataGridTextColumn Binding="{Binding Price4 ,Mode=TwoWay , UpdateSourceTrigger=PropertyChanged}" Foreground="Black"  Header="Price 4"  Width="80"   IsReadOnly="False" >
+                                                <DataGridTextColumn.ElementStyle>
+                                                    <Style TargetType="TextBlock">
+                                                        <Setter Property="HorizontalAlignment" Value="Right" />
+                                                        <Setter Property="VerticalAlignment" Value="Center" />
+                                                    </Style>
+                                                </DataGridTextColumn.ElementStyle>
+                                            </DataGridTextColumn>
+
+                                            <DataGridTextColumn Binding="{Binding Remarks ,Mode=TwoWay , UpdateSourceTrigger=PropertyChanged}"   Header="Remarks" Width="120"  IsReadOnly="False" Foreground="Black">
+                                                <DataGridTextColumn.ElementStyle>
+                                                    <Style>
+                                                        <Setter Property="TextBlock.TextWrapping" Value="Wrap" />
+                                                        <Setter Property="TextBlock.TextAlignment" Value="Left"/>
+                                                        <Setter Property="TextBlock.VerticalAlignment" Value="Center"/>
+                                                    </Style>
+                                                </DataGridTextColumn.ElementStyle>
+                                                <DataGridTextColumn.EditingElementStyle>
+                                                    <Style TargetType="TextBox">
+                                                        <Setter Property="TextWrapping" Value="Wrap" />
+                                                    </Style>
+                                                </DataGridTextColumn.EditingElementStyle>
+                                            </DataGridTextColumn>
+
+
+
+                                        </SEACC_WPFControls:SEACC_DataGrid.Columns>
+                                    </SEACC_WPFControls:SEACC_DataGrid>
+                                </Grid>
+
+                            </StackPanel>
+                        </Expander>
+
+                    </StackPanel>
+                </SEACC_WPFControls:SEACC_ScrollViewer>
+            </Grid>
+        </Grid>
+    </SEACC_WPFControls_Local:SEACC_Form>
+</UserControl>

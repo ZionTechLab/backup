@@ -1,0 +1,418 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{41E2A638-AA92-48CC-B6F1-EDD4D33B928F}</ProjectGuid>
+    <OutputType>library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>SEACC_WPFControls</RootNamespace>
+    <AssemblyName>SEACC_WPFControls</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <ProjectTypeGuids>{60dc8134-eba5-43b8-bcc9-bb4bc16c2548};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+    <WarningLevel>4</WarningLevel>
+    <SccProjectName>%24/INDIKA/Zion_Librarys/ZION.WPFControls/SEACC_WPFControls</SccProjectName>
+    <SccLocalPath>.</SccLocalPath>
+    <SccAuxPath>https://dev.azure.com/ziontechsl</SccAuxPath>
+    <SccProvider>{4CA58AB2-18FA-4F8D-95D4-32DDF27D184C}</SccProvider>
+    <TargetFrameworkProfile />
+    <ExpressionBlendVersion>5.0.40218.0</ExpressionBlendVersion>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>Bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup>
+    <RunPostBuildEvent>Always</RunPostBuildEvent>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Accessibility" />
+    <Reference Include="EPPlus, Version=5.2.1.0, Culture=neutral, PublicKeyToken=ea159fdaa78159a1, processorArchitecture=MSIL">
+      <HintPath>..\packages\EPPlus.5.2.1\lib\net45\EPPlus.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Office.Interop.Excel">
+      <HintPath>..\..\..\..\pdlead\Desktop\Office Introp\Microsoft.Office.Interop.Excel.dll</HintPath>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </Reference>
+    <Reference Include="Microsoft.Office.Interop.Word">
+      <HintPath>..\..\..\..\pdlead\Desktop\Office Introp\Microsoft.Office.Interop.Word.dll</HintPath>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </Reference>
+    <Reference Include="PresentationFramework.Aero" />
+    <Reference Include="PresentationFramework.Aero2" />
+    <Reference Include="PresentationUI, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
+    <Reference Include="ReachFramework" />
+    <Reference Include="System" />
+    <Reference Include="System.configuration" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Printing" />
+    <Reference Include="System.Security" />
+    <Reference Include="System.Threading.Tasks" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Xaml">
+      <RequiredTargetFramework>4.0</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="UIAutomationProvider" />
+    <Reference Include="UIAutomationTypes" />
+    <Reference Include="WindowsBase" />
+    <Reference Include="PresentationCore" />
+    <Reference Include="PresentationFramework" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="App.xaml.cs">
+      <DependentUpon>App.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\ChatLine.xaml.cs">
+      <DependentUpon>ChatLine.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\Clock.xaml.cs">
+      <DependentUpon>Clock.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\DataGrid\SEACC_DataGrid.cs" />
+    <Compile Include="Controls\DataGrid\SEACC_DataGrid_Advanced.xaml.cs">
+      <DependentUpon>SEACC_DataGrid_Advanced.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\SEACC_LablelMultipleSelectBox.xaml.cs">
+      <DependentUpon>SEACC_LablelMultipleSelectBox.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\SEACC_LoggingOffBox.xaml.cs">
+      <DependentUpon>SEACC_LoggingOffBox.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Logic\clsExport.cs" />
+    <Compile Include="Logic\clsExport_EP.cs" />
+    <Compile Include="Logic\clsValidation.cs" />
+    <Compile Include="Logic\cls_Formater.cs" />
+    <Compile Include="Controls\frm_AboutUS.xaml.cs">
+      <DependentUpon>frm_AboutUS.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\frm_Help.xaml.cs">
+      <DependentUpon>frm_Help.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\frm_LandingPage.xaml.cs">
+      <DependentUpon>frm_LandingPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\FRM_Marquee_mini.xaml.cs">
+      <DependentUpon>FRM_Marquee_mini.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\frm_SEACC_Window.xaml.cs">
+      <DependentUpon>frm_SEACC_Window.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\Frm_Season.xaml.cs">
+      <DependentUpon>Frm_Season.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\frm_WaitingMessege_mini.xaml.cs">
+      <DependentUpon>frm_WaitingMessege_mini.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\SEACC_CommentBox.xaml.cs">
+      <DependentUpon>SEACC_CommentBox.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\SEACC_Exeption.xaml.cs">
+      <DependentUpon>SEACC_Exeption.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\SEACC_ItemControllerBox.xaml.cs">
+      <DependentUpon>SEACC_ItemControllerBox.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\SEACC_LabelCheckBox.xaml.cs">
+      <DependentUpon>SEACC_LabelCheckBox.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\SEACC_LabelComboBox.xaml.cs">
+      <DependentUpon>SEACC_LabelComboBox.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\SEACC_LabelImageBox.xaml.cs">
+      <DependentUpon>SEACC_LabelImageBox.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\SEACC_LabelPasswordBox.xaml.cs">
+      <DependentUpon>SEACC_LabelPasswordBox.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\SEACC_TimePicker.xaml.cs">
+      <DependentUpon>SEACC_TimePicker.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\SEACC_TimeSpan.xaml.cs">
+      <DependentUpon>SEACC_TimeSpan.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\SEACC_ToggleButton.xaml.cs">
+      <DependentUpon>SEACC_ToggleButton.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\SEACC_UserIndicator.xaml.cs">
+      <DependentUpon>SEACC_UserIndicator.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\SEACC_UserIndicator_Small.xaml.cs">
+      <DependentUpon>SEACC_UserIndicator_Small.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\SEACC_LabelTextBoxWithCheckBox.xaml.cs">
+      <DependentUpon>SEACC_LabelTextBoxWithCheckBox.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Logic\IdleTimeFinder.cs" />
+    <Compile Include="SEACC_WPF_Controls.cs" />
+    <Compile Include="Controls\UC_UserIndicator.xaml.cs">
+      <DependentUpon>UC_UserIndicator.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\virtualKeyboard.xaml.cs">
+      <DependentUpon>virtualKeyboard.xaml</DependentUpon>
+    </Compile>
+    <Page Include="App.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Controls\ChatLine.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Controls\Clock.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Controls\DataGrid\SEACC_DataGrid_Advanced.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Controls\frm_AboutUS.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Controls\frm_Help.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Controls\frm_LandingPage.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Controls\FRM_Marquee_mini.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Controls\frm_SEACC_Window.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Controls\Frm_Season.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Controls\frm_WaitingMessege.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Controls\frm_WaitingMessege_mini.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Controls\SEACC_CommentBox.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Controls\SEACC_Exeption.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Controls\SEACC_Filter.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Controls\SEACC_ItemControllerBox.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Controls\SEACC_LabelCheckBox.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Controls\SEACC_LabelComboBox.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Controls\SEACC_LabelImageBox.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Controls\SEACC_LabelPasswordBox.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Controls\SEACC_LabelTimeSelector.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Controls\SEACC_LabelTimeSpan.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Controls\SEACC_LablelMultipleSelectBox.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Controls\SEACC_LablelTextBox.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Controls\SEACC_MenuButton.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Controls\SEACC_LoggingOffBox.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Controls\SEACC_MessegeBox.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Controls\SEACC_TextBox.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Controls\SEACC_TimePicker.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Controls\SEACC_TimeSpan.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Controls\SEACC_ToggleButton.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Controls\SEACC_UserIndicator.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Controls\SEACC_UserIndicator_Small.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Controls\SEACC_WaitingBar.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Controls\UC_Swetch.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Compile Include="Controls\frm_WaitingMessege.xaml.cs">
+      <DependentUpon>frm_WaitingMessege.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\SeaccMessageBox.cs" />
+    <Compile Include="Controls\SEACC_Filter.xaml.cs">
+      <DependentUpon>SEACC_Filter.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\SEACC_LabelTimeSelector.xaml.cs">
+      <DependentUpon>SEACC_LabelTimeSelector.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\SEACC_LabelTimeSpan.xaml.cs">
+      <DependentUpon>SEACC_LabelTimeSpan.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\SEACC_LablelTextBox.xaml.cs">
+      <DependentUpon>SEACC_LablelTextBox.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\SEACC_MenuButton.xaml.cs">
+      <DependentUpon>SEACC_MenuButton.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\SEACC_MessegeBox.xaml.cs">
+      <DependentUpon>SEACC_MessegeBox.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\SEACC_TextBox.xaml.cs">
+      <DependentUpon>SEACC_TextBox.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\SEACC_WaitingBar.xaml.cs">
+      <DependentUpon>SEACC_WaitingBar.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\UC_Swetch.xaml.cs">
+      <DependentUpon>UC_Swetch.xaml</DependentUpon>
+    </Compile>
+    <Page Include="Controls\UC_UserIndicator.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Controls\virtualKeyboard.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Controls\SEACC_LabelTextBoxWithCheckBox.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Properties\AssemblyInfo.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <None Include="packages.config" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <AppDesigner Include="Properties\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="ez_logo.png" />
+    <Resource Include="digiteq_Logo.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Hide-32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Visible-32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Menu-32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Menu 2-32.png" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <PropertyGroup>
+    <PreBuildEvent>
+    </PreBuildEvent>
+  </PropertyGroup>
+  <PropertyGroup>
+    <PostBuildEvent>
+    </PostBuildEvent>
+  </PropertyGroup>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

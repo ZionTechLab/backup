@@ -1,0 +1,37 @@
+﻿<UserControl
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:SEACC_WPFControls="clr-namespace:SEACC_WPFControls;assembly=SEACC_WPFControls" 
+             x:Class="SEACC_PRODUCTION_APPAREL.UC_Attachments" 
+             mc:Ignorable="d" 
+             d:DesignHeight="300" SizeChanged="UserControl_SizeChanged" >
+    <Grid x:Name="grdAttachment" Background="White" MaxWidth="350">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="45"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <StackPanel Grid.Row="0">
+            <Label Content="Attachments" FontSize="12" Foreground="Black" FontWeight="Thin" Margin="0,10,0,0"/>
+            <Separator Height="1" Background="#FF41B1E1" Margin="0,0,5,0"/>
+            <StackPanel Orientation="Horizontal" VerticalAlignment="Top" HorizontalAlignment="Right" Margin="0,-34,10,0">
+                <SEACC_WPFControls:SEACC_Button x:Name="btnUpload" Content="&#xE109;" Width="30" FontFamily="Segoe MDL2 Assets" Margin="0,8,5,0"  Foreground="#FFE2E2E2" Background="#FF727272" BorderBrush="{x:Null}" Height="20" VerticalAlignment="Bottom" Click="btnUpload_Click" />
+                <SEACC_WPFControls:SEACC_Button x:Name="btnRemove" Content="&#xE894;" Width="30" FontFamily="Segoe MDL2 Assets" Margin="0,8,5,0" Background="#FF727272" BorderBrush="{x:Null}" Height="20" Foreground="#FFD31111" Click="btnRemove_Click" />
+            </StackPanel>
+        </StackPanel>
+
+        <SEACC_WPFControls:SEACC_DataGrid Grid.Row="1" x:Name="dgr_Upload" Margin="10,5,10,0" Background="{x:Null}" HeaderColor="#FF0083A1" IsReadOnly="True" CanUserAddRows="False" CanUserResizeColumns="True" CanUserReorderColumns="False" BorderBrush="{x:Null}" Foreground="Black" RowStyle="{DynamicResource SEACC_DataGridRow}" HeadersVisibility="None" ColumnHeaderHeight="0"  MouseDoubleClick="dgr_Upload_MouseDoubleClick">
+            <SEACC_WPFControls:SEACC_DataGrid.Columns>
+                <DataGridTemplateColumn IsReadOnly="False" Width="40">
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <Image Source="{Binding icon, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Height="25" Width="22" Margin="4" />
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+                <DataGridTextColumn Binding="{Binding FileName, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Header="File Name" Width="*" IsReadOnly="False" />
+            </SEACC_WPFControls:SEACC_DataGrid.Columns>
+        </SEACC_WPFControls:SEACC_DataGrid>
+    </Grid>
+</UserControl>

@@ -1,0 +1,8 @@
+﻿<Window x:Class="SEACC_WPFControls.Frm_Season"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Frm_Season" Height="300" Width="300">
+    <Grid>
+        
+    </Grid>
+</Window>

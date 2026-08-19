@@ -1,0 +1,49 @@
+﻿<UserControl
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+            xmlns:SEACC_WPFControls="clr-namespace:SEACC_WPFControls" xmlns:SEACC_WPFControls1="clr-namespace:SEACC_WPFControls;assembly=SEACC_WPFControls" x:Class="Digiteq.wj_Backup" 
+            mc:Ignorable="d" Background="#FF5D5D5D" Margin="5" d:DesignWidth="399.295" Height="336.246"  >
+    <Grid>
+        <!--To do
+        
+        add folder select Dialog when folder select button click
+        Fill some domy datas to the grid
+        -->
+
+        <Border BorderBrush="White" BorderThickness="1" Margin="5">
+            <Border.Effect>
+                <DropShadowEffect BlurRadius="10" ShadowDepth="10"/>
+            </Border.Effect>
+        </Border>
+
+        <Grid Margin="15,0,15,0">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="40"/>
+                <RowDefinition/>
+            </Grid.RowDefinitions>
+            <TextBlock Text="Backup"  FontSize="20" Foreground="White" Grid.Row="0" HorizontalAlignment="Left"  VerticalAlignment="Top" Margin="0,8,0,0"/>
+            <Border BorderBrush="White" BorderThickness="0,0,0,1"/>
+            <Grid Grid.Row="1" Margin="0,10,0,0" Background="#FF115D1E" Height="41" VerticalAlignment="Top">
+                <TextBlock HorizontalAlignment="Left" VerticalAlignment="Top" Margin="5,5,0,0" Foreground="White"><Run Text="Scheduled "/><LineBreak/><Run Text="Backup"/></TextBlock>
+                <TextBlock HorizontalAlignment="Left" Margin="84,6,0,8" Foreground="White" FontSize="20" VerticalAlignment="Center" Text="Everyday  @ 18:00 H"/>
+                <SEACC_WPFControls1:SEACC_Button x:Name="btn_Addnew" Content="&#xE115;" FontFamily="Segoe MDL2 Assets" BorderBrush="{x:Null}" Background="{x:Null}" Foreground="#FFBEC700" Margin="0,1,2,0" Height="19" VerticalAlignment="Top" HorizontalAlignment="Right" Width="19"/>
+
+            </Grid>
+            <Grid Grid.Row="1" Margin="0,56,0,0" Background="#FF115D1E" Height="84" VerticalAlignment="Top">
+                <TextBlock HorizontalAlignment="Left" VerticalAlignment="Top" Margin="5,5,0,0" Foreground="White" Text="Backup Now"/>
+                <TextBlock HorizontalAlignment="Left" VerticalAlignment="Top" Margin="5,26,0,0" Foreground="White" Text="Target Location"/>
+                <TextBox HorizontalAlignment="Left" Height="25" Margin="101,23,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="237"/>
+                <SEACC_WPFControls1:SEACC_Button x:Name="btn_SelectFolder" Content="&#xE132;" FontFamily="Segoe MDL2 Assets" BorderBrush="White" Background="{x:Null}" Foreground="White" Margin="337,23,11,36"/>
+                <SEACC_WPFControls1:SEACC_Button x:Name="btn_Save" Content="Save" BorderBrush="White" Background="{x:Null}" Foreground="White" Margin="284,55,31,8"/>
+                <SEACC_WPFControls1:SEACC_Button x:Name="btn_Addnew_Copy" Content="&#xE115;" FontFamily="Segoe MDL2 Assets" BorderBrush="{x:Null}" Background="{x:Null}" Foreground="#FFBEC700"  Margin="0,1,2,0" Height="19" VerticalAlignment="Top" HorizontalAlignment="Right" Width="19"/>
+            </Grid>
+            <Grid Grid.Row="1" Margin="0,145,0,0" Background="#FF115D1E" Height="136" VerticalAlignment="Top">
+                <TextBlock HorizontalAlignment="Left" VerticalAlignment="Top" Margin="5,5,0,0" Foreground="White" Text="Backup History"/>
+                <SEACC_WPFControls1:SEACC_DataGrid HorizontalAlignment="Left" Height="100" Margin="10,26,0,0" VerticalAlignment="Top" Width="349" HeadersVisibility="None" Background="{x:Null}"/>
+            </Grid>
+
+        </Grid>
+    </Grid>
+</UserControl>

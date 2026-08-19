@@ -1,0 +1,45 @@
+﻿<UserControl xmlns:SEACC_WPFControls1="clr-namespace:SEACC_WPFControls;assembly=SEACC_WPFControls" 
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:SEACC_WPFControls="clr-namespace:SEACC_WPFControls" x:Class="Digiteq.UC_WebLinks" 
+             mc:Ignorable="d" 
+             d:DesignHeight="300" d:DesignWidth="300" Background="#FF34495E">
+    <SEACC_WPFControls:SEACC_Form x:Name="SEACC_Form">
+        <Grid >
+            <SEACC_WPFControls1:SEACC_DataGrid_Advanced x:Name="dgr_Main"  MouseLeftButtonUp="grd_WebLinks_MouseLeftButtonUp" />
+            <StackPanel Orientation="Horizontal"  VerticalAlignment="Top" HorizontalAlignment="Right" Margin="0,10,14,0" >
+                <SEACC_WPFControls1:SEACC_Button x:Name="btn_Addnew" Content="&#xE109;" Height="19" Width="19" FontFamily="Segoe MDL2 Assets" BorderBrush="{x:Null}" Background="{x:Null}" Foreground="#FFBEC700" FontWeight="Bold" Click="btn_Addnew_Click"/>
+                <SEACC_WPFControls1:SEACC_Button x:Name="btn_Edit" Content="&#xE70F;" Height="19" Width="19" FontFamily="Segoe MDL2 Assets" Background="{x:Null}" BorderBrush="{x:Null}" Foreground="#FFBEC700" Click="btn_Edit_Click"/>
+                <SEACC_WPFControls1:SEACC_Button x:Name="btnDelete" Content="&#xE107;" Height="19" Width="19" FontFamily="Segoe MDL2 Assets" Background="{x:Null}" BorderBrush="{x:Null}" Foreground="#FFB40000" Click="btnDelete_Click"/>
+            </StackPanel>
+            <TextBlock x:Name="txtWebAddress" HorizontalAlignment="Left"  TextWrapping="Wrap" Text="" VerticalAlignment="Bottom" Width="280" Margin="10,0,0,7" Foreground="#800000"/>
+            <TextBlock x:Name="txtDescription" HorizontalAlignment="Left" TextWrapping="Wrap" Text="" VerticalAlignment="Bottom" Width="280" Margin="10,0,0,26"/>
+        </Grid>
+
+        <Grid x:Name="grd_PopUp" Visibility="Hidden" Width="207" HorizontalAlignment="Right" >
+            <Border BorderBrush="Black" BorderThickness="1" Background="#FF7E7E7E">
+                <Border.Effect>
+                    <DropShadowEffect Direction="210"/>
+                </Border.Effect>
+                <SEACC_WPFControls1:SEACC_Button x:Name="btn_popupClose" Content="&#xE106;" Height="19" Width="19" FontFamily="Segoe MDL2 Assets" BorderBrush="{x:Null}" Background="{x:Null}" Foreground="#FFA22323" FontWeight="Bold" HorizontalAlignment="Right" VerticalAlignment="Top" Margin="0,3,3,0" Click="btn_popupClose_Click"/>
+
+            </Border>
+            <StackPanel Margin="0,27,0,0" >
+                <Label Content="Link Code"/>
+                <SEACC_WPFControls1:SEACC_TextBox x:Name="txtLinkCode" />
+                <Label Content="Name"/>
+                <SEACC_WPFControls1:SEACC_TextBox  x:Name="txtName" />
+                <Label Content="Description"/>
+                <SEACC_WPFControls1:SEACC_TextBox x:Name="txtWbDescription" />
+                <Label Content="URL"/>
+                <SEACC_WPFControls1:SEACC_TextBox x:Name="txtURL" />
+                <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" Margin="0,10,10,0" >
+                    <SEACC_WPFControls1:SEACC_Button Width="75" Height="23" Content="New" x:Name="btn_New" Foreground="White" Background="#FF0091EA" Click="btn_New_Click" />
+                    <SEACC_WPFControls1:SEACC_Button Width="75" Height="23" Content="Save" x:Name="btn_Save" Foreground="White" Background="#FF0091EA" Click="btn_Save_Click" />
+                </StackPanel>
+            </StackPanel>
+        </Grid>
+    </SEACC_WPFControls:SEACC_Form>
+</UserControl>

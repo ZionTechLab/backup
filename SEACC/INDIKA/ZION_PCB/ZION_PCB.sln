@@ -1,0 +1,61 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.31112.23
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ZION.PCB", "ZION.PCB\ZION.PCB.csproj", "{010A60C6-1C7A-4931-ADA9-A5832F739899}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ZION.PCB.Reports", "ZION.PCB.Reports\ZION.PCB.Reports.csproj", "{8158F1EC-6687-4466-B90E-56CA847D38AE}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ZION.PCB.DATA", "ZION.PCB.DATA\ZION.PCB.DATA.csproj", "{68CA61B4-2AF1-4F5A-A938-9232A633FD90}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Zion.DataTire", "Zion.DataTire\Zion.DataTire.csproj", "{38E1997A-7F0F-405A-A2C3-AB883786F201}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{010A60C6-1C7A-4931-ADA9-A5832F739899}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{010A60C6-1C7A-4931-ADA9-A5832F739899}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{010A60C6-1C7A-4931-ADA9-A5832F739899}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{010A60C6-1C7A-4931-ADA9-A5832F739899}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8158F1EC-6687-4466-B90E-56CA847D38AE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8158F1EC-6687-4466-B90E-56CA847D38AE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8158F1EC-6687-4466-B90E-56CA847D38AE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8158F1EC-6687-4466-B90E-56CA847D38AE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{68CA61B4-2AF1-4F5A-A938-9232A633FD90}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{68CA61B4-2AF1-4F5A-A938-9232A633FD90}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{68CA61B4-2AF1-4F5A-A938-9232A633FD90}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{68CA61B4-2AF1-4F5A-A938-9232A633FD90}.Release|Any CPU.Build.0 = Release|Any CPU
+		{38E1997A-7F0F-405A-A2C3-AB883786F201}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{38E1997A-7F0F-405A-A2C3-AB883786F201}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{38E1997A-7F0F-405A-A2C3-AB883786F201}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{38E1997A-7F0F-405A-A2C3-AB883786F201}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {39099A76-5174-4F02-8840-B260BB79A60E}
+	EndGlobalSection
+	GlobalSection(TeamFoundationVersionControl) = preSolution
+		SccNumberOfProjects = 5
+		SccEnterpriseProvider = {4CA58AB2-18FA-4F8D-95D4-32DDF27D184C}
+		SccTeamFoundationServer = https://dev.azure.com/ziontechsl
+		SccLocalPath0 = .
+		SccProjectUniqueName1 = ZION.PCB\\ZION.PCB.csproj
+		SccProjectName1 = ZION.PCB
+		SccLocalPath1 = ZION.PCB
+		SccProjectUniqueName2 = ZION.PCB.Reports\\ZION.PCB.Reports.csproj
+		SccProjectName2 = ZION.PCB.Reports
+		SccLocalPath2 = ZION.PCB.Reports
+		SccProjectUniqueName3 = ZION.PCB.DATA\\ZION.PCB.DATA.csproj
+		SccProjectName3 = ZION.PCB.DATA
+		SccLocalPath3 = ZION.PCB.DATA
+		SccProjectUniqueName4 = Zion.DataTire\\Zion.DataTire.csproj
+		SccProjectName4 = Zion.DataTire
+		SccLocalPath4 = Zion.DataTire
+	EndGlobalSection
+EndGlobal

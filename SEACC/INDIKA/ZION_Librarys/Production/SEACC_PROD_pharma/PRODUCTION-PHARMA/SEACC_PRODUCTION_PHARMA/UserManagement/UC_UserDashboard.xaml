@@ -1,0 +1,31 @@
+﻿<UserControl x:Class="SEACC_PRODUCTION_PHARMA.UserManagement.UC_UserDashboard"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:localWidgets="clr-namespace:SEACC_PRODUCTION_PHARMA.UserManagement.Widgets"
+             xmlns:seaccWpfControlsLocal="clr-namespace:SEACC_PRODUCTION_PHARMA.Controls"
+             xmlns:DVC="clr-namespace:System.Windows.Controls.DataVisualization.Charting;assembly=System.Windows.Controls.DataVisualization.Toolkit"
+             Background="#FFFFFF" FontWeight="Normal"
+             mc:Ignorable="d" >
+    <seaccWpfControlsLocal:SEACC_Form x:Name="SEACC_Form"  >
+        <Grid Margin="15,0,0,50">
+            <ScrollViewer Grid.Column="1" VerticalScrollBarVisibility="Auto" HorizontalScrollBarVisibility="Auto" >
+                <StackPanel>
+                    <WrapPanel Orientation="Horizontal" >
+                        <localWidgets:UC_ChangePassword x:Name="cp_password" Margin="20,0,0,20" BtnApplyClick="cp_password_BtnApplyClick" />
+                        <localWidgets:UC_ChangePassword x:Name="cp_pin" Margin="20,0,0,20" BtnApplyClick="cp_pin_BtnApplyClick" />
+                    </WrapPanel>
+                    <DVC:Chart  Name="mcChart" Title="Production BoM/Job Status Summary                                            " 
+                                Canvas.Top="80" Canvas.Left="10" Margin="10,0,0,20" Width="500" Height="350" BorderBrush="{x:Null}" HorizontalAlignment="Left">
+                        <DVC:Chart.Series>
+                            <DVC:PieSeries IndependentValueBinding="{Binding Path=Key}" DependentValueBinding="{Binding Path=Value}" >
+                            </DVC:PieSeries>
+                        </DVC:Chart.Series>
+                    </DVC:Chart>
+                </StackPanel>
+            </ScrollViewer>
+        </Grid>
+    </seaccWpfControlsLocal:SEACC_Form>
+</UserControl>
+

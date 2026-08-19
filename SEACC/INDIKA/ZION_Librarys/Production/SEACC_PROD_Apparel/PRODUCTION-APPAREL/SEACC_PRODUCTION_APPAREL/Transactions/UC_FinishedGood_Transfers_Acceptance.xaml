@@ -1,0 +1,196 @@
+﻿<UserControl x:Class="SEACC_PRODUCTION_APPAREL.UC_FinishedGood_Transfers_Acceptance"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:sys="clr-namespace:System;assembly=mscorlib" 
+             xmlns:SEACC_WPFControls="clr-namespace:SEACC_WPFControls;assembly=SEACC_WPFControls" 
+             xmlns:SEACC_WPFControls_Local="clr-namespace:SEACC_PRODUCTION_APPAREL.Controls" Background="#FFFFFF" FontWeight="Normal">
+    <SEACC_WPFControls_Local:SEACC_Form x:Name="SEACC_Form" SizeChanged="SEACC_Form_SizeChanged" PreviewKeyDown="SEACC_Form_PreviewKeyDown" >
+        <Grid Margin="15,10,0,50">
+
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Name="coloumnA" Width="*" MinWidth="0" />
+                <ColumnDefinition Width="5" />
+                <ColumnDefinition Width="*" />
+            </Grid.ColumnDefinitions>
+
+            <SEACC_WPFControls:SEACC_DataGrid_Advanced x:Name="dgr_Main" Grid.Column="0"  Margin="10,0"  Background="#FF515151" HeaderColor="#FFF49F6D" MouseLeftButtonUp1="dgr_Main_MouseLeftButtonUp1" LoadingRow="dgr_Main_LoadingRow" />
+            <GridSplitter Background="#D5D5D5" x:Name="gridSplitter" Width="5" HorizontalAlignment="Stretch" Grid.Column="1" Margin="0,1,0,-1" />
+
+            <!--<SEACC_WPFControls:SEACC_ScrollViewer Grid.Column="2"  Margin="10,0" VerticalScrollBarVisibility="Auto">-->
+            <Grid Grid.Column="2"  Margin="10,0">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="auto"/>
+                    <RowDefinition Height="*"/>
+                </Grid.RowDefinitions>
+                <Grid Grid.Row="0">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="*" />
+                    </Grid.ColumnDefinitions>
+                    <StackPanel Grid.Column="0">
+                        <SEACC_WPFControls:SEACC_LabelTimeSelector Caption="Acceptance Date" x:Name="dtpAcpt_Date" ShowDate="Visible" ShowTime="Hidden" />
+                        <SEACC_WPFControls:SEACC_LableTextBox  Caption="Acceptance #" x:Name="txtAcceptance_ID" MouseDoubleClick="txtAcceptance_ID_MouseDoubleClick" />
+                        <SEACC_WPFControls:SEACC_LableTextBox  Caption="Store" x:Name="txtToStore" MouseDoubleClick="txtToStore_MouseDoubleClick" />
+                    </StackPanel>
+                    <StackPanel Grid.Column="1">
+                        <SEACC_WPFControls:SEACC_LableTextBox  Caption="Remarks" x:Name="txtRemarks" MinHeight="60"/>
+                    </StackPanel>
+                </Grid>
+
+                <Grid Grid.Row="1">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="30"/>
+                        <RowDefinition Height="25"/>
+                        <RowDefinition Height="1*"/>
+                    </Grid.RowDefinitions>
+                    <Label Content="Finished Good Transfers :" Foreground="#FF515151" FontSize="16" Grid.Row="0" />
+                    <CheckBox x:Name="chk_selectAll" Height="20" Grid.Row="1" VerticalAlignment="Top" HorizontalAlignment="Left" Content="Select All"  Margin="35,5,0,0" Checked="chk_selectAll_Checked" Unchecked="chk_selectAll_Unchecked" />
+                    <StackPanel  Orientation="Horizontal" Grid.Row="1" VerticalAlignment="Top" HorizontalAlignment="Right" Margin="5,0,15,5"   Height="20" >
+                        <SEACC_WPFControls:SEACC_Button x:Name="btnGridItemAdd" Content="&#xE109;" Width="30" FontFamily="Segoe MDL2 Assets" Margin="0,0,5,0"  Foreground="#FFE2E2E2" Background="#FF727272" BorderBrush="{x:Null}" Height="20" VerticalAlignment="Bottom" Click="btnGridItemAdd_Click" />
+                        <SEACC_WPFControls:SEACC_Button x:Name="btnGridItemDelete" Content="&#xE894;" Width="30" FontFamily="Segoe MDL2 Assets"  Background="#FF727272" BorderBrush="{x:Null}" Foreground="#FFD31111" Click="btnGridItemDelete_Click" />
+                    </StackPanel>
+                    <SEACC_WPFControls:SEACC_DataGrid x:Name="dgr_Mererial" Grid.Row="2" Background="White" HeaderColor="#FF727272" IsReadOnly="False" CanUserAddRows="False" CanUserDeleteRows="False" MinHeight="80" Foreground="Black" RowHeight="{x:Static sys:Double.NaN}" CanUserResizeColumns="True" CellEditEnding="dgr_Mererial_CellEditEnding" MouseLeftButtonUp="dgr_Mererial_MouseLeftButtonUp" >
+                        <DataGrid.Resources>
+                            <SolidColorBrush x:Key="{x:Static SystemColors.HighlightBrushKey}"  Color="#FFF4E7A7"/>
+                        </DataGrid.Resources>
+
+                        <DataGrid.CellStyle>
+                            <Style TargetType="DataGridCell">
+                                <Setter Property="Padding" Value="2"/>
+                                <Setter Property="Template">
+                                    <Setter.Value>
+                                        <ControlTemplate TargetType="{x:Type DataGridCell}">
+                                            <Border Padding="{TemplateBinding Padding}" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" Background="{TemplateBinding Background}" SnapsToDevicePixels="True">
+                                                <Grid Background="{TemplateBinding Background}">
+                                                    <ContentPresenter SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}"/>
+                                                    <ContentPresenter VerticalAlignment="Center" />
+                                                </Grid>
+                                            </Border>
+                                        </ControlTemplate>
+                                    </Setter.Value>
+                                </Setter>
+                            </Style>
+                        </DataGrid.CellStyle>
+
+                        <SEACC_WPFControls:SEACC_DataGrid.Columns>
+                            <DataGridTextColumn Binding="{Binding LineNo ,Mode=TwoWay , UpdateSourceTrigger=PropertyChanged}"  Foreground="Black" Header="#" Width="25" IsReadOnly="True">
+                                <DataGridTextColumn.ElementStyle>
+                                    <Style TargetType="TextBlock">
+                                        <Setter Property="HorizontalAlignment" Value="Right" />
+                                        <Setter Property="VerticalAlignment" Value="Center" />
+                                    </Style>
+                                </DataGridTextColumn.ElementStyle>
+                            </DataGridTextColumn>
+
+                            <DataGridTextColumn Binding="{Binding IsSelect ,Mode=TwoWay , UpdateSourceTrigger=PropertyChanged}" Header="&#xE815;"  Width="30"   IsReadOnly="True" >
+                                <DataGridTextColumn.HeaderStyle>
+                                    <Style TargetType="DataGridColumnHeader">
+                                        <Setter Property="HorizontalContentAlignment" Value="Center"/>
+                                        <Setter Property="FontFamily" Value="Segoe MDL2 Assets"/>
+                                        <Setter Property="Foreground" Value="White"/>
+                                        <Setter Property="Background" Value="#FF727272"/>
+                                        <Setter Property="BorderBrush" Value="White"/>
+                                        <Setter Property="BorderThickness" Value="0.5"/>
+                                    </Style>
+                                </DataGridTextColumn.HeaderStyle>
+                                <DataGridTextColumn.ElementStyle>
+                                    <Style >
+                                        <Setter Property="TextBlock.HorizontalAlignment"  Value="Center" />
+                                        <Setter Property="TextBlock.Foreground"  Value="Black" />
+                                        <Setter Property="TextBlock.VerticalAlignment" Value="Center" />
+                                        <Setter Property="TextBlock.FontFamily" Value="Segoe MDL2 Assets" />
+                                    </Style>
+                                </DataGridTextColumn.ElementStyle>
+                            </DataGridTextColumn>
+
+                            <DataGridTextColumn Binding="{Binding fgtn_ID ,Mode=TwoWay , UpdateSourceTrigger=PropertyChanged}" Foreground="Black"   Header="FGTN #" Width="80" IsReadOnly="True" />
+
+                            <DataGridTextColumn Binding="{Binding prodJob_ID ,Mode=TwoWay , UpdateSourceTrigger=PropertyChanged}" Foreground="Black"   Header="BoM #" Width="80" IsReadOnly="True" />
+
+                            <DataGridTextColumn Binding="{Binding prodBatch_ID ,Mode=TwoWay , UpdateSourceTrigger=PropertyChanged}" Foreground="Black"   Header="Job #" Width="80" IsReadOnly="True" />
+
+                            <DataGridTextColumn Binding="{Binding item_ID_FG ,Mode=TwoWay , UpdateSourceTrigger=PropertyChanged}" Foreground="Black"  Header="Item ID" Width="80" IsReadOnly="True" />
+
+                            <DataGridTextColumn Binding="{Binding itemName ,Mode=TwoWay , UpdateSourceTrigger=PropertyChanged}" Foreground="Black"  Header="Item Name" Width="240" IsReadOnly="True" >
+                                <DataGridTextColumn.ElementStyle>
+                                    <Style>
+                                        <Setter Property="TextBlock.TextWrapping" Value="Wrap" />
+                                        <Setter Property="TextBlock.TextAlignment" Value="Left"/>
+                                        <Setter Property="TextBlock.VerticalAlignment" Value="Center"/>
+                                    </Style>
+                                </DataGridTextColumn.ElementStyle>
+                            </DataGridTextColumn>
+
+                            <DataGridTextColumn Binding="{Binding from_Store_ID ,Mode=TwoWay , UpdateSourceTrigger=PropertyChanged}" Foreground="Black"  Header="Issuing From ID" Visibility="Collapsed" Width="80"   IsReadOnly="True"/>
+                            <DataGridTextColumn Binding="{Binding storeName ,Mode=TwoWay , UpdateSourceTrigger=PropertyChanged}" Foreground="Black"  Header="Issuing From" Width="155"   IsReadOnly="True"/>
+
+                            <DataGridTextColumn Binding="{Binding uom_ID ,Mode=TwoWay , UpdateSourceTrigger=PropertyChanged}" Foreground="Black"  Header="UoM ID" Visibility="Collapsed" Width="50"   IsReadOnly="True" />
+                            <DataGridTextColumn Binding="{Binding uomName ,Mode=TwoWay , UpdateSourceTrigger=PropertyChanged}" Foreground="Black"  Header="UoM" Width="50"   IsReadOnly="True" />
+
+                            <DataGridTextColumn Binding="{Binding fgtnQty ,Mode=TwoWay , UpdateSourceTrigger=PropertyChanged}"   Header="FGTN Qty." Width="90" IsReadOnly="True" Foreground="Black" >
+                                <DataGridTextColumn.ElementStyle>
+                                    <Style TargetType="TextBlock">
+                                        <Setter Property="HorizontalAlignment" Value="Right" />
+                                        <Setter Property="VerticalAlignment" Value="Center" />
+                                    </Style>
+                                </DataGridTextColumn.ElementStyle>
+                            </DataGridTextColumn>
+
+                            <DataGridTextColumn Binding="{Binding prevAcceptance_Qty ,Mode=TwoWay , UpdateSourceTrigger=PropertyChanged}"   Header="Prev. Accepted Qty." Width="90" IsReadOnly="True" Foreground="Black" >
+                                <DataGridTextColumn.ElementStyle>
+                                    <Style TargetType="TextBlock">
+                                        <Setter Property="HorizontalAlignment" Value="Right" />
+                                        <Setter Property="VerticalAlignment" Value="Center" />
+                                    </Style>
+                                </DataGridTextColumn.ElementStyle>
+                            </DataGridTextColumn>
+
+                            <DataGridTextColumn Binding="{Binding pendingFGTNQty ,Mode=TwoWay , UpdateSourceTrigger=PropertyChanged}"   Header="Pending FGTN Qty." Width="90" IsReadOnly="True" Foreground="Black" >
+                                <DataGridTextColumn.ElementStyle>
+                                    <Style TargetType="TextBlock">
+                                        <Setter Property="HorizontalAlignment" Value="Right" />
+                                        <Setter Property="VerticalAlignment" Value="Center" />
+                                    </Style>
+                                </DataGridTextColumn.ElementStyle>
+                            </DataGridTextColumn>
+
+                            <DataGridTextColumn Binding="{Binding acceptanceQty ,Mode=TwoWay , UpdateSourceTrigger=PropertyChanged}"   Header="Accepting Qty." Width="90" IsReadOnly="False" Foreground="Black" >
+                                <DataGridTextColumn.ElementStyle>
+                                    <Style TargetType="TextBlock">
+                                        <Setter Property="HorizontalAlignment" Value="Right" />
+                                        <Setter Property="VerticalAlignment" Value="Center" />
+                                    </Style>
+                                </DataGridTextColumn.ElementStyle>
+                            </DataGridTextColumn>
+
+                            <DataGridTextColumn Binding="{Binding remarks ,Mode=TwoWay , UpdateSourceTrigger=PropertyChanged}" Foreground="Black"  Header="Remarks" Width="120" IsReadOnly="False" />
+
+                        </SEACC_WPFControls:SEACC_DataGrid.Columns>
+                    </SEACC_WPFControls:SEACC_DataGrid>
+                </Grid>
+            </Grid>
+            <!--</SEACC_WPFControls:SEACC_ScrollViewer>-->
+        </Grid>
+    </SEACC_WPFControls_Local:SEACC_Form>
+</UserControl>
+
+
+
+
+
+
+
+
+
+<!--<SEACC_WPFControls:SEACC_LableTextBox  Caption="BoM #" x:Name="txtProdJob_ID" MouseDoubleClick="txtProdJob_ID_MouseDoubleClick" />
+<SEACC_WPFControls:SEACC_LableTextBox  Caption="FG Description" x:Name="txtFGDescription" MouseDoubleClick="txtFGDescription_MouseDoubleClick" />
+<SEACC_WPFControls:SEACC_LableTextBox  Caption="FG Sales Name" x:Name="txtFGSalesName" MouseDoubleClick="txtFGSalesName_MouseDoubleClick" />
+<SEACC_WPFControls:SEACC_LableTextBox  Caption="Job #" x:Name="txtBatch_ID" MouseDoubleClick="txtBatch_ID_MouseDoubleClick" />
+<SEACC_WPFControls:SEACC_LableTextBox  Caption="FGTN #" x:Name="txtFGTN_ID" MouseDoubleClick="txtFGTN_ID_MouseDoubleClick" />
+<SEACC_WPFControls:SEACC_LableTextBox  Caption="Issuing From" x:Name="txtFromStore" />
+
+<SEACC_WPFControls:SEACC_LableTextBox  Caption="UoM" x:Name="txtFG_UoM"/>
+<SEACC_WPFControls:SEACC_LableTextBox  Caption="FGTN Qty." x:Name="txtFGTNQty" />
+<SEACC_WPFControls:SEACC_LableTextBox  Caption="Prev. Accepted Qty." x:Name="txtPreviousAcptQty"/>
+<SEACC_WPFControls:SEACC_LableTextBox  Caption="Pending FGTN Qty." x:Name="txtPendingFGTNQty" />
+<SEACC_WPFControls:SEACC_LableTextBox  Caption="Accepting Qty." x:Name="txtAcptQty" />-->

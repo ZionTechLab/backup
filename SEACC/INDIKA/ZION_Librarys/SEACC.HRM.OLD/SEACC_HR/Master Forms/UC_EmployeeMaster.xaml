@@ -1,0 +1,181 @@
+﻿<UserControl x:Class="Digiteq.UC_EmployeeMaster"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:SEACC_WPFControls="clr-namespace:SEACC_WPFControls;assembly=SEACC_WPFControls" 
+             xmlns:SEACC_WPFControls1="clr-namespace:SEACC_WPFControls" 
+             mc:Ignorable="d" Background="#FFFFFF">
+    <SEACC_WPFControls1:SEACC_Form x:Name="SEACC_Form" SizeChanged="SEACC_Form_SizeChanged" >
+        <Grid Margin="15,10,0,50">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Name="coloumnA" Width="580" />
+                <ColumnDefinition Width="5" />
+                <ColumnDefinition Width="*" />
+            </Grid.ColumnDefinitions>
+            <Grid Background="#FF34495E" Margin="0,0,5,0">
+                <SEACC_WPFControls:SEACC_DataGrid_Advanced x:Name="dgr_Main"  Margin="0,0,5,0" MouseLeftButtonUp="grd_Employee_MouseLeftButtonUp" />
+            </Grid>
+            <GridSplitter Background="#D5D5D5" x:Name="gridSplitter" Width="5" HorizontalAlignment="Stretch" Grid.Column="1" Margin="0,1,0,-1"  />
+
+            <Grid Grid.Column="2" Margin="10,0,0,0">
+                <ScrollViewer VerticalScrollBarVisibility="Auto">
+                    <StackPanel  >
+                        <Expander Header="Personal Details" FontSize="24" Foreground="#FF0096D6" >
+                            <StackPanel >
+                                <SEACC_WPFControls:SEACC_LableTextBox x:Name="txtEmployeeNo" FontSize="12" Caption="Employee No." MouseDoubleClick="txtEmployeeNo_MouseDoubleClick_1" />
+                                <SEACC_WPFControls:SEACC_LableTextBox x:Name="txtEPF" FontSize="12" Caption="EPF No."/>
+                                <SEACC_WPFControls:SEACC_LableTextBox x:Name="txtEmployeeNo2" FontSize="12" Caption="Device EMP. No." />
+                                <SEACC_WPFControls:SEACC_LableTextBox x:Name="txttitle" FontSize="12" Caption="Title" MouseDoubleClick="txttitle_MouseDoubleClick_1" />
+                                <SEACC_WPFControls:SEACC_LableTextBox x:Name="txtSureName" FontSize="12" Caption="Surname" />
+                                <SEACC_WPFControls:SEACC_LableTextBox x:Name="txtInitial" FontSize="12" Caption="Initials" />
+                                <SEACC_WPFControls:SEACC_LableTextBox x:Name="txtFullName" FontSize="12" Caption="Full Name"  />
+                                <SEACC_WPFControls:SEACC_LableTextBox x:Name="txtAliasName" FontSize="12" Caption="Alias Name" />
+                                <SEACC_WPFControls:SEACC_LableTextBox x:Name="txtDivision" FontSize="12" Caption="Division" MouseDoubleClick="txtDivision_MouseDoubleClick" />
+                                <SEACC_WPFControls:SEACC_LableTextBox x:Name="txtDepartment" FontSize="12" Caption="Department" VerticalAlignment="Top" MouseDoubleClick="txtDepartment_MouseDoubleClick_1" />
+                                <SEACC_WPFControls:SEACC_LableTextBox x:Name="txtSection" FontSize="12" Caption="Section" VerticalAlignment="Top" MouseDoubleClick="txtSection_MouseDoubleClick_1"/>
+                                <SEACC_WPFControls:SEACC_LableTextBox x:Name="txtSubSection" FontSize="12" Caption="Sub Section"   VerticalAlignment="Top" MouseDoubleClick="txtSubSection_MouseDoubleClick_1"/>
+                                <SEACC_WPFControls:SEACC_LableTextBox x:Name="txtNIC" FontSize="12" Caption="NIC / SSN #" />
+                                <SEACC_WPFControls:SEACC_LableTextBox x:Name="txtDriving_LicNO" FontSize="12" Caption="Driving Lic.# " />
+                                <SEACC_WPFControls:SEACC_LableTextBox x:Name="txtPassport" FontSize="12" Caption="Passport #" />
+                                <SEACC_WPFControls:SEACC_LableTextBox x:Name="txtNationality" FontSize="12" Caption="Nationality" MouseDoubleClick="txtNationality_MouseDoubleClick_1" />
+                                <SEACC_WPFControls:SEACC_LabelTimeSelector  x:Name="dtpVisaEndDate" FontSize="12" Caption="Visa End Date" ShowDate="Visible" ShowTime="Hidden" />
+                                <SEACC_WPFControls:SEACC_LableTextBox x:Name="txtReligion" FontSize="12" Caption="Religion"  MouseDoubleClick="txtReligion_MouseDoubleClick_1" />
+                                <SEACC_WPFControls:SEACC_LabelTimeSelector  x:Name="dtp_DOB"  Height="27"  FontSize="12" ShowDate="Visible" ShowTime="Hidden" Caption="Date Of Birth"  />
+                                <SEACC_WPFControls:SEACC_LabelComboBox x:Name="cmb_Gender" Caption="Gender" FontSize="12"/>
+                                <SEACC_WPFControls:SEACC_LabelComboBox x:Name="cmb_CivilStatus" Caption="Civil Status" FontSize="12"/>
+                                <SEACC_WPFControls:SEACC_LabelTimeSelector FontSize="12" Caption="Date Of Marriage" x:Name="dtp_DateOfMerrage" ShowDate="Visible" ShowTime="Hidden" />
+                                <SEACC_WPFControls:SEACC_LabelImageBox x:Name="imgEmployee" Caption="Employee Image" FontSize="12"/>
+                                <SEACC_WPFControls:SEACC_LabelComboBox x:Name="cmb_EmpStatus" Caption="Status" FontSize="12"/>
+                                <!--<SEACC_WPFControls:SEACC_LableTextBox FontSize="12" Caption="Status" x:Name="txtStatus" MouseDoubleClick="txtStatus_MouseDoubleClick" />-->
+                                <SEACC_WPFControls:SEACC_LableTextBox x:Name="txtDesignation" FontSize="12" Caption="Designation"  MouseDoubleClick="txtDesignation_MouseDoubleClick_1" />
+                                <SEACC_WPFControls:SEACC_LableTextBox x:Name="txtCategory" FontSize="12" Caption="Category 1"  MouseDoubleClick="txtCategory_MouseDoubleClick_1"/>
+                                <SEACC_WPFControls:SEACC_LableTextBox x:Name="txtCategory1" FontSize="12" Caption="Category 2" MouseDoubleClick="txtCategory1_MouseDoubleClick" />
+                                <SEACC_WPFControls:SEACC_LableTextBox x:Name="txtCategory2" FontSize="12" Caption="Category 3"  MouseDoubleClick="txtCategory2_MouseDoubleClick" />
+                                <SEACC_WPFControls:SEACC_LableTextBox x:Name="txtRecuirtmentType" FontSize="12" Caption="Recruitment Type"   MouseDoubleClick="txtRecuirtmentType_MouseDoubleClick_1" />
+                                <SEACC_WPFControls:SEACC_LableTextBox x:Name="txtSupevisorId" FontSize="12" Caption="Supervisor"   MouseDoubleClick="txtSupevisorId_MouseDoubleClick" />
+                                <Grid Height="30" x:Name="grd_SupevisorDetails">
+                                    <Label x:Name="lblDepat_Supevisor" Content="Label" HorizontalAlignment="Left" Margin="126,0,0,0" VerticalAlignment="Top" FontSize="12" Height="36"/>
+                                    <Label x:Name="lblDesignation_Supevisior" Content="Label" HorizontalAlignment="Left" Margin="335,0,0,0" VerticalAlignment="Top" FontSize="12"/>
+                                </Grid>
+                                <SEACC_WPFControls:SEACC_LableTextBox x:Name="txtManagerID" FontSize="12" Caption="Manager"  MouseDoubleClick="txtManagerID_MouseDoubleClick" />
+                                <Grid Height="30" x:Name="grd_ManagerDetail">
+                                    <Label x:Name="lblDeaprtemnt_manager" Content="Label" HorizontalAlignment="Left" Margin="124,0,0,0" VerticalAlignment="Top" FontSize="12"/>
+                                    <Label x:Name="lblDesignation_manager" Content="Label" HorizontalAlignment="Left" Margin="335,0,0,0" VerticalAlignment="Top" FontSize="12"/>
+                                </Grid>
+                            </StackPanel>
+                        </Expander>
+                        <Expander FontSize="24" Header="Contact Information" Foreground="#FF0096D6" >
+
+                            <StackPanel >
+                                <SEACC_WPFControls:SEACC_LableTextBox x:Name="txtAdd1" FontSize="12" Caption="Address Line 1" />
+                                <SEACC_WPFControls:SEACC_LableTextBox x:Name="txtAdd2" FontSize="12" Caption="Address Line 2" />
+                                <SEACC_WPFControls:SEACC_LableTextBox x:Name="txtAdd3" FontSize="12" Caption="Address Line 3"/>
+                                <SEACC_WPFControls:SEACC_LableTextBox x:Name="txtCountry" FontSize="12" Caption="Country"  MouseDoubleClick="txtCountry_MouseDoubleClick_1"/>
+                                <SEACC_WPFControls:SEACC_LableTextBox x:Name="txtProvince" FontSize="12" Caption="Province" MouseDoubleClick="txtProvince_MouseDoubleClick"  />
+                                <SEACC_WPFControls:SEACC_LableTextBox x:Name="txtDistrict" FontSize="12" Caption="District" MouseDoubleClick="txtDistrict_MouseDoubleClick_1"/>
+                                <SEACC_WPFControls:SEACC_LableTextBox x:Name="txtCity" FontSize="12" Caption="City"  MouseDoubleClick="txtCity_MouseDoubleClick_1"/>
+                                <SEACC_WPFControls:SEACC_LableTextBox x:Name="txtHomeTown" FontSize="12" Caption="Home Town"  MouseDoubleClick="txtHomeTown_MouseDoubleClick"/>
+                                <SEACC_WPFControls:SEACC_LableTextBox x:Name="txtPostalCode" FontSize="12" Caption="Postal Code"   MouseDoubleClick="txtPostalCode_MouseDoubleClick_1"/>
+                                <SEACC_WPFControls:SEACC_LableTextBox x:Name="txtGsDivision" FontSize="12" Caption="G.S Division" MouseDoubleClick="txtGsDivision_MouseDoubleClick"  />
+                                <SEACC_WPFControls:SEACC_LableTextBox x:Name="txtHomeTelephone" FontSize="12" Caption="Telephone (Home)" />
+                                <SEACC_WPFControls:SEACC_LableTextBox x:Name="txtOfficeTelephone" FontSize="12" Caption="Telephone (Office)" />
+                                <SEACC_WPFControls:SEACC_LableTextBox x:Name="txtOfficeExt" FontSize="12" Caption="Office Ext. No." />
+                                <SEACC_WPFControls:SEACC_LableTextBox x:Name="txtMobile" FontSize="12" Caption="Mobile 1" />
+                                <SEACC_WPFControls:SEACC_LableTextBox x:Name="txtMobile2" FontSize="12" Caption="Mobile 2" />
+                                <SEACC_WPFControls:SEACC_LableTextBox x:Name="txtOfficeMobile" FontSize="12" Caption="Mobile (Office)" />
+                                <SEACC_WPFControls:SEACC_LableTextBox x:Name="txtEmrgContPer1" FontSize="12" Caption="Emerg. Cont. Person 1" />
+                                <SEACC_WPFControls:SEACC_LableTextBox x:Name="txtImrgContact1" FontSize="12" Caption="Emerg. Contact1"/>
+                                <SEACC_WPFControls:SEACC_LableTextBox x:Name="txtimrgcontPer2" FontSize="12" Caption="Emerg.. Cont. Person 2" />
+                                <SEACC_WPFControls:SEACC_LableTextBox x:Name="txtImrgcontact2" FontSize="12" Caption="Emerg. Contact 2" />
+                                <SEACC_WPFControls:SEACC_LableTextBox x:Name="txtEmail" FontSize="12" Caption="Personal Email" />
+                                <SEACC_WPFControls:SEACC_LableTextBox x:Name="txtOfficeEmail" FontSize="12" Caption="Office Email" />
+                            </StackPanel>
+                        </Expander>
+                        <Expander Header="Payroll Information" FontSize="24" Foreground="#FF0096D6" >
+                            <Grid>
+                                <StackPanel>
+                                    <SEACC_WPFControls:SEACC_LableTextBox x:Name="txtMinimumSalary" FontSize="12" Caption="Minimum Salary" VerticalAlignment="Top" />
+                                    <SEACC_WPFControls:SEACC_LableTextBox x:Name="txtpayrollGroup" FontSize="12" Caption="Payroll Group" VerticalAlignment="Top" MouseDoubleClick="txtpayrollGroup_MouseDoubleClick"/>
+                                    <SEACC_WPFControls:SEACC_LableTextBox x:Name="txtAttendanceGroup1" FontSize="12" Caption="Attendance Group" VerticalAlignment="Top" MouseDoubleClick="txtAttendanceGroup1_MouseDoubleClick" Visibility="Collapsed"/>
+                                    <SEACC_WPFControls:SEACC_LableTextBox x:Name="txtAttendanceGroup2" FontSize="12" Caption="Attendance Group 2" VerticalAlignment="Top" MouseDoubleClick="txtAttendanceGroup2_MouseDoubleClick" Visibility="Collapsed"/>
+                                    <SEACC_WPFControls:SEACC_LableTextBox x:Name="txtpayrollLavel" FontSize="12" Caption="Payroll Level" VerticalAlignment="Top" Visibility="Collapsed" MouseDoubleClick="txtpayrollLavel_MouseDoubleClick_1" />
+                                    <SEACC_WPFControls:SEACC_LabelCheckBox x:Name="chk_RosterEmployee"  Caption="Roster Based Employee" FontSize="12" Foreground="Black" IsChecked="True"/>
+                                    <SEACC_WPFControls:SEACC_LabelCheckBox x:Name="chk_Attendance"  Caption="Time Attendance" FontSize="12" Foreground="Black" IsChecked="True"/>
+                                    <SEACC_WPFControls:SEACC_LabelCheckBox x:Name="chk_Payroll"  Caption="Payroll process" FontSize="12" Foreground="Black" IsChecked="True"/>
+                                    <SEACC_WPFControls:SEACC_LabelCheckBox x:Name="chk_PaySlip"  Caption="Payslip Print" FontSize="12" Foreground="Black" IsChecked="True"/>
+                                    <SEACC_WPFControls:SEACC_LabelCheckBox x:Name="chk_EPF_ETFProcess"  Caption="EPF/ETF Process" FontSize="12" Foreground="Black" IsChecked="True"/>
+                                    <SEACC_WPFControls:SEACC_LabelCheckBox x:Name="chk_PayeeProcess" Caption="PAYE Process" checkBox_Checked="chk_PayeeProcess_checkBox_Checked_1" checkBox_Unchecked="chk_PayeeProcess_checkBox_Unchecked" IsChecked="True"/>
+                                    <SEACC_WPFControls:SEACC_LableTextBox x:Name="txtTaxDirectiveRefNo" FontSize="12" Caption="Tax Directive-Ref No" VerticalAlignment="Top" Margin="0,0,0,0" IsEnabled="False"/>
+                                    <SEACC_WPFControls:SEACC_LableTextBox x:Name="txtAmountPAYEprocess" FontSize="12" Caption="Amount" VerticalAlignment="Top" Margin="0,0,0,0" IsEnabled="False"/>
+                                    <SEACC_WPFControls:SEACC_LabelTimeSelector x:Name="dtp_StartDate" Caption="Start Date"   FontSize="12" Margin="0,0,0,0" IsEnabled="False" ShowDate="Visible" ShowTime="Hidden"  />
+                                    <SEACC_WPFControls:SEACC_LabelTimeSelector x:Name="dtp_EndDate" Caption="End Date"   FontSize="12" Margin="0,0,0,0" IsEnabled="False" ShowDate="Visible" ShowTime="Hidden"  />
+                                    <SEACC_WPFControls:SEACC_LableTextBox x:Name="txtEmployeeShiftCode" FontSize="12" Caption="Primary Shift Code" VerticalAlignment="Top" Margin="0,0,0,0" />
+                                    <SEACC_WPFControls:SEACC_LableTextBox x:Name="txtPayementBy" FontSize="12" Caption="Payment Method" VerticalAlignment="Top" MouseDoubleClick="txtPayementBy_MouseDoubleClick_1"/>
+                                    <SEACC_WPFControls:SEACC_LableTextBox x:Name="txtAccountNo" FontSize="12" Caption="Bank Account No" VerticalAlignment="Top"/>
+                                    <SEACC_WPFControls:SEACC_LableTextBox x:Name="txtAccountName" FontSize="12" Caption="Bank Acct. Name"  VerticalAlignment="Top"/>
+                                    <SEACC_WPFControls:SEACC_LableTextBox x:Name="txtBank" FontSize="12" Caption="Bank" VerticalAlignment="Top" MouseDoubleClick="txtBank_MouseDoubleClick_1"/>
+                                    <SEACC_WPFControls:SEACC_LableTextBox x:Name="txtBranch" FontSize="12" Caption="Bank Branch"  VerticalAlignment="Top" MouseDoubleClick="txtBranch_MouseDoubleClick_1"/>
+                                    <SEACC_WPFControls:SEACC_LabelTimeSelector x:Name="dtp_JoinDate" Caption="Date of Joined" ShowDate="Visible" ShowTime="Hidden"   FontSize="12"/>
+                                    <SEACC_WPFControls:SEACC_LabelTimeSelector x:Name="dtp_DateOfConfirm" Caption="Date of Confirm" ShowDate="Visible" ShowTime="Hidden"    FontSize="12"/>
+                                    <SEACC_WPFControls:SEACC_LabelTimeSelector x:Name="dtp_Terminate" Caption="Date of Retirement" ShowDate="Visible" ShowTime="Hidden"    FontSize="12"/>
+                                    <SEACC_WPFControls:SEACC_LabelTimeSelector x:Name="dtpLastWorkingDate" Caption="Last Working Date" ShowDate="Visible" ShowTime="Hidden"    FontSize="12"/>
+                                    <SEACC_WPFControls:SEACC_LabelTimeSelector x:Name="dtp_PayrollEendDate" Caption="Last Payroll End Date" ShowDate="Visible" ShowTime="Hidden"    FontSize="12"/>
+                                </StackPanel>
+                            </Grid>
+                        </Expander>
+                        <Expander Header="Document Management" FontSize="24"  Foreground="#FF0096D6">
+                            <Grid  Height="200">
+                                <StackPanel Orientation="Vertical">
+                                    <SEACC_WPFControls:SEACC_LableTextBox FontSize="12" x:Name="txtDocumentType" BorderBrush="#FF41B1E1" Caption="Document Type"  Margin="0,10,0,0" VerticalAlignment="Top" MouseDoubleClick="txtDocumentType_MouseDoubleClick" />
+                                    <SEACC_WPFControls:SEACC_Button x:Name="btn_DocumentUpload" Background="#FF41B1E1" BorderBrush="#FF9B9B9B" Foreground="White" Content="Upload" FontSize="12" Width="75" Height="20" Margin="200,5,0,0" VerticalAlignment="Top" HorizontalAlignment="Left" Click="btn_DocumentUpload_Click" />
+                                </StackPanel>
+                                <Grid Margin="0,35,0,0" >
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="67*"/>
+                                        <ColumnDefinition Width="123*"/>
+                                    </Grid.ColumnDefinitions>
+                                    <SEACC_WPFControls:SEACC_DataGrid x:Name="grd_DocumentManagement" FontSize="12" HorizontalAlignment="Left" Margin="0,65,0,0" VerticalAlignment="Top" AutoGenerateColumns="False" Grid.ColumnSpan="2">
+                                        <SEACC_WPFControls:SEACC_DataGrid.Columns>
+                                            <DataGridTextColumn Binding="{Binding No}" ClipboardContentBinding="{x:Null}" Header="No." Width="50" />
+                                            <DataGridTemplateColumn>
+                                                <DataGridTemplateColumn.CellTemplate>
+                                                    <DataTemplate>
+                                                        <Image Source ="{Binding Icon}" />
+                                                    </DataTemplate>
+                                                </DataGridTemplateColumn.CellTemplate>
+                                            </DataGridTemplateColumn>
+                                            <DataGridTextColumn Binding="{Binding FileDetail}" ClipboardContentBinding="{x:Null}" Header="File Detail"  Width="100" />
+                                            <DataGridTextColumn Binding="{Binding DocumentType}" ClipboardContentBinding="{x:Null}" Header="Document Type"  Width="100"/>
+                                            <DataGridTextColumn Binding="{Binding DocumentTypeTag}" ClipboardContentBinding="{x:Null}" Header="Document Type Tag"  Width="100" Visibility="Hidden" />
+                                            <DataGridTextColumn Binding="{Binding UploadDate}" ClipboardContentBinding="{x:Null}" Header="Upload Date" Width="100" />
+                                            <DataGridTextColumn Binding="{Binding UploadBy}" ClipboardContentBinding="{x:Null}" Header="Upload By"  Width="100"/>
+                                            <DataGridHyperlinkColumn Binding="{Binding Download}" ClipboardContentBinding="{x:Null}" Header="Download"  Width="100"/>
+                                        </SEACC_WPFControls:SEACC_DataGrid.Columns>
+                                    </SEACC_WPFControls:SEACC_DataGrid>
+                                </Grid>
+                            </Grid>
+                        </Expander>
+                        <Expander Header="Employee Skills" FontSize="24"  Foreground="#FF0096D6">
+                            <Grid Height="200">
+                                <Grid >
+                                    <SEACC_WPFControls:SEACC_DataGrid x:Name="grd_EmployeSkill" FontSize="12" HorizontalAlignment="Left" Margin="0,10,0,0" VerticalAlignment="Top" AutoGenerateColumns="False">
+                                        <SEACC_WPFControls:SEACC_DataGrid.Columns>
+                                            <DataGridTextColumn Binding="{Binding SkliiCategoryID}"  Header="Code"  Width="100" />
+                                            <DataGridTextColumn Binding="{Binding SkillCategory}"  Header="Skill Category"  Width="300"/>
+                                        </SEACC_WPFControls:SEACC_DataGrid.Columns>
+                                    </SEACC_WPFControls:SEACC_DataGrid>
+                                </Grid>
+                            </Grid>
+                        </Expander>
+
+                        <StackPanel Orientation="Horizontal" Margin="0,0,0,0">
+                            <Image Source="/SEACC_HR;component/Resources/Payroll.png" Height="48" Width="20"/>
+                            <Label x:Name="lblEmpSalary" Content="Salary" FontSize="24" Foreground="#FF0096D6" MouseLeftButtonUp="lblEmpSalary_MouseLeftButtonUp" />
+                        </StackPanel>
+                    </StackPanel>
+                </ScrollViewer>
+            </Grid>
+        </Grid>
+    </SEACC_WPFControls1:SEACC_Form>
+</UserControl>

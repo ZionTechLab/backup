@@ -1,0 +1,12 @@
+﻿<UserControl x:Class="SEACC_WPFControls.SEACC_MenuButton"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             mc:Ignorable="d" d:DesignWidth="300" Height="40" >
+    <Grid>
+        <Grid x:Name="grid" Width="{Binding ActualHeight, ElementName=grid, Mode=OneWay}" HorizontalAlignment="Left" Background="#FFC17474" Visibility="Hidden" ></Grid>
+        <Label x:Name="label1" Content="sss" VerticalAlignment="Top" HorizontalAlignment="Left" Padding="10,0" Margin="0,4,0,0" FontSize="15" Foreground="White" FontWeight="Thin" ></Label>
+        <Label x:Name="label2" Content="" VerticalAlignment="Top" HorizontalAlignment="Right" Padding="10,0" Margin="0,4,30,0" FontSize="15" Foreground="White" FontWeight="Thin" FontFamily="Segoe MDL2 Assets"  ></Label>
+    </Grid>
+</UserControl>

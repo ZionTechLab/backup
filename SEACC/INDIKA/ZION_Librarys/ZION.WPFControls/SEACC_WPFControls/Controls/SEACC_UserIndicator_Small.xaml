@@ -1,0 +1,25 @@
+﻿<UserControl x:Name="userControl" x:Class="SEACC_WPFControls.SEACC_UserIndicator_Small"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+              mc:Ignorable="d" 
+             Height="27" Width="207">
+    <Grid Background="#FF646464" Margin="1">
+        <DockPanel>
+            <Grid x:Name="grd_picture" Background="#FFC3C3C3" Width="{Binding ActualHeight, ElementName=grd_picture, Mode=OneWay}" >
+                <Image Name="UserImage"  >
+                </Image>
+            </Grid>
+            <Grid DockPanel.Dock="Right" >
+                <StackPanel x:Name="stackPanel" Margin="5,0,0,0">
+                    <TextBlock x:Name="UserName" Text="-" Foreground="LightGray"  FontSize="10" PreviewMouseLeftButtonUp="UserName_PreviewMouseLeftButtonUp"/>
+                </StackPanel>
+
+                <TextBlock Text="{Binding ErrorText, ElementName=userControl}" HorizontalAlignment="Right" Foreground="Red" FontFamily="Segoe MDL2 Assets" Width="50" VerticalAlignment="Bottom" Margin="0,0,-55,0" FontSize="12"/>
+
+
+            </Grid>
+        </DockPanel>
+    </Grid>
+</UserControl>

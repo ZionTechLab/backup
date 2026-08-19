@@ -1,0 +1,46 @@
+﻿<UserControl x:Class="SEACC_PRODUCTION_PHARMA.UserManagement.UC_UserPermission"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+              xmlns:SEACC_WPFControls="clr-namespace:SEACC_WPFControls;assembly=SEACC_WPFControls" 
+              xmlns:SEACC_WPFControls1="clr-namespace:SEACC_PRODUCTION_PHARMA.Controls"  Background="#FFFFFF" FontWeight="Normal"
+             mc:Ignorable="d" >
+
+    <SEACC_WPFControls1:SEACC_Form x:Name="SEACC_Form"  >
+        <Grid Margin="15,0,0,50">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Name="coloumnA" Width="800" />
+                <ColumnDefinition Width="5" />
+                <ColumnDefinition Width="*" />
+            </Grid.ColumnDefinitions>
+
+            <Grid Background="#FF34495E" Margin="0,0,5,0">
+                <SEACC_WPFControls:SEACC_DataGrid_Advanced x:Name="dgr_Main"  Margin="0,0,5,0" Background="#FF515151" HeaderColor="#FFF49F6D" MouseLeftButtonUp="dgr_Main_MouseLeftButtonUp" />
+
+                <StackPanel Orientation="Horizontal" Margin="0,7,0,0">
+                    <CheckBox x:Name="chk_ReadAll" Content="All" Foreground="White" VerticalAlignment="Top"  Width="45" Margin="300,0,0,0" Checked="chk_ReadAll_Checked" Unchecked="chk_ReadAll_Unchecked"   />
+                    <CheckBox x:Name="chk_WriteAll" Content="All" Foreground="White" VerticalAlignment="Top"  Width="45" Margin="2,0,0,0" Checked="chk_WriteAll_Checked" Unchecked="chk_WriteAll_Unchecked"/>
+                    <CheckBox x:Name="chk_EditAll" Content="All" Foreground="White" VerticalAlignment="Top"  Width="45" Margin="2,0,0,0" Checked="chk_EditAll_Checked" Unchecked="chk_EditAll_Unchecked"/>
+                    <CheckBox x:Name="chk_DeleteAll" Content="All" Foreground="White"  VerticalAlignment="Top"  Width="45" Margin="2,0,0,0" Checked="chk_DeleteAll_Checked" Unchecked="chk_DeleteAll_Unchecked" />
+                    <CheckBox x:Name="chk_CheckableAll" Content="All" Foreground="White" VerticalAlignment="Top"  Width="45" Margin="2,0,0,0" Checked="chk_CheckableAll_Checked" Unchecked="chk_CheckableAll_Unchecked" />
+                    <CheckBox x:Name="chk_ApprovableAll" Content="All" Foreground="White"  VerticalAlignment="Top"  Width="45" Margin="2,0,0,0" Checked="chk_ApprovableAll_Checked" Unchecked="chk_ApprovableAll_Unchecked" />
+                    <CheckBox x:Name="chk_PrintAll" Content="All" Foreground="White" VerticalAlignment="Top"  Width="45" Margin="5,0,0,0" Checked="chk_PrintAll_Checked" Unchecked="chk_PrintAll_Unchecked" />
+                    <CheckBox x:Name="chk_ReprintAll" Content="All" Foreground="White" VerticalAlignment="Top"  Width="45" Margin="5,0,0,0" Checked="chk_ReprintAll_Checked" Unchecked="chk_ReprintAll_Unchecked"  />
+                    <CheckBox x:Name="chk_ExportAll" Content="All" Foreground="White" VerticalAlignment="Top"  Width="45" Margin="2,0,0,0" Checked="chk_ExportAll_Checked" Unchecked="chk_ExportAll_Unchecked"  />
+                    <CheckBox x:Name="chk_ViewAll" Content="All" Foreground="White"  VerticalAlignment="Top"  Width="45" Margin="2,0,0,0" Checked="chk_ViewAll_Checked" Unchecked="chk_ViewAll_Unchecked" />
+                </StackPanel>
+            </Grid>
+            <GridSplitter Background="#D5D5D5" x:Name="gridSplitter" Width="5" HorizontalAlignment="Stretch" Grid.Column="1" Margin="0,1,0,-1"  />
+            <Grid Grid.Column="2" Margin="10,0,0,0" >
+                <StackPanel>
+                    <SEACC_WPFControls:SEACC_LableTextBox  x:Name="txtUserID" Caption="User Name" MouseDoubleClick="txtUserID_MouseDoubleClick" />
+                    <SEACC_WPFControls:SEACC_LableTextBox x:Name="txtModule" Caption="Module" MouseDoubleClick="txtCategory_MouseDoubleClick" />
+                    <SEACC_WPFControls:SEACC_LabelCheckBox x:Name="chkUIs" Caption="User Interfaces" IsChecked="True" checkBox_Checked="chkUIs_checkBox_Checked" />
+                    <SEACC_WPFControls:SEACC_LabelCheckBox x:Name="chkReports" Caption="Reports" IsChecked="True" checkBox_Checked="chkReports_checkBox_Checked" />
+                    <SEACC_WPFControls:SEACC_Button x:Name="btn_Load"  Height="25" Content="Load" FontSize="15" HorizontalAlignment="Left" Margin="125,25,0,0" FontWeight="Thin" Width="150" Background="#FF0091EA" BorderBrush="White" Foreground="White" Click="btn_Load_Click"  />
+                </StackPanel>
+            </Grid>
+        </Grid>
+    </SEACC_WPFControls1:SEACC_Form>
+</UserControl>

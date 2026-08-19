@@ -1,0 +1,45 @@
+﻿<UserControl x:Name="userControl" x:Class="SEACC_WPFControls.ChatLine"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             mc:Ignorable="d"  Padding="3" Loaded="userControl_Loaded">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="26"/>
+            <ColumnDefinition Width="279*"/>
+        </Grid.ColumnDefinitions>
+        <Grid x:FieldModifier="public" x:Name="grd_picture" Background="#FF44AFC7" Width="20" Height="20"  VerticalAlignment="Top" HorizontalAlignment="Left" Margin="2,2,0,0" >
+            <Image  x:FieldModifier="public" x:Name="PbxUser" Stretch="Fill" Source="{Binding UserImage, ElementName=userControl}"/>
+        </Grid>
+        <Grid  Grid.Column="1">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+            <Grid Name="Grd_Messege"  Grid.Row="0">
+                <Grid Background="#FF97B9D6" Height="38" Width="52"  VerticalAlignment="Top" HorizontalAlignment="Left" RenderTransformOrigin="0.5,0.5" Margin="49,0,0,0"   >
+                    <Grid.RenderTransform>
+                        <TransformGroup>
+                            <ScaleTransform/>
+                            <SkewTransform AngleX="67"/>
+                            <RotateTransform/>
+                            <TranslateTransform/>
+                        </TransformGroup>
+                    </Grid.RenderTransform>
+
+                </Grid>
+                <Grid Margin="35,0,0,0" >
+                    <Rectangle Fill="#FF97B9D6" RadiusY="6" RadiusX="6"/>
+
+                    <Grid Background="#FF97B9D6" Margin="2">
+                        <TextBlock x:Name="txt_1" Text="{Binding text, ElementName=userControl}" Margin="4,1,1,1" TextWrapping="Wrap" FontSize="11" MinWidth="100"/>
+                    </Grid>
+                </Grid>
+            </Grid>
+            <StackPanel Grid.Row="1">
+                <Image Source="{Binding sticker, ElementName=userControl}" Width="100" HorizontalAlignment="Left"/>
+            </StackPanel>
+        </Grid>
+    </Grid>
+</UserControl>

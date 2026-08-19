@@ -1,0 +1,414 @@
+﻿<Window x:Name="frmMain" x:Class="SEACC_WPFControls.frm_LandingPage"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:SEACC_WPFControls"
+        xmlns:Themes="clr-namespace:Microsoft.Windows.Themes;assembly=PresentationFramework.Aero" 
+        mc:Ignorable="d" Title="SEACC Landing Page" Background="#FFD1CFD0"  ResizeMode="CanResizeWithGrip" WindowStyle="None" WindowStartupLocation="Manual"  AllowsTransparency="True"   StateChanged="Window_StateChanged"  Loaded="Window_Loaded"  Height="760" Width="1366" FontWeight="Thin" SizeChanged="Window_SizeChanged" PreviewMouseDown="Window_PreviewMouseDown" >
+    <Window.Resources>
+
+        <BooleanToVisibilityConverter x:Key="BooleanToVisibilityConverter" />
+
+        <Style x:Key="TabItemFocusVisual">
+            <Setter Property="Control.Template">
+                <Setter.Value>
+                    <ControlTemplate>
+                        <Rectangle Margin="3,3,3,1" SnapsToDevicePixels="true" Stroke="{DynamicResource {x:Static SystemColors.ControlTextBrushKey}}" StrokeThickness="1" StrokeDashArray="1 2"/>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+        
+        <Style x:Key="TabItemStyle1" TargetType="{x:Type TabItem}">
+            <Setter Property="FocusVisualStyle" Value="{StaticResource TabItemFocusVisual}"/>
+            <Setter Property="Foreground" Value="Black"/>
+            <Setter Property="Padding" Value="6,1,6,1"/>
+            <Setter Property="BorderBrush" Value="#FFD1D1D1"/>
+            <Setter Property="Background" Value="#FFF9F9F9"/>
+            <Setter Property="HorizontalContentAlignment" Value="Stretch"/>
+            <Setter Property="VerticalContentAlignment" Value="Stretch"/>
+
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="{x:Type TabItem}">
+                        <Grid SnapsToDevicePixels="true">
+                            <Grid.ContextMenu>
+                                <ContextMenu>
+                                    <MenuItem Header="Close" Click="MenuItemClose_Click" />
+                                    <MenuItem Header="Close All" Click="MenuItemCloseAll_Click"/>
+                                    <MenuItem Header="Close All But This" Click="MenuItemCloseAllbutThis_Click" />
+                                </ContextMenu>
+                            </Grid.ContextMenu>
+                            <Border x:Name="Bd" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="1,1,1,0" Background="{TemplateBinding Background}" Padding="{TemplateBinding Padding}">
+                                <Grid Margin="0" >
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="*"/>
+                                        <ColumnDefinition Width="15"/>
+                                    </Grid.ColumnDefinitions>
+
+                                    <ContentPresenter x:Name="Content" Grid.Column="0" ContentSource="Header" HorizontalAlignment="{Binding HorizontalContentAlignment, RelativeSource={RelativeSource AncestorType={x:Type ItemsControl}}}" RecognizesAccessKey="True" SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" VerticalAlignment="{Binding VerticalContentAlignment, RelativeSource={RelativeSource AncestorType={x:Type ItemsControl}}}"/>
+                                    <local:SEACC_Button x:Name="close" Grid.Column="1" Content="&#xE8BB;" FontFamily="Segoe MDL2 Assets" Click="btnTabClose_Click" FontSize="6" BorderBrush="{x:Null}" Foreground="#FF6A6A6A" Background="Transparent" Margin="1,1,-3,1" VerticalAlignment="Stretch"  />
+
+                                </Grid>
+                            </Border>
+                        </Grid>
+                        <ControlTemplate.Triggers>
+
+                            <Trigger Property="IsMouseOver" Value="true">
+                                <Setter Property="Background" TargetName="Bd" Value="#FF4F93D1"/>
+                            </Trigger>
+                            <Trigger Property="IsSelected" Value="true">
+                                <Setter Property="Background" TargetName="Bd" Value="#FF2A82D1"/>
+                            </Trigger>
+                            <MultiTrigger>
+                                <MultiTrigger.Conditions>
+                                    <Condition Property="IsSelected" Value="false"/>
+                                    <Condition Property="IsMouseOver" Value="true"/>
+                                </MultiTrigger.Conditions>
+
+                            </MultiTrigger>
+                            <Trigger Property="TabStripPlacement" Value="Bottom">
+                                <Setter Property="BorderThickness" TargetName="Bd" Value="1,0,1,1"/>
+                            </Trigger>
+                            <Trigger Property="TabStripPlacement" Value="Left">
+                                <Setter Property="BorderThickness" TargetName="Bd" Value="1,1,0,1"/>
+                            </Trigger>
+                            <Trigger Property="TabStripPlacement" Value="Right">
+                                <Setter Property="BorderThickness" TargetName="Bd" Value="0,1,1,1"/>
+                            </Trigger>
+                            <MultiTrigger>
+                                <MultiTrigger.Conditions>
+                                    <Condition Property="IsSelected" Value="true"/>
+                                    <Condition Property="TabStripPlacement" Value="Top"/>
+                                </MultiTrigger.Conditions>
+                                <Setter Property="Margin" Value="-2,-2,-2,-1"/>
+                                <Setter Property="Margin" TargetName="Content" Value="0,0,0,1"/>
+                            </MultiTrigger>
+                            <MultiTrigger>
+                                <MultiTrigger.Conditions>
+                                    <Condition Property="IsSelected" Value="true"/>
+                                    <Condition Property="TabStripPlacement" Value="Bottom"/>
+                                </MultiTrigger.Conditions>
+                                <Setter Property="Margin" Value="-2,-1,-2,-2"/>
+                                <Setter Property="Margin" TargetName="Content" Value="0,1,0,0"/>
+                            </MultiTrigger>
+                            <MultiTrigger>
+                                <MultiTrigger.Conditions>
+                                    <Condition Property="IsSelected" Value="true"/>
+                                    <Condition Property="TabStripPlacement" Value="Left"/>
+                                </MultiTrigger.Conditions>
+                                <Setter Property="Margin" Value="-2,-2,-1,-2"/>
+                                <Setter Property="Margin" TargetName="Content" Value="0,0,1,0"/>
+                            </MultiTrigger>
+                            <MultiTrigger>
+                                <MultiTrigger.Conditions>
+                                    <Condition Property="IsSelected" Value="true"/>
+                                    <Condition Property="TabStripPlacement" Value="Right"/>
+                                </MultiTrigger.Conditions>
+                                <Setter Property="Margin" Value="-1,-2,-2,-2"/>
+                                <Setter Property="Margin" TargetName="Content" Value="1,0,0,0"/>
+                            </MultiTrigger>
+                            <Trigger Property="IsEnabled" Value="false">
+                                <Setter Property="Foreground" Value="{DynamicResource {x:Static SystemColors.GrayTextBrushKey}}"/>
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+
+        <!--Scrollbar Thumbs-->
+        <Style x:Key="ScrollThumbs" TargetType="{x:Type Thumb}">
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="{x:Type Thumb}">
+                        <Grid x:Name="Grid">
+                            <Rectangle HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Width="Auto" Height="Auto" Fill="Transparent" />
+                            <Border x:Name="Rectangle1" CornerRadius="0" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Width="5" Height="Auto"  Background="{TemplateBinding Background}" />
+                        </Grid>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="Tag" Value="Horizontal">
+                                <Setter TargetName="Rectangle1" Property="Width" Value="Auto" />
+                                <Setter TargetName="Rectangle1" Property="Height" Value="7" />
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+
+        <!--ScrollBars-->
+        <Style x:Key="ScrollBar" TargetType="{x:Type ScrollBar}">
+            <Setter Property="Background" Value="#1E000000"/>
+            <Setter Property="Stylus.IsPressAndHoldEnabled" Value="false"/>
+            <Setter Property="Stylus.IsFlicksEnabled" Value="false"/>
+            <Setter Property="Foreground" Value="{DynamicResource {x:Static SystemColors.ControlTextBrushKey}}"/>
+            <Setter Property="Width" Value="{DynamicResource {x:Static SystemParameters.VerticalScrollBarWidthKey}}"/>
+            <Setter Property="MinWidth" Value="{DynamicResource {x:Static SystemParameters.VerticalScrollBarWidthKey}}"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="{x:Type ScrollBar}">
+                        <Grid x:Name="Bg" Background="{TemplateBinding Background}" SnapsToDevicePixels="true">
+                            <Grid.RowDefinitions>
+                                <RowDefinition MaxHeight="{DynamicResource {x:Static SystemParameters.VerticalScrollBarButtonHeightKey}}"/>
+                                <RowDefinition Height="0.00001*"/>
+                                <RowDefinition MaxHeight="{DynamicResource {x:Static SystemParameters.VerticalScrollBarButtonHeightKey}}"/>
+                            </Grid.RowDefinitions>
+                            <RepeatButton Command="{x:Static ScrollBar.LineUpCommand}" Content="&#xE014;"  IsEnabled="{TemplateBinding IsMouseOver}" Style="{StaticResource ScrollBarButton}" Themes:ScrollChrome.ScrollGlyph="UpArrow"  />
+                            <Track x:Name="PART_Track" IsDirectionReversed="true" IsEnabled="{TemplateBinding IsMouseOver}" Grid.Row="1">
+                                <Track.DecreaseRepeatButton>
+                                    <RepeatButton Command="{x:Static ScrollBar.PageUpCommand}" Style="{StaticResource VerticalScrollBarPageButton}"/>
+                                </Track.DecreaseRepeatButton>
+                                <Track.IncreaseRepeatButton>
+                                    <RepeatButton Command="{x:Static ScrollBar.PageDownCommand}" Style="{StaticResource VerticalScrollBarPageButton}"/>
+                                </Track.IncreaseRepeatButton>
+                                <Track.Thumb>
+                                    <Thumb Style="{StaticResource ScrollBarThumb}" Themes:ScrollChrome.ScrollGlyph="VerticalGripper"/>
+                                </Track.Thumb>
+                            </Track>
+                            <RepeatButton Command="{x:Static ScrollBar.LineDownCommand}" IsEnabled="{TemplateBinding IsMouseOver}" Grid.Row="2" Style="{StaticResource ScrollBarButton}" Themes:ScrollChrome.ScrollGlyph="DownArrow" Content="&#xE015;"/>
+                        </Grid>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsEnabled" Value="false">
+                                <Setter Property="Background" TargetName="Bg" Value="red"/>
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+            <Style.Triggers>
+                <Trigger Property="IsMouseOver" Value="True">
+                    <Setter Property="Background" Value="#4C000000"/>
+                </Trigger>
+                <Trigger Property="Orientation" Value="Horizontal">
+                    <Setter Property="Width" Value="Auto"/>
+                    <Setter Property="MinWidth" Value="0"/>
+                    <Setter Property="Height" Value="{DynamicResource {x:Static SystemParameters.HorizontalScrollBarHeightKey}}"/>
+                    <Setter Property="MinHeight" Value="{DynamicResource {x:Static SystemParameters.HorizontalScrollBarHeightKey}}"/>
+                    <Setter Property="Template">
+                        <Setter.Value>
+                            <ControlTemplate TargetType="{x:Type ScrollBar}">
+                                <Grid x:Name="Bg" Background="{TemplateBinding Background}" SnapsToDevicePixels="true">
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition MaxWidth="{DynamicResource {x:Static SystemParameters.HorizontalScrollBarButtonWidthKey}}"/>
+                                        <ColumnDefinition Width="0.00001*"/>
+                                        <ColumnDefinition MaxWidth="{DynamicResource {x:Static SystemParameters.HorizontalScrollBarButtonWidthKey}}"/>
+                                    </Grid.ColumnDefinitions>
+                                    <RepeatButton Command="{x:Static ScrollBar.LineLeftCommand}" IsEnabled="{TemplateBinding IsMouseOver}" Style="{StaticResource ScrollBarButton}" Themes:ScrollChrome.ScrollGlyph="LeftArrow"/>
+                                    <Track x:Name="PART_Track" Grid.Column="1" IsEnabled="{TemplateBinding IsMouseOver}">
+                                        <Track.DecreaseRepeatButton>
+                                            <RepeatButton Command="{x:Static ScrollBar.PageLeftCommand}" Style="{StaticResource HorizontalScrollBarPageButton}"/>
+                                        </Track.DecreaseRepeatButton>
+                                        <Track.IncreaseRepeatButton>
+                                            <RepeatButton Command="{x:Static ScrollBar.PageRightCommand}" Style="{StaticResource HorizontalScrollBarPageButton}"/>
+                                        </Track.IncreaseRepeatButton>
+                                        <Track.Thumb>
+                                            <Thumb Style="{StaticResource ScrollBarThumb}" Themes:ScrollChrome.ScrollGlyph="HorizontalGripper"/>
+                                        </Track.Thumb>
+                                    </Track>
+                                    <RepeatButton Grid.Column="2" Command="{x:Static ScrollBar.LineRightCommand}" IsEnabled="{TemplateBinding IsMouseOver}" Style="{StaticResource ScrollBarButton}" Themes:ScrollChrome.ScrollGlyph="RightArrow"/>
+                                </Grid>
+                                <ControlTemplate.Triggers>
+                                    <Trigger Property="IsEnabled" Value="false">
+                                        <Setter Property="Background" TargetName="Bg" Value="red"/>
+                                    </Trigger>
+                                </ControlTemplate.Triggers>
+                            </ControlTemplate>
+                        </Setter.Value>
+                    </Setter>
+                </Trigger>
+            </Style.Triggers>
+        </Style>
+
+
+
+        <!--<Style x:Key="{x:Type ScrollBar}" TargetType="{x:Type ScrollBar}">
+            <Setter Property="Stylus.IsFlicksEnabled" Value="false" />
+            <Setter Property="Foreground" Value="LightGray" />
+            <Setter Property="Background" Value="#FF535353" />
+            <Setter Property="Width" Value="10" />
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="{x:Type ScrollBar}">
+                        <Grid x:Name="GridRoot" Width="19" Background="{TemplateBinding Background}">
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="0.00001*" />
+                            </Grid.RowDefinitions>
+
+                            <Track x:Name="PART_Track" Grid.Row="0" IsDirectionReversed="true" Focusable="false">
+                                <Track.Thumb>
+                                    <Thumb x:Name="Thumb" Background="{TemplateBinding Foreground}" Style="{DynamicResource ScrollThumbs}" />
+                                </Track.Thumb>
+                                <Track.IncreaseRepeatButton>
+                                    <RepeatButton x:Name="PageUp" Command="ScrollBar.PageDownCommand" Opacity="0" Focusable="false" />
+                                </Track.IncreaseRepeatButton>
+                                <Track.DecreaseRepeatButton>
+                                    <RepeatButton x:Name="PageDown" Command="ScrollBar.PageUpCommand" Opacity="0" Focusable="false" />
+                                </Track.DecreaseRepeatButton>
+                            </Track>
+                        </Grid>
+
+                        <ControlTemplate.Triggers>
+                            <Trigger SourceName="Thumb" Property="IsMouseOver" Value="true">
+                                <Setter Value="{DynamicResource ButtonSelectBrush}" TargetName="Thumb" Property="Background" />
+                            </Trigger>
+                            <Trigger SourceName="Thumb" Property="IsDragging" Value="true">
+                                <Setter Value="{DynamicResource DarkBrush}" TargetName="Thumb" Property="Background" />
+                            </Trigger>
+
+                            <Trigger Property="IsEnabled" Value="false">
+                                <Setter TargetName="Thumb" Property="Visibility" Value="Collapsed" />
+                            </Trigger>
+                            <Trigger Property="Orientation" Value="Horizontal">
+                                <Setter TargetName="GridRoot" Property="LayoutTransform">
+                                    <Setter.Value>
+                                        <RotateTransform Angle="-90" />
+                                    </Setter.Value>
+                                </Setter>
+                                <Setter TargetName="PART_Track" Property="LayoutTransform">
+                                    <Setter.Value>
+                                        <RotateTransform Angle="-90" />
+                                    </Setter.Value>
+                                </Setter>
+                                <Setter Property="Width" Value="Auto" />
+                                <Setter Property="Height" Value="12" />
+                                <Setter TargetName="Thumb" Property="Tag" Value="Horizontal" />
+                                <Setter TargetName="PageDown" Property="Command" Value="ScrollBar.PageLeftCommand" />
+                                <Setter TargetName="PageUp" Property="Command" Value="ScrollBar.PageRightCommand" />
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>-->
+
+        <DataTemplate x:Key="DataTemplate1">
+            <Grid Background="#FF92B4F0" Height="2" VerticalAlignment="Top"></Grid>
+        </DataTemplate>
+    </Window.Resources>
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="25"/>
+        </Grid.RowDefinitions>
+
+        <Grid Grid.Row="0" >
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition x:Name="columnA" Width="200"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+
+            <Grid Grid.Column="0">
+                <Grid.Effect>
+                    <DropShadowEffect/>
+                </Grid.Effect>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="70"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="100"/>
+                </Grid.RowDefinitions>
+
+                <Grid x:Name="grdSEACC" Grid.Row="0" Background="#FF394264" x:FieldModifier="public" >
+                    <Grid HorizontalAlignment="Left" >
+                        <Grid HorizontalAlignment="Left" >
+                            <Image Height="26"  VerticalAlignment="Top" Source="digiteq_Logo.png" Margin="-2,24,0,0" RenderTransformOrigin="0.5,0.5" HorizontalAlignment="Left" Width="46" Visibility="Hidden">
+                                <Image.RenderTransform>
+                                    <TransformGroup>
+                                        <ScaleTransform/>
+                                        <SkewTransform/>
+                                        <RotateTransform Angle="-90"/>
+                                        <TranslateTransform/>
+                                    </TransformGroup>
+                                </Image.RenderTransform>
+                            </Image>
+                            <Label Content="R2" Foreground="Yellow" HorizontalAlignment="Left"  VerticalAlignment="Top" Margin="170,6,-26,0" RenderTransformOrigin="0.5,0.5" FontSize="15" Width="26" Visibility="Hidden"/>
+                            <Label Content="SEACC" FontFamily="Colonna MT" FontSize="48" Foreground="Red"  HorizontalAlignment="Left" VerticalAlignment="Top" Margin="26,7,0,0" Visibility="Hidden" >
+                                <Label.Effect>
+                                    <DropShadowEffect Color="White" Direction="340" ShadowDepth="1" BlurRadius="2"/>
+                                </Label.Effect>
+                            </Label>
+                        </Grid>
+                    </Grid>
+
+                </Grid>
+                <Grid x:Name="grdMenu" Grid.Row="1" Background="#FF394264" x:FieldModifier="public">
+
+                    <StackPanel>
+
+                        <Label x:Name="lblMenuHide" Width="25" Height="25" VerticalAlignment="Bottom"  HorizontalAlignment="Right" BorderBrush="{x:Null}" Foreground="{x:Null}" MouseLeftButtonUp="lblMenuHide_MouseLeftButtonUp" >
+                            <Label.Background>
+                                <ImageBrush ImageSource="/SEACC_WPFControls;component/Resources/Menu-32.png" Stretch="Uniform"/>
+                            </Label.Background>
+                        </Label>
+                        <Label x:Name="lblMenuVisible" Width="25" Height="25" VerticalAlignment="Bottom"  HorizontalAlignment="Right" BorderBrush="{x:Null}" Foreground="{x:Null}" Visibility="Collapsed" MouseLeftButtonUp="lblMenuHide_MouseLeftButtonUp" >
+                            <Label.Background>
+                                <ImageBrush ImageSource="/SEACC_WPFControls;component/Resources/Menu 2-32.png" Stretch="Uniform"/>
+                            </Label.Background>
+                        </Label>
+
+                        <StackPanel x:Name="grd_modules"/>
+
+                        <!--Reports-->
+                        <Expander Foreground="#FF0096D6" FontSize="20" Header="Reports" HorizontalAlignment="Left" Margin="3,7,0,0" VerticalAlignment="Top" Width="295" Background="{x:Null}">
+                            <StackPanel  x:Name="aa"  >
+                                <local:SEACC_Button Background="#666666" HorizontalContentAlignment="Left" FontSize="13" Height="33" Content="Reports" Foreground="White" x:Name="Reports" Click="Reports_Click"  />
+                                <local:SEACC_Button Background="#666666" HorizontalContentAlignment="Left" FontSize="13" Height="33" Content="Reports-PF" Foreground="White" x:Name="Reports2" Click="Reports2_Click" Visibility="Collapsed"  />
+                            </StackPanel>
+                        </Expander>
+                        <!--Expanders-->
+                    </StackPanel>
+
+
+                </Grid>
+                <Grid Grid.Row="2" Background="White">
+                    <Image x:Name="img_Company" OpacityMask="Black"  />
+                    <!--Source="/SEACC_WPFControls;component/ez_logo.png"-->
+
+                </Grid>
+
+            </Grid>
+
+            <Grid Grid.Column="1">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="45"/>
+                    <RowDefinition Height="*"/>
+                </Grid.RowDefinitions>
+
+                <Grid Grid.Row="0" x:Name="GRD_Titlebar"  MouseDown="GRD_Titlebar_MouseDown" Background="#FF394264" x:FieldModifier="public" >
+                    <Grid  x:Name="GRD_ControlBox" HorizontalAlignment="Right">
+                        <local:SEACC_Button_Close x:Name="btnClose" Content="&#xE8BB;" HorizontalAlignment="Right" Width="30" FontFamily="Segoe MDL2 Assets"  Click="btnClose_Click" />
+                        <local:SEACC_Button x:Name="btnRestore" Content="&#xE923;"  HorizontalAlignment="Right" Width="30" FontFamily="Segoe MDL2 Assets" Foreground="#FF9F9C9C" Background="{x:Null}" BorderBrush="{x:Null}" Margin="0,0,30,0" Click="btnRestore_Click" />
+                        <local:SEACC_Button x:Name="btnMinimize" Content="&#xE921;" HorizontalAlignment="Right" Width="30" FontFamily="Segoe MDL2 Assets" Foreground="#FF9F9C9C"  Background="{x:Null}" BorderBrush="{x:Null}" Margin="0,0,60,0" Click="btnMinimize_Click"/>
+                        <local:SEACC_Button x:Name="btnAbout"  Content="&#xE946;" FontFamily="Segoe MDL2 Assets" Foreground="#FF9F9C9C" BorderBrush="{x:Null}" Margin="0,0,90,0" Background="#19FFFFFF" Click="btnAbout_Click" FontSize="20" HorizontalAlignment="Right" Width="30" />
+                        <local:SEACC_Button x:Name="btnHelp"  Content="&#xE11B;" HorizontalAlignment="Right" Width="30" FontFamily="Segoe MDL2 Assets" Foreground="#FF9F9C9C" BorderBrush="{x:Null}" Margin="0,0,120,0" Background="#19FFFFFF" Click="btnHelp_Click" FontSize="16" />
+                        <local:SEACC_Button x:Name="btnLogout" x:FieldModifier="public" Content="&#xE7E8;"  HorizontalAlignment="Right" Width="30" FontFamily="Segoe MDL2 Assets" Foreground="#FF935353" Background="{x:Null}" FontSize="18" Margin="0,0,150,0" BorderBrush="{x:Null}" Click="btnLogout_Click"  />
+                        <local:SEACC_Button x:Name="btnUserSettings" Content="&#xE713;"  HorizontalAlignment="Right" Width="30" FontFamily="Segoe MDL2 Assets" Foreground="#FF935353" Background="{x:Null}" FontSize="18" Margin="0,0,180,0" BorderBrush="{x:Null}" Visibility="Collapsed" Click="btnUserSettings_Click"/>
+                        <local:SEACC_UserIndicator x:Name="usrIndicator"  Height="34" Width="173" UserName="Anoj Thilina" Foreground="White"  HorizontalAlignment="Right" Margin="0,6,210,5" x:FieldModifier="public" Background="#FF394264" />
+                    </Grid>
+
+                    <local:Clock Margin="5,-8,0,3" Height="Auto" Background="{x:Null}" FontSize="8" Foreground="#FF9F9C9C" HorizontalAlignment="Left" Width="208" />
+                </Grid>
+                <Grid Grid.Row="1"  x:Name="rightPanal" VerticalAlignment="Stretch" Background="White" GotFocus="rightPanal_GotFocus"  >
+                    <TabControl x:Name="MDI" BorderBrush="{x:Null}" Background="{x:Null}"   />
+                </Grid>
+
+                <Grid x:Name="grd_popSubMenus" Grid.Row="1" OpacityMask="#FF535353" Width="310"  HorizontalAlignment="Left"  Visibility="Visible" >
+                    <Grid Background="#FF535353">
+                        <ScrollViewer VerticalScrollBarVisibility="Auto" Background="#FF535353" LostFocus="grd_popSubMenus_LostFocus"  >
+                            <Grid>
+                                <local:SEACC_Button_Close  Content="&#xE8BB;" VerticalAlignment="Top" HorizontalAlignment="Right" Width="30" FontFamily="Segoe MDL2 Assets" Margin="0,10,0,678" Click="SEACC_Button_Close_Click" />
+                                <StackPanel x:Name="stkp_submodules" />
+                            </Grid>
+                        </ScrollViewer>
+                    </Grid>
+                </Grid>
+            </Grid>
+
+        </Grid>
+
+        <StatusBar Grid.Row="1" x:Name="Status_Bar" Background="#FFF26322">
+            <TextBlock   Text="© ###"  Foreground="#E8E8E8" />
+        </StatusBar>
+    </Grid>
+</Window>

@@ -1,0 +1,16 @@
+﻿<UserControl
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+            xmlns:local="clr-namespace:Digiteq" x:Class="Digiteq.wj_memo" 
+            mc:Ignorable="d" Background="#FFB04444"  Width="325.525" Height="367.328"  >
+    <Grid>
+        <Border BorderBrush="White" BorderThickness="1" Margin="5">
+            <Border.Effect>
+                <DropShadowEffect BlurRadius="10" ShadowDepth="10"/>
+            </Border.Effect>
+        </Border>
+
+    </Grid>
+</UserControl>

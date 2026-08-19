@@ -1,0 +1,37 @@
+﻿<UserControl x:Class="Digiteq.UC_AttendanceProcessPeriod"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:SEACC_WPFControls="clr-namespace:SEACC_WPFControls;assembly=SEACC_WPFControls" 
+              xmlns:SEACC_WPFControls1="clr-namespace:SEACC_WPFControls"
+             xmlns:local="clr-namespace:Digiteq"
+             mc:Ignorable="d" Background="#FFFFFF">
+
+    <SEACC_WPFControls1:SEACC_Form x:Name="SEACC_Form" >
+        <Grid Margin="15,10,0,50">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Name="coloumnA" Width="550" />
+                <ColumnDefinition Width="5" />
+                <ColumnDefinition Width="*" />
+            </Grid.ColumnDefinitions>
+
+            <SEACC_WPFControls:SEACC_DataGrid_Advanced x:Name="dgr_Main"  Margin="0,0,5,0" MouseLeftButtonUp1="dgr_Main_MouseLeftButtonUp1" />
+            <GridSplitter Grid.Column="1" Width="5" HorizontalAlignment="Stretch" />
+
+            <Grid Grid.Column="2">
+                <ScrollViewer VerticalScrollBarVisibility="Auto"  >
+                    <StackPanel>
+                        <SEACC_WPFControls:SEACC_LableTextBox x:Name="txtAttenProcessGroup"  Caption="Process Group" MouseDoubleClick="txtAttenProcessGroup_MouseDoubleClick" />
+                        <SEACC_WPFControls:SEACC_LableTextBox x:Name="txtAttenProcessPeriod"  Caption="Process Period" MouseDoubleClick="txtAttenProcessPeriod_MouseDoubleClick"  />
+                        <SEACC_WPFControls:SEACC_LabelTimeSelector x:Name="dtpStartDate" Caption="Start date" ShowDate="Visible" ShowTime="Hidden" />
+                        <SEACC_WPFControls:SEACC_LabelTimeSelector x:Name="dtpEndDate" Caption="End Date" ShowDate="Visible" ShowTime="Hidden"/>
+                        <SEACC_WPFControls:SEACC_LableTextBox x:Name="txtAttenProcessPeriodTitle" Caption="Process Period Title" />
+                        <SEACC_WPFControls:SEACC_LabelCheckBox x:Name="chkIsClosedPeriod" Caption="Closed Period" IsChecked="True" Visibility="Collapsed" />
+                    </StackPanel>
+                </ScrollViewer>
+            </Grid> 
+        </Grid>
+    </SEACC_WPFControls1:SEACC_Form>
+    
+</UserControl>

@@ -1,0 +1,131 @@
+﻿<Window x:Class="SEACC_FACTORING.frm_ScheduleCheques_Viewer"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:local="clr-namespace:SEACC_FACTORING"
+        xmlns:SEACC_WPFControls="clr-namespace:SEACC_WPFControls;assembly=SEACC_WPFControls" 
+        xmlns:SEACC_WPFControls_Local="clr-namespace:SEACC_FACTORING.UserControls"
+        Title="frm_ScheduleCheques_Viewer" WindowStartupLocation="CenterScreen" Width="760" Height="480"  AllowsTransparency="True" Background="{x:Null}"  WindowStyle="None" Loaded="Window_Loaded">
+
+    <Grid x:Name="Main" Margin="10" Background="White">
+        <Grid.Effect>
+            <DropShadowEffect BlurRadius="10" Opacity="0.5"/>
+        </Grid.Effect>
+        <Grid.RowDefinitions>
+                <RowDefinition Height="30"/>
+                <RowDefinition />
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Name="coloumnA"/>
+            </Grid.ColumnDefinitions>
+            <Grid Grid.Row="0" Background="#FF515151" MouseLeftButtonDown="Grid_MouseLeftButtonDown">
+            <Label FontSize="16" Content="Factoring Schedule Viewer" Foreground="#FFF49F6D" Margin="0,0,0,0" VerticalAlignment="Center" />
+            <SEACC_WPFControls:SEACC_Button_Close x:Name="btn_Close2" Content="&#xE8BB;" FontFamily="Segoe MDL2 Assets" Margin="10,5,5,0" FontSize="10" Click="btn_Close2_Click" Height="22" Width="22" HorizontalAlignment="Right"  VerticalAlignment="Top"/>
+        </Grid>
+            <StackPanel Grid.Row="1" Grid.Column="0" Margin="10,0">
+            <Border  BorderThickness="1" Margin="0,0,0,10">
+                <Border.Effect>
+                    <DropShadowEffect Opacity="0.1" BlurRadius="10"/>
+                </Border.Effect>
+                <Grid Margin="0,5" >
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
+                    <Grid Grid.Column="1" Margin="6,10,0,0">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="110"/>
+                            <ColumnDefinition Width="5"/>
+                            <ColumnDefinition Width="40*"/>
+                        </Grid.ColumnDefinitions>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="18"/>
+                            <RowDefinition Height="18"/>
+                        </Grid.RowDefinitions>
+
+                        <TextBlock Grid.Row="0" Grid.Column="0"  Text="Credit Limit"/>
+                        <TextBlock Grid.Row="1" Grid.Column="0"  Text="Available Credit"/>
+
+                        <TextBlock Grid.Row="0" Grid.Column="1" Text=":"/>
+                        <TextBlock Grid.Row="1" Grid.Column="1" Text=":"/>
+
+                        <TextBlock Grid.Row="0" Grid.Column="2" Text="-" Name="lblCreditLimit"/>
+                        <TextBlock Grid.Row="1" Grid.Column="2" Text="-" Name="lblAvailableCredit" />
+                    </Grid>
+                    <Grid Grid.Column="0" Margin="6,10,0,0">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="110"/>
+                            <ColumnDefinition Width="5"/>
+                            <ColumnDefinition Width="40*"/>
+                        </Grid.ColumnDefinitions>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="18"/>
+                            <RowDefinition Height="18"/>
+                            <RowDefinition Height="18"/>
+                            <RowDefinition Height="18"/>
+                            <RowDefinition Height="18"/>
+                        </Grid.RowDefinitions>
+                        <TextBlock Grid.Row="0" Grid.Column="0"  Text="Agreement Code"/>
+                        <TextBlock Grid.Row="1" Grid.Column="0"  Text="Bank"/>
+                        <TextBlock Grid.Row="2" Grid.Column="0"  Text="branch"/>
+                        <TextBlock Grid.Row="3" Grid.Column="0"  Text="Factoring Acc."/>
+                        <TextBlock Grid.Row="4" Grid.Column="0"  Text="Interest Rate."/>
+
+                        <TextBlock Grid.Row="0" Grid.Column="1" Text=":"/>
+                        <TextBlock Grid.Row="1" Grid.Column="1" Text=":"/>
+                        <TextBlock Grid.Row="2" Grid.Column="1" Text=":"/>
+                        <TextBlock Grid.Row="3" Grid.Column="1" Text=":"/>
+                        <TextBlock Grid.Row="4" Grid.Column="1" Text=":"/>
+
+                        <TextBlock Grid.Row="0" Grid.Column="2" Text="-" Name="lblAgreementCode" />
+                        <TextBlock Grid.Row="1" Grid.Column="2" Text="-" Name="lblbank"/>
+                        <TextBlock Grid.Row="2" Grid.Column="2" Text="-" Name="lblbranch"/>
+                        <TextBlock Grid.Row="3" Grid.Column="2" Text="-" Name="lblFactoringAccNo"/>
+                        <TextBlock Grid.Row="4" Grid.Column="2" Text="-" Name="lblInerestRate"/>
+                    </Grid>
+
+                </Grid>
+            </Border>
+            <Grid Margin="0,-45,0,0">
+                <SEACC_WPFControls:SEACC_DataGrid x:Name="dgvDetails" Margin="0,38,0,-8" Background="#FF515151" HeaderColor="#FFF49F6D" IsReadOnly="True" CanUserAddRows="False" Height="300">
+                    <SEACC_WPFControls:SEACC_DataGrid.Columns>
+                        <DataGridTextColumn Binding="{Binding ScheduleID ,Mode=TwoWay , UpdateSourceTrigger=PropertyChanged}"   Header="Schedule ID" Width="80"  />
+                        <DataGridTextColumn Binding="{Binding ScheduleDate ,Mode=TwoWay , UpdateSourceTrigger=PropertyChanged}"   Header="Schedule Date" Width="100"  />
+
+                        <DataGridTextColumn Binding="{Binding Cheque_NO ,Mode=TwoWay , UpdateSourceTrigger=PropertyChanged}"   Header="Cheque #" Width="70"  />
+                        <DataGridTextColumn Binding="{Binding Cheque_Date ,Mode=TwoWay , UpdateSourceTrigger=PropertyChanged}"   Header="Cheque Date" Width="100" />
+
+                        <!--<DataGridTextColumn Binding="{Binding Bank_ID ,Mode=TwoWay , UpdateSourceTrigger=PropertyChanged}"   Header="Bank ID" Width="110"   IsReadOnly="True" Visibility="Collapsed"/>-->
+                        <DataGridTextColumn Binding="{Binding Bank ,Mode=TwoWay , UpdateSourceTrigger=PropertyChanged}"   Header="Bank" Width="90"   IsReadOnly="True" />
+                        <!--<DataGridTextColumn Binding="{Binding Branch_ID ,Mode=TwoWay , UpdateSourceTrigger=PropertyChanged}"   Header="Branch ID" Width="110"   IsReadOnly="True" Visibility="Collapsed"/>-->
+                        <DataGridTextColumn Binding="{Binding Branch ,Mode=TwoWay , UpdateSourceTrigger=PropertyChanged}"   Header="Branch" Width="110"   IsReadOnly="True" />
+
+                        <DataGridTextColumn Binding="{Binding ChequeAmount ,Mode=TwoWay , UpdateSourceTrigger=PropertyChanged}"  Header="Amount" Width="90"   IsReadOnly="True" >
+                            <DataGridTextColumn.ElementStyle>
+                                <Style TargetType="TextBlock">
+                                    <Setter Property="HorizontalAlignment" Value="Right"/>
+                                    <Setter Property="Padding" Value="0,0,5,0"/>
+                                </Style>
+                            </DataGridTextColumn.ElementStyle>
+                        </DataGridTextColumn>
+                        <DataGridTextColumn Binding="{Binding FactoringRate ,Mode=TwoWay , UpdateSourceTrigger=PropertyChanged}"   Header="Rate" Width="50" IsReadOnly="True" >
+                            <DataGridTextColumn.ElementStyle>
+                                <Style TargetType="TextBlock">
+                                    <Setter Property="HorizontalAlignment" Value="Right"/>
+                                </Style>
+                            </DataGridTextColumn.ElementStyle>
+                        </DataGridTextColumn>
+                        <DataGridTextColumn Binding="{Binding FactoringAmount ,Mode=TwoWay , UpdateSourceTrigger=PropertyChanged}"   Header="Factoring Amount" Width="110" IsReadOnly="True">
+                            <DataGridTextColumn.ElementStyle>
+                                <Style TargetType="TextBlock">
+                                    <Setter Property="HorizontalAlignment" Value="Right"/>
+                                </Style>
+                            </DataGridTextColumn.ElementStyle>
+                        </DataGridTextColumn>
+
+                    </SEACC_WPFControls:SEACC_DataGrid.Columns>
+                </SEACC_WPFControls:SEACC_DataGrid>
+            </Grid>
+        </StackPanel>
+        </Grid>
+    
+</Window>

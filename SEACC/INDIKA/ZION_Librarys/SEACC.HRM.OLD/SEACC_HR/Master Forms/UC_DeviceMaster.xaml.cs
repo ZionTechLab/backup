@@ -1,0 +1,327 @@
+﻿using Digiteq_Logic;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using System.Windows;
+using System.Windows.Controls;
+using System.Windows.Data;
+using System.Windows.Documents;
+using System.Windows.Input;
+using System.Windows.Media;
+using System.Windows.Media.Imaging;
+using System.Windows.Navigation;
+using System.Windows.Shapes;
+using DataTire;
+using SEACC_WPFControls;
+using System.Data;
+
+namespace Digiteq
+{
+    /// <summary>
+    /// Interaction logic for UC_DeviceMaster.xaml
+    /// </summary>
+    public partial class UC_DeviceMaster : UserControl
+    {
+        #region Form Load
+        public UC_DeviceMaster()
+        {
+            #region Initialize Usercontrol
+            InitializeComponent();
+
+            SEACC_Form.enmFormName = FormName.Device_Creation;
+            SEACC_Form.Initialize(); 
+            #endregion
+
+            #region Initialize Data Table
+            dgr_Main.dt.Columns.Add("DeviceID");
+            dgr_Main.dt.Columns.Add("DeviceName");
+            dgr_Main.dt.Columns.Add("Description"); 
+            #endregion
+
+            #region Initialize Action Buttons
+            SEACC_Form.SetVisibility_ActionButons(true, false, true, true);
+            this.SEACC_Form.btn_New.Click += btn_New_Click;
+            this.SEACC_Form.btn_Save.Click += btn_Save_Click;
+            this.SEACC_Form.btn_Cancel.Click += btn_Cancel_Click; 
+            #endregion
+
+            #region Initialize Data Grid
+            dgr_Main.Add_DatagridColoumn("Device ID", "DeviceID", 70);
+            dgr_Main.Add_DatagridColoumn("Name", "DeviceName", 150);
+            dgr_Main.Add_DatagridColoumn("Description", "Description", 200);  
+            #endregion
+
+            ClearFields();
+            RefreshGrid();
+        }
+        #endregion
+
+        #region Form Responsive 
+        private void SEACC_Form_SizeChanged(object sender, SizeChangedEventArgs e)
+        {
+            if (SEACC_Form.ActualWidth < 850)
+                coloumnA.Width = new GridLength(210);
+            else
+                coloumnA.Width = new GridLength(470);
+        }
+        #endregion
+
+        #region Action Buttons
+        void btn_New_Click(object sender, RoutedEventArgs e)
+        {
+            ClearFields();
+        }
+
+        void btn_Cancel_Click(object sender, RoutedEventArgs e)
+        {
+            try
+            {
+                if (SEACC_Form.IsUpdateMode)
+                {
+                    if (txtDeviceID.Tag != null)
+                    {
+                        bool bMessegeBoxResult = SEACCMessageBox.Show(MessegeBoxType.Cancel_Confirmation);
+                        if (bMessegeBoxResult)
+                        {
+                            tbl_hrMasDevice detail = tbl_hrMasDevice.Select(txtDeviceID.Text.Trim());
+                            if (detail != null)
+                            {
+                                detail.IsCanceled = true;
+                                detail.UserID_Canceled = clsSecurity.UserIDLoged;
+                                detail.Date_Canceled = clsSecurity.getServerDateTime();
+                                detail.TerminalID_Canceled = clsSecurity.TerminalID;
+                                detail.Update();
+
+                                SEACCMessageBox.Show(MessegeBoxType.Successfully_Canceled);
+                                ClearFields();
+                                RefreshGrid();
+                            }
+                        }
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                SEACCExeption.Show(ex);
+            }
+        }
+
+        void btn_Print_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        void btn_Save_Click(object sender, RoutedEventArgs e)
+        {
+            if (CheckValidity())
+            {
+                try
+                {
+                    #region Update
+                    if (SEACC_Form.IsUpdateMode)
+                    {
+                        if (SEACC_Form.CheckPermisshion_ToUpdate())
+                        {
+                            tbl_hrMasDevice OldRecord = tbl_hrMasDevice.Select(txtDeviceID.Text.Trim());
+                            if (OldRecord != null)
+                            {
+                                tbl_hrMasDevice deatil = new tbl_hrMasDevice(txtDeviceID.Text.Trim(), txtDeviceName.Text, txtDescription.Text, OldRecord.IsCanceled, OldRecord.UserID_Created, clsSecurity.UserIDLoged, OldRecord.UserID_Canceled, OldRecord.TerminalID_Created, clsSecurity.TerminalID, OldRecord.TerminalID_Created, OldRecord.Date_Modified, clsSecurity.getServerDateTime(), OldRecord.Date_Canceled);
+                                deatil.Update();
+                                SEACCMessageBox.Show(MessegeBoxType.Successfully_Updated);
+                            }
+                        }
+                    }
+                    #endregion
+
+                    #region Insert Data
+                    else
+                    {
+                        if (SEACC_Form.isAutoGenaratedCode)
+                            txtDeviceID.Text = SEACC_Form.getAutoGeneratedCode();
+
+                        tbl_hrMasDevice InserData = new tbl_hrMasDevice(txtDeviceID.Text, txtDeviceName.Text, txtDescription.Text, false, clsSecurity.UserIDLoged, "Default", "Default", clsSecurity.TerminalID, "Default", "Default", clsSecurity.getServerDateTime(), clsSecurity.getServerDateTime(), clsSecurity.getServerDateTime());
+                        InserData.Insert();
+                        SEACCMessageBox.Show(MessegeBoxType.Successfully_Created);
+                    }
+                    #endregion
+                }
+                catch (Exception ex)
+                {
+                    SEACCMessageBox.Show("Error", ex.Message,MessageBoxButton.OK);
+                }
+                finally
+                {
+                    ClearFields();
+                    RefreshGrid();
+                }
+            }
+        }
+        #endregion
+
+        #region Clear Fields
+        private void ClearFields()
+        {
+            SEACC_Form.IsUpdateMode = false;
+
+            cls_Formater.SetEnableDisable_ForigenKeyLabelTextBox(txtDeviceID, true, false, false);
+            cls_Formater.SetEnableDisable_LableTextbox(txtDeviceName, true, false, false);
+            cls_Formater.SetEnableDisable_LableTextbox(txtDescription, true, false, true);
+           
+            txtDeviceID.Tag = null;
+
+            txtDeviceID.Text = "";
+            txtDeviceName.Text = "";
+            txtDescription.Text = "";
+
+            if (SEACC_Form.isAutoGenaratedCode)
+            {
+                txtDeviceID.setReadOnlyStatus(true);
+                txtDeviceID.Text = "<Auto Generate>";
+            }
+            else
+                txtDeviceID.setReadOnlyStatus(false);
+        }
+        #endregion
+
+        #region Refresh Grid
+        private void RefreshGrid()
+        {
+            try
+            {
+                dgr_Main.dt.Clear();
+
+                foreach (tbl_hrMasDevice detail in tbl_hrMasDevice.SelectAll().Where(p => p.Device_ID != "Default" && p.IsCanceled == false))
+                {
+                    dgr_Main.dt.Rows.Add(detail.Device_ID, detail.Device_Name, detail.Device_Description);
+                }
+                dgr_Main.RefreshGrid();
+            }
+            catch (Exception ex)
+            {
+                SEACCExeption.Show(ex);
+            }
+        }
+        #endregion
+
+        #region Check validity  
+        private bool CheckValidity()
+        {
+            bool bStatus = false;
+            if (CheckValidity_EmptyField())
+            {
+                if (CheckValidity_DuplicateFiled())
+                    bStatus = true;
+            }
+
+            if (!ChekValidity_DuplicateNames())
+                bStatus = false;
+            return bStatus;
+        }
+
+        private bool CheckValidity_EmptyField()
+        {
+            bool bStatus = true;
+
+            if (!clsValidation.Validate_EmptyValue(txtDeviceID))
+                bStatus = false;
+            if (!clsValidation.Validate_EmptyValue(txtDeviceName))
+                bStatus = false;
+
+            return bStatus;
+        }
+      
+        public bool CheckValidity_DuplicateFiled()
+        {
+            bool bStatus = true;
+            if (!SEACC_Form.IsUpdateMode)
+            {
+                tbl_hrMasDevice deatil = tbl_hrMasDevice.Select(txtDeviceID.Text.Trim());
+                if (deatil != null)
+                {
+                    bStatus = false;
+                    SEACCMessageBox.Show(MessegeBoxType.RecordAlreadyExist);
+                }
+            }
+            return bStatus;
+        }
+
+        public bool ChekValidity_DuplicateNames()
+        {
+            bool bStatus = true;
+            foreach (tbl_hrMasDevice detail1 in tbl_hrMasDevice.SelectAll().Where(p => p.Device_Name == txtDeviceName.Text && p.IsCanceled==false && p.Device_ID != txtDeviceID.Text))
+            {
+                if (detail1 != null)
+                {
+                    bStatus = false;
+                    SEACCMessageBox.Show(MessegeBoxType.FieldAlreadyExist);
+                    break;
+                }
+            }
+            return bStatus;
+        }
+
+        #endregion
+
+        #region Fill Details
+        private void fillDetails(string sID)
+        {
+            try
+            {
+                if (sID != null)
+                {
+                    tbl_hrMasDevice detail = tbl_hrMasDevice.Select(sID);
+                    if (detail != null)
+                    {
+                        SEACC_Form.IsUpdateMode = true;
+                        txtDeviceID.IsEnabled = false;
+                        txtDeviceID.Text = detail.Device_ID;
+                        txtDeviceID.Tag = detail.Device_ID;
+                        txtDeviceName.Text = detail.Device_Name;
+                        txtDescription.Text = detail.Device_Description;
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                SEACCExeption.Show(ex);
+            }
+        }
+        #endregion
+
+        #region Grid Events
+        private void grd_DeviceDetails_MouseLeftButtonUp1(object sender, EventArgs e)
+        {
+
+            try
+            {
+                object item = dgr_Main.grdMain.SelectedItem;
+                if (item != null)
+                {
+                    string GridID = (dgr_Main.grdMain.SelectedCells[0].Column.GetCellContent(item) as TextBlock).Text;
+                    fillDetails(GridID);
+                }
+            }
+            catch (Exception ex)
+            {
+                SEACCExeption.Show(ex);
+            }
+        }
+        #endregion
+
+        #region Search Events
+        private void txtDeviceID_MouseDoubleClick(object sender, MouseButtonEventArgs e)
+        {
+            frmSearch RowDataSearch = new frmSearch();
+            List<string> lstResult = RowDataSearch.Show(Search.Device_Master);
+            if (RowDataSearch.DialogResult == true)
+            {
+                ClearFields();
+                txtDeviceID.Text = lstResult[0];
+                fillDetails(lstResult[0]);
+            }
+        }
+        #endregion
+    }
+}

@@ -1,0 +1,120 @@
+﻿<UserControl xmlns:SEACC_WPFControls="clr-namespace:SEACC_WPFControls;assembly=SEACC_WPFControls"  x:Name="userControl" x:Class="Digiteq.UC_Vw_EmployeeDemography"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             mc:Ignorable="d" Foreground="{Binding ColorTheam, ElementName=userControl}" >
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+
+        <Grid Background="{Binding ColorTheam, ElementName=userControl}" Grid.Row="0" >
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="15"/>
+            </Grid.RowDefinitions>
+
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="80" MinWidth="80"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+
+                <Border BorderBrush="#FF41B1E1" Background="Black"  Margin="8,8,8,0" Grid.Column="0" Height="64" BorderThickness="1" VerticalAlignment="Top">
+                    <Image  x:Name="pbx_Employee" Stretch="Fill" />
+                </Border>
+                <StackPanel  Margin="0,8,8,8"  Grid.Column="1">
+                    <TextBlock x:Name="lblFullName" Text="000000-Full Name" Foreground="White" FontSize="14" TextWrapping="Wrap"/>
+                    <TextBlock x:Name="lblDesignation" Text="Designation" Foreground="White"  TextWrapping="Wrap" />
+                    <TextBlock x:Name="lblDepartment" Text="Department" Foreground="White"  TextWrapping="Wrap"/>
+                </StackPanel>
+            </Grid>
+            <SEACC_WPFControls:SEACC_Button x:Name="btnShowHide" Grid.Row="1"  Content="&#xE0E5; " HorizontalContentAlignment="Center"  Background="{x:Null}" BorderBrush="{x:Null}" FontFamily="Segoe MDL2 Assets" Foreground="White" Click="btnShowHide_Click" FontSize="10"  />
+        </Grid>
+       
+        <Grid x:Name="grdDetail" Grid.Row="1" Visibility="Collapsed"  Margin="10,8,0,0" Height="144" VerticalAlignment="Top" >
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="80*" MinWidth="40"/>
+                <ColumnDefinition Width="7"/>
+                <ColumnDefinition Width="200*"/>
+                <ColumnDefinition Width="80*" MinWidth="40"/>
+                <ColumnDefinition Width="7"/>
+                <ColumnDefinition Width="200*"/>
+            </Grid.ColumnDefinitions>
+
+            <TextBlock TextWrapping="Wrap" Text="Employee No." Grid.Row="0" Grid.Column="0" Foreground="#FF0096D6" />
+            <TextBlock TextWrapping="Wrap" Text="Initials" Grid.Row="1" Grid.Column="0"  Foreground="#FF0096D6"  />
+            <TextBlock TextWrapping="Wrap" Text="surname" Grid.Row="2" Grid.Column="0" Foreground="#FF0096D6"  />
+            <TextBlock TextWrapping="Wrap" Text="Alias Name" Grid.Row="3" Grid.Column="0"  Foreground="#FF0096D6"   />
+            <TextBlock TextWrapping="Wrap" Text="Gender" Grid.Row="4" Grid.Column="0" Foreground="#FF0096D6"   />
+            <TextBlock TextWrapping="Wrap" Text="NIC" Grid.Row="5" Grid.Column="0"  Foreground="#FF0096D6"  />
+            <TextBlock TextWrapping="Wrap" Text="Passport" Grid.Row="6" Grid.Column="0"   Foreground="#FF0096D6"  />
+            <TextBlock TextWrapping="Wrap" Text="DOB" Grid.Row="7" Grid.Column="0" Foreground="#FF0096D6"  />
+            <TextBlock TextWrapping="Wrap" Text="Civil Status" Grid.Row="8" Grid.Column="0"  Foreground="#FF0096D6"   />
+
+            <TextBlock TextWrapping="Wrap" Text=":" Grid.Row="0" Grid.Column="1"/>
+            <TextBlock TextWrapping="Wrap" Text=":" Grid.Row="1" Grid.Column="1"/>
+            <TextBlock TextWrapping="Wrap" Text=":" Grid.Row="2" Grid.Column="1"/>
+            <TextBlock TextWrapping="Wrap" Text=":" Grid.Row="3" Grid.Column="1"/>
+            <TextBlock TextWrapping="Wrap" Text=":" Grid.Row="4" Grid.Column="1"/>
+            <TextBlock TextWrapping="Wrap" Text=":" Grid.Row="5" Grid.Column="1"/>
+            <TextBlock TextWrapping="Wrap" Text=":" Grid.Row="6" Grid.Column="1"/>
+            <TextBlock TextWrapping="Wrap" Text=":" Grid.Row="7" Grid.Column="1"/>
+            <TextBlock TextWrapping="Wrap" Text=":" Grid.Row="8" Grid.Column="1"/>
+
+            <TextBlock TextWrapping="Wrap" x:Name="lblEmployeeNo" Text="EmployeeNO" Grid.Row="0" Grid.Column="2" />
+            <TextBlock TextWrapping="Wrap" x:Name="lblInitails" Text="Initials" Grid.Row="1" Grid.Column="2" />
+            <TextBlock TextWrapping="Wrap" x:Name="lblSurname" Text="surname" Grid.Row="2" Grid.Column="2" />
+            <TextBlock TextWrapping="Wrap" x:Name="lblaliasName" Text="Alias Name" Grid.Row="3" Grid.Column="2" />
+            <TextBlock TextWrapping="Wrap" x:Name="lblGender" Text="Gender" Grid.Row="4" Grid.Column="2" />
+            <TextBlock TextWrapping="Wrap" x:Name="lblNIC" Text="NIC" Grid.Row="5" Grid.Column="2"  />
+            <TextBlock TextWrapping="Wrap" x:Name="lblPassport" Text="Passport" Grid.Row="6" Grid.Column="2"  />
+            <TextBlock TextWrapping="Wrap" x:Name="lblDOB" Text="DOB" Grid.Row="7" Grid.Column="2"  />
+            <TextBlock TextWrapping="Wrap" x:Name="lblCivilStatus" Text="CivilStatus" Grid.Row="8" Grid.Column="2"  />
+
+            <TextBlock TextWrapping="Wrap" Text="Status" Grid.Row="0" Grid.Column="3"  Foreground="#FF0096D6"  />
+            <TextBlock TextWrapping="Wrap" Text="Visa End Date" Grid.Row="1" Grid.Column="3"  Foreground="#FF0096D6"   />
+            <TextBlock TextWrapping="Wrap" Text="Division" Grid.Row="2" Grid.Column="3" Foreground="#FF0096D6" />
+            <TextBlock TextWrapping="Wrap" Text="Section" Grid.Row="3" Grid.Column="3" Foreground="#FF0096D6" />
+            <TextBlock TextWrapping="Wrap" Text="Sub Section" Grid.Row="4" Grid.Column="3" Foreground="#FF0096D6" />
+            <TextBlock TextWrapping="Wrap" Text="EPF" Grid.Row="5" Grid.Column="3" Foreground="#FF0096D6"  />
+            <TextBlock TextWrapping="Wrap" Text="Category 1" Grid.Row="6" Grid.Column="3" Foreground="#FF0096D6"  />
+            <TextBlock TextWrapping="Wrap" Text="Category 2" Grid.Row="7" Grid.Column="3" Foreground="#FF0096D6"  />
+            <TextBlock TextWrapping="Wrap" Text="Category 2" Grid.Row="8" Grid.Column="3" Foreground="#FF0096D6"  />
+
+            <TextBlock TextWrapping="Wrap" Text=":" Grid.Row="0" Grid.Column="4"/>
+            <TextBlock TextWrapping="Wrap" Text=":" Grid.Row="1" Grid.Column="4"/>
+            <TextBlock TextWrapping="Wrap" Text=":" Grid.Row="2" Grid.Column="4"/>
+            <TextBlock TextWrapping="Wrap" Text=":" Grid.Row="3" Grid.Column="4"/>
+            <TextBlock TextWrapping="Wrap" Text=":" Grid.Row="4" Grid.Column="4"/>
+            <TextBlock TextWrapping="Wrap" Text=":" Grid.Row="5" Grid.Column="4"/>
+            <TextBlock TextWrapping="Wrap" Text=":" Grid.Row="6" Grid.Column="4"/>
+            <TextBlock TextWrapping="Wrap" Text=":" Grid.Row="7" Grid.Column="4" />
+            <TextBlock TextWrapping="Wrap" Text=":" Grid.Row="8" Grid.Column="4" />
+
+            <TextBlock TextWrapping="Wrap" x:Name="lblStatus" Text="Status" Grid.Row="0" Grid.Column="5"  />
+            <TextBlock TextWrapping="Wrap" x:Name="lblVisaEndDate" Text="VisaEndDate" Grid.Row="1" Grid.Column="5"  />
+            <TextBlock TextWrapping="Wrap" x:Name="lblDivision" Text="Division" Grid.Row="2" Grid.Column="5"/>
+            <TextBlock TextWrapping="Wrap" x:Name="lblSection" Text="Section" Grid.Row="3" Grid.Column="5"/>
+            <TextBlock TextWrapping="Wrap" x:Name="lblSubSection" Text="Sub Section" Grid.Row="4" Grid.Column="5"/>
+            <TextBlock TextWrapping="Wrap" x:Name="lblEPF" Text="EPF" Grid.Row="5" Grid.Column="5"  />
+            <TextBlock TextWrapping="Wrap" x:Name="lblcategory1" Text="Category 1" Grid.Row="6" Grid.Column="5"/>
+            <TextBlock TextWrapping="Wrap" x:Name="lblcategory2" Text="Category 2" Grid.Row="7" Grid.Column="5"/>
+            <TextBlock TextWrapping="Wrap" x:Name="lblcategory3" Text="Category 3" Grid.Row="8" Grid.Column="5"/>
+        </Grid>
+    </Grid>
+</UserControl>

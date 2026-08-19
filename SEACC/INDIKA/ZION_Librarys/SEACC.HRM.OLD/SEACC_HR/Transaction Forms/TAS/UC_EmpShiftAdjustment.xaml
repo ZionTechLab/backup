@@ -1,0 +1,64 @@
+﻿<UserControl xmlns:Digiteq="clr-namespace:Digiteq"  x:Class="Digiteq.UC_EmpShiftAdjustment"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:SEACC_WPFControls="clr-namespace:SEACC_WPFControls;assembly=SEACC_WPFControls" 
+             xmlns:SEACC_WPFControls1="clr-namespace:SEACC_WPFControls" 
+             xmlns:Themes="clr-namespace:Microsoft.Windows.Themes;assembly=PresentationFramework.Aero"  
+             mc:Ignorable="d" Background="#FFFFFF" >
+    <SEACC_WPFControls1:SEACC_Form x:Name="SEACC_Form" >
+        <Grid  Margin="15,10,0,50">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition x:Name="coloumnA" Width="685" />
+                <ColumnDefinition Width="5" />
+                <ColumnDefinition Width="*" />
+            </Grid.ColumnDefinitions>
+            <Grid Background="#FF34495E" Margin="0,0,5,0">
+                <SEACC_WPFControls:SEACC_DataGrid_Advanced x:Name="dgr_Main"   Background="#FF34495E" Visibility="Collapsed" DG_MouseDoubleClick="dgr_Main_DG_MouseDoubleClick" MouseLeftButtonUp="dgr_Main_MouseLeftButtonUp" LoadingRow="dgr_Main_LoadingRow"  />
+                <SEACC_WPFControls:SEACC_DataGrid_Advanced x:Name="dgr_Main_group"   Background="#FF34495E" Visibility="Visible" DG_MouseDoubleClick="dgr_Main_group_DG_MouseDoubleClick" MouseLeftButtonUp="dgr_Main_group_MouseLeftButtonUp"  />
+                <StackPanel x:Name="gg" VerticalAlignment="Bottom" Background="Black" Margin="5,0,5,18" >
+                </StackPanel>
+            </Grid>
+            <GridSplitter Background="#D5D5D5" x:Name="gridSplitter" Width="5" HorizontalAlignment="Stretch" Grid.Column="1" Margin="0,1,0,-1"  />
+            <Grid Grid.Column="2" Margin="10,0,0,0">
+                <ScrollViewer VerticalScrollBarVisibility="Auto">
+                    <StackPanel MaxWidth="600" >
+                        <!--<Expander Header="Selection" FontSize="24" Foreground="#FF0096D6" IsExpanded="True">-->
+                        <Grid Background="#FFE8E8E8" Margin="0,0,5,5" >
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*"/>
+                                <ColumnDefinition Width="*"/>
+                                <ColumnDefinition Width="0"/>
+                            </Grid.ColumnDefinitions>
+                            
+                            <SEACC_WPFControls:SEACC_Button x:Name="btnIndividual"   Background="{x:Null}" BorderBrush="#FF41B1E1" Grid.Column="0" Content="Individaul's Shift" HorizontalContentAlignment="Center"  Foreground="Silver" FontSize="12" Height="28" Click="btn_MainButtons" />
+                            <SEACC_WPFControls:SEACC_Button x:Name="btnGroup"        Background="{x:Null}" BorderBrush="#FF41B1E1" Grid.Column="1" Content="Group Shift" HorizontalContentAlignment="Center" Foreground="Black"  FontSize="12" Height="28" BorderThickness="0,1,1,1" Click="btn_MainButtons" />
+                            <SEACC_WPFControls:SEACC_Button x:Name="btnDivDept" Background="{x:Null}" BorderBrush="#FF41B1E1" Grid.Column="2" Content="Divison/Department" HorizontalContentAlignment="Center" Foreground="Silver" FontSize="12" Height="28" Click="btn_MainButtons" />
+                        </Grid>
+
+                        <StackPanel x:Name="stkpIndividual" MaxWidth="375" Margin="0,5,0,0">
+                            <SEACC_WPFControls:SEACC_LableTextBox FontSize="12" x:Name="txtEmpNo" Caption="Employee No." IsEnabled="False" MouseDoubleClick="txtEmpNo_MouseDoubleClick" />                            
+                            <SEACC_WPFControls:SEACC_LableTextBox FontSize="12" x:Name="txtDepartment" Caption="Department" MouseDoubleClick="txtDepartment_MouseDoubleClick"/>
+                            <SEACC_WPFControls:SEACC_LableTextBox FontSize="12" x:Name="txtSection" Caption="Section" MouseDoubleClick="txtSection_MouseDoubleClick"/>
+                            <SEACC_WPFControls:SEACC_LableTextBox FontSize="12" x:Name="txtSubSection" Caption="Sub Section" MouseDoubleClick="txtSubSection_MouseDoubleClick"/>
+                            <SEACC_WPFControls:SEACC_LableTextBox FontSize="12" x:Name="txtCategory" Caption="Category" MouseDoubleClick="txtCategory_MouseDoubleClick"/>
+                            <SEACC_WPFControls:SEACC_LabelTimeSelector FontSize="12" x:Name="dtpFromDate" Caption="Date From" ShowDate="Visible" ShowTime="Hidden" />
+                            <SEACC_WPFControls:SEACC_LabelTimeSelector FontSize="12" x:Name="dtpToDate" Caption="Date To" ShowDate="Visible" ShowTime="Hidden" />
+                            <SEACC_WPFControls:SEACC_LableTextBox FontSize="12" Visibility="Hidden"/>
+                            <SEACC_WPFControls:SEACC_LableTextBox FontSize="12" x:Name="txtShiftToBeAssign" Visibility="Visible" Caption="Shift To Be Assign" MouseDoubleClick="txtShift_MouseDoubleClick"/>
+                            <SEACC_WPFControls:SEACC_Button x:Name="btn_load" FontSize="12" Content="Load" Background="#FF41B1E1" Foreground="White"  Width="105" Height="25" HorizontalAlignment="Right" Click="btn_load_Click" Margin="0,10,5,0" />  
+                        </StackPanel>
+
+                        <!--</Expander>-->
+                        <Expander Header="Employee Details" FontSize="24" Foreground="#FF0096D6"  >
+                            <StackPanel>
+                                <Digiteq:UC_Vw_EmployeeDemography x:Name="EmployeeViewer" FontSize="12" ColorTheam="#007a99"/>
+                            </StackPanel>
+                        </Expander>
+                    </StackPanel>
+                </ScrollViewer>
+            </Grid>
+        </Grid>
+    </SEACC_WPFControls1:SEACC_Form>
+</UserControl>

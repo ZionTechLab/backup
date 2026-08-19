@@ -1,0 +1,76 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 14
+VisualStudioVersion = 14.0.25420.1
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SEACC_HR", "SEACC_HR\SEACC_HR.csproj", "{BB9E4FD0-40C5-4C7A-A070-43B65634AFEC}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DataTire", "DataTire\DataTire.csproj", "{BFB246FE-1F01-49D4-ACF2-60A876A6F9F5}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Digiteq_Logic", "Digiteq_Logic\Digiteq_Logic.csproj", "{186BFD56-CA91-45EF-BA5F-1810E229825A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SEACC_Alert_Engine", "SEACC_Alert_Engine\SEACC_Alert_Engine.csproj", "{183A2C5F-8BCA-46B1-A2BA-E1F356D9D419}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SEACC_HR_SERVICE", "HRCM_SERVICE\SEACC_HR_SERVICE.csproj", "{3AE7AA22-4358-4960-8AB8-ADEC70BBC54D}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SEACC_Keygen", "SEACC_Keygen\SEACC_Keygen.csproj", "{1B15F6C0-8061-45FE-A824-FF15BAF6E97D}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{BB9E4FD0-40C5-4C7A-A070-43B65634AFEC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BB9E4FD0-40C5-4C7A-A070-43B65634AFEC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BB9E4FD0-40C5-4C7A-A070-43B65634AFEC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BB9E4FD0-40C5-4C7A-A070-43B65634AFEC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BFB246FE-1F01-49D4-ACF2-60A876A6F9F5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BFB246FE-1F01-49D4-ACF2-60A876A6F9F5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BFB246FE-1F01-49D4-ACF2-60A876A6F9F5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BFB246FE-1F01-49D4-ACF2-60A876A6F9F5}.Release|Any CPU.Build.0 = Release|Any CPU
+		{186BFD56-CA91-45EF-BA5F-1810E229825A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{186BFD56-CA91-45EF-BA5F-1810E229825A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{186BFD56-CA91-45EF-BA5F-1810E229825A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{186BFD56-CA91-45EF-BA5F-1810E229825A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{183A2C5F-8BCA-46B1-A2BA-E1F356D9D419}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{183A2C5F-8BCA-46B1-A2BA-E1F356D9D419}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{183A2C5F-8BCA-46B1-A2BA-E1F356D9D419}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{183A2C5F-8BCA-46B1-A2BA-E1F356D9D419}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3AE7AA22-4358-4960-8AB8-ADEC70BBC54D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3AE7AA22-4358-4960-8AB8-ADEC70BBC54D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3AE7AA22-4358-4960-8AB8-ADEC70BBC54D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3AE7AA22-4358-4960-8AB8-ADEC70BBC54D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1B15F6C0-8061-45FE-A824-FF15BAF6E97D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1B15F6C0-8061-45FE-A824-FF15BAF6E97D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1B15F6C0-8061-45FE-A824-FF15BAF6E97D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1B15F6C0-8061-45FE-A824-FF15BAF6E97D}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(TeamFoundationVersionControl) = preSolution
+		SccNumberOfProjects = 7
+		SccEnterpriseProvider = {4CA58AB2-18FA-4F8D-95D4-32DDF27D184C}
+		SccTeamFoundationServer = http://192.168.10.1:8080/tfs/seacc_r2
+		SccLocalPath0 = .
+		SccProjectUniqueName1 = SEACC_HR\\SEACC_HR.csproj
+		SccProjectName1 = SEACC_HR
+		SccLocalPath1 = SEACC_HR
+		SccProjectUniqueName2 = DataTire\\DataTire.csproj
+		SccProjectName2 = DataTire
+		SccLocalPath2 = DataTire
+		SccProjectUniqueName3 = SEACC_Alert_Engine\\SEACC_Alert_Engine.csproj
+		SccProjectName3 = SEACC_Alert_Engine
+		SccLocalPath3 = SEACC_Alert_Engine
+		SccProjectUniqueName4 = Digiteq_Logic\\Digiteq_Logic.csproj
+		SccProjectName4 = Digiteq_Logic
+		SccLocalPath4 = Digiteq_Logic
+		SccProjectUniqueName5 = HRCM_SERVICE\\SEACC_HR_SERVICE.csproj
+		SccProjectName5 = HRCM_SERVICE
+		SccLocalPath5 = HRCM_SERVICE
+		SccProjectUniqueName6 = SEACC_Keygen\\SEACC_Keygen.csproj
+		SccProjectName6 = SEACC_Keygen
+		SccLocalPath6 = SEACC_Keygen
+	EndGlobalSection
+EndGlobal

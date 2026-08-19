@@ -1,0 +1,11 @@
+﻿<UserControl x:Name="userControl" x:Class="SEACC_WPFControls.SEACC_TextBox"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+              mc:Ignorable="d"   Height="23">
+    <Grid>
+        <TextBox x:Name="TextBox1" x:FieldModifier="public" Text="{Binding Text, ElementName=userControl}" Background="{Binding TextBox_Background, ElementName=userControl}" BorderBrush="{Binding TextBox_BorderBrush, ElementName=userControl}" PreviewTextInput="TextBox1_PreviewTextInput" TextChanged="TextBox1_TextChanged"  />
+        <Label x:Name="Label1" Margin="0,0,-235,0" Content="{Binding ErrorText, ElementName=userControl}" VerticalContentAlignment="Center" Padding="3,0,0,0" HorizontalAlignment="Right"  Width="231" Foreground="Red" FontFamily="Segoe MDL2 Assets"/>
+    </Grid>
+</UserControl>

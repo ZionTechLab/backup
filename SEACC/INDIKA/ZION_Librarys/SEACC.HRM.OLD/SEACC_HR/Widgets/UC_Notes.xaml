@@ -1,0 +1,44 @@
+﻿<UserControl
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:SEACC_WPFControls="clr-namespace:SEACC_WPFControls" xmlns:SEACC_WPFControls1="clr-namespace:SEACC_WPFControls;assembly=SEACC_WPFControls" x:Class="Digiteq.UC_Notes" 
+             mc:Ignorable="d" Background="#FFB04444" Margin="5" d:DesignWidth="399.295" d:DesignHeight="222.246"  >
+    <Grid>
+        <Border BorderBrush="White" BorderThickness="1" Margin="5">
+            <Border.Effect>
+                <DropShadowEffect BlurRadius="10" ShadowDepth="10"/>
+            </Border.Effect>
+        </Border>
+
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="34"/>
+                <RowDefinition/>
+            </Grid.RowDefinitions>
+            <TextBlock Text="Notes" Margin="15,8,0,0" FontSize="20" Foreground="White" Grid.Row="0"/>
+            <Border BorderBrush="White" BorderThickness="0,0,0,1" Margin="15,0,15,0"/>
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" Margin="0,0,10,0"  VerticalAlignment="Bottom" Grid.Row="0">
+                <SEACC_WPFControls1:SEACC_Button x:Name="btn_Addnew" Content="&#xE109;" Height="15" Width="19" FontFamily="Segoe MDL2 Assets" BorderBrush="{x:Null}" Background="{x:Null}" Foreground="#FFBEC700" FontWeight="Bold" Click="btn_Addnew_Click" />
+                <SEACC_WPFControls1:SEACC_Button x:Name="btn_Edit" Content="&#xE70F;" Height="15" Width="19" FontFamily="Segoe MDL2 Assets" Background="{x:Null}" BorderBrush="{x:Null}" Foreground="#FFBEC700" Click="btn_Edit_Click"/>
+                <SEACC_WPFControls1:SEACC_Button x:Name="btnDelete" Content="&#xE107;" Height="15" Width="19" FontFamily="Segoe MDL2 Assets" Background="{x:Null}" BorderBrush="{x:Null}" Foreground="#FFB40000" Click="btnDelete_Click"/>
+                <SEACC_WPFControls1:SEACC_Button  Content="&#xE14C;" Height="15" Width="19" FontFamily="Segoe MDL2 Assets" Background="{x:Null}" BorderBrush="{x:Null}" Foreground="White" Click="btn_GridHide_Click"/>
+            </StackPanel>
+            <Grid Grid.Row="1">
+                <RichTextBox Grid.Column="1" Margin="10,5,10,10" x:Name="txtNoteArea" FontFamily="Segoe Script" Background="#BFFFFFFF" BorderBrush="{x:Null}" Foreground="#FFEAEAEA">
+                    <FlowDocument>
+                        <Paragraph/>
+                    </FlowDocument>
+                </RichTextBox>
+            </Grid>
+        </Grid>
+        <Grid x:Name="grd_rightPanal"  HorizontalAlignment="Right" Width="215" Visibility="Hidden">
+            <SEACC_WPFControls1:SEACC_DataGrid_Advanced  x:Name="dgr_Main" MouseLeftButtonUp="grd_Note_MouseLeftButtonUp" Background="#FF465F3D" />
+            <SEACC_WPFControls1:SEACC_Button x:Name="btn_GridHide" Content="&#xE10A;" Height="15" Width="19" FontFamily="Segoe MDL2 Assets" BorderBrush="{x:Null}" Background="{x:Null}" Foreground="#FFD11818" FontWeight="Bold" Margin="0,5,5,0" HorizontalAlignment="Right" VerticalAlignment="Top" Click="btn_GridHide_Click" />
+
+        </Grid>
+
+
+    </Grid>
+</UserControl>

@@ -1,0 +1,13 @@
+﻿<UserControl x:Name="userControl" x:Class="SEACC_WPFControls.SEACC_ToggleButton"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             mc:Ignorable="d" d:DesignWidth="100"  MouseLeftButtonUp="UserControl_MouseLeftButtonUp_1" >
+    <Grid x:Name="grd1" Tag="0" Background="#FF555555" >
+        <Grid x:Name="grd_Shadow" Background="#33FFFFFF">
+        </Grid>
+         <TextBlock Text="{Binding Text, ElementName=userControl}" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="13" Foreground="White"/>
+        <Border x:Name="colorLine" BorderThickness="0,2,0,0" Height="1" Margin="3,0,3,3" VerticalAlignment="Bottom" BorderBrush="{Binding BorderBrush, ElementName=userControl}"/>
+    </Grid>
+</UserControl>

@@ -1,0 +1,41 @@
+﻿<Window
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:SEACC_FACTORING"
+           xmlns:SEACC_WPFControls_Local="clr-namespace:SEACC_FACTORING.UserControls"
+      xmlns:SEACC_WPFControls="clr-namespace:SEACC_WPFControls;assembly=SEACC_WPFControls" x:Class="SEACC_FACTORING.frm_FactoringInterestRate"
+      mc:Ignorable="d" Background="{x:Null}"
+        Title="frmFactoringInterestRateHistory" WindowStartupLocation="CenterScreen" ResizeMode="CanResizeWithGrip" Height="285.437" Width="448.544" AllowsTransparency="True" WindowStyle="None" Foreground="#FF5F6380">
+    <Grid Margin="10">
+        <Border Background="#FFDADADA" >
+            <Border.Effect>
+                <DropShadowEffect ShadowDepth="5" Opacity="0.5" Color="Black" />
+            </Border.Effect>
+        </Border>
+        <SEACC_WPFControls_Local:SEACC_Form x:Name="SEACC_Form" >
+            <Grid  >
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="50"/>
+                    <RowDefinition Height="*"/>
+                </Grid.RowDefinitions>
+                <Grid x:Name="grdTitleBar" Grid.Row="0" MouseDown="grdTitleBar_MouseDown">
+                    <!--<Grid.Background>
+                        <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                            <GradientStop Color="#FF294A51" Offset="0"/>
+                            <GradientStop Color="#FF264D57" Offset="1"/>
+                        </LinearGradientBrush>
+                    </Grid.Background>-->
+                    <StackPanel Margin="5,0,0,0" >
+                        <Label x:Name="lblTitleBar" Content="Factoring Interest Rate History"  FontSize="25" Foreground="White" />
+                    </StackPanel>
+                    <SEACC_WPFControls:SEACC_Button_Close x:Name="btnClose" Content="&#xE8BB;" VerticalAlignment="Top" HorizontalAlignment="Right" Width="30" Height="30" FontFamily="Segoe MDL2 Assets" Foreground="#FF9F9C9C" Background="{x:Null}" BorderBrush="{x:Null}" Click="btnClose_Click" Margin="0,3,0,0"  />
+                </Grid>
+                <Grid Grid.Row="1" Margin="0,0,0,0">
+                    <SEACC_WPFControls:SEACC_DataGrid_Advanced x:Name="dgr_PayItems" Background="{x:Null}" />
+                </Grid>
+            </Grid>
+        </SEACC_WPFControls_Local:SEACC_Form>
+    </Grid>
+</Window>

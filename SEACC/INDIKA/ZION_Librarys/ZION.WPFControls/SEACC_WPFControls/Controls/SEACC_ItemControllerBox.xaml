@@ -1,0 +1,14 @@
+﻿<UserControl x:Name="userControl" x:Class="SEACC_WPFControls.SEACC_ItemControllerBox"
+              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             mc:Ignorable="d" Background= "{Binding BackgroundBrush, ElementName=userControl}" >
+    <Grid Background= "{Binding BackgroundBrush, ElementName=userControl}"  >
+        <StackPanel Margin="2">
+            <Label x:Name="txt_ItemNumber" Content="{Binding ItemCodeText, ElementName=userControl}" VerticalContentAlignment="Center" FontSize="{Binding ItemCodeFontSize, ElementName=userControl}" Background="{Binding BackgroundBrush, ElementName=userControl}" BorderBrush="{x:Null}" Foreground="{Binding Foreground, ElementName=userControl}"  Visibility="{Binding ShowCodeAndDescription, ElementName=userControl}" />
+            <Label x:Name="txt_ItemName"  Content="{Binding ItemNameText, ElementName=userControl}" VerticalContentAlignment="Center" FontSize="{Binding ItemNameFontSize, ElementName=userControl}" Background="{Binding BackgroundBrush, ElementName=userControl}" BorderBrush="{x:Null}" Foreground="{Binding Foreground, ElementName=userControl}" Visibility="Visible" />
+            <Label x:Name="txt_ItemDesc" Content="{Binding ItemDescText, ElementName=userControl}" VerticalContentAlignment="Center" FontSize="{Binding ItemDescFontSize, ElementName=userControl}" Background="{Binding BackgroundBrush, ElementName=userControl}" BorderBrush="{x:Null}" Foreground="{Binding Foreground, ElementName=userControl}" Visibility="{Binding ShowCodeAndDescription, ElementName=userControl}"  />
+        </StackPanel>
+    </Grid>
+</UserControl>

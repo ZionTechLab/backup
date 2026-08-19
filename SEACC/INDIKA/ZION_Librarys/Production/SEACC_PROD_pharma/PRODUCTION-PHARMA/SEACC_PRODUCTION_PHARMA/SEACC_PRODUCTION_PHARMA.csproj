@@ -1,0 +1,686 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{010A60C6-1C7A-4931-ADA9-A5832F739899}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>SEACC_PRODUCTION_PHARMA</RootNamespace>
+    <AssemblyName>SEACC_PRODUCTION_PHARMA</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <ProjectTypeGuids>{60dc8134-eba5-43b8-bcc9-bb4bc16c2548};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+    <WarningLevel>4</WarningLevel>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <SccProjectName>SAK</SccProjectName>
+    <SccLocalPath>SAK</SccLocalPath>
+    <SccAuxPath>SAK</SccAuxPath>
+    <SccProvider>SAK</SccProvider>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>true</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>Resources\ICON\pharma_live.ico</ApplicationIcon>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="CrystalDecisions.CrystalReports.Engine, Version=13.0.3500.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL" />
+    <Reference Include="CrystalDecisions.ReportSource, Version=13.0.3500.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL" />
+    <Reference Include="CrystalDecisions.Shared, Version=13.0.3500.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL" />
+    <Reference Include="CrystalDecisions.Windows.Forms, Version=13.0.3500.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL" />
+    <Reference Include="Digiteq_Inventory">
+      <HintPath>..\..\..\SEACC\Mini ERP\bin\Debug\Digiteq_Inventory.dll</HintPath>
+    </Reference>
+    <Reference Include="Digiteq_Logic">
+      <HintPath>..\..\..\SEACC\Mini ERP\bin\Debug\Digiteq_Logic.dll</HintPath>
+    </Reference>
+    <Reference Include="PresentationFramework.Aero" />
+    <Reference Include="SEACC_WPFControls, Version=1.5.55.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\..\WPF_CONTROLS\SEACC_WPFControls\SEACC_WPFControls\SEACC_WPFControls\bin\Debug\SEACC_WPFControls.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.Windows.Controls.DataVisualization.Toolkit, Version=4.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Windows.Controls.DataVisualization.Toolkit.4.0.0.0\lib\net40-Client\System.Windows.Controls.DataVisualization.Toolkit.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Windows.Controls.Input.Toolkit, Version=3.5.40128.1, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\WPFToolkit.3.5.50211.1\lib\System.Windows.Controls.Input.Toolkit.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Windows.Controls.Layout.Toolkit, Version=3.5.40128.1, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\WPFToolkit.3.5.50211.1\lib\System.Windows.Controls.Layout.Toolkit.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Xaml">
+      <RequiredTargetFramework>4.0</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="WindowsBase" />
+    <Reference Include="PresentationCore" />
+    <Reference Include="PresentationFramework" />
+    <Reference Include="WPFToolkit, Version=3.5.40128.1, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\WPFToolkit.3.5.50211.1\lib\WPFToolkit.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <ApplicationDefinition Include="App.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </ApplicationDefinition>
+    <Compile Include="Controls\frm_RawMeterialGroups_SemiFinished.xaml.cs">
+      <DependentUpon>frm_RawMeterialGroups_SemiFinished.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\frm_RawMeterial_FGTN_Input.xaml.cs">
+      <DependentUpon>frm_RawMeterial_FGTN_Input.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\Support\cls_BoMDetailMaterial.cs" />
+    <Compile Include="Controls\frm_MaterialSelection.xaml.cs">
+      <DependentUpon>frm_MaterialSelection.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="DataSets\dts_BoM.cs">
+      <DependentUpon>dts_BoM.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="DataSets\dts_BoM.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>dts_BoM.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="DataSets\dts_FGTN.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>dts_FGTN.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="DataSets\dts_MR.cs">
+      <DependentUpon>dts_MR.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="DataSets\dts_MR.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>dts_MR.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="DataSets\dts_PGIN.cs">
+      <DependentUpon>dts_PGIN.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="DataSets\dts_PGIN.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>dts_PGIN.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="DataSets\dts_ProdCosting.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>dts_ProdCosting.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="DataSets\dts_ReportExport.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>dts_ReportExport.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="DataSets\dts_WIP.cs">
+      <DependentUpon>dts_WIP.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="DataSets\dts_WIP.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>dts_WIP.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="frmLogin.xaml.cs">
+      <DependentUpon>frmLogin.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\frm_ReportViewer.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Reports\frm_ReportViewer.Designer.cs">
+      <DependentUpon>frm_ReportViewer.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Masters\Company\UC_Department.xaml.cs">
+      <DependentUpon>UC_Department.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Masters\Company\UC_Division.xaml.cs">
+      <DependentUpon>UC_Division.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Masters\Company\UC_SectionActivity.xaml.cs">
+      <DependentUpon>UC_SectionActivity.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Masters\ItemSpecs\UC_ProductCategory.xaml.cs">
+      <DependentUpon>UC_ProductCategory.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Masters\ItemSpecs\UC_JobName.xaml.cs">
+      <DependentUpon>UC_JobName.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Masters\Company\UC_Section.xaml.cs">
+      <DependentUpon>UC_Section.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Masters\ItemSpecs\UC_ProductRange.xaml.cs">
+      <DependentUpon>UC_ProductRange.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Masters\ItemSpecs\UC_ProductSize.xaml.cs">
+      <DependentUpon>UC_ProductSize.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Masters\ItemSpecs\UC_SemiFinished_Outsource.xaml.cs">
+      <DependentUpon>UC_SemiFinished_Outsource.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\NotePrinting\rpt_prodGoodIssueNote.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>rpt_prodGoodIssueNote.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Reports\NotePrinting\rpt_prodMaterialRequisition.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>rpt_prodMaterialRequisition.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Reports\Register\rpt_prodWorkInProgress_Summary.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>rpt_prodWorkInProgress_Summary.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Reports\Standard\rpt_Finished_Good_Transfer_Summary.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>rpt_Finished_Good_Transfer_Summary.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Reports\Standard\rpt_CostingForScrewPanelPin.cs">
+      <DependentUpon>rpt_CostingForScrewPanelPin.rpt</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <SubType>Component</SubType>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="Reports\Standard\rpt_ProductionCostingReport.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>rpt_ProductionCostingReport.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Reports\Standard\rpt_ProductionInputMaterialsMovement.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>rpt_ProductionInputMaterialsMovement.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Reports\UC_Report.xaml.cs">
+      <DependentUpon>UC_Report.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Search\frm_search.xaml.cs">
+      <DependentUpon>frm_search.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Transactions\UC_BOM_Finance.xaml.cs">
+      <DependentUpon>UC_BOM_Finance.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Transactions\UC_BOM_Sales.xaml.cs">
+      <DependentUpon>UC_BOM_Sales.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Transactions\UC_BOM_Production.xaml.cs">
+      <DependentUpon>UC_BOM_Production.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Transactions\UC_FinishedGood_Transfers.xaml.cs">
+      <DependentUpon>UC_FinishedGood_Transfers.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Transactions\UC_Production_MeterialRequisition.xaml.cs">
+      <DependentUpon>UC_Production_MeterialRequisition.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Transactions\UC_Production_GoodsIssues.xaml.cs">
+      <DependentUpon>UC_Production_GoodsIssues.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Transactions\UC_Production_GoodsReturns.xaml.cs">
+      <DependentUpon>UC_Production_GoodsReturns.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Transactions\UC_Production_BatchCreation.xaml.cs">
+      <DependentUpon>UC_Production_BatchCreation.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Transactions\UC_SubContract_Out.xaml.cs">
+      <DependentUpon>UC_SubContract_Out.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Transactions\UC_SubContract_In.xaml.cs">
+      <DependentUpon>UC_SubContract_In.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Transactions\UC_Production_WorkInProgress.xaml.cs">
+      <DependentUpon>UC_Production_WorkInProgress.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Transactions\UC_Production_BatchClosure.xaml.cs">
+      <DependentUpon>UC_Production_BatchClosure.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Masters\ItemSpecs\UC_ProductColour.xaml.cs">
+      <DependentUpon>UC_ProductColour.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Transactions\UC_BOM_Obsolete.xaml.cs">
+      <DependentUpon>UC_BOM_Obsolete.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Transactions\UC_FinishedGood_SpecSheet.xaml.cs">
+      <DependentUpon>UC_FinishedGood_SpecSheet.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Masters\ItemSpecs\UC_JobType.xaml.cs">
+      <DependentUpon>UC_JobType.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\frm_RawMeterial_SemiFinished.xaml.cs">
+      <DependentUpon>frm_RawMeterial_SemiFinished.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\SEACC_Form.cs" />
+    <Compile Include="Controls\frm_TwoStepVerification.xaml.cs">
+      <DependentUpon>frm_TwoStepVerification.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\UC_Attachments.xaml.cs">
+      <DependentUpon>UC_Attachments.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Transactions\UC_FinishedGood_Transfers_Acceptance.xaml.cs">
+      <DependentUpon>UC_FinishedGood_Transfers_Acceptance.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Transactions\UC_SplitNote.xaml.cs">
+      <DependentUpon>UC_SplitNote.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Transactions\UC_FinishedGood_Transfers_DetailView.xaml.cs">
+      <DependentUpon>UC_FinishedGood_Transfers_DetailView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UserManagement\UC_UserDashboard.xaml.cs">
+      <DependentUpon>UC_UserDashboard.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UserManagement\UC_UserPermission.xaml.cs">
+      <DependentUpon>UC_UserPermission.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UserManagement\Widgets\UC_ChangePassword.xaml.cs">
+      <DependentUpon>UC_ChangePassword.xaml</DependentUpon>
+    </Compile>
+    <Page Include="Controls\frm_MaterialSelection.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Controls\frm_RawMeterialGroups_SemiFinished.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Controls\frm_RawMeterial_FGTN_Input.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="frmSplash.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Compile Include="App.xaml.cs">
+      <DependentUpon>App.xaml</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Common\clsHelpMethods_Prod.cs" />
+    <Compile Include="frmSplash.xaml.cs">
+      <DependentUpon>frmSplash.xaml</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Page Include="frmLogin.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Masters\Company\UC_Department.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Masters\Company\UC_Division.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Masters\Company\UC_SectionActivity.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Masters\ItemSpecs\UC_ProductCategory.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Masters\ItemSpecs\UC_JobName.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Masters\Company\UC_Section.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Masters\ItemSpecs\UC_ProductRange.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Masters\ItemSpecs\UC_ProductSize.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Masters\ItemSpecs\UC_SemiFinished_Outsource.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Reports\UC_Report.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Search\frm_search.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Transactions\UC_BOM_Finance.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Transactions\UC_BOM_Sales.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Transactions\UC_BOM_Production.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Transactions\UC_FinishedGood_Transfers.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Transactions\UC_Production_MeterialRequisition.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Transactions\UC_Production_GoodsIssues.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Transactions\UC_Production_GoodsReturns.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Transactions\UC_Production_BatchCreation.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Transactions\UC_SubContract_Out.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Transactions\UC_SubContract_In.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Transactions\UC_Production_WorkInProgress.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Transactions\UC_Production_BatchClosure.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Masters\ItemSpecs\UC_ProductColour.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Transactions\UC_BOM_Obsolete.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Transactions\UC_FinishedGood_SpecSheet.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Masters\ItemSpecs\UC_JobType.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Controls\frm_RawMeterial_SemiFinished.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Controls\frm_TwoStepVerification.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Controls\UC_Attachments.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Transactions\UC_FinishedGood_Transfers_Acceptance.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Transactions\UC_SplitNote.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Transactions\UC_FinishedGood_Transfers_DetailView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UserManagement\UC_UserDashboard.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UserManagement\UC_UserPermission.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UserManagement\Widgets\UC_ChangePassword.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Properties\AssemblyInfo.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+    <EmbeddedResource Include="Reports\frm_ReportViewer.resx">
+      <DependentUpon>frm_ReportViewer.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\NotePrinting\rpt_prodGoodIssueNote.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>rpt_prodGoodIssueNote.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\NotePrinting\rpt_prodMaterialRequisition.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>rpt_prodMaterialRequisition.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\Standard\rpt_Finished_Good_Transfer_Summary.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>rpt_Finished_Good_Transfer_Summary.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\Standard\rpt_CostingForScrewPanelPin.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>rpt_CostingForScrewPanelPin.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\Standard\rpt_ProductionCostingReport.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>rpt_ProductionCostingReport.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\Standard\rpt_ProductionInputMaterialsMovement.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>rpt_ProductionInputMaterialsMovement.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\Register\rpt_prodWorkInProgress_Summary.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>rpt_prodWorkInProgress_Summary.cs</LastGenOutput>
+    </EmbeddedResource>
+    <None Include="clzProductionSystem.cd" />
+    <None Include="DataSets\dts_BoM.xsc">
+      <DependentUpon>dts_BoM.xsd</DependentUpon>
+    </None>
+    <None Include="DataSets\dts_BoM.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>dts_BoM.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="DataSets\dts_BoM.xss">
+      <DependentUpon>dts_BoM.xsd</DependentUpon>
+    </None>
+    <None Include="DataSets\dts_FGTN.xsc">
+      <DependentUpon>dts_FGTN.xsd</DependentUpon>
+    </None>
+    <None Include="DataSets\dts_FGTN.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>dts_FGTN.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="DataSets\dts_FGTN.xss">
+      <DependentUpon>dts_FGTN.xsd</DependentUpon>
+    </None>
+    <None Include="DataSets\dts_MR.xsc">
+      <DependentUpon>dts_MR.xsd</DependentUpon>
+    </None>
+    <None Include="DataSets\dts_MR.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>dts_MR.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="DataSets\dts_MR.xss">
+      <DependentUpon>dts_MR.xsd</DependentUpon>
+    </None>
+    <None Include="DataSets\dts_PGIN.xsc">
+      <DependentUpon>dts_PGIN.xsd</DependentUpon>
+    </None>
+    <None Include="DataSets\dts_PGIN.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>dts_PGIN.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="DataSets\dts_PGIN.xss">
+      <DependentUpon>dts_PGIN.xsd</DependentUpon>
+    </None>
+    <None Include="DataSets\dts_ProdCosting.xsc">
+      <DependentUpon>dts_ProdCosting.xsd</DependentUpon>
+    </None>
+    <None Include="DataSets\dts_ProdCosting.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>dts_ProdCosting.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="DataSets\dts_ProdCosting.xss">
+      <DependentUpon>dts_ProdCosting.xsd</DependentUpon>
+    </None>
+    <None Include="DataSets\dts_ReportExport.xsc">
+      <DependentUpon>dts_ReportExport.xsd</DependentUpon>
+    </None>
+    <None Include="DataSets\dts_ReportExport.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>dts_ReportExport.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="DataSets\dts_ReportExport.xss">
+      <DependentUpon>dts_ReportExport.xsd</DependentUpon>
+    </None>
+    <None Include="DataSets\dts_WIP.xsc">
+      <DependentUpon>dts_WIP.xsd</DependentUpon>
+    </None>
+    <None Include="DataSets\dts_WIP.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>dts_WIP.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="DataSets\dts_WIP.xss">
+      <DependentUpon>dts_WIP.xsd</DependentUpon>
+    </None>
+    <None Include="packages.config" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <AppDesigner Include="Properties\" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\production.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Reports\Advance\" />
+    <Folder Include="Reports\Custom\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{C0C07587-41A7-46C8-8FBD-3F9C8EBE2DDC}" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Docx.png" />
+    <Resource Include="Resources\jpg.png" />
+    <Resource Include="Resources\others.png" />
+    <Resource Include="Resources\PDF.png" />
+    <Resource Include="Resources\png.png" />
+    <Resource Include="Resources\ppt.png" />
+    <Resource Include="Resources\txt.png" />
+    <Resource Include="Resources\Xls.png" />
+    <Resource Include="Resources\Zip.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Service References\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\ICON\pharma_live.ico" />
+    <Resource Include="Resources\ICON\pharma_test.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\ayurveda.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Nails.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Splash.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\screw_live_icon.ico" />
+    <Resource Include="Resources\screw_test_icon.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\SEACC.PROD.DATA\SEACC.PROD.DATA.csproj">
+      <Project>{9d2a6a58-63c1-4403-8d25-25d7b6677724}</Project>
+      <Name>SEACC.PROD.DATA</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <PropertyGroup>
+    <PostBuildEvent>:: xcopy "$(TargetDir)$(TargetFileName)" "C:\DevTest" /s /i /y</PostBuildEvent>
+  </PropertyGroup>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

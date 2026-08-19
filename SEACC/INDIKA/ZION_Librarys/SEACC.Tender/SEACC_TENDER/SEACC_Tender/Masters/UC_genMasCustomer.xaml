@@ -1,0 +1,301 @@
+﻿<UserControl x:Class="SEACC_Tender.UC_genMasCustomer"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:SEACC_Tender"
+             xmlns:SEACC_WPFControls_Local="clr-namespace:SEACC_Tender.UserControls"
+             xmlns:SEACC_WPFControls="clr-namespace:SEACC_WPFControls;assembly=SEACC_WPFControls"              
+             mc:Ignorable="d" Background="#FFFFFF" FontWeight="Normal" >
+
+    <SEACC_WPFControls_Local:SEACC_Form x:Name="SEACC_Form" SizeChanged="SEACC_Form_SizeChanged"  >
+        <Grid x:Name="Main" Margin="0,10,0,50">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Name="coloumnA" Width="400" />
+                <ColumnDefinition Width="5" />
+                <ColumnDefinition Width="*" />
+            </Grid.ColumnDefinitions>
+
+            <GridSplitter Background="#D5D5D5" x:Name="gridSplitter" Width="5" HorizontalAlignment="Stretch" Grid.Column="1"  />
+
+            <SEACC_WPFControls:SEACC_DataGrid_Advanced x:Name="dgr_Main" Grid.Column="0"  Margin="15,0,5,0" Background="#FF808387" HeaderColor="#FF0083A1" MouseLeftButtonUp1="dgr_Main_MouseLeftButtonUp1"/>
+
+            <Grid Grid.Column="2" Margin="10,0,0,0">
+                <ScrollViewer VerticalScrollBarVisibility="Auto">
+                    <StackPanel>
+                        <Border BorderThickness="1" Margin="0,0,0,5">
+                            <Border.Effect>
+                                <DropShadowEffect BlurRadius="10" Opacity="0.1" />
+                            </Border.Effect>
+                            <StackPanel Grid.Column="1">
+                                <SEACC_WPFControls:SEACC_LableTextBox Caption="Customer ID" x:Name="txtCustomer_ID" Visibility="Collapsed"/>
+                                <SEACC_WPFControls:SEACC_LableTextBox Caption="Customer Code" x:Name="txtCustomer_code" />
+                                <!--<SEACC_WPFControls:SEACC_LableTextBox Caption="Title" x:Name="txtTitle" />-->
+                                <SEACC_WPFControls:SEACC_LableTextBox Caption="Name" x:Name="txtName" DetailBox_Width="750" />
+                                <StackPanel Orientation="Horizontal" Margin="120,0,0,0">
+                                    <SEACC_WPFControls:SEACC_LabelCheckBox x:Name="chkIsBlackListed" Caption="Blacklisted" IsChecked="True"/>
+                                    <SEACC_WPFControls:SEACC_LabelCheckBox x:Name="chkIsSuspended" Caption="Temp Suspended" IsChecked="True"/>
+                                    <SEACC_WPFControls:SEACC_LabelCheckBox x:Name="chkIsDeactivated" Caption="Inactive" IsChecked="True"/>
+                                </StackPanel>
+                            </StackPanel>
+                        </Border>
+                        
+                        <Border  BorderThickness="1" Margin="0,0,0,10">
+                            <Border.Effect>
+                                <DropShadowEffect Opacity="0.1" BlurRadius="10"/>
+                            </Border.Effect>
+                            <Grid>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="*"/>
+                                    <ColumnDefinition Width="*"/>
+                                </Grid.ColumnDefinitions>
+                                <StackPanel Grid.Column="0">
+                                    <SEACC_WPFControls:SEACC_LableTextBox Caption="Category 1" x:Name="txtCustomer_cls" MouseDoubleClick="txtCustomer_cls_MouseDoubleClick" />
+                                    <SEACC_WPFControls:SEACC_LableTextBox Caption="Category 2" x:Name="txtCustomer_tp" MouseDoubleClick="txtCustomer_tp_MouseDoubleClick" />
+                                </StackPanel>
+                                <StackPanel Grid.Column="1">
+                                    <SEACC_WPFControls:SEACC_LableTextBox Caption="Category 3" x:Name="txtCategory" MouseDoubleClick="txtCategory_MouseDoubleClick" />
+                                </StackPanel>
+                                
+                            </Grid>
+                        </Border>
+                        
+                        <!--<Border BorderThickness="1" Margin="0,0,0,10">
+                            <Border.Effect>
+                                <DropShadowEffect Opacity="0.1" BlurRadius="10"/>
+                            </Border.Effect>
+                            <StackPanel Orientation="Horizontal"  Margin="120,10,0,10" Grid.ColumnSpan="2">
+                                <RadioButton Content="Head Ofice" x:Name="rdoHeadOffice" IsChecked="True" Foreground="Black"/>
+                                <RadioButton Content="Branch Office" x:Name="rdoBranchOffice" Foreground="Black"/>
+                                <RadioButton Content="Showroom" x:Name="rdoShowroom" Foreground="Black"/>
+                                <RadioButton Content="Store/Warehouse" x:Name="rdoStore" Foreground="Black"/>
+                            </StackPanel>
+                        </Border>-->
+                        
+                        <Expander  Header="General" FontSize="24" Foreground="#FF0096D6" x:Name="expanGeneral" Expanded="expanGeneral_Expanded" >
+                            <StackPanel >
+
+                                <Border  BorderThickness="1" Margin="0,0,0,10">
+                                    <Border.Effect>
+                                        <DropShadowEffect Opacity="0.1" BlurRadius="10"/>
+                                    </Border.Effect>
+                                    <Grid   Margin="0,5"  >
+                                        <Grid.ColumnDefinitions>
+                                            <ColumnDefinition Width="*"/>
+                                            <ColumnDefinition Width="*"/>
+                                        </Grid.ColumnDefinitions>
+                                        <StackPanel Grid.Column="0" Grid.Row="0">
+                                            <SEACC_WPFControls:SEACC_LabelTimeSelector  x:Name="dtp_DOB" FontSize="12" ShowDate="Visible" ShowTime="Hidden" Caption="Date Of Birth"  />
+                                            <SEACC_WPFControls:SEACC_LableTextBox x:Name="txtTel" FontSize="12" Caption="Telephone No" />
+                                            <SEACC_WPFControls:SEACC_LableTextBox x:Name="txtMob" FontSize="12" Caption="Mobil No"  />
+                                        </StackPanel>
+                                        <StackPanel Grid.Column="1" Grid.Row="0">
+                                            <SEACC_WPFControls:SEACC_LableTextBox x:Name="txtNIC" FontSize="12" Caption="NIC No" />
+                                            <SEACC_WPFControls:SEACC_LableTextBox x:Name="txtFax" FontSize="12" Caption="Fax No" />
+                                            <SEACC_WPFControls:SEACC_LableTextBox x:Name="txtWeb_URL" FontSize="12" Caption="Web URL" />
+                                        </StackPanel>
+                                    </Grid>
+                                </Border>
+
+                                <Border  BorderThickness="1" Margin="0,0,0,10">
+                                    <Border.Effect>
+                                        <DropShadowEffect Opacity="0.1" BlurRadius="10"/>
+                                    </Border.Effect>
+                                    <Grid Margin="0,5" >
+                                        <StackPanel>
+                                            <SEACC_WPFControls:SEACC_LableTextBox x:Name="txtEmail" FontSize="12" Caption="Email" DetailBox_Width="750" />
+                                            <SEACC_WPFControls:SEACC_LableTextBox x:Name="txtReg_Address" FontSize="12" Caption="Registered Address" DetailBox_Width="752" />
+                                            <SEACC_WPFControls:SEACC_LableTextBox x:Name="txtDel_Address" FontSize="12" Caption="Delivery Address" DetailBox_Width="750" />
+                                            <SEACC_WPFControls:SEACC_LableTextBox x:Name="txtRemarks" FontSize="12" Caption="Remarks" DetailBox_Width="750" />
+                                        </StackPanel>
+                                    </Grid>
+                                </Border>
+
+                            </StackPanel>
+                        </Expander>
+
+                        <Expander Header="Additional Details-1" FontSize="24" Foreground="#FF0096D6" x:Name="expanAD1" Expanded="expanAD1_Expanded" >
+                            <StackPanel >
+                                <Border  BorderThickness="1" Margin="0,0,0,10">
+                                    <Border.Effect>
+                                        <DropShadowEffect Opacity="0.1" BlurRadius="10"/>
+                                    </Border.Effect>
+                                    <Grid   Margin="0,5"  >
+                                        <Grid.ColumnDefinitions>
+                                            <ColumnDefinition Width="*"/>
+                                            <ColumnDefinition Width="*"/>
+                                        </Grid.ColumnDefinitions>
+
+                                        <StackPanel Grid.Column="0" Grid.Row="0">
+                                            <SEACC_WPFControls:SEACC_LableTextBox x:Name="txtMain_cur" FontSize="12" Caption="Main Currency" MouseDoubleClick="txtMain_cur_MouseDoubleClick" />
+                                            <SEACC_WPFControls:SEACC_LableTextBox x:Name="txtDep_amnt" FontSize="12" Caption="Deposit Amount"  />
+                                            <SEACC_WPFControls:SEACC_LableTextBox x:Name="txtCredit_limit" FontSize="12" Caption="Credit Limit"  />
+                                            <SEACC_WPFControls:SEACC_LableTextBox x:Name="txtCredit_period" FontSize="12" Caption="Credit Period" />
+                                            <SEACC_WPFControls:SEACC_LableTextBox x:Name="txtCommission" FontSize="12" Caption="C.P. (Commission)"  />
+                                        </StackPanel>
+
+                                        <StackPanel Grid.Column="1" Grid.Row="0">
+                                            <SEACC_WPFControls:SEACC_LabelComboBox x:Name="cmbPrice_mode" Caption="Pricing Mode" FontSize="12"/>
+                                            <SEACC_WPFControls:SEACC_LabelComboBox x:Name="cmbPrice_cat" Caption="Pricing Category" FontSize="12"/>
+                                            <SEACC_WPFControls:SEACC_LableTextBox x:Name="txtSales_dues" FontSize="12" Caption="Sales Dues" />
+                                            <SEACC_WPFControls:SEACC_LableTextBox x:Name="txtCredit_balance" FontSize="12" Caption="Credit Balance" />
+                                            <SEACC_WPFControls:SEACC_LableTextBox x:Name="txtTot_sales" FontSize="12" Caption="Total Sales"  />
+                                        </StackPanel>
+
+                                    </Grid>
+                                </Border>
+
+                                <Border  BorderThickness="1" Margin="0,0,0,10">
+                                    <Border.Effect>
+                                        <DropShadowEffect Opacity="0.1" BlurRadius="10"/>
+                                    </Border.Effect>
+                                    <Grid   Margin="0,5"  >
+                                        <Grid.ColumnDefinitions>
+                                            <ColumnDefinition Width="*"/>
+                                            <ColumnDefinition Width="*"/>
+                                        </Grid.ColumnDefinitions>
+
+                                        <StackPanel Grid.Column="0" Grid.Row="0">
+                                            <SEACC_WPFControls:SEACC_LabelCheckBox x:Name="chkIsNonTax" Caption="Non TAX" IsChecked="True"/>
+                                            <SEACC_WPFControls:SEACC_LabelCheckBox x:Name="chkIsNBT" Caption="NBT Enable" IsChecked="True"/>
+                                            <SEACC_WPFControls:SEACC_LabelCheckBox x:Name="chkIsVAT" Caption="VAT Enable" IsChecked="True"/>
+                                            <SEACC_WPFControls:SEACC_LabelCheckBox x:Name="chkIsSVAT" Caption="SVAT Enable" IsChecked="True"/>
+                                        </StackPanel>
+
+                                        <StackPanel Grid.Column="1" Grid.Row="0">
+                                            <SEACC_WPFControls:SEACC_LableTextBox x:Name="txtBusReg_No" FontSize="12" Caption="Buss. Reg No"  />
+                                            <SEACC_WPFControls:SEACC_LableTextBox x:Name="txtNBTReg_No" FontSize="12" Caption="NBT Reg No" />
+                                            <SEACC_WPFControls:SEACC_LableTextBox x:Name="txtVATReg_No" FontSize="12" Caption="VAT Reg No" />
+                                            <SEACC_WPFControls:SEACC_LableTextBox x:Name="txtSVATReg_No" FontSize="12" Caption="SVAT Reg No"  />
+                                        </StackPanel>
+
+                                    </Grid>
+                                </Border>
+
+                            </StackPanel>
+                        </Expander>
+
+                        <Expander Header="Additional Details-2" FontSize="24" Foreground="#FF0096D6" x:Name="expanAD2" Expanded="expanAD2_Expanded" >
+                            <StackPanel >
+
+                                <Border  BorderThickness="1" Margin="0,0,0,10">
+                                    <Border.Effect>
+                                        <DropShadowEffect Opacity="0.1" BlurRadius="10"/>
+                                    </Border.Effect>
+                                    <Grid   Margin="0,5"  >
+                                        <Grid.ColumnDefinitions>
+                                            <ColumnDefinition Width="*"/>
+                                            <ColumnDefinition Width="*"/>
+                                        </Grid.ColumnDefinitions>
+
+                                        <StackPanel Grid.Column="0" Grid.Row="0">
+                                            <SEACC_WPFControls:SEACC_LableTextBox x:Name="txtLoyalty_amount" FontSize="12" Caption="Loyalty Amount" />
+                                            <SEACC_WPFControls:SEACC_LableTextBox x:Name="txtCard_no" FontSize="12" Caption="Card No"  />
+                                            <SEACC_WPFControls:SEACC_LabelTimeSelector  x:Name="dtp_Date"  Height="27"  FontSize="12" ShowDate="Visible" ShowTime="Hidden" Caption="Date" />
+                                        </StackPanel>
+
+                                        <StackPanel Grid.Column="1" Grid.Row="0">
+                                            <SEACC_WPFControls:SEACC_LableTextBox x:Name="txtOutstandng_amnt" FontSize="12" Caption="Outstanding Amount" />
+                                            <SEACC_WPFControls:SEACC_LableTextBox x:Name="txtChqInHnd_amnt" FontSize="12" Caption="Cheque in Hand Amount" />
+                                        </StackPanel>
+
+                                    </Grid>
+                                </Border>
+
+                                <Border  BorderThickness="1" Margin="0,0,0,10">
+                                    <Border.Effect>
+                                        <DropShadowEffect Opacity="0.1" BlurRadius="10"/>
+                                    </Border.Effect>
+                                    <Grid Margin="0,5">
+                                        <Grid.ColumnDefinitions>
+                                            <ColumnDefinition Width="*"/>
+                                            <ColumnDefinition Width="*"/>
+                                        </Grid.ColumnDefinitions>
+                                        <StackPanel Grid.Column="0">
+                                            <SEACC_WPFControls:SEACC_LableTextBox x:Name="txtSalesAcc_Type" FontSize="12" Caption="Sales Account Type" />
+                                            <SEACC_WPFControls:SEACC_LableTextBox x:Name="txtSalesRetAcc_code" FontSize="12" Caption="Sales Return Amount Code" />
+                                            <SEACC_WPFControls:SEACC_LableTextBox x:Name="txtSaleAcc_code" FontSize="12" Caption="Sales Account Code" />
+                                        </StackPanel>
+                                        <StackPanel Grid.Column="1">
+                                            <SEACC_WPFControls:SEACC_LabelCheckBox x:Name="chkIsVATEnable" Caption="VAT Enable" IsChecked="True"/>
+                                            <SEACC_WPFControls:SEACC_LabelCheckBox x:Name="chkIsNBTEnable" Caption="NBT Enable" IsChecked="True"/>
+                                        </StackPanel>
+
+                                    </Grid>
+                                </Border>
+                            </StackPanel>
+                        </Expander>
+
+                        <Expander Header="Address Book" FontSize="24" Foreground="#FF0096D6" x:Name="expanAB" Expanded="expanAB_Expanded" >
+                            <StackPanel >
+                                <Border  BorderThickness="1" Margin="0,0,0,10">
+                                    <Border.Effect>
+                                        <DropShadowEffect Opacity="0.1" BlurRadius="10"/>
+                                    </Border.Effect>
+                                    <Grid   Margin="0,5"  >
+                                        <Grid.ColumnDefinitions>
+                                            <ColumnDefinition Width="*"/>
+                                            <ColumnDefinition Width="*"/>
+                                        </Grid.ColumnDefinitions>
+
+                                        <!--<StackPanel Grid.Column="0" Grid.Row="0">
+                                            <SEACC_WPFControls:SEACC_LableTextBox x:Name="txtContact_name" FontSize="12" Caption="Contact Name"  />
+                                            <SEACC_WPFControls:SEACC_LableTextBox x:Name="txtDesignation" FontSize="12" Caption="Designation" />
+                                            <SEACC_WPFControls:SEACC_LableTextBox x:Name="txtContact_mob" FontSize="12" Caption="Mobile No"  />
+                                            <SEACC_WPFControls:SEACC_LableTextBox x:Name="txtContact_tel" FontSize="12" Caption="Telephone" />
+                                        </StackPanel>
+
+                                        <StackPanel Grid.Column="1" Grid.Row="0">
+                                            
+                                            <SEACC_WPFControls:SEACC_LableTextBox x:Name="txtContact_fax" FontSize="12" Caption="Fax No" />
+                                            <SEACC_WPFControls:SEACC_LableTextBox x:Name="txtContact_emaill" FontSize="12" Caption="Email" />
+                                        </StackPanel>-->
+
+                                    </Grid>
+                                </Border>
+
+                                <Border  BorderThickness="1" Margin="0,0,0,10">
+                                    <Border.Effect>
+                                        <DropShadowEffect Opacity="0.1" BlurRadius="10"/>
+                                    </Border.Effect>
+                                    <Grid Margin="0,-45,0,0">
+                                        <StackPanel  Orientation="Horizontal"  VerticalAlignment="Top" HorizontalAlignment="Right" Margin="5,5,15,5"   Height="20" >
+                                            <SEACC_WPFControls:SEACC_Button x:Name="btnGridItemAdd" Content="&#xE109;" Width="30" FontFamily="Segoe MDL2 Assets" FontSize="12" Margin="0,0,5,0" Foreground="#FF0083A1" Background="#FF727272" BorderBrush="{x:Null}" Height="20" VerticalAlignment="Bottom" Click="btnGridItemAdd_Click"  />
+                                            <SEACC_WPFControls:SEACC_Button x:Name="btnGridItemDelete" Content="&#xE894;" Width="30" FontSize="12" FontFamily="Segoe MDL2 Assets" Background="#FF727272" BorderBrush="{x:Null}" Foreground="#FF0083A1" Click="btnGridItemDelete_Click" />
+                                        </StackPanel>
+                                        <SEACC_WPFControls:SEACC_DataGrid x:Name="dgr_Contact" Margin="0,38,0,-8" Background="#FF808387" HeaderColor="#FF0083A1" IsReadOnly="False" CanUserAddRows="False">
+                                            <SEACC_WPFControls:SEACC_DataGrid.Columns>
+                                                <DataGridTextColumn Binding="{Binding LineNo ,Mode=TwoWay , UpdateSourceTrigger=PropertyChanged}"   Header="#" Width="30" IsReadOnly="False" />
+                                                <DataGridTextColumn Binding="{Binding ContactName ,Mode=TwoWay , UpdateSourceTrigger=PropertyChanged}"   Header="Contact Name" Width="120" IsReadOnly="False" />
+                                                <DataGridTextColumn Binding="{Binding Designation ,Mode=TwoWay , UpdateSourceTrigger=PropertyChanged}"   Header="Designation" Width="110" IsReadOnly="True" />
+                                                <DataGridTextColumn Binding="{Binding Telephone ,Mode=TwoWay , UpdateSourceTrigger=PropertyChanged}"   Header="Telephone #" Width="90"   IsReadOnly="True" />
+                                                <DataGridTextColumn Binding="{Binding Mobil ,Mode=TwoWay , UpdateSourceTrigger=PropertyChanged}"   Header="Mobile #" Width="90"   IsReadOnly="True" />
+                                                <DataGridTextColumn Binding="{Binding FaxNo ,Mode=TwoWay , UpdateSourceTrigger=PropertyChanged}"   Header="Fax #" Width="90"   IsReadOnly="True" />
+                                                <DataGridTextColumn Binding="{Binding Email ,Mode=TwoWay , UpdateSourceTrigger=PropertyChanged}"   Header="Email" Width="120"   IsReadOnly="True" />
+                                            </SEACC_WPFControls:SEACC_DataGrid.Columns>
+                                        </SEACC_WPFControls:SEACC_DataGrid>
+                                    </Grid>
+                                </Border>
+                            </StackPanel>
+                        </Expander>
+
+                    </StackPanel>
+                </ScrollViewer>
+            </Grid>
+
+        </Grid>
+    </SEACC_WPFControls_Local:SEACC_Form>
+</UserControl>
+
+<!--<UserControl x:Class="SEACC_Tender.Masters.UC_CustomerMaster"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:SEACC_Tender.Masters"
+             mc:Ignorable="d" 
+             d:DesignHeight="300" d:DesignWidth="300">
+    <Grid>
+            
+    </Grid>
+</UserControl>-->

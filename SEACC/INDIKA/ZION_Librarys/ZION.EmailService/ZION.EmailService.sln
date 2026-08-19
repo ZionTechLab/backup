@@ -1,0 +1,35 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.30128.74
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ZION.EmailService", "ZION.EmailService\ZION.EmailService.csproj", "{4488AC54-E4E3-47CF-A371-391ED8FBBBF1}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{4488AC54-E4E3-47CF-A371-391ED8FBBBF1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4488AC54-E4E3-47CF-A371-391ED8FBBBF1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4488AC54-E4E3-47CF-A371-391ED8FBBBF1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4488AC54-E4E3-47CF-A371-391ED8FBBBF1}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {01FECA78-2122-4902-8D4C-88F6744AC3DA}
+	EndGlobalSection
+	GlobalSection(TeamFoundationVersionControl) = preSolution
+		SccNumberOfProjects = 1
+		SccEnterpriseProvider = {4CA58AB2-18FA-4F8D-95D4-32DDF27D184C}
+		SccTeamFoundationServer = https://dev.azure.com/ziontechsl
+		SccProjectUniqueName0 = ZION.EmailService\\ZION.EmailService.csproj
+		SccProjectName0 = ZION.EmailService
+		SccAuxPath0 = https://dev.azure.com/ziontechsl
+		SccLocalPath0 = ZION.EmailService
+		SccProvider0 = {4CA58AB2-18FA-4F8D-95D4-32DDF27D184C}
+	EndGlobalSection
+EndGlobal

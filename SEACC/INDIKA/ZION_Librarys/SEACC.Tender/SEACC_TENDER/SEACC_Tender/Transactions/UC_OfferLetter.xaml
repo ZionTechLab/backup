@@ -1,0 +1,49 @@
+﻿<UserControl x:Class="SEACC_Tender.UC_OfferLetter"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:SEACC_Tender"
+             xmlns:SEACC_WPFControls_Local="clr-namespace:SEACC_Tender.UserControls"
+             xmlns:SEACC_WPFControls="clr-namespace:SEACC_WPFControls;assembly=SEACC_WPFControls" 
+             mc:Ignorable="d" Background="#FFFFFF" FontWeight="Normal" >
+    <SEACC_WPFControls_Local:SEACC_Form x:Name="SEACC_Form" SizeChanged="SEACC_Form_SizeChanged">
+        <Grid Margin="0,10,0,50">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition x:Name="ColumnA" Width="400"/>
+                <ColumnDefinition Width="5"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+            <SEACC_WPFControls:SEACC_DataGrid_Advanced Grid.Column="0" x:Name="dgr_Main" Margin="10,0" Background="#FF6A6A6A" HeaderColor="#FF0083A1" MouseLeftButtonUp="dgr_Main_MouseLeftButtonUp"/>
+            <GridSplitter Grid.Column="1" Background="#D5D5D5" x:Name="gridSplitter" Width="5" HorizontalAlignment="Stretch" />
+            <Border Grid.Column="2" BorderThickness="1" Margin="0,0,0,10">
+                <Border.Effect>
+                    <DropShadowEffect Opacity="0.1" BlurRadius="10"/>
+                </Border.Effect>
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition  Width="*"/>
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
+                    <StackPanel Grid.Column="0" Margin="10,0">
+                        <SEACC_WPFControls:SEACC_LableTextBox Caption="Offer Letter #" x:Name="txtOfferNo" MouseDoubleClick="txtOfferNo_MouseDoubleClick"/>
+                        <SEACC_WPFControls:SEACC_LableTextBox Caption="Tender/BID No." x:Name="txtTenderID" MouseDoubleClick="txtTenderID_MouseDoubleClick"/>
+                        <SEACC_WPFControls:SEACC_LabelTimeSelector Caption="Offer Letter Date" x:Name="dtpOfferLetterDate" ShowDate="Visible" ShowTime="Hidden"/>
+                        <SEACC_WPFControls:SEACC_LableTextBox Caption="Offer Letter Ref#" x:Name="txtOfferLetterRef"/>
+                        <!--<Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="315"/>
+                                <ColumnDefinition Width="30"/>
+                            </Grid.ColumnDefinitions>
+                            <SEACC_WPFControls:SEACC_LableTextBox Grid.Column="0" Caption="Upload Offer Letter" x:Name="txtUploadOffer" DetailBox_Width="190"/>
+                            <SEACC_WPFControls:SEACC_Button Grid.Column="1" x:Name="btnUploadLetter" FontFamily="Segoe MDL2 Assets" Content="&#xE110;" Width="30" Height="26" FontSize="12" Foreground="#FF0096D6" Background="{x:Null}" BorderBrush="#FF0096D6" HorizontalAlignment="Left" Click="btnUploadLetter_Click" />
+                        </Grid>-->
+                    </StackPanel>
+                    <StackPanel Grid.Column="1" Margin="10,0">
+                        <local:UC_Attachments x:Name="Attachments" Height="150" Margin="0,10,10,10"/>
+                    </StackPanel>
+                </Grid>
+            </Border>
+        </Grid>
+    </SEACC_WPFControls_Local:SEACC_Form>
+</UserControl>

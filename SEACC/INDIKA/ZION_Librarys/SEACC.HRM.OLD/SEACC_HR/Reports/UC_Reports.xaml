@@ -1,0 +1,51 @@
+﻿<UserControl
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:SEACC_WPFControls1="clr-namespace:SEACC_WPFControls" xmlns:SEACC_WPFControls="clr-namespace:SEACC_WPFControls;assembly=SEACC_WPFControls" x:Class="Digiteq.UC_Reports" 
+             mc:Ignorable="d" 
+            >
+    <SEACC_WPFControls1:SEACC_Form x:Name="SEACC_Form">
+        <Grid >
+            <Grid HorizontalAlignment="Left"   VerticalAlignment="Top" Width="150"  >
+                <ScrollViewer   VerticalAlignment="Top" VerticalScrollBarVisibility="Auto"  >
+                    <StackPanel >
+                        <SEACC_WPFControls:SEACC_Button x:Name="btn_Form_c" Height="33" Content=" Monthly EPF-C Form"   Background="{x:Null}" Foreground="#FF007ACC" BorderBrush="#FF007ACC" BorderThickness="0,1" HorizontalContentAlignment="Left" Padding="11,1,1,1" Grid.IsSharedSizeScope="True" Click="btn_Form_c_Click"  />
+                        <SEACC_WPFControls:SEACC_Button x:Name="btn_R4" Height="33" Content=" Monthly-ETF"   Background="{x:Null}" Foreground="#FF007ACC" BorderBrush="#FF007ACC" BorderThickness="0,0,0,1" HorizontalContentAlignment="Left" Click="btn_R4_Click"  />
+                        <SEACC_WPFControls:SEACC_Button x:Name="btn_Employee_Category1" Content=" Unpaid Employees Report" Height="33"  Background="{x:Null}" Foreground="#FF007ACC" BorderBrush="#FF007ACC" BorderThickness="0,0,0,1" HorizontalContentAlignment="Left" Click="btn_Employee_Category1_Click" />
+                        <SEACC_WPFControls:SEACC_Button x:Name="btn_Employee_Category2" Content=" Quarterly Pay Sheet Report" Height="33"  Background="{x:Null}" Foreground="#FF007ACC" BorderBrush="#FF007ACC" BorderThickness="0,0,0,1" HorizontalContentAlignment="Left" Click="btn_Employee_Category2_Click"  />
+                        <SEACC_WPFControls:SEACC_Button x:Name="btn_Employee_Category3" Content=" Salary Journal " Height="33" Background="{x:Null}" Foreground="#FF007ACC" BorderBrush="#FF007ACC" BorderThickness="0,0,0,1" HorizontalContentAlignment="Left" Click="btn_Employee_Category3_Click"  />
+                        <SEACC_WPFControls:SEACC_Button x:Name="btn_Section" Content=" SLIPS Letter" Height="33"  Background="{x:Null}" Foreground="#FF007ACC" BorderBrush="#FF007ACC" BorderThickness="0,0,0,1" HorizontalContentAlignment="Left" Click="btn_Section_Click"/>
+                        <SEACC_WPFControls:SEACC_Button x:Name="btn_salpf"  Content=" SALARY SHEET – PF's" Height="33"  Background="{x:Null}" Foreground="#FF007ACC" BorderBrush="#FF007ACC" BorderThickness="0,0,0,1" HorizontalContentAlignment="Left" Click="btn_salpf_Click" />
+                        <SEACC_WPFControls:SEACC_Button x:Name="btn_saltax"  Content=" SALARY SHEET – TAX" Height="33"  Background="{x:Null}" Foreground="#FF007ACC" BorderBrush="#FF007ACC" BorderThickness="0,0,0,1" HorizontalContentAlignment="Left" Click="btn_saltax_Click" />
+                        <SEACC_WPFControls:SEACC_Button x:Name="btn_salsum"  Content=" SALARY SHEET – SUM." Height="33"  Background="{x:Null}" Foreground="#FF007ACC" BorderBrush="#FF007ACC" BorderThickness="0,0,0,1" HorizontalContentAlignment="Left" Click="btn_salsum_Click" />
+
+                    </StackPanel>
+                </ScrollViewer>
+            </Grid>
+            <Grid x:Name="Grid_Right"  Margin="160,0,0,0"   >
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Name="coloumnA"  />
+                    <ColumnDefinition Width="5" />
+                    <ColumnDefinition Width="*" />
+                </Grid.ColumnDefinitions>
+                <StackPanel>
+                    <Label x:Name="lbl_ReportName" Content="Report Name" Foreground="#FF007ACC" FontSize="22"/>
+                    <Separator Margin="0,2,0,15" />
+
+                    <SEACC_WPFControls:SEACC_LableTextBox x:Name="txt_Year" Caption="HR Year" MouseDoubleClick="txt_Year_MouseDoubleClick"/>
+                    <SEACC_WPFControls:SEACC_LableTextBox x:Name="txt_Month" Caption="HR Month" MouseDoubleClick="txt_Month_MouseDoubleClick"/>
+                    <Grid>
+                        <SEACC_WPFControls:SEACC_Button x:Name="btn_Print" Content="Preview" Margin="85,10,0,10" Height="27" Background="#FF007ACC" Foreground="White" HorizontalAlignment="Left" Width="68" Click="btn_Print_Click"/>
+                        <SEACC_WPFControls:SEACC_Button  Content="print" Margin="158,10,0,10" Height="27" Background="#FF007ACC" Foreground="White" HorizontalAlignment="Left" Width="77" Click="btn_Print_Click"/>
+                        <SEACC_WPFControls:SEACC_Button x:Name="btn_Clear" Content="Clear" Margin="8,10,0,10" Height="27" Background="#FF007ACC" Foreground="White" HorizontalAlignment="Left" Width="72" Click="btn_Clear_Click"/>
+
+                    </Grid>
+
+                </StackPanel>
+                <Grid   Grid.Column="2" />
+            </Grid>
+        </Grid>
+    </SEACC_WPFControls1:SEACC_Form>
+</UserControl>

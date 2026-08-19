@@ -1,0 +1,38 @@
+﻿<UserControl x:Class="Digiteq.UC_Report2"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+              xmlns:SEACC_WPFControls="clr-namespace:SEACC_WPFControls" 
+             xmlns:SEACC_WPFControls1="clr-namespace:SEACC_WPFControls" 
+             xmlns:SEACC_WPFControls2="clr-namespace:SEACC_WPFControls;assembly=SEACC_WPFControls"  
+             mc:Ignorable="d" 
+             d:DesignHeight="300" >
+    <SEACC_WPFControls1:SEACC_Form x:Name="SEACC_Form">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="0.25*" MinWidth="110"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+        <ScrollViewer Grid.Column="0">
+            <StackPanel>
+            <SEACC_WPFControls2:SEACC_Button Content="C-Form-EPF" Height="24" Click="SEACC_Button_Click" />
+                <SEACC_WPFControls2:SEACC_Button Content="ETF Form" Height="24" Click="SEACC_Button_Click_1" />
+                <SEACC_WPFControls2:SEACC_Button Content="Quartly Pay" Height="24" Click="SEACC_Button_Click_2" />
+                <SEACC_WPFControls2:SEACC_Button Content="Salary Journal" Height="24" Click="SEACC_Button_Click_3" />
+                <SEACC_WPFControls2:SEACC_Button Content="Salary Sheet PF" Height="24" Click="SEACC_Button_Click_4" />
+                <SEACC_WPFControls2:SEACC_Button Content="Salary Sheet Summary" Height="24" Click="SEACC_Button_Click_5" />
+                <SEACC_WPFControls2:SEACC_Button Content="Salary Sheet TAX" Height="24" Click="SEACC_Button_Click_6" />
+                <SEACC_WPFControls2:SEACC_Button Content="Bank Letter" Height="24" Click="SEACC_Button_Click_7" />
+                <SEACC_WPFControls2:SEACC_Button Content="Employee- Un paid" Height="24" Click="SEACC_Button_Click_8" />
+            </StackPanel>
+        </ScrollViewer>
+
+        <Grid   VerticalAlignment="Top" Grid.Column="1">
+            <StackPanel>
+                <TextBlock></TextBlock>
+                <SEACC_WPFControls2:SEACC_LabelTimeSelector VerticalAlignment="Top" Caption="From Date" x:Name="dtp_FromDate" ShowDate="Visible" ShowTime="Hidden"/>
+                <SEACC_WPFControls2:SEACC_LabelTimeSelector VerticalAlignment="Top" Caption="To Date" x:Name="dtp_ToDate" ShowDate="Visible" ShowTime="Hidden"/>
+            </StackPanel>
+        </Grid>
+    </SEACC_WPFControls1:SEACC_Form>
+</UserControl>

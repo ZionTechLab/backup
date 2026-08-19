@@ -1,0 +1,58 @@
+﻿<Window x:Class="SEACC_servii.frmSplash"
+        
+        
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:SEACC_WPFControls="clr-namespace:SEACC_WPFControls;assembly=SEACC_WPFControls" 
+        xmlns:SEACC_WPFControls1="clr-namespace:SEACC_WPFControls" x:Name="frm_Splash"
+        Title="MainWindow" Height="483" Width="303" AllowsTransparency="True" WindowStyle="None" Background="{x:Null}" WindowStartupLocation="CenterScreen" >
+        
+    <Window.Resources>
+        <Storyboard x:Key="OnLoaded1">
+            <ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Visibility)" Storyboard.TargetName="Btn_Name">
+                <DiscreteObjectKeyFrame KeyTime="0" Value="{x:Static Visibility.Hidden}"/>
+                <DiscreteObjectKeyFrame KeyTime="0:0:2" Value="{x:Static Visibility.Visible}"/>
+            </ObjectAnimationUsingKeyFrames>
+            <ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Visibility)" Storyboard.TargetName="image">
+                <DiscreteObjectKeyFrame KeyTime="0" Value="{x:Static Visibility.Hidden}"/>
+                <DiscreteObjectKeyFrame KeyTime="0:0:2" Value="{x:Static Visibility.Visible}"/>
+            </ObjectAnimationUsingKeyFrames>
+            <ColorAnimationUsingKeyFrames Storyboard.TargetProperty="(Panel.Background).(GradientBrush.GradientStops)[1].(GradientStop.Color)" Storyboard.TargetName="grid">
+                <EasingColorKeyFrame KeyTime="0" Value="#19FFFFFF"/>
+                <EasingColorKeyFrame KeyTime="0:0:2" Value="#FFFFFFFF"/>
+            </ColorAnimationUsingKeyFrames>
+            <ColorAnimationUsingKeyFrames Storyboard.TargetProperty="(Panel.Background).(GradientBrush.GradientStops)[0].(GradientStop.Color)" Storyboard.TargetName="grid">
+                <EasingColorKeyFrame KeyTime="0:0:1" Value="#FFFFFFFF"/>
+                <EasingColorKeyFrame KeyTime="0:0:2" Value="#FFFFFFFF"/>
+            </ColorAnimationUsingKeyFrames>
+        </Storyboard>
+    </Window.Resources>
+    <Window.Triggers>
+        <EventTrigger RoutedEvent="FrameworkElement.Loaded">
+            <BeginStoryboard x:Name="OnLoaded1_BeginStoryboard" Storyboard="{StaticResource OnLoaded1}"/>
+        </EventTrigger>
+    </Window.Triggers>
+
+    <Grid x:Name="grid" Margin="10" >
+        <Grid.Background>
+            <RadialGradientBrush>
+                <GradientStop Color="#FFFFFFFF" Offset="0"/>
+                <GradientStop Color="#FFFFFFFF" Offset="1"/>
+            </RadialGradientBrush>
+        </Grid.Background>
+        <Grid.Effect>
+            <DropShadowEffect BlurRadius="10" Opacity="0.5"/>
+        </Grid.Effect>
+        <Label Content="SEACC" Margin="10,73,10,0" VerticalAlignment="Top" FontFamily="Colonna MT" FontSize="70" Foreground="#FFBF0909" HorizontalContentAlignment="Center"/>
+        <Label/>
+        <ProgressBar x:Name="ProgressBar1" HorizontalAlignment="Left" Height="12" Margin="10,157,0,0" VerticalAlignment="Top" Width="426" Foreground="#FFEC3C00" Visibility="Hidden"/>
+        <SEACC_WPFControls:SEACC_WaitingBar Margin="-94,343,0,0" VerticalAlignment="Top" Width="Auto"/>
+        <SEACC_WPFControls:SEACC_Button_Close x:Name="Btn_Name" Content="&#xE8BB;" Margin="262,0,0,0" VerticalAlignment="Top" BorderBrush="#FF41B1E1" HorizontalAlignment="Left" Width="22" Foreground="#FFF0F0F0" FontFamily="Segoe MDL2 Assets" Padding="5" Height="21" FontSize="10" Click="Btn_Name_Click"/>
+
+        <Image Margin="0,322,-1,0"  Stretch="Fill" Opacity="0.2"/>
+        <TextBlock TextAlignment="Center" TextWrapping="Wrap" Foreground="#FFD4D4D4" Padding="8" FontWeight="Thin" FontFamily="Utsaah" Height="110" VerticalAlignment="Bottom"><Run Text="Welcome to the real world of Office ERP Software"/><LineBreak/><Run Text="SEACC R2 ERP Powered by DIGITEQ SOLUTIONS (PVT) LTD"/><LineBreak/><Run Text="We are sure you will be delighted to use and access SEACC R2 ERP Software the way you desire !!"/><LineBreak/><LineBreak/><Run/><LineBreak/></TextBlock>
+
+        <Image x:Name="image" HorizontalAlignment="Left" Height="16" Margin="209,432,0,0" VerticalAlignment="Top" Width="65"  Stretch="Fill"/>
+
+    </Grid>
+</Window>

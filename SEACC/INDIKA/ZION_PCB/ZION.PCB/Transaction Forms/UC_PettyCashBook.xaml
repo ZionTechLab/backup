@@ -1,0 +1,492 @@
+﻿<UserControl x:Class="SEACC_PCB.UC_PettyCashBook"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:SEACC_PCB"
+             mc:Ignorable="d" 
+             xmlns:SEACC_WPFControls="clr-namespace:SEACC_WPFControls;assembly=SEACC_WPFControls" 
+             xmlns:SEACC_WPFControls_Local="clr-namespace:SEACC_PCB.UserControls" Background="#FFFFFF" FontWeight="Normal">
+
+    <SEACC_WPFControls_Local:SEACC_Form x:Name="SEACC_Form"  >
+        <SEACC_WPFControls_Local:SEACC_Form.ColumnDefinitions>
+            <ColumnDefinition Width="190*"/>
+            <ColumnDefinition Width="87*"/>
+            <ColumnDefinition Width="103*"/>
+        </SEACC_WPFControls_Local:SEACC_Form.ColumnDefinitions>
+
+        <Grid Margin="0,-40,10,0" Grid.ColumnSpan="3">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Name="colA" Width="*" />
+                <ColumnDefinition Name="colB" Width="120" />
+                <ColumnDefinition Name="colC" Width="100" />
+                <ColumnDefinition Name="colD" Width="140" />
+                <ColumnDefinition Name="colE" Width="140" />
+                <ColumnDefinition Width="120"/>
+            </Grid.ColumnDefinitions>
+
+            <Grid  HorizontalAlignment="Right" Grid.Column="5" VerticalAlignment="Top">
+                <StackPanel Orientation="Vertical">
+                    <Label x:Name="lblAvilableBal" Foreground="Gray" Padding="0">Available Balance</Label>
+                    <Label x:Name="lblAvilableBalVal" Foreground="#FFA60000" Padding="0" FontSize="18" HorizontalAlignment="Center">2500.00</Label>
+                </StackPanel>
+            </Grid>
+            <Grid  HorizontalAlignment="Right" Grid.Column="4"  VerticalAlignment="Top">
+                <StackPanel Orientation="Vertical">
+                    <Label x:Name="lblIOUAmnt" Foreground="Gray" Padding="0">Unsettled IOU Amount</Label>
+                    <Label x:Name="lblIOUAmntVal" Foreground="Gray" Padding="0" FontSize="18" HorizontalAlignment="Center">(1000.00)</Label>
+                </StackPanel>
+            </Grid>
+            <Grid  HorizontalAlignment="Right" Grid.Column="3" VerticalAlignment="Top">
+                <StackPanel Orientation="Vertical">
+                    <Label x:Name="lblBookBal" Foreground="Gray" Padding="0">Book Balance</Label>
+                    <Label x:Name="lblBookBalVal" Foreground="Gray" Padding="0" FontSize="18" HorizontalAlignment="Center">3500.00</Label>
+                </StackPanel>
+            </Grid>
+            <Grid  HorizontalAlignment="Right" Grid.Column="2" VerticalAlignment="Top">
+                <StackPanel Orientation="Vertical">
+                    <Label x:Name="lblAmount" Foreground="Gray" Padding="0">Float Amount</Label>
+                    <Label x:Name="lblAmountVal" Foreground="Gray" Padding="0" FontSize="18" HorizontalAlignment="Center">8000.00</Label>
+                </StackPanel>
+            </Grid>
+            <Grid  HorizontalAlignment="Right" Grid.Column="1" VerticalAlignment="Top">
+                <StackPanel Orientation="Vertical" Margin="0,5">
+                    <SEACC_WPFControls:SEACC_Button x:Name="btnReimbursment" Foreground="Gray" Padding="0" Width="90" Height="30" Click="btnReimbursment_Click" BorderBrush="#FFDDDDDD" Background="{x:Null}" BorderThickness="2">Reimbursment</SEACC_WPFControls:SEACC_Button>
+                </StackPanel>
+            </Grid>
+
+            <Grid  HorizontalAlignment="Right" Grid.Column="0" VerticalAlignment="Top"></Grid>
+        </Grid>
+
+        <SEACC_WPFControls:SEACC_ScrollViewer VerticalScrollBarVisibility="Auto" Grid.ColumnSpan="3" >
+
+            <Grid Margin="10,5,10,5">
+                <Grid.RowDefinitions>
+                    <!--<RowDefinition Name="rowA" Height="60" />-->
+                    <!--<RowDefinition Name="rowB" Height="205" />
+                    <RowDefinition Name="rowC" Height="170" />-->
+                    <RowDefinition Name="rowA" Height="0" />
+                    <RowDefinition Name="rowB" Height="280" />
+                    <RowDefinition Name="rowC" Height="5" />
+                    <RowDefinition Height="250"/>
+                </Grid.RowDefinitions>
+
+                <Grid Grid.Row="0" Margin="0,0">
+
+                    <!--<SEACC_WPFControls:SEACC_ScrollViewer VerticalScrollBarVisibility="Auto" >-->
+
+                    <!--<Grid.ColumnDefinitions>
+                            <ColumnDefinition Name="colA" Width="400" />
+                            <ColumnDefinition Name="colB" Width="*" />
+                        </Grid.ColumnDefinitions>-->
+                    <Grid Background="#FFE6E1D7">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Name="col1_A" Width="200" />
+                            <ColumnDefinition Width="*"/>
+                        </Grid.ColumnDefinitions>
+                        <Grid Grid.Column="0" >
+                            <Border BorderThickness="2,2,0,2" BorderBrush="#FF727272">
+                                <StackPanel>
+                                    <!--<Label x:Name="lblPCAccID" Visibility="Collapsed">PC Account Code</Label>
+                                    <TextBlock x:Name="lblPCAccName"  Margin="10,0" FontWeight="Bold" FontSize="14">PC Account Name</TextBlock>                                    
+                                    <TextBlock x:Name="lblCurrency" Margin="10,0">Currency</TextBlock>
+                                    <TextBlock x:Name="lblAmount"  Margin="10,0">Float Amount</TextBlock>-->
+                                    <SEACC_WPFControls:SEACC_LableTextBox x:Name="txtFinYear" Caption="Fine Year" Visibility="Collapsed"/>
+                                </StackPanel>
+                            </Border>
+                        </Grid>
+                        <Grid Grid.Column="1">
+                            <Border BorderThickness="0,2,2,2" BorderBrush="#FF727272" >
+                                <StackPanel>
+                                    <!--<Label x:Name="lblPCAccIDVal" Visibility="Collapsed">Abc</Label>
+                                    <TextBlock x:Name="lblPCAccNameVal" Margin="5,0" FontWeight="Bold" FontSize="14">zzz</TextBlock>
+                                    <TextBlock x:Name="lblCurrencyVal" Margin="5,0">LKR</TextBlock>
+                                    <TextBlock x:Name="lblAmountVal" Margin="5,0">8000.00</TextBlock>-->
+                                </StackPanel>
+                            </Border>
+                        </Grid>
+                        <!--<StackPanel>
+                                <SEACC_WPFControls:SEACC_LableTextBox x:Name="txtPCAccID" Caption="PC Account Code" />
+                                <SEACC_WPFControls:SEACC_LableTextBox x:Name="txtPCAccName" Caption="PC Account Name" />                        
+                    </StackPanel>-->
+                    </Grid>
+                    <Grid Grid.Column="1">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Name="col2_A" Width="200" />
+                            <ColumnDefinition Width="*"/>
+                        </Grid.ColumnDefinitions>
+                        <Grid Grid.Column="0" >
+                            <StackPanel>
+                                <!--<Label x:Name="lblCurrency" >Currency</Label>
+                                    <Label x:Name="lblAmount" >Amount</Label>-->
+                            </StackPanel>
+                        </Grid>
+                        <Grid Grid.Column="1">
+                            <StackPanel>
+                                <!--<Label x:Name="lblCurrencyVal" >00.00</Label>
+                                    <Label x:Name="lblAmountVal" >3500.00</Label>-->
+                            </StackPanel>
+                        </Grid>
+                        <!--<StackPanel>
+                                <SEACC_WPFControls:SEACC_LableTextBox x:Name="txtCurrency" Caption="Currency" MouseDoubleClick="txtCurrency_MouseDoubleClick" />
+                                <SEACC_WPFControls:SEACC_LableTextBox x:Name="txtAmount" Caption="Amount" />
+                        </StackPanel>-->
+
+                    </Grid>
+                    <!--</SEACC_WPFControls:SEACC_ScrollViewer>-->
+                </Grid>
+                <Grid  Grid.Row="1" Margin="0,0,0,10" Background="#FF414753">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="1036*"/>
+                        <ColumnDefinition Width="45*"/>
+                    </Grid.ColumnDefinitions>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Name="row2B" Height="40" />
+                        <RowDefinition Height="*"/>
+                    </Grid.RowDefinitions>
+                    <Grid Grid.Row="0" Margin="0,0" Background="#FF414753" Grid.ColumnSpan="2">
+                        <StackPanel Orientation="Horizontal" Margin="5">
+                            <Label Content="Transactions From " Foreground="White" FontSize="12" />
+                            <!--<SEACC_WPFControls:SEACC_TimePicker x:Name="dtpFrom_Date"  ShowDate="Visible" ShowTime="Hidden" DateTimeChanged="dtpFrom_Date_DateTimeChanged" Width="143"  />-->
+                            <SEACC_WPFControls:SEACC_TimePicker x:Name="dtpFrom_Date"  Background="#FF727272"  ShowTime="Collapsed" ShowDate="Visible"  Height="25" BackgroudColor="#FF727272" FontColor="White" SeperatorColor="#FF33B9EB"  DateTimeChanged="dtpFrom_Date_DateTimeChanged" />
+                            <Label Content=" To " Foreground="White" FontSize="12" />
+                            <SEACC_WPFControls:SEACC_TimePicker x:Name="dtpTo_Date" Background="#FF727272"  ShowTime="Collapsed" ShowDate="Visible"  Height="25" BackgroudColor="#FF727272" FontColor="White" SeperatorColor="#FF33B9EB"  DateTimeChanged="dtpTo_Date_DateTimeChanged" />
+                            <Label Content="  " Foreground="White" FontSize="12" />
+                            <CheckBox x:Name="chkShowAll" Background="#FF727272" Height="25" VerticalAlignment="Bottom" Checked="chkShowAll_Checked" Content="Show All" Foreground="White" Unchecked="chkShowAll_Unchecked"/>
+                        </StackPanel>
+                        <SEACC_WPFControls:SEACC_Button x:Name="btnGridAdd" Content="&#xE109;" Width="30" FontFamily="Segoe MDL2 Assets" Foreground="#FFE2E2E2" Background="#FF727272" BorderBrush="{x:Null}" Height="20"  Click="btnGridAdd_Click" HorizontalAlignment="Right" Margin="0,5,10,5"  />
+                        <!--<SEACC_WPFControls:SEACC_LabelTimeSelector x:Name="dtpTo_Date" Margin="454,0,-409,0" Caption="To"  ShowDate="Visible" ShowTime="Hidden" DateTimeChanged="dtpTo_Date_DateTimeChanged" />-->
+
+
+                    </Grid>
+
+                    <Grid Grid.Row="1" Margin="10,0,10,7" Background="Black" Grid.ColumnSpan="2">
+                        <SEACC_WPFControls:SEACC_DataGrid x:Name="dgr_PCB" FontSize="11" Margin="0,0,0,0" Background="#FF414753" HeaderColor="#FF727272" IsReadOnly="False" AutoGenerateColumns="False" CanUserAddRows="False" CanUserDeleteRows="False" MinHeight="80" Foreground="White" CanUserResizeColumns="True" CanUserSortColumns="False" LoadingRow="dgr_PCB_LoadingRow"  MouseDoubleClick="dgr_PCB_MouseDoubleClick"  >
+                            <DataGrid.Resources>
+                                <SolidColorBrush x:Key="{x:Static SystemColors.HighlightBrushKey}"  Color="#FFF4E7A7" />
+                                <!--<SolidColorBrush x:Key="{x:Static SystemColors.HighlightBrushKey}"  Color="#FF727272" />-->
+                            </DataGrid.Resources>
+
+                            <DataGrid.CellStyle>
+                                <Style TargetType="DataGridCell">
+                                    <!--<Style.Triggers>
+                                        <DataTrigger Binding="{Binding RelativeSource={RelativeSource AncestorType={x:Type DataGridRow}},
+                                               Path=Tag}" Value="ChangedBackground">
+                                            <Setter Property="Foreground" Value="Transparent" />
+                                        </DataTrigger>
+                                    </Style.Triggers>-->
+                                    <Style.Triggers>
+                                        <Trigger Property="IsSelected" Value="True">
+                                            <Setter Property="Foreground" Value="Black"/>
+                                        </Trigger>
+
+                                        <!--<DataTrigger Binding="{Binding RelativeSource={RelativeSource AncestorType={x:Type DataGridRow}},
+                                               Path=Tag}" Value="ChangedBackground">
+                                            <Setter Property="Foreground" Value="Red" />
+                                        </DataTrigger>-->
+
+                                    </Style.Triggers>
+                                    <Setter Property="Padding" Value="0"/>
+                                    <Setter Property="Template">
+                                        <Setter.Value>
+                                            <ControlTemplate TargetType="{x:Type DataGridCell}">
+                                                <Border Padding="{TemplateBinding Padding}" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" Background="{TemplateBinding Background}" SnapsToDevicePixels="True">
+                                                    <Grid Background="{TemplateBinding Background}">
+                                                        <ContentPresenter SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}"/>
+                                                        <ContentPresenter VerticalAlignment="Center" />
+                                                    </Grid>
+                                                </Border>
+                                            </ControlTemplate>
+                                        </Setter.Value>
+                                    </Setter>
+                                </Style>
+                            </DataGrid.CellStyle>
+
+                            <DataGrid.Columns>
+
+                                <DataGridTextColumn Binding="{Binding Date, StringFormat=\{0:dd/MM/yyyy\} ,Mode=TwoWay , UpdateSourceTrigger=PropertyChanged}" Header="Date" Width="100"  IsReadOnly="True" >
+                                    <DataGridTextColumn.ElementStyle>
+                                        <Style>
+                                            <Setter Property="TextBlock.TextWrapping" Value="Wrap" />
+                                            <Setter Property="TextBlock.TextAlignment" Value="Center"/>
+                                            <Setter Property="TextBlock.VerticalAlignment" Value="Center"/>
+                                        </Style>
+                                    </DataGridTextColumn.ElementStyle>
+                                </DataGridTextColumn>
+
+                                <DataGridTextColumn Binding="{Binding ExpID ,Mode=TwoWay , UpdateSourceTrigger=PropertyChanged}" Header="Txn Code" Width="100"  IsReadOnly="True">
+                                    <DataGridTextColumn.ElementStyle>
+                                        <Style>
+                                            <Setter Property="TextBlock.TextWrapping" Value="Wrap" />
+                                            <Setter Property="TextBlock.TextAlignment" Value="Left"/>
+                                            <Setter Property="TextBlock.VerticalAlignment" Value="Center"/>
+                                        </Style>
+                                    </DataGridTextColumn.ElementStyle>
+                                </DataGridTextColumn>
+
+                                <DataGridTextColumn Binding="{Binding CatID ,Mode=TwoWay , UpdateSourceTrigger=PropertyChanged}" Header="Category ID" Width="100"  IsReadOnly="True" Visibility="Collapsed">
+                                    <DataGridTextColumn.ElementStyle>
+                                        <Style>
+                                            <Setter Property="TextBlock.TextWrapping" Value="Wrap" />
+                                            <Setter Property="TextBlock.TextAlignment" Value="Left"/>
+                                            <Setter Property="TextBlock.VerticalAlignment" Value="Center"/>
+                                        </Style>
+                                    </DataGridTextColumn.ElementStyle>
+                                </DataGridTextColumn>
+
+                                <DataGridTextColumn Binding="{Binding CatCode ,Mode=TwoWay , UpdateSourceTrigger=PropertyChanged}" Header="Category" Width="150" Visibility="Collapsed"  IsReadOnly="True" >
+                                    <DataGridTextColumn.ElementStyle>
+                                        <Style>
+                                            <Setter Property="TextBlock.TextWrapping" Value="Wrap" />
+                                            <Setter Property="TextBlock.TextAlignment" Value="Left"/>
+                                            <Setter Property="TextBlock.VerticalAlignment" Value="Center"/>
+                                        </Style>
+                                    </DataGridTextColumn.ElementStyle>
+                                </DataGridTextColumn>
+
+                                <DataGridTextColumn Binding="{Binding SpentBy ,Mode=TwoWay , UpdateSourceTrigger=PropertyChanged}" Header="Spent By" Width="150"  IsReadOnly="True">
+                                    <DataGridTextColumn.ElementStyle>
+                                        <Style>
+                                            <Setter Property="TextBlock.TextWrapping" Value="Wrap" />
+                                            <Setter Property="TextBlock.TextAlignment" Value="Left"/>
+                                            <Setter Property="TextBlock.VerticalAlignment" Value="Center"/>
+                                        </Style>
+                                    </DataGridTextColumn.ElementStyle>
+                                </DataGridTextColumn>
+
+                                <DataGridTextColumn Binding="{Binding Remarks ,Mode=TwoWay , UpdateSourceTrigger=PropertyChanged}" Header="Remarks" Width="290"  IsReadOnly="True">
+                                    <DataGridTextColumn.ElementStyle>
+                                        <Style>
+                                            <Setter Property="TextBlock.TextWrapping" Value="Wrap" />
+                                            <Setter Property="TextBlock.TextAlignment" Value="Left"/>
+                                            <Setter Property="TextBlock.VerticalAlignment" Value="Center"/>
+                                        </Style>
+                                    </DataGridTextColumn.ElementStyle>
+                                </DataGridTextColumn>
+
+                                <DataGridTextColumn Binding="{Binding Expenses ,Mode=TwoWay , UpdateSourceTrigger=PropertyChanged}" Header="Expenses" Width="100"  IsReadOnly="True" >
+                                    <DataGridTextColumn.ElementStyle>
+                                        <Style>
+                                            <Setter Property="TextBlock.TextWrapping" Value="Wrap" />
+                                            <Setter Property="TextBlock.TextAlignment" Value="Right"/>
+                                            <Setter Property="TextBlock.VerticalAlignment" Value="Center"/>
+                                        </Style>
+                                    </DataGridTextColumn.ElementStyle>
+                                </DataGridTextColumn>
+
+                                <DataGridTextColumn Binding="{Binding Income ,Mode=TwoWay , UpdateSourceTrigger=PropertyChanged}" Header="Income" Width="100"  IsReadOnly="True" >
+                                    <DataGridTextColumn.ElementStyle>
+                                        <Style>
+                                            <Setter Property="TextBlock.TextWrapping" Value="Wrap" />
+                                            <Setter Property="TextBlock.TextAlignment" Value="Right"/>
+                                            <Setter Property="TextBlock.VerticalAlignment" Value="Center"/>
+                                        </Style>
+                                    </DataGridTextColumn.ElementStyle>
+                                </DataGridTextColumn>
+
+                                <DataGridTextColumn Binding="{Binding isCanceled ,Mode=TwoWay , UpdateSourceTrigger=PropertyChanged}" Header="Is Canceled" Width="100"  IsReadOnly="True" Visibility="Collapsed" >
+                                    <DataGridTextColumn.ElementStyle>
+                                        <Style>
+                                            <Setter Property="TextBlock.TextWrapping" Value="Wrap" />
+                                            <Setter Property="TextBlock.TextAlignment" Value="Center"/>
+                                            <Setter Property="TextBlock.VerticalAlignment" Value="Center"/>
+                                        </Style>
+                                    </DataGridTextColumn.ElementStyle>
+                                </DataGridTextColumn>
+
+                                <!--<DataGridTextColumn Binding="{Binding Balance, StringFormat={}{0:0.00;(0,000.00)}, Mode=TwoWay , UpdateSourceTrigger=PropertyChanged}" Header="Balance" Width="100"  IsReadOnly="True" >-->
+                                <DataGridTextColumn Binding="{Binding Balance, Mode=TwoWay , UpdateSourceTrigger=PropertyChanged}" Header="Balance" Width="100"  IsReadOnly="True" >
+                                    <DataGridTextColumn.ElementStyle>
+                                        <Style>
+                                            <Setter Property="TextBlock.TextWrapping" Value="Wrap" />
+                                            <Setter Property="TextBlock.TextAlignment" Value="Right"/>
+                                            <Setter Property="TextBlock.VerticalAlignment" Value="Center"/>
+                                        </Style>
+                                    </DataGridTextColumn.ElementStyle>
+                                </DataGridTextColumn>
+
+                                <DataGridTextColumn Binding="{Binding BalanceAct, Mode=TwoWay , UpdateSourceTrigger=PropertyChanged}" Header="BalanceAct" Width="100"  IsReadOnly="True" Visibility="Collapsed">
+                                    <DataGridTextColumn.ElementStyle>
+                                        <Style>
+                                            <Setter Property="TextBlock.TextWrapping" Value="Wrap" />
+                                            <Setter Property="TextBlock.TextAlignment" Value="Right"/>
+                                            <Setter Property="TextBlock.VerticalAlignment" Value="Center"/>
+                                        </Style>
+                                    </DataGridTextColumn.ElementStyle>
+                                </DataGridTextColumn>
+
+                            </DataGrid.Columns>
+                        </SEACC_WPFControls:SEACC_DataGrid>
+                    </Grid>
+
+                </Grid>
+                <GridSplitter Background="#D5D5D5"  Grid.Row="2" Height="5" HorizontalAlignment="Stretch" Margin="0,0,-1,0" />
+                <Grid  Grid.Row="3" Margin="0,10,0,0">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Name="row3A" Height="30" />
+                        <RowDefinition Height="*"/>
+                    </Grid.RowDefinitions>
+                    <Grid Grid.Row="0" >
+                        <Label Content="Unsettled IOU" Foreground="#FF515151" FontSize="12" />
+                        <StackPanel  Orientation="Horizontal"  VerticalAlignment="Bottom" HorizontalAlignment="Right" Margin="0,0,18,5"   Height="20" >
+                            <SEACC_WPFControls:SEACC_Button x:Name="btnGridRefundAdd" Content="&#xE766;" Width="30" FontFamily="Segoe MDL2 Assets" Foreground="#FFE2E2E2" Background="#FF727272" BorderBrush="{x:Null}" Height="20" VerticalAlignment="Bottom" Click="btnGridRefundAdd_Click"  />
+                            <Label></Label>
+                            <SEACC_WPFControls:SEACC_Button x:Name="btnGridRefresh" Content="&#xE117;" Width="30" FontFamily="Segoe MDL2 Assets" Foreground="#FFE2E2E2" Background="#FF727272" BorderBrush="{x:Null}" Height="20" VerticalAlignment="Bottom" Click="btnGridRefresh_Click"  />
+                            <Label></Label>
+                            <SEACC_WPFControls:SEACC_Button x:Name="btnGridIOUAdd" Content="&#xE109;" Width="30" FontFamily="Segoe MDL2 Assets" Foreground="#FFE2E2E2" Background="#FF727272" BorderBrush="{x:Null}" Height="20" VerticalAlignment="Bottom" Click="btnGridIOUAdd_Click"  />
+                        </StackPanel>
+                    </Grid>
+
+                    <Grid Grid.Row="1" >
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="425*"/>
+                            <ColumnDefinition Width="56*"/>
+                        </Grid.ColumnDefinitions>
+                        <!--<StackPanel  Orientation="Horizontal"  VerticalAlignment="Top" HorizontalAlignment="Right" Margin="5,15,15,5"   Height="20" >
+                            <SEACC_WPFControls:SEACC_Button x:Name="btnGridIOUAdd2" Content="&#xE109;" Width="30" FontFamily="Segoe MDL2 Assets" Margin="0,0,5,0"  Foreground="#FFE2E2E2" Background="#FF727272" BorderBrush="{x:Null}" Height="20" VerticalAlignment="Bottom" Click="btnGridIOUAdd_Click"  />
+                        </StackPanel>-->
+                        <SEACC_WPFControls:SEACC_DataGrid x:Name="dgr_IOU" FontSize="11" Margin="0,0,0,0" Background="White" HeaderColor="#FF727272" IsReadOnly="False" AutoGenerateColumns="False" CanUserAddRows="False" CanUserDeleteRows="False" MinHeight="80" Foreground="Black" CanUserResizeColumns="True"  MouseDoubleClick="dgr_IOU_MouseDoubleClick" Grid.ColumnSpan="2"  >
+                            <DataGrid.Resources>
+                                <SolidColorBrush x:Key="{x:Static SystemColors.HighlightBrushKey}"  Color="#FFF4E7A7"/>
+
+                            </DataGrid.Resources>
+                            <DataGrid.CellStyle>
+                                <Style TargetType="DataGridCell">
+                                    <Setter Property="Padding" Value="0"/>
+                                    <Setter Property="Template">
+                                        <Setter.Value>
+                                            <ControlTemplate TargetType="{x:Type DataGridCell}">
+                                                <Border Padding="{TemplateBinding Padding}" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" Background="{TemplateBinding Background}" SnapsToDevicePixels="True">
+                                                    <Grid Background="{TemplateBinding Background}">
+                                                        <ContentPresenter SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}"/>
+                                                        <ContentPresenter VerticalAlignment="Center" />
+                                                    </Grid>
+                                                </Border>
+                                            </ControlTemplate>
+                                        </Setter.Value>
+                                    </Setter>
+                                </Style>
+                            </DataGrid.CellStyle>
+
+                            <DataGrid.Columns>
+
+                                <DataGridTextColumn Binding="{Binding IOUDate ,Mode=TwoWay , UpdateSourceTrigger=PropertyChanged}" Foreground="Black" Header="Date" Width="100"  IsReadOnly="True" >
+                                    <DataGridTextColumn.ElementStyle>
+                                        <Style>
+                                            <Setter Property="TextBlock.TextWrapping" Value="Wrap" />
+                                            <Setter Property="TextBlock.TextAlignment" Value="Center"/>
+                                            <Setter Property="TextBlock.VerticalAlignment" Value="Center"/>
+                                        </Style>
+                                    </DataGridTextColumn.ElementStyle>
+                                </DataGridTextColumn>
+
+                                <DataGridTextColumn Binding="{Binding IOUTxnCode ,Mode=TwoWay , UpdateSourceTrigger=PropertyChanged}" Foreground="Black"   Header="Txn Code" Width="150"  IsReadOnly="True" >
+                                    <DataGridTextColumn.ElementStyle>
+                                        <Style>
+                                            <Setter Property="TextBlock.TextWrapping" Value="Wrap" />
+                                            <Setter Property="TextBlock.TextAlignment" Value="Left"/>
+                                            <Setter Property="TextBlock.VerticalAlignment" Value="Center"/>
+                                        </Style>
+                                    </DataGridTextColumn.ElementStyle>
+                                </DataGridTextColumn>
+
+                                <DataGridTextColumn Binding="{Binding IOURemarks ,Mode=TwoWay , UpdateSourceTrigger=PropertyChanged}" Foreground="Black"   Header="Remarks" Width="340"  IsReadOnly="True">
+                                    <DataGridTextColumn.ElementStyle>
+                                        <Style>
+                                            <Setter Property="TextBlock.TextWrapping" Value="Wrap" />
+                                            <Setter Property="TextBlock.TextAlignment" Value="Left"/>
+                                            <Setter Property="TextBlock.VerticalAlignment" Value="Center"/>
+                                        </Style>
+                                    </DataGridTextColumn.ElementStyle>
+                                </DataGridTextColumn>
+
+                                <DataGridTextColumn Binding="{Binding IOUExpenses ,Mode=TwoWay , UpdateSourceTrigger=PropertyChanged}" Foreground="Black"   Header="IOU Amount" Width="120"  IsReadOnly="True" >
+                                    <DataGridTextColumn.ElementStyle>
+                                        <Style>
+                                            <Setter Property="TextBlock.TextWrapping" Value="Wrap" />
+                                            <Setter Property="TextBlock.TextAlignment" Value="Right"/>
+                                            <Setter Property="TextBlock.VerticalAlignment" Value="Center"/>
+                                        </Style>
+                                    </DataGridTextColumn.ElementStyle>
+                                </DataGridTextColumn>
+
+                                <DataGridTextColumn Binding="{Binding IOUUnSettledAmnt ,Mode=TwoWay , UpdateSourceTrigger=PropertyChanged}" Foreground="Black"   Header="Unsettled Amount" Width="120"  IsReadOnly="True" >
+                                    <DataGridTextColumn.ElementStyle>
+                                        <Style>
+                                            <Setter Property="TextBlock.TextWrapping" Value="Wrap" />
+                                            <Setter Property="TextBlock.TextAlignment" Value="Right"/>
+                                            <Setter Property="TextBlock.VerticalAlignment" Value="Center"/>
+                                        </Style>
+                                    </DataGridTextColumn.ElementStyle>
+                                </DataGridTextColumn>
+
+                                <DataGridTextColumn Binding="{Binding IOUBalance, Mode=TwoWay , UpdateSourceTrigger=PropertyChanged}" Foreground="Black"   Header="Balance" Width="120"  IsReadOnly="True" >
+                                    <!--<DataGridTextColumn Binding="{Binding IOUBalance, Converter={StaticResource PositiveNegativeConverter}}" Header="Number" FontSize="16"/>-->
+                                    <DataGridTextColumn.ElementStyle>
+                                        <Style>
+                                            <Setter Property="TextBlock.TextWrapping" Value="Wrap" />
+                                            <Setter Property="TextBlock.TextAlignment" Value="Right"/>
+                                            <Setter Property="TextBlock.VerticalAlignment" Value="Center"/>
+                                        </Style>
+                                    </DataGridTextColumn.ElementStyle>
+                                </DataGridTextColumn>
+
+                                <DataGridTextColumn Binding="{Binding IOUBalanceAct, Mode=TwoWay , UpdateSourceTrigger=PropertyChanged}" Foreground="Black"   Header="BalanceAct" Width="120"  IsReadOnly="True" Visibility="Collapsed">
+                                    <!--<DataGridTextColumn Binding="{Binding IOUBalance, Converter={StaticResource PositiveNegativeConverter}}" Header="Number" FontSize="16"/>-->
+                                    <DataGridTextColumn.ElementStyle>
+                                        <Style>
+                                            <Setter Property="TextBlock.TextWrapping" Value="Wrap" />
+                                            <Setter Property="TextBlock.TextAlignment" Value="Right"/>
+                                            <Setter Property="TextBlock.VerticalAlignment" Value="Center"/>
+                                        </Style>
+                                    </DataGridTextColumn.ElementStyle>
+                                </DataGridTextColumn>
+
+                            </DataGrid.Columns>
+                        </SEACC_WPFControls:SEACC_DataGrid>
+
+                    </Grid>
+                    <Grid Grid.Row="1" Margin="10,0">
+
+                    </Grid>
+                </Grid>
+                <!--<Grid Grid.Row="3" Margin="10,5,10,0" HorizontalAlignment="Right" >
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Name="col3A" Width="200" />
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
+                    <Grid Grid.Column="0"></Grid>
+                    <Grid Grid.Column="1" Background="#FFE6E1D7">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Name="col3_A" Width="200" />
+                            <ColumnDefinition Width="*"/>
+                        </Grid.ColumnDefinitions>
+                        <Grid Grid.Column="0">
+                            <Border BorderThickness="2,2,0,2" BorderBrush="#FF727272" >
+                                <StackPanel>
+
+                                    <Label x:Name="lblBookBal2" HorizontalAlignment="Right">Book Balance</Label>
+                                    <Label x:Name="lblIOUAmnt2" HorizontalAlignment="Right">Unsettled IOU Amount</Label>
+                                    <Label x:Name="lblAvilableBal2" HorizontalAlignment="Right">Available Balance</Label>
+                                </StackPanel>
+                            </Border>
+                        </Grid>
+                        <Grid Grid.Column="1">
+                            <Border BorderThickness="0,2,2,2" BorderBrush="#FF727272">
+                                <StackPanel>
+
+                                    <Label x:Name="lblBookBalVal2" HorizontalAlignment="Right">3500.00</Label>
+                                    <Label x:Name="lblIOUAmntVal2" HorizontalAlignment="Right">(1000.00)</Label>
+                                    <Label x:Name="lblAvilableBalVal2" HorizontalAlignment="Right">2500.00</Label>
+                                </StackPanel>
+                            </Border>
+                        </Grid>
+                    </Grid>
+                </Grid>-->
+            </Grid>
+
+        </SEACC_WPFControls:SEACC_ScrollViewer>
+
+    </SEACC_WPFControls_Local:SEACC_Form>
+
+</UserControl>

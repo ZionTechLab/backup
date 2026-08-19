@@ -1,0 +1,45 @@
+﻿<UserControl x:Class="SEACC_Tender.UC_ttsMasCompetitor"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             mc:Ignorable="d" 
+             xmlns:SEACC_WPFControls_Local="clr-namespace:SEACC_Tender.UserControls"
+             xmlns:SEACC_WPFControls="clr-namespace:SEACC_WPFControls;assembly=SEACC_WPFControls" 
+             Background="#FFFFFF" FontWeight="Normal">
+    
+    <SEACC_WPFControls_Local:SEACC_Form x:Name="SEACC_Form" SizeChanged="SEACC_Form_SizeChanged">
+        <Grid x:Name="Main" Margin="0,10,0,50">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="400" x:Name="ColumnA"/>
+                <ColumnDefinition Width="5"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+            <SEACC_WPFControls:SEACC_DataGrid_Advanced Grid.Column="0" x:Name="dgr_Main" Margin="10,0" Background="#FF808387" HeaderColor="#FF0083A1" MouseLeftButtonUp="dgr_Main_MouseLeftButtonUp"/>
+            <GridSplitter  Grid.Column="1" Background="#D5D5D5" x:Name="gridSplitter" Width="5" HorizontalAlignment="Stretch"/>
+            <Grid  Grid.Column="2" Margin="10,0">
+                <ScrollViewer VerticalScrollBarVisibility="Auto">
+                    <StackPanel>
+                        <Border BorderThickness="1" Margin="0,0,0,10">
+                            <Border.Effect>
+                                <DropShadowEffect Opacity="0.1" BlurRadius="10"/>
+                            </Border.Effect>
+                            <StackPanel  Margin="0,5">
+                                <SEACC_WPFControls:SEACC_LableTextBox Caption="Competitor ID" x:Name="txtCompetitorID" MouseDoubleClick="txtCompetitorID_MouseDoubleClick" />
+                                <SEACC_WPFControls:SEACC_LableTextBox Caption="Code" x:Name="txtCompetitorCode" Visibility="Collapsed" />
+                                <SEACC_WPFControls:SEACC_LableTextBox Caption="Organization" x:Name="txtCompetitorCompany" />
+                                <SEACC_WPFControls:SEACC_LableTextBox Caption="Description" x:Name="txtDescription" />
+                                <!--<SEACC_WPFControls:SEACC_LableTextBox Caption="Name" x:Name="txtCompetitorName" />
+                                <SEACC_WPFControls:SEACC_LableTextBox Caption="Designation" x:Name="txtCompetitorDesignation" />-->
+                                <SEACC_WPFControls:SEACC_LableTextBox x:Name="txtCountry" Caption="Country" FontSize="12" MouseDoubleClick="txtCountry_MouseDoubleClick" />
+                                <SEACC_WPFControls:SEACC_LableTextBox x:Name="txtCity" Caption="City"  FontSize="12" MouseDoubleClick="txtCity_MouseDoubleClick"/>
+                                <SEACC_WPFControls:SEACC_LableTextBox Caption="Remarks " x:Name="txtRemarks" Height="75" />
+                            </StackPanel>
+                        </Border>
+                    </StackPanel>
+                </ScrollViewer>
+            </Grid>
+        </Grid>
+    </SEACC_WPFControls_Local:SEACC_Form>
+
+</UserControl>

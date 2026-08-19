@@ -1,0 +1,82 @@
+﻿<UserControl x:Class="SEACC_Tender.UC_TenderDocumentLicenceViewer"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             mc:Ignorable="d" 
+             xmlns:SEACC_WPFControls_Local="clr-namespace:SEACC_Tender.UserControls"
+             xmlns:SEACC_WPFControls="clr-namespace:SEACC_WPFControls;assembly=SEACC_WPFControls" 
+             Background="#FFFFFFFF" FontWeight="Normal">
+
+    <SEACC_WPFControls_Local:SEACC_Form x:Name="SEACC_Form" SizeChanged="SEACC_Form_SizeChanged"  >
+        <Grid x:Name="Main" Margin="0,10,0,50">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Name="ColumnA" Width="350" />
+                <ColumnDefinition Width="5" />
+                <ColumnDefinition Width="*" />
+            </Grid.ColumnDefinitions>
+
+            <GridSplitter Background="#D5D5D5" x:Name="gridSplitter" Width="5" HorizontalAlignment="Stretch" Grid.Column="1"  />
+            <!--<SEACC_WPFControls:SEACC_DataGrid_Advanced x:Name="dgr_Main" Grid.Column="0"  Margin="10,0" Background="#FF808387" HeaderColor="#FF0083A1"/>-->
+            <StackPanel Background="#FF808387" Grid.Column="0"  Margin="10,0">
+                <SEACC_WPFControls:SEACC_DataGrid x:Name="dgv_TenDetails" Grid.Row="1" Margin="10,10" Background="#FF808387" HeaderColor="#FF0083A1" Grid.ColumnSpan="2" AutoGenerateColumns="False">
+                    <SEACC_WPFControls:SEACC_DataGrid.Columns>
+                        <DataGridTextColumn Binding="{Binding TenderID, Mode=OneWay, UpdateSourceTrigger=PropertyChanged}" CanUserResize="True" Header="Tender ID" Width="80" Visibility="Collapsed"/>
+                        <DataGridTextColumn Binding="{Binding TenderNo, Mode=OneWay, UpdateSourceTrigger=PropertyChanged}" CanUserResize="True" Header="Tender No" Width="120"/>
+                        <DataGridTextColumn Binding="{Binding TenderDate, Mode=OneWay, UpdateSourceTrigger=PropertyChanged}" CanUserResize="True" Header="Tender Date" Width="120"/>
+                    </SEACC_WPFControls:SEACC_DataGrid.Columns>
+                </SEACC_WPFControls:SEACC_DataGrid>
+            </StackPanel>
+            <Grid Grid.Column="2" Margin="10,0">
+                <ScrollViewer VerticalScrollBarVisibility="Auto">
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="auto"/>
+                            <RowDefinition Height="auto"/>
+                        </Grid.RowDefinitions>
+                        <StackPanel Grid.Row="0" Margin="0,0">
+                            <SEACC_WPFControls:SEACC_LableTextBox Grid.Row="0" Caption="Customer" x:Name="txtCustomer" FontSize="12" MouseDoubleClick="txtCustomer_MouseDoubleClick"/>
+                            <SEACC_WPFControls:SEACC_LableTextBox Grid.Row="0" Caption="Tender ID" x:Name="txtTenderID" FontSize="12" MouseDoubleClick="txtTenderID_MouseDoubleClick"/>
+                        </StackPanel>
+                        <Grid Grid.Row="1" Margin="0,10,0,0">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="237*"/>
+                                <ColumnDefinition Width="659*"/>
+                            </Grid.ColumnDefinitions>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="auto"/>
+                                <RowDefinition Height="auto" />
+                            </Grid.RowDefinitions>
+                            <!--<StackPanel  Orientation="Horizontal" Grid.Row="0" VerticalAlignment="Top" HorizontalAlignment="Right" Margin="0,5,15,0"   Height="20" Grid.Column="1" >
+                                <SEACC_WPFControls:SEACC_Button x:Name="btnGridItemAdd" Content="&#xE109;" Width="30" FontFamily="Segoe MDL2 Assets" Margin="0,0,5,0" Foreground="White" Background="#FF6A6A6A" BorderBrush="{x:Null}" Height="20" VerticalAlignment="Top" Click="btnGridItemAdd_Click" />
+                                <SEACC_WPFControls:SEACC_Button x:Name="btnGridItemDelete" Content="&#xE894;" Width="30" FontFamily="Segoe MDL2 Assets" BorderBrush="{x:Null}" Foreground="Red" Background="#FF6A6A6A" Click="btnGridItemDelete_Click" />
+                            </StackPanel>-->
+                            <SEACC_WPFControls:SEACC_DataGrid x:Name="dgv_DocViewer" Grid.Row="1" Margin="10,10" Background="#FF808387" HeaderColor="#FF0083A1" Grid.ColumnSpan="2">
+                                <SEACC_WPFControls:SEACC_DataGrid.Columns>
+                                    <SEACC_WPFControls:SEACC_DataGridTextColumn Binding="{Binding LineNo, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Header="#" Width="40"/>
+                                    <SEACC_WPFControls:SEACC_DataGridTextColumn Binding="{Binding CertificateType, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Header="Document Type"/>
+                                    <SEACC_WPFControls:SEACC_DataGridTextColumn Binding="{Binding LicenceType, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Header="Licence Type"/>
+                                    <SEACC_WPFControls:SEACC_DataGridTextColumn Binding="{Binding ReceiptNo, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Header="Receipt No"/>
+                                    <SEACC_WPFControls:SEACC_DataGridTextColumn Binding="{Binding ReceiptDate, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Header="Receipt Date" Visibility="Collapsed"/>
+                                    <SEACC_WPFControls:SEACC_DataGridTextColumn Binding="{Binding ReceiptAmount, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Header="Receipt Amount"/>
+                                    <SEACC_WPFControls:SEACC_DataGridTextColumn Binding="{Binding ExpiryDate, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Header="Expiry Date"/>
+                                    <SEACC_WPFControls:SEACC_DataGridTextColumn Binding="{Binding FilePath, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Header="File Path" Visibility="Collapsed"/>
+                                    <SEACC_WPFControls:SEACC_DataGridTextColumn Binding="{Binding FileName, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Header="File Name"/>
+                                    <SEACC_WPFControls:SEACC_DataGridTextColumn Binding="{Binding Upload, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Header="Upload"/>
+                                </SEACC_WPFControls:SEACC_DataGrid.Columns>
+                            </SEACC_WPFControls:SEACC_DataGrid>
+                        </Grid>
+                    </Grid>
+                </ScrollViewer>
+            </Grid>
+        </Grid>
+        <StackPanel HorizontalAlignment="Stretch" VerticalAlignment="Bottom" Height="50" >
+            <StackPanel Orientation="Horizontal" VerticalAlignment="Center" HorizontalAlignment="Right" Margin="15,10,15,10">
+                <SEACC_WPFControls:SEACC_Button Content="File Upload" Height="25" Width="95" BorderBrush="#FF9B9B9B" Foreground="White" Background="#FF41B1E1" BorderThickness="1" Margin="0, 6, 6, 0" Padding="0"/>
+                <SEACC_WPFControls:SEACC_Button Content="File Replace" Height="25" Width="95" BorderBrush="#FF9B9B9B" Foreground="White" Background="#FF41B1E1" BorderThickness="1" Margin="0, 6, 6, 0" Padding="0"/>
+                <SEACC_WPFControls:SEACC_Button Content="File View" Height="25" Width="80" BorderBrush="#FF9B9B9B" Foreground="White" Background="#FF41B1E1" BorderThickness="1" Margin="0, 6, 6, 0" Padding="0"/>
+                <SEACC_WPFControls:SEACC_Button Content="Print" Height="25" Width="73" BorderBrush="#FF9B9B9B" Foreground="White" Background="#FF41B1E1" BorderThickness="1" Margin="0, 6, 6, 0" Padding="0"/>
+            </StackPanel>
+        </StackPanel>
+    </SEACC_WPFControls_Local:SEACC_Form>
+</UserControl>

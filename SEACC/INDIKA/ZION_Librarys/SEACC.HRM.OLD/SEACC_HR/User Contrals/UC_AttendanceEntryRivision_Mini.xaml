@@ -1,0 +1,46 @@
+﻿<UserControl x:Class="Digiteq.UC_AttendanceEntryRivision_Mini"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:SEACC_WPFControls="clr-namespace:SEACC_WPFControls;assembly=SEACC_WPFControls" 
+             xmlns:SEACC_WPFControls1="clr-namespace:SEACC_WPFControls" 
+             mc:Ignorable="d" 
+             Height="Auto" Width="Auto" Background="#FFFFFF" >
+    <Grid>
+        <Border Background="#FF6C6C6C">
+            <Border.Effect>
+                <DropShadowEffect Direction="90" BlurRadius="10" ShadowDepth="2"/>
+            </Border.Effect>
+        </Border>
+            <StackPanel  Margin="5,2,5,0" >
+            <TextBlock Text="Revisions" Foreground="White" FontSize="18"></TextBlock>
+            <SEACC_WPFControls:SEACC_DataGrid    x:Name="grd_AttendaceRivision"    Margin="0,5" Background="{x:Null}">
+                <SEACC_WPFControls:SEACC_DataGrid.Columns>
+                    <DataGridTextColumn  Binding="{Binding EmpID}" Header="Employee ID" Width="100"/>
+                    <DataGridTextColumn  Binding="{Binding EmpName}" Header="Employee ID" Width="120"/>
+                    <DataGridTextColumn Binding="{Binding AttendaceDate}"   Header="Date" Width="120"/>
+                    <DataGridTextColumn  Binding="{Binding InDate}" Header="In Date" Width="120"/>
+                    <DataGridTextColumn  Binding="{Binding INTime}" Header="Time" Width="100"/>
+                    <DataGridTextColumn  Binding="{Binding OutDate}" Header="Out Date" Width="120"/>
+                    <DataGridTextColumn  Binding="{Binding OutTime}" Header="Out" Width="100"/>
+                    <DataGridTextColumn  Binding="{Binding WorkedMinutes}" Header="Wkd. Hrs." Width="100"/>
+                    <DataGridTextColumn  Binding="{Binding OTMinutes}" Header="OT Hrs." Width="100"/>
+                    <DataGridTextColumn  Binding="{Binding OTMinutesApproved}" Header="OT Hrs Approved." Width="120"/>
+                    
+                    <DataGridTextColumn  Binding="{Binding DoubleOTMinutes}" Header="D.OT Hrs." Width="100"/>
+                    <DataGridTextColumn  Binding="{Binding DoubleOTMinutesApproved}" Header="D.OT Hrs Approved." Width="120"/>
+
+                    <DataGridTextColumn  Binding="{Binding TripleOTMinutes}" Header="T.OT Hrs." Width="100"/>
+                    <DataGridTextColumn  Binding="{Binding TripleOTMinutesApproved}" Header="T.OT Hrs Approved." Width="120"/>
+
+                    <DataGridTextColumn  Binding="{Binding LateMinutes}" Header="Late Hrs." Width="100"/>
+                    <DataGridTextColumn  Binding="{Binding LateMinutesApproved}" Header="Late Hrs Approved." Width="100"/>
+
+                    <DataGridTextColumn  Binding="{Binding NopayMinutes}" Header="NoPay Hrs." Width="100"/>
+                    <DataGridTextColumn  Binding="{Binding NopayMinutesApproved}" Header="NoPay Hrs Approved." Width="100"/>
+                </SEACC_WPFControls:SEACC_DataGrid.Columns>
+            </SEACC_WPFControls:SEACC_DataGrid>
+        </StackPanel>
+    </Grid>
+</UserControl>

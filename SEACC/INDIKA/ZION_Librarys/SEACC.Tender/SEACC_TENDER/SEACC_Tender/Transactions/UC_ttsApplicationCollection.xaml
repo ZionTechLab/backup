@@ -1,0 +1,173 @@
+﻿<UserControl x:Class="SEACC_Tender.UC_ttsApplicationCollection"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:SEACC_Tender"
+             xmlns:SEACC_WPFControls_Local="clr-namespace:SEACC_Tender.UserControls"
+             xmlns:SEACC_WPFControls="clr-namespace:SEACC_WPFControls;assembly=SEACC_WPFControls"              
+             mc:Ignorable="d" Background="#FFFFFF" FontWeight="Normal">
+
+    <SEACC_WPFControls_Local:SEACC_Form x:Name="SEACC_Form" SizeChanged="SEACC_Form_SizeChanged"  >
+        <Grid x:Name="Main" Margin="0,10,0,50">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Name="ColumnA" Width="400" />
+                <ColumnDefinition Width="5" />
+                <ColumnDefinition Width="*" />
+            </Grid.ColumnDefinitions>
+
+            <SEACC_WPFControls:SEACC_DataGrid_Advanced Grid.Column="0" x:Name="dgr_Main" Margin="10, 0" Background="#FF6A6A6A" HeaderColor="#FF0083A1" MouseLeftButtonUp="dgr_Main_MouseLeftButtonUp"/>
+            <GridSplitter Grid.Column="1" Background="#D5D5D5" x:Name="gridSplitter" Width="5" HorizontalAlignment="Stretch" />
+            <SEACC_WPFControls:SEACC_ScrollViewer Grid.Column="2" VerticalScrollBarVisibility="Auto" >
+                <Border  BorderThickness="1" Margin="0,0,0,10">
+                    <Border.Effect>
+                        <DropShadowEffect Opacity="0.1" BlurRadius="10"/>
+                    </Border.Effect>
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="auto"/>
+                            <RowDefinition Height="*"/>
+                        </Grid.RowDefinitions>
+
+                        <Grid Grid.Row="0">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*" />
+                                <ColumnDefinition Width="*" />
+                            </Grid.ColumnDefinitions>
+                            
+                            <StackPanel Grid.Column="0" Margin="10,0">
+                                <StackPanel Margin="0,10">
+                                    <SEACC_WPFControls:SEACC_LableTextBox Caption="Application No." x:Name="txtApplicationNo" FontSize="12" MouseDoubleClick="txtApplicationNo_MouseDoubleClick"/>
+                                    <SEACC_WPFControls:SEACC_LableTextBox Caption="Tender/BID No." x:Name="txtTenderID" FontSize="12" MouseDoubleClick="txtTenderID_MouseDoubleClick"/>
+                                    
+                                    <!--<Grid>
+                                        <Grid.ColumnDefinitions>
+                                            <ColumnDefinition Width="315"/>
+                                            <ColumnDefinition Width="34"/>
+                                            <ColumnDefinition Width="34"/>
+                                        </Grid.ColumnDefinitions>
+                                        <Grid.RowDefinitions>
+                                            <RowDefinition Height="*" />
+                                            <RowDefinition Height="*" />
+                                        </Grid.RowDefinitions>
+                                        <SEACC_WPFControls:SEACC_LableTextBox Grid.Column="0" Grid.Row="0" Caption="Upload PDF " x:Name="txtUploadPDF" DetailBox_Width="190" />
+                                        <SEACC_WPFControls:SEACC_Button Grid.Column="1" Grid.Row="0" x:Name="btnUploadPDF" FontFamily="Segoe MDL2 Assets" Content="&#xE110;" Margin="2" Width="30" FontSize="12" Foreground="#FF0096D6" Background="{x:Null}" BorderBrush="#FF0096D6" HorizontalAlignment="Left" Height="26" VerticalAlignment="Center" Click="btnUploadPDF_Click" />
+                                        <SEACC_WPFControls:SEACC_Button Grid.Column="2" Grid.Row="0" x:Name="btnRemove" FontFamily="Segoe MDL2 Assets" Content="&#xE894;"  Margin="2" Width="30" Height="26" FontSize="12" Foreground="#FF0096D6" Background="{x:Null}" BorderBrush="#FF0096D6" Click="btnRemove_Click" Visibility="Collapsed"/>
+                                    </Grid>
+
+                                    <Grid>
+                                        <Grid.ColumnDefinitions>
+                                            <ColumnDefinition Width="315"/>
+                                            <ColumnDefinition Width="34"/>
+                                            <ColumnDefinition Width="34"/>
+                                        </Grid.ColumnDefinitions>
+                                        <Grid.RowDefinitions>
+                                            <RowDefinition Height="*" />
+                                            <RowDefinition Height="*" />
+                                        </Grid.RowDefinitions>
+                                        <SEACC_WPFControls:SEACC_LableTextBox Grid.Column="0" Grid.Row="0" Caption="Upload Receipt " x:Name="txtUploadReceipt" DetailBox_Width="190" FontSize="12"/>
+                                        <SEACC_WPFControls:SEACC_Button Grid.Column="1" Grid.Row="0" x:Name="btnUploadReceipt" FontFamily="Segoe MDL2 Assets" Content="&#xE110;" Margin="2" Width="30" Height="26" FontSize="12" Foreground="#FF0096D6" Background="{x:Null}" BorderBrush="#FF0096D6" Click="btnUploadReceipt_Click" />
+                                        <SEACC_WPFControls:SEACC_Button Grid.Column="2" Grid.Row="0" x:Name="btnRemoveReceipt" FontFamily="Segoe MDL2 Assets" Content="&#xE894;"  Margin="2" Width="30" Height="26" FontSize="12" Foreground="#FF0096D6" Background="{x:Null}" BorderBrush="#FF0096D6" Click="btnRemoveReceipt_Click"  Visibility="Collapsed"/>
+                                    </Grid>-->
+
+                                    <!--<SEACC_WPFControls:SEACC_DataGrid MinHeight="100" x:Name="dgr_Upload" Margin="10,5,10,0" Background="{x:Null}" HeaderColor="#FF0083A1" IsReadOnly="True" CanUserAddRows="False" CanUserResizeColumns="True" CanUserReorderColumns="False" BorderBrush="{x:Null}" Foreground="Black" RowStyle="{DynamicResource SEACC_DataGridRow}" MouseDoubleClick="dgr_Upload_MouseDoubleClick">
+                                    <SEACC_WPFControls:SEACC_DataGrid.Columns>
+                                        <DataGridTextColumn Binding="{Binding FileName ,Mode=TwoWay , UpdateSourceTrigger=PropertyChanged}" Header="File Name" Width="150" IsReadOnly="False" />
+                                        <DataGridTextColumn Binding="{Binding FilePath ,Mode=TwoWay , UpdateSourceTrigger=PropertyChanged}" Header="File Path" Width="170" IsReadOnly="False" />
+                                        <DataGridTextColumn Binding="{Binding isNew ,Mode=TwoWay , UpdateSourceTrigger=PropertyChanged}" Header="New" Width="70" IsReadOnly="False" Visibility="Collapsed"/>
+                                        <DataGridTextColumn Binding="{Binding isDeleted ,Mode=TwoWay , UpdateSourceTrigger=PropertyChanged}" Header="Deleted" Width="70" IsReadOnly="False" Visibility="Collapsed"/>
+                                        <DataGridTextColumn Binding="{Binding Attachment_ID ,Mode=TwoWay , UpdateSourceTrigger=PropertyChanged}" Header="Attachment Index" Width="100" IsReadOnly="False" Visibility="Collapsed"/>
+                                        <DataGridTemplateColumn IsReadOnly="False" Width="60">
+                                            <DataGridTemplateColumn.CellTemplate>
+                                                <DataTemplate>
+                                                    <Image Source="{Binding icon, Mode=TwoWay , UpdateSourceTrigger=PropertyChanged}" />
+                                                </DataTemplate>
+                                            </DataGridTemplateColumn.CellTemplate>
+                                        </DataGridTemplateColumn>
+                                    </SEACC_WPFControls:SEACC_DataGrid.Columns>
+                                </SEACC_WPFControls:SEACC_DataGrid>-->
+                                    
+                                    
+                                    <SEACC_WPFControls:SEACC_LableTextBox Caption="Receipt No. " x:Name="txtReceiptNo"/>
+                                    <SEACC_WPFControls:SEACC_LableTextBox  Caption="Receipt Amount " x:Name="txtReceiptAmount"/>
+                                    <StackPanel Orientation="Horizontal" Margin="120,5,0,5">
+                                        <RadioButton x:Name="rdoCash" Content="Cash" Foreground="Black" IsChecked="True" Click="rdoCash_Click" />
+                                        <RadioButton x:Name="rdoCheques" Content="Cheques" Foreground="Black" Click="rdoCheques_Click" />
+                                    </StackPanel>
+                                    
+                                    <StackPanel x:Name="stackPanel">
+                                        <SEACC_WPFControls:SEACC_LableTextBox  Grid.Row="0" Caption="Cheque No. " x:Name="txtChequeNo"/>
+                                        <SEACC_WPFControls:SEACC_LableTextBox Grid.Row="3" Caption="Account No" x:Name="txtAccNo" MouseDoubleClick="txtAccNo_MouseDoubleClick"/>
+                                        <SEACC_WPFControls:SEACC_LableTextBox Grid.Row="1" Caption="Bank Name " x:Name="txtBankCode" MouseDoubleClick="txtBankCode_MouseDoubleClick"/>
+                                        <SEACC_WPFControls:SEACC_LableTextBox Grid.Row="2" Caption="Branch Name " x:Name="txtBranchCode" MouseDoubleClick="txtBranchCode_MouseDoubleClick"/>
+                                        <SEACC_WPFControls:SEACC_LabelTimeSelector Grid.Row="4" Caption="Cheque Date" x:Name="dtpChequeDate" ShowDate="Visible" ShowTime="Hidden"/>
+                                    </StackPanel>
+                                </StackPanel>
+                            </StackPanel>
+                            <!--<Popup x:Name="pop_Error" PopupAnimation="Slide" IsOpen="False" StaysOpen="False" HorizontalAlignment="Left" AllowsTransparency="True" Placement="Bottom" PlacementTarget="{Binding ElementName=txtTenderID}" HorizontalOffset="120">
+                                <Border BorderThickness="0,0,1,1" Margin="20">
+                                    <Border.Effect>
+                                        <DropShadowEffect BlurRadius="20" ShadowDepth="10"/>
+                                    </Border.Effect>
+                                    <Grid Background="White">
+                                        <Grid.RowDefinitions>
+                                            <RowDefinition Height="30"/>
+                                            <RowDefinition Height="auto"/>
+                                        </Grid.RowDefinitions>
+                                        <Grid Background="#FFFF4848">
+                                            <Image Grid.Row="0" Source="/SEACC_Tender;component/Resources/error.png" Margin="5,2,2,2" Stretch="Fill" Height="20" Width="20" HorizontalAlignment="Left" VerticalAlignment="Center" />
+                                            <Label Grid.Row="0" FontSize="14" Content="Error" Margin="40,0,0,0" Foreground="White"/>
+                                        </Grid>
+                                        <TextBlock Grid.Row="1" x:Name="txtError" Padding="10,15,25,25"/>
+                                    </Grid>
+                                </Border>
+                            </Popup>-->
+                            
+                            <StackPanel Grid.Column="1" Margin="10,0">
+                                <StackPanel>
+                                    <Label Content="Pre Bid Meeting" FontSize="18" Foreground="#FF0096D6" FontWeight="Thin"/>
+                                    <Separator Height="2" Background="#FF33ADFF" Margin="0,-2,0,10" />
+                                    <SEACC_WPFControls:SEACC_LabelTimeSelector Caption="Meeting date " x:Name="dtpPreBidMeetingDate" ShowDate="Visible"/>
+                                    <StackPanel Margin="0,5">
+                                        <SEACC_WPFControls:SEACC_LableTextBox Caption="Address Line-1 " FontSize="12" x:Name="txtAddress1"/>
+                                        <SEACC_WPFControls:SEACC_LableTextBox Caption="Address Line-2" FontSize="12" x:Name="txtAddress2"/>
+                                        <SEACC_WPFControls:SEACC_LableTextBox Caption="Town" FontSize="12" x:Name="txtTown" MouseDoubleClick="txtTown_MouseDoubleClick"/>
+                                        <SEACC_WPFControls:SEACC_LableTextBox Caption="City" FontSize="12" x:Name="txtCity" MouseDoubleClick="txtCity_MouseDoubleClick"/>
+                                        <SEACC_WPFControls:SEACC_LableTextBox Caption="Country" FontSize="12" x:Name="txtCountry" MouseDoubleClick="txtCountry_MouseDoubleClick"/>
+                                    </StackPanel>
+                                </StackPanel>
+                                <local:UC_Attachments x:Name="Attachments" Height="150" Margin="0,10,10,10" />
+                            </StackPanel>
+                        </Grid>
+
+                        <Grid Grid.Row="1" VerticalAlignment="Bottom" HorizontalAlignment="Right" >
+                            <Label x:Name="lblNext" Content="Document List to Submit>>>" Foreground="#FF0096D6" FontSize="24" HorizontalAlignment="Right" MouseLeftButtonUp="lblNext_MouseLeftButtonUp"/>
+                        </Grid>
+                    </Grid>
+                </Border>
+            </SEACC_WPFControls:SEACC_ScrollViewer>
+            
+
+
+
+
+            <!--<StackPanel Grid.Row="1" Margin="0,10">            
+                <StackPanel  Orientation="Horizontal"  VerticalAlignment="Top" HorizontalAlignment="Right" Margin="5,5,15,5"   Height="20" >
+                    <SEACC_WPFControls:SEACC_Button x:Name="btnGridItemAdd" Content="&#xE109;" Width="30" FontFamily="Segoe MDL2 Assets" Margin="0,0,5,0" Foreground="#FFD31111" Background="#FF727272" BorderBrush="{x:Null}" Height="20" VerticalAlignment="Top" Click="btnGridItemAdd_Click" />
+                    <SEACC_WPFControls:SEACC_Button x:Name="btnGridItemDelete" Content="&#xE894;" Width="30" FontFamily="Segoe MDL2 Assets" Background="#FF727272" BorderBrush="{x:Null}" Foreground="#FFD31111" Click="btnGridItemDelete_Click" />
+                </StackPanel>
+                <SEACC_WPFControls:SEACC_DataGrid x:Name="dgr_Doc" Margin="10,10" Background="#FF515151" HeaderColor="#FFF49F6D" IsReadOnly="False" CanUserAddRows="False" CellEditEnding="dgr_Doc_CellEditEnding" MouseDoubleClick="dgr_Doc_MouseDoubleClick" MouseEnter="dgr_Doc_MouseEnter">
+                    <SEACC_WPFControls:SEACC_DataGrid.Columns>
+                        <DataGridTextColumn Binding="{Binding No ,Mode=TwoWay , UpdateSourceTrigger=PropertyChanged}" Header="#" Width="50" IsReadOnly="False" />
+                        <DataGridTextColumn Binding="{Binding Doc_Name ,Mode=TwoWay , UpdateSourceTrigger=PropertyChanged}" Header="Document" Width="300" IsReadOnly="False" />
+                        <DataGridTextColumn Binding="{Binding Responsibility ,Mode=TwoWay , UpdateSourceTrigger=PropertyChanged}" Header="Responsibility" Width="100" IsReadOnly="False" />
+                        <DataGridTextColumn Binding="{Binding Attachment, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Header="Attachment" Width="120"   IsReadOnly="False" />
+                        <DataGridTextColumn Binding="{Binding Status ,Mode=TwoWay , UpdateSourceTrigger=PropertyChanged}" Header="Status" Width="50"   IsReadOnly="False" />
+                        <DataGridComboBoxColumn Width="100" x:Name="c" SelectedValueBinding="{Binding Status, Mode=TwoWay}" Header="Status"/>                                           
+                    </SEACC_WPFControls:SEACC_DataGrid.Columns>
+                </SEACC_WPFControls:SEACC_DataGrid>                
+            </StackPanel>-->
+        </Grid>
+
+    </SEACC_WPFControls_Local:SEACC_Form>
+</UserControl>

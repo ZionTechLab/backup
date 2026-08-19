@@ -1,0 +1,66 @@
+﻿<!--<UserControl x:Class="SEACC_servii.UC_Report"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:SEACC_servii"
+             mc:Ignorable="d" 
+             d:DesignHeight="300" d:DesignWidth="300">
+    <Grid>
+            
+    </Grid>
+</UserControl>-->
+
+<UserControl
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:SEACC_WPFControls="clr-namespace:SEACC_WPFControls" 
+             xmlns:SEACC_WPFControls1="clr-namespace:SEACC_WPFControls" 
+             xmlns:SEACC_WPFControls2="clr-namespace:SEACC_WPFControls;assembly=SEACC_WPFControls" x:Class="SEACC_servii.UC_Report" 
+             mc:Ignorable="d" Background="#FFFFFF">
+    <SEACC_WPFControls1:SEACC_Form x:Name="SEACC_Form">
+        <Grid Margin="15,10,0,50" >
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="472"/>
+                <ColumnDefinition Width="5"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+
+            <ScrollViewer VerticalScrollBarVisibility="Auto" HorizontalScrollBarVisibility="Auto" Grid.Column="0">
+                <SEACC_WPFControls2:SEACC_DataGrid x:Name="dgv_Reports" CanUserResizeColumns="True" HeadersVisibility="None" RowHeight="35" AlternatingRowBackground="#FF2D3E4F" MouseLeftButtonUp="dgv_Reports_MouseLeftButtonUp" Background="#FF27363B" HeaderColor="#FFDB6E32" >
+                    <SEACC_WPFControls2:SEACC_DataGrid.Columns>
+                        <!--<DataGridTextColumn Header="Report ID" Binding="{Binding ReportID}" Width="70" />-->
+                        <DataGridTextColumn Header="Report Name" Binding="{Binding ReportName}" ClipboardContentBinding="{x:Null}" Width="300"/>
+                    </SEACC_WPFControls2:SEACC_DataGrid.Columns>
+                </SEACC_WPFControls2:SEACC_DataGrid>
+            </ScrollViewer>
+
+            <GridSplitter Background="#D5D5D5" Grid.Column="1" Width="5" HorizontalAlignment="Stretch"  Margin="0,1,0,-1" />
+
+            <Grid Margin="10,0" Grid.Column="2">
+                <Border  BorderThickness="1" Margin="0,0,0,10">
+                    <Border.Effect>
+                        <DropShadowEffect Opacity="0.1" BlurRadius="10"/>
+                    </Border.Effect>
+                    <StackPanel MaxWidth="550">
+                        <SEACC_WPFControls2:SEACC_LableTextBox Caption="Customer" x:Name="txtCustomer" MouseDoubleClick="txtCustomer_MouseDoubleClick" />
+                        <SEACC_WPFControls2:SEACC_LableTextBox Caption="Store" x:Name="txtStore" MouseDoubleClick="txtStore_MouseDoubleClick_1" />
+                        <SEACC_WPFControls2:SEACC_LableTextBox Caption="Item" x:Name="txtItem" MouseDoubleClick="txtItem_MouseDoubleClick"  />
+                        <SEACC_WPFControls2:SEACC_LableTextBox Caption="GRN" x:Name="txtGrn" MouseDoubleClick="txtGrn_MouseDoubleClick"  />
+                        <SEACC_WPFControls2:SEACC_LabelTimeSelector VerticalAlignment="Top" Caption="From Date" x:Name="dtp_FromDate" ShowDate="Visible" ShowTime="Hidden" Foreground="White" />
+                        <SEACC_WPFControls2:SEACC_LabelTimeSelector VerticalAlignment="Top" Caption="To Date" x:Name="dtp_ToDate" ShowDate="Visible" ShowTime="Hidden" Foreground="White"/>
+                        <Grid Margin="0,10,0,0" >
+                            <WrapPanel Orientation="Horizontal" HorizontalAlignment="Center">
+                                <SEACC_WPFControls2:SEACC_Button x:Name="btn_Print" Content="Generate" Height="30" Width="90" Click="btn_Print_Click" Background="#FF7E7777" Foreground="White" Margin="5"/>
+                                <SEACC_WPFControls2:SEACC_Button x:Name="btn_Clear" Content="Clear" Height="30" Width="90" Click="btn_Clear_Click" Background="#FF7E7777" Foreground="White" Margin="5"/>
+                            </WrapPanel>
+                        </Grid>
+                    </StackPanel>
+                </Border>
+            </Grid>
+
+        </Grid>
+    </SEACC_WPFControls1:SEACC_Form>
+</UserControl>

@@ -1,0 +1,85 @@
+﻿<UserControl x:Class="SEACC_Tender.UC_PurchaseOrder"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:SEACC_Tender"
+             xmlns:SEACC_WPFControls_Local="clr-namespace:SEACC_Tender.UserControls"
+             xmlns:SEACC_WPFControls="clr-namespace:SEACC_WPFControls;assembly=SEACC_WPFControls" 
+             mc:Ignorable="d" Background="#FFFFFF" FontWeight="Normal">
+    <SEACC_WPFControls_Local:SEACC_Form x:Name="SEACC_Form" SizeChanged="SEACC_Form_SizeChanged">
+        <Grid Margin="10,10,0,50">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition x:Name="ColumnA" Width="400"/>
+                <ColumnDefinition Width="5"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+            <SEACC_WPFControls:SEACC_DataGrid_Advanced Grid.Column="0" x:Name="dgr_Main" Margin="10,0" Background="#FF6A6A6A" HeaderColor="#FF0083A1"/>
+            <GridSplitter Grid.Column="1" Background="#D5D5D5" x:Name="gridSplitter" Width="5" HorizontalAlignment="Stretch" />
+            <SEACC_WPFControls:SEACC_ScrollViewer Grid.Column="2" VerticalScrollBarVisibility="Auto">
+                <Border BorderThickness="1" Margin="10,0,10,0">
+                    <Border.Effect>
+                        <DropShadowEffect Opacity="0.1" BlurRadius="10"/>
+                    </Border.Effect>
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="auto"/>
+                            <RowDefinition Height="auto" />
+                        </Grid.RowDefinitions>
+                        <Grid Grid.Row="0">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition />
+                                <ColumnDefinition />
+                            </Grid.ColumnDefinitions>
+                            <StackPanel Grid.Column="0" Margin="10,10">
+                                <SEACC_WPFControls:SEACC_LableTextBox Caption="Tender/BID No." x:Name="txtTenderID" MouseDoubleClick="txtTenderID_MouseDoubleClick"/>
+                                <SEACC_WPFControls:SEACC_LableTextBox Caption="Customer Name" x:Name="txtCustomer" MouseDoubleClick="txtCustomer_MouseDoubleClick"/>
+                                <SEACC_WPFControls:SEACC_LableTextBox Caption="PO #" x:Name="txtPONo" />
+                                <SEACC_WPFControls:SEACC_LabelTimeSelector Caption="PO Date" x:Name="dtpPODate" ShowDate="Visible" ShowTime="Visible"/>
+                                <SEACC_WPFControls:SEACC_LableTextBox Caption="Letter Ref#" x:Name="txtLetterRef"/>
+                                <!--<Grid>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="315"/>
+                                    <ColumnDefinition Width="30"/>
+                                </Grid.ColumnDefinitions>
+                                <SEACC_WPFControls:SEACC_LableTextBox Grid.Column="0" Caption="Upload Letter" x:Name="txtUpload" DetailBox_Width="200"/>
+                                <SEACC_WPFControls:SEACC_Button Grid.Column="1" x:Name="btnUploadLetter" FontFamily="Segoe MDL2 Assets" Content="&#xE110;" Width="30" Height="26" FontSize="12" Foreground="#FF0096D6" Background="{x:Null}" BorderBrush="#FF0096D6" HorizontalAlignment="Left" Click="btnUploadLetter_Click"/>
+                            </Grid>-->
+                                <SEACC_WPFControls:SEACC_LableTextBox Caption="Payment Terms" x:Name="txtPaymentTerms"/>
+                                <SEACC_WPFControls:SEACC_LableTextBox Caption="Indent Conditions" x:Name="txtIndentConditions" Height="60"/>
+                            </StackPanel>
+                            <StackPanel Grid.Column="1">
+                                <local:UC_Attachments x:Name="Attachments" Height="150" />
+                            </StackPanel>
+                        </Grid>
+                        
+                        <Grid Grid.Row="1" Margin="0,0,0,0">
+                            <Border BorderThickness="1" Margin="0,0,0,10">
+                                <Border.Effect>
+                                    <DropShadowEffect Opacity="0.1" BlurRadius="10"/>
+                                </Border.Effect>
+                                <StackPanel  Orientation="Horizontal"  VerticalAlignment="Top" HorizontalAlignment="Right" Margin="5,5,15,5"   Height="20" >
+                                    <SEACC_WPFControls:SEACC_Button x:Name="btnGridItemAdd" Content="&#xE109;" Width="30" FontFamily="Segoe MDL2 Assets" Margin="0,0,5,0" Foreground="White" Background="#FF6A6A6A" BorderBrush="{x:Null}" Height="20" VerticalAlignment="Top" Click="btnGridItemAdd_Click" />
+                                    <SEACC_WPFControls:SEACC_Button x:Name="btnGridItemDelete" Content="&#xE894;" Width="30" FontFamily="Segoe MDL2 Assets" Foreground="Red" Background="#FF6A6A6A" BorderBrush="{x:Null}" Click="btnGridItemDelete_Click" />
+                                </StackPanel>
+                            </Border>
+                            <SEACC_WPFControls:SEACC_DataGrid x:Name="dgr_Tender" Margin="0,38,0,0" Background="#FF6A6A6A" HeaderColor="#FF0083A1" IsReadOnly="False" CanUserAddRows="False" CanUserResizeColumns="True" >
+                                <SEACC_WPFControls:SEACC_DataGrid.Columns>
+                                    <DataGridTextColumn Binding="{Binding LineNo ,Mode=TwoWay , UpdateSourceTrigger=PropertyChanged}" Header="Line No" Width="100" IsReadOnly="False" />
+                                    <DataGridTextColumn Binding="{Binding OrderListNo ,Mode=TwoWay , UpdateSourceTrigger=PropertyChanged}" Header="Oder List No" Width="100" IsReadOnly="False" />
+                                    <DataGridTextColumn Binding="{Binding ModeofDispatch ,Mode=TwoWay , UpdateSourceTrigger=PropertyChanged}" Header="Mode of Dispatch" Width="120" IsReadOnly="False" />
+                                    <DataGridTextColumn Binding="{Binding DeliverySchedule ,Mode=TwoWay , UpdateSourceTrigger=PropertyChanged}" Header="Delivery Schedule" Width="120" IsReadOnly="False" />
+                                    <DataGridTextColumn Binding="{Binding PackSize ,Mode=TwoWay , UpdateSourceTrigger=PropertyChanged}" Header="Pack Size" Width="100"   IsReadOnly="False" />
+                                    <DataGridTextColumn Binding="{Binding OrderQty ,Mode=TwoWay , UpdateSourceTrigger=PropertyChanged}" Header="Order Qty" Width="120"   IsReadOnly="False" />
+                                    <DataGridTextColumn Binding="{Binding UnitPrice ,Mode=TwoWay , UpdateSourceTrigger=PropertyChanged}" Header="Unit Price" Width="120"   IsReadOnly="False" />
+                                    <DataGridTextColumn Binding="{Binding Total ,Mode=TwoWay , UpdateSourceTrigger=PropertyChanged}" Header="Total" Width="100" IsReadOnly="False" />
+                                </SEACC_WPFControls:SEACC_DataGrid.Columns>
+                            </SEACC_WPFControls:SEACC_DataGrid>
+                        </Grid>
+                    </Grid>
+                </Border>
+            </SEACC_WPFControls:SEACC_ScrollViewer>
+        </Grid>
+    </SEACC_WPFControls_Local:SEACC_Form>
+    
+</UserControl>

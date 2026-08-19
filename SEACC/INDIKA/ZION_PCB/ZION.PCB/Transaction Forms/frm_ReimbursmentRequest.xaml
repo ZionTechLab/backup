@@ -1,0 +1,336 @@
+﻿<Window x:Class="SEACC_PCB.Transaction_Forms.frm_ReimbursmentRequest"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:SEACC_PCB.Transaction_Forms"
+        xmlns:sys="clr-namespace:System;assembly=mscorlib" 
+        mc:Ignorable="d" AllowsTransparency="True" WindowStyle="None"
+        xmlns:SEACC_WPFControls="clr-namespace:SEACC_WPFControls;assembly=SEACC_WPFControls" 
+        xmlns:SEACC_WPFControls_Local="clr-namespace:SEACC_PCB.UserControls" FontWeight="Normal"
+        Title="frm_ReimbursmentRequest" Height="680" Width="950" WindowStartupLocation="CenterScreen" Background="Transparent" MouseDown="Window_MouseDown" MaxHeight="680" MaxWidth="950">
+
+    <Grid x:Name="frm_Reimbursment"  Background="White" Margin="10">
+        <Grid.Effect>
+            <DropShadowEffect ShadowDepth="4" Opacity="0.6" BlurRadius="10" />
+        </Grid.Effect>
+        <Border BorderThickness="1"></Border>
+
+        <SEACC_WPFControls_Local:SEACC_Form x:Name="SEACC_Form" >
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Name="row0" Height="30" />
+                    <RowDefinition Name="rowA" Height="110" />
+                    <RowDefinition Name="rowB" Height="250" />
+                    <RowDefinition Height="*"/>
+                </Grid.RowDefinitions>
+
+                <Grid Grid.Row="0" Margin="0,0" Background="#FFF49F6D">
+                    <StackPanel Orientation="Horizontal" >
+                        <Label Content="Add Reimbursment Request" FontSize="14" Foreground="White" Height="28" Width="895" Margin="2,0,0,2" />
+                        <Button x:Name="btnCloseTop" Content="&#xE894;" Height="25" Width="33" FontSize="14" HorizontalAlignment="Right" FontFamily="Segoe MDL2 Assets" Background="{x:Null}" BorderBrush="{x:Null}" Foreground="White" Margin="0,0" RenderTransformOrigin="-1.556,0.4" Click="btnCloseTop_Click"/>
+                    </StackPanel>
+                </Grid>
+
+                <Grid Grid.Row="1" Margin="10,10">
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Name="colA" Width="400" />
+                            <ColumnDefinition Name="colB" Width="*" />
+                        </Grid.ColumnDefinitions>
+                        <Grid Grid.Column="0">
+                            <StackPanel>
+                                <!--<SEACC_WPFControls:SEACC_LableTextBox x:Name="txtPCBook" Caption="Petty Cash Book" />-->
+                                <SEACC_WPFControls:SEACC_LableTextBox x:Name="txtRemReq" Caption="Reimbursment Req.#" MouseDoubleClick="txtRemReq_MouseDoubleClick" />
+                                <SEACC_WPFControls:SEACC_LabelTimeSelector x:Name="dtpDateDel" Caption="Date"  ShowDate="Visible" ShowTime="Hidden" Visibility="Collapsed"/>
+                                <SEACC_WPFControls:SEACC_LabelTimeSelector x:Name="dtpToDate" Caption="Reimbursment To"  ShowDate="Visible" ShowTime="Hidden" DateTimeChanged="dtpToDate_DateTimeChanged"  />
+                            </StackPanel>
+                        </Grid>
+                        <Grid Grid.Column="1">
+                            <!--<Grid.ColumnDefinitions>
+                                <ColumnDefinition Name="col1A" Width="200" />
+                                <ColumnDefinition Width="*"/>
+                            </Grid.ColumnDefinitions>
+                            <Grid Grid.Column="0"></Grid>
+                            <Grid Grid.Column="1" HorizontalAlignment="Right">-->
+                            <!--<Grid.RowDefinitions>
+                                    <RowDefinition Name="row1" Height="140" />
+                                    <RowDefinition Height="*" />
+                                </Grid.RowDefinitions>-->
+
+                            <!--<Grid Grid.Row="0">-->
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Name="col2_A" Width="150" />
+                                <ColumnDefinition Width="200"/>
+                            </Grid.ColumnDefinitions>
+                            <Grid Grid.Column="0" Grid.ColumnSpan="2" Margin="0,0,33,0">
+                                <StackPanel Margin="100,0,0,0">
+                                    <!--<Label ></Label>-->
+                                    <Label Foreground="#FF515151" FontSize="16" Visibility="Visible" HorizontalAlignment="Center" >
+                                        <TextBlock TextDecorations="Underline">Reimbursment</TextBlock>
+                                    </Label>
+                                    <Label x:Name="lblNoOfBill" >No. of Bills</Label>
+                                    <Label x:Name="lblTotAmnt" >Total Amount</Label>
+                                </StackPanel>
+                            </Grid>
+                            <Grid Grid.Column="1">
+                                <StackPanel Margin="72,0,0,0">
+                                    <Label></Label>
+                                    <Label Content="Unsettled IOU" Foreground="#FF515151" FontSize="16" Visibility="Hidden"/>
+                                    <Label x:Name="lblNoOfBillVal" HorizontalAlignment="Right">7</Label>
+                                    <Label x:Name="lblTotAmntVal" HorizontalAlignment="Right">5,500,000.00</Label>
+                                </StackPanel>
+                            </Grid>
+                            <!--</Grid>-->
+
+
+
+                            <!--</Grid>-->
+                        </Grid>
+                    </Grid>
+                    <!--</SEACC_WPFControls:SEACC_ScrollViewer>-->
+                </Grid>
+                <Grid  Grid.Row="2" Margin="10,0">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="411*"/>
+                        <ColumnDefinition Width="44*"/>
+                    </Grid.ColumnDefinitions>
+                    <CheckBox x:Name="chk_selectAll" Height="25" VerticalAlignment="Top" HorizontalAlignment="Left" Content="Select All"  Margin="0,2,0,0" Checked="chk_selectAll_Checked" Unchecked="chk_selectAll_Unchecked" IsChecked="False" />
+                    <SEACC_WPFControls:SEACC_DataGrid x:Name="dgr_Reim" Margin="0,18,0,0" Background="White" HeaderColor="#FF727272" IsReadOnly="False" AutoGenerateColumns="False" CanUserAddRows="False" CanUserDeleteRows="False" MinHeight="80" Foreground="Black" CanUserResizeColumns="True" Grid.ColumnSpan="2">
+                        <DataGrid.Resources>
+                            <SolidColorBrush x:Key="{x:Static SystemColors.HighlightBrushKey}"  Color="#FFF4E7A7"/>
+                        </DataGrid.Resources>
+                        <DataGrid.CellStyle>
+                            <Style TargetType="DataGridCell">
+                                <Setter Property="Padding" Value="2"/>
+                                <Setter Property="Template">
+                                    <Setter.Value>
+                                        <ControlTemplate TargetType="{x:Type DataGridCell}">
+                                            <Border Padding="{TemplateBinding Padding}" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" Background="{TemplateBinding Background}" SnapsToDevicePixels="True">
+                                                <Grid Background="{TemplateBinding Background}">
+                                                    <ContentPresenter SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}"/>
+                                                    <ContentPresenter VerticalAlignment="Center" />
+                                                </Grid>
+                                            </Border>
+                                        </ControlTemplate>
+                                    </Setter.Value>
+                                </Setter>
+                            </Style>
+                        </DataGrid.CellStyle>
+
+                        <DataGrid.Columns>
+
+                            <DataGridTextColumn Binding="{Binding LineNo ,Mode=TwoWay , UpdateSourceTrigger=PropertyChanged}" Foreground="Black"   Header="Line No" Width="100"  IsReadOnly="True" Visibility="Collapsed">
+                                <DataGridTextColumn.ElementStyle>
+                                    <Style>
+                                        <Setter Property="TextBlock.TextWrapping" Value="Wrap" />
+                                        <Setter Property="TextBlock.TextAlignment" Value="Left"/>
+                                        <Setter Property="TextBlock.VerticalAlignment" Value="Center"/>
+                                    </Style>
+                                </DataGridTextColumn.ElementStyle>
+                            </DataGridTextColumn>
+
+                            <DataGridCheckBoxColumn Binding="{Binding IsSelect ,Mode=TwoWay , UpdateSourceTrigger=PropertyChanged}" Header="Select"  Width="50"   IsReadOnly="True" >
+                                <DataGridCheckBoxColumn.ElementStyle>
+                                    <Style TargetType="CheckBox">
+                                        <Setter Property="HorizontalAlignment"  Value="Center" />
+                                        <Setter Property="VerticalAlignment" Value="Center" />
+                                        <!--<EventSetter Event="Checked" Handler="Reimbursment_Checked"/>
+                                        <EventSetter Event="Unchecked" Handler="Reimbursment_UnChecked"/>-->
+                                    </Style>
+                                </DataGridCheckBoxColumn.ElementStyle>
+                            </DataGridCheckBoxColumn>
+
+                            <DataGridTextColumn Binding="{Binding Date ,Mode=TwoWay , UpdateSourceTrigger=PropertyChanged}" Foreground="Black"   Header="Date" Width="100"  IsReadOnly="True">
+                                <DataGridTextColumn.ElementStyle>
+                                    <Style>
+                                        <Setter Property="TextBlock.TextWrapping" Value="Wrap" />
+                                        <Setter Property="TextBlock.TextAlignment" Value="Left"/>
+                                        <Setter Property="TextBlock.VerticalAlignment" Value="Center"/>
+                                    </Style>
+                                </DataGridTextColumn.ElementStyle>
+                            </DataGridTextColumn>
+
+                            <DataGridTextColumn Binding="{Binding ExpID ,Mode=TwoWay , UpdateSourceTrigger=PropertyChanged}" Foreground="Black"   Header="Expenditure ID" Width="150"  IsReadOnly="True" Visibility="Collapsed">
+                                <DataGridTextColumn.ElementStyle>
+                                    <Style>
+                                        <Setter Property="TextBlock.TextWrapping" Value="Wrap" />
+                                        <Setter Property="TextBlock.TextAlignment" Value="Left"/>
+                                        <Setter Property="TextBlock.VerticalAlignment" Value="Center"/>
+                                    </Style>
+                                </DataGridTextColumn.ElementStyle>
+                            </DataGridTextColumn>
+
+                            <DataGridTextColumn Binding="{Binding TxnID ,Mode=TwoWay , UpdateSourceTrigger=PropertyChanged}" Foreground="Black"   Header="Txn ID" Width="150"  IsReadOnly="True" Visibility="Collapsed">
+                                <DataGridTextColumn.ElementStyle>
+                                    <Style>
+                                        <Setter Property="TextBlock.TextWrapping" Value="Wrap" />
+                                        <Setter Property="TextBlock.TextAlignment" Value="Left"/>
+                                        <Setter Property="TextBlock.VerticalAlignment" Value="Center"/>
+                                    </Style>
+                                </DataGridTextColumn.ElementStyle>
+                            </DataGridTextColumn>
+
+                            <DataGridTextColumn Binding="{Binding TxnCode ,Mode=TwoWay , UpdateSourceTrigger=PropertyChanged}" Foreground="Black"   Header="Txn Code" Width="150"  IsReadOnly="True" >
+                                <DataGridTextColumn.ElementStyle>
+                                    <Style>
+                                        <Setter Property="TextBlock.TextWrapping" Value="Wrap" />
+                                        <Setter Property="TextBlock.TextAlignment" Value="Left"/>
+                                        <Setter Property="TextBlock.VerticalAlignment" Value="Center"/>
+                                    </Style>
+                                </DataGridTextColumn.ElementStyle>
+                            </DataGridTextColumn>
+
+                            <DataGridTextColumn Binding="{Binding Remarks ,Mode=TwoWay , UpdateSourceTrigger=PropertyChanged}" Foreground="Black"   Header="Remarks" Width="290"  IsReadOnly="True">
+                                <DataGridTextColumn.ElementStyle>
+                                    <Style>
+                                        <Setter Property="TextBlock.TextWrapping" Value="Wrap" />
+                                        <Setter Property="TextBlock.TextAlignment" Value="Left"/>
+                                        <Setter Property="TextBlock.VerticalAlignment" Value="Center"/>
+                                    </Style>
+                                </DataGridTextColumn.ElementStyle>
+                            </DataGridTextColumn>
+
+                            <DataGridTextColumn Binding="{Binding SpentBy ,Mode=TwoWay , UpdateSourceTrigger=PropertyChanged}" Foreground="Black"   Header="Spent By" Width="200"  IsReadOnly="True" >
+                                <DataGridTextColumn.ElementStyle>
+                                    <Style>
+                                        <Setter Property="TextBlock.TextWrapping" Value="Wrap" />
+                                        <Setter Property="TextBlock.TextAlignment" Value="Left"/>
+                                        <Setter Property="TextBlock.VerticalAlignment" Value="Center"/>
+                                    </Style>
+                                </DataGridTextColumn.ElementStyle>
+                            </DataGridTextColumn>
+
+                            <DataGridTextColumn Binding="{Binding Amount ,Mode=TwoWay , UpdateSourceTrigger=PropertyChanged}" Foreground="Black"   Header="Amount" Width="100"  IsReadOnly="True" >
+                                <DataGridTextColumn.ElementStyle>
+                                    <Style>
+                                        <Setter Property="TextBlock.TextWrapping" Value="Wrap" />
+                                        <Setter Property="TextBlock.TextAlignment" Value="Right"/>
+                                        <Setter Property="TextBlock.VerticalAlignment" Value="Center"/>
+                                    </Style>
+                                </DataGridTextColumn.ElementStyle>
+                            </DataGridTextColumn>
+
+                        </DataGrid.Columns>
+                    </SEACC_WPFControls:SEACC_DataGrid>
+                </Grid>
+                <Grid Grid.Row="3" Margin="10,10" HorizontalAlignment="Left" >
+                    <SEACC_WPFControls:SEACC_DataGrid x:Name="dgr_DEntry" Margin="0,10,0,0" Background="#FFEEEEEE" HeaderColor="#FF727272" RowHeight="18" FontSize="10" IsReadOnly="False" AutoGenerateColumns="False" CanUserAddRows="False" CanUserDeleteRows="False" MinHeight="80" Foreground="Black" CanUserResizeColumns="True" Height="160" VerticalAlignment="Top" >
+                        <DataGrid.Resources>
+                            <SolidColorBrush x:Key="{x:Static SystemColors.HighlightBrushKey}"  Color="#FFF4E7A7"/>
+                        </DataGrid.Resources>
+                        <DataGrid.CellStyle>
+                            <Style TargetType="DataGridCell">
+                                <Setter Property="Padding" Value="2"/>
+                                <Setter Property="Template">
+                                    <Setter.Value>
+                                        <ControlTemplate TargetType="{x:Type DataGridCell}">
+                                            <Border Padding="{TemplateBinding Padding}" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" Background="{TemplateBinding Background}" SnapsToDevicePixels="True">
+                                                <Grid Background="{TemplateBinding Background}">
+                                                    <ContentPresenter SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}"/>
+                                                    <ContentPresenter VerticalAlignment="Center" />
+                                                </Grid>
+                                            </Border>
+                                        </ControlTemplate>
+                                    </Setter.Value>
+                                </Setter>
+                            </Style>
+                        </DataGrid.CellStyle>
+
+                        <DataGrid.Columns>
+
+                            <DataGridTextColumn Binding="{Binding No ,Mode=OneWay , UpdateSourceTrigger=PropertyChanged}" Foreground="Black"   Header="No" Width="50"  IsReadOnly="True" >
+                                <DataGridTextColumn.ElementStyle>
+                                    <Style>
+                                        <Setter Property="TextBlock.TextWrapping" Value="Wrap" />
+                                        <Setter Property="TextBlock.TextAlignment" Value="Center"/>
+                                        <Setter Property="TextBlock.VerticalAlignment" Value="Center"/>
+                                    </Style>
+                                </DataGridTextColumn.ElementStyle>
+                            </DataGridTextColumn>
+
+                            <DataGridTextColumn Binding="{Binding ExpenID ,Mode=TwoWay , UpdateSourceTrigger=PropertyChanged}" Foreground="Black"   Header="Expenditure ID" Width="120"  IsReadOnly="True" Visibility="Collapsed">
+                                <DataGridTextColumn.ElementStyle>
+                                    <Style>
+                                        <Setter Property="TextBlock.TextWrapping" Value="Wrap" />
+                                        <Setter Property="TextBlock.TextAlignment" Value="Left"/>
+                                        <Setter Property="TextBlock.VerticalAlignment" Value="Center"/>
+                                    </Style>
+                                </DataGridTextColumn.ElementStyle>
+                            </DataGridTextColumn>
+
+                            <DataGridTextColumn Binding="{Binding AccountCode ,Mode=OneWay , UpdateSourceTrigger=PropertyChanged}" Foreground="Black"   Header="Account Code" Width="120"  IsReadOnly="True">
+                                <DataGridTextColumn.ElementStyle>
+                                    <Style>
+                                        <Setter Property="TextBlock.TextWrapping" Value="Wrap" />
+                                        <Setter Property="TextBlock.TextAlignment" Value="Left"/>
+                                        <Setter Property="TextBlock.VerticalAlignment" Value="Center"/>
+                                    </Style>
+                                </DataGridTextColumn.ElementStyle>
+                            </DataGridTextColumn>
+
+                            <DataGridTextColumn Binding="{Binding AccountName ,Mode=OneWay , UpdateSourceTrigger=PropertyChanged}" Foreground="Black"   Header="Account Name" Width="350"  IsReadOnly="True" >
+                                <DataGridTextColumn.ElementStyle>
+                                    <Style>
+                                        <Setter Property="TextBlock.TextWrapping" Value="Wrap" />
+                                        <Setter Property="TextBlock.TextAlignment" Value="Left"/>
+                                        <Setter Property="TextBlock.VerticalAlignment" Value="Center"/>
+                                    </Style>
+                                </DataGridTextColumn.ElementStyle>
+                            </DataGridTextColumn>
+
+                            <DataGridTextColumn Binding="{Binding DebitAmount ,Mode=OneWay , UpdateSourceTrigger=PropertyChanged}" Foreground="Black"   Header="Debit Amount" Width="150"  IsReadOnly="True" >
+                                <DataGridTextColumn.ElementStyle>
+                                    <Style>
+                                        <Setter Property="TextBlock.TextWrapping" Value="Wrap" />
+                                        <Setter Property="TextBlock.TextAlignment" Value="Right"/>
+                                        <Setter Property="TextBlock.VerticalAlignment" Value="Center"/>
+                                    </Style>
+                                </DataGridTextColumn.ElementStyle>
+                            </DataGridTextColumn>
+
+                            <DataGridTextColumn Binding="{Binding CreditAmount ,Mode=OneWay , UpdateSourceTrigger=PropertyChanged}" Foreground="Black"   Header="Credit Amount" Width="150"  IsReadOnly="True" >
+                                <DataGridTextColumn.ElementStyle>
+                                    <Style>
+                                        <Setter Property="TextBlock.TextWrapping" Value="Wrap" />
+                                        <Setter Property="TextBlock.TextAlignment" Value="Right"/>
+                                        <Setter Property="TextBlock.VerticalAlignment" Value="Center"/>
+                                    </Style>
+                                </DataGridTextColumn.ElementStyle>
+                            </DataGridTextColumn>
+
+                        </DataGrid.Columns>
+                    </SEACC_WPFControls:SEACC_DataGrid>
+                    <Grid Grid.Row="1" HorizontalAlignment="Right" Margin="700,0,0,0" VerticalAlignment="Bottom">
+                        <!--<Grid.ColumnDefinitions>
+                            <ColumnDefinition Name="col2_AO" Width="150" />
+                            <ColumnDefinition Width="100"/>
+                        </Grid.ColumnDefinitions>
+                        <Grid Grid.Column="0" Grid.ColumnSpan="2" Margin="0,0,33,0">
+                            <StackPanel Margin="100,0,0,0">                               
+                                <Label ></Label>
+                                <Label Foreground="#FF515151" FontSize="16" Visibility="Visible" HorizontalAlignment="Center" >
+                                    <TextBlock TextDecorations="Underline">Reimbursment</TextBlock>
+                                </Label>
+                                <Label x:Name="lblNoOfBillO" >No. of Bills</Label>
+                                <Label x:Name="lblTotAmntO" >Total Amount</Label>
+                            </StackPanel>
+                        </Grid>
+                        <Grid Grid.Column="1">
+                            <StackPanel Margin="72,0,-69,0">                               
+                                <Label></Label>
+                                <Label Content="Unsettled IOU" Foreground="#FF515151" FontSize="16" Visibility="Hidden"/>
+                                <Label x:Name="lblNoOfBillValO" HorizontalAlignment="Right">7</Label>
+                                <Label x:Name="lblTotAmntValO" HorizontalAlignment="Right">5,500,000,000.00</Label>
+                            </StackPanel>
+                        </Grid>-->
+                    </Grid>
+                </Grid>
+                <SEACC_WPFControls:SEACC_DataGrid_Advanced x:Name="dgr_Main"  Margin="40,72,100,48" Background="#FF515151" HeaderColor="#FFF49F6D" Grid.Row="2" />
+
+            </Grid>
+            <!--</SEACC_WPFControls:SEACC_ScrollViewer>-->
+        </SEACC_WPFControls_Local:SEACC_Form>
+
+    </Grid>
+</Window>

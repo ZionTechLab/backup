@@ -1,0 +1,41 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.29911.84
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SEACC_PRODUCTION_PHARMA", "SEACC_PRODUCTION_PHARMA\SEACC_PRODUCTION_PHARMA.csproj", "{010A60C6-1C7A-4931-ADA9-A5832F739899}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SEACC.PROD.DATA", "SEACC.PROD.DATA\SEACC.PROD.DATA.csproj", "{9D2A6A58-63C1-4403-8D25-25D7B6677724}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{010A60C6-1C7A-4931-ADA9-A5832F739899}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{010A60C6-1C7A-4931-ADA9-A5832F739899}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{010A60C6-1C7A-4931-ADA9-A5832F739899}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{010A60C6-1C7A-4931-ADA9-A5832F739899}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9D2A6A58-63C1-4403-8D25-25D7B6677724}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9D2A6A58-63C1-4403-8D25-25D7B6677724}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9D2A6A58-63C1-4403-8D25-25D7B6677724}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9D2A6A58-63C1-4403-8D25-25D7B6677724}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {070F7264-A4A4-41E0-8E23-E5A0708A3951}
+	EndGlobalSection
+	GlobalSection(TeamFoundationVersionControl) = preSolution
+		SccNumberOfProjects = 1
+		SccEnterpriseProvider = {4CA58AB2-18FA-4F8D-95D4-32DDF27D184C}
+		SccTeamFoundationServer = https://dev.azure.com/digiteqdevteam
+		SccProjectUniqueName0 = SEACC_PRODUCTION_PHARMA\\SEACC_PRODUCTION_PHARMA.csproj
+		SccProjectName0 = SEACC_PRODUCTION_PHARMA
+		SccAuxPath0 = https://dev.azure.com/digiteqdevteam
+		SccLocalPath0 = SEACC_PRODUCTION_PHARMA
+		SccProvider0 = {4CA58AB2-18FA-4F8D-95D4-32DDF27D184C}
+	EndGlobalSection
+EndGlobal
