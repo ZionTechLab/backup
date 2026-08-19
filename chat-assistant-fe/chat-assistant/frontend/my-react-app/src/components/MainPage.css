@@ -1,0 +1,37 @@
+/* Basic Layout for MainPage */
+.main-page-layout {
+  display: flex;
+  flex-direction: column;
+  height: 100%; /* Fill its parent (.App) */
+  /* min-height: 100vh; */ /* Replaced by height: 100% as parent .App is now managing viewport height */
+  /* overflow: hidden; */ /* Parent .App has overflow:hidden. This one might not need it if children are managed. */
+}
+
+.main-content-area {
+  display: flex; /* Keep as flex if .content needs to be flexible within it */
+  flex-grow: 1;  /* This makes .main-content-area take available vertical space */
+  position: relative; /* For drawer positioning */
+  overflow-y: auto;   /* Enable vertical scrolling ONLY for this area */
+  overflow-x: hidden; /* Prevent horizontal scrolling if content is too wide */
+  min-height: 0;      /* Important for flex-grow to work correctly with overflow */
+  /* The actual scrollable content will often be a child of this, e.g., the .content div */
+}
+
+.content {
+  flex-grow: 1; /* If .main-content-area is display:flex, .content can grow */
+  padding: 20px;
+  /* transition and margin-left are no longer needed here as drawer is an overlay */
+  /* If .main-content-area is the direct scroller, .content doesn't need overflow properties.
+     If .content itself is meant to be the scroller INSIDE .main-content-area, then .content
+     would get overflow-y: auto and .main-content-area might not need it.
+     For simplicity, let's assume .main-content-area is the primary scroll container for now.
+  */
+}
+
+/* .content.drawer-open { */
+  /* margin-left: 250px; */ /* REMOVED: Drawer is now an overlay */
+/* } */
+
+/* Placeholder styles for components - to be refined */
+/* TopNavBar, Drawer, Footer now have their own specific themed CSS files. */
+/* Removing outdated generic styles for nav, aside, footer from here. */

@@ -1,0 +1,68 @@
+.top-nav-bar {
+  /* background-color: var(--theme-bg-primary); */ /* Option 1: Same as page, subtle */
+  /* background-color: var(--theme-bg-secondary); */ /* Option 2: Slightly different, like inputs */
+  background-color: var(--theme-primary-accent); /* Option 3: Main accent color, like login button */
+  color: var(--theme-text-light); /* Text color for dark backgrounds */
+  padding: 10px 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+  position: sticky;
+  top: 0;
+  z-index: 950;
+  /* width: 100%; */ /* Removed as requested */
+  font-family: var(--theme-font-family);
+}
+
+.nav-left {
+  display: flex;
+  align-items: center;
+}
+
+.drawer-toggle-btn {
+  background: none;
+  border: none;
+  color: var(--theme-text-light); /* Ensure contrast with new background */
+  font-size: 24px;
+  cursor: pointer;
+  margin-right: 15px;
+  padding: 5px;
+}
+
+.drawer-toggle-btn:hover {
+  opacity: 0.8;
+}
+
+.nav-title {
+  font-size: 1.2em;
+  font-weight: bold;
+  color: var(--theme-text-light); /* Ensure contrast */
+}
+
+.nav-right {
+  display: flex;
+  align-items: center;
+}
+
+.user-greeting {
+  margin-right: 15px;
+  font-size: 0.9em;
+  color: var(--theme-text-light); /* Ensure contrast */
+}
+
+.logout-btn {
+  /* Let's make it look less like a primary action, more subtle or secondary */
+  background-color: transparent;
+  /* border: 1px solid var(--theme-text-light); */ /* Option: subtle border */
+  color: var(--theme-text-light);
+  padding: 8px 15px;
+  border-radius: var(--theme-border-radius-medium); /* Use theme border radius */
+  cursor: pointer;
+  font-size: 0.9em;
+  font-family: var(--theme-font-family);
+}
+
+.logout-btn:hover {
+  background-color: rgba(255, 255, 255, 0.1); /* Subtle hover for transparent buttons on dark bg */
+}

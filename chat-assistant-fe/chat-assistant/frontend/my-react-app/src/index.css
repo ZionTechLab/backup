@@ -1,0 +1,44 @@
+:root {
+  --theme-font-family: "Plus Jakarta Sans", "Noto Sans", -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
+  --theme-bg-primary: #f8fcfa; /* Page background */
+  --theme-bg-secondary: #e6f4ef; /* Input/subtle component backgrounds */
+
+  --theme-primary-accent: #019863; /* Main action color (buttons) */
+  --theme-secondary-accent: #46a080; /* Links, placeholder text, secondary actions */
+
+  --theme-text-dark: #0c1c17; /* Primary text color */
+  --theme-text-light: #f8fcfa; /* Text on dark/accent backgrounds (e.g., on primary button) */
+  --theme-text-placeholder: var(--theme-secondary-accent); /* For input placeholders */
+
+  /* Add other common variables as needed, e.g., border-radius, shadows */
+  --theme-border-radius-medium: 0.75rem; /* rounded-xl from example */
+  --theme-border-radius-large: 9999px; /* rounded-full from example */
+}
+
+html, body, #root {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: var(--theme-font-family);
+  background-color: var(--theme-bg-primary);
+  color: var(--theme-text-dark);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* If your App component (e.g., div with class App in App.js) needs to fill #root: */
+/*
+.App {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+*/
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
+}

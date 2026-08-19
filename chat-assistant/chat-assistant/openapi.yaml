@@ -1,0 +1,214 @@
+openapi: 3.0.0
+info:
+  title: AI Chatbot Express API
+  version: 1.0.0
+  description: API for initializing and continuing chat sessions with an AI assistant.
+servers:
+  - url: http://localhost:3000 # Adjust if your server runs on a different port/host
+
+tags:
+  - name: Chat
+    description: Operations related to chat sessions
+
+paths:
+  /chat/init:
+    post:
+      tags:
+        - Chat
+      summary: Initialize a new chat session
+      description: Creates a new chat thread and returns its unique ID.
+      responses:
+        '200':
+          description: Chat session initialized successfully.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ThreadResponse'
+        '500':
+          description: Internal Server Error
+          # Content removed as per user request
+        '503':
+          description: Service Unavailable (Assistant not ready)
+          # Content removed as per user request
+
+  /chat/{threadId}/message:
+    post:
+      tags:
+        - Chat
+      summary: Send a message to an existing chat session
+      description: Sends a user's message to the specified chat thread and retrieves the assistant's response.
+      parameters:
+        - name: threadId
+          in: path
+          required: true
+          description: The ID of the chat session (thread) to send the message to.
+          schema:
+            type: string
+            example: thread_abc123xyz
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/MessagePayload'
+      responses:
+        '200':
+          description: Message processed and assistant's response retrieved.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ChatResponse'
+        '400':
+          description: Bad Request (e.g., message is missing)
+          # Content removed as per user request
+        '404':
+          description: Not Found (Chat session/threadId not found)
+          # Content removed as per user request
+        '500':
+          description: Internal Server Error
+          # Content removed as per user request
+        '503':
+          description: Service Unavailable (Assistant not ready)
+          # Content removed as per user request
+
+  /chat/{threadId}/messages:
+    get:
+      tags:
+        - Chat
+      summary: Retrieve message history for a chat session
+      description: Fetches all messages for the specified chat thread in chronological order.
+      parameters:
+        - name: threadId
+          in: path
+          required: true
+          description: The ID of the chat session (thread) to retrieve messages for.
+          schema:
+            type: string
+            example: thread_abc123xyz
+      responses:
+        '200':
+          description: Successfully retrieved message history.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/MessageListResponse'
+        '404':
+          description: Not Found (Chat session/threadId not found or no messages in thread)
+          # Content removed as per user request
+        '500':
+          description: Internal Server Error
+          # Content removed as per user request
+
+  /chat/threads: # Renamed path
+    get:
+      tags:
+        - Chat
+      summary: List all persisted chat session IDs
+      description: Retrieves a list of all thread IDs that have been persisted in the database.
+      responses:
+        '200':
+          description: Successfully retrieved the list of all persisted thread IDs.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AllThreadsResponse' # Renamed schema
+        '500':
+          description: Internal Server Error
+          # Content removed as per user request
+
+components:
+  schemas:
+    AllThreadsResponse: # Renamed schema
+      type: object
+      properties:
+        threadIds: # Renamed field
+          type: array
+          items:
+            type: string
+            example: thread_aBcDeFgHiJkLmNoPqRsT
+          description: A list of unique identifiers for all chat threads stored in the database.
+    ThreadResponse:
+      type: object
+      properties:
+        threadId:
+          type: string
+          description: The unique identifier for the newly created chat thread.
+          example: thread_aBcDeFgHiJkLmNoPqRsT
+    MessagePayload:
+      type: object
+      required:
+        - message
+      properties:
+        message:
+          type: string
+          description: The user's message to send to the chatbot.
+          example: "Hello, can you help me plan a trip?"
+    ChatResponse:
+      type: object
+      properties:
+        response:
+          type: string
+          description: The assistant's textual response to the user's message.
+          example: "Of course! Where would you like to go?"
+    SimpleMessageObject:
+      type: object
+      properties:
+        id:
+          type: string
+          description: The unique identifier for the message.
+          example: msg_xxxxxxxxxxxxxx
+        role:
+          type: string
+          enum: [user, assistant]
+          description: The role of the entity that generated this message.
+          example: user
+        content:
+          type: string
+          description: The textual content of the message.
+          example: "What's the weather like?"
+        created_at:
+          type: integer
+          format: int64 # Unix timestamp
+          description: The timestamp (Unix epoch seconds) when the message was created.
+          example: 1678886400
+    MessageListResponse:
+      type: object
+      properties:
+        messages:
+          type: array
+          items:
+            $ref: '#/components/schemas/SimpleMessageObject'
+          description: A list of messages from the thread, sorted chronologically (oldest first).
+    ErrorResponse:
+      type: object
+      properties:
+        error:
+          type: string
+          description: A high-level error message.
+          example: Internal Server Error
+        details:
+          type: string
+          description: More specific details about the error.
+          example: An unexpected error occurred.
+    NotFoundError:
+      type: object
+      properties:
+        error:
+          type: string
+          description: Error message indicating resource not found.
+          example: Chat session not found or not initialized.
+        details:
+          type: string
+          description: Detailed explanation or suggestion.
+          example: Please ensure you have initialized a chat session using POST /chat/init and are using the correct threadId.
+    ValidationError:
+      type: object
+      properties:
+        error:
+          type: string
+          description: Error message indicating a validation failure.
+          example: Message is required in the request body.
+        details: # Optional, can be added if more validation details are provided
+          type: string
+          description: Specifics about the validation error.
+          example: The 'message' field cannot be empty.

@@ -1,0 +1,15 @@
+.App {
+  /* text-align: center; */ /* Original CRA style, can be removed if not needed */
+  height: 100%; /* Make .App take full height of its parent (#root) */
+  display: flex; /* Allow .main-page-layout (if it's a direct child) to use flex properties like min-height:100vh effectively */
+  flex-direction: column; /* Ensures .main-page-layout can expand vertically */
+  overflow: hidden; /* Prevent .App itself from scrolling; scrolling will be handled by a child */
+}
+
+/* Remove or comment out other default CRA styles if they are not used
+   or conflict with the new layout. For example:
+.App-logo { ... }
+.App-header { ... }
+.App-link { ... }
+@keyframes App-logo-spin { ... }
+*/

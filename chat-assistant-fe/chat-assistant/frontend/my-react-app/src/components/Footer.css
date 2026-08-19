@@ -1,0 +1,26 @@
+.app-footer {
+  background-color: var(--theme-bg-secondary); /* Option 1: Subtle, like inputs */
+  /* background-color: var(--theme-text-dark); */ /* Option 2: Dark, like login page text */
+  /* color: var(--theme-text-light); */ /* If using dark background */
+  color: var(--theme-text-dark); /* If using light background like --theme-bg-secondary */
+  text-align: center;
+  padding: 20px 0;
+  font-size: 0.9em;
+  font-family: var(--theme-font-family);
+  border-top: 1px solid #d1e0db; /* A slightly darker, muted tone from the theme's palette for separation */
+                               /* Or use var(--theme-secondary-accent) if more emphasis is desired */
+}
+
+.app-footer p {
+  margin: 5px 0;
+}
+
+.app-footer a {
+  color: var(--theme-primary-accent); /* Use primary accent for links in footer */
+  text-decoration: none;
+}
+
+.app-footer a:hover {
+  color: var(--theme-secondary-accent); /* Slightly different accent on hover */
+  text-decoration: underline;
+}
