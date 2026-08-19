@@ -1,0 +1,341 @@
+Based on the conversation history I have access to (which goes back to roughly mid-2025 rather than April 2025), here's a project-focused summary of your work as a technical/software engineering leader.
+
+Voyage Pro (Shipping & Logistics Platform)
+Technical projects/systems
+Designed and evolved the Voyage Pro platform.
+Built as a multi-company, multi-sub-company enterprise system.
+Planned secure authentication and authorization architecture.
+Designed backend APIs with company context passed through request headers.
+Problems solved
+Designed tenant isolation using:
+companyId
+subCompanyId
+userId
+Worked through permission architecture for frontend and backend.
+Planned scalable authentication using Keycloak.
+Evaluated hosting architecture on Azure.
+Technologies adopted
+.NET 8
+Angular (18/19)
+SQL Server
+Dapper
+Azure App Service
+Azure SQL
+Azure Functions
+Azure Service Bus
+Keycloak
+Azure DevOps
+Process / leadership evidence
+Made architectural decisions rather than implementation-only work.
+Planned system-wide security model.
+Considered scalability and maintainability.
+Designed integration patterns instead of point solutions.
+Status
+
+Completed / Achievements
+
+Core architecture decisions.
+Multi-company design.
+Security model.
+
+Still evolving
+
+Infrastructure optimization.
+Cloud deployment improvements.
+Cloudflare + Azure Enterprise Architecture
+Technical projects/systems
+
+Designed an enterprise deployment architecture involving:
+
+Cloudflare
+External WAF
+Azure App Service
+Azure Functions
+Azure Virtual Machines
+Problems solved
+
+Investigated:
+
+URL rewriting
+DMZ design
+Secure communication between components
+Cloudflare with Azure integration
+Best architecture within a ~$25/month budget
+
+Created architecture diagrams and prompts for documentation.
+
+Technologies
+Cloudflare
+Azure App Service
+Azure VM
+Azure Functions
+External WAF
+Leadership evidence
+
+Shows infrastructure architecture ownership rather than application development.
+
+Status
+
+Mostly planning/design work.
+
+Identity & Access Management (Keycloak)
+Technical projects/systems
+
+Implemented enterprise authentication using Keycloak.
+
+Problems solved
+
+Worked through:
+
+Azure SQL connectivity
+JDBC SSL configuration
+CORS
+silent-check-sso
+Event Listener SPI
+Production deployment issues
+Roles/groups in JWT
+Angular integration
+Technologies
+Keycloak
+keycloak-js
+keycloak-angular
+Docker
+Azure App Service
+Leadership evidence
+
+Designed centralized authentication strategy for enterprise applications.
+
+Status
+
+Achievements
+
+Production deployment.
+Azure integration.
+Security architecture.
+
+Some production tuning remained ongoing.
+
+Azure DevOps / CI-CD
+Technical projects/systems
+
+Built deployment pipelines.
+
+Problems solved
+
+Resolved:
+
+Angular build issues
+Missing environment files
+Zip deployment
+Self-hosted agent configuration
+Release versioning
+Automated deployment
+Technologies
+Azure DevOps
+YAML Pipelines
+Azure App Service
+Linux agents
+Process improvements
+Introduced automation.
+Reduced manual deployment.
+Planned centralized artifact storage.
+Discussed automated release notes.
+Status
+
+Mostly completed improvements with continuing refinements.
+
+ERP / OneProduct Platform
+Technical projects/systems
+
+Worked on enterprise ERP ecosystem including:
+
+Finance
+Payroll
+Inventory
+Freight Forwarding
+RIMS
+SFA
+
+Also discussed branding and product naming.
+
+Problems solved
+Multi-module architecture
+Shared authentication
+Enterprise integrations
+Permission model
+Technologies
+.NET
+React
+Angular
+SQL Server
+Dapper
+Leadership evidence
+
+Shows ownership across multiple business domains rather than isolated feature work.
+
+Status
+
+Ongoing product evolution.
+
+Cloud Hosting & Cost Optimization
+Technical projects/systems
+
+Evaluated cloud hosting strategies.
+
+Problems solved
+
+Compared:
+
+Azure App Service
+Kubernetes
+Cloud Run
+Cloudflare
+Contabo
+Free hosting providers
+VM pricing
+
+Looked for lowest-cost production architecture.
+
+Technologies
+Azure
+Google Cloud
+Cloud Run
+Contabo
+Cloudflare
+Leadership evidence
+
+Shows budgeting and infrastructure planning responsibilities.
+
+Status
+
+Architecture research and planning.
+
+Database Architecture
+Technical projects/systems
+
+Worked on database governance.
+
+Problems solved
+
+Explored:
+
+Entity Framework migration tracking
+Multiple DbContexts
+Multiple databases
+Migration history tables
+Change Tracking vs CDC
+Technologies
+SQL Server
+Entity Framework
+Azure SQL
+Leadership evidence
+
+Focused on maintainability and long-term database governance.
+
+Status
+
+Architecture decisions made.
+
+Frontend Architecture
+Technical projects/systems
+
+Modern Angular application.
+
+Problems solved
+
+Worked through:
+
+NgRx selectors
+Signals vs NgRx
+Permission wrapper component
+Environment configuration
+Production configuration
+Technologies
+Angular
+NgRx
+Signals
+Bootstrap
+Leadership evidence
+
+Evaluated framework choices rather than simply fixing bugs.
+
+Status
+
+Mostly implemented with iterative improvements.
+
+Integration Architecture
+Technical projects/systems
+
+Enterprise integrations including:
+
+SAP
+POS systems
+Azure Service Bus
+Azure Functions
+Problems solved
+Event-driven integration
+Service communication
+Authentication between systems
+Technologies
+Azure Functions
+Service Bus
+SAP integration
+Leadership evidence
+
+Designed integration strategy across enterprise systems.
+
+Status
+
+Ongoing integration work.
+
+Team & Technical Leadership
+Evidence of leadership
+
+Across our conversations, you consistently demonstrated responsibilities beyond individual development:
+
+Designing solution architecture.
+Evaluating cloud costs before implementation.
+Selecting technology stacks.
+Planning security architecture.
+Reviewing deployment strategies.
+Conducting interviews for a Business Intelligence Intern.
+Considering maintainability and governance over quick fixes.
+Balancing technical decisions with business constraints.
+Process Improvements & Governance
+
+Evidence includes:
+
+CI/CD automation.
+Versioning strategy discussions.
+Deployment standardization.
+Centralized authentication.
+Multi-tenant architecture.
+Cost optimization exercises.
+Database migration governance.
+Infrastructure standardization.
+Permission model design.
+Secure enterprise integration planning.
+Completed Achievements
+
+These read as accomplishments rather than open questions:
+
+Designed the core architecture for the Voyage Pro platform.
+Established a multi-company/multi-tenant security model.
+Implemented and integrated Keycloak with Azure-based applications.
+Built Azure DevOps deployment pipelines.
+Standardized deployment practices.
+Resolved several production authentication and deployment issues.
+Evaluated and selected cloud architecture patterns for Azure and Cloudflare.
+Designed enterprise integration approaches using Azure Functions and Service Bus.
+Developed a structured interview process for hiring a Business Intelligence Intern.
+Open or Ongoing Themes
+
+These appear to be active areas of work rather than finished efforts:
+
+Refining Cloudflare + Azure enterprise networking.
+Continuing infrastructure cost optimization.
+Expanding the ERP/OneProduct ecosystem.
+Improving frontend architecture (Signals vs. NgRx and UI refinements).
+Evaluating Kubernetes and alternative hosting models.
+Enhancing deployment automation and release management.
+Exploring AI capabilities within ERP systems for future product development.

@@ -1,0 +1,32 @@
+1. Technical Projects, Migrations, & System Implementations
+ERP Systems: Engineered full-stack enterprise resource planning (ERP) solutions specifically tailored for the finance and transportation sectors using the .NET framework.
+
+Identity & Access Management Integration: Handled Keycloak deployments for secure application authentication, which included containerizing the platform via Docker and provisioning the Azure infrastructure using Terraform.
+
+Custom Authentication Workflows: Engineered custom Keycloak SPIs (Service Provider Interfaces) and customized login themes to support specific application access requirements.
+
+2. Specific Problems Solved & Resolutions
+(Our shared context does not currently capture the specific technical roadblocks, outages, or troubleshooting steps you resolved during the April implementations.)
+
+3. Tools, Cloud Platforms, & Technologies Evaluated or Adopted
+Cloud Infrastructure: Azure App Service, Azure Service Bus messaging, and Kafka for distributed backend communication.
+
+DevOps & Provisioning: Docker, Terraform, and configuration management via Chocolatey.
+
+Frontend Development: Angular, utilizing ng-bootstrap and secure integration patterns with Keycloak.
+
+Backend & Tooling: .NET Core, REST APIs, and Visual Studio with RDLC report design.
+
+AI Code Assistants: Evaluated agentic AI tools (like Cline) and generative AI coding assistants for website building and developer productivity.
+
+4. Team, Process, & Governance Work
+Architectural Standards: Evaluated and pushed for scalable development methodologies, specifically focusing on Clean Architecture for the .NET backend and Feature-Sliced Design for the Angular frontend.
+
+(Specific details regarding daily team management workflows, Agile process implementation, or governance routines are not currently documented.)
+
+5. Recurring Topics & Ongoing Responsibilities
+Secure Infrastructure Management: A continuous focus on IAM integration (Keycloak) and secure messaging (Azure Service Bus, Kafka) within a cloud-native ecosystem.
+
+System Architecture Design: Ongoing evaluation of scalable, maintainable design patterns for enterprise-grade applications.
+
+To make this a fully actionable evidence log, we are missing the details for category #2 and the daily management aspects of #4. What were the specific technical roadblocks you had to clear during the Azure and Keycloak deployments, and how were you managing the team's workflow to deliver them?

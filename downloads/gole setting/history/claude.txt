@@ -1,0 +1,30 @@
+1. Named projects / systems
+VoyagePro (logistics/freight app for Hayley Line, built by MIT Global Solution) — TechCERT cybersecurity assessment work.
+SonarQube on Azure VM — internal code quality platform for CI/CD.
+Balance sheet SQL report (FinanceGL-type stored procedure) — bug fix.
+Azure Front Door / on-prem WAF architecture — routing design for 10 Azure-hosted frontend apps (Edge, Core, Voyage Pro, Data VNets).
+Quotations module PR — Angular security code review (chat last active May 2026; may have started in April).
+2. Problems solved, with approach
+Balance sheet report showing wrong current-month values when a reporting item had no previous-month data. Root cause: INNER JOIN in the update loop silently dropping rows. Fix: LEFT JOIN + ISNULL(Val,0); also flagged the same defect in the PROFITTR block.
+SonarQube VM exposed publicly on port 9000 (security escalation from Group IT). Approach: disabled NSG any-to-any rules, shut down the VM, evaluated NSG service tags, IP restrictions, self-hosted DevOps agent on the same VM, and free reverse proxy options (Nginx, Cloudflare); planned a private network connection with Mahendra.
+On-prem WAF must be first public entry point constraint in the AFD design. Approach: evaluated Cloudflare Tunnel (cloudflared) hosting options — on-prem vs. Azure Container Instance in a Tunnel VNet with peering (App Service ruled out); mapped domain-based routing, X-Azure-FDID validation, NSG allowlisting.
+Single-origin routing for Angular + .NET on Azure App Services — compared APIM, App Gateway, AFD, YARP, Cloudflare, Nginx; recommended Nginx inside the Angular App Service container to remove CORS issues at zero extra cost.
+3. Technologies/tools evaluated or adopted
+Azure: Front Door, Application Gateway, APIM, NSG, VNet peering, ExpressRoute, App Service (Linux/containers), DevOps self-hosted agents.
+Cloudflare Tunnel (cloudflared), Nginx, Docker multi-stage builds, YARP.
+SonarQube; server-side pagination patterns (offset vs. cursor).
+Mobile stack evaluation: Flutter, React Native, Capacitor, Ionic, Expo — pre-decision research for a cross-platform app.
+TechCERT forms populated from live Swagger (OAS 3.0) data.
+4. Team development / process / governance
+Defined a tech-lead code review framework — 10-area checklist (correctness, security, architecture, performance, testing, blast-radius/risk assessment) for reviewing team PRs.
+Enforced Advantis Security & Coding Standards v1.0 via an exhaustive PR review of the Quotations module: 15 violations found across 5 files (raw inputs vs. app-form components, manual tables, inline styles, missing permission-wrapper, component-level error handling, RxJS instead of signals, any casts); merge blocked until resolved.
+Security governance: responded formally to Group IT's escalation on the SonarQube VM; drafted the reply and remediation plan.
+Compliance documentation: completed three TechCERT forms (Web App Security, API Security, Cyber Landscape) covering IAM (Entra ID + Keycloak RBAC), monitoring (Azure Monitor, App Insights), Defender, and compliance frameworks (GDPR, CBSL, ISO 27001 roadmap, OWASP API Top 10).
+5. Measurable impact
+212 API endpoints across 30 resource groups documented for the API security assessment from live Swagger data.
+15 standards violations caught pre-merge in one PR review — quality gate enforced.
+Zero-cost architecture decisions: Nginx-in-container proxy (no extra Azure resources) and free-tier reverse proxy options for SonarQube instead of paid App Gateway/APIM/AFD.
+AFD cost estimation performed for 10–50 TB/month traffic in Asia/South Asia region to inform the routing decision.
+Immediate risk reduction: public exposure of SonarQube (port 9000) eliminated same day as the escalation.
+
+Excluded as non-job: MSc security management case study (Wrexham) and a generic project-outline chat.
