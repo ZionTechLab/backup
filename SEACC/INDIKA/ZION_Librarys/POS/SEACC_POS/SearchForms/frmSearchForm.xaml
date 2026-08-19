@@ -1,0 +1,65 @@
+﻿<Window x:Class="SEACC_POS.Search_Forms.frmSearchForm"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:SEACC_WPFControls1="clr-namespace:SEACC_WPFControls;assembly=SEACC_WPFControls"
+        Title="frmSearchForm" 
+        WindowStyle="None" ResizeMode="NoResize" ShowInTaskbar="True" AllowsTransparency="True" Background="{x:Null}"
+        Height="450" Width="500" Topmost="False" WindowState="Normal" WindowStartupLocation="CenterScreen" Loaded="Window_Loaded" FontWeight="Thin">
+    <Grid Margin="10" Background="#FF34495E" >
+        <Border BorderBrush="#FF11253A" BorderThickness="5" Background="White">
+            <Border.Effect>
+                <DropShadowEffect BlurRadius="10"/>
+            </Border.Effect>
+        </Border>
+
+        <Grid x:Name="frm_Search" Background="#FF009688"  MouseDown="frm_Search_MouseDown"  >
+            <Grid.RowDefinitions>
+                <RowDefinition  Height="auto"  />
+                <RowDefinition  Height="*" />
+                <RowDefinition  Height="auto" />
+            </Grid.RowDefinitions>
+
+            <Grid Grid.Row="0" VerticalAlignment="Top">
+
+                <SEACC_WPFControls1:SEACC_Button x:Name="btn_Close" Content="&#xE8BB;" FontFamily="Segoe MDL2 Assets" FontSize="10" Click="btn_Close_Click" Height="30" Width="30" HorizontalAlignment="Right"  VerticalAlignment="Top" BorderBrush="{x:Null}" Background="#FF26968C" Foreground="Black"/>
+                <SEACC_WPFControls1:SEACC_Button x:Name="btn_Settings" Content="&#xE115;" FontFamily="Segoe MDL2 Assets" FontSize="12"  Height="30" Width="30" HorizontalAlignment="Right"  VerticalAlignment="Top" Margin="0,0,31,0" Background="#FF26968C" BorderBrush="{x:Null}" Click="btn_Settings_Click"/>
+
+                <Label x:Name="lblHeader" Content="Label"  FontSize="18" Foreground="White"  HorizontalAlignment="Left" VerticalAlignment="Top" Padding="3,1,5,5" />
+                <Grid Background="White" Margin="3,30,3,0">
+                    <DockPanel>
+                        <ComboBox x:Name="cbxSearch"  IsReadOnly="True" IsEditable="True" BorderBrush="{x:Null}" Margin="2" MinWidth="150" Foreground="Black" SelectionChanged="cbxSearch_SelectionChanged" />
+                        <TextBox x:Name="txtFillter" Text=""  HorizontalAlignment="Stretch" BorderBrush="{x:Null}"  Margin="2" Foreground="Black" KeyUp="txtFillter_KeyUp" />
+                    </DockPanel>
+                </Grid>
+            </Grid>
+
+            <Grid Height="0" x:Name="Grd_Settings"  Margin="121,22,0,0" VerticalAlignment="Top" Background="#FFBFBFBF" LostFocus="Grd_Settings_LostFocus" >
+                <Border BorderBrush="Black" BorderThickness="1">
+                    <CheckBox x:Name="cbx_ShowAll" Content="Show Hidden records" Checked="cbx_ShowAll_Checked" Unchecked="cbx_ShowAll_Unchecked" />
+                </Border>
+            </Grid>
+
+            <DataGrid x:Name="dgvSearch" Grid.Row="1" Margin="2" IsReadOnly="True" CanUserResizeColumns="False" CanUserResizeRows="False" HeadersVisibility="Column" AutoGenerateColumns="False" HorizontalGridLinesBrush="{x:Null}" AlternatingRowBackground="#FFAFAEAE" Background="White" BorderBrush="{x:Null}" GridLinesVisibility="Horizontal" VerticalContentAlignment="Center" KeyUp="dgvSearch_KeyUp" LoadingRow="dgvSearch_LoadingRow" MouseLeftButtonUp="dgvSearch_MouseLeftButtonUp" Foreground="Black" >
+                <DataGrid.ColumnHeaderStyle>
+                    <Style TargetType="{x:Type DataGridColumnHeader}">
+                        <Setter Property="Background" Value="#FF26968C" />
+                        <Setter Property="Height" Value="25" />
+                        <Setter Property="Padding" Value="3"/>
+                        <Setter Property="Foreground" Value="White" />
+                    </Style>
+                </DataGrid.ColumnHeaderStyle>
+
+                <DataGrid.RowStyle>
+                    <Style TargetType="{x:Type DataGridRow}">
+                        <Setter Property="Background" Value="#FFC3C3C3" />
+                        <Setter Property="Height" Value="30" />
+                        <Setter Property="Padding" Value="3"/>
+                        <Setter Property="Foreground" Value="Black" />
+                        <Setter Property="FontWeight" Value="Normal" />
+                    </Style>
+                </DataGrid.RowStyle>
+
+            </DataGrid>
+        </Grid>
+    </Grid>
+</Window>

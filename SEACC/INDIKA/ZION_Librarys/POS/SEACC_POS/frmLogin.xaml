@@ -1,0 +1,39 @@
+﻿<Window x:Name="frmLogin" x:Class="SEACC_POS.frm_Login"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:SEACC_WPFControls="clr-namespace:SEACC_WPFControls;assembly=SEACC_WPFControls"
+        Title="Login" Height="483" Width="303" WindowStartupLocation="CenterScreen"  AllowsTransparency="True" WindowStyle="None" Background="{x:Null}" Loaded="frmLogin_Loaded"  FontWeight="Thin" MouseLeftButtonDown="frmLogin_MouseLeftButtonDown" >
+    <Grid Margin="10" >
+        <Grid.Background>
+            <RadialGradientBrush>
+                <GradientStop Color="#FF29496A" Offset="0"/>
+                <GradientStop Color="#FF4479B0" Offset="1"/>
+            </RadialGradientBrush>
+        </Grid.Background>
+        <Grid.Effect>
+            <DropShadowEffect BlurRadius="10" Opacity="0.5"/>
+        </Grid.Effect>
+
+        <Grid Margin="0,19,0,354" HorizontalAlignment="Left" Width="283">
+
+            <SEACC_WPFControls:SEACC_Button_Close x:Name="Btn_Close" Content="&#xE8BB;" Margin="0,-19,0,0" VerticalAlignment="Top" BorderBrush="#FFEEF0F5"  HorizontalAlignment="Right" Width="24" Foreground="#FFF0F0F0" Click="Btn_Close_Click" FontFamily="Segoe MDL2 Assets" Height="24" FontSize="10"/>
+            <Grid HorizontalAlignment="Left" Margin="10,0,0,0" Width="249" >
+                <Label Content="SEACC"  VerticalAlignment="Top" FontFamily="Colonna MT" FontSize="70" Foreground="White" HorizontalContentAlignment="Center" Margin="8,0,-8,0"/>
+                <!--<local:R2Logo />-->
+            </Grid>
+        </Grid>
+
+        <ComboBox ToolTip="Enter Your User Name" BorderBrush="#FF41B1E1" x:Name="cmbCompanyBranchID" HorizontalAlignment="Left" Height="23" Margin="88,106,0,0" Text="" VerticalAlignment="Top" Width="172" Background="White"/>
+        <TextBox ToolTip="Enter Your User Name" BorderBrush="#FF41B1E1" x:Name="txtUserName" HorizontalAlignment="Left" Height="23" Margin="88,135,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="172"/>
+        <PasswordBox ToolTip="Enter Your Password" BorderBrush="#FF41B1E1"  x:Name="txtPassword" HorizontalAlignment="Left" Margin="88,163,0,0" VerticalAlignment="Top" Width="172" Height="23"/>
+        <TextBox x:Name="txtVisiblePasswordbox" BorderBrush="#FF41B1E1" HorizontalAlignment="Left" Margin="88,163,0,0" VerticalAlignment="Top" Width="172" Height="23" Visibility="Collapsed" Foreground="Gray" />
+        <Label x:Name="lblShowPassword"  Width="22" Height="20"  Background="White" Margin="237,164,0,0" HorizontalAlignment="Left" VerticalAlignment="Top" Foreground="#FF302B2B" MouseDown="lblShowPassword_MouseDown" MouseUp="lblShowPassword_MouseUp" FontFamily="Segoe MDL2 Assets" Content="&#xEB67;" MouseLeave="lblShowPassword_MouseLeave" />
+
+        <SEACC_WPFControls:SEACC_Button IsDefault="True" x:Name="Btn_SignIn" Content="Sign In" HorizontalAlignment="Left" Margin="165,210,0,0" VerticalAlignment="Top" Width="95" Height="28" BorderBrush="White" Foreground="White" Click="Btn_SignIn_Click" Background="{x:Null}"/>
+
+        <Label Foreground="White" Content="Password" HorizontalAlignment="Left"  VerticalAlignment="Bottom" Margin="17,0,0,277"/>
+        <Label Foreground="White" Content="User Name" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="17,135,0,0" Height="23"/>
+        <Label Foreground="White" Content="Branch" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="17,106,0,0" Height="23"/>
+
+    </Grid>
+</Window>

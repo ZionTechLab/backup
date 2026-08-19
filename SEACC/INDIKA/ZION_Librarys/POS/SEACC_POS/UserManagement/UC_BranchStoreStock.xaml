@@ -1,0 +1,34 @@
+﻿<UserControl x:Class="SEACC_POS.UserManagement.UC_BranchStoreStock"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             mc:Ignorable="d" 
+             xmlns:SEACC_WPFControls="clr-namespace:SEACC_WPFControls;assembly=SEACC_WPFControls"
+             xmlns:SEACC_WPFControls_Local="clr-namespace:SEACC_POS"
+             xmlns:userManagement="clr-namespace:SEACC_POS.UserManagement"
+             Background="#FFFFFF" FontWeight="Normal">
+
+    <SEACC_WPFControls_Local:SEACC_Form x:Name="SEACC_Form" SizeChanged="SEACC_Form_SizeChanged" >
+        <Grid x:Name="grdProdJobBoMs" Margin="15,10,0,50">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Name="ColumnA" Width="800" />
+                <ColumnDefinition  Width="5"/>
+                <ColumnDefinition Width="*" />
+            </Grid.ColumnDefinitions>
+
+            <SEACC_WPFControls:SEACC_DataGrid_Advanced x:Name="dgr_Main" Grid.Column="0" Margin="15,0,5,0" Background="#FF394264" HeaderColor="#FF293A56" />
+
+            <GridSplitter Background="#D5D5D5" x:Name="gridSplitter" Width="5" HorizontalAlignment="Stretch" Grid.Column="1" Margin="0,1,0,-1" />
+
+            <SEACC_WPFControls:SEACC_ScrollViewer  Grid.Column="2" VerticalScrollBarVisibility="Auto"  HorizontalScrollBarVisibility="Auto" >
+                <StackPanel Margin="5,5,5,50">
+                    <Label Content="Table Filters" FontSize="16" Foreground="#FF0096D6" FontWeight="Thin"/>
+                    <Separator Height="2" Background="#FF33ADFF"  Margin="0,-5,0,10"/>
+                    <SEACC_WPFControls:SEACC_LableTextBox  Caption="Item ID" x:Name="txtItem_ID" MouseDoubleClick="txtItem_ID_MouseDoubleClick" />
+                    <SEACC_WPFControls:SEACC_LableTextBox  Caption="Item Name" x:Name="txtItem_Name" MouseDoubleClick="txtItem_Name_MouseDoubleClick" MinHeight="65" />
+                </StackPanel>
+            </SEACC_WPFControls:SEACC_ScrollViewer>
+        </Grid>
+    </SEACC_WPFControls_Local:SEACC_Form>
+</UserControl>

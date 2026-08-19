@@ -1,0 +1,415 @@
+﻿<UserControl x:Class="SEACC_POS.TransactionForms.UC_AdavaceReceive"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:SEACC_WPFControls="clr-namespace:SEACC_WPFControls;assembly=SEACC_WPFControls"
+             xmlns:SEACC_WPFControls_Local="clr-namespace:SEACC_POS"
+             mc:Ignorable="d" Background="#FFFFFF" FontWeight="Normal">
+    <SEACC_WPFControls_Local:SEACC_Form x:Name="SEACC_Form" SizeChanged="SEACC_Form_SizeChanged" PreviewKeyDown="SEACC_Form_PreviewKeyDown">
+        <Grid Margin="15,10,0,50">
+            
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Name="coloumnA" Width="472" />
+                <ColumnDefinition Width="5"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+
+            <SEACC_WPFControls:SEACC_DataGrid_Advanced x:Name="dgr_Main" Margin="0,0,5,0" Background="#FF515151" HeaderColor="#FFF49F6D" MouseLeftButtonUp1="dgr_Main_MouseLeftButtonUp1" LoadingRow="dgr_Main_LoadingRow"  />
+
+            <GridSplitter Background="#D5D5D5"  Grid.Column="1" Width="5" HorizontalAlignment="Stretch"  Margin="0,1,0,-1" />
+            
+            <Grid  Grid.Column="2" Margin="10,0">
+                <SEACC_WPFControls:SEACC_ScrollViewer VerticalScrollBarVisibility="Auto"  >
+
+                    <Grid>
+                        <StackPanel>
+                            <Grid>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="*"/>
+                                    <ColumnDefinition Width="*"/>
+                                </Grid.ColumnDefinitions>
+                                <StackPanel Grid.Column="0">
+                                    <SEACC_WPFControls:SEACC_LableTextBox x:Name="txtAdvanceReceive_ID" Caption="Advance Payment ID" />
+                                    <SEACC_WPFControls:SEACC_LabelTimeSelector x:Name="dtpAdvPay_Date" Caption="Payment Date"  ShowDate="Visible" ShowTime="Hidden" IsEnabled="False"/>
+                                    <SEACC_WPFControls:SEACC_LableTextBox x:Name="txtRemark" Caption="Remarks" MinHeight="65" />
+                                    <SEACC_WPFControls:SEACC_LableTextBox x:Name="txtAdvancCashAmount" Caption="Cash Amount" BoxForeground="#FF3399FF" Background="#FFEFEFF2" TextBox_TextChanged="txtAdvancCashAmount_TextBox_TextChanged"/>
+                                </StackPanel>
+                                <StackPanel Grid.Column="1">
+
+                                    <SEACC_WPFControls:SEACC_LableTextBox  x:Name="txtCustomerTelphone" Caption="Customer Telephone" BoxForeground="Black"  KeyUp="txtCustomerTelphone_KeyUp" />
+                                    <SEACC_WPFControls:SEACC_LableTextBox Caption="Customer Name" x:Name="txtCustomerName" BoxForeground="Black"  MouseDoubleClick="txtCustomerName_MouseDoubleClick" />
+                                    <SEACC_WPFControls:SEACC_LableTextBox  x:Name="txtCustomerAddress" Caption="Customer Address" BoxForeground="Black" Height="65" />
+                                    <SEACC_WPFControls:SEACC_LableTextBox Caption="Total Amount" FontSize="16" x:Name="txtAdvanceTotal" BoxForeground="Black" Background="#FFEFEFF2" />
+                                </StackPanel>
+                            </Grid>
+
+                            <Expander x:Name="expCardPayments" IsExpanded="False" Header="Card Payments: " Foreground="#FF3399FF" Background="#FFEFEFF2"  FontSize="16" Margin="0,10,0,0" >
+                                <Grid x:Name="grdCardPayment"  Background="#FFEFEFF2" >
+                                    <StackPanel>
+                                        <Grid>
+                                            <Grid.ColumnDefinitions>
+                                                <ColumnDefinition Width="*"/>
+                                                <ColumnDefinition Width="*"/>
+                                            </Grid.ColumnDefinitions>
+
+                                            <StackPanel Grid.Column="0" >
+                                                <SEACC_WPFControls:SEACC_LableTextBox Caption= "Merchant Device" x:Name="txtMerchantDevice" FontSize="12" BoxForeground="Black" Margin="0,5" MouseDoubleClick="txtMerchantDevice_MouseDoubleClick" />
+                                                <SEACC_WPFControls:SEACC_LabelComboBox Caption="Card Type" x:Name="cmbCardType" Margin="0,5" FontSize="12"   />
+                                                <SEACC_WPFControls:SEACC_LableTextBox Caption= "Name on Card" x:Name="txtNameOnCard" FontSize="12" BoxForeground="Black" Margin="0,5" />
+                                            </StackPanel>
+
+                                            <StackPanel Grid.Column="1" >
+                                                <SEACC_WPFControls:SEACC_LableTextBox Caption="Last Four Digits" x:Name="txtCardLast4Digits" FontSize="12" BoxForeground="Black" Margin="0,5"    />
+                                                <SEACC_WPFControls:SEACC_LableTextBox Caption= "Bank" x:Name="txtCardBank" BoxForeground="Black" FontSize="12" Margin="0,5" MouseDoubleClick="txtCardBank_MouseDoubleClick" />
+                                                <SEACC_WPFControls:SEACC_LableTextBox Caption="Amount" x:Name="txtCardPayAmount" BoxForeground="Black" FontSize="12" Margin="0,5,0,0"  />
+                                            </StackPanel>
+                                        </Grid>
+                                        <Grid Margin="0,20,0,0">
+                                            <StackPanel  Orientation="Horizontal"  VerticalAlignment="Top" HorizontalAlignment="Right" Margin="5,5,15,5"   Height="20" >
+                                                <SEACC_WPFControls:SEACC_Button x:Name="btnCardPaymentAdd" Content="&#xE109;" Width="30" FontFamily="Segoe MDL2 Assets" FontSize="12" Margin="0,0,5,0"  Foreground="#FFE2E2E2" Background="#FF394264" BorderBrush="{x:Null}" Height="20" VerticalAlignment="Bottom" Click="btnCardPaymentAdd_Click"  />
+                                                <SEACC_WPFControls:SEACC_Button x:Name="btnCardPaymentDelete" Content="&#xE894;" Width="30" FontFamily="Segoe MDL2 Assets" FontSize="12" Background="#FF394264" BorderBrush="{x:Null}" Foreground="#FFD31111" Click="btnCardPaymentDelete_Click"  />
+                                            </StackPanel>
+                                            <SEACC_WPFControls:SEACC_DataGrid x:Name="dgrCardPays"  Margin="2,32,2,5" Background="White" HeaderColor="#FF0091EA" IsReadOnly="False" CanUserAddRows="False" MinHeight="90" Foreground="Black" CanUserResizeColumns="True" VerticalScrollBarVisibility="Auto" HorizontalScrollBarVisibility="Auto" LoadingRow="dgrCardPays_LoadingRow" Headerforeground="White" >
+                                                <DataGrid.Resources>
+                                                    <SolidColorBrush x:Key="{x:Static SystemColors.HighlightBrushKey}"  Color="#FFF4E7A7"/>
+                                                </DataGrid.Resources>
+
+                                                <DataGrid.CellStyle>
+                                                    <Style TargetType="DataGridCell">
+                                                        <Setter Property="Padding" Value="2"/>
+                                                        <Setter Property="Template">
+                                                            <Setter.Value>
+                                                                <ControlTemplate TargetType="{x:Type DataGridCell}">
+                                                                    <Border Padding="{TemplateBinding Padding}" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" Background="{TemplateBinding Background}" SnapsToDevicePixels="True">
+                                                                        <Grid Background="{TemplateBinding Background}">
+                                                                            <ContentPresenter SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}"/>
+                                                                            <ContentPresenter VerticalAlignment="Center" />
+                                                                        </Grid>
+                                                                    </Border>
+                                                                </ControlTemplate>
+                                                            </Setter.Value>
+                                                        </Setter>
+                                                    </Style>
+                                                </DataGrid.CellStyle>
+
+                                                <SEACC_WPFControls:SEACC_DataGrid.Columns>
+
+                                                    <DataGridTextColumn Binding="{Binding LineNo ,Mode=TwoWay , UpdateSourceTrigger=PropertyChanged}"  Foreground="Black" Header="#" Width="25" IsReadOnly="True">
+                                                        <DataGridTextColumn.ElementStyle>
+                                                            <Style TargetType="TextBlock">
+                                                                <Setter Property="HorizontalAlignment" Value="Right" />
+                                                                <Setter Property="VerticalAlignment" Value="Center" />
+                                                            </Style>
+                                                        </DataGridTextColumn.ElementStyle>
+                                                    </DataGridTextColumn>
+
+                                                    <DataGridTextColumn Binding="{Binding Bank ,Mode=TwoWay , UpdateSourceTrigger=PropertyChanged}" Foreground="Black"  Header="Bank " Width="250" IsReadOnly="True" >
+                                                        <DataGridTextColumn.ElementStyle>
+                                                            <Style>
+                                                                <Setter Property="TextBlock.TextWrapping" Value="Wrap" />
+                                                                <Setter Property="TextBlock.TextAlignment" Value="Left"/>
+                                                                <Setter Property="TextBlock.VerticalAlignment" Value="Center"/>
+                                                            </Style>
+                                                        </DataGridTextColumn.ElementStyle>
+                                                    </DataGridTextColumn>
+
+                                                    <DataGridTextColumn Binding="{Binding CardType ,Mode=TwoWay , UpdateSourceTrigger=PropertyChanged}" Foreground="Black"  Header="Card Type" Width="120"  IsReadOnly="True" />
+
+                                                    <DataGridTextColumn Binding="{Binding NameOnCard ,Mode=TwoWay , UpdateSourceTrigger=PropertyChanged}" Foreground="Black"  Header="Name on Card" Width="100"  IsReadOnly="True" >
+                                                        <DataGridTextColumn.ElementStyle>
+                                                            <Style>
+                                                                <Setter Property="TextBlock.TextWrapping" Value="Wrap" />
+                                                                <Setter Property="TextBlock.TextAlignment" Value="Left"/>
+                                                                <Setter Property="TextBlock.VerticalAlignment" Value="Center"/>
+                                                            </Style>
+                                                        </DataGridTextColumn.ElementStyle>
+                                                    </DataGridTextColumn>
+
+                                                    <DataGridTextColumn Binding="{Binding LastFourDigits ,Mode=TwoWay , UpdateSourceTrigger=PropertyChanged}" Foreground="Black"  Header="Last Four Digits" Width="100" IsReadOnly="True" >
+                                                        <DataGridTextColumn.ElementStyle>
+                                                            <Style>
+                                                                <Setter Property="TextBlock.TextWrapping" Value="Wrap" />
+                                                                <Setter Property="TextBlock.TextAlignment" Value="Left"/>
+                                                                <Setter Property="TextBlock.VerticalAlignment" Value="Center"/>
+                                                            </Style>
+                                                        </DataGridTextColumn.ElementStyle>
+                                                    </DataGridTextColumn>
+
+                                                    <DataGridTextColumn Binding="{Binding Amount ,Mode=TwoWay , UpdateSourceTrigger=PropertyChanged}" Foreground="Black"  Header="Amount" Width="100" IsReadOnly="False">
+                                                        <DataGridTextColumn.ElementStyle>
+                                                            <Style>
+                                                                <Setter Property="TextBlock.TextAlignment" Value="Right"/>
+                                                                <Setter Property="TextBlock.VerticalAlignment" Value="Center"/>
+                                                            </Style>
+                                                        </DataGridTextColumn.ElementStyle>
+                                                    </DataGridTextColumn>
+                                                </SEACC_WPFControls:SEACC_DataGrid.Columns>
+                                            </SEACC_WPFControls:SEACC_DataGrid>
+                                        </Grid>
+                                    </StackPanel>
+                                </Grid>
+                            </Expander>
+
+                            <Expander x:Name="expChequePayments" IsExpanded="False"  Header="Cheque Payments: " Foreground="#FF3399FF" Background="#FFEFEFF2"  FontSize="16" Margin="0,10,0,0" >
+
+                                <Grid x:Name="grdChequePayment" Background="#FFEFEFF2" >
+                                    <StackPanel>
+                                        <Grid>
+                                            <Grid.ColumnDefinitions>
+                                                <ColumnDefinition Width="*"/>
+                                                <ColumnDefinition Width="*"/>
+                                            </Grid.ColumnDefinitions>
+
+                                            <StackPanel Grid.Column="0" >
+                                                <SEACC_WPFControls:SEACC_LableTextBox Caption="Account No." x:Name="txtChequeAccoutNo" FontSize="12" BoxForeground="Black" Visibility="Visible"  Margin="0,10,0,5" />
+                                                <SEACC_WPFControls:SEACC_LableTextBox Caption="Bank" x:Name="txtChequeBankName" FontSize="12" BoxForeground="Black" Margin="0,5,0,5" MouseDoubleClick="txtChequeBankName_MouseDoubleClick"    />
+                                                <SEACC_WPFControls:SEACC_LableTextBox Caption= "Bank Branch" x:Name="txtChequeBankBranch" FontSize="12" BoxForeground="Black" Margin="0,5,0,0" MouseDoubleClick="txtChequeBankBranch_MouseDoubleClick" />
+                                            </StackPanel>
+
+                                            <StackPanel Grid.Column="1" >
+                                                <SEACC_WPFControls:SEACC_LableTextBox Caption="Cheque No" x:Name="txtChequeNo" FontSize="12" BoxForeground="Black" Margin="0,10,0,0" />
+                                                <SEACC_WPFControls:SEACC_LabelTimeSelector x:Name="dtpChequeDate" FontSize="12" Caption= "Cheque Date" ShowDate="Visible" ShowTime="Hidden" Margin="0,5" />
+                                                <SEACC_WPFControls:SEACC_LableTextBox x:Name="txtChequeAmount" FontSize="12" Caption="Amount" BoxForeground="Black" Margin="0,5,0,0" />
+                                            </StackPanel>
+                                        </Grid>
+                                        <Grid Margin="0,10,0,0">
+                                            <StackPanel  Orientation="Horizontal"  VerticalAlignment="Top" HorizontalAlignment="Right" Margin="5,5,15,5"   Height="20" >
+                                                <SEACC_WPFControls:SEACC_Button x:Name="btnChequePaymentAdd" Content="&#xE109;" Width="30" FontFamily="Segoe MDL2 Assets" FontSize="12" Margin="0,0,5,0"  Foreground="#FFE2E2E2" Background="#FF394264" BorderBrush="{x:Null}" Height="20" VerticalAlignment="Bottom" Click="btnChequePaymentAdd_Click"/>
+                                                <SEACC_WPFControls:SEACC_Button x:Name="btnChequePaymentDelete" Content="&#xE894;" Width="30" FontFamily="Segoe MDL2 Assets" FontSize="12" Background="#FF394264" BorderBrush="{x:Null}" Foreground="#FFD31111" Click="btnChequePaymentDelete_Click" />
+                                            </StackPanel>
+                                            <SEACC_WPFControls:SEACC_DataGrid x:Name="dgrCheques"  Margin="5,32,5,5" Background="White" HeaderColor="#FF0091EA" IsReadOnly="False" CanUserAddRows="False" MinHeight="90" Headerforeground="White" CanUserResizeColumns="True"  LoadingRow="dgrCheques_LoadingRow" BorderBrush="#FF0091EA" >
+                                                <DataGrid.Resources>
+                                                    <SolidColorBrush x:Key="{x:Static SystemColors.HighlightBrushKey}"  Color="#FFF4E7A7"/>
+                                                </DataGrid.Resources>
+
+                                                <DataGrid.CellStyle>
+                                                    <Style TargetType="DataGridCell">
+                                                        <Setter Property="Padding" Value="2"/>
+                                                        <Setter Property="Template">
+                                                            <Setter.Value>
+                                                                <ControlTemplate TargetType="{x:Type DataGridCell}">
+                                                                    <Border Padding="{TemplateBinding Padding}" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" Background="{TemplateBinding Background}" SnapsToDevicePixels="True">
+                                                                        <Grid Background="{TemplateBinding Background}">
+                                                                            <ContentPresenter SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}"/>
+                                                                            <ContentPresenter VerticalAlignment="Center" />
+                                                                        </Grid>
+                                                                    </Border>
+                                                                </ControlTemplate>
+                                                            </Setter.Value>
+                                                        </Setter>
+                                                    </Style>
+                                                </DataGrid.CellStyle>
+
+                                                <SEACC_WPFControls:SEACC_DataGrid.Columns>
+
+                                                    <DataGridTextColumn Binding="{Binding LineNo ,Mode=TwoWay , UpdateSourceTrigger=PropertyChanged}"  Foreground="Black" Header="#" Width="25" IsReadOnly="True">
+                                                        <DataGridTextColumn.ElementStyle>
+                                                            <Style TargetType="TextBlock">
+                                                                <Setter Property="HorizontalAlignment" Value="Right" />
+                                                                <Setter Property="VerticalAlignment" Value="Center" />
+                                                            </Style>
+                                                        </DataGridTextColumn.ElementStyle>
+                                                    </DataGridTextColumn>
+
+                                                    <DataGridTextColumn Binding="{Binding Account_No ,Mode=TwoWay , UpdateSourceTrigger=PropertyChanged}" Foreground="Black"  Header="Account No" MaxWidth="0" Width="120"  IsReadOnly="True" />
+
+                                                    <DataGridTextColumn Binding="{Binding Bank ,Mode=TwoWay , UpdateSourceTrigger=PropertyChanged}" Foreground="Black"  Header="Bank" Width="180"  IsReadOnly="True" >
+                                                        <DataGridTextColumn.ElementStyle>
+                                                            <Style>
+                                                                <Setter Property="TextBlock.TextWrapping" Value="Wrap" />
+                                                                <Setter Property="TextBlock.TextAlignment" Value="Left"/>
+                                                                <Setter Property="TextBlock.VerticalAlignment" Value="Center"/>
+                                                            </Style>
+                                                        </DataGridTextColumn.ElementStyle>
+                                                    </DataGridTextColumn>
+
+                                                    <DataGridTextColumn Binding="{Binding BankBranch,Mode=TwoWay , UpdateSourceTrigger=PropertyChanged}" Foreground="Black"  Header="Bank Branch" Width="100" IsReadOnly="True" >
+                                                        <DataGridTextColumn.ElementStyle>
+                                                            <Style>
+                                                                <Setter Property="TextBlock.TextWrapping" Value="Wrap" />
+                                                                <Setter Property="TextBlock.TextAlignment" Value="Left"/>
+                                                                <Setter Property="TextBlock.VerticalAlignment" Value="Center"/>
+                                                            </Style>
+                                                        </DataGridTextColumn.ElementStyle>
+                                                    </DataGridTextColumn>
+
+                                                    <DataGridTextColumn Binding="{Binding ChequeNo ,Mode=TwoWay , UpdateSourceTrigger=PropertyChanged}" Foreground="Black"  Header="Cheque No" Width="120" IsReadOnly="True" />
+
+                                                    <DataGridTextColumn Binding="{Binding ChequeDate ,Mode=TwoWay , UpdateSourceTrigger=PropertyChanged}" Foreground="Black"  Header="Cheque Date" Width="100" IsReadOnly="True" >
+                                                        <DataGridTextColumn.ElementStyle>
+                                                            <Style>
+                                                                <Setter Property="TextBlock.TextWrapping" Value="Wrap" />
+                                                                <Setter Property="TextBlock.TextAlignment" Value="Left"/>
+                                                                <Setter Property="TextBlock.VerticalAlignment" Value="Center"/>
+                                                            </Style>
+                                                        </DataGridTextColumn.ElementStyle>
+                                                    </DataGridTextColumn>
+
+                                                    <DataGridTextColumn Binding="{Binding ChequeAmount ,Mode=TwoWay , UpdateSourceTrigger=PropertyChanged}" Foreground="Black"  Header="Cheque Amount" Width="100" IsReadOnly="True" >
+                                                        <DataGridTextColumn.ElementStyle>
+                                                            <Style>
+                                                                <Setter Property="TextBlock.TextWrapping" Value="Wrap" />
+                                                                <Setter Property="TextBlock.TextAlignment" Value="Right"/>
+                                                                <Setter Property="TextBlock.VerticalAlignment" Value="Center"/>
+                                                            </Style>
+                                                        </DataGridTextColumn.ElementStyle>
+                                                    </DataGridTextColumn>
+
+                                                </SEACC_WPFControls:SEACC_DataGrid.Columns>
+                                            </SEACC_WPFControls:SEACC_DataGrid>
+                                        </Grid>
+                                    </StackPanel>
+                                </Grid>
+                            </Expander>
+
+                            <Expander x:Name="expGiftVoucherPayments" IsExpanded="False" Header="Gift Vouchers: " Foreground="#FF3399FF" Background="#FFEFEFF2"  FontSize="16" Margin="0,10,0,0"  Visibility="Hidden" >
+
+                                <Grid x:Name="grdGiftVoucher" Background="#FFEFEFF2" >
+                                    <StackPanel>
+                                        <Grid Margin="0,0,0,0">
+                                            <StackPanel  Orientation="Horizontal"  VerticalAlignment="Top" HorizontalAlignment="Right" Margin="5,5,15,5"   Height="20" >
+                                                <SEACC_WPFControls:SEACC_Button x:Name="btnGiftVoucherAdd" Content="&#xE109;" Width="30" FontFamily="Segoe MDL2 Assets" FontSize="12" Margin="0,0,5,0"  Foreground="#FFE2E2E2" Background="#FF394264" BorderBrush="{x:Null}" Height="20" VerticalAlignment="Bottom" Click="btnGiftVoucherAdd_Click"  />
+                                                <SEACC_WPFControls:SEACC_Button x:Name="btnGiftVoucherDelete" Content="&#xE894;" Width="30" FontFamily="Segoe MDL2 Assets" FontSize="12" Background="#FF394264" BorderBrush="{x:Null}" Foreground="#FFD31111" Click="btnGiftVoucherDelete_Click"  />
+                                            </StackPanel>
+                                            <SEACC_WPFControls:SEACC_DataGrid x:Name="dgrGiftVoucher" FontSize="12" Margin="5,32,5,5" Background="White" HeaderColor="#FF0091EA" RowHeight="30" IsReadOnly="False" CanUserAddRows="False" MinHeight="90" Foreground="Black" CanUserResizeColumns="True" Headerforeground="White" LoadingRow="dgrGiftVoucher_LoadingRow" >
+                                                <DataGrid.Resources>
+                                                    <SolidColorBrush x:Key="{x:Static SystemColors.HighlightBrushKey}"  Color="#FFF4E7A7"/>
+                                                </DataGrid.Resources>
+
+                                                <DataGrid.CellStyle>
+                                                    <Style TargetType="DataGridCell">
+                                                        <Setter Property="Padding" Value="2"/>
+                                                        <Setter Property="Template">
+                                                            <Setter.Value>
+                                                                <ControlTemplate TargetType="{x:Type DataGridCell}">
+                                                                    <Border Padding="{TemplateBinding Padding}" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" Background="{TemplateBinding Background}" SnapsToDevicePixels="True">
+                                                                        <Grid Background="{TemplateBinding Background}">
+                                                                            <ContentPresenter SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}"/>
+                                                                            <ContentPresenter VerticalAlignment="Center" />
+                                                                        </Grid>
+                                                                    </Border>
+                                                                </ControlTemplate>
+                                                            </Setter.Value>
+                                                        </Setter>
+                                                    </Style>
+                                                </DataGrid.CellStyle>
+
+                                                <SEACC_WPFControls:SEACC_DataGrid.Columns>
+
+                                                    <DataGridTextColumn Binding="{Binding LineNo ,Mode=TwoWay , UpdateSourceTrigger=PropertyChanged}"  Foreground="Black" Header="#" Width="25" IsReadOnly="True">
+                                                        <DataGridTextColumn.ElementStyle>
+                                                            <Style TargetType="TextBlock">
+                                                                <Setter Property="HorizontalAlignment" Value="Right" />
+                                                                <Setter Property="VerticalAlignment" Value="Center" />
+                                                            </Style>
+                                                        </DataGridTextColumn.ElementStyle>
+                                                    </DataGridTextColumn>
+
+                                                    <DataGridTextColumn Binding="{Binding VoucherNo ,Mode=TwoWay , UpdateSourceTrigger=PropertyChanged}" Foreground="Black"  Header="Voucher No" Width="120"  IsReadOnly="True" />
+
+                                                    <DataGridTextColumn Binding="{Binding DateValidFrom ,Mode=TwoWay , UpdateSourceTrigger=PropertyChanged}" Foreground="Black"  Header="Valid Date From" MaxWidth="0"  IsReadOnly="True" >
+                                                        <DataGridTextColumn.ElementStyle>
+                                                            <Style>
+                                                                <Setter Property="TextBlock.TextWrapping" Value="Wrap" />
+                                                                <Setter Property="TextBlock.TextAlignment" Value="Left"/>
+                                                                <Setter Property="TextBlock.VerticalAlignment" Value="Center"/>
+                                                            </Style>
+                                                        </DataGridTextColumn.ElementStyle>
+                                                    </DataGridTextColumn>
+
+                                                    <DataGridTextColumn Binding="{Binding DateValidTo ,Mode=TwoWay , UpdateSourceTrigger=PropertyChanged}" Foreground="Black"  Header="Valid Date To" MaxWidth="0" IsReadOnly="True" >
+                                                        <DataGridTextColumn.ElementStyle>
+                                                            <Style>
+                                                                <Setter Property="TextBlock.TextWrapping" Value="Wrap" />
+                                                                <Setter Property="TextBlock.TextAlignment" Value="Left"/>
+                                                                <Setter Property="TextBlock.VerticalAlignment" Value="Center"/>
+                                                            </Style>
+                                                        </DataGridTextColumn.ElementStyle>
+                                                    </DataGridTextColumn>
+
+                                                    <DataGridTextColumn Binding="{Binding VoucherAmount ,Mode=TwoWay , UpdateSourceTrigger=PropertyChanged}" Foreground="Black"  Header="Amount" Width="120"  IsReadOnly="True" >
+                                                        <DataGridTextColumn.ElementStyle>
+                                                            <Style>
+                                                                <Setter Property="TextBlock.TextWrapping" Value="Wrap" />
+                                                                <Setter Property="TextBlock.TextAlignment" Value="Right"/>
+                                                                <Setter Property="TextBlock.VerticalAlignment" Value="Center"/>
+                                                            </Style>
+                                                        </DataGridTextColumn.ElementStyle>
+                                                    </DataGridTextColumn>
+                                                </SEACC_WPFControls:SEACC_DataGrid.Columns>
+                                            </SEACC_WPFControls:SEACC_DataGrid>
+                                        </Grid>
+                                    </StackPanel>
+                                </Grid>
+                            </Expander>
+
+                            <Expander x:Name="expCreditNotePayments" IsExpanded="False" Header="Credit Notes: " Foreground="#FF3399FF" Background="#FFEFEFF2"  FontSize="16" Margin="0,10,0,0" Visibility="Hidden" >
+                                <Grid x:Name="grdCRNs" Background="#FFEFEFF2" >
+                                    <StackPanel>
+                                        <Grid Margin="0,0,0,0">
+                                            <StackPanel  Orientation="Horizontal"  VerticalAlignment="Top" HorizontalAlignment="Right" Margin="5,5,15,5"   Height="20" >
+                                                <SEACC_WPFControls:SEACC_Button x:Name="btnCRNAdd" Content="&#xE109;" Width="30" FontFamily="Segoe MDL2 Assets" FontSize="12" Margin="0,0,5,0"  Foreground="#FFE2E2E2" Background="#FF394264" BorderBrush="{x:Null}" Height="20" VerticalAlignment="Bottom" Click="btnCRNAdd_Click"  />
+                                                <SEACC_WPFControls:SEACC_Button x:Name="btnCRNDelete" Content="&#xE894;" Width="30" FontFamily="Segoe MDL2 Assets" FontSize="12" Background="#FF394264" BorderBrush="{x:Null}" Foreground="#FFD31111" Click="btnCRNDelete_Click"  />
+                                            </StackPanel>
+                                            <SEACC_WPFControls:SEACC_DataGrid x:Name="dgrCRN" FontSize="12" Margin="5,32,5,5" Background="White" HeaderColor="#FF0091EA" RowHeight="30" IsReadOnly="False" CanUserAddRows="False" MinHeight="90" Foreground="Black" CanUserResizeColumns="True" Headerforeground="White" LoadingRow="dgrCRN_LoadingRow" >
+                                                <DataGrid.Resources>
+                                                    <SolidColorBrush x:Key="{x:Static SystemColors.HighlightBrushKey}"  Color="#FFF4E7A7"/>
+                                                </DataGrid.Resources>
+
+                                                <DataGrid.CellStyle>
+                                                    <Style TargetType="DataGridCell">
+                                                        <Setter Property="Padding" Value="2"/>
+                                                        <Setter Property="Template">
+                                                            <Setter.Value>
+                                                                <ControlTemplate TargetType="{x:Type DataGridCell}">
+                                                                    <Border Padding="{TemplateBinding Padding}" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" Background="{TemplateBinding Background}" SnapsToDevicePixels="True">
+                                                                        <Grid Background="{TemplateBinding Background}">
+                                                                            <ContentPresenter SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}"/>
+                                                                            <ContentPresenter VerticalAlignment="Center" />
+                                                                        </Grid>
+                                                                    </Border>
+                                                                </ControlTemplate>
+                                                            </Setter.Value>
+                                                        </Setter>
+                                                    </Style>
+                                                </DataGrid.CellStyle>
+
+                                                <SEACC_WPFControls:SEACC_DataGrid.Columns>
+
+                                                    <DataGridTextColumn Binding="{Binding LineNo ,Mode=TwoWay , UpdateSourceTrigger=PropertyChanged}"  Foreground="Black" Header="#" Width="25" IsReadOnly="True">
+                                                        <DataGridTextColumn.ElementStyle>
+                                                            <Style TargetType="TextBlock">
+                                                                <Setter Property="HorizontalAlignment" Value="Right" />
+                                                                <Setter Property="VerticalAlignment" Value="Center" />
+                                                            </Style>
+                                                        </DataGridTextColumn.ElementStyle>
+                                                    </DataGridTextColumn>
+
+                                                    <DataGridTextColumn Binding="{Binding CRN_Index ,Mode=TwoWay , UpdateSourceTrigger=PropertyChanged}" Foreground="Black" MaxWidth="0"  IsReadOnly="True" />
+
+                                                    <DataGridTextColumn Binding="{Binding CRN_ID ,Mode=TwoWay , UpdateSourceTrigger=PropertyChanged}" Foreground="Black"  Header="CRN ID" Width="120"  IsReadOnly="True" />
+
+                                                    <DataGridTextColumn Binding="{Binding CRN_Amount ,Mode=TwoWay , UpdateSourceTrigger=PropertyChanged}" Foreground="Black"  Header="Amount" Width="120"  IsReadOnly="True" >
+                                                        <DataGridTextColumn.ElementStyle>
+                                                            <Style>
+                                                                <Setter Property="TextBlock.TextWrapping" Value="Wrap" />
+                                                                <Setter Property="TextBlock.TextAlignment" Value="Right"/>
+                                                                <Setter Property="TextBlock.VerticalAlignment" Value="Center"/>
+                                                            </Style>
+                                                        </DataGridTextColumn.ElementStyle>
+                                                    </DataGridTextColumn>
+                                                </SEACC_WPFControls:SEACC_DataGrid.Columns>
+                                            </SEACC_WPFControls:SEACC_DataGrid>
+                                        </Grid>
+                                    </StackPanel>
+                                </Grid>
+                            </Expander>
+                        </StackPanel>
+
+                    </Grid>
+                </SEACC_WPFControls:SEACC_ScrollViewer>
+            </Grid>
+        </Grid>
+    </SEACC_WPFControls_Local:SEACC_Form>
+</UserControl>

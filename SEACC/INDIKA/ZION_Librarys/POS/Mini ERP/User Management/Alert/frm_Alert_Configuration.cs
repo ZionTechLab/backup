@@ -1,0 +1,463 @@
+﻿using System;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Data;
+using System.Drawing;
+using System.Linq; 
+using System.Text;
+using System.Windows.Forms;
+using DataTire;
+using System.IO;
+using System.Text.RegularExpressions;
+using Digiteq_Logic;
+
+namespace Digiteq
+{
+    public partial class frm_Alert_Configuration : MettroForm
+    {
+        #region Variables
+        //to manage update and insert
+        static bool IsUpdate = false;
+
+        //to keep form detail       
+        string sFormConfigCode;     
+           public int iFormID;
+        public bool bNoAccess;
+        Byte[] img = new byte[0];
+
+        Regex EmailRegularExpression = new Regex (@"^(?("")("".+?""@)|(([0-9a-zA-Z]((\.(?!\.))|[-!#\$%&'\*\+/=\?\^`\{\}\|~\w])*)(?<=[0-9a-zA-Z])@))" + 
+                  @"(?(\[)(\[(\d{1,3}\.){3}\d{1,3}\])|(([0-9a-zA-Z][-\w]*[0-9a-zA-Z]\.)+[a-zA-Z]{2,6}))$");
+        #endregion
+
+        #region Form Load
+        public frm_Alert_Configuration()
+        {
+            sFormConfigCode = clsAutocode.getFormConfigCode(FormName.AlertConfiguration);
+            iFormID = clsSecurity.getFormID(FormName.AlertConfiguration);
+            if (!clsSecurity.PermissionToRead(clsSecurity.UserIDLoged, iFormID))
+            {
+                bNoAccess = true;
+            }
+            InitializeComponent();
+        }
+
+        private void frm_masAlertConfiguration_Load(object sender, EventArgs e)
+        {
+            //format Form
+           // clsFormatter.setFormatForm(this, "Alert Settings Master", 1, iFormID);
+
+            //add data to the datagrid and format
+            RefreshGrid();
+           // CusDataGridViewFormat();
+            ClearFields();
+        }
+        #endregion
+
+
+        #region Btn New
+        private void btnNew_Click(object sender, EventArgs e)
+        {
+            ClearFields();
+        }
+        #endregion
+
+        #region Btn Delete
+        private void btnDelete_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                if (txtSettingID.TextLength > 0)
+                {
+                    if (clsSecurity.PermissionToDelete(clsSecurity.UserIDLoged, iFormID))
+                    {
+                        //delete one record
+                        Cursor = Cursors.WaitCursor;
+                        tbl_utlAlertSettings detail = tbl_utlAlertSettings.Select(txtSettingID.Text.Trim());
+                        if (detail != null)
+                        {
+                            detail.Delete();
+                        }
+
+                        Cursor = Cursors.Default;
+                        MessageBox.Show(clsFormatter.GetMessageFrom(MessageType.DeleteDone), clsFormatter.GetMessageCaption(), MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        ClearFields();
+                        RefreshGrid();
+                    }
+                    else //if no permission to delete
+                    {
+                        MessageBox.Show(clsFormatter.GetMessageFrom(MessageType.PermissionToDelete), clsFormatter.GetMessageCaption(), MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                Cursor = Cursors.Default;
+                clsValidate.WriteErrorLog("", iFormID,ex);
+                SEACCException.Show(ex);
+            }
+        }
+        #endregion
+
+        #region Btn Save
+        private void btnSave_Click(object sender, EventArgs e)
+        {           
+            if (CheckValidity())
+            {
+                if (CheckNumberValidity())
+                {
+                   if (clsSecurity.PermissionToSave(clsSecurity.UserIDLoged, iFormID, IsUpdate))
+                    {
+                        try
+                        {
+                            Cursor = Cursors.WaitCursor;
+                            ValidateEmptyForeignKey();
+                            if (IsUpdate)  //update records
+                            {
+                                tbl_utlAlertSettings oldRecord = tbl_utlAlertSettings.Select(txtSettingID.Tag.ToString());
+                                if (oldRecord != null)
+                                {
+                                    //Write Audit Trial Log
+                                    clsLog.Process_Modify(iFormID, clsAutocode.GetProcessNoteID(ProcessNote.AlertConfiguration), oldRecord.Alert_ID, "Alert Configuration - Modify");
+
+                                    tbl_utlAlertSettings detail = new tbl_utlAlertSettings(oldRecord.Setting_ID, txtAlertName.Tag.ToString(), txtUserName.Tag.ToString(), txtPersonName.Text, txtEmail1.Text, txtEmail2.Text, txtMobile1.Text, txtMobile2.Text,0);
+                                    detail.Update();
+                                    MessageBox.Show(clsFormatter.GetMessageFrom(MessageType.ModifyDone), clsFormatter.GetMessageCaption(), MessageBoxButtons.OK, MessageBoxIcon.Information);
+                                }
+                            }
+                            else  //insert records
+                            {
+                                if (clsAutocode.IsAutoGenerated(sFormConfigCode))
+                                    txtSettingID.Text = clsAutocode.getAutoGeneratedCode(sFormConfigCode);
+                                if (txtSettingID.TextLength > 0)
+                                {
+                                    tbl_utlAlertSettings detail = new tbl_utlAlertSettings(txtSettingID.Text.Trim(), txtAlertName.Tag.ToString(), txtUserName.Tag.ToString(), txtPersonName.Text, txtEmail1.Text, txtEmail2.Text, txtMobile1.Text, txtMobile2.Text,0);
+                                    detail.Insert();
+                                    MessageBox.Show(clsFormatter.GetMessageFrom(MessageType.SaveDone), clsFormatter.GetMessageCaption(), MessageBoxButtons.OK, MessageBoxIcon.Information);
+                                }
+                                else
+                                {
+                                    MessageBox.Show(" Alert Configuration " + clsFormatter.GetMessageFrom(MessageType.IDIsEmpty), clsFormatter.GetMessageCaption(), MessageBoxButtons.OK, MessageBoxIcon.Information);
+                                }
+                            }
+
+                        }
+                        catch (Exception ex)
+                        {
+                            clsValidate.WriteErrorLog("", iFormID,ex);
+                            SEACCException.Show(ex);
+                        }
+                        finally
+                        {
+                            Cursor = Cursors.Default;
+                            ClearFields();
+                            RefreshGrid();
+                        }
+                    }
+                }
+            }
+        }
+        #endregion       
+
+        #region Datagrid Format
+        private void CusDataGridViewFormat()
+        {
+            clsFormatter.ApplyGridFormat(dgvDetail, clsFormatter.colorDigiteqTheamColorAdminHeaderColour, clsFormatter.colorDigiteqTheamColorAdminForColour);            
+        }
+        #endregion
+
+        #region Clear Fields
+        private void ClearFields()
+        {
+            //set the flag and enble the id
+            IsUpdate = false;
+            clsCommon.SetEnableDisable_PrimaryKeyTextbox(txtSettingID, true);
+            clsCommon.SetEnableDisable_NormalLabel(lblSettingID, true);
+
+            txtAlertName.Tag = null;
+            txtAlertName.Clear();
+            txtUserName.Tag = null;
+            txtUserName.Clear();
+            txtPersonName.Clear(); 
+            txtEmail1.Clear();
+            txtEmail2.Clear();
+            txtMobile1.Clear();
+            txtMobile2.Clear();
+
+            if (clsAutocode.IsAutoGenerated(sFormConfigCode))
+                txtSettingID.Text = "<Auto Generate>";
+            else
+                txtSettingID.Clear();
+
+            if (txtSettingID.Enabled)
+            {
+                txtSettingID.SelectAll();
+                txtSettingID.Focus();
+            }
+
+            dgvDetail.Rows.Clear();
+        }
+        #endregion
+
+        #region Fill Details
+        private void FillDetails(string sID)
+        {
+            if (sID.Length > 0)
+            {
+                tbl_utlAlertSettings detail = tbl_utlAlertSettings.Select(sID);
+                if (detail != null)
+                {
+                    //set the update flag and Locked
+                    IsUpdate = true;
+                    clsCommon.SetEnableDisable_PrimaryKeyTextbox(txtSettingID, false);
+                    clsCommon.SetEnableDisable_NormalLabel(lblSettingID, false);
+
+                    //asign values
+                    txtSettingID.Tag = detail.Setting_ID;
+                    txtSettingID.Text = detail.Setting_ID;
+                    txtAlertName.Tag = detail.Alert_ID;
+                    txtAlertName.Text = clsGenaralName.getName_Alert(detail.Alert_ID);
+                    txtUserName.Tag = detail.User_ID;
+                    txtUserName.Text = clsGenaralName.getName_User(detail.User_ID);
+                    if (detail.User_ID == "default")
+                        txtUserName.Text = " ";
+                    txtPersonName.Text = detail.PersonName;
+                    txtEmail1.Text = detail.UserEmail1;
+                    txtEmail2.Text = detail.UserEmail2;
+                    txtMobile1.Text = detail.PhoneNo1;
+                    txtMobile2.Text = detail.PhoneNo2;   
+                }
+            }
+        }
+        #endregion
+
+        #region Refresh Grid
+        private void RefreshGrid()
+        {
+            int iRow;
+            dgvDetail.Rows.Clear();
+
+            if (txtAlertName.Tag != null)
+            {
+                foreach (tbl_utlAlertSettings detail in tbl_utlAlertSettings.SelectAll().Where(p => p.Alert_ID != "default" && p.Alert_ID == txtAlertName.Tag.ToString()))
+                {
+                    dgvDetail.Rows.Add();
+                    iRow = dgvDetail.Rows.Count - 1;
+                    dgvDetail["settingID", iRow].Value = detail.Setting_ID;
+                    dgvDetail["alertName", iRow].Value = clsGenaralName.getName_Alert(detail.Alert_ID);
+                    dgvDetail["userName", iRow].Value = clsGenaralName.getName_User(detail.User_ID);
+                    if (detail.User_ID == "default")
+                        dgvDetail["userName", iRow].Value = "";
+                    dgvDetail["personName", iRow].Value = detail.PersonName;
+                    dgvDetail["userEmail1", iRow].Value = detail.UserEmail1;
+                    dgvDetail["userEmail2", iRow].Value = detail.UserEmail2;
+                    dgvDetail["phoneNo1", iRow].Value = detail.PhoneNo1;
+                    dgvDetail["phoneNo2", iRow].Value = detail.PhoneNo2;
+                }
+            }
+        }
+        #endregion
+
+
+        #region Check Validity
+        private bool CheckValidity()
+        {
+            string strMessage = "";
+            bool bStatus = true;
+
+            //if (txtSettingID.TextLength == 0)
+            //{
+            //    strMessage += "\n" + "Setting ID";
+            //    bStatus = false;
+            //} 
+            if (txtAlertName.TextLength == 0)
+            {
+                strMessage += "\n" + "Alert Name";
+                bStatus = false;
+            } 
+            if (txtUserName.TextLength == 0 &&  txtPersonName.TextLength == 0)
+            {
+                strMessage += "\n" + "User Name/ Person Name";
+                bStatus = false;
+            }
+            if (txtEmail1.TextLength == 0)
+            {
+                strMessage += "\n" + "E-Mail1";
+                bStatus = false;
+            } 
+            if (bStatus == false)
+            {
+                MessageBox.Show(clsFormatter.getCommonStatusStripMessage(StatusStripMessageTypes.WhenInsert, strMessage), clsFormatter.GetMessageCaption(), MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+            return bStatus;
+        }
+
+        private bool CheckNumberValidity()
+        {
+            string strMessage = "";
+            bool bStatus = true;
+
+            try
+            {
+
+
+            }
+            catch (Exception ex)
+            {
+                clsValidate.WriteErrorLog("", iFormID,ex);
+                SEACCException.Show(ex);
+            }
+            if (bStatus == false)
+            {
+                MessageBox.Show(clsFormatter.getCommonStatusStripMessage(StatusStripMessageTypes.WhenInserNumber, strMessage), clsFormatter.GetMessageCaption(), MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+            return bStatus;
+        }
+        #endregion
+
+        #region Validate Empty Foreignkey
+        private void ValidateEmptyForeignKey()
+        {
+            try
+            {
+                clsCommon.ValidateForeignKey(ref txtUserName);            
+            }
+            catch (Exception ex)
+            {
+                clsValidate.WriteErrorLog("", iFormID,ex);
+                SEACCException.Show(ex);
+            }
+        }
+        #endregion
+
+        #region Events KeyDown
+        private void txtUserID_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.F1)
+            {
+                Search_UserID();
+            }   
+        }
+        private void txtGroupName_KeyDown(object sender, KeyEventArgs e)
+        {
+            //if (e.KeyCode == Keys.F1)
+            //{
+            //    Search_GroupID();
+            //} 
+        }
+        private void frm_mtrUser_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                SendKeys.Send("{TAB}");
+            }
+        }
+        #endregion
+
+        #region Events DoubleClick
+        private void txtSettingID_DoubleClick(object sender, EventArgs e)
+        {
+            clsSearch.Search_AlertSettingID(ref txtAlertName);
+            if (txtAlertName.Tag != null)
+            {
+                FillDetails(txtAlertName.Tag.ToString());
+            }
+        }
+        private void txtAlertName_DoubleClick(object sender, EventArgs e)
+        {
+            //Search_AlertID();
+            clsSearch.Search_Alert(ref txtAlertName);
+            RefreshGrid();
+
+        }
+        private void txtUserName_DoubleClick(object sender, EventArgs e)
+        {
+            //Search_UserID();
+            clsSearch.Search_MasterUserExceptByUserID(ref txtUserName, "digiteq");
+        }
+       
+        #endregion
+
+        #region Events Datagrid
+        private void dgvDetail_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            try
+            {
+                string sID = dgvDetail["settingID", e.RowIndex].Value.ToString();
+                if (sID.Length > 0)
+                {
+                    FillDetails(sID.Trim());
+                }
+            }
+            catch (Exception ex)
+            {
+                clsValidate.WriteErrorLog("", iFormID,ex);
+                SEACCException.Show(ex);
+            }
+        }
+
+        private void dgvDetail_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            dgvDetail_CellClick(sender, e);
+        }
+        #endregion
+
+        #region Events CheckedChanged
+        private void rdoUserName_CheckedChanged(object sender, EventArgs e)
+        {
+            if (rdoUserName.Checked)
+            {
+                txtUserName.Enabled = true;
+                txtPersonName.Enabled = false;
+
+                txtPersonName.Clear();
+            }
+            else if (rdoPersonName.Enabled)
+            {
+                txtUserName.Enabled = false;
+                txtPersonName.Enabled = true;
+
+                txtUserName.Tag = "default";
+                txtUserName.Clear();
+            }
+        }
+        #endregion
+
+        #region Search Methods
+        private void Search_UserID()
+        {
+            Form frmhelpsearch = new frmSearchMaster();            
+            if (clsSecurity.UserIDLoged.Trim().ToUpper() == "DIGITEQ")
+                clsSearch.passValue_User(false);
+            else
+                clsSearch.passValue_User(true);
+            frmhelpsearch.ShowDialog();
+
+            if (frmSearchMaster.s_SearchID.Length > 0)
+            {
+                txtSettingID.Text = frmSearchMaster.s_SearchID;
+                FillDetails(frmSearchMaster.s_SearchID);
+            }
+        }
+        private void Search_AlertID()
+        {
+            try
+            {
+                Form frmhelpsearch = new frmSearchMaster();
+                clsSearch.passValue_AlertID();
+                frmhelpsearch.ShowDialog();
+
+                if (frmSearchMaster.s_SearchID.Length > 0)
+                {
+                    txtAlertName.Text = frmSearchMaster.s_SearchID;
+                    FillDetails(frmSearchMaster.s_SearchID);
+                }
+            }
+            catch (Exception ex)
+            {
+                clsValidate.WriteErrorLog("", iFormID,ex);
+                SEACCException.Show(ex);
+            }
+        }
+        #endregion      
+    }
+}

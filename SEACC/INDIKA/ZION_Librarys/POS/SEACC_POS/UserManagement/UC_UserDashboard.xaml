@@ -1,0 +1,25 @@
+﻿<UserControl x:Class="SEACC_POS.UserManagement.UC_UserDashboard"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:seaccPos="clr-namespace:SEACC_POS"
+             xmlns:widgets="clr-namespace:SEACC_POS.UserManagement.Widgets"
+             Background="#FFFFFF" FontWeight="Normal"
+             mc:Ignorable="d" >
+    <seaccPos:SEACC_Form x:Name="SEACC_Form"  >
+        <Grid Margin="15,0,0,50">
+            <ScrollViewer Grid.Column="1" VerticalScrollBarVisibility="Auto" HorizontalScrollBarVisibility="Auto" >
+                <StackPanel>
+                    <WrapPanel Orientation="Horizontal" >
+                        <widgets:UC_ChangePassword x:Name="cp_password" Margin="20,0,0,20" BtnApplyClick="cp_password_BtnApplyClick" />
+                        <widgets:UC_ChangePassword x:Name="cp_pin" Margin="20,0,0,20" BtnApplyClick="cp_pin_BtnApplyClick" />
+                    </WrapPanel>
+                </StackPanel>
+            </ScrollViewer>
+        </Grid>
+    </seaccPos:SEACC_Form>
+</UserControl>
+
+
+

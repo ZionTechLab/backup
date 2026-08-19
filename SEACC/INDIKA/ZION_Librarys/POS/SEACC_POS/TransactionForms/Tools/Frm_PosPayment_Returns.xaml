@@ -1,0 +1,54 @@
+﻿<Window x:Name="frmPayment" x:Class="SEACC_POS.Frm_PosPayment_Returns"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:seaccWpfControls2="clr-namespace:SEACC_WPFControls;assembly=SEACC_WPFControls"
+        mc:Ignorable="d" Background="{x:Null}"
+        Title="PoS Payment" Width="390" Height="310" 
+        WindowStartupLocation="CenterScreen" AllowsTransparency="True" WindowStyle="None" Foreground="Black" PreviewKeyUp="frmPayment_PreviewKeyUp" ResizeMode="NoResize" >
+
+    <Grid Margin="10" >
+        <Border BorderBrush="#FF431621" BorderThickness="2" Background="#FFF1F1F3">
+            <Border.Effect>
+                <DropShadowEffect BlurRadius="10"/>
+            </Border.Effect>
+        </Border>
+
+        <Grid>
+
+            <Grid.RowDefinitions>
+                <RowDefinition Height="40"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+
+            <Grid Grid.Row="0" Grid.ColumnSpan="3" MouseLeftButtonDown="TitleGrid_MouseLeftButtonDown" Background="#FF8E1431"  >
+                <StackPanel Orientation="Horizontal" VerticalAlignment="Center">
+                    <Label Content=" Return -" Foreground="White" VerticalAlignment="Center" FontSize="20" Margin="0,0,0,0" />
+                    <TextBlock Text="Total" VerticalAlignment="Center"  Padding="4,2,2,2" HorizontalAlignment="Left" Foreground="White" FontSize="20" Margin="0,2,0,0" />
+                    <StackPanel  Margin="2,4,5,2" VerticalAlignment="Center" Orientation="Horizontal">
+                        <TextBlock Text="Rs. "  FontSize="20" Foreground="White" />
+                        <TextBlock x:FieldModifier="public" x:Name="tbGrandtotal" Text="00.00"  FontSize="20" Foreground="White" />
+                    </StackPanel>
+                </StackPanel>
+                <seaccWpfControls2:SEACC_Button x:Name="btnClose" Content="&#xE8BB;" HorizontalAlignment="Right" Width="30" Margin="5" FontFamily="Segoe MDL2 Assets"  Click="BtnClose_OnClick" Background="{x:Null}" BorderBrush="{x:Null}" Foreground="White" />
+            </Grid>
+
+            <Grid Grid.Row="1" Grid.Column="0" >
+                <StackPanel Margin="10,5,5,5" >
+                    <seaccWpfControls2:SEACC_LableTextBox  x:Name="txtCustomerTelphone" Caption="Customer Telephone" BoxForeground="Black" Margin="0,10,0,0" KeyUp="txtCustomerTelphone_KeyDown" />
+                    <seaccWpfControls2:SEACC_LableTextBox Caption="Customer Name" x:Name="txtCustomerName" BoxForeground="Black" Margin="0,10,0,0" MouseDoubleClick="txtCustomerName_MouseDoubleClick" />
+                    <seaccWpfControls2:SEACC_LableTextBox  x:Name="txtCustomerAddress" Caption="Customer Address" BoxForeground="Black" Height="65" Margin="0,10,0,0" />
+                    <seaccWpfControls2:SEACC_LableTextBox x:Name="txtSalesRep" Visibility="Collapsed" Caption="Sales Rep." BoxForeground="Black" Margin="0,10,0,0" PreviewMouseDoubleClick="txtSalesRep_PreviewMouseDoubleClick" />
+                    <seaccWpfControls2:SEACC_LableTextBox x:Name="txtCreditPeriod" Caption="Credit Period (Days)" BoxForeground="Black" Margin="0,10,0,0" PreviewMouseDoubleClick="txtCreditPeriod_OnPreviewMouseDoubleClick" />
+                    <StackPanel Orientation="Horizontal" Margin="0,5,0,0" >
+                        <seaccWpfControls2:SEACC_Button x:Name="btnpaymentOk" Width="106" Height="30" Content="Save" Margin="5" Background="#FF8E1431" BorderBrush="{x:Null}" Foreground="White" VerticalAlignment="Center" Click="btnpaymentOk_Click" />
+                        <seaccWpfControls2:SEACC_Button x:Name="btnPrint" Width="106" Height="30" Content="Print"  Margin="5" Background="#FF8E1431" BorderBrush="#FF163351" Foreground="White" VerticalAlignment="Center" Click="btnPrint_Click" />
+                        <seaccWpfControls2:SEACC_Button x:Name="btnPaymentEnterTender" Width="106" Height="30" Content="Enter and Tender"  Margin="5" Background="#FF8E1431" BorderBrush="#FF163351" Foreground="White" VerticalAlignment="Center" Click="btnPaymentEnterTender_Click" />
+                    </StackPanel>
+                    
+                </StackPanel>
+            </Grid>
+        </Grid>
+    </Grid>
+</Window>
