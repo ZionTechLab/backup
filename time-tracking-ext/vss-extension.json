@@ -1,0 +1,102 @@
+{
+  "manifestVersion": 1,
+  "id": "time-tracking-ext",
+  "publisher": "hayleysadvantis",
+  "version": "1.0.26",
+  "name": "Time Tracking",
+  "description": "Log and track time entries against Azure DevOps work items. Syncs Completed Work automatically.",
+  "public": false,
+  "categories": [
+    "Azure Boards"
+  ],
+  "tags": [
+    "time tracking",
+    "work items",
+    "completed work"
+  ],
+  "targets": [
+    {
+      "id": "Microsoft.VisualStudio.Services"
+    }
+  ],
+  "scopes": [
+    "vso.work_write",
+    "vso.project",
+    "vso.graph"
+  ],
+  "icons": {
+    "default": "images/logo.png"
+  },
+  "contributions": [
+    {
+      "id": "time-tracker-form-group",
+      "type": "ms.vss-work-web.work-item-form-group",
+      "targets": [
+        "ms.vss-work-web.work-item-form"
+      ],
+      "properties": {
+        "name": "Time Tracking",
+        "uri": "dist/time-tracker/index.html",
+        "height": 450
+      }
+    },
+    {
+      "id": "time-tracking-settings",
+      "type": "ms.vss-web.hub",
+      "targets": [
+        "ms.vss-work-web.work-hub-group"
+      ],
+      "properties": {
+        "name": "TT Settings",
+        "uri": "dist/settings/index.html",
+        "order": 99
+      }
+    },
+    {
+      "id": "time-tracking-report",
+      "type": "ms.vss-web.hub",
+      "targets": [
+        "ms.vss-work-web.work-hub-group"
+      ],
+      "properties": {
+        "name": "TT Report",
+        "uri": "dist/report/index.html",
+        "order": 98
+      }
+    },
+    {
+      "id": "time-tracking-my-report",
+      "type": "ms.vss-web.hub",
+      "targets": [
+        "ms.vss-work-web.work-hub-group"
+      ],
+      "properties": {
+        "name": "My Report",
+        "uri": "dist/my-report/index.html",
+        "order": 97
+      }
+    },
+    {
+      "id": "time-tracking-user-utilization",
+      "type": "ms.vss-web.hub",
+      "targets": [
+        "ms.vss-work-web.work-hub-group"
+      ],
+      "properties": {
+        "name": "User Utilization",
+        "uri": "dist/user-utilization-report/index.html",
+        "order": 96
+      }
+    }
+  ],
+  "files": [
+    {
+      "path": "dist",
+      "addressable": true
+    },
+    {
+      "path": "images",
+      "addressable": true
+    }
+  ]
+}
