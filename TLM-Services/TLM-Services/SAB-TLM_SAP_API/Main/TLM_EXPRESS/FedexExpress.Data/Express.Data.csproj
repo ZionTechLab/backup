@@ -1,0 +1,327 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{F12A513F-5E9A-4A9A-B46A-AFD416544B1A}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Express.Data</RootNamespace>
+    <AssemblyName>Express.Data</AssemblyName>
+    <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <SccProjectName>SAK</SccProjectName>
+    <SccLocalPath>SAK</SccLocalPath>
+    <SccAuxPath>SAK</SccAuxPath>
+    <SccProvider>SAK</SccProvider>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Dapper, Version=1.50.5.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Dapper.1.50.5\lib\net451\Dapper.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.0.0\lib\net45\EntityFramework.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.0.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.configuration" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data">
+      <EmbedInteropTypes>False</EmbedInteropTypes>
+    </Reference>
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Common\CommonCommboData.cs" />
+    <Compile Include="Common\ConfigData.cs" />
+    <Compile Include="Common\RefData.cs" />
+    <Compile Include="Common\SendMail.cs" />
+    <Compile Include="FedexExpressEF\DBDomain\ComplexTypes\AccountGLResult.cs" />
+    <Compile Include="FedexExpressEF\DBDomain\ComplexTypes\AccountReceivableResult.cs" />
+    <Compile Include="FedexExpressEF\DBDomain\ComplexTypes\AccountTaxResult.cs" />
+    <Compile Include="FedexExpressEF\DBDomain\ComplexTypes\AWBResult.cs" />
+    <Compile Include="FedexExpressEF\DBDomain\ComplexTypes\CfgCountry.cs" />
+    <Compile Include="FedexExpressEF\DBDomain\ComplexTypes\CfgDoctypesResult.cs" />
+    <Compile Include="FedexExpressEF\DBDomain\ComplexTypes\CfgDtaxCalResult.cs" />
+    <Compile Include="FedexExpressEF\DBDomain\ComplexTypes\CfgDtaxDocTypesResult.cs" />
+    <Compile Include="FedexExpressEF\DBDomain\ComplexTypes\CfgGatewayResult.cs" />
+    <Compile Include="FedexExpressEF\DBDomain\ComplexTypes\CityResult.cs" />
+    <Compile Include="FedexExpressEF\DBDomain\ComplexTypes\ClearanceAnalysisResult.cs" />
+    <Compile Include="FedexExpressEF\DBDomain\ComplexTypes\ClearancePreAlertResult.cs" />
+    <Compile Include="FedexExpressEF\DBDomain\ComplexTypes\ClearenceStatusResult.cs" />
+    <Compile Include="FedexExpressEF\DBDomain\ComplexTypes\ClearenceTypeResult.cs" />
+    <Compile Include="FedexExpressEF\DBDomain\ComplexTypes\ClrInvManifestResult.cs" />
+    <Compile Include="FedexExpressEF\DBDomain\ComplexTypes\ConsoleMasterResult.cs" />
+    <Compile Include="FedexExpressEF\DBDomain\ComplexTypes\ConsoleTypeResult.cs" />
+    <Compile Include="FedexExpressEF\DBDomain\ComplexTypes\CountryResult.cs" />
+    <Compile Include="FedexExpressEF\DBDomain\ComplexTypes\CurrencyAmountResult.cs" />
+    <Compile Include="FedexExpressEF\DBDomain\ComplexTypes\CustomerCpd.cs" />
+    <Compile Include="FedexExpressEF\DBDomain\ComplexTypes\ExchangeRateResult.cs" />
+    <Compile Include="FedexExpressEF\DBDomain\ComplexTypes\ExchangeRateValueResult.cs" />
+    <Compile Include="FedexExpressEF\DBDomain\ComplexTypes\ExtRatesTypesResult.cs" />
+    <Compile Include="FedexExpressEF\DBDomain\ComplexTypes\GatewayResults.cs" />
+    <Compile Include="FedexExpressEF\DBDomain\ComplexTypes\GatInvoiceTypeResult.cs" />
+    <Compile Include="FedexExpressEF\DBDomain\ComplexTypes\GetAWBDuplicateResult.cs" />
+    <Compile Include="FedexExpressEF\DBDomain\ComplexTypes\GetCountryFromHubResult.cs" />
+    <Compile Include="FedexExpressEF\DBDomain\ComplexTypes\GetCusdecValidationResult.cs" />
+    <Compile Include="FedexExpressEF\DBDomain\ComplexTypes\ClrInvPrintResult.cs" />
+    <Compile Include="FedexExpressEF\DBDomain\ComplexTypes\InqShipmentHeldResult.cs" />
+    <Compile Include="FedexExpressEF\DBDomain\ComplexTypes\InvDutyChargeResult.cs" />
+    <Compile Include="FedexExpressEF\DBDomain\ComplexTypes\InvDutyClrPayAccountResult.cs" />
+    <Compile Include="FedexExpressEF\DBDomain\ComplexTypes\InvDutyConsAwbResult.cs" />
+    <Compile Include="FedexExpressEF\DBDomain\ComplexTypes\InvDutyDoctypeResult.cs" />
+    <Compile Include="FedexExpressEF\DBDomain\ComplexTypes\InvDutyExtrateResult.cs" />
+    <Compile Include="FedexExpressEF\DBDomain\ComplexTypes\InvDutyJobResult.cs" />
+    <Compile Include="FedexExpressEF\DBDomain\ComplexTypes\InvDutyJobtransactResult.cs" />
+    <Compile Include="FedexExpressEF\DBDomain\ComplexTypes\InvDutyLocationResult.cs" />
+    <Compile Include="FedexExpressEF\DBDomain\ComplexTypes\InvDutyAutoChargeResult.cs" />
+    <Compile Include="FedexExpressEF\DBDomain\ComplexTypes\InvDutyOrgnizChargeResult.cs" />
+    <Compile Include="FedexExpressEF\DBDomain\ComplexTypes\InvDutyOrgnizResult.cs" />
+    <Compile Include="FedexExpressEF\DBDomain\ComplexTypes\InvDutyResult.cs" />
+    <Compile Include="FedexExpressEF\DBDomain\ComplexTypes\InvDutyRptSummeryResult.cs" />
+    <Compile Include="FedexExpressEF\DBDomain\ComplexTypes\InvoiceDutyRepResult.cs" />
+    <Compile Include="FedexExpressEF\DBDomain\ComplexTypes\InvoiceHeaderResult.cs" />
+    <Compile Include="FedexExpressEF\DBDomain\ComplexTypes\InvOrgnzCreditResult.cs" />
+    <Compile Include="FedexExpressEF\DBDomain\ComplexTypes\ManifestClearenceResult.cs" />
+    <Compile Include="FedexExpressEF\DBDomain\ComplexTypes\NewInvoiceSummaryResult.cs" />
+    <Compile Include="FedexExpressEF\DBDomain\ComplexTypes\NewNotInvoiceSummaryResult.cs" />
+    <Compile Include="FedexExpressEF\DBDomain\ComplexTypes\OpsConsAWBResults.cs" />
+    <Compile Include="FedexExpressEF\DBDomain\ComplexTypes\OpsConsMasterResults.cs" />
+    <Compile Include="FedexExpressEF\DBDomain\ComplexTypes\OpsGSPAWBResult.cs" />
+    <Compile Include="FedexExpressEF\DBDomain\ComplexTypes\OrgChargeGetCurrency.cs" />
+    <Compile Include="FedexExpressEF\DBDomain\ComplexTypes\OrgChargesGetRefChargeCode.cs" />
+    <Compile Include="FedexExpressEF\DBDomain\ComplexTypes\OrgChargesSalseAreaName.cs" />
+    <Compile Include="FedexExpressEF\DBDomain\ComplexTypes\OrgEmaiResult.cs" />
+    <Compile Include="FedexExpressEF\DBDomain\ComplexTypes\PackageResult.cs" />
+    <Compile Include="FedexExpressEF\DBDomain\ComplexTypes\RefExgRatesResult.cs" />
+    <Compile Include="FedexExpressEF\DBDomain\ComplexTypes\RefLocationsResult.cs" />
+    <Compile Include="FedexExpressEF\DBDomain\ComplexTypes\RefOrganizationResult.cs" />
+    <Compile Include="FedexExpressEF\DBDomain\ComplexTypes\RefSalesAreaResult.cs" />
+    <Compile Include="FedexExpressEF\DBDomain\ComplexTypes\RefSvcRootsResult.cs" />
+    <Compile Include="FedexExpressEF\DBDomain\ComplexTypes\ResponseProcessResult.cs" />
+    <Compile Include="FedexExpressEF\DBDomain\ComplexTypes\RptManifestResult.cs" />
+    <Compile Include="FedexExpressEF\DBDomain\ComplexTypes\SalesAreaResult.cs" />
+    <Compile Include="FedexExpressEF\DBDomain\ComplexTypes\ServiceResult.cs" />
+    <Compile Include="FedexExpressEF\DBDomain\ComplexTypes\UserAgencyDetailResult.cs" />
+    <Compile Include="FedexExpressEF\DBDomain\ComplexTypes\UserCompanyListResult.cs" />
+    <Compile Include="FedexExpressEF\DBDomain\EntityTypes\AudEmail.cs" />
+    <Compile Include="FedexExpressEF\DBDomain\EntityTypes\AudOpsConsAWB.cs" />
+    <Compile Include="FedexExpressEF\DBDomain\EntityTypes\CfgAccountTypes.cs" />
+    <Compile Include="FedexExpressEF\DBDomain\EntityTypes\cfgCityType.cs" />
+    <Compile Include="FedexExpressEF\DBDomain\EntityTypes\CfgCreditRating.cs" />
+    <Compile Include="FedexExpressEF\DBDomain\EntityTypes\CfgCurrencies.cs" />
+    <Compile Include="FedexExpressEF\DBDomain\EntityTypes\CfgCurrencyLF.cs" />
+    <Compile Include="FedexExpressEF\DBDomain\EntityTypes\CfgDoctypes.cs" />
+    <Compile Include="FedexExpressEF\DBDomain\EntityTypes\CfgPackType.cs" />
+    <Compile Include="FedexExpressEF\DBDomain\EntityTypes\CfgUploadFormatType.cs" />
+    <Compile Include="FedexExpressEF\DBDomain\EntityTypes\Debt.cs" />
+    <Compile Include="FedexExpressEF\DBDomain\EntityTypes\FinanceRefOrganization.cs" />
+    <Compile Include="FedexExpressEF\DBDomain\EntityTypes\MapCustomsChargeCode.cs" />
+    <Compile Include="FedexExpressEF\DBDomain\EntityTypes\MapScanType.cs" />
+    <Compile Include="FedexExpressEF\DBDomain\ComplexTypes\NewPaymetSummaryResult.cs" />
+    <Compile Include="FedexExpressEF\DBDomain\EntityTypes\OpsConsAWB.cs" />
+    <Compile Include="FedexExpressEF\DBDomain\EntityTypes\OpsConsMaster.cs" />
+    <Compile Include="FedexExpressEF\DBDomain\EntityTypes\RatesCostAgnCountryCustTariff.cs" />
+    <Compile Include="FedexExpressEF\DBDomain\EntityTypes\RatesCostAgnCountryCustTariffDisc.cs" />
+    <Compile Include="FedexExpressEF\DBDomain\EntityTypes\RatesCostAgnCountryMaster.cs" />
+    <Compile Include="FedexExpressEF\DBDomain\EntityTypes\RatesCostAgnCountryMasterHed.cs" />
+    <Compile Include="FedexExpressEF\DBDomain\EntityTypes\RatesCostAgnZoneCustTariff.cs" />
+    <Compile Include="FedexExpressEF\DBDomain\EntityTypes\RatesCostAgnZoneCustTariffDisc.cs" />
+    <Compile Include="FedexExpressEF\DBDomain\EntityTypes\RatesCostAgnZoneMaster.cs" />
+    <Compile Include="FedexExpressEF\DBDomain\EntityTypes\RatesCostAgnZoneMasterHed.cs" />
+    <Compile Include="FedexExpressEF\DBDomain\EntityTypes\RatesSellZoneCustSpec.cs" />
+    <Compile Include="FedexExpressEF\DBDomain\EntityTypes\RatesSellZoneCustSpecHed.cs" />
+    <Compile Include="FedexExpressEF\DBDomain\EntityTypes\RefBranch.cs" />
+    <Compile Include="FedexExpressEF\DBDomain\EntityTypes\RefChargeCode.cs" />
+    <Compile Include="FedexExpressEF\DBDomain\EntityTypes\RefChargeCodesInvoice.cs" />
+    <Compile Include="FedexExpressEF\DBDomain\EntityTypes\RefChartAcActMain.cs" />
+    <Compile Include="FedexExpressEF\DBDomain\EntityTypes\RefChartAcActSub.cs" />
+    <Compile Include="FedexExpressEF\DBDomain\EntityTypes\RefChartAcActSub2.cs" />
+    <Compile Include="FedexExpressEF\DBDomain\EntityTypes\RefChartAcGrpMain.cs" />
+    <Compile Include="FedexExpressEF\DBDomain\EntityTypes\RefChartAcGrpSub.cs" />
+    <Compile Include="FedexExpressEF\DBDomain\EntityTypes\RefCountryExpress.cs" />
+    <Compile Include="FedexExpressEF\DBDomain\EntityTypes\RefDesignation.cs" />
+    <Compile Include="FedexExpressEF\DBDomain\EntityTypes\CfgeDocType.cs" />
+    <Compile Include="FedexExpressEF\DBDomain\EntityTypes\CfgExgRatTarifType.cs" />
+    <Compile Include="FedexExpressEF\DBDomain\EntityTypes\CfgFamilyLife.cs" />
+    <Compile Include="FedexExpressEF\DBDomain\EntityTypes\CfgFuelChartType.cs" />
+    <Compile Include="FedexExpressEF\DBDomain\EntityTypes\cfgHorizontalMenuItem.cs" />
+    <Compile Include="FedexExpressEF\DBDomain\EntityTypes\CfgInvoiceMode.cs" />
+    <Compile Include="FedexExpressEF\DBDomain\EntityTypes\CfgLocationType.cs" />
+    <Compile Include="FedexExpressEF\DBDomain\EntityTypes\CfgMaritalStatus.cs" />
+    <Compile Include="FedexExpressEF\DBDomain\EntityTypes\CfgOrgStatus.cs" />
+    <Compile Include="FedexExpressEF\DBDomain\EntityTypes\CfgParam1.cs" />
+    <Compile Include="FedexExpressEF\DBDomain\EntityTypes\CfgProductsMain.cs" />
+    <Compile Include="FedexExpressEF\DBDomain\EntityTypes\CfgProductsMap.cs" />
+    <Compile Include="FedexExpressEF\DBDomain\EntityTypes\CfgProductsSub.cs" />
+    <Compile Include="FedexExpressEF\DBDomain\EntityTypes\CfgShipmentType.cs" />
+    <Compile Include="FedexExpressEF\DBDomain\EntityTypes\CfgSvcType.cs" />
+    <Compile Include="FedexExpressEF\DBDomain\EntityTypes\cfgTitle.cs" />
+    <Compile Include="FedexExpressEF\DBDomain\EntityTypes\CfgTransportMethod.cs" />
+    <Compile Include="FedexExpressEF\DBDomain\EntityTypes\ConAgency.cs" />
+    <Compile Include="FedexExpressEF\DBDomain\EntityTypes\ConCompanyModule.cs" />
+    <Compile Include="FedexExpressEF\DBDomain\EntityTypes\ConModule.cs" />
+    <Compile Include="FedexExpressEF\DBDomain\EntityTypes\ConModulesUserRoll.cs" />
+    <Compile Include="FedexExpressEF\DBDomain\EntityTypes\ConModulesUserRollsHed.cs" />
+    <Compile Include="FedexExpressEF\DBDomain\EntityTypes\ConSystemMenu.cs" />
+    <Compile Include="FedexExpressEF\DBDomain\EntityTypes\ConSystemMenuOption.cs" />
+    <Compile Include="FedexExpressEF\DBDomain\EntityTypes\ConUserAccess.cs" />
+    <Compile Include="FedexExpressEF\DBDomain\EntityTypes\ConUserCompany.cs" />
+    <Compile Include="FedexExpressEF\DBDomain\EntityTypes\ConUserCompanyModule.cs" />
+    <Compile Include="FedexExpressEF\DBDomain\EntityTypes\ConUserRoll.cs" />
+    <Compile Include="FedexExpressEF\DBDomain\EntityTypes\OrgCreditLimit.cs" />
+    <Compile Include="FedexExpressEF\DBDomain\EntityTypes\OrgGroup.cs" />
+    <Compile Include="FedexExpressEF\DBDomain\EntityTypes\RatesExchange.cs" />
+    <Compile Include="FedexExpressEF\DBDomain\EntityTypes\RatesSellCountryCustSpec.cs" />
+    <Compile Include="FedexExpressEF\DBDomain\EntityTypes\RatesSellCountryCustSpecHed.cs" />
+    <Compile Include="FedexExpressEF\DBDomain\EntityTypes\RatesSellCountryCustTariff.cs" />
+    <Compile Include="FedexExpressEF\DBDomain\EntityTypes\RatesSellCountryCustTariffDisc.cs" />
+    <Compile Include="FedexExpressEF\DBDomain\EntityTypes\RatesSellCountryMaster.cs" />
+    <Compile Include="FedexExpressEF\DBDomain\EntityTypes\RatesSellCountryMasterHed.cs" />
+    <Compile Include="FedexExpressEF\DBDomain\EntityTypes\RatesSellZoneCustTariff.cs" />
+    <Compile Include="FedexExpressEF\DBDomain\EntityTypes\RatesSellZoneCustTariffDisc.cs" />
+    <Compile Include="FedexExpressEF\DBDomain\EntityTypes\RatesSellZoneMaster.cs" />
+    <Compile Include="FedexExpressEF\DBDomain\EntityTypes\RatesSellZoneMasterHed.cs" />
+    <Compile Include="FedexExpressEF\DBDomain\EntityTypes\OrgContacts.cs" />
+    <Compile Include="FedexExpressEF\DBDomain\EntityTypes\OrgContactsFamily.cs" />
+    <Compile Include="FedexExpressEF\DBDomain\EntityTypes\RefAirLine.cs" />
+    <Compile Include="FedexExpressEF\DBDomain\EntityTypes\RefCompany.cs" />
+    <Compile Include="FedexExpressEF\DBDomain\EntityTypes\RefDocType.cs" />
+    <Compile Include="FedexExpressEF\DBDomain\EntityTypes\RefeDoc.cs" />
+    <Compile Include="FedexExpressEF\DBDomain\EntityTypes\RefHub.cs" />
+    <Compile Include="FedexExpressEF\DBDomain\EntityTypes\RefLocation.cs" />
+    <Compile Include="FedexExpressEF\DBDomain\EntityTypes\RefOrganization.cs" />
+    <Compile Include="FedexExpressEF\DBDomain\EntityTypes\RefOrgDepartment.cs" />
+    <Compile Include="FedexExpressEF\DBDomain\EntityTypes\RefOrgNote.cs" />
+    <Compile Include="FedexExpressEF\DBDomain\EntityTypes\RefSalesArea.cs" />
+    <Compile Include="FedexExpressEF\DBDomain\EntityTypes\RefSalesAreaGroup.cs" />
+    <Compile Include="FedexExpressEF\DBDomain\EntityTypes\RefSalesPerson.cs" />
+    <Compile Include="FedexExpressEF\DBDomain\EntityTypes\RefSvcRoots.cs" />
+    <Compile Include="FedexExpressEF\DBDomain\EntityTypes\RefTaxOrg.cs" />
+    <Compile Include="FedexExpressEF\DBDomain\EntityTypes\RefVisaRoot.cs" />
+    <Compile Include="FedexExpressEF\DBDomain\EntityTypes\RefZone.cs" />
+    <Compile Include="FedexExpressEF\DBDomain\EntityTypes\RefZonesHed.cs" />
+    <Compile Include="FedexExpressEF\DBDomain\EntityTypes\ConCompany.cs" />
+    <Compile Include="FedexExpressEF\DBDomain\EntityTypes\ConUserDetail.cs" />
+    <Compile Include="FedexExpressEF\DBDomain\EntityTypes\RatesFuelShg.cs" />
+    <Compile Include="FedexExpressEF\DBDomain\EntityTypes\RefCity.cs" />
+    <Compile Include="FedexExpressEF\DBDomain\EntityTypes\RefCountry.cs" />
+    <Compile Include="FedexExpressEF\DBDomain\EntityTypes\RefHolidays.cs" />
+    <Compile Include="FedexExpressEF\DBDomain\EntityTypes\RefIndustryType.cs" />
+    <Compile Include="FedexExpressEF\DBDomain\EntityTypes\RefStateRegion.cs" />
+    <Compile Include="FedexExpressEF\DBDomain\EntityTypes\RefTransTimeDom.cs" />
+    <Compile Include="FedexExpressEF\DBDomain\EntityTypes\RefTransTimeDomHed.cs" />
+    <Compile Include="FedexExpressEF\DBDomain\EntityTypes\RefTransTimeDomLT.cs" />
+    <Compile Include="FedexExpressEF\DBDomain\EntityTypes\RefWorldRegion.cs" />
+    <Compile Include="FedexExpressEF\DBDomain\EntityTypes\RefZipCode.cs" />
+    <Compile Include="FedexExpressEF\DBDomain\EntityTypes\SharedMainRefOrganization.cs" />
+    <Compile Include="FedexExpressEF\DBDomain\EntityTypes\SharedRefOrganization.cs" />
+    <Compile Include="FedexExpressEF\DBDomain\EntityTypes\SystemUserAccess.cs" />
+    <Compile Include="FedexExpressEF\DBDomain\EntityTypes\SystemUserRolesAccess.cs" />
+    <Compile Include="FedexExpressEF\DBDomain\EntityTypes\TrCusdecDet.cs" />
+    <Compile Include="FedexExpressEF\DBDomain\EntityTypes\TrCusdecHed.cs" />
+    <Compile Include="FedexExpressEF\DBDomain\EntityTypes\vw_TransTimeDom.cs" />
+    <Compile Include="FedexExpressEF\ExpressContext.cs" />
+    <Compile Include="FedexExpressEF\ExpressRepository.cs" />
+    <Compile Include="FedexExpressEF\ExpressUnitOfWork.cs" />
+    <Compile Include="FedexExpressEF\IExpressUnitOfWork.cs" />
+    <Compile Include="FedexExpressEF\IRepository.cs" />
+    <Compile Include="Filters\CustomerSearchData.cs" />
+    <Compile Include="Helpers\ServerEncryptDecrypt.cs" />
+    <Compile Include="Inquiry\ClearanceAnalysisData.cs" />
+    <Compile Include="Inquiry\DutyOutstandingData.cs" />
+    <Compile Include="Inquiry\InvoiceSummaryData.cs" />
+    <Compile Include="Inquiry\NotInvoiceData.cs" />
+    <Compile Include="Inquiry\PaymetSummaryData.cs" />
+    <Compile Include="Inquiry\ShipmentHeldData.cs" />
+    <Compile Include="Invoice\ClrInvPrintingData.cs" />
+    <Compile Include="Invoice\ClrInvOpsInvoiceChgData.cs" />
+    <Compile Include="Invoice\ClrInvOpsRouteChgData.cs" />
+    <Compile Include="Invoice\InvDutyData.cs" />
+    <Compile Include="Mail\SendMailData.cs" />
+    <Compile Include="Operations\Manifest\AWBManualData.cs" />
+    <Compile Include="Operations\Manifest\ClearancePreAlertData.cs" />
+    <Compile Include="Operations\Manifest\ManifestInboundData.cs" />
+    <Compile Include="Operations\Manifest\ManifestInboundEditData.cs" />
+    <Compile Include="Operations\Manifest\ManifestInboundInvPopupData.cs" />
+    <Compile Include="Operations\Manifest\ManifestUploadData.cs" />
+    <Compile Include="Operations\Manifest\ManifestUploadFedexData.cs" />
+    <Compile Include="Operations\Manifest\ManifestUploadTNTData.cs" />
+    <Compile Include="Operations\Manifest\SearchClearancePreAlertData.cs" />
+    <Compile Include="Operations\Manifest\WebManifestData.cs" />
+    <Compile Include="Operations\Manifest\WebManifestPopUpData.cs" />
+    <Compile Include="Pricing\ExchangeRatesDate.cs" />
+    <Compile Include="Pricing\OrgChargesData.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Report\GeneralReportData.cs" />
+    <Compile Include="Report\Operation\RptOperationData.cs" />
+    <Compile Include="SAP\SAPInvoiceData.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\FedexExpress.Custom.Exception\Express.Custom.ExcepHandle.csproj">
+      <Project>{f969d0d4-c2a7-4992-9ebc-d55f61235c19}</Project>
+      <Name>Express.Custom.ExcepHandle</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\FedexExpress.Domain\Express.View.Domain.csproj">
+      <Project>{296ec1b2-e4c0-4c2f-8b98-a2c30769a39c}</Project>
+      <Name>Express.View.Domain</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\FedexExpress.Interfaces\Express.Interfaces.csproj">
+      <Project>{5de2b986-300a-436c-b438-f241e6796f99}</Project>
+      <Name>Express.Interfaces</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.Config">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="FedexExpressEF\DBException\" />
+    <Folder Include="Pricing\Helper\" />
+    <Folder Include="SoapUI\" />
+    <Folder Include="Transaction\" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

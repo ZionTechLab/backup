@@ -1,0 +1,77 @@
+﻿using System;
+using System.Collections.Generic;
+using System.IO;
+using System.Linq;
+using System.Net.Mail;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace Express.Data.Common
+{
+    public class SendMail
+    {
+         
+        public static readonly string SMTP_CLIENT = "smtpout.secureserver.net"; // as we are using outlook so we have provided smtp-mail.outlook.com   
+        public static readonly string EMAIL_BODY = "Reset your Password <a href='http://{0}.safetychain.com/api/Account/forgotPassword?{1}'>Here.</a>";
+        public SendMail()
+        {
+
+        }
+        public bool SendEMail(string recipient, string subject, string message, byte[] attachment, string ReferenceNo, string CC, string EmailSender, string EmailSenderPassword)
+        {
+            string[] EmailToList = recipient.Split(';');
+            string ToEmail = EmailToList[0];
+
+            byte[] imagedata = (byte[])attachment;
+            MemoryStream memorystream = new MemoryStream(imagedata, 0, imagedata.Length);
+
+            bool isMessageSent = false;
+            System.Net.Mail.SmtpClient client = new System.Net.Mail.SmtpClient(SMTP_CLIENT);
+            client.Port = 80;
+            client.DeliveryMethod = System.Net.Mail.SmtpDeliveryMethod.Network;
+            client.UseDefaultCredentials = false;
+            System.Net.NetworkCredential credentials = new System.Net.NetworkCredential(EmailSender, EmailSenderPassword);
+            client.EnableSsl = false;
+            client.Credentials = credentials;
+
+            System.Net.Mime.ContentType ct = new System.Net.Mime.ContentType(System.Net.Mime.MediaTypeNames.Text.Plain);
+            System.Net.Mail.Attachment attach = new System.Net.Mail.Attachment(memorystream, ct);
+            attach.ContentDisposition.FileName = ReferenceNo + ".pdf";
+
+            try
+            {
+                MailAddress mailFrom = new MailAddress(EmailSender.Trim(), "SAB Express LLC  - Invoices");
+                MailAddress mailTo = new MailAddress(ToEmail.Trim());
+                var mail = new System.Net.Mail.MailMessage(mailFrom, mailTo);
+
+                mail.Subject = subject;
+                mail.Body = message.TrimEnd('0').TrimEnd('.');
+                mail.IsBodyHtml = true;
+                if (CC != "" && CC != null)
+                {
+                    mail.CC.Add(CC);
+                }
+                foreach (var e_item in EmailToList.Skip(1))
+                {
+                    if (e_item != "")
+                    {
+                        mail.CC.Add(e_item);
+                    }
+                }
+                //System.Net.Mail.Attachment attachment;  
+                //attachment = new Attachment(@"C:\Users\XXX\XXX\XXX.jpg");  
+                if (attach != null)
+                {
+                    mail.Attachments.Add(attach);
+                }
+                client.Send(mail);
+                isMessageSent = true;
+            }
+            catch (Exception ex)
+            {
+                throw;
+            }
+            return isMessageSent;
+        }
+    }
+}

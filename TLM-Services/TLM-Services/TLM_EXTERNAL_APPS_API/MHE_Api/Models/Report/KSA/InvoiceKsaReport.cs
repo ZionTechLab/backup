@@ -1,0 +1,37 @@
+﻿using CrystalDecisions.CrystalReports.Engine;
+using MHE_Api.Models.Report.KSA;
+using MHE_Api.Report.Invoice.ReportProxy;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace MHE_Api.Report.Invoice.Report.KSA
+{
+    public class InvoiceKsaReport : IInvoiceReportSelector
+    {
+        private static Dictionary<object, ReportDocument> reportContainer = null;
+        public ReportDocument InvoiceReporLocator(string _key)
+        {
+            #region inject services
+            //if (reportContainer == null)
+            //{
+            reportContainer = new Dictionary<object, ReportDocument>();
+            reportContainer.Add("dutyinv", new InvoiceKsaTaxRpt());
+            reportContainer.Add("frtinv", new InvoiceFreightRpt2());
+
+            //}
+
+            #endregion
+            try
+            {
+                return (ReportDocument)reportContainer[_key];
+            }
+            catch (Exception)
+            {
+                throw new NotImplementedException("Report not available.");
+            }
+        }
+    }
+}

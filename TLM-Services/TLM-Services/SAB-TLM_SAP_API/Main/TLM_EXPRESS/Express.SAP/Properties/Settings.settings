@@ -1,0 +1,15 @@
+﻿<?xml version='1.0' encoding='utf-8'?>
+<SettingsFile xmlns="http://schemas.microsoft.com/VisualStudio/2004/01/settings" CurrentProfile="(Default)" GeneratedClassNamespace="Express.SAP.Properties" GeneratedClassName="Settings">
+  <Profiles />
+  <Settings>
+    <Setting Name="SapPassword" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">654321</Value>
+    </Setting>
+    <Setting Name="SapUserName" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">RFC_FEDEX</Value>
+    </Setting>
+    <Setting Name="Express_SAP_Invoice_ZBAPI_ACC_DOCUMENT_POST" Type="(Web Service URL)" Scope="Application">
+      <Value Profile="(Default)">http://QASERPAPP.sab-holding.com:8016/sap/bc/srt/rfc/sap/zdocpost1/250/zbapi_acc_document_post/bindingdoc</Value>
+    </Setting>
+  </Settings>
+</SettingsFile>

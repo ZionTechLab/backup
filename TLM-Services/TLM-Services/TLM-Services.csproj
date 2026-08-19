@@ -1,0 +1,38 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup Label="Globals">
+    <SccProjectName>SAK</SccProjectName>
+    <SccProvider>SAK</SccProvider>
+    <SccAuxPath>SAK</SccAuxPath>
+    <SccLocalPath>SAK</SccLocalPath>
+  </PropertyGroup>
+
+  <PropertyGroup>
+    <TargetFramework>net6.0</TargetFramework>
+    <RootNamespace>TLM_Services</RootNamespace>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Remove="ADVF-SAP_TO_KUHLEKT_FTP_APP\**" />
+    <Compile Remove="SAB-TLM_SAP_API\**" />
+    <Compile Remove="TLM_ALERT_APPS\**" />
+    <Compile Remove="TLM_e-INVOICING_APPS\**" />
+    <Compile Remove="TLM_eDOC_FILES_AUTOSCAN_APP\**" />
+    <Compile Remove="TLM_EXTERNAL_APPS_API\**" />
+    <EmbeddedResource Remove="ADVF-SAP_TO_KUHLEKT_FTP_APP\**" />
+    <EmbeddedResource Remove="SAB-TLM_SAP_API\**" />
+    <EmbeddedResource Remove="TLM_ALERT_APPS\**" />
+    <EmbeddedResource Remove="TLM_e-INVOICING_APPS\**" />
+    <EmbeddedResource Remove="TLM_eDOC_FILES_AUTOSCAN_APP\**" />
+    <EmbeddedResource Remove="TLM_EXTERNAL_APPS_API\**" />
+    <None Remove="ADVF-SAP_TO_KUHLEKT_FTP_APP\**" />
+    <None Remove="SAB-TLM_SAP_API\**" />
+    <None Remove="TLM_ALERT_APPS\**" />
+    <None Remove="TLM_e-INVOICING_APPS\**" />
+    <None Remove="TLM_eDOC_FILES_AUTOSCAN_APP\**" />
+    <None Remove="TLM_EXTERNAL_APPS_API\**" />
+  </ItemGroup>
+
+</Project>

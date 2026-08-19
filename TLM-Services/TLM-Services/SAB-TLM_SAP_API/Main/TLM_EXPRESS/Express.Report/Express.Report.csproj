@@ -1,0 +1,510 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{D3D4ACC6-F67E-4DBB-AD56-370B6CE0B5A9}</ProjectGuid>
+    <OutputType>library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Express.Report</RootNamespace>
+    <AssemblyName>Express.Report</AssemblyName>
+    <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <ProjectTypeGuids>{60dc8134-eba5-43b8-bcc9-bb4bc16c2548};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+    <WarningLevel>4</WarningLevel>
+    <SccProjectName>SAK</SccProjectName>
+    <SccLocalPath>SAK</SccLocalPath>
+    <SccAuxPath>SAK</SccAuxPath>
+    <SccProvider>SAK</SccProvider>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="AxInterop.AcroPDFLib">
+      <HintPath>..\..\..\..\TLM_FINAL\TLM_FINAL\TLM\FedexExpress\bin\Debug\AxInterop.AcroPDFLib.dll</HintPath>
+    </Reference>
+    <Reference Include="CrystalDecisions.CrystalReports.Engine, Version=13.0.2000.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>bin\Debug\CrystalDecisions.CrystalReports.Engine.dll</HintPath>
+    </Reference>
+    <Reference Include="CrystalDecisions.ReportAppServer.ClientDoc, Version=13.0.2000.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+      <HintPath>bin\Debug\CrystalDecisions.ReportAppServer.ClientDoc.dll</HintPath>
+    </Reference>
+    <Reference Include="CrystalDecisions.ReportAppServer.CommLayer, Version=13.0.2000.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+      <HintPath>bin\Debug\CrystalDecisions.ReportAppServer.CommLayer.dll</HintPath>
+    </Reference>
+    <Reference Include="CrystalDecisions.ReportAppServer.CommonControls, Version=13.0.2000.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+      <HintPath>bin\Debug\CrystalDecisions.ReportAppServer.CommonControls.dll</HintPath>
+    </Reference>
+    <Reference Include="CrystalDecisions.ReportAppServer.CommonObjectModel, Version=13.0.2000.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+      <HintPath>bin\Debug\CrystalDecisions.ReportAppServer.CommonObjectModel.dll</HintPath>
+    </Reference>
+    <Reference Include="CrystalDecisions.ReportAppServer.Controllers, Version=13.0.2000.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+      <HintPath>bin\Debug\CrystalDecisions.ReportAppServer.Controllers.dll</HintPath>
+    </Reference>
+    <Reference Include="CrystalDecisions.ReportAppServer.CubeDefModel, Version=13.0.2000.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+      <HintPath>bin\Debug\CrystalDecisions.ReportAppServer.CubeDefModel.dll</HintPath>
+    </Reference>
+    <Reference Include="CrystalDecisions.ReportAppServer.DataDefModel, Version=13.0.2000.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+      <HintPath>bin\Debug\CrystalDecisions.ReportAppServer.DataDefModel.dll</HintPath>
+    </Reference>
+    <Reference Include="CrystalDecisions.ReportAppServer.DataSetConversion, Version=13.0.2000.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>bin\Debug\CrystalDecisions.ReportAppServer.DataSetConversion.dll</HintPath>
+    </Reference>
+    <Reference Include="CrystalDecisions.ReportAppServer.ObjectFactory, Version=13.0.2000.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+      <HintPath>bin\Debug\CrystalDecisions.ReportAppServer.ObjectFactory.dll</HintPath>
+    </Reference>
+    <Reference Include="CrystalDecisions.ReportAppServer.Prompting, Version=13.0.2000.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+      <HintPath>bin\Debug\CrystalDecisions.ReportAppServer.Prompting.dll</HintPath>
+    </Reference>
+    <Reference Include="CrystalDecisions.ReportAppServer.ReportDefModel, Version=13.0.2000.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+      <HintPath>bin\Debug\CrystalDecisions.ReportAppServer.ReportDefModel.dll</HintPath>
+    </Reference>
+    <Reference Include="CrystalDecisions.ReportAppServer.XmlSerialize, Version=13.0.2000.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+      <HintPath>bin\Debug\CrystalDecisions.ReportAppServer.XmlSerialize.dll</HintPath>
+    </Reference>
+    <Reference Include="CrystalDecisions.ReportSource, Version=13.0.2000.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>bin\Debug\CrystalDecisions.ReportSource.dll</HintPath>
+    </Reference>
+    <Reference Include="CrystalDecisions.Shared, Version=13.0.2000.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL" />
+    <Reference Include="CrystalDecisions.Windows.Forms, Version=13.0.2000.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL" />
+    <Reference Include="FlashControlV71, Version=1.0.3187.32366, Culture=neutral, PublicKeyToken=692fbea5521e1304" />
+    <Reference Include="SAPBusinessObjects.WPF.Viewer, Version=13.0.3500.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>bin\Debug\SAPBusinessObjects.WPF.Viewer.dll</HintPath>
+    </Reference>
+    <Reference Include="SAPBusinessObjects.WPF.ViewerShared, Version=13.0.3500.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>bin\Debug\SAPBusinessObjects.WPF.ViewerShared.dll</HintPath>
+    </Reference>
+    <Reference Include="ShockwaveFlashObjects, Version=1.0.0.0, Culture=neutral, PublicKeyToken=692fbea5521e1304">
+      <SpecificVersion>False</SpecificVersion>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+      <HintPath>bin\Debug\ShockwaveFlashObjects.dll</HintPath>
+    </Reference>
+    <Reference Include="stdole, Version=7.0.3300.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+      <SpecificVersion>False</SpecificVersion>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+      <HintPath>bin\Debug\stdole.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xaml">
+      <RequiredTargetFramework>4.0</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="WindowsBase" />
+    <Reference Include="PresentationCore" />
+    <Reference Include="PresentationFramework" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="General\GeneralDTSxsd.cs">
+      <DependentUpon>GeneralDTSxsd.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="General\GeneralDTSxsd.Designer.cs">
+      <DependentUpon>GeneralDTSxsd.xsd</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="Inquiry\DataTbl\InquaryDataSet.cs">
+      <DependentUpon>InquaryDataSet.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Inquiry\DataTbl\InquaryDataSet.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>InquaryDataSet.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Inquiry\ReportProxy\IInqueryReportSelector.cs" />
+    <Compile Include="Inquiry\ReportProxy\InquiryReport.cs" />
+    <Compile Include="Inquiry\Report\ClearanceAnalysisReport.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ClearanceAnalysisReport.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Inquiry\Report\InqShipHeldSummary.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>InqShipHeldSummary.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Inquiry\Report\KSA\ClearanceAnalysisKsaReport.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ClearanceAnalysisKsaReport.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Inquiry\Report\KSA\InqueryKsaReport.cs" />
+    <Compile Include="Inquiry\Report\KSA\InvoiceSummaryKsaReport.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>InvoiceSummaryKsaReport.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Inquiry\Report\KSA\PaymetSummaryKsaReport.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>PaymetSummaryKsaReport.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Inquiry\Report\NotInvoiceSummaryReport.cs">
+      <DependentUpon>NotInvoiceSummaryReport.rpt</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <SubType>Component</SubType>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="Inquiry\Report\OMAN\ClearanceAnalysisOmanReport.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ClearanceAnalysisOmanReport.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Inquiry\Report\OMAN\InqueryOmanReport.cs" />
+    <Compile Include="Inquiry\Report\OMAN\InvoiceSummaryOmanReport.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>InvoiceSummaryOmanReport.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Inquiry\Report\OMAN\PaymetSummaryOmanReport.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>PaymetSummaryOmanReport.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Inquiry\Report\PaymetSummaryReport.cs">
+      <DependentUpon>PaymetSummaryReport.rpt</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <SubType>Component</SubType>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="Inquiry\Report\InvoiceSummaryReport.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>InvoiceSummaryReport.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Invoice\DataTbl\InvoiceDTS.cs">
+      <DependentUpon>InvoiceDTS.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Invoice\DataTbl\InvoiceDTS.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>InvoiceDTS.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Invoice\ReportProxy\IInvoiceReportSelector.cs" />
+    <Compile Include="Invoice\ReportProxy\InvoiceReport.cs" />
+    <Compile Include="Invoice\Report\InvoiceTaxRpt.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>InvoiceTaxRpt.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Invoice\Report\InvoiceTaxSummary.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>InvoiceTaxSummary.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Invoice\Report\KSA\InvoiceKsaReport.cs" />
+    <Compile Include="Invoice\Report\KSA\InvoiceKsaTaxRpt.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>InvoiceKsaTaxRpt.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Invoice\Report\OMAN\InvoiceOmanTaxRpt.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>InvoiceOmanTaxRpt.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Invoice\Report\OMAN\InvoiceOmnReport.cs" />
+    <Compile Include="Operation\Report\RptPreManifest.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>RptPreManifest.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="ReportPreviewWinView.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ReportPreviewWinView.Designer.cs">
+      <DependentUpon>ReportPreviewWinView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Operation\DataTbl\OperationDTS.cs">
+      <DependentUpon>OperationDTS.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Operation\DataTbl\OperationDTS1.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>OperationDTS.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Operation\ReportProxy\OperationReports.cs" />
+    <Compile Include="Operation\Report\RptManifest.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>RptManifest.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Pricing\DataTbl\PricingDTS1.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>PricingDTS.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Pricing\Report\PrincipleFedexRecon1.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>PrincipleFedexRecon.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Pricing\Report\PrincipleFedexSummeryRecon.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>PrincipleFedexSummeryRecon.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Pricing\Report\PrincipleTnTRecon.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>PrincipleTnTRecon.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="ReportContext.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Properties\AssemblyInfo.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+    <EmbeddedResource Include="Inquiry\Report\ClearanceAnalysisReport.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>ClearanceAnalysisReport.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Inquiry\Report\InqShipHeldSummary.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>InqShipHeldSummary.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Inquiry\Report\KSA\ClearanceAnalysisKsaReport.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>ClearanceAnalysisKsaReport.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Inquiry\Report\KSA\InvoiceSummaryKsaReport.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>InvoiceSummaryKsaReport.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Inquiry\Report\KSA\PaymetSummaryKsaReport.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>PaymetSummaryKsaReport.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Inquiry\Report\NotInvoiceSummaryReport.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>NotInvoiceSummaryReport.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Inquiry\Report\OMAN\ClearanceAnalysisOmanReport.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>ClearanceAnalysisOmanReport.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Inquiry\Report\OMAN\InvoiceSummaryOmanReport.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>InvoiceSummaryOmanReport.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Inquiry\Report\OMAN\PaymetSummaryOmanReport.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>PaymetSummaryOmanReport.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Inquiry\Report\PaymetSummaryReport.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>PaymetSummaryReport.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Inquiry\Report\InvoiceSummaryReport.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>InvoiceSummaryReport.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Invoice\Report\InvoiceTaxRpt.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>InvoiceTaxRpt.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Invoice\Report\InvoiceTaxSummary.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>InvoiceTaxSummary.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Invoice\Report\KSA\InvoiceKsaTaxRpt.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>InvoiceKsaTaxRpt.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Invoice\Report\OMAN\InvoiceOmanTaxRpt.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>InvoiceOmanTaxRpt.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Operation\Report\RptManifest.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>RptManifest.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Operation\Report\RptPreManifest.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>RptPreManifest.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Pricing\Report\PrincipleFedexRecon.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>PrincipleFedexRecon1.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Pricing\Report\PrincipleFedexSummeryRecon.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>PrincipleFedexSummeryRecon.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Pricing\Report\PrincipleTnTRecon.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>PrincipleTnTRecon.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ReportPreviewWinView.resx">
+      <DependentUpon>ReportPreviewWinView.cs</DependentUpon>
+    </EmbeddedResource>
+    <None Include="General\GeneralDTSxsd.xsc">
+      <DependentUpon>GeneralDTSxsd.xsd</DependentUpon>
+    </None>
+    <None Include="General\GeneralDTSxsd.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>GeneralDTSxsd.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="General\GeneralDTSxsd.xss">
+      <DependentUpon>GeneralDTSxsd.xsd</DependentUpon>
+    </None>
+    <None Include="Inquiry\DataTbl\InquaryDataSet.xsc">
+      <DependentUpon>InquaryDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="Inquiry\DataTbl\InquaryDataSet.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>InquaryDataSet.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="Inquiry\DataTbl\InquaryDataSet.xss">
+      <DependentUpon>InquaryDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="Invoice\DataTbl\InvoiceDTS.xsc">
+      <DependentUpon>InvoiceDTS.xsd</DependentUpon>
+    </None>
+    <None Include="Invoice\DataTbl\InvoiceDTS.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>InvoiceDTS.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Invoice\DataTbl\InvoiceDTS.xss">
+      <DependentUpon>InvoiceDTS.xsd</DependentUpon>
+    </None>
+    <None Include="Operation\DataTbl\OperationDTS.xsc">
+      <DependentUpon>OperationDTS.xsd</DependentUpon>
+    </None>
+    <None Include="Operation\DataTbl\OperationDTS.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>OperationDTS1.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Operation\DataTbl\OperationDTS.xss">
+      <DependentUpon>OperationDTS.xsd</DependentUpon>
+    </None>
+    <None Include="Pricing\DataTbl\PricingDTS.xsc">
+      <DependentUpon>PricingDTS.xsd</DependentUpon>
+    </None>
+    <None Include="Pricing\DataTbl\PricingDTS.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>PricingDTS1.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Pricing\DataTbl\PricingDTS.xss">
+      <DependentUpon>PricingDTS.xsd</DependentUpon>
+    </None>
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <AppDesigner Include="Properties\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Pricing\ReportProxy\" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\FedexExpress.Domain\Express.View.Domain.csproj">
+      <Project>{296ec1b2-e4c0-4c2f-8b98-a2c30769a39c}</Project>
+      <Name>Express.View.Domain</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\FedexExpress.Interfaces\Express.Interfaces.csproj">
+      <Project>{5de2b986-300a-436c-b438-f241e6796f99}</Project>
+      <Name>Express.Interfaces</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{C0C07587-41A7-46C8-8FBD-3F9C8EBE2DDC}" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

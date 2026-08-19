@@ -1,0 +1,519 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{164E6C4E-E962-4E28-9F42-80134299138A}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Express.UI</RootNamespace>
+    <AssemblyName>Express.UI</AssemblyName>
+    <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <TargetFrameworkProfile />
+    <SccProjectName>SAK</SccProjectName>
+    <SccLocalPath>SAK</SccLocalPath>
+    <SccAuxPath>SAK</SccAuxPath>
+    <SccProvider>SAK</SccProvider>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <PublishUrl>E:\MountV2_Setup\TLM EXPRESS SETUP\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Unc</InstallFrom>
+    <UpdateEnabled>false</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <InstallUrl>\\172.24.233.99\TLM_Express\</InstallUrl>
+    <ApplicationRevision>70</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <PublishWizardCompleted>true</PublishWizardCompleted>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup>
+    <StartupObject>
+    </StartupObject>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ManifestCertificateThumbprint>F8052C6A9641B372DD10696CC894810F11CE78B1</ManifestCertificateThumbprint>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ManifestKeyFile>Express.UI_TemporaryKey.pfx</ManifestKeyFile>
+  </PropertyGroup>
+  <PropertyGroup>
+    <GenerateManifests>true</GenerateManifests>
+  </PropertyGroup>
+  <PropertyGroup>
+    <TargetZone>LocalIntranet</TargetZone>
+  </PropertyGroup>
+  <PropertyGroup />
+  <PropertyGroup>
+    <SignManifests>false</SignManifests>
+  </PropertyGroup>
+  <PropertyGroup />
+  <PropertyGroup>
+    <ApplicationIcon>index_t5n_icon.ico</ApplicationIcon>
+  </PropertyGroup>
+  <PropertyGroup />
+  <PropertyGroup />
+  <PropertyGroup />
+  <PropertyGroup />
+  <PropertyGroup>
+    <ApplicationManifest>Properties\app.manifest</ApplicationManifest>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="CrystalDecisions.CrystalReports.Engine, Version=13.0.2000.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\TLM\Express.Report\bin\Debug\CrystalDecisions.CrystalReports.Engine.dll</HintPath>
+    </Reference>
+    <Reference Include="CrystalDecisions.ReportAppServer.ObjectFactory, Version=13.0.2000.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+      <HintPath>bin\Debug\CrystalDecisions.ReportAppServer.ObjectFactory.dll</HintPath>
+    </Reference>
+    <Reference Include="CrystalDecisions.ReportSource, Version=13.0.2000.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\TLM\Express.Report\bin\Debug\CrystalDecisions.ReportSource.dll</HintPath>
+    </Reference>
+    <Reference Include="CrystalDecisions.Shared, Version=13.0.2000.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\TLM\Express.Report\bin\Debug\CrystalDecisions.Shared.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.0.0\lib\net45\EntityFramework.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.0.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="EPPlus, Version=4.5.2.0, Culture=neutral, PublicKeyToken=ea159fdaa78159a1, processorArchitecture=MSIL">
+      <HintPath>..\packages\EPPlus.4.5.2\lib\net40\EPPlus.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Newtonsoft.Json, Version=11.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.11.0.1\lib\net45\Newtonsoft.Json.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="PresentationCore" />
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.configuration" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Net.Http.Formatting, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>bin\Debug\System.Net.Http.Formatting.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Security" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Common\CustomControl\DataManipulate.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Common\CustomControl\DataManipulate.Designer.cs">
+      <DependentUpon>DataManipulate.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Common\CustomValidators\CustomValidate.cs" />
+    <Compile Include="Common\CustomValidators\DateTimeValidator.cs" />
+    <Compile Include="Common\CustomValidators\NumberValidator.cs" />
+    <Compile Include="Common\CustomValidators\TextValidator.cs" />
+    <Compile Include="Common\Enum\ButtonCustomState.cs" />
+    <Compile Include="Common\Enum\ButtonTypes.cs" />
+    <Compile Include="Common\Enum\ExchangeRateStatus.cs" />
+    <Compile Include="Common\Enum\FormStateEnum.cs" />
+    <Compile Include="Common\Enum\InvoiceCategory.cs" />
+    <Compile Include="Common\Enum\InvoiceProcess.cs" />
+    <Compile Include="Common\Enum\PermissionStatus.cs" />
+    <Compile Include="Common\Helpers\IDataManipulate.cs" />
+    <Compile Include="Common\Helpers\MessageNotification.cs" />
+    <Compile Include="Common\Helpers\MessagHeaderInfo.cs" />
+    <Compile Include="Common\Helpers\Operation.cs" />
+    <Compile Include="Common\SrvReference\HttpSapReference.cs" />
+    <Compile Include="Filters\View\CustomerSearch.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Filters\View\CustomerSearch.Designer.cs">
+      <DependentUpon>CustomerSearch.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Form1.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form1.Designer.cs">
+      <DependentUpon>Form1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Inquiry\DutyOutStanding.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Inquiry\DutyOutStanding.Designer.cs">
+      <DependentUpon>DutyOutStanding.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Inquiry\InvoiceSummary.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Inquiry\InvoiceSummary.Designer.cs">
+      <DependentUpon>InvoiceSummary.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Inquiry\NotInvoiceReport.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Inquiry\NotInvoiceReport.Designer.cs">
+      <DependentUpon>NotInvoiceReport.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Inquiry\PaymetSummary.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Inquiry\PaymetSummary.Designer.cs">
+      <DependentUpon>PaymetSummary.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Insfastructure\SAP\HttpClientFactory.cs" />
+    <Compile Include="Insfastructure\SAP\SAPRest.cs" />
+    <Compile Include="Invoice\View\ClrInvPopInvoiceChg.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Invoice\View\ClrInvPopInvoiceChg.Designer.cs">
+      <DependentUpon>ClrInvPopInvoiceChg.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Invoice\View\ClrInvPopRouteChg.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Invoice\View\ClrInvPopRouteChg.Designer.cs">
+      <DependentUpon>ClrInvPopRouteChg.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Invoice\View\ClrInvPrinting.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Invoice\View\ClrInvPrinting.Designer.cs">
+      <DependentUpon>ClrInvPrinting.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Invoice\View\DutyManualInvoice.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Invoice\View\DutyManualInvoice.Designer.cs">
+      <DependentUpon>DutyManualInvoice.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Operation\View\AWBManual.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Operation\View\AWBManual.Designer.cs">
+      <DependentUpon>AWBManual.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Operation\View\Clearance-PreAlert.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Operation\View\Clearance-PreAlert.Designer.cs">
+      <DependentUpon>Clearance-PreAlert.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Operation\View\DuplicateAWB.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Operation\View\DuplicateAWB.designer.cs">
+      <DependentUpon>DuplicateAWB.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Operation\View\GetDateRangeForWebManifestSync.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Operation\View\GetDateRangeForWebManifestSync.Designer.cs">
+      <DependentUpon>GetDateRangeForWebManifestSync.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Operation\View\ManifestUpload.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Operation\View\ManifestUpload.Designer.cs">
+      <DependentUpon>ManifestUpload.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Operation\View\Manifest_Inbound.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Operation\View\Manifest_Inbound.Designer.cs">
+      <DependentUpon>Manifest_Inbound.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Operation\View\Manifest_InboundInvPopUp.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Operation\View\Manifest_InboundInvPopUp.Designer.cs">
+      <DependentUpon>Manifest_InboundInvPopUp.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Operation\View\Manifest_Inbound_Edit.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Operation\View\Manifest_Inbound_Edit.Designer.cs">
+      <DependentUpon>Manifest_Inbound_Edit.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Operation\View\Manifest_Upload_Fedex.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Operation\View\Manifest_Upload_Fedex.designer.cs">
+      <DependentUpon>Manifest_Upload_Fedex.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Operation\View\Manifest_Upload_Tnt.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Operation\View\Manifest_Upload_Tnt.designer.cs">
+      <DependentUpon>Manifest_Upload_Tnt.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Operation\View\SAPGLUpdate.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Operation\View\SAPGLUpdate.Designer.cs">
+      <DependentUpon>SAPGLUpdate.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Operation\View\SAPTest.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Operation\View\SearchClearance-PreAlert.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Operation\View\SearchClearance-PreAlert.Designer.cs">
+      <DependentUpon>SearchClearance-PreAlert.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Operation\View\WebManifestPopUp.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Operation\View\WebManifestPopUp.Designer.cs">
+      <DependentUpon>WebManifestPopUp.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Operation\View\Web_Manifest.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Operation\View\Web_Manifest.Designer.cs">
+      <DependentUpon>Web_Manifest.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Pricing\View\ExchangeRates.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Pricing\View\ExchangeRates.Designer.cs">
+      <DependentUpon>ExchangeRates.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Pricing\View\OrgCharge.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Pricing\View\OrgCharge.designer.cs">
+      <DependentUpon>OrgCharge.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="SoapUI\CreateSoapWebManifestRequest.cs" />
+    <Compile Include="SoapUI\GetXmlResult.cs" />
+    <Compile Include="SoapUI\SoapUiResult.cs" />
+    <Compile Include="TLMExpress.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="TLMExpress.Designer.cs">
+      <DependentUpon>TLMExpress.cs</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="Common\CustomControl\DataManipulate.resx">
+      <DependentUpon>DataManipulate.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Filters\View\CustomerSearch.resx">
+      <DependentUpon>CustomerSearch.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form1.resx">
+      <DependentUpon>Form1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Inquiry\DutyOutStanding.resx">
+      <DependentUpon>DutyOutStanding.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Inquiry\InvoiceSummary.resx">
+      <DependentUpon>InvoiceSummary.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Inquiry\NotInvoiceReport.resx">
+      <DependentUpon>NotInvoiceReport.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Inquiry\PaymetSummary.resx">
+      <DependentUpon>PaymetSummary.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Invoice\View\ClrInvPopInvoiceChg.resx">
+      <DependentUpon>ClrInvPopInvoiceChg.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Invoice\View\ClrInvPopRouteChg.resx">
+      <DependentUpon>ClrInvPopRouteChg.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Invoice\View\ClrInvPrinting.resx">
+      <DependentUpon>ClrInvPrinting.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Invoice\View\DutyManualInvoice.resx">
+      <DependentUpon>DutyManualInvoice.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Operation\View\AWBManual.resx">
+      <DependentUpon>AWBManual.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Operation\View\Clearance-PreAlert.resx">
+      <DependentUpon>Clearance-PreAlert.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Operation\View\DuplicateAWB.resx">
+      <DependentUpon>DuplicateAWB.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Operation\View\GetDateRangeForWebManifestSync.resx">
+      <DependentUpon>GetDateRangeForWebManifestSync.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Operation\View\ManifestUpload.resx">
+      <DependentUpon>ManifestUpload.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Operation\View\Manifest_Inbound.resx">
+      <DependentUpon>Manifest_Inbound.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Operation\View\Manifest_InboundInvPopUp.resx">
+      <DependentUpon>Manifest_InboundInvPopUp.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Operation\View\Manifest_Inbound_Edit.resx">
+      <DependentUpon>Manifest_Inbound_Edit.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Operation\View\Manifest_Upload_Fedex.resx">
+      <DependentUpon>Manifest_Upload_Fedex.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Operation\View\Manifest_Upload_Tnt.resx">
+      <DependentUpon>Manifest_Upload_Tnt.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Operation\View\SAPGLUpdate.resx">
+      <DependentUpon>SAPGLUpdate.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Operation\View\SAPTest.resx">
+      <DependentUpon>SAPTest.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Operation\View\SearchClearance-PreAlert.resx">
+      <DependentUpon>SearchClearance-PreAlert.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Operation\View\WebManifestPopUp.resx">
+      <DependentUpon>WebManifestPopUp.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Operation\View\Web_Manifest.resx">
+      <DependentUpon>Web_Manifest.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Pricing\View\ExchangeRates.resx">
+      <DependentUpon>ExchangeRates.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Pricing\View\OrgCharge.resx">
+      <DependentUpon>OrgCharge.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <EmbeddedResource Include="TLMExpress.resx">
+      <DependentUpon>TLMExpress.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <None Include="packages.config" />
+    <None Include="Properties\app.manifest" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config">
+      <SubType>Designer</SubType>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Common\ErrorHandler\" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\FedexExpress.Custom.Exception\Express.Custom.ExcepHandle.csproj">
+      <Project>{F969D0D4-C2A7-4992-9EBC-D55F61235C19}</Project>
+      <Name>Express.Custom.ExcepHandle</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\FedexExpress.Domain\Express.View.Domain.csproj">
+      <Project>{296EC1B2-E4C0-4C2F-8B98-A2C30769A39C}</Project>
+      <Name>Express.View.Domain</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\FedexExpress.Interfaces\Express.Interfaces.csproj">
+      <Project>{5DE2B986-300A-436C-B438-F241E6796F99}</Project>
+      <Name>Express.Interfaces</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\UI.Express.Factory\Express.UI.Factory.csproj">
+      <Project>{B135C77D-3140-4C7C-BF19-C239AF407C52}</Project>
+      <Name>Express.UI.Factory</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include=".NETFramework,Version=v4.5.2">
+      <Visible>False</Visible>
+      <ProductName>Microsoft .NET Framework 4.5.2 %28x86 and x64%29</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="wall7.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="wall2.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="wall8.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="index_t5n_icon.ico" />
+    <None Include="Resources\fedex-tnt-20160525.jpg" />
+    <None Include="Resources\Image1.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <PublishFile Include="log4net">
+      <Visible>False</Visible>
+      <Group>
+      </Group>
+      <TargetPath>
+      </TargetPath>
+      <PublishState>Include</PublishState>
+      <IncludeHash>True</IncludeHash>
+      <FileType>Assembly</FileType>
+    </PublishFile>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

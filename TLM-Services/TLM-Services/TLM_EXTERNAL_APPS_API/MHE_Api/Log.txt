@@ -1,0 +1,244 @@
+Time: 28/01/2020 04:27:16 PM
+-----------------------------------------------------------
+Message: Input string was not in a correct format.
+StackTrace:    at System.Number.StringToNumber(String str, NumberStyles options, NumberBuffer& number, NumberFormatInfo info, Boolean parseDecimal)
+   at System.Number.ParseInt32(String s, NumberStyles style, NumberFormatInfo info)
+   at System.Int32.Parse(String s)
+   at MHE_Api.Log.RaiseException() in C:\Dev\01_Projects\MHE_Api\MHE_Api\Log.cs:line 15
+Source: mscorlib
+TargetSite: Void StringToNumber(System.String, System.Globalization.NumberStyles, NumberBuffer ByRef, System.Globalization.NumberFormatInfo, Boolean)
+-----------------------------------------------------------
+
+Time: 20/11/2023 01:26:22 PM
+-----------------------------------------------------------
+Message: Object reference not set to an instance of an object.
+StackTrace:    at MHE_Api.DAL.ADVXCustomerPortalData.AccountSummary(Object request) in D:\TLM Workspace\EXTERNAL APIS\MHE_Api\MHE_Api\DAL\ADVXCustomerPortalData.cs:line 27
+Source: MHE_Api
+TargetSite: System.Collections.Generic.List`1[System.Object] AccountSummary(System.Object)
+-----------------------------------------------------------
+
+Time: 20/11/2023 01:26:54 PM
+-----------------------------------------------------------
+Message: Object reference not set to an instance of an object.
+StackTrace:    at MHE_Api.DAL.ADVXCustomerPortalData.AccountSummary(Object request) in D:\TLM Workspace\EXTERNAL APIS\MHE_Api\MHE_Api\DAL\ADVXCustomerPortalData.cs:line 27
+Source: MHE_Api
+TargetSite: System.Collections.Generic.List`1[System.Object] AccountSummary(System.Object)
+-----------------------------------------------------------
+
+Time: 21/11/2023 09:39:32 AM
+-----------------------------------------------------------
+Message: Cannot convert null to 'System.DateTime' because it is a non-nullable value type
+StackTrace:    at CallSite.Target(Closure , CallSite , Object )
+   at System.Dynamic.UpdateDelegates.UpdateAndExecute1[T0,TRet](CallSite site, T0 arg0)
+   at MHE_Api.DAL.ADVXCustomerPortalData.GetInboundInvoiceData(Object request) in D:\TLM Workspace\EXTERNAL APIS\MHE_Api\MHE_Api\DAL\ADVXCustomerPortalData.cs:line 77
+Source: Anonymously Hosted DynamicMethods Assembly
+TargetSite: System.DateTime CallSite.Target(System.Runtime.CompilerServices.Closure, System.Runtime.CompilerServices.CallSite, System.Object)
+-----------------------------------------------------------
+
+Time: 21/11/2023 09:40:15 AM
+-----------------------------------------------------------
+Message: Cannot convert null to 'System.DateTime' because it is a non-nullable value type
+StackTrace:    at CallSite.Target(Closure , CallSite , Object )
+   at MHE_Api.DAL.ADVXCustomerPortalData.GetInboundInvoiceData(Object request) in D:\TLM Workspace\EXTERNAL APIS\MHE_Api\MHE_Api\DAL\ADVXCustomerPortalData.cs:line 77
+Source: Anonymously Hosted DynamicMethods Assembly
+TargetSite: System.DateTime CallSite.Target(System.Runtime.CompilerServices.Closure, System.Runtime.CompilerServices.CallSite, System.Object)
+-----------------------------------------------------------
+
+Time: 21/11/2023 09:41:01 AM
+-----------------------------------------------------------
+Message: Object reference not set to an instance of an object.
+StackTrace:    at MHE_Api.DAL.ADVXCustomerPortalData.InvoiceDetailsView(Object request) in D:\TLM Workspace\EXTERNAL APIS\MHE_Api\MHE_Api\DAL\ADVXCustomerPortalData.cs:line 155
+Source: MHE_Api
+TargetSite: MHE_Api.Models.InvoiceDetailsDomainView InvoiceDetailsView(System.Object)
+-----------------------------------------------------------
+
+Time: 21/11/2023 09:42:29 AM
+-----------------------------------------------------------
+Message: Object reference not set to an instance of an object.
+StackTrace:    at MHE_Api.DAL.ADVXCustomerPortalData.InvoiceDetailsView(Object request)
+Source: MHE_Api
+TargetSite: MHE_Api.Models.InvoiceDetailsDomainView InvoiceDetailsView(System.Object)
+-----------------------------------------------------------
+
+Time: 21/11/2023 09:42:57 AM
+-----------------------------------------------------------
+Message: Object reference not set to an instance of an object.
+StackTrace:    at MHE_Api.DAL.ADVXCustomerPortalData.InvoiceDetailsView(Object request)
+Source: MHE_Api
+TargetSite: MHE_Api.Models.InvoiceDetailsDomainView InvoiceDetailsView(System.Object)
+-----------------------------------------------------------
+
+Time: 21/11/2023 09:58:34 AM
+-----------------------------------------------------------
+Message: Object reference not set to an instance of an object.
+StackTrace:    at MHE_Api.DAL.ADVXCustomerPortalData.InvoiceDetailsView(Object request) in D:\TLM Workspace\EXTERNAL APIS\MHE_Api\MHE_Api\DAL\ADVXCustomerPortalData.cs:line 159
+Source: MHE_Api
+TargetSite: MHE_Api.Models.InvoiceDetailsDomainView InvoiceDetailsView(System.Object)
+-----------------------------------------------------------
+
+Time: 17/04/2024 01:52:17 PM
+-----------------------------------------------------------
+Message: Cannot apply indexing with [] to an expression of type 'object'
+StackTrace:    at CallSite.Target(Closure , CallSite , Object , String )
+   at System.Dynamic.UpdateDelegates.UpdateAndExecute2[T0,T1,TRet](CallSite site, T0 arg0, T1 arg1)
+   at MHE_Api.DAL.ADVXCustomerPortalData.GetInvoiceList(Object request) in C:\temp\TLM-Services\TLM-Services\TLM_EXTERNAL_APPS_API\MHE_Api\DAL\ADVXCustomerPortalData.cs:line 141
+Source: Anonymously Hosted DynamicMethods Assembly
+TargetSite: System.Object CallSite.Target(System.Runtime.CompilerServices.Closure, System.Runtime.CompilerServices.CallSite, System.Object, System.String)
+-----------------------------------------------------------
+
+Time: 17/04/2024 01:53:10 PM
+-----------------------------------------------------------
+Message: Cannot apply indexing with [] to an expression of type 'object'
+StackTrace:    at CallSite.Target(Closure , CallSite , Object , String )
+   at MHE_Api.DAL.ADVXCustomerPortalData.GetInvoiceList(Object request) in C:\temp\TLM-Services\TLM-Services\TLM_EXTERNAL_APPS_API\MHE_Api\DAL\ADVXCustomerPortalData.cs:line 141
+Source: Anonymously Hosted DynamicMethods Assembly
+TargetSite: System.Object CallSite.Target(System.Runtime.CompilerServices.Closure, System.Runtime.CompilerServices.CallSite, System.Object, System.String)
+-----------------------------------------------------------
+
+Time: 17/04/2024 01:53:55 PM
+-----------------------------------------------------------
+Message: Cannot apply indexing with [] to an expression of type 'object'
+StackTrace:    at CallSite.Target(Closure , CallSite , Object , String )
+   at MHE_Api.DAL.ADVXCustomerPortalData.GetInvoiceList(Object request) in C:\temp\TLM-Services\TLM-Services\TLM_EXTERNAL_APPS_API\MHE_Api\DAL\ADVXCustomerPortalData.cs:line 141
+Source: Anonymously Hosted DynamicMethods Assembly
+TargetSite: System.Object CallSite.Target(System.Runtime.CompilerServices.Closure, System.Runtime.CompilerServices.CallSite, System.Object, System.String)
+-----------------------------------------------------------
+
+Time: 17/04/2024 01:54:58 PM
+-----------------------------------------------------------
+Message: Cannot apply indexing with [] to an expression of type 'object'
+StackTrace:    at CallSite.Target(Closure , CallSite , Object , String )
+   at MHE_Api.DAL.ADVXCustomerPortalData.GetInvoiceList(Object request) in C:\temp\TLM-Services\TLM-Services\TLM_EXTERNAL_APPS_API\MHE_Api\DAL\ADVXCustomerPortalData.cs:line 141
+Source: Anonymously Hosted DynamicMethods Assembly
+TargetSite: System.Object CallSite.Target(System.Runtime.CompilerServices.Closure, System.Runtime.CompilerServices.CallSite, System.Object, System.String)
+-----------------------------------------------------------
+
+Time: 17/04/2024 01:55:13 PM
+-----------------------------------------------------------
+Message: Cannot apply indexing with [] to an expression of type 'object'
+StackTrace:    at CallSite.Target(Closure , CallSite , Object , String )
+   at MHE_Api.DAL.ADVXCustomerPortalData.GetInvoiceList(Object request) in C:\temp\TLM-Services\TLM-Services\TLM_EXTERNAL_APPS_API\MHE_Api\DAL\ADVXCustomerPortalData.cs:line 141
+Source: Anonymously Hosted DynamicMethods Assembly
+TargetSite: System.Object CallSite.Target(System.Runtime.CompilerServices.Closure, System.Runtime.CompilerServices.CallSite, System.Object, System.String)
+-----------------------------------------------------------
+
+Time: 17/04/2024 01:57:36 PM
+-----------------------------------------------------------
+Message: Cannot apply indexing with [] to an expression of type 'object'
+StackTrace:    at CallSite.Target(Closure , CallSite , Object , String )
+   at MHE_Api.DAL.ADVXCustomerPortalData.GetInvoiceList(Object request) in C:\temp\TLM-Services\TLM-Services\TLM_EXTERNAL_APPS_API\MHE_Api\DAL\ADVXCustomerPortalData.cs:line 141
+Source: Anonymously Hosted DynamicMethods Assembly
+TargetSite: System.Object CallSite.Target(System.Runtime.CompilerServices.Closure, System.Runtime.CompilerServices.CallSite, System.Object, System.String)
+-----------------------------------------------------------
+
+Time: 17/04/2024 01:57:37 PM
+-----------------------------------------------------------
+Message: Cannot apply indexing with [] to an expression of type 'object'
+StackTrace:    at CallSite.Target(Closure , CallSite , Object , String )
+   at MHE_Api.DAL.ADVXCustomerPortalData.GetInvoiceList(Object request) in C:\temp\TLM-Services\TLM-Services\TLM_EXTERNAL_APPS_API\MHE_Api\DAL\ADVXCustomerPortalData.cs:line 141
+Source: Anonymously Hosted DynamicMethods Assembly
+TargetSite: System.Object CallSite.Target(System.Runtime.CompilerServices.Closure, System.Runtime.CompilerServices.CallSite, System.Object, System.String)
+-----------------------------------------------------------
+
+Time: 17/04/2024 01:57:40 PM
+-----------------------------------------------------------
+Message: Cannot apply indexing with [] to an expression of type 'object'
+StackTrace:    at CallSite.Target(Closure , CallSite , Object , String )
+   at MHE_Api.DAL.ADVXCustomerPortalData.GetInvoiceList(Object request) in C:\temp\TLM-Services\TLM-Services\TLM_EXTERNAL_APPS_API\MHE_Api\DAL\ADVXCustomerPortalData.cs:line 141
+Source: Anonymously Hosted DynamicMethods Assembly
+TargetSite: System.Object CallSite.Target(System.Runtime.CompilerServices.Closure, System.Runtime.CompilerServices.CallSite, System.Object, System.String)
+-----------------------------------------------------------
+
+Time: 17/04/2024 01:59:28 PM
+-----------------------------------------------------------
+Message: Cannot apply indexing with [] to an expression of type 'object'
+StackTrace:    at CallSite.Target(Closure , CallSite , Object , String )
+   at MHE_Api.DAL.ADVXCustomerPortalData.GetInvoiceList(Object request) in C:\temp\TLM-Services\TLM-Services\TLM_EXTERNAL_APPS_API\MHE_Api\DAL\ADVXCustomerPortalData.cs:line 141
+Source: Anonymously Hosted DynamicMethods Assembly
+TargetSite: System.Object CallSite.Target(System.Runtime.CompilerServices.Closure, System.Runtime.CompilerServices.CallSite, System.Object, System.String)
+-----------------------------------------------------------
+
+Time: 17/04/2024 01:59:31 PM
+-----------------------------------------------------------
+Message: Cannot apply indexing with [] to an expression of type 'object'
+StackTrace:    at CallSite.Target(Closure , CallSite , Object , String )
+   at MHE_Api.DAL.ADVXCustomerPortalData.GetInvoiceList(Object request) in C:\temp\TLM-Services\TLM-Services\TLM_EXTERNAL_APPS_API\MHE_Api\DAL\ADVXCustomerPortalData.cs:line 141
+Source: Anonymously Hosted DynamicMethods Assembly
+TargetSite: System.Object CallSite.Target(System.Runtime.CompilerServices.Closure, System.Runtime.CompilerServices.CallSite, System.Object, System.String)
+-----------------------------------------------------------
+
+Time: 17/04/2024 01:59:41 PM
+-----------------------------------------------------------
+Message: Cannot apply indexing with [] to an expression of type 'object'
+StackTrace:    at CallSite.Target(Closure , CallSite , Object , String )
+   at MHE_Api.DAL.ADVXCustomerPortalData.GetInvoiceList(Object request) in C:\temp\TLM-Services\TLM-Services\TLM_EXTERNAL_APPS_API\MHE_Api\DAL\ADVXCustomerPortalData.cs:line 141
+Source: Anonymously Hosted DynamicMethods Assembly
+TargetSite: System.Object CallSite.Target(System.Runtime.CompilerServices.Closure, System.Runtime.CompilerServices.CallSite, System.Object, System.String)
+-----------------------------------------------------------
+
+Time: 17/04/2024 01:59:50 PM
+-----------------------------------------------------------
+Message: Cannot apply indexing with [] to an expression of type 'object'
+StackTrace:    at CallSite.Target(Closure , CallSite , Object , String )
+   at MHE_Api.DAL.ADVXCustomerPortalData.GetInvoiceList(Object request) in C:\temp\TLM-Services\TLM-Services\TLM_EXTERNAL_APPS_API\MHE_Api\DAL\ADVXCustomerPortalData.cs:line 141
+Source: Anonymously Hosted DynamicMethods Assembly
+TargetSite: System.Object CallSite.Target(System.Runtime.CompilerServices.Closure, System.Runtime.CompilerServices.CallSite, System.Object, System.String)
+-----------------------------------------------------------
+
+Time: 17/04/2024 02:00:18 PM
+-----------------------------------------------------------
+Message: Cannot apply indexing with [] to an expression of type 'object'
+StackTrace:    at CallSite.Target(Closure , CallSite , Object , String )
+   at MHE_Api.DAL.ADVXCustomerPortalData.GetInvoiceList(Object request) in C:\temp\TLM-Services\TLM-Services\TLM_EXTERNAL_APPS_API\MHE_Api\DAL\ADVXCustomerPortalData.cs:line 141
+Source: Anonymously Hosted DynamicMethods Assembly
+TargetSite: System.Object CallSite.Target(System.Runtime.CompilerServices.Closure, System.Runtime.CompilerServices.CallSite, System.Object, System.String)
+-----------------------------------------------------------
+
+Time: 17/04/2024 02:02:42 PM
+-----------------------------------------------------------
+Message: Cannot apply indexing with [] to an expression of type 'object'
+StackTrace:    at CallSite.Target(Closure , CallSite , Object , String )
+   at System.Dynamic.UpdateDelegates.UpdateAndExecute2[T0,T1,TRet](CallSite site, T0 arg0, T1 arg1)
+   at MHE_Api.DAL.ADVXCustomerPortalData.GetInvoiceList(Object request) in C:\temp\TLM-Services\TLM-Services\TLM_EXTERNAL_APPS_API\MHE_Api\DAL\ADVXCustomerPortalData.cs:line 141
+Source: Anonymously Hosted DynamicMethods Assembly
+TargetSite: System.Object CallSite.Target(System.Runtime.CompilerServices.Closure, System.Runtime.CompilerServices.CallSite, System.Object, System.String)
+-----------------------------------------------------------
+
+Time: 17/04/2024 02:03:27 PM
+-----------------------------------------------------------
+Message: Cannot apply indexing with [] to an expression of type 'object'
+StackTrace:    at CallSite.Target(Closure , CallSite , Object , String )
+   at MHE_Api.DAL.ADVXCustomerPortalData.GetInvoiceList(Object request) in C:\temp\TLM-Services\TLM-Services\TLM_EXTERNAL_APPS_API\MHE_Api\DAL\ADVXCustomerPortalData.cs:line 141
+Source: Anonymously Hosted DynamicMethods Assembly
+TargetSite: System.Object CallSite.Target(System.Runtime.CompilerServices.Closure, System.Runtime.CompilerServices.CallSite, System.Object, System.String)
+-----------------------------------------------------------
+
+Time: 17/04/2024 02:04:28 PM
+-----------------------------------------------------------
+Message: Cannot apply indexing with [] to an expression of type 'object'
+StackTrace:    at CallSite.Target(Closure , CallSite , Object , String )
+   at MHE_Api.DAL.ADVXCustomerPortalData.GetInvoiceList(Object request) in C:\temp\TLM-Services\TLM-Services\TLM_EXTERNAL_APPS_API\MHE_Api\DAL\ADVXCustomerPortalData.cs:line 141
+Source: Anonymously Hosted DynamicMethods Assembly
+TargetSite: System.Object CallSite.Target(System.Runtime.CompilerServices.Closure, System.Runtime.CompilerServices.CallSite, System.Object, System.String)
+-----------------------------------------------------------
+
+Time: 17/04/2024 02:18:57 PM
+-----------------------------------------------------------
+Message: Cannot apply indexing with [] to an expression of type 'object'
+StackTrace:    at CallSite.Target(Closure , CallSite , Object , String )
+   at System.Dynamic.UpdateDelegates.UpdateAndExecute2[T0,T1,TRet](CallSite site, T0 arg0, T1 arg1)
+   at MHE_Api.DAL.ADVXCustomerPortalData.GetInvoiceList(Object request) in C:\temp\TLM-Services\TLM-Services\TLM_EXTERNAL_APPS_API\MHE_Api\DAL\ADVXCustomerPortalData.cs:line 141
+Source: Anonymously Hosted DynamicMethods Assembly
+TargetSite: System.Object CallSite.Target(System.Runtime.CompilerServices.Closure, System.Runtime.CompilerServices.CallSite, System.Object, System.String)
+-----------------------------------------------------------
+
+Time: 17/04/2024 02:20:59 PM
+-----------------------------------------------------------
+Message: 'object' does not contain a definition for 'icpc'
+StackTrace:    at CallSite.Target(Closure , CallSite , Object )
+   at System.Dynamic.UpdateDelegates.UpdateAndExecute1[T0,TRet](CallSite site, T0 arg0)
+   at MHE_Api.DAL.ADVXCustomerPortalData.GetInvoiceList(Object request) in C:\temp\TLM-Services\TLM-Services\TLM_EXTERNAL_APPS_API\MHE_Api\DAL\ADVXCustomerPortalData.cs:line 141
+Source: Anonymously Hosted DynamicMethods Assembly
+TargetSite: System.Object CallSite.Target(System.Runtime.CompilerServices.Closure, System.Runtime.CompilerServices.CallSite, System.Object)
+-----------------------------------------------------------
+

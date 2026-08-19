@@ -1,0 +1,21 @@
+﻿<?xml version='1.0' encoding='utf-8'?>
+<SettingsFile xmlns="http://schemas.microsoft.com/VisualStudio/2004/01/settings" CurrentProfile="(Default)" GeneratedClassNamespace="Express.SAP.Properties" GeneratedClassName="Settings">
+  <Profiles />
+  <Settings>
+    <Setting Name="Express_SAP_Invoice_Zzbapi_acc_document_post" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">http://10.10.2.16:8016/sap/bc/srt/wsdl/flv_10002A111AD1/bndg_url/sap/bc/srt/rfc/sap/zdocpost1/250/zbapi_acc_document_post/bindingdoc?sap-client=250</Value>
+    </Setting>
+    <Setting Name="Express_SAP_localhost_zzbapi_acc_document_post" Type="(Web Service URL)" Scope="Application">
+      <Value Profile="(Default)">http://10.10.2.16:8016/sap/bc/srt/rfc/sap/zdocpost3/250/zzbapi_acc_document_post/bindingdoc</Value>
+    </Setting>
+    <Setting Name="SapPassword" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">Tlm@123</Value>
+    </Setting>
+    <Setting Name="SapUserName" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">RFC_FEDEX_QA</Value>
+    </Setting>
+    <Setting Name="Express_SAP_Reversal_zdocrevpost" Type="(Web Service URL)" Scope="Application">
+      <Value Profile="(Default)">http://10.10.2.16:8016/sap/bc/srt/rfc/sap/zdocrevpost/250/zdocrevpost/getpaymentreversal</Value>
+    </Setting>
+  </Settings>
+</SettingsFile>

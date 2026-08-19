@@ -1,0 +1,250 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.7.34221.43
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TLM-Services", "TLM-Services\TLM-Services.csproj", "{3E4B3F54-3A36-44F2-BE8C-74169FBEAC1A}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "KuhlektFTP", "TLM-Services\ADVF-SAP_TO_KUHLEKT_FTP_APP\KuhlektFTP\KuhlektFTP.csproj", "{851AAD5D-0125-4851-8E42-A20E94BDBA9D}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Express.SAP", "TLM-Services\SAB-TLM_SAP_API\Express.SAP\Express.SAP.csproj", "{B8D68953-AA67-4169-BF59-9B3C44F0C806}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "ADVF-SAP_TO_KUHLEKT_FTP_APP", "ADVF-SAP_TO_KUHLEKT_FTP_APP", "{79FE7CEC-E3A1-4F97-8904-BF16DE630A70}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "SAB-TLM_SAP_API", "SAB-TLM_SAP_API", "{1BC33ECB-316F-47DC-A50F-635531C9803F}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Express.UI.Factory", "TLM-Services\SAB-TLM_SAP_API\UI.Express.Factory\Express.UI.Factory.csproj", "{B135C77D-3140-4C7C-BF19-C239AF407C52}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AuthorizationServer", "TLM-Services\SAB-TLM_SAP_API\AuthorizationServer\AuthorizationServer.csproj", "{24994AC1-2E83-446E-9568-9A0C68A0D41F}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Express.UI", "TLM-Services\SAB-TLM_SAP_API\Express\Express.UI.csproj", "{164E6C4E-E962-4E28-9F42-80134299138A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Express.Business", "TLM-Services\SAB-TLM_SAP_API\FedexExpress.Business\Express.Business.csproj", "{795E0623-CC1F-40D0-96C1-014A15E4516A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Express.Custom.ExcepHandle", "TLM-Services\SAB-TLM_SAP_API\FedexExpress.Custom.Exception\Express.Custom.ExcepHandle.csproj", "{F969D0D4-C2A7-4992-9EBC-D55F61235C19}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Express.Data", "TLM-Services\SAB-TLM_SAP_API\FedexExpress.Data\Express.Data.csproj", "{F12A513F-5E9A-4A9A-B46A-AFD416544B1A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Express.View.Domain", "TLM-Services\SAB-TLM_SAP_API\FedexExpress.Domain\Express.View.Domain.csproj", "{296EC1B2-E4C0-4C2F-8B98-A2C30769A39C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Express.Interfaces", "TLM-Services\SAB-TLM_SAP_API\FedexExpress.Interfaces\Express.Interfaces.csproj", "{5DE2B986-300A-436C-B438-F241E6796F99}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "TLM_ALERT_APPS", "TLM_ALERT_APPS", "{6BAF0E9F-D156-4EC4-98D1-DE3A0B8DAED1}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "AdvEx-CREDIT_VALIDITY_ALERT", "AdvEx-CREDIT_VALIDITY_ALERT", "{14A7AA46-7B03-48F1-91EB-49177F436B2E}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "SAB-SAP_DAILY_ALERT", "SAB-SAP_DAILY_ALERT", "{358EBB13-7E22-4184-8DC3-76AB40B8DE8F}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CredValidityAlert", "TLM-Services\TLM_ALERT_APPS\AdvEx-CREDIT_VALIDITY_ALERT\CredValidityAlert\CredValidityAlert\CredValidityAlert.csproj", "{B9E5056E-5EA1-4A80-B3F6-39A59E87A8F9}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SAP_DAILY_RPT", "TLM-Services\TLM_ALERT_APPS\SAB-SAP_DAILY_ALERT\SAP_DAILY_RPT\SAP_DAILY_RPT.csproj", "{A39176FB-CA97-4DB4-98D2-5BC8B7685FD1}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "TLM_e-INVOICING_APPS", "TLM_e-INVOICING_APPS", "{0B0502E0-7B88-4704-B065-432B8040E948}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "AdvEx-EmailServiceApp", "AdvEx-EmailServiceApp", "{B5561E61-183F-4D08-829F-DD70CC3EAE5D}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EmailServiceApp", "TLM-Services\TLM_e-INVOICING_APPS\AdvEx-EmailServiceApp\EmailServiceApp\EmailServiceApp.csproj", "{57C2D43D-004D-4D66-8A99-46A65BF10084}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "SAB-EmailServiceApp", "SAB-EmailServiceApp", "{1BE1F370-04AD-4E86-B2DA-A64C761AE557}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EmailServiceApp", "TLM-Services\TLM_e-INVOICING_APPS\SAB-EmailServiceApp\EmailServiceApp\EmailServiceApp.csproj", "{838304B2-1BA9-449F-BFEE-3887087B7867}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "TTS-EmailServiceApp", "TTS-EmailServiceApp", "{4E500429-D05E-430D-AA85-E9D40313A419}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EmailServiceApp", "TLM-Services\TLM_e-INVOICING_APPS\TTS-EmailServiceApp\EmailServiceApp\EmailServiceApp.csproj", "{DE058891-50CD-44C1-8338-F7135A7711FF}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "TLM_EXTERNAL_APPS_API", "TLM_EXTERNAL_APPS_API", "{69BC4E41-241C-4405-A68C-13975D4E1B66}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MHE_Api", "TLM-Services\TLM_EXTERNAL_APPS_API\MHE_Api\MHE_Api.csproj", "{701E64FE-E3FF-4C74-BE4D-FB1473C04B98}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "TLM_eDOC_FILES_AUTOSCAN_APP", "TLM_eDOC_FILES_AUTOSCAN_APP", "{81F60FC7-F722-4A9A-A9FB-1546E15A7B61}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "pdfQRReader", "TLM-Services\TLM_eDOC_FILES_AUTOSCAN_APP\pdfQRReader\pdfQRReader\pdfQRReader.csproj", "{7276DB18-A90F-49F1-91DD-81CD0B4A4895}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{3E4B3F54-3A36-44F2-BE8C-74169FBEAC1A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3E4B3F54-3A36-44F2-BE8C-74169FBEAC1A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3E4B3F54-3A36-44F2-BE8C-74169FBEAC1A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3E4B3F54-3A36-44F2-BE8C-74169FBEAC1A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{851AAD5D-0125-4851-8E42-A20E94BDBA9D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{851AAD5D-0125-4851-8E42-A20E94BDBA9D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{851AAD5D-0125-4851-8E42-A20E94BDBA9D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{851AAD5D-0125-4851-8E42-A20E94BDBA9D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B8D68953-AA67-4169-BF59-9B3C44F0C806}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B8D68953-AA67-4169-BF59-9B3C44F0C806}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B8D68953-AA67-4169-BF59-9B3C44F0C806}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B8D68953-AA67-4169-BF59-9B3C44F0C806}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B135C77D-3140-4C7C-BF19-C239AF407C52}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B135C77D-3140-4C7C-BF19-C239AF407C52}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B135C77D-3140-4C7C-BF19-C239AF407C52}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B135C77D-3140-4C7C-BF19-C239AF407C52}.Release|Any CPU.Build.0 = Release|Any CPU
+		{24994AC1-2E83-446E-9568-9A0C68A0D41F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{24994AC1-2E83-446E-9568-9A0C68A0D41F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{24994AC1-2E83-446E-9568-9A0C68A0D41F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{24994AC1-2E83-446E-9568-9A0C68A0D41F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{164E6C4E-E962-4E28-9F42-80134299138A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{164E6C4E-E962-4E28-9F42-80134299138A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{164E6C4E-E962-4E28-9F42-80134299138A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{164E6C4E-E962-4E28-9F42-80134299138A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{795E0623-CC1F-40D0-96C1-014A15E4516A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{795E0623-CC1F-40D0-96C1-014A15E4516A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{795E0623-CC1F-40D0-96C1-014A15E4516A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{795E0623-CC1F-40D0-96C1-014A15E4516A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F969D0D4-C2A7-4992-9EBC-D55F61235C19}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F969D0D4-C2A7-4992-9EBC-D55F61235C19}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F969D0D4-C2A7-4992-9EBC-D55F61235C19}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F969D0D4-C2A7-4992-9EBC-D55F61235C19}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F12A513F-5E9A-4A9A-B46A-AFD416544B1A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F12A513F-5E9A-4A9A-B46A-AFD416544B1A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F12A513F-5E9A-4A9A-B46A-AFD416544B1A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F12A513F-5E9A-4A9A-B46A-AFD416544B1A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{296EC1B2-E4C0-4C2F-8B98-A2C30769A39C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{296EC1B2-E4C0-4C2F-8B98-A2C30769A39C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{296EC1B2-E4C0-4C2F-8B98-A2C30769A39C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{296EC1B2-E4C0-4C2F-8B98-A2C30769A39C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5DE2B986-300A-436C-B438-F241E6796F99}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5DE2B986-300A-436C-B438-F241E6796F99}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5DE2B986-300A-436C-B438-F241E6796F99}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5DE2B986-300A-436C-B438-F241E6796F99}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B9E5056E-5EA1-4A80-B3F6-39A59E87A8F9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B9E5056E-5EA1-4A80-B3F6-39A59E87A8F9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B9E5056E-5EA1-4A80-B3F6-39A59E87A8F9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B9E5056E-5EA1-4A80-B3F6-39A59E87A8F9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A39176FB-CA97-4DB4-98D2-5BC8B7685FD1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A39176FB-CA97-4DB4-98D2-5BC8B7685FD1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A39176FB-CA97-4DB4-98D2-5BC8B7685FD1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A39176FB-CA97-4DB4-98D2-5BC8B7685FD1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{57C2D43D-004D-4D66-8A99-46A65BF10084}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{57C2D43D-004D-4D66-8A99-46A65BF10084}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{57C2D43D-004D-4D66-8A99-46A65BF10084}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{57C2D43D-004D-4D66-8A99-46A65BF10084}.Release|Any CPU.Build.0 = Release|Any CPU
+		{838304B2-1BA9-449F-BFEE-3887087B7867}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{838304B2-1BA9-449F-BFEE-3887087B7867}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{838304B2-1BA9-449F-BFEE-3887087B7867}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{838304B2-1BA9-449F-BFEE-3887087B7867}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DE058891-50CD-44C1-8338-F7135A7711FF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DE058891-50CD-44C1-8338-F7135A7711FF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DE058891-50CD-44C1-8338-F7135A7711FF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DE058891-50CD-44C1-8338-F7135A7711FF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{701E64FE-E3FF-4C74-BE4D-FB1473C04B98}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{701E64FE-E3FF-4C74-BE4D-FB1473C04B98}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{701E64FE-E3FF-4C74-BE4D-FB1473C04B98}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{701E64FE-E3FF-4C74-BE4D-FB1473C04B98}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7276DB18-A90F-49F1-91DD-81CD0B4A4895}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7276DB18-A90F-49F1-91DD-81CD0B4A4895}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7276DB18-A90F-49F1-91DD-81CD0B4A4895}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7276DB18-A90F-49F1-91DD-81CD0B4A4895}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{851AAD5D-0125-4851-8E42-A20E94BDBA9D} = {79FE7CEC-E3A1-4F97-8904-BF16DE630A70}
+		{B8D68953-AA67-4169-BF59-9B3C44F0C806} = {1BC33ECB-316F-47DC-A50F-635531C9803F}
+		{B135C77D-3140-4C7C-BF19-C239AF407C52} = {1BC33ECB-316F-47DC-A50F-635531C9803F}
+		{24994AC1-2E83-446E-9568-9A0C68A0D41F} = {1BC33ECB-316F-47DC-A50F-635531C9803F}
+		{164E6C4E-E962-4E28-9F42-80134299138A} = {1BC33ECB-316F-47DC-A50F-635531C9803F}
+		{795E0623-CC1F-40D0-96C1-014A15E4516A} = {1BC33ECB-316F-47DC-A50F-635531C9803F}
+		{F969D0D4-C2A7-4992-9EBC-D55F61235C19} = {1BC33ECB-316F-47DC-A50F-635531C9803F}
+		{F12A513F-5E9A-4A9A-B46A-AFD416544B1A} = {1BC33ECB-316F-47DC-A50F-635531C9803F}
+		{296EC1B2-E4C0-4C2F-8B98-A2C30769A39C} = {1BC33ECB-316F-47DC-A50F-635531C9803F}
+		{5DE2B986-300A-436C-B438-F241E6796F99} = {1BC33ECB-316F-47DC-A50F-635531C9803F}
+		{14A7AA46-7B03-48F1-91EB-49177F436B2E} = {6BAF0E9F-D156-4EC4-98D1-DE3A0B8DAED1}
+		{358EBB13-7E22-4184-8DC3-76AB40B8DE8F} = {6BAF0E9F-D156-4EC4-98D1-DE3A0B8DAED1}
+		{B9E5056E-5EA1-4A80-B3F6-39A59E87A8F9} = {14A7AA46-7B03-48F1-91EB-49177F436B2E}
+		{A39176FB-CA97-4DB4-98D2-5BC8B7685FD1} = {358EBB13-7E22-4184-8DC3-76AB40B8DE8F}
+		{B5561E61-183F-4D08-829F-DD70CC3EAE5D} = {0B0502E0-7B88-4704-B065-432B8040E948}
+		{57C2D43D-004D-4D66-8A99-46A65BF10084} = {B5561E61-183F-4D08-829F-DD70CC3EAE5D}
+		{1BE1F370-04AD-4E86-B2DA-A64C761AE557} = {0B0502E0-7B88-4704-B065-432B8040E948}
+		{838304B2-1BA9-449F-BFEE-3887087B7867} = {1BE1F370-04AD-4E86-B2DA-A64C761AE557}
+		{4E500429-D05E-430D-AA85-E9D40313A419} = {0B0502E0-7B88-4704-B065-432B8040E948}
+		{DE058891-50CD-44C1-8338-F7135A7711FF} = {4E500429-D05E-430D-AA85-E9D40313A419}
+		{701E64FE-E3FF-4C74-BE4D-FB1473C04B98} = {69BC4E41-241C-4405-A68C-13975D4E1B66}
+		{7276DB18-A90F-49F1-91DD-81CD0B4A4895} = {81F60FC7-F722-4A9A-A9FB-1546E15A7B61}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {5AF50437-E965-44C8-B743-5FA7EF45B7F9}
+	EndGlobalSection
+	GlobalSection(TeamFoundationVersionControl) = preSolution
+		SccNumberOfProjects = 19
+		SccEnterpriseProvider = {4CA58AB2-18FA-4F8D-95D4-32DDF27D184C}
+		SccTeamFoundationServer = http://adv-tfssvr01:8080/tfs/defaultcollection
+		SccLocalPath0 = .
+		SccProjectUniqueName1 = TLM-Services\\TLM-Services.csproj
+		SccProjectName1 = TLM-Services
+		SccLocalPath1 = TLM-Services
+		SccProjectUniqueName2 = TLM-Services\\ADVF-SAP_TO_KUHLEKT_FTP_APP\\KuhlektFTP\\KuhlektFTP.csproj
+		SccProjectTopLevelParentUniqueName2 = TLM-Services.sln
+		SccProjectName2 = TLM-Services/ADVF-SAP_TO_KUHLEKT_FTP_APP/KuhlektFTP
+		SccLocalPath2 = TLM-Services\\ADVF-SAP_TO_KUHLEKT_FTP_APP\\KuhlektFTP
+		SccProjectUniqueName3 = TLM-Services\\SAB-TLM_SAP_API\\Express.SAP\\Express.SAP.csproj
+		SccProjectTopLevelParentUniqueName3 = TLM-Services.sln
+		SccProjectName3 = TLM-Services/SAB-TLM_SAP_API/Express.SAP
+		SccLocalPath3 = TLM-Services\\SAB-TLM_SAP_API\\Express.SAP
+		SccProjectUniqueName4 = TLM-Services\\SAB-TLM_SAP_API\\UI.Express.Factory\\Express.UI.Factory.csproj
+		SccProjectTopLevelParentUniqueName4 = TLM-Services.sln
+		SccProjectName4 = TLM-Services/SAB-TLM_SAP_API/UI.Express.Factory
+		SccLocalPath4 = TLM-Services\\SAB-TLM_SAP_API\\UI.Express.Factory
+		SccProjectUniqueName5 = TLM-Services\\SAB-TLM_SAP_API\\AuthorizationServer\\AuthorizationServer.csproj
+		SccProjectTopLevelParentUniqueName5 = TLM-Services.sln
+		SccProjectName5 = TLM-Services/SAB-TLM_SAP_API/AuthorizationServer
+		SccLocalPath5 = TLM-Services\\SAB-TLM_SAP_API\\AuthorizationServer
+		SccProjectUniqueName6 = TLM-Services\\SAB-TLM_SAP_API\\Express\\Express.UI.csproj
+		SccProjectTopLevelParentUniqueName6 = TLM-Services.sln
+		SccProjectName6 = TLM-Services/SAB-TLM_SAP_API/Express
+		SccLocalPath6 = TLM-Services\\SAB-TLM_SAP_API\\Express
+		SccProjectUniqueName7 = TLM-Services\\SAB-TLM_SAP_API\\FedexExpress.Business\\Express.Business.csproj
+		SccProjectTopLevelParentUniqueName7 = TLM-Services.sln
+		SccProjectName7 = TLM-Services/SAB-TLM_SAP_API/FedexExpress.Business
+		SccLocalPath7 = TLM-Services\\SAB-TLM_SAP_API\\FedexExpress.Business
+		SccProjectUniqueName8 = TLM-Services\\SAB-TLM_SAP_API\\FedexExpress.Custom.Exception\\Express.Custom.ExcepHandle.csproj
+		SccProjectTopLevelParentUniqueName8 = TLM-Services.sln
+		SccProjectName8 = TLM-Services/SAB-TLM_SAP_API/FedexExpress.Custom.Exception
+		SccLocalPath8 = TLM-Services\\SAB-TLM_SAP_API\\FedexExpress.Custom.Exception
+		SccProjectUniqueName9 = TLM-Services\\SAB-TLM_SAP_API\\FedexExpress.Data\\Express.Data.csproj
+		SccProjectTopLevelParentUniqueName9 = TLM-Services.sln
+		SccProjectName9 = TLM-Services/SAB-TLM_SAP_API/FedexExpress.Data
+		SccLocalPath9 = TLM-Services\\SAB-TLM_SAP_API\\FedexExpress.Data
+		SccProjectUniqueName10 = TLM-Services\\SAB-TLM_SAP_API\\FedexExpress.Domain\\Express.View.Domain.csproj
+		SccProjectTopLevelParentUniqueName10 = TLM-Services.sln
+		SccProjectName10 = TLM-Services/SAB-TLM_SAP_API/FedexExpress.Domain
+		SccLocalPath10 = TLM-Services\\SAB-TLM_SAP_API\\FedexExpress.Domain
+		SccProjectUniqueName11 = TLM-Services\\SAB-TLM_SAP_API\\FedexExpress.Interfaces\\Express.Interfaces.csproj
+		SccProjectTopLevelParentUniqueName11 = TLM-Services.sln
+		SccProjectName11 = TLM-Services/SAB-TLM_SAP_API/FedexExpress.Interfaces
+		SccLocalPath11 = TLM-Services\\SAB-TLM_SAP_API\\FedexExpress.Interfaces
+		SccProjectUniqueName12 = TLM-Services\\TLM_ALERT_APPS\\AdvEx-CREDIT_VALIDITY_ALERT\\CredValidityAlert\\CredValidityAlert\\CredValidityAlert.csproj
+		SccProjectTopLevelParentUniqueName12 = TLM-Services.sln
+		SccProjectName12 = TLM-Services/TLM_ALERT_APPS/AdvEx-CREDIT_VALIDITY_ALERT/CredValidityAlert/CredValidityAlert
+		SccLocalPath12 = TLM-Services\\TLM_ALERT_APPS\\AdvEx-CREDIT_VALIDITY_ALERT\\CredValidityAlert\\CredValidityAlert
+		SccProjectUniqueName13 = TLM-Services\\TLM_ALERT_APPS\\SAB-SAP_DAILY_ALERT\\SAP_DAILY_RPT\\SAP_DAILY_RPT.csproj
+		SccProjectTopLevelParentUniqueName13 = TLM-Services.sln
+		SccProjectName13 = TLM-Services/TLM_ALERT_APPS/SAB-SAP_DAILY_ALERT/SAP_DAILY_RPT
+		SccLocalPath13 = TLM-Services\\TLM_ALERT_APPS\\SAB-SAP_DAILY_ALERT\\SAP_DAILY_RPT
+		SccProjectUniqueName14 = TLM-Services\\TLM_e-INVOICING_APPS\\AdvEx-EmailServiceApp\\EmailServiceApp\\EmailServiceApp.csproj
+		SccProjectTopLevelParentUniqueName14 = TLM-Services.sln
+		SccProjectName14 = TLM-Services/TLM_e-INVOICING_APPS/AdvEx-EmailServiceApp/EmailServiceApp
+		SccLocalPath14 = TLM-Services\\TLM_e-INVOICING_APPS\\AdvEx-EmailServiceApp\\EmailServiceApp
+		SccProjectUniqueName15 = TLM-Services\\TLM_e-INVOICING_APPS\\SAB-EmailServiceApp\\EmailServiceApp\\EmailServiceApp.csproj
+		SccProjectTopLevelParentUniqueName15 = TLM-Services.sln
+		SccProjectName15 = TLM-Services/TLM_e-INVOICING_APPS/SAB-EmailServiceApp/EmailServiceApp
+		SccLocalPath15 = TLM-Services\\TLM_e-INVOICING_APPS\\SAB-EmailServiceApp\\EmailServiceApp
+		SccProjectUniqueName16 = TLM-Services\\TLM_e-INVOICING_APPS\\TTS-EmailServiceApp\\EmailServiceApp\\EmailServiceApp.csproj
+		SccProjectTopLevelParentUniqueName16 = TLM-Services.sln
+		SccProjectName16 = TLM-Services/TLM_e-INVOICING_APPS/TTS-EmailServiceApp/EmailServiceApp
+		SccLocalPath16 = TLM-Services\\TLM_e-INVOICING_APPS\\TTS-EmailServiceApp\\EmailServiceApp
+		SccProjectUniqueName17 = TLM-Services\\TLM_EXTERNAL_APPS_API\\MHE_Api\\MHE_Api.csproj
+		SccProjectTopLevelParentUniqueName17 = TLM-Services.sln
+		SccProjectName17 = TLM-Services/TLM_EXTERNAL_APPS_API/MHE_Api
+		SccLocalPath17 = TLM-Services\\TLM_EXTERNAL_APPS_API\\MHE_Api
+		SccProjectUniqueName18 = TLM-Services\\TLM_eDOC_FILES_AUTOSCAN_APP\\pdfQRReader\\pdfQRReader\\pdfQRReader.csproj
+		SccProjectTopLevelParentUniqueName18 = TLM-Services.sln
+		SccProjectName18 = TLM-Services/TLM_eDOC_FILES_AUTOSCAN_APP/pdfQRReader/pdfQRReader
+		SccLocalPath18 = TLM-Services\\TLM_eDOC_FILES_AUTOSCAN_APP\\pdfQRReader\\pdfQRReader
+	EndGlobalSection
+EndGlobal
