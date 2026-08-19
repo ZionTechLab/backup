@@ -1,0 +1,10 @@
+<publishData>
+<publishProfile profileName="app-voyage-pro-be-dev-staging - Web Deploy" publishMethod="MSDeploy" 
+publishUrl="app-voyage-pro-be-dev-staging-eudyevemanb3fue8.scm.southeastasia-01.azurewebsites.net:443"
+ msdeploySite="app-voyage-pro-be-dev-staging"
+  userName="$app-voyage-pro-be-dev-staging"
+   userPWD="t13iq4qwlXsqP85JyC3Y8tNQwdeZQWtz4o9dlFmyQlqThxzWnkmEByGSJla2"
+    destinationAppUrl="https://app-voyage-pro-be-dev-staging-eudyevemanb3fue8.southeastasia-01.azurewebsites.net"
+     SQLServerDBConnectionString="" mySQLDBConnectionString="" hostingProviderForumLink="" controlPanelLink="https://portal.azure.com"
+      webSystem="WebSites"><databases /></publishProfile><publishProfile profileName="app-voyage-pro-be-dev-staging - FTP" publishMethod="FTP" publishUrl="ftps://waws-prod-sg1-097.ftp.azurewebsites.windows.net/site/wwwroot" ftpPassiveMode="True" userName="app-voyage-pro-be-dev-staging\$app-voyage-pro-be-dev-staging" userPWD="t13iq4qwlXsqP85JyC3Y8tNQwdeZQWtz4o9dlFmyQlqThxzWnkmEByGSJla2" destinationAppUrl="https://app-voyage-pro-be-dev-staging-eudyevemanb3fue8.southeastasia-01.azurewebsites.net" SQLServerDBConnectionString="" mySQLDBConnectionString="" hostingProviderForumLink="" controlPanelLink="https://portal.azure.com" webSystem="WebSites"><databases /></publishProfile><publishProfile profileName="app-voyage-pro-be-dev-staging - Zip Deploy" publishMethod="ZipDeploy" publishUrl="app-voyage-pro-be-dev-staging-eudyevemanb3fue8.scm.southeastasia-01.azurewebsites.net:443" userName="$app-voyage-pro-be-dev-staging" userPWD="t13iq4qwlXsqP85JyC3Y8tNQwdeZQWtz4o9dlFmyQlqThxzWnkmEByGSJla2" destinationAppUrl="https://app-voyage-pro-be-dev-staging-eudyevemanb3fue8.southeastasia-01.azurewebsites.net" SQLServerDBConnectionString="" mySQLDBConnectionString="" hostingProviderForumLink="" controlPanelLink="https://portal.azure.com" webSystem="WebSites">
+<databases /></publishProfile></publishData>

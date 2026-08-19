@@ -1,0 +1,171 @@
+/* General App styling */
+.App {
+  font-family: sans-serif;
+  text-align: center;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background-color: #f4f4f4;
+  color: #333;
+}
+
+.App-header {
+  background-color: #282c34;
+  padding: 20px;
+  color: white;
+  width: 100%;
+  box-sizing: border-box;
+  margin-bottom: 30px;
+}
+
+.App-header h1 {
+  margin: 0;
+  font-size: 2em;
+}
+
+main {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px;
+  background-color: white;
+  border-radius: 8px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  width: 90%;
+  max-width: 500px;
+}
+
+/* Profile styling */
+.profile-container {
+  border: 1px solid #ddd;
+  padding: 20px;
+  border-radius: 8px;
+  background-color: #fff;
+  margin-bottom: 20px;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.profile-picture {
+  border-radius: 50%;
+  width: 100px;
+  height: 100px;
+  margin-bottom: 15px;
+  object-fit: cover;
+  border: 3px solid #eee;
+}
+
+.profile-container h2 {
+  margin-top: 0;
+  color: #333;
+}
+
+.profile-container p {
+  margin: 8px 0;
+  font-size: 1.1em;
+}
+
+.profile-container p strong {
+  color: #555;
+}
+
+/* Login Options Container */
+.login-options {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 15px; /* Space between login buttons and the "OR" text */
+}
+
+.login-options h2 {
+  margin-bottom: 10px;
+  color: #333;
+}
+
+/* Shared style for login buttons for consistency, if desired */
+.login-button {
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, box-shadow 0.3s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px; /* Space between icon and text if you add icons */
+  min-width: 220px; /* Ensure buttons have a similar width */
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.login-button:hover {
+  box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+}
+
+
+/* Microsoft Login Button Specific Styling */
+.microsoft-login-button {
+  /* Inherit from .login-button if that class is also applied, or define styles here */
+  background-color: #0078D4; /* Microsoft Blue */
+  color: white;
+  /* Add other .login-button styles if not using the shared class */
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, box-shadow 0.3s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  min-width: 220px;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.microsoft-login-button:hover {
+  background-color: #005A9E; /* Darker Microsoft Blue */
+  box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+}
+
+/* GoogleLoginButton already has its styles from @react-oauth/google,
+   but you can wrap it in a div and style the div if needed for alignment,
+   or try to override its styles if necessary (can be tricky).
+   The .login-options flex container should help with alignment.
+*/
+
+
+/* Logout button styling */
+.logout-button {
+  background-color: #d9534f;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin-top: 20px;
+  cursor: pointer;
+  border-radius: 5px;
+  transition: background-color 0.3s ease;
+}
+
+.logout-button:hover {
+  background-color: #c9302c;
+}
+
+/* Login component specific (though GoogleLogin is mostly styled by the library) */
+/* You might add styles for a container around GoogleLogin if needed */
+/* For example, if you had other elements in Login.jsx */
+
+footer {
+  margin-top: 30px;
+  padding: 10px;
+  font-size: 0.8em;
+  color: #777;
+  width: 100%;
+  text-align: center;
+}
