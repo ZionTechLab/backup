@@ -1,0 +1,149 @@
+.navbar-custom {
+  background-color: var(--navbar-bg-color);
+  padding: 0.5rem 1.5rem;
+  border-bottom: 2px solid var(--navbar-border-color);
+  margin-bottom: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  transition: background-color 0.3s ease, border-color 0.3s ease, padding 0.3s ease;
+}
+
+.hamburger-btn {
+  background: none;
+  border: none;
+  color: var(--text-color);
+  font-size: 1.6rem;
+  cursor: pointer;
+  padding: 4px;
+  margin-right: 15px;
+  line-height: 1;
+  transition: color 0.3s ease;
+}
+
+.hamburger-btn:hover {
+  color: var(--primary-accent-color);
+}
+
+.navbar-title-container {
+  flex-grow: 1;
+  text-align: center;
+}
+
+.navbar-custom h1 {
+  margin: 0;
+  font-size: 1.7rem;
+  display: inline-block;
+  line-height: 1.2;
+}
+
+.navbar-title {
+  color: var(--text-color);
+  text-decoration: none;
+  font-weight: bold;
+  transition: color 0.3s ease;
+}
+
+.navbar-title:hover,
+.navbar-title:focus {
+  color: var(--secondary-accent-color);
+  text-decoration: none;
+}
+
+.navbar-user-display {
+  /* min-width: 100px; Let content define width or set specific for button */
+  text-align: right;
+  color: var(--text-color);
+  font-size: 0.85rem;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  position: relative; /* For dropdown positioning */
+}
+
+.user-name-button { /* Replaces .user-name span for clickability */
+  background: none;
+  border: none;
+  color: var(--text-color);
+  font-family: inherit;
+  font-size: inherit; /* Inherits from .navbar-user-display */
+  font-weight: bold;
+  cursor: pointer;
+  padding: 5px; /* Add some padding for easier clicking */
+  margin-left: 10px;
+  display: flex;
+  align-items: center;
+}
+
+.user-name-button:hover {
+  color: var(--primary-accent-color);
+}
+
+.dropdown-arrow {
+  margin-left: 5px;
+  font-size: 0.7em; /* Smaller arrow */
+  transition: transform 0.2s ease;
+  display: inline-block; /* Needed for transform */
+}
+.dropdown-arrow.open {
+  transform: rotate(180deg);
+}
+
+.user-dropdown {
+  position: absolute;
+  top: 100%; /* Position below the button */
+  right: 0;
+  background-color: var(--card-bg-color); /* Themed background */
+  border: 1px solid var(--card-border-color);
+  border-radius: 4px;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+  z-index: 1010; /* Above drawer overlay (999) and drawer (1000) */
+  min-width: 160px; /* Ensure decent width */
+  padding: 5px 0; /* Vertical padding for items */
+}
+
+.user-dropdown a,
+.user-dropdown button {
+  display: block;
+  width: 100%;
+  text-align: left;
+  padding: 8px 15px;
+  font-size: 0.9rem;
+  color: var(--text-color);
+  background: none;
+  border: none;
+  cursor: pointer;
+  text-decoration: none; /* For Link components */
+  box-sizing: border-box; /* Ensure padding doesn't expand width */
+}
+
+.user-dropdown a:hover,
+.user-dropdown button:hover {
+  background-color: var(--primary-accent-color);
+  color: var(--button-text-color); /* Or a specific hover text color for dropdowns */
+}
+
+
+/* Responsive adjustments for Navbar */
+@media (max-width: 600px) {
+  .navbar-custom {
+    padding: 0.4rem 1rem;
+  }
+  .navbar-title-container {
+    text-align: left;
+    margin-left: 10px;
+  }
+  .navbar-user-display {
+     min-width: auto;
+     font-size: 0.8rem;
+  }
+  .user-name-button {
+    padding: 3px; /* Smaller padding on small screens */
+  }
+   .navbar-custom h1 {
+    font-size: 1.4rem;
+  }
+  .hamburger-btn {
+    font-size: 1.5rem;
+  }
+}

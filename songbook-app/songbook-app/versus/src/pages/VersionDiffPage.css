@@ -1,0 +1,89 @@
+.version-diff-page {
+    /* .container and .card classes from App.css are applied in JSX */
+}
+
+.page-title { /* Consistent with other page titles */
+    color: var(--primary-accent-color);
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.version-titles {
+    display: flex;
+    justify-content: space-around;
+    margin-bottom: 20px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid var(--card-border-color);
+}
+
+.version-titles h3 {
+    color: var(--secondary-accent-color);
+    font-size: 1.2rem;
+    margin: 0;
+    text-align: center;
+    flex-basis: 45%; /* Each title takes up part of the space */
+}
+
+.diff-display {
+    /* For a side-by-side display, this would need to be a flex container.
+       For the current interleaved display, it's simpler. */
+}
+
+.diff-content {
+    background-color: var(--code-bg-color); /* Similar to chord display areas */
+    color: var(--text-color);
+    padding: 15px;
+    border-radius: 4px;
+    border: 1px solid var(--card-border-color);
+    font-family: var(--font-family-monospace);
+    font-size: 0.9rem;
+    line-height: 1.6;
+    white-space: pre-wrap; /* Preserve line breaks and spaces */
+    max-height: 60vh; /* Make it scrollable if very long */
+    overflow-y: auto;
+}
+
+.diff-line {
+    padding: 2px 5px;
+    display: flex; /* To align marker and text */
+    align-items: flex-start;
+}
+
+.diff-line .marker {
+    min-width: 15px; /* Space for + or - sign */
+    display: inline-block;
+    margin-right: 10px;
+    font-weight: bold;
+}
+
+.diff-added {
+    background-color: rgba(0, 128, 0, 0.1); /* Light green background for added lines */
+}
+.diff-added .marker {
+    color: green;
+}
+
+.diff-removed {
+    background-color: rgba(255, 0, 0, 0.1); /* Light red background for removed lines */
+    text-decoration: line-through; /* Optional: strike-through removed text */
+}
+.diff-removed .marker {
+    color: red;
+}
+
+.diff-same {
+    /* No special background, or a very subtle one if needed */
+    opacity: 0.8; /* Slightly dim unchanged lines to make changes stand out */
+}
+.diff-same .marker {
+    /* color: var(--text-color); */ /* Default text color for marker */
+}
+
+.loading-message,
+.not-found-message { /* Consistent with other pages */
+    text-align: center;
+    font-style: italic;
+    color: var(--text-color);
+    opacity: 0.8;
+    padding: 20px;
+}

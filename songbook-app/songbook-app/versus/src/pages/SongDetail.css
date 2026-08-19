@@ -1,0 +1,96 @@
+.song-detail-container {
+  /* .card class from App.css is applied directly in JSX for the main container */
+}
+
+.song-detail-title {
+  text-align: center;
+  margin-bottom: 25px;
+  color: var(--text-color);
+  font-size: 2rem;
+  transition: color 0.3s ease;
+}
+
+.lyrics-section {
+  margin-bottom: 20px;
+}
+
+.section-header-actions {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 10px;
+  border-bottom: 1px solid var(--card-border-color);
+  padding-bottom: 5px;
+}
+
+.section-title {
+  /* Uses .card h3 styling from App.css (var(--primary-accent-color)) */
+  /* margin-bottom is removed as section-header-actions handles it */
+  /* border-bottom is removed as section-header-actions handles it */
+  /* padding-bottom is removed */
+  transition: border-color 0.3s ease;
+}
+
+.compare-versions-btn {
+  /* Uses .link-button styles from App.css */
+  padding: 6px 12px;
+  font-size: 0.85rem;
+}
+
+
+.lyrics-text {
+  white-space: pre-wrap;
+  background-color: var(--code-bg-color);
+  padding: 15px;
+  border-radius: 4px;
+  max-height: 400px;
+  overflow-y: auto;
+  color: var(--text-color);
+  font-size: 1rem;
+  line-height: 1.8;
+  border: 1px solid var(--card-border-color);
+  transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
+}
+
+.chord-versions-section {
+  margin-bottom: 20px;
+}
+
+.chord-version-list {
+  list-style: none;
+  padding: 0;
+}
+
+.chord-version-item {
+  /* .card class applied in JSX */
+}
+
+.chord-version-link {
+  display: block;
+  padding: 10px;
+  font-weight: bold;
+  transition: background-color 0.2s ease;
+}
+.chord-version-link:hover {
+  background-color: rgba(0,0,0,0.05);
+}
+
+
+.no-versions-message,
+.not-found-message {
+  text-align: center;
+  font-style: italic;
+  color: var(--text-color);
+  opacity: 0.7;
+  padding: 20px;
+  transition: color 0.3s ease, opacity 0.3s ease;
+}
+
+.navigation-links {
+  margin-top: 20px;
+  text-align: center;
+}
+
+.navigation-links .link-button {
+  margin: 0 10px;
+}

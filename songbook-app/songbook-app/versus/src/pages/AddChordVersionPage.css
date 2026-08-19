@@ -1,0 +1,68 @@
+.add-chord-version-page {
+  /* .container and .card classes from App.css are applied in JSX */
+}
+
+.page-title { /* Consistent with other page titles */
+  color: var(--primary-accent-color);
+  margin-bottom: 25px;
+  text-align: center;
+}
+
+.add-chord-version-form {
+  display: flex;
+  flex-direction: column;
+  gap: 20px; /* Space between form groups */
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+}
+
+.form-group label {
+  margin-bottom: 8px;
+  font-weight: bold;
+  color: var(--text-color);
+  font-size: 0.9rem;
+}
+
+.form-group input[type="text"] {
+  padding: 10px;
+  border: 1px solid var(--card-border-color);
+  border-radius: 4px;
+  background-color: var(--bg-color);
+  color: var(--text-color);
+  font-family: var(--font-family-main);
+  font-size: 1rem;
+  transition: border-color 0.3s ease, background-color 0.3s ease, color 0.3s ease;
+}
+
+.form-group input[type="text"]:focus {
+  outline: none;
+  border-color: var(--primary-accent-color);
+  box-shadow: 0 0 0 2px var(--secondary-accent-color-transparent, rgba(33, 150, 243, 0.3));
+}
+
+.add-chord-version-form .chord-editor-container {
+  margin-top: 5px;
+}
+
+.lyrics-validation-error {
+  color: #d9534f;
+  font-size: 0.85rem;
+  margin-top: 5px;
+}
+
+.add-chord-version-form button[type="submit"] {
+  /* .link-button class from App.css is applied in JSX */
+  padding: 12px 20px;
+  font-size: 1.1rem;
+  margin-top: 10px;
+}
+
+.add-chord-version-form button[type="submit"]:disabled {
+  background-color: var(--card-border-color);
+  color: var(--text-color);
+  opacity: 0.6;
+  cursor: not-allowed;
+}

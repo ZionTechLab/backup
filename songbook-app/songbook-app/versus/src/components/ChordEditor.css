@@ -1,0 +1,96 @@
+.chord-editor-container {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  margin-bottom: 20px;
+  font-family: var(--font-family-main);
+}
+
+.editor-textarea {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid var(--card-border-color);
+  border-radius: 4px;
+  background-color: var(--bg-color); /* Themed background */
+  color: var(--text-color); /* Themed text */
+  font-family: var(--font-family-monospace); /* Monospace for easier alignment */
+  font-size: 0.95rem;
+  line-height: 1.6;
+  box-sizing: border-box;
+  transition: border-color 0.3s ease, background-color 0.3s ease, color 0.3s ease;
+}
+
+.editor-textarea:focus {
+  outline: none;
+  border-color: var(--primary-accent-color);
+  box-shadow: 0 0 0 2px var(--secondary-accent-color-transparent, rgba(33, 150, 243, 0.3)); /* Fallback */
+}
+
+.editor-textarea.invalid-input {
+  border-color: #d9534f; /* Red border for invalid input */
+  box-shadow: 0 0 0 2px rgba(217, 83, 79, 0.3);
+}
+
+.validation-error {
+  color: #d9534f; /* Red text for error message */
+  font-size: 0.85rem;
+  margin-top: -10px; /* Pull closer to textarea */
+}
+
+.editor-preview {
+  padding: 15px;
+  border: 1px dashed var(--card-border-color); /* Dashed border for preview area */
+  border-radius: 4px;
+  background-color: var(--card-bg-color); /* Themed card background */
+  min-height: 100px; /* Ensure it has some height even when empty */
+  transition: border-color 0.3s ease, background-color 0.3s ease;
+}
+
+.preview-title {
+  margin-top: 0;
+  margin-bottom: 10px;
+  font-size: 1.1rem;
+  color: var(--secondary-accent-color); /* Use secondary accent for preview title */
+  border-bottom: 1px solid var(--card-border-color);
+  padding-bottom: 5px;
+}
+
+.preview-line {
+  line-height: 2.5em; /* Make space for chords above */
+  white-space: pre-wrap; /* Preserve spaces and line breaks from input */
+  color: var(--text-color);
+  font-size: 1rem;
+}
+
+.segment-chord-wrapper {
+  display: inline-block; /* Keeps chord and its text together */
+  position: relative;
+  margin-right: 1px; /* Small space if multiple chord segments are adjacent */
+  vertical-align: bottom;
+}
+
+.segment-chord {
+  position: absolute;
+  top: -1.5em; /* Position chord above the text line */
+  left: 0;
+  font-weight: bold;
+  color: var(--primary-accent-color); /* Orange (or themed primary) for chords */
+  font-size: 0.9em;
+  white-space: nowrap;
+}
+
+.segment-text-after-chord {
+  /* Text that is part of a chord segment */
+  padding-top: 0.5em; /* Ensure text doesn't overlap with chord from previous line if lines are tight */
+}
+
+.segment-text {
+  /* Text that is NOT part of a chord segment (i.e., before first chord, or between chord segments if parser allows) */
+   padding-top: 0.5em;
+}
+
+.editor-preview p { /* For placeholder messages in preview */
+  color: var(--text-color);
+  opacity: 0.7;
+  font-style: italic;
+}

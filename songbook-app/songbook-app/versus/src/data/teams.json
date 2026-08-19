@@ -1,0 +1,20 @@
+[
+  {
+    "id": "team001",
+    "name": "The Lyricists",
+    "members": ["user123", "user456"],
+    "description": "Crafting words into art."
+  },
+  {
+    "id": "team002",
+    "name": "Chord Masters",
+    "members": ["user123"],
+    "description": "Exploring harmonic landscapes."
+  },
+  {
+    "id": "team003",
+    "name": "Verse Virtuosos",
+    "members": ["user789"],
+    "description": "Masters of poetic structure."
+  }
+]

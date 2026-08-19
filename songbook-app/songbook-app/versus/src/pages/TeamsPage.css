@@ -1,0 +1,47 @@
+.teams-page {
+  /* .container and .card classes from App.css are applied in JSX */
+}
+
+.page-title { /* This class is also in SongList.css, etc. Consider global if identical */
+  color: var(--primary-accent-color);
+  margin-bottom: 20px;
+  text-align: center;
+  transition: color 0.3s ease;
+}
+
+.loading-message,
+.info-message {
+  text-align: center;
+  font-style: italic;
+  color: var(--text-color);
+  opacity: 0.8;
+  padding: 20px;
+  transition: color 0.3s ease, opacity 0.3s ease;
+}
+
+.teams-list {
+  list-style: none;
+  padding: 0;
+}
+
+.team-item {
+  /* .card class from App.css is applied in JSX */
+  margin-bottom: 15px; /* Space between team cards */
+}
+
+.team-name {
+  color: var(--secondary-accent-color); /* Use secondary accent for team names */
+  margin-top: 0;
+  margin-bottom: 10px;
+  font-size: 1.5rem;
+  transition: color 0.3s ease;
+}
+
+.team-description {
+  color: var(--text-color);
+  opacity: 0.9;
+  font-size: 1rem;
+  line-height: 1.5;
+  margin-bottom: 0;
+  transition: color 0.3s ease, opacity 0.3s ease;
+}

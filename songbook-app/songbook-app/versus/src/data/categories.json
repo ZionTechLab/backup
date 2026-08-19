@@ -1,0 +1,12 @@
+[
+  {
+    "id": 1,
+    "name": "English",
+    "category_type_id": 1
+  },
+  {
+    "id": 2,
+    "name": "Spanish",
+    "category_type_id": 1
+  }
+]

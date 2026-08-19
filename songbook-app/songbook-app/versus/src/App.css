@@ -1,0 +1,144 @@
+/* Theme Variables */
+:root {
+  /* Default (Dark Theme) */
+  --bg-color: #121212;
+  --text-color: #e0e0e0;
+  --card-bg-color: #1e1e1e;
+  --card-border-color: #333;
+  --primary-accent-color: #ff9800; /* Orange */
+  --secondary-accent-color: #2196f3; /* Blue */
+  --link-color: var(--primary-accent-color);
+  --link-hover-color: var(--secondary-accent-color);
+  --font-family-sans: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
+  --font-family-serif: Georgia, 'Times New Roman', Times, serif;
+  --font-family-monospace: source-code-pro, Menlo, Monaco, Consolas, 'Courier New', monospace;
+  --font-family-main: var(--font-family-sans);
+  --navbar-bg-color: #1e1e1e;
+  --navbar-border-color: var(--primary-accent-color);
+  --drawer-bg-color: #1a1a1a;
+  --button-bg-color: var(--primary-accent-color);
+  --button-text-color: #121212;
+  --button-hover-bg-color: var(--secondary-accent-color);
+  --button-hover-text-color: #ffffff;
+  --code-bg-color: #2c2c2c;
+}
+
+body.theme-light {
+  --bg-color: #f4f4f4;
+  --text-color: #333333;
+  --card-bg-color: #ffffff;
+  --card-border-color: #dddddd;
+  --primary-accent-color: #d9534f; /* A light theme friendly red/orange */
+  --secondary-accent-color: #0275d8; /* A light theme friendly blue */
+  --link-color: var(--primary-accent-color);
+  --link-hover-color: var(--secondary-accent-color);
+  --font-family-main: var(--font-family-sans);
+  --navbar-bg-color: #f8f8f8;
+  --navbar-border-color: var(--primary-accent-color);
+  --drawer-bg-color: #efefef;
+  --button-bg-color: var(--primary-accent-color);
+  --button-text-color: #ffffff;
+  --button-hover-bg-color: var(--secondary-accent-color);
+  --button-hover-text-color: #ffffff;
+  --code-bg-color: #e8e8e8;
+}
+
+body.theme-book {
+  --bg-color: #f5e8d5; /* Sepia / off-white */
+  --text-color: #5b4636; /* Dark brown */
+  --card-bg-color: #efe0c9;
+  --card-border-color: #d3c0a5;
+  --primary-accent-color: #8c5e3c; /* Muted brown-orange */
+  --secondary-accent-color: #5a7d7c; /* Muted teal/blue */
+  --link-color: var(--primary-accent-color);
+  --link-hover-color: var(--secondary-accent-color);
+  --font-family-main: var(--font-family-serif); /* Serif font for book theme */
+  --navbar-bg-color: #e6d5b8;
+  --navbar-border-color: var(--primary-accent-color);
+  --drawer-bg-color: #e0cdaf;
+  --button-bg-color: var(--primary-accent-color);
+  --button-text-color: #f5e8d5;
+  --button-hover-bg-color: var(--secondary-accent-color);
+  --button-hover-text-color: #f5e8d5;
+  --code-bg-color: #dcd0bf;
+}
+
+
+/* Global Styles using CSS Variables */
+body {
+  margin: 0;
+  font-family: var(--font-family-main);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background-color: var(--bg-color);
+  color: var(--text-color);
+  line-height: 1.6;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+code {
+  font-family: var(--font-family-monospace);
+  background-color: var(--code-bg-color);
+  padding: 0.2em 0.4em;
+  border-radius: 3px;
+  color: var(--text-color); /* Ensure code text color contrasts with its background */
+}
+
+.container {
+  max-width: 960px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+.main-content {
+  /* Styles for the main content area if needed, e.g., padding-top if navbar is fixed */
+}
+
+
+/* Link Styling with Orange-Blue Accent */
+a {
+  color: var(--link-color);
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+a:hover, a:focus {
+  color: var(--link-hover-color);
+  text-decoration: underline;
+}
+
+/* Button-like Links */
+.link-button {
+  display: inline-block;
+  padding: 10px 15px;
+  background-color: var(--button-bg-color);
+  color: var(--button-text-color);
+  border-radius: 5px;
+  text-align: center;
+  font-weight: bold;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.link-button:hover, .link-button:focus {
+  background-color: var(--button-hover-bg-color);
+  color: var(--button-hover-text-color);
+  text-decoration: none;
+}
+
+/* Card styling using CSS Variables */
+.card {
+  background-color: var(--card-bg-color);
+  padding: 15px 20px;
+  margin-bottom: 15px;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1); /* Softer shadow for better theme compatibility */
+  border: 1px solid var(--card-border-color);
+  transition: background-color 0.3s ease, border-color 0.3s ease;
+}
+
+.card h2, .card h3 {
+  color: var(--primary-accent-color); /* Use primary accent for headings in cards */
+  margin-top: 0;
+  transition: color 0.3s ease;
+}

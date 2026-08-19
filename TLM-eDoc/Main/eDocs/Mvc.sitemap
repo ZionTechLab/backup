@@ -1,0 +1,22 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<mvcSiteMap xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+            xmlns="http://mvcsitemap.codeplex.com/schemas/MvcSiteMap-File-4.0"
+            xsi:schemaLocation="http://mvcsitemap.codeplex.com/schemas/MvcSiteMap-File-4.0 MvcSiteMapSchema.xsd">
+
+  <mvcSiteMapNode title="Home" controller="Email" action="Index" >
+    <mvcSiteMapNode title="Trash" controller="MainDashbaord" action="Trash"/>
+    <mvcSiteMapNode title="Template" controller="Template" action="Template"/>
+    <mvcSiteMapNode title="Files" controller="MainDashbaord" action="FilterFiles"/>
+    <mvcSiteMapNode title="File Search" controller="Reports" action="FileSearch"/>  
+    <mvcSiteMapNode title="Audit Logs" controller="Reports" action="AuditLog"/>
+    <mvcSiteMapNode title="Activity Logs" controller="Reports" action="ActivityLog"/>
+    <mvcSiteMapNode title="Folder logs" controller="Reports" action="FolderLog"/>
+    <mvcSiteMapNode title="Watermark" controller="MainDashbaord" action="Watermark"/>
+    <mvcSiteMapNode title="Store Location" controller="MainDashbaord" action="StoreLocation"/>
+    <mvcSiteMapNode title="Folder Permissions" controller="FolderAccess" action="FolderAccess"/>
+    <mvcSiteMapNode title="Search" controller="CommonSearch" action="SearchFiles"/>
+  </mvcSiteMapNode>
+
+
+
+</mvcSiteMap>

@@ -1,0 +1,80 @@
+.form-control-color-picker {
+  position: relative;
+  height: 40px;
+  border-color: #dee4e5;
+  box-shadow: none;
+  -webkit-box-shadow: none;
+  -moz-box-shadow: none;
+  border-radius: 2px;
+  -webkit-border-radius: 2px;
+  -moz-border-radius: 2px;
+}
+.form-control-color-picker > .form-control-color-picker-value {
+  font-size: 1.2em;
+  padding: 10px 15px;
+  cursor: default;
+}
+.form-control-color-picker > .form-control-color-picker-dropdown {
+  position: absolute;
+  width: 100%;
+  left: 0;
+  top: 100%;
+  z-index: 10;
+  background: #FFF;
+  display: none;
+}
+.form-control-color-picker > .form-control-color-picker-dropdown > .form-control-color-picker-dropdown-item {
+  padding: 10px 15px;
+  position: relative;
+  cursor: pointer;
+  font-size: 1.2em;
+}
+.form-control-color-picker > .form-control-color-picker-dropdown > .form-control-color-picker-dropdown-item:before {
+  position: absolute;
+  content: "";
+  width: 5px;
+  height: 34px;
+  background-color: transparent;
+  left: 3px;
+  top: 3px;
+}
+.form-control-color-picker > .form-control-color-picker-dropdown > .form-control-color-picker-dropdown-item:hover:before, .form-control-color-picker > .form-control-color-picker-dropdown > .form-control-color-picker-dropdown-item:focus:before, .form-control-color-picker > .form-control-color-picker-dropdown > .form-control-color-picker-dropdown-item.selected:before {
+  background-color: #fff;
+}
+.form-control-color-picker > .form-control-color-picker-triangle {
+  position: absolute;
+  content: "";
+  width: 0;
+  height: 0;
+  border-left: 8px solid transparent;
+  border-right: 8px solid transparent;
+  border-top: 9px solid rgba(255, 255, 255, 0.5);
+  right: 10px;
+  top: 17px;
+  z-index: 10;
+}
+.form-control-color-picker > .form-control-color-picker-triangle:after {
+  position: absolute;
+  content: "";
+  width: 0;
+  height: 0;
+  border-left: 6px solid transparent;
+  border-right: 6px solid transparent;
+  border-top: 6px solid rgba(255, 255, 255, 0.8);
+  left: -6px;
+  top: -8px;
+  z-index: 10;
+}
+.form-control-color-picker:focus {
+  background: #fff !important;
+  color: #4f4f4f !important;
+}
+.form-control-color-picker:focus > .form-control-color-picker-dropdown {
+  display: block;
+}
+.form-control-color-picker:focus > .form-control-color-picker-triangle {
+  border-top: 9px solid #333;
+}
+.form-control-color-picker:focus > .form-control-color-picker-triangle:after {
+  border-top: 6px solid #4f4f4f;
+}

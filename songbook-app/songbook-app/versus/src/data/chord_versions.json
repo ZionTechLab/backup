@@ -1,0 +1,16 @@
+[
+  {
+    "id": 1,
+    "song_id": 1,
+    "author": "Author 1",
+    "title": "Version 1",
+    "chords": "[C]Lyrics for song 1 with [G]chords..."
+  },
+  {
+    "id": 2,
+    "song_id": 1,
+    "author": "Author 2",
+    "title": "Version 2",
+    "chords": "[Am]Lyrics for song 1 with [F]other chords..."
+  }
+]

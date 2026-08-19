@@ -1,0 +1,67 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 14
+VisualStudioVersion = 14.0.25420.1
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "eDocs_DAL", "eDocs_DAL\eDocs_DAL.csproj", "{DC281FAC-2571-4FD8-96CA-0FC993AE63F5}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ThirdPartyApplication", "ThirdPartyApplication\ThirdPartyApplication.csproj", "{C2D90695-B035-40E1-A70D-0CBA6EB699D8}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WindowsAPI", "WindowsAPI\WindowsAPI\WindowsAPI.csproj", "{FFF305CB-819E-41B5-AC07-CA0188E42023}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FileViewer", "FileViewer\FileViewer.csproj", "{A46B7534-AE07-42CA-B3FF-D5D22C748CB9}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "eDocs", "eDocs\eDocs.csproj", "{99305A9C-BD08-485B-B27E-CFC89C6C1636}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{DC281FAC-2571-4FD8-96CA-0FC993AE63F5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DC281FAC-2571-4FD8-96CA-0FC993AE63F5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DC281FAC-2571-4FD8-96CA-0FC993AE63F5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DC281FAC-2571-4FD8-96CA-0FC993AE63F5}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C2D90695-B035-40E1-A70D-0CBA6EB699D8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C2D90695-B035-40E1-A70D-0CBA6EB699D8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C2D90695-B035-40E1-A70D-0CBA6EB699D8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C2D90695-B035-40E1-A70D-0CBA6EB699D8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FFF305CB-819E-41B5-AC07-CA0188E42023}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FFF305CB-819E-41B5-AC07-CA0188E42023}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FFF305CB-819E-41B5-AC07-CA0188E42023}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FFF305CB-819E-41B5-AC07-CA0188E42023}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A46B7534-AE07-42CA-B3FF-D5D22C748CB9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A46B7534-AE07-42CA-B3FF-D5D22C748CB9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A46B7534-AE07-42CA-B3FF-D5D22C748CB9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A46B7534-AE07-42CA-B3FF-D5D22C748CB9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{99305A9C-BD08-485B-B27E-CFC89C6C1636}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{99305A9C-BD08-485B-B27E-CFC89C6C1636}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{99305A9C-BD08-485B-B27E-CFC89C6C1636}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{99305A9C-BD08-485B-B27E-CFC89C6C1636}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(TeamFoundationVersionControl) = preSolution
+		SccNumberOfProjects = 6
+		SccEnterpriseProvider = {4CA58AB2-18FA-4F8D-95D4-32DDF27D184C}
+		SccTeamFoundationServer = http://adv-tfssvr01:8080/tfs/defaultcollection
+		SccLocalPath0 = .
+		SccProjectUniqueName1 = eDocs\\eDocs.csproj
+		SccProjectName1 = eDocs
+		SccLocalPath1 = eDocs
+		SccProjectUniqueName2 = eDocs_DAL\\eDocs_DAL.csproj
+		SccProjectName2 = eDocs_DAL
+		SccLocalPath2 = eDocs_DAL
+		SccProjectUniqueName3 = FileViewer\\FileViewer.csproj
+		SccProjectName3 = FileViewer
+		SccLocalPath3 = FileViewer
+		SccProjectUniqueName4 = ThirdPartyApplication\\ThirdPartyApplication.csproj
+		SccProjectName4 = ThirdPartyApplication
+		SccLocalPath4 = ThirdPartyApplication
+		SccProjectUniqueName5 = WindowsAPI\\WindowsAPI\\WindowsAPI.csproj
+		SccProjectName5 = WindowsAPI/WindowsAPI
+		SccLocalPath5 = WindowsAPI\\WindowsAPI
+	EndGlobalSection
+EndGlobal

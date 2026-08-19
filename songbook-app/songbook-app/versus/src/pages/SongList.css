@@ -1,0 +1,44 @@
+.song-list-container {
+  /* Uses .container class from App.css for max-width and padding */
+}
+
+.page-title {
+  color: var(--primary-accent-color); /* Use CSS variable */
+  margin-bottom: 20px;
+  text-align: center;
+  transition: color 0.3s ease;
+}
+
+.loading-message {
+  text-align: center;
+  font-style: italic;
+  color: var(--text-color); /* Use CSS variable, adjust opacity if too strong */
+  opacity: 0.7;
+  padding: 20px;
+  transition: color 0.3s ease, opacity 0.3s ease;
+}
+
+.song-list {
+  list-style: none;
+  padding: 0;
+}
+
+.song-list-item {
+  /* .card class from App.css is applied directly in JSX */
+}
+
+.song-title-link {
+  font-size: 1.5rem;
+  font-weight: bold;
+  display: block;
+  margin-bottom: 5px;
+  /* Link colors are inherited from App.css (var(--link-color), var(--link-hover-color)) */
+}
+
+.song-language {
+  margin: 5px 0 0;
+  color: var(--text-color); /* Use CSS variable */
+  opacity: 0.8; /* Slightly subdued */
+  font-size: 0.9rem;
+  transition: color 0.3s ease, opacity 0.3s ease;
+}

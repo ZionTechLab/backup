@@ -1,0 +1,184 @@
+.chord-version-container {
+  /* .card class from App.css is applied directly in JSX */
+}
+
+.pdf-export-content {
+  margin-bottom: 20px;
+}
+/* This class is dynamically added to the temporary div for PDF generation */
+.pdf-export-content-inner {
+    padding: 20px; /* Add some padding for the PDF content itself */
+}
+/* Styling for inline chords in PDF */
+.pdf-export-content-inner .segment-chord-inline {
+    font-weight: bold;
+    color: var(--primary-accent-color); /* Or a PDF-specific color */
+}
+
+
+.page-title {
+  color: var(--primary-accent-color);
+  margin-bottom: 10px;
+  text-align: center;
+  transition: color 0.3s ease;
+}
+.transpose-indicator {
+  font-size: 0.8em;
+  font-style: italic;
+  color: var(--secondary-accent-color);
+}
+
+.version-author {
+  text-align: center;
+  color: var(--text-color);
+  opacity: 0.8;
+  font-style: italic;
+  margin-bottom: 20px;
+  transition: color 0.3s ease, opacity 0.3s ease;
+}
+
+.chords-display-area {
+  white-space: pre-wrap;
+  line-height: 2.8em;
+  background-color: var(--code-bg-color);
+  padding: 20px;
+  border-radius: 5px;
+  color: var(--text-color);
+  font-size: 1rem;
+  border: 1px solid var(--card-border-color);
+  transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
+}
+
+.chord-block {
+  display: inline-block;
+  position: relative;
+  margin-right: 1px;
+  vertical-align: bottom;
+}
+
+.chord {
+  position: absolute;
+  top: -1.6em;
+  left: 0;
+  font-weight: bold;
+  color: var(--primary-accent-color);
+  font-size: 0.9em;
+  white-space: nowrap;
+  transition: color 0.3s ease;
+}
+
+.lyric-segment,
+.lyric-segment-with-chord {
+  padding-top: 0.5em;
+}
+
+.actions-toolbar {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 15px; /* Reduced margin before PDF options appear */
+  gap: 10px;
+}
+
+.transpose-controls {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-wrap: nowrap;
+}
+
+.transpose-btn {
+  padding: 6px 10px;
+  font-size: 0.9rem;
+  min-width: 60px;
+  text-align: center;
+}
+.transpose-btn:disabled {
+  background-color: var(--card-border-color);
+  color: var(--text-color);
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.transpose-offset-display {
+  font-size: 0.9rem;
+  color: var(--text-color);
+  margin-left: 5px;
+  min-width: 80px;
+  text-align: left;
+}
+
+.export-pdf-btn {
+  margin-left: auto;
+}
+
+.pdf-options-panel {
+  /* .card class is applied in JSX */
+  padding: 15px;
+  margin-top: 0; /* Sits flush under actions toolbar */
+  margin-bottom: 20px;
+  border-top: 1px solid var(--card-border-color); /* Separator */
+}
+
+.pdf-options-panel .panel-title {
+  margin-top: 0;
+  margin-bottom: 15px;
+  font-size: 1.1rem;
+  color: var(--secondary-accent-color);
+}
+
+.pdf-options-panel .form-group {
+  margin-bottom: 15px;
+}
+
+.pdf-options-panel .form-group label {
+  display: block;
+  margin-bottom: 5px;
+  font-weight: bold;
+  font-size: 0.9rem;
+  color: var(--text-color);
+}
+
+.pdf-options-panel .form-group select {
+  width: 100%;
+  padding: 8px 10px;
+  border-radius: 4px;
+  border: 1px solid var(--card-border-color);
+  background-color: var(--bg-color); /* Match editor inputs */
+  color: var(--text-color);
+  font-family: var(--font-family-main);
+  font-size: 0.95rem;
+}
+.pdf-options-panel .form-group select:focus {
+  outline: none;
+  border-color: var(--primary-accent-color);
+  box-shadow: 0 0 0 2px var(--secondary-accent-color-transparent, rgba(33, 150, 243, 0.3));
+}
+
+.generate-pdf-btn {
+  /* Uses .link-button styles */
+  display: block; /* Make it full width within panel */
+  width: 100%;
+  margin-top: 10px;
+  text-align: center;
+}
+
+
+.not-found-message {
+  text-align: center;
+  font-style: italic;
+  color: var(--text-color);
+  opacity: 0.7;
+  padding: 20px;
+  transition: color 0.3s ease, opacity 0.3s ease;
+}
+
+.navigation-links {
+  margin-top: 10px;
+  text-align: center;
+}
+
+.navigation-links .link-button {
+  margin: 5px 10px;
+}

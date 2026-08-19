@@ -1,0 +1,20 @@
+body {
+    background-image: url('../img/Back.PNG');
+    
+}
+
+#squire {
+
+    background-color:white;
+    height:390px;
+    width:450px;
+    margin-left:450px;
+    margin-top:125px;
+    
+}
+
+#logo {
+    background-image: url('../img/afisol.png');
+    margin-top:20px;
+    width:200px;
+}

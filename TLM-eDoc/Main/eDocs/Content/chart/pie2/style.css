@@ -1,0 +1,111 @@
+.container {
+/*   display: flex; */
+/*   justify-content: center; */
+/*   justify-items: center; */
+/*   align-items: center; */
+/*   align-content: center; */
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.chart {
+            position: relative;
+            display: inline-block;
+            width: 110px;
+            height: 110px;
+            margin-top: 20px;
+            margin-bottom: 20px;
+            margin-left: 20px;
+            margin-right: 20px;
+            text-align: center;
+        }
+
+        .chart.chart-widget-pie {
+            margin-top: 5px;
+            margin-bottom: 5px;
+        }
+
+        .chart canvas {
+            position: absolute;
+            top: 0;
+            left: 0;
+        }
+
+        .percent1 {
+            display: inline-block;
+            line-height: 110px;
+            z-index: 2;
+            font-family: Helvetica;
+            font-size: 1.4rem;
+            color: #3b80da;
+
+
+        }
+
+        .percent2 {
+            display: inline-block;
+            line-height: 110px;
+            z-index: 2;
+            font-family: Helvetica;
+            font-size: 1.4rem;
+            color: #a83bda;
+        }
+
+        .percent3 {
+            display: inline-block;
+            line-height: 110px;
+            z-index: 2;
+            font-family: Helvetica;
+            font-size: 1.4rem;
+            color: #da3bb8;
+        }
+
+        .percent1:after {
+            content: '%';
+            margin-left: 0.1em;
+            font-family: Helvetica;
+            font-size: 1.4rem;
+            color: #3b80da;
+
+        }
+
+        .percent2:after {
+            content: '%';
+            margin-left: 0.1em;
+            font-family: Helvetica;
+            font-size: 1.4rem;
+            color: #a83bda;
+
+        }
+
+        .percent3:after {
+            content: '%';
+            margin-left: 0.1em;
+            font-family: Helvetica;
+            font-size: 1.4rem;
+            color: #da3bb8;
+
+        }
+
+.editing1{
+  display: inline-block;
+  color: gray;
+  font-family: Helvetica;
+  font-size: 1.4rem;
+}
+
+.editing2{
+  display: inline-block;
+  color: gray;
+  font-family: Helvetica;
+  font-size: 1.4rem;
+}
+
+.editing3{
+  display: inline-block;
+  color: gray;
+  font-family: Helvetica;
+  font-size: 1.4rem;
+}
