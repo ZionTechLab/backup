@@ -1,0 +1,46 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Virtual Environment
+venv/
+env/
+
+# PDF extraction - generated output + source PDFs
+pdf_extract/data/processed/
+pdf_extract/data/raw/
+
+# IDEs
+.vscode/
+.idea/
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Logs
+*.log
+
+# ChromaDB (vector store — generated data)
+chroma_db/
+
+# API keys / environment - NEVER commit
+.env
+.env.local
+.env.*.local
+.env.production
+.env.development
+.env.test
+
+# Project management & temporary files
+DEV_LOG.md
+tobedelete/
+pdf_extract/evaluate/eval_results_checkpoint.json
+pdf_extract/evaluate/eval_summary_report.json
+
+# Chunk cache (intermediate generated files)
+data/chunks/
+
+# Cache
+.cache/
