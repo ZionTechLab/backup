@@ -1,0 +1,20 @@
+body.dark-theme {
+  background-color: #212529 !important;
+  color: #f8f9fa !important;
+}
+
+body.dark-theme .form-control,
+body.dark-theme .form-select {
+  background-color: #343a40 !important;
+  color: #f8f9fa !important;
+  border-color: #495057 !important;
+}
+
+body.dark-theme .list-group-item {
+  background-color: #343a40 !important;
+  border-color: #495057 !important;
+}
+
+body.dark-theme .list-group-item.bg-light {
+  background-color: #495057 !important;
+}
