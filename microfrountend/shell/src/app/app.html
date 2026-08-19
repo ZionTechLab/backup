@@ -1,0 +1,13 @@
+@if (auth.isLoggedIn()) {
+  <nav class="navbar">
+    <span class="brand">MFE App</span>
+    <div class="nav-links">
+      <a routerLink="/dashboard" routerLinkActive="active">Dashboard</a>
+      <a routerLink="/users" routerLinkActive="active">Users</a>
+    </div>
+    <button class="logout-btn" (click)="logout()">Logout ({{ auth.user()?.username }})</button>
+  </nav>
+}
+<main>
+  <router-outlet></router-outlet>
+</main>

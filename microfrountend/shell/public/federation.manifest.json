@@ -1,0 +1,4 @@
+{
+	"dashboard": "http://localhost:4201/remoteEntry.json",
+	"user-management": "http://localhost:4202/remoteEntry.json"
+}
