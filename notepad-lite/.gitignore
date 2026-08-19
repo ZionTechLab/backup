@@ -1,0 +1,12 @@
+bin/
+obj/
+
+# WiX installer build output
+installer/*.msi
+installer/*.wixpdb
+installer/bin/
+installer/obj/
+
+# debug/self-test scratch files
+trace.txt
+selftest-result.txt

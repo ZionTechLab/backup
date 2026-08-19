@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Wix xmlns="http://wixtoolset.org/schemas/v4/wxs"
+     xmlns:ui="http://wixtoolset.org/schemas/v4/wxs/ui"
+     xmlns:util="http://wixtoolset.org/schemas/v4/wxs/util">
+
+  <Package Name="Notepad Lite"
+           Manufacturer="Notepad Lite"
+           Version="1.0.0.0"
+           UpgradeCode="8f3c0a1e-6b2d-4b7e-9b1a-2c9d4f6e8a11"
+           Compressed="yes"
+           Scope="perMachine">
+
+    <MajorUpgrade DowngradeErrorMessage="A newer version of Notepad Lite is already installed." />
+    <MediaTemplate EmbedCab="yes" />
+
+    <StandardDirectory Id="ProgramFiles6432Folder">
+      <Directory Id="INSTALLFOLDER" Name="Notepad Lite" />
+    </StandardDirectory>
+
+    <StandardDirectory Id="ProgramMenuFolder">
+      <Directory Id="ApplicationProgramsFolder" Name="Notepad Lite" />
+    </StandardDirectory>
+
+    <Feature Id="MainFeature" Title="Notepad Lite" Level="1">
+      <ComponentRef Id="MainExecutable" />
+      <ComponentRef Id="ApplicationShortcut" />
+      <ComponentRef Id="FileAssociations" />
+    </Feature>
+
+    <Component Id="MainExecutable" Directory="INSTALLFOLDER" Guid="7a1e9c3d-2f5b-4a6e-8c1d-3e9f0b2a4c5d">
+      <File Id="NotepadLiteExe" Source="..\bin\Release\net10.0-windows\win-x64\publish\notepad-lite.exe" KeyPath="yes" />
+    </Component>
+
+    <Component Id="ApplicationShortcut" Directory="ApplicationProgramsFolder" Guid="1b2c3d4e-5f6a-4b7c-8d9e-0f1a2b3c4d5e">
+      <Shortcut Id="StartMenuShortcut"
+                Name="Notepad Lite"
+                Description="A minimal text and markdown editor"
+                Target="[INSTALLFOLDER]notepad-lite.exe"
+                WorkingDirectory="INSTALLFOLDER" />
+      <RemoveFolder Id="RemoveApplicationProgramsFolder" On="uninstall" />
+      <RegistryValue Root="HKCU" Key="Software\NotepadLite" Name="StartMenuShortcut" Type="integer" Value="1" KeyPath="yes" />
+    </Component>
+
+    <Component Id="FileAssociations" Directory="INSTALLFOLDER" Guid="6d4e2f1a-9b3c-4d5e-af6b-8c7d9e0f1a2b">
+      <RegistryValue Root="HKLM" Key="Software\Classes\NotepadLite.txt" Value="Text Document" Type="string" KeyPath="yes" />
+      <RegistryValue Root="HKLM" Key="Software\Classes\NotepadLite.txt\DefaultIcon" Value="[INSTALLFOLDER]notepad-lite.exe,0" Type="string" />
+      <RegistryValue Root="HKLM" Key="Software\Classes\NotepadLite.txt\shell\open\command" Value="&quot;[INSTALLFOLDER]notepad-lite.exe&quot; &quot;%1&quot;" Type="string" />
+
+      <RegistryValue Root="HKLM" Key="Software\Classes\NotepadLite.md" Value="Markdown Document" Type="string" />
+      <RegistryValue Root="HKLM" Key="Software\Classes\NotepadLite.md\DefaultIcon" Value="[INSTALLFOLDER]notepad-lite.exe,0" Type="string" />
+      <RegistryValue Root="HKLM" Key="Software\Classes\NotepadLite.md\shell\open\command" Value="&quot;[INSTALLFOLDER]notepad-lite.exe&quot; &quot;%1&quot;" Type="string" />
+
+      <RegistryValue Root="HKLM" Key="Software\NotepadLite\Capabilities" Name="ApplicationName" Value="Notepad Lite" Type="string" />
+      <RegistryValue Root="HKLM" Key="Software\NotepadLite\Capabilities" Name="ApplicationDescription" Value="A minimal text and markdown editor" Type="string" />
+      <RegistryValue Root="HKLM" Key="Software\NotepadLite\Capabilities\FileAssociations" Name=".txt" Value="NotepadLite.txt" Type="string" />
+      <RegistryValue Root="HKLM" Key="Software\NotepadLite\Capabilities\FileAssociations" Name=".md" Value="NotepadLite.md" Type="string" />
+
+      <RegistryValue Root="HKLM" Key="Software\RegisteredApplications" Name="Notepad Lite" Value="Software\NotepadLite\Capabilities" Type="string" />
+    </Component>
+
+    <Property Id="WixShellExecTarget" Value="ms-settings:defaultapps" />
+    <CustomAction Id="LaunchDefaultAppsSettings" DllEntry="WixShellExec" Impersonate="yes" BinaryRef="Wix4UtilCA_X86" Execute="immediate" />
+
+    <ui:WixUI Id="WixUI_InstallDir" />
+    <WixVariable Id="WixUILicenseRtf" Value="License.rtf" />
+    <Property Id="WIXUI_INSTALLDIR" Value="INSTALLFOLDER" />
+
+    <Property Id="WIXUI_EXITDIALOGOPTIONALCHECKBOXTEXT" Value="Open Windows Settings to set Notepad Lite as your default for .txt files" />
+    <Property Id="WIXUI_EXITDIALOGOPTIONALCHECKBOX" Value="1" />
+
+    <InstallExecuteSequence>
+    </InstallExecuteSequence>
+
+    <UI>
+      <Publish Dialog="ExitDialog" Control="Finish" Event="DoAction" Value="LaunchDefaultAppsSettings" Condition="WIXUI_EXITDIALOGOPTIONALCHECKBOX = 1 and NOT Installed" />
+    </UI>
+
+  </Package>
+</Wix>
