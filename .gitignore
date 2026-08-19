@@ -98,12 +98,12 @@ ehthumbs.db
 Thumbs.db
 
 # ===== Archives / Temp =====
-*.zip
+
 *.tar
 *.tar.gz
 *.tgz
 *.rar
-*.7z
+
 *.tmp
 *.temp
 

@@ -1,0 +1,54 @@
+%% System Overview — Sri Lankan Used Vehicle Price Prediction
+%% Renders natively on GitHub. For the Word report, paste into
+%% https://mermaid.live and export PNG/SVG.
+
+flowchart TB
+    subgraph SRC["Data Sources"]
+        IK["ikman.lk<br/>via sitemap-listings-index.xml"]
+        RS["riyasewana.com<br/>listing + detail pages"]
+    end
+
+    subgraph COL["Phase 2 — Collection"]
+        SC["Scrapers (Python)<br/>rate-limited, robots-compliant"]
+        CACHE[("Raw response cache<br/>HTML / JSON")]
+        RAW[("Raw listings CSV<br/>+ scrape_timestamp, source_site")]
+    end
+
+    subgraph PIPE["Phase 3 — Data Pipeline"]
+        MAP["Map both sites to<br/>canonical schema"]
+        DEDUP["Deduplicate<br/>within + across sites"]
+        CLEAN["Parse price, normalise units,<br/>brands, model names"]
+        FEAT["Feature engineering<br/>+ outlier handling"]
+        SPLIT["Train / Val / Test split<br/>stratified by price band"]
+    end
+
+    subgraph MODEL["Phase 4-5 — Modelling"]
+        BASE["Trivial baselines<br/>global + brand-year median"]
+        ML["Linear to Ridge/Lasso to<br/>RF to XGBoost/LightGBM"]
+        CV["5-fold CV<br/>preprocessing inside folds"]
+        SEL["Model selection<br/>against success criterion"]
+    end
+
+    subgraph DEP["Phase 6 — Deployment"]
+        ART[("Serialised fitted<br/>sklearn Pipeline")]
+        APP["Streamlit Community Cloud app"]
+        USER(["Buyer / private seller"])
+    end
+
+    IK --> SC
+    RS --> SC
+    SC --> CACHE
+    CACHE --> RAW
+    RAW --> MAP
+    MAP --> DEDUP
+    DEDUP --> CLEAN
+    CLEAN --> FEAT
+    FEAT --> SPLIT
+    SPLIT --> BASE
+    BASE --> ML
+    ML --> CV
+    CV --> SEL
+    SEL --> ART
+    ART --> APP
+    APP --> USER
+    USER -.->|vehicle attributes| APP
