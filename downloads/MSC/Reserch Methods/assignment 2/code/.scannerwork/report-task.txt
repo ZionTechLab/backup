@@ -1,0 +1,6 @@
+projectKey=MSC
+serverUrl=http://adv-vm-sc-dev-sea.southeastasia.cloudapp.azure.com:9000
+serverVersion=25.11.0.114957
+dashboardUrl=http://adv-vm-sc-dev-sea.southeastasia.cloudapp.azure.com:9000/dashboard?id=MSC
+ceTaskId=5cbca24d-339a-4ad7-9912-f215ec0530a2
+ceTaskUrl=http://adv-vm-sc-dev-sea.southeastasia.cloudapp.azure.com:9000/api/ce/task?id=5cbca24d-339a-4ad7-9912-f215ec0530a2
