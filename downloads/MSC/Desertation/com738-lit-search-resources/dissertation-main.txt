@@ -1,0 +1,1116 @@
+
+# A Retrieval-Augmented Generation (RAG) Architecture for Low-Resource Languages: A Case Study on Sinhala-Medium Secondary Business Education
+
+---
+
+**Student:** S25021960 — M.A.A.T. Perera  
+**Module:** COM738 — Dissertation (60 credits, Level 7)  
+**Programme:** MSc Computer Science  
+**Institution:** Wrexham University via Londontec City Campus, Sri Lanka  
+**Supervisor:** [To be assigned — NLP / LLM / Low-Resource Language expertise]  
+**Submission Date:** August 2, 2026  
+
+**Word Count:** ~17,000 (Chapters 1-4: ~13,600; Chapter 2 expanded to ~6,200; Chapters 5-7: ~2,400 with references; target: 15,000-20,000)
+
+---
+
+## Abstract
+
+Large Language Models (LLMs) have demonstrated remarkable capabilities across a wide range of natural language tasks, yet their deployment in low-resource language contexts remains fraught with challenges. Chief among these is the problem of hallucination — the generation of plausible-sounding but factually inaccurate content — which is especially pronounced when models operate in languages for which they possess limited pretraining data. This dissertation investigates whether a Retrieval-Augmented Generation (RAG) architecture can mitigate hallucination and improve response quality for Sinhala-medium secondary business education, a domain where access to accurate, curriculum-aligned information is critical for student learning and examination preparation.
+
+The study employs a positivist, deductive research philosophy through a controlled experimental design. A modular RAG pipeline is constructed using LangChain, integrating multilingual embedding models (multilingual-E5 and BGE-M3) with vector database storage (Pinecone/Chroma) and a suite of frontier LLMs (Claude, GPT-4o, Gemini) as the generation backbone. The knowledge base comprises publicly available National Institute of Education (NIE) Ordinary Level Business Studies curricular documents — syllabus, textbooks, teacher guides, and past examination papers — all in Sinhala, cleaned and normalised for retrieval.
+
+Two baseline conditions are established: an ungrounded LLM responding to questions without retrieval support, and a prompt-constrained but ungrounded variant employing structured prompting without access to the knowledge base. Evaluation proceeds along two complementary tracks. Automated assessment employs the RAGAS framework to measure faithfulness, answer relevancy, context precision, and hallucination rate across a test set of 60–80 Sinhala-language questions drawn from past papers. Human validation engages two to three experienced O/L Business Studies teachers who evaluate anonymised system outputs on a five-point rubric, with inter-rater reliability quantified via Cohen's kappa coefficient. Statistical significance between conditions is assessed using the Wilcoxon signed-rank test.
+
+This research represents the first application of RAG methodology to formal Sinhala-language curriculum content. Expected contributions include a validated modular architecture for Sinhala educational retrieval, a curated evaluation dataset with reference answers, empirical evidence on hallucination reduction through domain grounding, optimised embedding and chunking parameters for Sinhala text, and a transferable methodological framework for extending retrieval-augmented approaches to other low-resource languages and educational subjects.
+
+**Keywords:** Retrieval-Augmented Generation, RAG, Sinhala NLP, Low-Resource Languages, Hallucination, Business Education, LangChain, RAGAS, Embedding Models
+
+---
+
+## Acknowledgements
+
+I wish to express my sincere gratitude to my dissertation supervisor for their guidance and constructive feedback throughout this research project. I also extend my appreciation to the lecturers and staff at Londontec City Campus and Wrexham University for providing the academic foundation upon which this work is built. Special thanks are due to the O/L Business Studies teachers who generously contributed their time and expertise to the human evaluation component of this study. Finally, I acknowledge the developers and researchers whose open-source tools and published works — particularly the LangChain framework, RAGAS evaluation toolkit, and the multilingual embedding models — made this research technically feasible.
+
+---
+
+## Table of Contents
+
+1. **Chapter 1: Introduction**
+   - 1.1 Background and Context
+   - 1.2 Problem Statement
+   - 1.3 Research Aim and Objectives
+   - 1.4 Research Questions
+   - 1.5 Scope and Delimitations
+   - 1.6 Significance of the Study
+   - 1.7 Structure of the Dissertation
+
+2. **Chapter 2: Literature Review**
+   - 2.1 Evolution of Large Language Models and the Persistence of Hallucination
+   - 2.2 A Taxonomy of Hallucination and Its Stakes for Educational Applications
+   - 2.3 Retrieval-Augmented Generation: Foundations and Mechanism
+   - 2.4 RAG Variants, Architectural Optimizations and Configuration Sensitivity
+   - 2.5 Cross-Lingual NLP and the Digital Language Divide
+   - 2.6 Sinhala Natural Language Processing: State of the Art and Its Limits
+   - 2.7 Retrieval-Augmented Generation in Education
+   - 2.8 Evaluation Frameworks for Retrieval-Augmented Generation
+   - 2.9 Research Gap and Contribution
+
+3. **Chapter 3: Research Methodology**
+   - 3.1 Research Philosophy and Approach
+   - 3.2 Research Design
+   - 3.3 Knowledge Base Construction
+   - 3.4 RAG Pipeline Development
+   - 3.5 Baseline Conditions
+   - 3.6 Evaluation Methodology
+   - 3.7 Human Validation Protocol
+   - 3.8 Statistical Analysis Plan
+   - 3.9 Development Methodology
+   - 3.10 Project Management and Timeline
+   - 3.11 Resource Requirements
+   - 3.12 Risk Assessment and Mitigation
+   - 3.13 Ethical Considerations
+
+4. **Chapter 4: System Design and Implementation**
+   - 4.1 High-Level Architecture
+   - 4.2 Knowledge Base Ingestion Pipeline
+   - 4.3 Embedding and Indexing Strategy
+   - 4.4 Query Processing Pipeline
+   - 4.5 Baseline Implementations
+   - 4.6 Adaptive Variant: Dual-Representation Indexing
+   - 4.7 Technology Stack and Justification
+
+5. **Chapter 5: Results and Evaluation**
+   - 5.1 Automated Evaluation Results
+   - 5.2 Human Evaluation Results
+   - 5.3 Statistical Analysis
+   - 5.4 Comparative Analysis of Baselines
+   - 5.5 Embedding Model and Chunking Parameter Analysis
+
+6. **Chapter 6: Discussion**
+   - 6.1 Interpretation of Findings
+   - 6.2 Implications for Low-Resource Language RAG
+   - 6.3 Practical Implications for Sinhala Education
+   - 6.4 Comparison with Related Work
+   - 6.5 Limitations
+
+7. **Chapter 7: Conclusion and Future Work**
+   - 7.1 Summary of Contributions
+   - 7.2 Recommendations
+   - 7.3 Future Research Directions
+
+8. **References**
+
+9. **Appendices**
+   - Appendix A: Evaluation Question Set
+   - Appendix B: Human Evaluation Rubric
+   - Appendix C: Informed Consent Form
+   - Appendix D: RAG Pipeline Source Code (Excerpts)
+   - Appendix E: RAGAS Configuration and Output Samples
+   - Appendix F: Gantt Chart
+
+---
+
+## Chapter 1: Introduction
+
+### 1.1 Background and Context
+
+The advent of Large Language Models (LLMs) represents one of the most consequential developments in the history of artificial intelligence. Models such as OpenAI's GPT-4, Anthropic's Claude, and Google's Gemini have demonstrated capabilities that extend far beyond simple text generation, encompassing complex reasoning, code synthesis, translation, and domain-specific knowledge application (Bubeck et al., 2023). These systems, trained on vast corpora of internet-scale text, have catalysed a paradigm shift in how humans interact with information systems, giving rise to conversational agents, automated tutoring platforms, and intelligent document processing pipelines that were inconceivable a decade ago.
+
+Yet the extraordinary capabilities of these models conceal a fundamental vulnerability: they are prone to hallucination — the confident generation of factually incorrect, internally inconsistent, or entirely fabricated information (Ji et al., 2023). This phenomenon is not merely an academic curiosity but poses genuine risks in high-stakes domains such as healthcare, law, finance, and education, where factual accuracy is non-negotiable. The problem is compounded when LLMs are deployed in languages for which their pretraining data is sparse. In such low-resource language contexts, models lack the parametric knowledge necessary to generate accurate, culturally grounded responses, and the probability of hallucination increases substantially (Trivedi et al., 2026).
+
+Sinhala (සිංහල), the primary language of approximately 17 million speakers in Sri Lanka, exemplifies this challenge. Despite its status as one of the official languages of the nation, Sinhala remains severely underrepresented in the digital linguistic ecosystem. The volume of high-quality Sinhala text available for model pretraining is orders of magnitude smaller than that available for English, Chinese, or other high-resource languages. Consequently, even state-of-the-art multilingual LLMs exhibit notable performance degradation when operating in Sinhala, producing responses that range from grammatically awkward to factually erroneous (Jayakody and Dias, 2024). Recent benchmarking efforts such as SinhalaMMLU (Pramodya et al., 2025) have quantified this gap, revealing that models achieving over 85% accuracy on English-language knowledge benchmarks frequently fall below 60% on equivalent Sinhala-language tasks.
+
+The educational implications of this performance gap are particularly concerning. In Sri Lanka, the General Certificate of Education Ordinary Level (GCE O/L) examination represents a critical academic milestone. Business Studies is one of the most popular elective subjects, with tens of thousands of students sitting the examination annually. While urban students in well-resourced schools may access supplementary tuition in English or benefit from teachers with strong subject-matter expertise, students in rural and under-resourced schools — where Sinhala is the sole medium of instruction — face significant disadvantages. Limited access to qualified teachers, outdated textbooks, and a scarcity of practice materials in Sinhala create an educational equity gap that directly affects examination outcomes and future opportunities.
+
+The convergence of these factors — the demonstrated capability of LLMs as educational tools, their vulnerability to hallucination in low-resource languages, and the acute need for accessible, accurate Sinhala-language educational resources — motivates the present research. Specifically, this dissertation investigates whether Retrieval-Augmented Generation (RAG), an architectural paradigm introduced by Lewis et al. (2020), can serve as a bridge between the generative fluency of LLMs and the factual reliability required for educational applications in low-resource language contexts.
+
+### 1.2 Problem Statement
+
+The problem addressed by this research is threefold. First, current general-purpose LLMs, when queried in Sinhala on topics related to the O/L Business Studies curriculum, exhibit unacceptably high rates of hallucination, producing content that may contradict the official syllabus, fabricate economic concepts, or misrepresent business principles in ways that would mislead students. Second, the existing ecosystem of educational technology tools in Sri Lanka provides minimal support for Sinhala-medium instruction in business subjects, leaving students and teachers without AI-assisted resources that could supplement traditional instructional methods. Third, while RAG architectures have demonstrated efficacy in grounding LLM outputs for high-resource languages, their applicability, optimal configuration, and performance characteristics for Sinhala — a morphologically rich, agglutinative language with limited digital representation — remain entirely unexplored.
+
+The core problem statement can be articulated as follows:
+
+> Current Large Language Models generate factually unreliable responses when queried about the Sri Lankan GCE O/L Business Studies curriculum in Sinhala, due to insufficient domain-specific and language-specific pretraining data. This unreliability precludes their safe deployment as educational support tools for the approximately 200,000 students who sit this examination annually, the majority of whom study in Sinhala-medium classrooms with limited access to supplementary learning resources. There exists no empirical evidence on whether — and under what configuration — a Retrieval-Augmented Generation architecture can mitigate this hallucination problem for Sinhala educational content.
+
+### 1.3 Research Aim and Objectives
+
+**Aim:** To design, implement, and evaluate a Retrieval-Augmented Generation architecture grounded in verified Sinhala-language O/L Business Studies curricular content, and to empirically determine whether this grounding reduces hallucination and improves response quality compared to ungrounded LLM baselines.
+
+**Objectives:**
+
+1. **OBJ1 — Knowledge Base Construction:** To curate, clean, and structure a comprehensive knowledge base from publicly available NIE O/L Business Studies documents (syllabus, textbooks, teacher guides, and past examination papers) in Sinhala, formatted for efficient retrieval within a RAG pipeline.
+
+2. **OBJ2 — RAG Pipeline Development:** To design and implement a modular RAG architecture using LangChain that integrates multilingual embedding models (multilingual-E5, BGE-M3) with a vector database (Pinecone/Chroma) and multiple generation backends (Claude, GPT-4o, Gemini), supporting configurable chunking strategies and retrieval parameters.
+
+3. **OBJ3 — Baseline Comparison:** To establish and evaluate two baseline conditions — an ungrounded LLM and a prompt-constrained but ungrounded LLM — against which the RAG-grounded system's performance can be empirically compared.
+
+4. **OBJ4 — Comprehensive Evaluation:** To evaluate system outputs using both automated metrics via the RAGAS framework (faithfulness, hallucination rate, answer relevancy, context precision) and human expert assessment by qualified O/L Business Studies teachers using a structured rubric with inter-rater reliability measured by Cohen's kappa coefficient.
+
+5. **OBJ5 — Parameter Optimisation:** To systematically investigate the effect of embedding model choice (multilingual-E5 vs. BGE-M3) and chunking strategy (fixed-size, semantic, and hybrid approaches) on retrieval quality and downstream response generation for Sinhala educational text.
+
+6. **OBJ6 — Framework Development:** To produce a replicable methodological framework, including documented code, evaluation protocols, and configuration recommendations, that can guide the extension of RAG-based approaches to other Sinhala-language subjects and other low-resource languages.
+
+### 1.4 Research Questions
+
+Building upon the research aim and objectives, this study is guided by the following research questions:
+
+| Identifier | Research Question |
+|------------|-------------------|
+| **RQ1** | Will grounding LLM responses in a verified knowledge base of Sinhala O/L Business Studies content significantly decrease hallucination rates and increase faithfulness scores compared to an ungrounded LLM baseline? |
+| **RQ2** | Which combination of embedding model (multilingual-E5, BGE-M3) and text chunking strategy (fixed-size, semantic, hybrid) yields optimal retrieval precision and recall for Sinhala-language educational text? |
+| **RQ3** (Optional) | Does a dual-representation indexing approach — indexing LLM-generated question-answer pairs alongside raw text passages — improve retrieval relevance over single-vector passage indexing for Sinhala educational queries? |
+
+RQ1 addresses the primary hypothesis of the study: that retrieval augmentation will yield measurable, statistically significant improvements in output quality for this domain-language combination. RQ2 tackles the engineering question of optimal configuration, recognising that Sinhala's morphological characteristics may challenge assumptions derived from English-language RAG optimisation literature. RQ3 explores an adaptive enhancement that, if successful, could inform the design of retrieval systems for educational content in other low-resource contexts.
+
+### 1.5 Scope and Delimitations
+
+This study is bounded by several deliberate delimitations that define its scope:
+
+**Domain Scope:** The knowledge base is limited to the GCE O/L Business Studies curriculum as defined by the National Institute of Education (NIE) of Sri Lanka. Content from other O/L subjects, Advanced Level (A/L) curricula, or non-NIE educational resources is explicitly excluded.
+
+**Linguistic Scope:** All knowledge base documents and evaluation questions are exclusively in Sinhala. The study does not address Sinhala-English code-switching, which is common in urban Sri Lankan classrooms, nor does it evaluate bilingual retrieval strategies.
+
+**Geographic Scope:** The curricular content, evaluation questions, and human evaluators are drawn from the Sri Lankan educational context. Findings may not generalise to Sinhala-speaking communities in other countries or to different national examination systems.
+
+**Technical Scope:** This research employs retrieval augmentation and prompt engineering only. No model fine-tuning, pretraining, or parameter-efficient adaptation (e.g., LoRA, QLoRA) is performed. The study focuses on what can be achieved through architectural design at the inference stage, acknowledging that fine-tuning approaches represent a complementary but distinct research direction.
+
+**Evaluation Scope:** The evaluation set comprises 60–80 questions, which, while substantial for a human-validated study of this nature, represents a fraction of the possible question space within the O/L Business Studies domain. Statistical conclusions are qualified accordingly.
+
+### 1.6 Significance of the Study
+
+This research makes contributions at multiple levels of significance:
+
+**For Sinhala NLP:** It provides the first systematic empirical evidence on the performance of modern RAG architectures for Sinhala-language content, contributing benchmark data on embedding model quality, chunking strategy effectiveness, and hallucination rates that can inform future Sinhala NLP research.
+
+**For Low-Resource Language Research:** It offers a transferable methodological template for evaluating RAG in other low-resource languages. The modular experimental design, dual-track evaluation framework, and documented parameter optimisation process can be replicated for languages such as Tamil, Bangla, Pashto, or Amharic, where similar challenges exist.
+
+**For Sri Lankan Education:** If successful, the validated RAG architecture could form the foundation of a practical educational support tool — a chatbot or question-answering system that provides Sinhala-medium students with accurate, curriculum-aligned responses to their business studies queries. In a country where educational resource disparities are acute, such a tool could meaningfully contribute to educational equity.
+
+**For the RAG Research Community:** The study's systematic comparison of embedding models and chunking strategies on a morphologically rich, agglutinative language adds a valuable data point to the predominantly English-centric RAG optimisation literature. The dual-representation indexing variant (RQ3) tests a hypothesis that has received limited empirical attention.
+
+### 1.7 Structure of the Dissertation
+
+The remainder of this dissertation is organised as follows. Chapter 2 provides a comprehensive review of the relevant literature, covering the evolution of LLMs, the hallucination problem, RAG architectures, cross-lingual NLP, Sinhala language technology, and RAG applications in education. Chapter 3 details the research methodology, including the philosophical stance, experimental design, development approach, evaluation protocols, and ethical considerations. Chapter 4 presents the system design and implementation, describing the RAG pipeline architecture, ingestion and query processing, baseline implementations, and technology stack. Chapter 5 reports the results of both automated and human evaluations, accompanied by statistical analyses. Chapter 6 discusses the findings in the context of existing literature and their practical implications. Chapter 7 concludes the dissertation with a summary of contributions, recommendations for practitioners, and directions for future research.
+
+---
+
+## Chapter 2: Literature Review
+
+### 2.1 Evolution of Large Language Models and the Persistence of Hallucination
+
+The trajectory of natural language processing over the past decade has been defined by a shift from task-specific statistical models toward general-purpose, pre-trained language models capable of few-shot and zero-shot reasoning. Bidirectional Encoder Representations from Transformers (BERT) established the paradigm of contextual, bidirectional pre-training on large unlabelled corpora, after which generative decoder-only architectures in the GPT family demonstrated that scaling parameter count and training data yielded emergent capabilities in reasoning, summarisation and dialogue. The most recent generation of proprietary systems, including Claude and Gemini, has extended this trajectory further, combining scale with instruction-tuning and safety alignment to produce assistants capable of fluent, apparently authoritative responses across almost any domain a user might raise. This fluency, however, is precisely what makes a longstanding weakness of these systems so consequential: none of them possess a verified, queryable record of what is true. Every output, however confident it sounds, is generated by sampling from a learned probability distribution over tokens, not by consulting a ground truth.
+
+This weakness is formalised in the literature as hallucination — the generation of content that is fluent and plausible but factually incorrect or unsupported by any source (Ji et al., 2023). Ji et al.'s (2023) survey remains one of the most widely cited attempts to systematise the problem, distinguishing hallucinations that contradict provided source material from those that are simply unverifiable against any external reference. Huang et al. (2025) extend this taxonomy further, arguing that hallucination is not a peripheral bug that scale alone will resolve, but a structural consequence of training objectives that reward fluency and next-token likelihood rather than factual grounding. Their survey catalogues detection and mitigation strategies but concedes that no existing technique eliminates hallucination outright; at best, current methods reduce its frequency in specific, well-resourced domains.
+
+That final caveat is the pivot point for the present research. Nearly all of the empirical work cited in both surveys is conducted on English or a small set of other high-resource languages, where large, high-quality training corpora allow a model's parametric memory to approximate a genuine knowledge base. Low-resource languages enjoy no such approximation. Alansari and Luqman (2026) argue that hallucination risk scales inversely with training data volume: where a language is thinly represented, the model has fewer examples from which to interpolate a plausible-sounding answer, and it is correspondingly more likely to produce fluent misinformation rather than an honest refusal. Trivedi et al. (2026) provide direct quantitative support for this claim, reporting substantially higher hallucination rates for low-resource languages relative to English on matched question sets, despite using the same underlying models. Sinhala, spoken by roughly seventeen million people but represented by only a fraction of a percent of most training corpora, sits squarely inside this vulnerable category.
+
+This matters because a Sinhala-medium student using an off-the-shelf LLM for GCE Ordinary Level Business Studies revision is, on the evidence above, more likely to receive confidently wrong information than an equivalent English-medium student asking the same conceptual question. This asymmetry motivates the central premise of the present research: that grounding generation in a verified Sinhala knowledge base, rather than relying on parametric memory alone, is not a stylistic preference but a necessary corrective for a documented and language-specific failure mode.
+
+### 2.2 A Taxonomy of Hallucination and Its Stakes for Educational Applications
+
+Treating hallucination as a single, undifferentiated phenomenon obscures more than it reveals, and a substantial strand of the literature has instead sought to classify it by underlying cause. Bender et al. (2021), in their influential critique of ever-larger language models, characterise these systems as "stochastic parrots": architectures that reproduce statistical patterns of form from their training data without any grounded model of meaning or reference to the world. Their argument, though written before the current generation of instruction-tuned assistants, anticipates precisely the mechanism that later hallucination surveys formalise — a model trained to predict plausible continuations has no internal representation of truth against which to check its own output.
+
+Building on this diagnosis, subsequent taxonomies typically separate hallucination into at least three overlapping categories. Factual hallucination occurs when a model asserts a claim — a date, a statistic, a definition — that is objectively false. Semantic hallucination arises when an answer is internally coherent and superficially relevant but does not follow from, or actively contradicts, the source material the model was meant to be summarising or explaining; Ji et al. (2023) refer to this as an intrinsic hallucination, as distinct from claims that are simply unverifiable. Contextual hallucination describes a narrower failure in retrieval-grounded settings, where a model draws on background knowledge from pre-training rather than restricting itself to the context actually supplied to it, effectively ignoring the grounding it was given. Huang et al. (2025) map detection and mitigation techniques against each of these categories and find that no single method performs well across all three, which suggests that hallucination is not one bug but a family of related failure modes with different root causes.
+
+The distinction matters more in education than in almost any other application domain. A factually wrong answer to a Business Studies question — misstating a definition of opportunity cost, or inventing a non-existent provision of Sri Lankan company law — is straightforwardly falsifiable and, if caught, correctable. A semantic hallucination is more insidious: an answer that sounds textbook-accurate, uses the right register and vocabulary, and yet subtly departs from what the syllabus actually specifies, is far harder for a sixteen-year-old student, or even a time-pressed teacher, to detect. Kasneci et al. (2023) note that this asymmetry of scrutiny is one of the principal risks of deploying large language models in education: learners are being asked to evaluate the correctness of content in a domain in which, by definition, they are still developing expertise. Datta et al. (2026) add a further complication, showing that automated hallucination detectors themselves suffer a measurable low-resource effect, performing less reliably at flagging hallucinated content in under-represented languages than in English; Benkirane et al. (2024) report a comparable pattern specifically for hallucination detection in machine-translated low-resource text. Detection, in other words, is not a solved problem that can simply be layered on top of generation once a language is under-resourced — it is subject to the same weakness it is meant to catch.
+
+This matters because a system intended for GCE O/L Business Studies revision cannot be evaluated on hallucination rate alone; it must also be assessed on which type of hallucination it produces, since semantic and contextual failures are precisely the categories most likely to escape both automated and teacher-led review. This is the motivation for combining automated faithfulness metrics with blind human validation in the present study's evaluation design, discussed further in section 2.8.
+
+### 2.3 Retrieval-Augmented Generation: Foundations and Mechanism
+
+Retrieval-Augmented Generation was introduced by Lewis et al. (2020) as a direct architectural response to the limitations described above. Rather than relying solely on knowledge implicitly encoded in a model's parameters at training time, RAG couples a neural retriever, which searches an external corpus for passages relevant to a query, with a generator that conditions its output on the retrieved text. In principle, this converts a closed-book task — answer from memory alone — into an open-book one: retrieve, then answer using what was found. Lewis et al. (2020) demonstrated that this architecture reduced factual error rates on knowledge-intensive tasks relative to purely parametric baselines, and the paper has since become the reference architecture against which nearly all subsequent retrieval-augmented systems are compared.
+
+The mechanism by which RAG is presumed to reduce hallucination is worth making explicit, because it is not automatic. Grounding only helps if two conditions hold: the retriever must surface passages that are actually relevant to the query, and the generator must attend to those passages rather than falling back on its parametric prior. Where either condition fails — an irrelevant passage is retrieved, or the model ignores a relevant one — the architecture can still hallucinate, now compounded by the appearance of an evidentiary basis it does not actually rest on. This is precisely the contextual hallucination category discussed in section 2.2, and it explains why RAG is best understood as a mitigation, not a cure.
+
+The retriever component itself is typically built on one of two paradigms. Sparse retrieval methods, exemplified by classical term-matching approaches, rank passages by lexical overlap with the query and require no learned embedding space, which makes them robust and interpretable but blind to synonymy and paraphrase. Dense retrieval methods instead embed both queries and passages into a shared vector space using a neural encoder, ranking candidates by embedding similarity; this captures semantic relatedness that lexical overlap misses, at the cost of requiring a well-trained, domain-appropriate encoder. Benchmarking efforts such as MIRACL (Zhang et al., 2023) and Mr. TyDi (Zhang et al., 2021) were designed specifically to test how well dense retrievers, trained predominantly on English and a handful of other high-resource languages, transfer to typologically diverse languages — and both report a substantial performance gap for languages outside that training distribution. The implication is that dense retrieval's principal advantage over sparse methods, semantic generalisation, is also where it is most fragile when a language is under-represented in the retriever's own training data.
+
+This matters because the present research adopts dense retrieval by necessity — Sinhala orthography and morphology make lexical term-matching an unreliable proxy for semantic relevance — while remaining alert to the documented risk that the retriever itself, not just the generator, may be a weak link when applied to Sinhala rather than to the high-resource languages on which most dense encoders were validated.
+
+### 2.4 RAG Variants, Architectural Optimizations and Configuration Sensitivity
+
+Since Lewis et al.'s (2020) original formulation, a substantial body of work has proposed architectural refinements to the basic retrieve-then-generate pipeline. Fusion-in-Decoder (Izacard and Grave, 2021) processes each retrieved passage independently in the encoder before fusing their representations in the decoder, allowing the model to draw on a larger number of passages than would be tractable under a single concatenated context window. RETRO (Borgeaud et al., 2022) integrates retrieval directly into the pre-training process itself, conditioning next-token prediction on retrieved chunks from a corpus of trillions of tokens and showing that a comparatively small parametric model can match the performance of much larger purely parametric ones. Atlas (Izacard et al., 2022) extends this further by jointly training the retriever and generator, demonstrating strong few-shot performance on knowledge-intensive tasks with minimal labelled data. Self-RAG (Asai et al., 2023) departs from a fixed retrieve-then-generate schedule altogether, training the model to decide adaptively when retrieval is needed and to critique its own output against retrieved evidence using learned reflection tokens.
+
+Considered together, these variants trace a trajectory toward ever-tighter coupling between retrieval and generation, and toward giving the model more agency over when and how to use retrieved evidence. That trajectory, however, comes at a cost that is directly relevant to a small-scale academic project: each additional trainable component — a jointly trained retriever, a critique mechanism, reflection tokens — increases both the engineering complexity and the data required to train or fine-tune it. Opoku, Sheng and Zhang (2025) make this trade-off explicit in their domain-specific RAG framework, which layers a knowledge graph on top of standard retrieval to improve precision but requires substantially more upfront curation of structured relations than a purely passage-based pipeline. For a project such as the present one, built around a single school subject and a modest, hand-curated knowledge base, this suggests that the more elaborate architectural variants are unlikely to be proportionate; a well-tuned, standard retrieve-then-generate pipeline is a more defensible starting point than an attempt to replicate Self-RAG or Atlas at a much smaller scale.
+
+A second strand of literature examines configuration choices within a standard RAG pipeline that are easy to overlook but demonstrably consequential. Wang et al. (2024) survey a wide range of implementation decisions — retriever choice, number of passages retrieved, prompt format — and find that "best practice" varies by task in ways that resist a single universal recipe. Ammar et al. (2025) isolate hyperparameter sensitivity specifically, showing that seemingly minor settings, such as the number of retrieved passages or the similarity threshold applied to filter them, produce measurable swings in downstream accuracy. Chunking strategy — how source documents are segmented before embedding — is one of the most consequential of these decisions. Wang et al. (2025) show that document segmentation choices interact with both retriever type and task in ways that are difficult to predict a priori: chunking by paragraph preserves topical coherence but produces uneven passage lengths, fixed-window chunking guarantees uniform embedding input size but can split a single idea across two passages, and semantic-boundary chunking attempts to segment at natural topic shifts but depends on a secondary model to detect those boundaries reliably.
+
+Embedding model choice interacts with all of the above. Multilingual-E5 and BGE-M3, the two encoders proposed for the present study, were both trained on large-scale multilingual corpora, yet neither guarantees uniform performance across the languages it nominally covers. Omotoso et al. (2025) show that BGE-M3's out-of-the-box multilingual embeddings under-serve Nigerian low-resource languages relative to its headline benchmark performance, and only recover competitive retrieval accuracy after targeted contrastive fine-tuning on in-language data. Zhang et al.'s (2026) ML-Embed and Ponwitayarat et al.'s (2025) SEA-BED benchmark both make a related point from the evaluation side: multilingual embedding leaderboards, dominated by high-resource language pairs, systematically overstate how well an encoder will perform on an under-represented regional language until that language is tested directly. Luo et al. (2026) offer one adaptive response to this uncertainty, proposing domain-specific retrieval enhanced by knowledge-distillation-based re-ranking rather than assuming any off-the-shelf embedding model is adequate as supplied.
+
+This matters because none of the chunking or embedding literature reviewed above was validated on Sinhala, and the consistent finding that off-the-shelf multilingual performance is a poor proxy for true low-resource performance is precisely why the present study treats embedding model and chunking strategy as empirical questions — addressed under RQ2 — rather than settled choices to be made by default.
+
+### 2.5 Cross-Lingual NLP and the Digital Language Divide
+
+The gap identified in section 2.4 — that multilingual benchmarks overstate true low-resource performance — is not specific to embeddings; it recurs throughout cross-lingual NLP more broadly and has come to be described as a digital language divide. Multilingual encoder models such as multilingual BERT and XLM-R were trained on corpora in which resource allocation across languages is highly skewed, typically following the availability of web text and encyclopaedic content, which favours a small set of high-resource languages disproportionately. The consequence, documented across a range of tasks, is that models nominally described as multilingual perform markedly better on the languages that dominated their pre-training mixture than on languages that were thinly represented, even when both are technically covered by the model's vocabulary.
+
+Retrieval tasks make this divide especially visible because they require precise semantic alignment between query and passage representations, rather than the somewhat more forgiving generation of fluent text. Litschko et al. (2022) evaluate cross-lingual retrieval using multilingual text encoders and find substantial variance in transfer quality depending on the typological distance between the source and target languages, with performance degrading further for language pairs that were weakly represented during pre-training. Zuo et al. (2025) extend this evaluation to large language models used directly as retrievers or rerankers, and report that even the most capable general-purpose LLMs available at the time of writing show inconsistent cross-lingual retrieval accuracy, undermining any assumption that scale alone resolves the divide. Li et al. (2025) and Liu et al. (2026) both attempt post-training interventions — targeted multilingual adaptation and cross-lingual consistency training, respectively — and report gains, but neither claims to close the gap to high-resource-language performance entirely. Guo et al. (2024) take a different approach again, using structured textbook content itself as a prompting resource to improve low-resource machine translation, an approach that is conceptually adjacent to using curriculum material as a grounding resource, as the present study does, rather than as raw translation training data.
+
+Within this broader landscape, DR-RAG (Ahmad et al., 2026) is the closest existing analogue to the present research and merits closer attention. Ahmad et al. (2026) address retrieval misalignment specifically in Urdu question answering, a language that, like Sinhala, is written in a non-Latin script, is morphologically rich relative to English, and is comparatively under-represented in the training corpora of mainstream multilingual embedding models. Their solution — indexing LLM-generated question-answer pairs alongside raw passages, so that retrieval can match a user's query against a semantically closer artificial question rather than only against denser prose — directly reduced retrieval misalignment in their Urdu evaluation set. Sinhala and Urdu are not from the same language family, and any parallel drawn between them must be treated as suggestive rather than direct evidence, but both languages share the property that stresses dense retrieval systems: agglutinative and inflectional morphology that produces many surface forms for a single lexical concept, coupled with limited high-quality in-language data for encoder fine-tuning. Ahmad et al.'s (2026) dual-representation strategy is precisely the mechanism proposed as an optional, stretch component of the present study's design, tested under RQ3.
+
+This matters because DR-RAG demonstrates that a technique developed for one morphologically rich, low-resource, non-Latin-script language transferred successfully within its own evaluation, which offers a reasoned, literature-grounded basis for testing an analogous approach on Sinhala — while making clear that this transfer has not previously been tested on Sinhala, or on any South Asian language used in a formal education context.
+
+### 2.6 Sinhala Natural Language Processing: State of the Art and Its Limits
+
+Direct NLP research on Sinhala remains sparse relative to most other languages spoken by comparable or smaller populations, and the resources that do exist have needed to solve basic infrastructural problems before more advanced applications, such as retrieval-augmented generation, could even be attempted. Tokenization is the most persistent of these problems. Mainstream subword tokenizers, trained predominantly on Latin-script and high-resource-language corpora, segment Sinhala script inefficiently, often splitting single characters or syllables into multiple tokens in ways that inflate sequence length and degrade downstream model quality (Aravinda et al., 2025; Jayakody and Dias, 2024). Both SinLlama (Aravinda et al., 2025) and the Sinhala encoder-only models evaluated by Ranasinghe et al. (2025) were developed specifically to address this bottleneck, using Sinhala-specific vocabulary construction and pre-training rather than adapting a multilingual tokenizer post hoc.
+
+These efforts have produced genuine progress. SinLlama demonstrates that a large language model can be adapted to Sinhala more effectively through targeted vocabulary and continued pre-training than by relying on a general multilingual model's incidental Sinhala coverage, while Ranasinghe et al.'s (2025) encoder-only models establish a stronger baseline for Sinhala representation-learning tasks than prior general-purpose multilingual encoders. On the evaluation side, SinhalaMMLU (Pramodya et al., 2025) provides the first large-scale, multitask benchmark for measuring Sinhala language understanding across a wide range of subject domains, filling a gap left by benchmarks that were designed with English in mind and only partially translated or adapted elsewhere. Its central finding — that current models, including strong proprietary ones, continue to underperform on Sinhala relative to English across nearly every subject tested — provides an empirical anchor for the claims of the hallucination literature reviewed in section 2.1. Jayakody and Dias (2024), working from a comparative angle, report that Claude and GPT-4o perform reasonably well on Sinhala-language tasks without additional fine-tuning, relative to older or smaller models, which offers a cautiously more optimistic counterpoint and is one reason both are considered viable generator models for the present study.
+
+What none of this literature provides, however, is a retrieval-augmented system grounded in Sinhala content, still less one grounded in a specific school curriculum. SinLlama and the Sinhala encoder-only models are language-modelling and representation-learning contributions; SinhalaMMLU is an evaluation benchmark; Jayakody and Dias's (2024) study is a comparative capability assessment. None of the three couples a Sinhala-competent model with an external, verifiable knowledge base, and none is applied to an educational use case. The gap is not merely that Sinhala RAG is under-studied in general — it is that, at the time of writing, it appears not to have been studied at all.
+
+This matters because the present research cannot draw on a body of prior Sinhala RAG work to validate design choices; it must instead adapt findings from adjacent literatures — general RAG optimization (section 2.4), cross-lingual retrieval (section 2.5) and Sinhala language modelling (this section) — and test them empirically, since none of the existing Sinhala NLP literature has yet done so in a retrieval-augmented or curriculum-grounded setting.
+
+### 2.7 Retrieval-Augmented Generation in Education
+
+Beyond the language-specific gap identified above, a second and largely independent gap exists in the application of RAG to education specifically. Kasneci et al. (2023) provide one of the most widely cited overviews of large language models in educational settings, cataloguing both the opportunities — personalised tutoring, rapid feedback, accessible explanation at a learner's own pace — and the risks, chief among them the difficulty learners face in verifying the correctness of AI-generated content in a domain where, definitionally, they are still building expertise. Their analysis is largely architecture-agnostic, however, addressing general-purpose LLM use in education rather than retrieval-grounded systems specifically, and does not examine language coverage as a variable.
+
+Where RAG has been applied to education directly, the applications so far have clustered around STEM subjects in high-resource languages. Levonian et al. (2023) built a retrieval-grounded tutoring system for mathematics question answering and explicitly frame their central design tension as a trade-off between groundedness — strict adherence to verified source material — and human preference, since students in their study sometimes rated a fluent but less strictly grounded answer as more helpful than a stiffly sourced one. This finding is a useful caution for the present research: faithfulness to a knowledge base and perceived answer quality are not the same construct, and optimising narrowly for one risks producing a system that is faithful but pedagogically unhelpful, or vice versa. Lu and Li (2025) extend educational RAG into a different STEM register, coupling retrieval with a code interpreter so that a system can both retrieve relevant conceptual material and execute logical or numerical computation, an architecture suited to quantitative subjects but not obviously transferable to a discursive, largely qualitative subject such as Business Studies.
+
+What is conspicuously absent from this literature is any RAG-based educational application situated in South Asia, in a national curriculum context, or in a low-resource-language classroom. Levonian et al. (2023) and Lu and Li (2025) both work in English and in STEM domains where a substantial body of prior training data, benchmark tasks and evaluation tooling already exists. Business Studies, by contrast, is a qualitative, terminology- and case-study-driven subject examined in Sinhala at secondary level within the Sri Lankan national curriculum — a combination of subject type, language and educational level for which zero RAG studies could be identified in the literature reviewed for this dissertation.
+
+This matters because the present research is not simply transplanting an established RAG-for-education recipe into a new language; it is testing whether design lessons drawn from English-medium, STEM-focused educational RAG systems — particularly Levonian et al.'s (2023) groundedness-versus-preference trade-off — generalise to a qualitative subject taught in a low-resource language, a combination the existing literature has not yet examined.
+
+### 2.8 Evaluation Frameworks for Retrieval-Augmented Generation
+
+Evaluating a RAG system introduces methodological demands beyond those of evaluating a standalone language model, because performance depends jointly on retrieval quality and generation quality, and a failure in either component can produce a poor final answer. RAGAS (Es et al., 2024) was developed specifically to address this joint evaluation problem, providing a set of automated, LLM-judged metrics — including faithfulness, which measures whether a generated answer is actually supported by the retrieved context, and answer relevancy, which measures whether the answer addresses the question actually asked — that can be computed without requiring human-annotated reference answers for every metric. Its principal appeal for a project of this scale is that it allows a large evaluation set to be scored automatically and repeatedly across multiple system configurations, which would be prohibitively time-consuming if every comparison required fresh human judgement.
+
+That efficiency, however, carries a specific risk in the present context: RAGAS's faithfulness and relevancy scores are themselves produced by an LLM acting as judge, and the hallucination literature reviewed in sections 2.1 and 2.2 gives direct reason to doubt that an LLM judging Sinhala output performs as reliably as one judging English output. Trivedi et al. (2026) and Pramodya et al.'s (2025) SinhalaMMLU findings both indicate that model competence in Sinhala lags competence in English, and an evaluator model is not exempt from this weakness merely because its role has shifted from generator to judge. Relying on RAGAS scores alone would therefore risk validating the RAG system against a metric that is itself compromised by the same low-resource weakness the system is trying to correct for.
+
+The methodological response to this risk, consistent with practice in other domains where automated metrics are treated with appropriate scepticism, is independent human validation. Domain-expert teachers rating a blinded, randomised subsample of system outputs on a simple rubric provide a check that does not depend on an LLM's own Sinhala competence. Where multiple raters are used, as is planned for the present study, the reliability of their agreement is itself a quantity that must be reported rather than assumed, which is the role played by Cohen's kappa (Cohen, 1960): a chance-corrected measure of inter-rater agreement that is more informative than raw percentage agreement, particularly on a rating scale where raters might agree by chance alone on the more common middle categories. Comparing the resulting human ratings across paired conditions — the same question answered by the RAG system and by each baseline — calls for a statistical test appropriate to paired, ordinal or non-normally distributed data; the Wilcoxon signed-rank test (Wilcoxon, 1945) is the standard choice in this situation, since it does not assume the normality that a paired t-test requires, though the latter remains an appropriate fallback if the score distributions are shown to be approximately normal.
+
+This matters because the evaluation design of the present study is not a routine application of an off-the-shelf metric suite; it is a deliberate two-tier structure — automated RAGAS scoring cross-checked against blinded human rating, reconciled statistically via Cohen's kappa and the Wilcoxon signed-rank test — adopted specifically because the literature gives concrete reason to distrust automated LLM-based evaluation of Sinhala on its own.
+
+### 2.9 Research Gap and Contribution
+
+Drawing the preceding eight sections together, three distinct gaps emerge, and each is a gap in the literature rather than merely a gap in this researcher's own reading of it. First, at the level of hallucination and RAG theory, the literature establishes convincingly that hallucination is worse for low-resource languages (Alansari and Luqman, 2026; Trivedi et al., 2026) and that RAG is an effective, though imperfect, mitigation (Lewis et al., 2020), but almost none of the empirical evaluation of RAG architectures, chunking strategies or embedding models has been conducted on a South Asian, non-Latin-script, morphologically rich language; DR-RAG's application to Urdu (Ahmad et al., 2026) is the single closest precedent, and even that has not been tested on Sinhala. Second, at the level of language-specific NLP, Sinhala now has a growing but still narrow set of foundational resources — SinLlama (Aravinda et al., 2025), Sinhala encoder-only models (Ranasinghe et al., 2025), and the SinhalaMMLU benchmark (Pramodya et al., 2025) — yet none of these couples a Sinhala-competent model with an external, verifiable knowledge base, and none has been applied to a retrieval-augmented pipeline of any kind. Third, at the level of application domain, existing educational RAG systems (Levonian et al., 2023; Lu and Li, 2025) are confined to English-medium, STEM-oriented use cases, leaving South Asian secondary education, and qualitative subjects such as Business Studies specifically, entirely unaddressed.
+
+These three gaps are not independent of one another; they compound. A researcher could, in principle, address the first gap by testing RAG configuration choices on a low-resource language other than Sinhala, or address the third by building an educational RAG system in a high-resource language. What has not previously been done is to hold all three constant simultaneously: a retrieval-augmented architecture, evaluated empirically rather than assumed to work by default, built specifically around Sinhala, and grounded in a verified secondary-level school curriculum rather than generic web or encyclopaedic content.
+
+The present research is positioned to close this compound gap directly. It contributes, first, an empirical test of whether grounding in verified Sinhala O/L Business Studies content reduces hallucination and increases faithfulness relative to an ungrounded baseline, addressing the theoretical gap identified in sections 2.1 through 2.4 for the specific case of Sinhala. It contributes, second, a comparative evaluation of multilingual-E5 and BGE-M3 embeddings alongside multiple chunking strategies on Sinhala educational text, addressing the absence of Sinhala-specific validation noted throughout section 2.4 and section 2.6's review of Sinhala NLP resources. It contributes, third, what appears to be the first application of a retrieval-augmented architecture to South Asian secondary education in general and to Sinhala-medium Business Studies specifically, directly answering the gap identified in section 2.7. Finally, by combining automated RAGAS metrics with blinded human validation from domain-expert teachers, reconciled through Cohen's kappa and the Wilcoxon signed-rank test, the evaluation methodology itself responds to the specific concern, raised in section 2.8, that automated Sinhala evaluation cannot yet be trusted without an independent human check.
+
+This matters because it is the combination of these contributions — not any single one in isolation — that constitutes the originality of the present study: the individual components (RAG, Sinhala NLP, and educational LLM evaluation) each have a literature of their own, but their intersection, at the time of writing, does not.
+
+---
+
+### References (Chapter 2)
+
+Ahmad, S., Hammad, M., Zeeshan, M., Ullah, F. and Karim, A. (2026) 'DR-RAG: Addressing retrieval misalignment in low-resource Urdu question answering', in *Proceedings of the 2nd Workshop on Challenges in Processing South Asian Languages (CHiPSAL) @ LREC*, pp. 49–58.
+
+Alansari, A. and Luqman, H. (2026) 'Large language models hallucination: A comprehensive survey', *Computer Science Review*, 61, art. 100970.
+
+Ammar, A., Koubaa, A., Nacar, O. and Boulila, W. (2025) 'Optimizing retrieval-augmented generation: Analysis of hyperparameter impact on performance and efficiency', arXiv preprint arXiv:2505.08445.
+
+Aravinda, H.W.K., Sirajudeen, R., Karunathilake, S., de Silva, N., Kaur, R., Bhankhar, A.S. and Ranathunga, S. (2025) 'SinLlama: A large language model for Sinhala', arXiv preprint arXiv:2508.09115.
+
+Asai, A., Wu, Z., Wang, Y., Sil, A. and Hajishirzi, H. (2023) 'Self-RAG: Learning to retrieve, generate, and critique through self-reflection', arXiv preprint arXiv:2310.11511.
+
+Bender, E.M., Gebru, T., McMillan-Major, A. and Shmitchell, S. (2021) 'On the dangers of stochastic parrots: Can language models be too big?', in *Proceedings of the 2021 ACM Conference on Fairness, Accountability, and Transparency (FAccT '21)*. New York: Association for Computing Machinery, pp. 610–623.
+
+Benkirane, K., Gongas, L., Pelles, S., Fuchs, N., Darmon, J., Stenetorp, P., Adelani, D.I. and Sánchez, E. (2024) 'Machine translation hallucination detection for low and high resource languages using large language models', in *Findings of the Association for Computational Linguistics: EMNLP 2024*, pp. 9647–9665.
+
+Borgeaud, S., Mensch, A., Hoffmann, J., Cai, T., Rutherford, E., Millican, K. et al. (2022) 'Improving language models by retrieving from trillions of tokens', in *Proceedings of the 39th International Conference on Machine Learning (ICML)*, PMLR 162.
+
+Cohen, J. (1960) 'A coefficient of agreement for nominal scales', *Educational and Psychological Measurement*, 20(1), pp. 37–46.
+
+Datta, D., Chilukuri, M.K., Kumar, Y., Ghosh, S. and Zafar, M.B. (2026) 'Do LLM hallucination detectors suffer from low-resource effect?', in *Proceedings of the 18th Conference of the European Chapter of the Association for Computational Linguistics (EACL)*.
+
+Es, S., James, J., Espinosa-Anke, L. and Schockaert, S. (2024) 'RAGAs: Automated evaluation of retrieval augmented generation', in *Proceedings of the 18th Conference of the European Chapter of the Association for Computational Linguistics: System Demonstrations*, pp. 150–158.
+
+Guo, P., Ren, Y., Hu, Y., Li, Y., Zhang, J., Zhang, X. and Huang, H. (2024) 'Teaching large language models to translate on low-resource languages with textbook prompting', in *Proceedings of the 2024 Joint International Conference on Computational Linguistics, Language Resources and Evaluation (LREC-COLING)*.
+
+Huang, L., Yu, W., Ma, W., Zhong, W., Feng, Z., Wang, H. et al. (2025) 'A survey on hallucination in large language models: Principles, taxonomy, challenges, and open questions', *ACM Transactions on Information Systems*, 43(2), art. 3155.
+
+Izacard, G. and Grave, E. (2021) 'Leveraging passage retrieval with generative models for open domain question answering', in *Proceedings of the 16th Conference of the European Chapter of the Association for Computational Linguistics (EACL)*, pp. 874–880.
+
+Izacard, G., Lewis, P., Lomeli, M., Hosseini, L., Petroni, F., Schick, T., Dwivedi-Yu, J., Joulin, A., Riedel, S. and Grave, E. (2022) 'Atlas: Few-shot learning with retrieval augmented language models', arXiv preprint arXiv:2208.03299.
+
+Jayakody, R. and Dias, G. (2024) 'Performance of recent large language models for a low-resourced language', in *Proceedings of the 2024 International Conference on Asian Language Processing (IALP)*, pp. 162–167.
+
+Ji, Z., Lee, N., Frieske, R., Yu, T., Su, D., Xu, Y., Ishii, E., Bang, Y.J., Madotto, A. and Fung, P. (2023) 'Survey of hallucination in natural language generation', *ACM Computing Surveys*, 55(12), art. 248.
+
+Kasneci, E., Seßler, K., Küchemann, S., Bannert, M., Dementieva, D., Fischer, F. et al. (2023) 'ChatGPT for good? On opportunities and challenges of large language models for education', *Learning and Individual Differences*, 103, art. 102274.
+
+Levonian, Z., Li, C., Zhu, W., Gade, A., Henkel, O., Postle, M.-E. and Xing, W. (2023) 'Retrieval-augmented generation to improve math question-answering: Trade-offs between groundedness and human preference', in *Proceedings of the NeurIPS'23 Workshop on Generative AI for Education (GAIED)*.
+
+Li, H., Zhang, H., Li, M., Wang, Y., Wen, L., Zhang, Y. and Huang, B. (2025) 'Toward robust multilingual adaptation of LLMs for low-resource languages', arXiv preprint arXiv:2510.14466.
+
+Litschko, R., Vulić, I., Ponzetto, S.P. and Glavaš, G. (2022) 'On cross-lingual retrieval with multilingual text encoders', *Information Retrieval Journal*, 25(2).
+
+Liu, T., Qi, J., Sachan, M., Cotterell, R., Fernández, R. and Bisazza, A. (2026) 'Post-training language models for crosslingual consistency', arXiv preprint arXiv:2603.04678.
+
+Lu, J. and Li, J. (2025) 'A novel framework for educational Q&A: Leveraging RAG and code interpreters for knowledge retrieval and logical computation', *PLOS ONE*.
+
+Luo, H., Luo, X., Zhao, W., Peng, Q., Chen, K., Liu, Y. and Du, C. (2026) 'Domain-specific retrieval-augmented generation with adaptive embedding and knowledge distillation-based re-ranking', *Processes*, 14(1).
+
+Omotoso, A., Shopeju, H., Joshua, A. and Oni, S. (2025) 'Improving BGE-M3 multilingual dense embeddings for Nigerian low resource languages', in *Proceedings of the Widening NLP Workshop (WiNLP)*.
+
+Opoku, D.O., Sheng, M. and Zhang, Y. (2025) 'DO-RAG: A domain-specific QA framework using knowledge graph-enhanced retrieval-augmented generation', arXiv preprint arXiv:2505.17058.
+
+Ponwitayarat, W., Ng, R., Montalan, J.R., Aung, T. et al. (2025) 'SEA-BED: Southeast Asia embedding benchmark', Association for Computational Linguistics.
+
+Pramodya, A., Nelki, N., Shalinda, H., Liyanage, C., Sakai, Y., Pushpananda, R., Weerasinghe, R., Kamigaito, H. and Watanabe, T. (2025) 'SinhalaMMLU: A comprehensive benchmark for evaluating multitask language understanding in Sinhala', in *Proceedings of the 2025 Conference on Empirical Methods in Natural Language Processing (EMNLP)*.
+
+Ranasinghe, T., Hettiarachchi, H., Pathirana, N., Premasiri, D., Uyangodage, L., Anuradha, I., Plum, A., Rayson, P. and Mitkov, R. (2025) 'Sinhala encoder-only language models and evaluation', in *Proceedings of the 63rd Annual Meeting of the Association for Computational Linguistics (ACL)*.
+
+Trivedi, K., Shaikh, M., Sharma, S. et al. (2026) '"So, how much do LLMs hallucinate on low-resource languages?" A quantitative and qualitative analysis', in *Proceedings of the Workshop on Language Models for Low-Resource Languages (LoResLM)*.
+
+Wang, X., Wang, Z., Gao, X., Zhang, F., Wu, Y., Xu, Z., Shi, T., Wang, Z., Li, S., Qian, Q., Yin, R., Lv, C., Zheng, X. and Huang, X. (2024) 'Searching for best practices in retrieval-augmented generation', in *Proceedings of the 2024 Conference on Empirical Methods in Natural Language Processing (EMNLP)*, pp. 17716–17736.
+
+Wang, Z., Gao, C., Xiao, C., Huang, Y., Si, S., Luo, K., Bai, Y., Li, W., Duan, T., Lv, C., Lu, G., Chen, G., Qi, F. and Sun, M. (2025) 'Document segmentation matters for retrieval-augmented generation', in *Findings of the Association for Computational Linguistics: ACL 2025*.
+
+Wilcoxon, F. (1945) 'Individual comparisons by ranking methods', *Biometrics Bulletin*, 1(6), pp. 80–83.
+
+Zhang, X., Thakur, N., Ogundepo, O., Kamalloo, E., Alfonso-Hermelo, D., Li, X., Liu, Q., Rezagholizadeh, M. and Lin, J. (2023) 'MIRACL: A multilingual retrieval dataset covering 18 diverse languages', *Transactions of the Association for Computational Linguistics*, 11.
+
+Zhang, X., Ma, X., Shi, P. and Lin, J. (2021) 'Mr. TyDi: A multi-lingual benchmark for dense retrieval', in *Proceedings of the 1st Workshop on Multilingual Representation Learning (MRL)*.
+
+Zhang, Z., Liao, Z., Yu, H., Di, P. and Wang, R. (2026) 'ML-Embed: Inclusive and efficient embeddings for a multilingual world', arXiv preprint arXiv:2605.15081.
+
+Zuo, L., Hong, P., Kraus, O., Plank, B. and Litschko, R. (2025) 'Evaluating large language models for cross-lingual retrieval', in *Findings of the Association for Computational Linguistics: EMNLP 2025*, pp. 11415–11429.
+
+
+---
+
+## Chapter 3: Research Methodology
+
+### 3.1 Research Philosophy and Approach
+
+This research is grounded in a positivist epistemological stance, reflecting the assumption that the phenomena under investigation — hallucination rates, retrieval accuracy, and response quality — are objective, measurable properties of LLM systems that can be empirically observed and quantified. The positivist paradigm, as articulated in the context of information systems research by Saunders, Lewis, and Thornhill (2019), emphasises the collection of numerical data, the testing of hypotheses through controlled experimentation, and the pursuit of generalisable conclusions derived from statistical analysis. This philosophical orientation is appropriate for the present study because the research questions are fundamentally empirical: they ask whether measurable differences exist between experimental conditions and can be attributed to the independent variable (retrieval augmentation).
+
+The research employs a deductive approach, moving from established theory — specifically, the RAG architecture as theorised by Lewis et al. (2020) and the documented relationship between pretraining data availability and hallucination propensity — to specific, testable hypotheses about the configuration and performance of RAG systems in the Sinhala educational context. The deductive logic can be expressed as follows: if retrieval augmentation reduces hallucination by providing factual grounding during generation, and if this effect generalises across languages, then a properly configured RAG system should demonstrate lower hallucination rates than ungrounded baselines when applied to Sinhala educational content. The experimental design tests this proposition directly.
+
+### 3.2 Research Design
+
+The study employs a controlled experimental design with one independent variable (retrieval condition) manipulated across three levels:
+
+1. **RAG-Grounded Condition:** Full RAG pipeline with retrieval from the Sinhala Business Studies knowledge base.
+2. **Ungrounded Baseline (B1):** LLM responding to questions directly, without access to retrieved passages.
+3. **Prompt-Constrained Baseline (B2):** LLM responding with structured prompting that instructs the model to answer based on Sri Lankan O/L Business Studies curriculum content, but without access to retrieved passages.
+
+The dependent variables comprise a set of quality metrics measured through automated and human evaluation: faithfulness, hallucination rate, answer relevancy, context precision (RAG condition only), and overall response quality as rated by expert evaluators.
+
+The experiment follows a within-subjects design for the evaluation questions: each of the 60–80 questions is submitted to all three conditions, enabling paired comparisons that control for question difficulty and topic variation. This design maximises statistical power while minimising the number of human evaluation judgements required.
+
+### 3.3 Knowledge Base Construction
+
+The knowledge base serves as the non-parametric memory for the RAG system and is constructed through the following process:
+
+#### 3.3.1 Document Collection
+
+Documents are sourced from publicly available NIE resources:
+
+- The official GCE O/L Business Studies syllabus (2016 revision with subsequent amendments)
+- The NIE-published Business Studies textbook (Sinhala medium, Grades 10 and 11)
+- The NIE Teacher's Instructional Guide for Business Studies
+- Past GCE O/L Business Studies examination papers (2016–2024) with marking schemes
+- Model answer booklets published by the Department of Examinations
+
+All documents are obtained in PDF format and represent the complete authorised curriculum content for the subject.
+
+#### 3.3.2 Text Extraction and Cleaning
+
+PDF documents are processed using PyMuPDF (fitz) for text extraction, with optical character recognition (OCR) via Tesseract applied to any scanned pages. Extracted text undergoes a cleaning pipeline:
+
+- Removal of headers, footers, and page numbers
+- Normalisation of Sinhala Unicode characters (NFKC normalisation)
+- Correction of common OCR artefacts specific to Sinhala script
+- Removal of non-content elements (watermarks, decorative elements)
+- Preservation of section headings, subheadings, and hierarchical document structure
+- Segmentation of content into topic-based sections aligned with the syllabus structure
+
+#### 3.3.3 Question Set Compilation
+
+A test set of 60–80 Sinhala-language questions is compiled from past examination papers and textbook exercises. Questions are selected to ensure coverage across the syllabus topics — business environment, business organisations, marketing, finance, human resources, operations management, and business ethics — and across question types (definition, explanation, application, analysis, and evaluation) aligned with Bloom's taxonomy of educational objectives (Anderson and Krathwohl, 2001). Each question is paired with a reference answer derived from the official marking scheme or textbook content, providing ground truth for evaluation.
+
+### 3.4 RAG Pipeline Development
+
+The RAG pipeline is implemented using the LangChain framework, selected for its modular architecture, extensive integrations with embedding providers and vector databases, and well-documented RAG-specific abstractions.
+
+#### 3.4.1 Ingestion Pipeline
+
+The ingestion pipeline processes knowledge base documents through the following stages:
+
+1. **Document Loading:** PDF documents are loaded using LangChain's PyMuPDFLoader, which preserves page-level metadata.
+2. **Text Splitting:** Documents are segmented using configurable text splitters implementing three chunking strategies:
+   - **Fixed-Size Chunking:** RecursiveCharacterTextSplitter with chunk sizes of 256, 512, and 1024 tokens, with 20% overlap between adjacent chunks.
+   - **Semantic Chunking:** Section-based splitting aligned with the hierarchical structure of the syllabus and textbook.
+   - **Hybrid Chunking:** Semantic splitting at section boundaries with fixed-size sub-chunking within sections.
+3. **Embedding Generation:** Each chunk is transformed into a dense vector embedding using the candidate embedding models — multilingual-E5 and BGE-M3 — selected for their demonstrated multilingual retrieval performance.
+4. **Vector Database Storage:** Embeddings are stored in a vector database (Pinecone for hosted deployment or Chroma for local development), indexed for similarity search using cosine distance.
+
+#### 3.4.2 Query Pipeline
+
+The query pipeline processes incoming Sinhala questions through:
+
+1. **Query Embedding:** The input question is embedded using the same model employed during ingestion.
+2. **Similarity Search:** The top-k most similar chunks are retrieved from the vector database, where k is a configurable hyperparameter (default: k = 5).
+3. **Context Assembly:** Retrieved chunks are assembled into a context window, ordered by relevance score, with source metadata (document title, section, page) appended.
+4. **Prompt Construction:** A structured prompt is constructed incorporating:
+   - System instruction defining the assistant's role as a Sinhala Business Studies tutor
+   - Retrieved context passages with source attribution
+   - The user's question
+   - Instruction to answer based exclusively on provided context, indicating when information is unavailable
+5. **Generation:** The assembled prompt is submitted to the LLM (Claude, GPT-4o, or Gemini) for response generation.
+6. **Response Processing:** Generated responses undergo minimal post-processing for output formatting.
+
+#### 3.4.3 Configuration Testing
+
+The pipeline supports systematic variation of:
+- Embedding model (multilingual-E5, BGE-M3)
+- Chunk size (256, 512, 1024 tokens)
+- Chunking strategy (fixed-size, semantic, hybrid)
+- Number of retrieved chunks (k = 3, 5, 7)
+- LLM backend (Claude, GPT-4o, Gemini)
+
+Each configuration is evaluated against the test question set to identify the optimal parameter combination for Sinhala educational text. This parametric exploration directly addresses RQ2.
+
+### 3.5 Baseline Conditions
+
+#### 3.5.1 Baseline 1: Ungrounded LLM
+
+In this condition, questions are submitted directly to the LLM without any retrieval augmentation. The prompt consists solely of the Sinhala-language question, with no system instruction, context, or role definition. This represents the "naive" use case where a student directly queries an LLM for assistance — the most common real-world interaction pattern.
+
+#### 3.5.2 Baseline 2: Prompt-Constrained but Ungrounded
+
+This condition tests whether prompt engineering alone — without retrieval — can improve response quality. The prompt includes a system instruction specifying that the assistant should answer as an expert in the Sri Lankan GCE O/L Business Studies curriculum, citing specific syllabus topics where possible. However, no retrieved passages are provided. This condition isolates the effect of structured prompting from the effect of retrieval augmentation, enabling a more precise attribution of any observed improvements to the retrieval mechanism specifically.
+
+### 3.6 Evaluation Methodology
+
+Evaluation proceeds along two complementary tracks — automated and human — to provide both scalability and domain-expert validation.
+
+#### 3.6.1 Automated Evaluation: RAGAS Framework
+
+The RAGAS framework (Es et al., 2023) is employed for automated evaluation, computing the following metrics for each question-condition pair:
+
+**Faithfulness (F):**
+The faithfulness score measures the proportion of claims in the generated answer that can be inferred from the retrieved context. For each generated answer, RAGAS decomposes the answer into atomic claims and assesses each claim against the retrieved passages. The faithfulness score is calculated as:
+
+F = (Number of claims supported by context) / (Total number of claims in generated answer)
+
+A score of 1.0 indicates that every claim in the answer is grounded in the retrieved context; a score of 0.0 indicates that no claims can be verified against context.
+
+**Answer Relevancy (AR):**
+Answer relevancy assesses the degree to which the generated answer addresses the original question. RAGAS generates synthetic questions from the answer and computes the cosine similarity between the embeddings of these synthetic questions and the original question:
+
+AR = (1/n) × Σ cos(E(q_i), E(q_original))
+
+where q_i are synthetic questions generated from the answer, n is the number of synthetic questions, and E() represents embedding generation.
+
+**Context Precision (CP) — RAG condition only:**
+Context precision evaluates whether the retrieved passages ranked higher are indeed more relevant to the question than those ranked lower, using a weighted precision calculation:
+
+CP = Σ (precision@k × relevance_k) / (Total number of relevant passages)
+
+where precision@k is the precision at rank k and relevance_k is a binary indicator of whether passage k is relevant.
+
+**Hallucination Rate (HR):**
+The hallucination rate is the complement of faithfulness, calculated as:
+
+HR = 1 − F
+
+This metric directly addresses RQ1 by quantifying the proportion of generated content that is not grounded in verifiable context.
+
+#### 3.6.2 Metric Calculation
+
+For the ungrounded baselines (B1 and B2), where no retrieved context exists, faithfulness and context precision cannot be calculated. For these conditions, evaluation relies on answer relevancy as the primary automated metric, supplemented by the human evaluation. For the RAG condition, all four metrics are computed, providing a comprehensive picture of system performance.
+
+### 3.7 Human Validation Protocol
+
+#### 3.7.1 Evaluator Recruitment
+
+Two to three experienced GCE O/L Business Studies teachers are recruited from government or semi-government schools in Sri Lanka. Eligibility criteria require a minimum of five years of O/L Business Studies teaching experience and current employment as a subject teacher. Evaluators provide informed consent prior to participation and are compensated for their time.
+
+#### 3.7.2 Evaluation Procedure
+
+Each evaluator independently assesses a subset of system outputs using a structured evaluation protocol:
+
+1. **Blinding:** Evaluators are not informed which experimental condition (RAG, B1, B2) produced each output. Outputs are presented in randomised order.
+2. **Rubric:** Each output is rated on a five-point Likert scale (1 = Very Poor to 5 = Excellent) across four dimensions:
+   - **Factual Accuracy:** Is the information correct according to the O/L Business Studies curriculum?
+   - **Completeness:** Does the answer address all aspects of the question?
+   - **Clarity:** Is the Sinhala language clear, grammatical, and appropriate for the O/L level?
+   - **Pedagogical Value:** Would this answer help a student understand the concept?
+3. **Reference Comparison:** Evaluators have access to the reference answers but are instructed to evaluate each output on its own merits, recognising that multiple correct formulations may exist.
+4. **Anchoring:** Prior to formal evaluation, evaluators participate in a calibration session where they jointly rate a small set of example outputs and discuss their ratings to establish shared standards.
+
+#### 3.7.3 Inter-Rater Reliability
+
+Cohen's kappa coefficient (κ) is calculated for each pair of evaluators on each dimension to quantify inter-rater agreement beyond chance:
+
+κ = (p_o − p_e) / (1 − p_e)
+
+where p_o is the observed proportion of agreement between raters and p_e is the proportion of agreement expected by chance.
+
+Kappa values are interpreted according to the benchmarks established by Landis and Koch (1977): κ < 0.00 (poor agreement), 0.00–0.20 (slight), 0.21–0.40 (fair), 0.41–0.60 (moderate), 0.61–0.80 (substantial), and 0.81–1.00 (almost perfect). A kappa value of at least 0.60 is targeted as the threshold for acceptable inter-rater reliability.
+
+### 3.8 Statistical Analysis Plan
+
+#### 3.8.1 Primary Analysis
+
+The primary analysis addresses RQ1 by comparing hallucination rates and faithfulness scores between the RAG condition and the ungrounded baselines. The Wilcoxon signed-rank test — a non-parametric alternative to the paired t-test that does not assume normality — is employed to test for statistically significant differences between paired observations. This choice is motivated by the anticipated non-normal distribution of faithfulness scores and the relatively modest sample size.
+
+For each comparison (RAG vs. B1, RAG vs. B2), the null hypothesis states that there is no difference in the median faithfulness score between conditions. The alternative hypothesis states that the RAG condition yields higher median faithfulness. A significance level of α = 0.05 is adopted.
+
+#### 3.8.2 Secondary Analysis
+
+RQ2, concerning the effect of embedding model and chunking strategy, is addressed through a factorial analysis examining the interaction between embedding model (two levels) and chunking configuration (multiple levels) on retrieval precision and downstream generation faithfulness. Descriptive statistics and effect sizes (Cohen's d for pairwise comparisons) are reported alongside significance tests.
+
+#### 3.8.3 Human Evaluation Analysis
+
+Human ratings are analysed using descriptive statistics (means, standard deviations) for each dimension and condition, with paired comparisons between conditions using the Wilcoxon signed-rank test. The relationship between automated metrics and human ratings is examined through Spearman's rank correlation coefficient (ρ), providing evidence on the validity of automated evaluation for Sinhala-language content.
+
+### 3.9 Development Methodology
+
+The RAG pipeline is developed following an iterative prototyping methodology, selected for its suitability to the exploratory nature of the research. Unlike traditional software engineering projects with fixed requirements, this research involves discovering optimal configurations through experimentation, making a rigid waterfall approach inappropriate.
+
+The development process proceeds through four iterations:
+
+1. **Iteration 1 — Minimum Viable Pipeline:** Implementation of a basic RAG pipeline with default LangChain configurations, single embedding model, and single chunking strategy. This iteration validates the end-to-end pipeline and identifies integration issues.
+
+2. **Iteration 2 — Configurable Pipeline:** Refactoring to support systematic parameter variation — multiple embedding models, chunking strategies, and chunk sizes — with standardised interfaces for swapping components.
+
+3. **Iteration 3 — Evaluation Integration:** Integration of the RAGAS evaluation framework and development of automated batch evaluation scripts that systematically test each configuration against the full question set.
+
+4. **Iteration 4 — Production Pipeline:** Optimisation and hardening based on findings from Iteration 3, producing a final pipeline configuration for formal evaluation.
+
+Each iteration is documented with version-controlled code, configuration files, and decision logs. The iterative approach ensures that the research remains responsive to empirical findings while maintaining rigour in the final evaluation.
+
+### 3.10 Project Management and Timeline
+
+The project is executed over a four-month period (April–July 2026) with clearly defined phases and milestones.
+
+#### 3.10.1 Work Breakdown Structure
+
+| Phase | Activities | Duration |
+|-------|-----------|----------|
+| **Phase 1: Foundation** | Literature review, knowledge base collection, tool setup | Weeks 1–3 (April 1–21) |
+| **Phase 2: Development** | RAG pipeline implementation, baseline setup, iterative testing | Weeks 4–9 (April 22 – June 2) |
+| **Phase 3: Experimentation** | Systematic evaluation runs, data collection, human evaluation | Weeks 10–13 (June 3–30) |
+| **Phase 4: Analysis** | Statistical analysis, results compilation, discussion | Weeks 14–15 (July 1–14) |
+| **Phase 5: Writing** | Dissertation writing, revisions, formatting | Weeks 16–17 (July 15–31) |
+
+#### 3.10.2 Gantt Chart
+
+```
+Activity                          | Apr     | May     | Jun     | Jul     |
+                                  | 1  2  3 | 4  5  6 | 7  8  9 | 10 11 12| 13 14 15| 16 17
+----------------------------------|---------|---------|---------|---------|---------|------
+Literature Review                 | ███████ |         |         |         |         |
+Knowledge Base Collection         | ███████ |         |         |         |         |
+Environment & Tool Setup          |    ████ |         |         |         |         |
+Proposal Submission               |      ██ |         |         |         |         |
+RAG Pipeline Dev (Iteration 1)    |         | ███████ |         |         |         |
+RAG Pipeline Dev (Iteration 2)    |         |    ████ | ███     |         |         |
+Baseline Implementation           |         |    ████ |         |         |         |
+RAG Pipeline Dev (Iteration 3)    |         |         | █████   |         |         |
+Evaluation Integration            |         |         |   █████ |         |         |
+Systematic Evaluation Runs        |         |         |      ██ | █████   |         |
+Human Evaluation                  |         |         |         |   █████ |         |
+Statistical Analysis              |         |         |         |         | ███████ |
+Dissertation Writing              |         |         |         |         |    ████ | ███████
+Revisions & Formatting            |         |         |         |         |         |    ████
+Submission                        |         |         |         |         |         |      ██
+```
+
+#### 3.10.3 Milestones
+
+| Milestone | Date | Deliverable |
+|-----------|------|-------------|
+| M1: Proposal Submitted | June 21 | Approved research proposal |
+| M2: Pipeline Operational | May 15 | Functional end-to-end RAG pipeline |
+| M3: Evaluation Complete | June 30 | All automated and human evaluation data collected |
+| M4: Analysis Complete | July 14 | Statistical analyses and results compiled |
+| M5: Dissertation Submitted | August 2 | Final dissertation document |
+
+### 3.11 Resource Requirements
+
+#### 3.11.1 Software and Infrastructure
+
+| Resource | Purpose | Justification |
+|----------|---------|---------------|
+| Python 3.11+ | Primary development language | LangChain, PyMuPDF, and RAGAS are Python-native |
+| LangChain | RAG pipeline framework | Modular design, extensive integrations, active community |
+| Pinecone/Chroma | Vector database | Managed (Pinecone) or local (Chroma) vector storage |
+| OpenAI API | GPT-4o access | Frontier LLM with demonstrated multilingual capability |
+| Anthropic API | Claude access | Comparator LLM with strong safety and accuracy profile |
+| Google AI API | Gemini access | Third comparator for cross-model robustness |
+| RAGAS | Automated evaluation | Standardised RAG evaluation metrics |
+| PyMuPDF | PDF text extraction | Efficient, Python-native PDF processing |
+| Git + GitHub | Version control | Code management and collaboration |
+
+#### 3.11.2 Budget
+
+| Item | Estimated Cost (LKR) | Notes |
+|------|---------------------|-------|
+| API usage (LLM + embeddings) | 15,000–25,000 | Variable based on evaluation runs |
+| Vector database hosting | 5,000–10,000 | Pinecone free tier may suffice |
+| Teacher honoraria | 15,000–20,000 | 2–3 evaluators × 1 session |
+| Printing and binding | 5,000–8,000 | Multiple copies for submission |
+| **Total** | **40,000–63,000** | Approximately £100–£160 |
+
+### 3.12 Risk Assessment and Mitigation
+
+| Risk | Likelihood | Impact | Mitigation Strategy |
+|------|-----------|--------|---------------------|
+| API rate limits or cost overruns | Medium | High | Implement caching; set budget alerts; use local Chroma as fallback |
+| Poor retrieval quality for Sinhala | Medium | High | Test multiple embedding models; implement hybrid (sparse + dense) retrieval as fallback |
+| Human evaluator dropout | Low | Medium | Recruit 3 evaluators (not 2); prepare backup evaluator contacts |
+| LLM hallucination in RAGAS evaluation | Medium | Medium | Cross-validate automated metrics with human evaluation; report metric reliability |
+| Technical integration failures | Low | Medium | Use managed services (Pinecone) to reduce infrastructure risk; maintain local Chroma backup |
+| Insufficient statistical power | Medium | Medium | Power analysis during pilot; expand question set if necessary |
+| Time overrun | Medium | High | Build buffer into timeline; prioritise core RQs; defer RQ3 if necessary |
+
+### 3.13 Ethical Considerations
+
+This research adheres to the ethical principles outlined in Wrexham University's Research Ethics Policy and the British Educational Research Association (BERA) guidelines.
+
+#### 3.13.1 Data Ethics
+
+All knowledge base documents are publicly available curricular materials published by the National Institute of Education and the Department of Examinations of Sri Lanka. No personally identifiable information (PII) is present in or extracted from these documents. No copyrighted materials are shared with third-party services in ways that violate licence terms; document excerpts stored in vector databases constitute fair dealing for research purposes.
+
+#### 3.13.2 Participant Ethics
+
+Teacher evaluators receive a detailed participant information sheet explaining the purpose of the research, their role in the evaluation, the voluntary nature of participation, and their right to withdraw at any time without consequence. Written informed consent is obtained prior to participation. All evaluator responses are anonymised in analysis and reporting; individual evaluators cannot be identified from published results.
+
+#### 3.13.3 AI Ethics
+
+The research engages with broader ethical questions surrounding the deployment of AI in educational contexts. While the system is designed to reduce hallucination, no technical system can guarantee perfect accuracy. The outputs of this research are not intended for unsupervised student use, and the dissertation explicitly discusses the limitations and appropriate use contexts for RAG-based educational tools. The research contributes to the responsible development of AI for education by establishing empirical evidence on system reliability rather than assuming it.
+
+#### 3.13.4 Positionality
+
+The researcher acknowledges their position as a MSc Computer Science student with proficiency in both Sinhala and English, familiarity with the Sri Lankan educational system, and technical expertise in NLP systems. This positionality confers both advantages — linguistic competence to evaluate Sinhala outputs, contextual understanding of the educational domain — and potential biases, including enthusiasm for the technology being evaluated. To mitigate researcher bias, the dual-track evaluation design (automated + independent human evaluation) provides objective, externally validated measures of system performance.
+
+---
+
+## Chapter 4: System Design and Implementation
+
+### 4.1 High-Level Architecture
+
+The RAG system is designed as a modular, extensible pipeline composed of five primary subsystems connected through clearly defined interfaces. Figure 4.1 presents the high-level architecture diagram.
+
+```
+┌─────────────────────────────────────────────────────────────────────────┐
+│                        RAG SYSTEM ARCHITECTURE                           │
+├─────────────────────────────────────────────────────────────────────────┤
+│                                                                          │
+│  ┌──────────────────────────────────────────────────────────────────┐  │
+│  │                    1. KNOWLEDGE BASE LAYER                        │  │
+│  │  ┌──────────┐  ┌──────────┐  ┌──────────────┐  ┌─────────────┐  │  │
+│  │  │ Syllabus │  │ Textbooks│  │ Teacher Guide │  │ Past Papers │  │  │
+│  │  │   (PDF)  │  │  (PDF)   │  │    (PDF)      │  │   (PDF)     │  │  │
+│  │  └────┬─────┘  └────┬─────┘  └──────┬───────┘  └──────┬──────┘  │  │
+│  └───────┼─────────────┼───────────────┼──────────────────┼─────────┘  │
+│          │             │               │                  │             │
+│          └─────────────┴───────┬───────┴──────────────────┘             │
+│                                │                                         │
+│  ┌─────────────────────────────▼────────────────────────────────────┐  │
+│  │                  2. INGESTION PIPELINE                            │  │
+│  │  ┌──────────┐   ┌──────────┐   ┌──────────┐   ┌──────────────┐  │  │
+│  │  │ PDF Load │──▶│  Clean & │──▶│  Chunk & │──▶│   Generate   │  │  │
+│  │  │ (PyMuPDF)│   │ Normalise│   │  Split   │   │  Embeddings  │  │  │
+│  │  └──────────┘   └──────────┘   └──────────┘   └──────┬───────┘  │  │
+│  └──────────────────────────────────────────────────────┼──────────┘  │
+│                                                         │              │
+│  ┌──────────────────────────────────────────────────────▼──────────┐  │
+│  │                   3. VECTOR DATABASE                             │  │
+│  │  ┌───────────────────────────────────────────────────────────┐  │  │
+│  │  │              Pinecone / Chroma Vector Store               │  │  │
+│  │  │   ┌─────────┐  ┌─────────┐  ┌─────────┐  ┌─────────┐    │  │  │
+│  │  │   │ Embedding│  │  Text   │  │ Metadata│  │  Source  │    │  │  │
+│  │  │   │ (1536d) │  │  Chunk  │  │ (topic, │  │  (doc,   │    │  │  │
+│  │  │   │         │  │         │  │  page)  │  │  section)│    │  │  │
+│  │  │   └─────────┘  └─────────┘  └─────────┘  └─────────┘    │  │  │
+│  │  └───────────────────────────────────────────────────────────┘  │  │
+│  └──────────────────────────────────────────────────────────────────┘  │
+│                                │                                        │
+│  ┌─────────────────────────────▼────────────────────────────────────┐  │
+│  │                    4. QUERY PIPELINE                              │  │
+│  │  ┌──────────┐   ┌──────────┐   ┌──────────┐   ┌──────────────┐  │  │
+│  │  │  Query   │──▶│   Embed  │──▶│ Retrieve  │──▶│   Assemble   │  │  │
+│  │  │  Input   │   │  Query   │   │  Top-k    │   │   Context    │  │  │
+│  │  └──────────┘   └──────────┘   └──────────┘   └──────┬───────┘  │  │
+│  └──────────────────────────────────────────────────────┼──────────┘  │
+│                                                         │              │
+│  ┌──────────────────────────────────────────────────────▼──────────┐  │
+│  │                   5. GENERATION LAYER                            │  │
+│  │  ┌───────────────────────────────────────────────────────────┐  │  │
+│  │  │   ┌──────────┐   ┌──────────┐   ┌──────────────────┐     │  │  │
+│  │  │   │  Claude  │   │  GPT-4o  │   │     Gemini       │     │  │  │
+│  │  │   └────┬─────┘   └────┬─────┘   └────────┬─────────┘     │  │  │
+│  │  │        └──────────────┼──────────────────┘               │  │  │
+│  │  │                       ▼                                   │  │  │
+│  │  │              ┌────────────────┐                           │  │  │
+│  │  │              │   Response +   │                           │  │  │
+│  │  │              │   Citations    │                           │  │  │
+│  │  │              └────────────────┘                           │  │  │
+│  │  └───────────────────────────────────────────────────────────┘  │  │
+│  └──────────────────────────────────────────────────────────────────┘  │
+│                                                                          │
+└─────────────────────────────────────────────────────────────────────────┘
+
+Figure 4.1: High-Level RAG System Architecture
+```
+
+The architecture follows a layered design pattern, where each layer encapsulates a distinct responsibility and communicates with adjacent layers through well-defined interfaces. This modularity serves two research objectives: it enables systematic component substitution for the parametric experiments required by RQ2, and it produces a reusable design that can be adapted for other Sinhala subjects and low-resource languages (OBJ6).
+
+### 4.2 Knowledge Base Ingestion Pipeline
+
+The ingestion pipeline transforms raw Sinhala PDF documents into searchable vector embeddings through a sequence of precisely defined processing stages.
+
+#### 4.2.1 Document Loading
+
+The `DocumentLoader` module uses LangChain's `PyMuPDFLoader` to extract text from PDF documents while preserving page-level metadata. Each loaded document is assigned a unique identifier and annotated with source metadata including the document type (syllabus, textbook, teacher guide, or past paper), the academic year or edition, and the subject area. This metadata is carried through the entire pipeline and attached to each chunk, enabling source attribution in generated responses.
+
+#### 4.2.2 Text Cleaning and Normalisation
+
+Sinhala text extracted from PDFs presents specific challenges that require tailored preprocessing:
+
+**Unicode Normalisation:** Sinhala Unicode text may contain multiple equivalent representations of the same character sequence due to the language's complex conjunct formation rules. All extracted text is normalised using Unicode Normalisation Form KC (NFKC), which composes decomposed character sequences into their canonical composed forms, ensuring consistent representation.
+
+**OCR Artefact Correction:** For scanned documents (particularly older past papers), OCR introduces systematic errors specific to Sinhala script. Common artefacts include confusion between visually similar characters (e.g., ක and ග, ම and න), incorrect handling of vowel diacritics (පිල්ල), and misrecognition of punctuation marks (කුඩා කුණ්ඩලිය). A rule-based correction module applies pattern-based fixes for known high-frequency OCR errors, validated through manual inspection of a sample of processed text.
+
+**Structural Preservation:** Section headings, subheadings, numbered lists, and table structures are identified and preserved using pattern matching against the consistent formatting conventions of NIE documents. This structural information is critical for the semantic chunking strategy and for providing users with navigable source references.
+
+**Content Filtering:** Non-content elements including headers, footers, page numbers, decorative graphics captions, and blank pages are identified and removed. A whitelist approach is employed: only text matching the expected content patterns of educational prose is retained.
+
+#### 4.2.3 Text Chunking
+
+The chunking module implements three complementary strategies, configurable through a unified interface:
+
+**Strategy A — Fixed-Size Chunking:** The `RecursiveCharacterTextSplitter` from LangChain is configured with Sinhala-specific separators. The separator hierarchy is: double newline (paragraph boundary), single newline (line boundary), period/full stop, Sinhala sentence-ending punctuation (කුණ්ඩලිය), space, and finally character-level splitting. Chunks are created at sizes of 256, 512, and 1024 tokens, with a 20% overlap between consecutive chunks. Overlap is essential for Sinhala educational text because concepts are frequently developed across paragraph boundaries, and splitting without overlap risks fragmenting coherent explanations.
+
+**Strategy B — Semantic Chunking:** This strategy leverages the hierarchical structure inherent in NIE educational documents. Documents are split at section boundaries (identified by heading patterns), subsection boundaries, and, where appropriate, at the level of individual learning objectives or topic summaries. This preserves the pedagogical coherence of each chunk — a section on "Factors of Production" (නිෂ්පාදන සාධක), for example, remains intact as a retrievable unit rather than being arbitrarily divided.
+
+**Strategy C — Hybrid Chunking:** Documents are first split semantically at section boundaries, then each section is further sub-chunked using the fixed-size strategy with a smaller chunk size (256 tokens). This approach combines the pedagogical coherence of semantic chunking with the consistent retrieval granularity of fixed-size chunking, potentially offering the best of both approaches for the structured yet dense nature of educational text.
+
+#### 4.2.4 Embedding Generation
+
+The `EmbeddingGenerator` module provides a uniform interface over the candidate embedding models:
+
+**multilingual-E5:** Accessed via the HuggingFace `sentence-transformers` integration, the `intfloat/multilingual-e5-large` model produces 1024-dimensional embeddings. Input text is prefixed with "query: " for query embeddings and "passage: " for document embeddings, following the model's intended usage pattern.
+
+**BGE-M3:** The `BAAI/bge-m3` model, also accessed through `sentence-transformers`, produces 1024-dimensional dense embeddings alongside optional sparse (lexical) embeddings that can be combined for hybrid retrieval.
+
+Both models are run locally on CPU or GPU (if available) to eliminate embedding API costs and latency. Batch processing is employed with a configurable batch size to optimise throughput.
+
+### 4.3 Embedding and Indexing Strategy
+
+#### 4.3.1 Vector Database Selection
+
+Two vector database backends are supported:
+
+**Pinecone (Primary):** A managed, cloud-hosted vector database offering low-latency similarity search with configurable index parameters. Pinecone indexes are created with cosine distance metric and the dimensionality matching the selected embedding model (1024 dimensions for both candidate models). Metadata filtering by document type, topic, and year is enabled to support targeted retrieval queries.
+
+**Chroma (Fallback/Local):** An open-source, locally-deployed vector database providing equivalent functionality without cloud dependency. Chroma is used during development, for the initial embedding model comparison experiments, and as a fallback if Pinecone API limits or costs become prohibitive.
+
+#### 4.3.2 Indexing Process
+
+For each combination of embedding model and chunking strategy, a separate index is created to enable clean experimental comparisons. The indexing process:
+
+1. Creates a new index/collection with the appropriate dimensionality and distance metric
+2. Processes documents through the ingestion pipeline for the specified chunking strategy
+3. Generates embeddings for all chunks using the specified embedding model
+4. Upserts embeddings with associated metadata into the vector database
+5. Validates the index with a set of 10 diagnostic queries to confirm retrieval functionality
+
+#### 4.3.3 Retrieval Configuration
+
+The retrieval module supports configurable top-k (default: 5), with the option to apply a minimum similarity threshold to filter low-relevance results. Retrieved results are returned with their relevance scores and full metadata, enabling downstream components to implement score-weighted context assembly or to filter results by metadata constraints (e.g., restricting retrieval to specific document types or syllabus topics).
+
+### 4.4 Query Processing Pipeline
+
+The query pipeline orchestrates the end-to-end process from user question to system response.
+
+#### 4.4.1 Query Preprocessing
+
+Incoming Sinhala questions undergo minimal preprocessing: Unicode normalisation (NFKC) and whitespace normalisation. No translation, transliteration, or query expansion is performed, as the research question concerns the system's performance on natural Sinhala queries as they would be posed by students.
+
+#### 4.4.2 Retrieval Execution
+
+The preprocessed question is embedded using the same model and prefix convention employed during indexing. A similarity search against the vector database returns the top-k most relevant chunks, each accompanied by its similarity score, source document identifier, section title, and page reference.
+
+#### 4.4.3 Context Assembly
+
+Retrieved chunks are assembled into a context window using the following template structure:
+
+```
+පහත දැක්වෙන තොරතුරු ශ්‍රී ලංකාවේ අ.පො.ස. (සාමාන්‍ය පෙළ) ව්‍යාපාර අධ්‍යයන විෂය නිර්දේශයෙන් උපුටා ගන්නා ලදී:
+
+[මූලාශ්‍රය 1: {document_title}, {section_title}, පිටුව {page}]
+{retrieved_chunk_1}
+
+[මූලාශ්‍රය 2: {document_title}, {section_title}, පිටුව {page}]
+{retrieved_chunk_2}
+
+...
+
+ඉහත තොරතුරු මත පදනම්ව පහත ප්‍රශ්නයට පිළිතුරු සපයන්න. ලබා දී ඇති තොරතුරුවල අඩංගු නොවන කරුණු ඇතුළත් නොකරන්න. තොරතුරු ප්‍රමාණවත් නොවේ නම්, එය පැහැදිලිව සඳහන් කරන්න.
+```
+
+This translates to:
+
+```
+The following information is extracted from the Sri Lankan GCE O/L Business Studies curriculum:
+
+[Source 1: {document_title}, {section_title}, Page {page}]
+{retrieved_chunk_1}
+
+[Source 2: {document_title}, {section_title}, Page {page}]
+{retrieved_chunk_2}
+
+...
+
+Based on the above information, answer the following question. Do not include information not contained in the provided sources. If the information is insufficient, clearly state so.
+```
+
+The prompt design prioritises three objectives: explicit grounding in retrieved sources, clear attribution through numbered source references, and an honesty mechanism that instructs the model to acknowledge information gaps rather than fabricate content.
+
+#### 4.4.4 Generation and Post-Processing
+
+The assembled prompt is submitted to the configured LLM via its API. Generation parameters are set conservatively — temperature = 0.0 (deterministic output for reproducibility) and moderate maximum token limits appropriate for short-answer educational responses. The generated response is returned with source citations, enabling users to verify claims against the original documents.
+
+### 4.5 Baseline Implementations
+
+#### 4.5.1 Baseline 1: Ungrounded LLM
+
+The ungrounded baseline submits the Sinhala question directly to the LLM with no system prompt, no context, and no instruction. The prompt consists solely of the question text. This condition represents the simplest possible usage pattern and establishes the lower bound of performance.
+
+#### 4.5.2 Baseline 2: Prompt-Constrained but Ungrounded
+
+The prompt-constrained baseline employs the following Sinhala system prompt:
+
+```
+ඔබ ශ්‍රී ලංකාවේ අ.පො.ස. (සාමාන්‍ය පෙළ) ව්‍යාපාර අධ්‍යයන විෂය පිළිබඳ විශේෂඥ උපකාරකයෙකි. විෂය නිර්දේශයට අනුකූලව, ශ්‍රී ලංකා අධ්‍යාපන සන්දර්භය තුළ පිළිතුරු සපයන්න. ඔබට විශ්වාස නැති තොරතුරු සඳහන් නොකරන්න.
+```
+
+This prompts the LLM to respond as an expert tutor aligned with the Sri Lankan O/L curriculum context, but provides no specific factual grounding. This condition isolates the effect of role-definition and curriculum-awareness prompting from the effect of actual retrieval augmentation.
+
+### 4.6 Adaptive Variant: Dual-Representation Indexing
+
+In addition to the standard passage-indexed RAG, an adaptive variant is implemented to explore the dual-representation hypothesis (RQ3). In this variant, the index contains not only raw text passages but also synthetically generated question-answer pairs.
+
+The dual-representation indexing process:
+
+1. For each syllabus topic, the LLM (in a separate offline preprocessing pass) generates 5–10 plausible student questions in Sinhala, along with curriculum-aligned answers derived from the corresponding textbook sections.
+2. These QA pairs are embedded and indexed alongside the raw text passages, tagged with a metadata field indicating their type (QA or passage).
+3. During retrieval, a configurable weighting parameter controls the relative influence of QA-based and passage-based matches on the final ranking.
+4. The hypothesis is that student questions will naturally show higher semantic similarity to other questions than to declarative textbook prose, potentially improving retrieval relevance — particularly for queries that use student-typical language rather than textbook terminology.
+
+This variant is evaluated as an exploratory condition alongside the standard RAG configuration, with findings informing the discussion of RQ3.
+
+### 4.7 Technology Stack and Justification
+
+| Component | Technology | Version | Justification |
+|-----------|-----------|---------|---------------|
+| Programming Language | Python | 3.11+ | Dominant ecosystem for NLP/ML; LangChain is Python-native |
+| RAG Framework | LangChain | ≥0.2.0 | Modular architecture; extensive integrations; active maintenance |
+| PDF Processing | PyMuPDF (fitz) | ≥1.23.0 | High-fidelity text extraction; Python-native; handles Sinhala Unicode |
+| Embedding Models | multilingual-E5, BGE-M3 | Latest | State-of-the-art multilingual retrieval performance |
+| Vector DB (Primary) | Pinecone | Serverless | Managed, scalable, low-latency similarity search |
+| Vector DB (Fallback) | Chroma | ≥0.5.0 | Open-source, local deployment; no API dependency |
+| LLM Backends | Claude 3.5 Sonnet, GPT-4o, Gemini 1.5 Pro | Latest | Frontier models with demonstrated multilingual capability |
+| Evaluation Framework | RAGAS | ≥0.1.0 | Standardised RAG evaluation; faithfulness + relevancy metrics |
+| Statistical Analysis | SciPy, pandas | Latest | Wilcoxon test, descriptive statistics, effect sizes |
+| Version Control | Git + GitHub | Latest | Code management; experimental configuration tracking |
+| OCR (if needed) | Tesseract | ≥5.0 | Open-source; Sinhala language support available |
+
+---
+
+## Chapter 5: Results and Evaluation
+
+> **Note:** This chapter will be completed following the systematic evaluation runs and human validation session. The structure below outlines the planned analysis framework.
+
+### 5.1 Automated Evaluation Results
+
+*[To be completed. This section will present RAGAS metrics — faithfulness, answer relevancy, context precision, and hallucination rate — for each experimental condition, accompanied by descriptive statistics (mean, median, standard deviation, interquartile range) and appropriate visualisations (box plots, bar charts, and heatmaps).]*
+
+### 5.2 Human Evaluation Results
+
+*[To be completed. This section will present the teacher evaluation ratings across the four rubric dimensions for each condition, including mean ratings, standard deviations, and distribution visualisations. Inter-rater reliability (Cohen's kappa) will be reported for each dimension and evaluator pair.]*
+
+### 5.3 Statistical Analysis
+
+*[To be completed. This section will present the results of Wilcoxon signed-rank tests comparing conditions, effect sizes (Cohen's d) for pairwise comparisons, and Spearman correlations between automated metrics and human ratings. Significance levels and confidence intervals will be reported.]*
+
+### 5.4 Comparative Analysis of Baselines
+
+*[To be completed. This section will provide a structured comparison of the three conditions — RAG-grounded, ungrounded baseline (B1), and prompt-constrained baseline (B2) — across all evaluation dimensions, with discussion of the relative contribution of retrieval augmentation versus prompt engineering to any observed improvements.]*
+
+### 5.5 Embedding Model and Chunking Parameter Analysis
+
+*[To be completed. This section will present the results of the parametric experiments addressing RQ2, comparing embedding models and chunking strategies on retrieval precision, downstream faithfulness, and answer quality. Trade-offs between configuration options will be discussed.]*
+
+---
+
+## Chapter 6: Discussion
+
+> **Note:** This chapter will be written following the completion of results analysis. It will interpret findings in the context of the literature reviewed in Chapter 2, discuss practical implications for Sinhala education and low-resource language RAG deployment, acknowledge limitations, and propose explanations for observed patterns.
+
+### 6.1 Interpretation of Findings
+
+*[To be completed.]*
+
+### 6.2 Implications for Low-Resource Language RAG
+
+*[To be completed.]*
+
+### 6.3 Practical Implications for Sinhala Education
+
+*[To be completed.]*
+
+### 6.4 Comparison with Related Work
+
+*[To be completed.]*
+
+### 6.5 Limitations
+
+*[To be completed.]*
+
+---
+
+## Chapter 7: Conclusion and Future Work
+
+> **Note:** This chapter will be written following the completion of the discussion. It will summarise the research contributions, provide recommendations for practitioners and researchers, and outline directions for future work extending the findings of this dissertation.
+
+### 7.1 Summary of Contributions
+
+*[To be completed.]*
+
+### 7.2 Recommendations
+
+*[To be completed.]*
+
+### 7.3 Future Research Directions
+
+*[To be completed.]*
+
+---
+
+## References
+
+Ahmad, S., Khan, M.A. and Hussain, F. (2026) 'DR-RAG: Dense Retrieval for Retrieval-Augmented Generation in Urdu Educational Content', *Journal of Artificial Intelligence in Education*, 15(2), pp. 112–134.
+
+Anderson, L.W. and Krathwohl, D.R. (eds.) (2001) *A Taxonomy for Learning, Teaching, and Assessing: A Revision of Bloom's Taxonomy of Educational Objectives*. New York: Longman.
+
+Aravinda, S., Perera, K. and Weerasinghe, R. (2025) 'SinLlama: Adapting Llama Architecture for Sinhala Language Generation', in *Proceedings of the 2025 Conference on Empirical Methods in Natural Language Processing (EMNLP)*. Singapore: Association for Computational Linguistics, pp. 2345–2358.
+
+Asai, A., Wu, Z., Wang, Y., Sil, A. and Hajishirzi, H. (2023) 'Self-RAG: Learning to Retrieve, Generate, and Critique through Self-Reflection', *arXiv preprint*, arXiv:2310.11511.
+
+Bai, Y., Kadavath, S., Kundu, S., Askell, A., Kernion, J., Jones, A., Chen, A., Goldie, A., Mirhoseini, A., McKinnon, C., Chen, C., Olsson, C., Olah, C., Hernandez, D., Drain, D., Ganguli, D., Li, D., Tran-Johnson, E., Perez, E., Kerr, J., Mueller, J., Ladish, J., Landau, J., Ndousse, K., Lukosuite, K., Lovitt, L., Sellitto, M., Elhage, N., Schiefer, N., Mercado, N., DasSarma, N., Lasenby, R., Larson, R., Ringer, S., Johnston, S., Kravec, S., Showk, S.E., Fort, S., Lanham, T., Telleen-Lawton, T., Conerly, T., Henighan, T., Hume, T., Bowman, S.R., Hatfield-Dodds, Z., Mann, B., Amodei, D., Joseph, N., McCandlish, S., Brown, T. and Kaplan, J. (2022) 'Constitutional AI: Harmlessness from AI Feedback', *arXiv preprint*, arXiv:2212.08073.
+
+Bang, Y., Cahyawijaya, S., Lee, N., Dai, W., Su, D., Wilie, B., Lovenia, H., Ji, Z., Yu, T., Chung, W., Do, Q.V., Xu, Y. and Fung, P. (2023) 'A Multitask, Multilingual, Multimodal Evaluation of ChatGPT on Reasoning, Hallucination, and Interactivity', in *Proceedings of the 13th International Joint Conference on Natural Language Processing and the 3rd Conference of the Asia-Pacific Chapter of the Association for Computational Linguistics*. Bali: Association for Computational Linguistics, pp. 675–718.
+
+Bender, E.M., Gebru, T., McMillan-Major, A. and Shmitchell, S. (2021) 'On the Dangers of Stochastic Parrots: Can Language Models Be Too Big?', in *Proceedings of the 2021 ACM Conference on Fairness, Accountability, and Transparency (FAccT)*. New York: ACM, pp. 610–623.
+
+Bengio, S., Vinyals, O., Jaitly, N. and Shazeer, N. (2015) 'Scheduled Sampling for Sequence Prediction with Recurrent Neural Networks', in *Advances in Neural Information Processing Systems 28 (NeurIPS 2015)*. Montreal: Curran Associates, pp. 1171–1179.
+
+Borgeaud, S., Mensch, A., Hoffmann, J., Cai, T., Rutherford, E., Millican, K., van den Driessche, G., Lespiau, J.B., Damoc, B., Clark, A., de Las Casas, D., Guy, A., Menick, J., Ring, R., Hennigan, T., Huang, S., Maggiore, L., Jones, C., Cassirer, A., Brock, A., Paganini, M., Irving, G., Vinyals, O., Osindero, S., Simonyan, K., Rae, J.W., Elsen, E. and Sifre, L. (2022) 'Improving Language Models by Retrieving from Trillions of Tokens', in *Proceedings of the 39th International Conference on Machine Learning (ICML 2022)*. Baltimore: PMLR, pp. 2206–2240.
+
+Brown, T.B., Mann, B., Ryder, N., Subbiah, M., Kaplan, J., Dhariwal, P., Neelakantan, A., Shyam, P., Sastry, G., Askell, A., Agarwal, S., Herbert-Voss, A., Krueger, G., Henighan, T., Child, R., Ramesh, A., Ziegler, D.M., Wu, J., Winter, C., Hesse, C., Chen, M., Sigler, E., Litwin, M., Gray, S., Chess, B., Clark, J., Berner, C., McCandlish, S., Radford, A., Sutskever, I. and Amodei, D. (2020) 'Language Models are Few-Shot Learners', in *Advances in Neural Information Processing Systems 33 (NeurIPS 2020)*. Vancouver: Curran Associates, pp. 1877–1901.
+
+Bubeck, S., Chandrasekaran, V., Eldan, R., Gehrke, J., Horvitz, E., Kamar, E., Lee, P., Lee, Y.T., Li, Y., Lundberg, S., Nori, H., Palangi, H., Ribeiro, M.T. and Zhang, Y. (2023) 'Sparks of Artificial General Intelligence: Early Experiments with GPT-4', *arXiv preprint*, arXiv:2303.12712.
+
+Chen, J., Xiao, S., Zhang, P., Luo, K., Lian, D. and Liu, Z. (2024) 'BGE M3-Embedding: Multi-Lingual, Multi-Functionality, Multi-Granularity Text Embeddings Through Self-Knowledge Distillation', *arXiv preprint*, arXiv:2402.03216.
+
+Cohen, J. (1960) 'A Coefficient of Agreement for Nominal Scales', *Educational and Psychological Measurement*, 20(1), pp. 37–46.
+
+Conneau, A., Khandelwal, K., Goyal, N., Chaudhary, V., Wenzek, G., Guzmán, F., Grave, E., Ott, M., Zettlemoyer, L. and Stoyanov, V. (2020) 'Unsupervised Cross-lingual Representation Learning at Scale', in *Proceedings of the 58th Annual Meeting of the Association for Computational Linguistics (ACL 2020)*. Online: Association for Computational Linguistics, pp. 8440–8451.
+
+de Silva, N. and Gunasinghe, T. (2022) 'Tokenisation and Morphological Analysis for Sinhala Natural Language Processing', *International Journal of Computational Linguistics and Applications*, 13(1), pp. 45–62.
+
+Es, S., James, J., Espinosa-Anke, L. and Schockaert, S. (2023) 'RAGAS: Automated Evaluation of Retrieval Augmented Generation', *arXiv preprint*, arXiv:2309.15217.
+
+Feng, F., Yang, Y., Cer, D., Arivazhagan, N. and Wang, W. (2022) 'Language-agnostic BERT Sentence Embedding', in *Proceedings of the 60th Annual Meeting of the Association for Computational Linguistics (ACL 2022)*. Dublin: Association for Computational Linguistics, pp. 878–891.
+
+Gao, Y., Xiong, Y., Gao, X., Jia, K., Pan, J., Bi, Y., Dai, Y., Sun, J., Wang, M. and Wang, H. (2023) 'Retrieval-Augmented Generation for Large Language Models: A Survey', *arXiv preprint*, arXiv:2312.10997.
+
+Holmes, W., Bialik, M. and Fadel, C. (2019) *Artificial Intelligence in Education: Promises and Implications for Teaching and Learning*. Boston: Center for Curriculum Redesign.
+
+Huang, L., Yu, W., Ma, W., Zhong, W., Feng, Z., Wang, H., Chen, Q., Peng, W., Feng, X., Qin, B. and Liu, T. (2023) 'A Survey on Hallucination in Large Language Models: Principles, Taxonomy, Challenges, and Open Questions', *arXiv preprint*, arXiv:2311.05232.
+
+Izacard, G. and Grave, E. (2021) 'Leveraging Passage Retrieval with Generative Models for Open Domain Question Answering', in *Proceedings of the 16th Conference of the European Chapter of the Association for Computational Linguistics (EACL 2021)*. Online: Association for Computational Linguistics, pp. 874–880.
+
+Izacard, G., Lewis, P., Lomeli, M., Hosseini, L., Petroni, F., Schick, T., Dwivedi-Yu, J., Joulin, A., Riedel, S. and Grave, E. (2022) 'Atlas: Few-shot Learning with Retrieval Augmented Language Models', *arXiv preprint*, arXiv:2208.03299.
+
+Jayakody, K. and Dias, G. (2024) 'Evaluating Frontier LLMs for Sinhala Language Tasks: A Comparative Analysis of Claude and GPT-4o', in *Proceedings of the 2024 International Conference on Asian Language Processing (IALP)*. Colombo: IEEE, pp. 156–163.
+
+Ji, Z., Lee, N., Frieske, R., Yu, T., Su, D., Xu, Y., Ishii, E., Bang, Y.J., Madotto, A. and Fung, P. (2023) 'Survey of Hallucination in Natural Language Generation', *ACM Computing Surveys*, 55(12), pp. 1–38.
+
+Jiang, A.Q., Sablayrolles, A., Mensch, A., Bamford, C., Chaplot, D.S., de las Casas, D., Bressand, F., Lengyel, G., Lample, G., Saulnier, L., Lavaud, L.R., Lachaux, M.A., Stock, P., Le Scao, T., Lavril, T., Wang, T., Lacroix, T. and El Sayed, W. (2023) 'Mistral 7B', *arXiv preprint*, arXiv:2310.06825.
+
+Joshi, P., Santy, S., Budhiraja, A., Bali, K. and Choudhury, M. (2020) 'The State and Fate of Linguistic Diversity and Inclusion in the NLP World', in *Proceedings of the 58th Annual Meeting of the Association for Computational Linguistics (ACL 2020)*. Online: Association for Computational Linguistics, pp. 6282–6293.
+
+Karunanayake, N., Silva, D. and Fernando, S. (2021) 'Named Entity Recognition for Sinhala Using Deep Learning Approaches', in *Proceedings of the 2021 Moratuwa Engineering Research Conference (MERCon)*. Moratuwa: IEEE, pp. 234–239.
+
+Karpukhin, V., Oğuz, B., Min, S., Lewis, P., Wu, L., Edunov, S., Chen, D. and Yih, W. (2020) 'Dense Passage Retrieval for Open-Domain Question Answering', in *Proceedings of the 2020 Conference on Empirical Methods in Natural Language Processing (EMNLP)*. Online: Association for Computational Linguistics, pp. 6769–6781.
+
+Kasneci, E., Sessler, K., Küchemann, S., Bannert, M., Dementieva, D., Fischer, F., Gasser, U., Groh, G., Günnemann, S., Hüllermeier, E., Krusche, S., Kutyniok, G., Michaeli, T., Nerdel, C., Pfeffer, J., Poquet, O., Sailer, M., Schmidt, A., Seidel, T., Stadler, M., Weller, J., Kuhn, J. and Kasneci, G. (2023) 'ChatGPT for Good? On Opportunities and Challenges of Large Language Models for Education', *Learning and Individual Differences*, 103, p. 102274.
+
+Kumar, R., Singh, A. and Sharma, P. (2024) 'Retrieval-Augmented LLMs for Vernacular Science Education: A Hindi Case Study', in *Proceedings of the 2024 Conference on Artificial Intelligence in Education (AIED)*. Tokyo: Springer, pp. 312–325.
+
+Landis, J.R. and Koch, G.G. (1977) 'The Measurement of Observer Agreement for Categorical Data', *Biometrics*, 33(1), pp. 159–174.
+
+Lewis, P., Perez, E., Piktus, A., Petroni, F., Karpukhin, V., Goyal, N., Küttler, H., Lewis, M., Yih, W., Rocktäschel, T., Riedel, S. and Kiela, D. (2020) 'Retrieval-Augmented Generation for Knowledge-Intensive NLP Tasks', in *Advances in Neural Information Processing Systems 33 (NeurIPS 2020)*. Vancouver: Curran Associates, pp. 9459–9474.
+
+Li, Z., Zhang, Y., Wang, H. and Chen, X. (2024) 'RAG-ED: Retrieval-Augmented Generation for Computer Science Education', in *Proceedings of the 55th ACM Technical Symposium on Computer Science Education (SIGCSE 2024)*. Portland: ACM, pp. 789–795.
+
+Pramodya, L., Ranasinghe, S., Jayawardena, M. and de Silva, N. (2025) 'SinhalaMMLU: A Massive Multitask Language Understanding Benchmark for Sinhala', in *Proceedings of the 2025 Conference of the North American Chapter of the Association for Computational Linguistics (NAACL)*. Albuquerque: Association for Computational Linguistics, pp. 1456–1470.
+
+Radford, A., Narasimhan, K., Salimans, T. and Sutskever, I. (2018) 'Improving Language Understanding by Generative Pre-Training', OpenAI Technical Report.
+
+Radford, A., Wu, J., Child, R., Luan, D., Amodei, D. and Sutskever, I. (2019) 'Language Models are Unsupervised Multitask Learners', OpenAI Technical Report.
+
+Ranasinghe, S., Jayawardena, M. and Fernando, K. (2025) 'SinhalaBERT and SinhalaRoBERTa: Encoder-Only Pretrained Models for Sinhala Natural Language Understanding', *Sri Lanka Journal of Computer Science*, 12(1), pp. 23–41.
+
+Rasul, T., Nair, S., Kalra, D., Robin, M., de Oliveira Santini, F., Ladeira, W.J., Sun, M., Day, I., Rather, R.A. and Heathcote, L. (2023) 'The Role of ChatGPT in Higher Education: Benefits, Challenges, and Future Research Directions', *Journal of Applied Learning and Teaching*, 6(1), pp. 41–56.
+
+Reimers, N. and Gurevych, I. (2019) 'Sentence-BERT: Sentence Embeddings using Siamese BERT-Networks', in *Proceedings of the 2019 Conference on Empirical Methods in Natural Language Processing (EMNLP-IJCNLP)*. Hong Kong: Association for Computational Linguistics, pp. 3982–3992.
+
+Saunders, M., Lewis, P. and Thornhill, A. (2019) *Research Methods for Business Students*. 8th edn. Harlow: Pearson Education.
+
+Touvron, H., Lavril, T., Izacard, G., Martinet, X., Lachaux, M.A., Lacroix, T., Rozière, B., Goyal, N., Hambro, E., Azhar, F., Rodriguez, A., Joulin, A., Grave, E. and Lample, G. (2023) 'LLaMA: Open and Efficient Foundation Language Models', *arXiv preprint*, arXiv:2302.13971.
+
+Trivedi, A., Gupta, R., Sharma, M. and Mehta, P. (2026) 'Quantifying Hallucination Rates in Large Language Models Across Low-Resource Languages', *ACM Transactions on Asian and Low-Resource Language Information Processing*, 25(3), pp. 1–28.
+
+Vaswani, A., Shazeer, N., Parmar, N., Uszkoreit, J., Jones, L., Gomez, A.N., Kaiser, Ł. and Polosukhin, I. (2017) 'Attention Is All You Need', in *Advances in Neural Information Processing Systems 30 (NeurIPS 2017)*. Long Beach: Curran Associates, pp. 5998–6008.
+
+Wang, L., Yang, N., Huang, X., Jiao, B., Yang, L., Jiang, D., Majumder, R. and Wei, F. (2024) 'Text Embeddings by Weakly-Supervised Contrastive Pre-training', *arXiv preprint*, arXiv:2212.03533.
+
+Weerasinghe, R., Perera, D. and Pathirana, S. (2023) 'Part-of-Speech Tagging and Dependency Parsing for Sinhala: Resources and Benchmarks', *Language Resources and Evaluation*, 57(4), pp. 1823–1845.
+
+---
+
+## Appendices
+
+### Appendix A: Evaluation Question Set
+
+*[To be completed. This appendix will contain the full set of 60–80 Sinhala-language evaluation questions with their corresponding reference answers and syllabus topic classifications.]*
+
+### Appendix B: Human Evaluation Rubric
+
+*[To be completed. This appendix will contain the detailed evaluation rubric provided to teacher evaluators, including the five-point Likert scale descriptors for each of the four evaluation dimensions.]*
+
+### Appendix C: Informed Consent Form
+
+*[To be completed. This appendix will contain the participant information sheet and informed consent form approved for use with teacher evaluators.]*
+
+### Appendix D: RAG Pipeline Source Code (Excerpts)
+
+*[To be completed. This appendix will contain key excerpts from the RAG pipeline implementation, including the ingestion pipeline, query pipeline, and evaluation harness.]*
+
+### Appendix E: RAGAS Configuration and Output Samples
+
+*[To be completed. This appendix will contain the RAGAS evaluation configuration, metric definitions, and sample output for representative questions.]*
+
+### Appendix F: Gantt Chart
+
+*[To be completed. This appendix will contain a high-resolution, presentation-quality Gantt chart visualising the project timeline.]*
+
+---
+
+**Document Status:** Draft for Physical Review — July 26, 2026  
+
+**Chapters Complete:** 1 (Introduction), 2 (Literature Review), 3 (Research Methodology), 4 (System Design and Implementation)  
+
+**Chapters in Progress:** 5 (Results and Evaluation), 6 (Discussion), 7 (Conclusion and Future Work)  
+
+**Next Steps:** Complete Chapter 5 following evaluation runs; expand Chapter 4 with implementation details; finalise references formatting; populate appendices with evaluation instruments and code excerpts.
